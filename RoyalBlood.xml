@@ -31,6 +31,10 @@
         <potion amplifier="1" duration="oo">night vision</potion>
     </kit>
     <kit name="spawn">
+        <potion amplifier="1" duration="oo">night vision</potion>
+        <foodlevel>6</foodlevel>
+    </kit>
+    <kit name="portal">
         <item slot="0" enchantment="damage all:1">diamond sword</item>
         <item slot="1" enchantment="arrow infinite:1;arrow damage:1">bow</item>
         <item slot="28" amount="16">arrow</item>
@@ -68,7 +72,6 @@
         <chestplate>diamond chestplate</chestplate>
         <leggings>diamond leggings</leggings>
         <boots>diamond boots</boots>
-        <potion amplifier="1" duration="oo">night vision</potion>
     </kit>
 </kits>
 <killreward>
@@ -82,6 +85,17 @@
     </apply>
     <apply enter="deny-all">
         <rectangle min="56.5,372.5" max="56.5,380.5"/>
+    </apply>
+    <union name="apply-kit">
+        <cuboid min="11.5,20,367.5" max="12.5,21,367.5"/>
+        <cuboid min="11.5,20,360.5" max="12.5,21,360.5"/>
+        <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
+        <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
+    </union>
+    <apply>
+        <apply kit="spawn">
+            <region name="apply-kit"/>
+        </apply>
     </apply>
 </regions>
 <portals>
