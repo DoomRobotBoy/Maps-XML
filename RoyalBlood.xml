@@ -37,18 +37,60 @@
     <kit name="portal">
         <item slot="0" enchantment="damage all:1">diamond sword</item>
         <item slot="1" enchantment="arrow infinite:1;arrow damage:1">bow</item>
-        <item slot="28" amount="16">arrow</item>
         <item slot="2" amount="32">golden carrot</item>
         <item slot="3">golden apple</item>
         <item slot="4" damage="16421">potion</item>
         <!--  Splash Pot of Healing II  -->
         <item slot="5" damage="16421">potion</item>
         <!--  Splash Pot of Healing II  -->
-        <item slot="23" damage="16394">potion</item>
+        <item slot="6" damage="16394">potion</item>
         <!--  Splash Pot of Slowness  -->
         <item slot="7" damage="8226">potion</item>
         <!--  Speed II  -->
         <item slot="8" amount="2">368</item>
+        <item slot="9" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="10" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="11" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="12" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="13" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="14" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="15" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="16" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="17" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="18" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="19" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="20" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="21" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="22" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="23" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="24" damage="8229">potion</item>
+        <!--  Instant Health II  -->
+        <item slot="25" damage="8193">potion</item>
+        <!--  Regen  -->
+        <item slot="26" damage="8230">potion</item>
+        <!--  Night Vision  -->
+        <item slot="27" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="28" amount="16">arrow</item>
+        <item slot="29" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="30" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
         <item slot="31" damage="16394">potion</item>
         <!--  Splash Pot of Slowness  -->
         <item slot="32" damage="16394">potion</item>
@@ -58,16 +100,6 @@
         <item slot="34" damage="16388">potion</item>
         <!--  Splash Pot of Poison :33  -->
         <item slot="35">milk bucket</item>
-        <item slot="22" damage="8193">potion</item>
-        <!--  Instant Health II  -->
-        <item slot="23" damage="8193">potion</item>
-        <!--  Regen  -->
-        <item slot="24" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="25" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="26" damage="8230">potion</item>
-        <!--  Night Vision  -->
         <helmet>diamond helmet</helmet>
         <chestplate>diamond chestplate</chestplate>
         <leggings>diamond leggings</leggings>
@@ -92,10 +124,8 @@
         <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
         <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
     </union>
-    <apply>
-        <apply kit="spawn">
-            <region name="apply-kit"/>
-        </apply>
+    <apply kit="spawn">
+        <region name="apply-kit"/>
     </apply>
 </regions>
 <portals>
@@ -110,6 +140,9 @@
     </portal>
     <portal x="@27.5" y="@3" z="@335.5" yaw="@-20">
         <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
+    </portal>
+    <portal x="@-11.5" y="@3" z="@376.5">
+        <cuboid min="oo,15,oo" max="-oo,32,-oo"/>
     </portal>
 </portals>
 <blitz>
