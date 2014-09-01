@@ -15,10 +15,10 @@
     <team color="blue" max="35">Blue Team</team>
 </teams>
 <spawns>
-    <spawn team="red" kit="spawn" yaw="180">
+    <spawn team="red" kit="spawn" yaw="0">
         <cylinder base="7.5,74,-380.5" radius="1" height="0"/>
     </spawn>
-    <spawn team="blue" kit="spawn" yaw="-180">
+    <spawn team="blue" kit="spawn" yaw="180">
         <cylinder base="7.5,74,-70.5" radius="1" height="0"/>
     </spawn>
     <default yaw="-180" kit="obs-spawn">
@@ -26,145 +26,161 @@
     </default>
 </spawns>
 <kits>
-    <kit name="obs-spawn">
-        <potion amplifier="1" duration="oo">night vision</potion>
-    </kit>
     <kit name="spawn">
-        <potion amplifier="1" duration="oo">night vision</potion>
-        <foodlevel>6</foodlevel>
+        <item slot="0">iron sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</itemd>
+        <item slot="2" enchantment="durability:1;dig speed:1">stone pickaxe</item>
+        <item slot="3">wood spade</item>
+        <item slot="4" amount="64">golden carrot</item>
+        <item slot="5" amount="32">log 1</item>
+        <item slot="7" amount="64">glass</item>
+        <item slot="8" amount="32">ladder</item>
+        <potion duration="5" amplifier="10">heal</potion>
+        <potion duration="5" amplifier="10">resistance</potion>
     </kit>
-    <kit name="portal">
-        <item slot="0" enchantment="damage all:1">diamond sword</item>
-        <item slot="1" enchantment="arrow infinite:1;arrow damage:1">bow</item>
-        <item slot="2" amount="32">golden carrot</item>
-        <item slot="3">golden apple</item>
-        <item slot="4" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="5" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="6" damage="16394">potion</item>
-        <!--  Splash Pot of Slowness  -->
-        <item slot="7" damage="8226">potion</item>
-        <!--  Speed II  -->
-        <item slot="8" amount="2">368</item>
-        <item slot="9" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="10" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="11" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="12" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="13" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="14" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="15" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="16" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="17" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="18" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="19" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="20" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="21" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="22" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="23" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="24" damage="8229">potion</item>
-        <!--  Instant Health II  -->
-        <item slot="25" damage="8193">potion</item>
-        <!--  Regen  -->
-        <item slot="26" damage="8230">potion</item>
-        <!--  Night Vision  -->
-        <item slot="27" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="28" amount="16">arrow</item>
-        <item slot="29" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="30" damage="16421">potion</item>
-        <!--  Splash Pot of Healing II  -->
-        <item slot="31" damage="16394">potion</item>
-        <!--  Splash Pot of Slowness  -->
-        <item slot="32" damage="16394">potion</item>
-        <!--  Splash Pot of Slowness  -->
-        <item slot="33" damage="16394">potion</item>
-        <!--  Splash Pot of Slowness  -->
-        <item slot="34" damage="16388">potion</item>
-        <!--  Splash Pot of Poison :33  -->
-        <item slot="35">milk bucket</item>
-        <helmet>diamond helmet</helmet>
-        <chestplate>diamond chestplate</chestplate>
-        <leggings>diamond leggings</leggings>
-        <boots>diamond boots</boots>
+    <kit name="red" parents="spawn">
+        <item slot="6" amount="64" damage="14">stained clay</item>
+        <helmet damage="-3000" color="993333">leather helmet</helmet>
+        <chestplate damage="-3000" color="993333">leather chestplate</chestplate>
+        <leggings>iron leggings</leggings>
+        <boots>iron boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <item slot="6" amount="64" damage="11">stained clay</item>
+        <helmet damage="-3000" color="334CB2">leather helmet</helmet>
+        <chestplate damage="-3000" color="334CB2">leather chestplate</chestplate>
+        <leggings>iron leggings</leggings>
+        <boots>iron boots</boots>
     </kit>
 </kits>
-<killreward>
-    <item>golden apple</item>
-    <item damage="16421">potion</item>
-    <!--  Splash Pot of Healing II  -->
-</killreward>
+<filters>
+    <filter name="no-void">
+        <void/>
+    </filter>
+    <filter name="deny-red">
+        <deny>
+            <team>red</team>
+        </deny>
+    </filter>
+    <filter name="deny-blue">
+        <deny>
+            <team>blue</team>
+        </deny>
+    </filter>
+    <filter name="only-iron">
+        <block>iron block</block>
+    </filter>
+</filters>
 <regions>
+    <apply block="no-void">
+        <rectangle min="70.5,-389.5" max="-55.5,-249.5"/>
+        <rectangle min="-56.5,-61.5" max="70.5,-201.5"/>
+    </apply> 
     <apply block="deny-all">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
+        <rectangle min="8.5,-248.5" max="6.5,-202.5"/>
     </apply>
-    <apply enter="deny-all">
-        <rectangle min="56.5,372.5" max="56.5,380.5"/>
+    <apply block="no-void">
+        <cylinder name="center-protect" base="7.5,0,-225.5" radius="32" height="41"/>
+        <complement>
+            <region name="center-protect"/>
+        </complement>
     </apply>
-    <union name="apply-kit">
-        <cuboid min="11.5,20,367.5" max="12.5,21,367.5"/>
-        <cuboid min="11.5,20,360.5" max="12.5,21,360.5"/>
-        <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
-        <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
+    <union name="iron-mines">
+        <cylinder base="7.5,0,-313.5" radius="21" height="41"/>
+        <cylinder base="7.5,0,-137.5" radius="21" height="41"/>
     </union>
-    <apply kit="spawn">
-        <region name="apply-kit"/>
+    <apply block="only-iron">
+        <region name="iron-mines"/>
+    </apply
+    <union name="red-wool-rooms">
+        <cuboid min="-49.5,0,-352.5" max="-29.5,41,-370.5"/>
+        <cuboid min="64.5,0,-352.5" max="44.5,41,-370.5"/>
+    </union>
+    <apply enter="deny-red">
+        <region name="red-wool-rooms"/>
+    </apply>
+    <union name="blue-wool-rooms">
+        <cuboid min="64.5,0,-98.5" max="44.5,41,-80.5"/>
+        <cuboid min="-29.5,0,-98.5" max="-49.5,12.5,-80.5"/>
+    </union>
+    <apply enter="deny-blue">
+        <region name="blue-wool-rooms"/>
+    </apply>
+    <apply block="deny-red">
+        <rectangle min="9.5,-382.5" max="5.5,-378.5"/>
+        <rectangle min="5.5,-68.5" max="9.5,-72.5"/>
     </apply>
 </regions>
 <portals>
-    <portal x="@-38.5" y="@11" z="@349.5" yaw="@-45">
-        <cuboid min="11.5,20,367.5" max="12.5,21,367.5"/>
+    <portal x="@7.5" y="@2" z="@-332.5" yaw="@0">
+        <cuboid min="8.5,4,-346.5" max="6.5,8,-346.5"/>
     </portal>
-    <portal x="@-38.5" y="@11" z="@403.5" yaw="@-135">
-        <cuboid min="11.5,20,360.5" max="12.5,21,360.5"/>
+    <portal x="@7.5" y="@5" z="@-380.5" yaw="@0">
+        <cuboid min="6.4,2,-294.5" max="8.5,4,-294.5"/>
     </portal>
-    <portal x="@52.5" y="@3" z="@416.5" yaw="@150">
-        <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
+    <portal x="@7.5" y="@2" z="@-118.5" yaw="@180">
+        <cuboid min="6.5,4,-104.5" max="8.5,8,-104.5"/>
     </portal>
-    <portal x="@27.5" y="@3" z="@335.5" yaw="@-20">
-        <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
-    </portal>
-    <portal x="@-11.5" y="@3" z="@376.5">
-        <cuboid min="oo,15,oo" max="-oo,32,-oo"/>
+    <portal x="@7.5" y="@5" z="@-70.5" yaw="@180">
+        <cuboid min="8.5,2,-156.5" max="6.5,4,-156.5"/>
     </portal>
 </portals>
-<blitz>
-    <time>6m</time>
-    <lives>2</lives>
-    <title>PotPvP Blitz</title>
-</blitz>
+<wools>
+    <wool team="red" color="lime">
+        <block>2.5,6,-349.5</block>
+    </wool>
+    <wool team="red" color="light blue">
+        <block>12.5,6,-349.5</block>
+    </wool>
+    <wool team="blue" color="yellow">
+        <block>2.5,6,-101.5</block>
+    </wool>
+    <wool team="blue" color="orange">
+        <block>12.5,6,-101.5</block>
+    </wool>
+</wools>
+<blockdrops>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>gravel</block>
+        </filter>
+        <drops>
+            <item>flint and steel</item>
+        </drops>
+    </rule>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>diamond block</block>
+        </filter>
+        <drops>
+            <item enchantment="protection fall:1">diamond boots</item>
+        </drops>
+    </rule>
+</blockdrops>
 <toolrepair>
-    <tool>diamond sword</tool>
+    <tool>iron sword</tool>
     <tool>bow</tool>
+    <tool>stone pickaxe</tool>
+    <tool>wood spade</tool>
     <tool>arrow</tool>
 </toolrepair>
 <itemremove>
-    <item>diamond helmet</item>
-    <item>diamond chestplate</item>
-    <item>diamond leggings</item>
-    <item>diamond boots</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
     <item>golden carrot</item>
-    <item>glass bottle</item>
-    <item>ender pearl</item>
-    <item>potion</item>
-    <item>milk bucket</item>
-    <item>bucket</item>
+    <item>stained clay</item>
+    <item>hardened clay</item>
+    <item>ladder</item>
 </itemremove>
 <timelock>on</timelock>
+<maxbuildheight>40</maxbuildheight>
 </map>
