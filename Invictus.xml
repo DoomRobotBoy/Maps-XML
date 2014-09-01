@@ -1,0 +1,170 @@
+<map proto="1.3.5">
+<name>Invictus</name>
+<version>1.0.0</version>
+<objective>
+    Capture both of the enemies' wools and return them to your victory monument!
+</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
+<contributors>
+    <contributor contribution="MapDev Host">jollee999</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="35">Red Team</team>
+    <team color="blue" max="35">Blue Team</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="180">
+        <cylinder base="7.5,74,-380.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="-180">
+        <cylinder base="7.5,74,-70.5" radius="1" height="0"/>
+    </spawn>
+    <default yaw="-180" kit="obs-spawn">
+        <cylinder base="7.5,58,-225.5" radius="2" height="0"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="obs-spawn">
+        <potion amplifier="1" duration="oo">night vision</potion>
+    </kit>
+    <kit name="spawn">
+        <potion amplifier="1" duration="oo">night vision</potion>
+        <foodlevel>6</foodlevel>
+    </kit>
+    <kit name="portal">
+        <item slot="0" enchantment="damage all:1">diamond sword</item>
+        <item slot="1" enchantment="arrow infinite:1;arrow damage:1">bow</item>
+        <item slot="2" amount="32">golden carrot</item>
+        <item slot="3">golden apple</item>
+        <item slot="4" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="5" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="6" damage="16394">potion</item>
+        <!--  Splash Pot of Slowness  -->
+        <item slot="7" damage="8226">potion</item>
+        <!--  Speed II  -->
+        <item slot="8" amount="2">368</item>
+        <item slot="9" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="10" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="11" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="12" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="13" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="14" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="15" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="16" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="17" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="18" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="19" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="20" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="21" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="22" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="23" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="24" damage="8229">potion</item>
+        <!--  Instant Health II  -->
+        <item slot="25" damage="8193">potion</item>
+        <!--  Regen  -->
+        <item slot="26" damage="8230">potion</item>
+        <!--  Night Vision  -->
+        <item slot="27" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="28" amount="16">arrow</item>
+        <item slot="29" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="30" damage="16421">potion</item>
+        <!--  Splash Pot of Healing II  -->
+        <item slot="31" damage="16394">potion</item>
+        <!--  Splash Pot of Slowness  -->
+        <item slot="32" damage="16394">potion</item>
+        <!--  Splash Pot of Slowness  -->
+        <item slot="33" damage="16394">potion</item>
+        <!--  Splash Pot of Slowness  -->
+        <item slot="34" damage="16388">potion</item>
+        <!--  Splash Pot of Poison :33  -->
+        <item slot="35">milk bucket</item>
+        <helmet>diamond helmet</helmet>
+        <chestplate>diamond chestplate</chestplate>
+        <leggings>diamond leggings</leggings>
+        <boots>diamond boots</boots>
+    </kit>
+</kits>
+<killreward>
+    <item>golden apple</item>
+    <item damage="16421">potion</item>
+    <!--  Splash Pot of Healing II  -->
+</killreward>
+<regions>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply enter="deny-all">
+        <rectangle min="56.5,372.5" max="56.5,380.5"/>
+    </apply>
+    <union name="apply-kit">
+        <cuboid min="11.5,20,367.5" max="12.5,21,367.5"/>
+        <cuboid min="11.5,20,360.5" max="12.5,21,360.5"/>
+        <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
+        <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
+    </union>
+    <apply kit="spawn">
+        <region name="apply-kit"/>
+    </apply>
+</regions>
+<portals>
+    <portal x="@-38.5" y="@11" z="@349.5" yaw="@-45">
+        <cuboid min="11.5,20,367.5" max="12.5,21,367.5"/>
+    </portal>
+    <portal x="@-38.5" y="@11" z="@403.5" yaw="@-135">
+        <cuboid min="11.5,20,360.5" max="12.5,21,360.5"/>
+    </portal>
+    <portal x="@52.5" y="@3" z="@416.5" yaw="@150">
+        <cuboid min="11.5,20,392.5" max="12.5,21,392.5"/>
+    </portal>
+    <portal x="@27.5" y="@3" z="@335.5" yaw="@-20">
+        <cuboid min="11.5,20,385.5" max="12.5,21,385.5"/>
+    </portal>
+    <portal x="@-11.5" y="@3" z="@376.5">
+        <cuboid min="oo,15,oo" max="-oo,32,-oo"/>
+    </portal>
+</portals>
+<blitz>
+    <time>6m</time>
+    <lives>2</lives>
+    <title>PotPvP Blitz</title>
+</blitz>
+<toolrepair>
+    <tool>diamond sword</tool>
+    <tool>bow</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>diamond helmet</item>
+    <item>diamond chestplate</item>
+    <item>diamond leggings</item>
+    <item>diamond boots</item>
+    <item>golden carrot</item>
+    <item>glass bottle</item>
+    <item>ender pearl</item>
+    <item>potion</item>
+    <item>milk bucket</item>
+    <item>bucket</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
