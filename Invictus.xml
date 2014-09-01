@@ -21,7 +21,7 @@
     <spawn team="blue" kit="spawn" yaw="180">
         <cylinder base="7.5,74,-70.5" radius="1" height="0"/>
     </spawn>
-    <default yaw="-180" kit="obs-spawn">
+    <default yaw="-180">
         <cylinder base="7.5,58,-225.5" radius="2" height="0"/>
     </default>
 </spawns>
