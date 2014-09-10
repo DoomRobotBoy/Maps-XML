@@ -1,1 +1,93 @@
-24v24, 30min is endstone mode, always day, 
+30min is endstone mode
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Sovy</name>
+version>1.0.0</version>
+<objective>Destroy the enemy monuments!</objective>
+<authors>
+    <author>Avaleer</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">TheZaner</contributor>
+</contributors>
+<teams>
+    <team color="green" max="24">Green Team</team>
+    <team color="dark red" max="24">Red Team</team>
+</teams>
+<destroyables name="Right Monument" materials="obsidian" completion="100%" mode-changes="true">
+    <destroyable owner="Green Team">
+        <cuboid min="-17,14,-58" max="-21,24,-62"/>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="30m" material="ender stone"/>
+</modes>
+<time result="defenders">15m</time>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-30000">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3">stone axe</item>
+        <item amount="64" slot="4">log</item>
+        <item damage="8229" slot="5">potion</item>
+        <item damage="8229" slot="6">potion</item>
+        <item slot="7">exp bottle</item>
+        <item amount="64" slot="8">golden carrot</item>
+        <item amount="32" slot="28">arrow</item>
+        <boots color="7fcc19" damage="-30000">leather boots</boots>
+        <leggings color="7fcc19" damage="-30000">leather leggings</leggings>
+        <chestplate damage="-30000">chainmail chestplate</chestplate>
+        <potion duration="oo" amplifier="4">slow digging</potion>
+    </kit>
+    <kit name="attacker-fatigue" force="true">
+        <potion duration="1" amplfier="3">slow digging</potion>
+    </kit>
+</kits>
+<toolrepair>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+   <tool>stone axe</tool>
+    <tool>diamond boots</tool>
+   <tool>stone sword</tool>
+</toolrepair>
+<itemremove>
+    <item>cooked chicken</item>
+    <item>wood</item>
+    <item>log</item>
+    <item>smooth brick</item>
+    <item>step</item>
+    <item>sapling</item>
+    <item>apple</item>
+   <item>fence</item>
+    <item>redstone block</item>
+    <item>trap door</item>
+    <item>glowstone dust</item>
+    <item>cobble wall</item>
+    <item>potion</item>
+    <item>string</item>
+    <item>clay</item>
+    <item>leather boots</item>
+    <item>leather leggings</item>
+    <item>chainmail chestplate</item>
+    <item>golden carrot</item>
+</itemremove>
+<disabledamage>
+    <damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
+</disabledamage>
+<timelock>on</timelock>
+<maxbuildheight>30</maxbuildheight>
+<regions>
+</regions>
+<spawns>
+    <spawn team="attackers" kit="attackers" yaw="90">
+        <cylinder base="117,8,-15" radius="3" height="1"/>
+    </spawn>
+    <spawn team="defenders" kit="defenders" yaw="-90">
+        <cuboid min="-95,7,-17" max="-99,7,-13"/>
+    </spawn>
+    <default yaw="90">
+        <cylinder base="117,8,-15" radius="3" height="1"/>
+    </default>
+</spawns>
+</map>
