@@ -20,15 +20,138 @@
 </teams>
 <kits>
     <kit name="spawn" force="true">
-        <item slot="0">iron sword</item>
-        <item slot="8" amount="32">bread</item>
-        <potion duration="5" amplifier="1">heal</potion>
+        <item slot="0" enchantment="dig speed:1">diamond axe</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <item slot="27" enchantment="dig speed:2">gold pickaxe</item>
+        <item slot="9">shears</item>
+        <item slot="21" amount="64" damage="2">wood</item>
+        <item slot="30" amount="64" damage="2">wood</item>
+        <item slot="3" amount="64" damage="2">wood</item>
+        <item slot="22" amount="16">piston base</item>
+        <item slot="31" amount="64" damage="2">step</item>
+        <item slot="4" amount="16">trap door</item>
+        <item slot="14" amount="16">wood plate</item>
+        <item slot="23" amount="32">stone button</item>
+        <item slot="32" amount="16">lever</item>
+        <item slot="5" amount="64">nether fence</item>
+        <item slot="15">water bucket</item>
+        <item slot="24">water bucket</item>
+        <item slot="33">water bucket</item>
+        <item slot="6">water bucket</item>
+        <item slot="16" amount="16">diode</item>
+        <item slot="25" amount="16">redstone torch on</item>
+        <item slot="34" amount="64">redstone</item>
+        <item slot="7" amount="16">redstone block</item>
+        <item slot="26" amount="64">tnt</item>
+        <item slot="35" amount="64">tnt</item>
+        <item slot="8" amount="64">tnt</item>
+        <chestplate enchantment="protection explosions:4">diamond chestplate</chestplate>
+        <potion duration="5" amplifier="10">heal</potion>
     </kit>
-    <kit name="attackers" parents="spawn">
+    <kit name="attacker" parents="spawn">
+        <item slot="2" amount="32">ladder</item>
+        <item slot="29" name="`8Pointy Stick"
         <helmet color="cd0000">leather helmet</helmet>
+        <leggings color="cd0000">leather leggings</leggings>
+        <boots color="cd0000">leather boots</boots>
     </kit>
-    <kit name="defenders" parents="spawn">
+    <kit name="defender" parents="spawn">
+        <item slot="2" amount="64">ladder</item>
         <helmet color="0066cc">leather helmet</helmet>
+        <leggings color="0066cc">leather leggings</leggings>
+        <boots enchantment="protection fall:1">iron boots</boots>
     </kit>
 </kits>
+<spawns>
+    <default yaw="-90">
+        <cylinder base="191.5,63,75.5" radius="2" height="0"/>
+    </default>
+    <spawn team="attackers" kit="attacker" yaw="180">
+        <cylinder base="191.5,46,142.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="defenders" kit="defender" yaw="0">
+        <cylinder base="191.5,13,18.5" radius="1" height="0"/>
+    </spawn>
+</spawns>
+<filters>
+    <filter name="void">
+        <void/>
+    </filter>
+    <filter name="attackers-only">
+        <team>attackers</team>
+    </filter>
+    <filter name="defenders-only">
+        <team>defenders</team>
+    </filter>
+</filters>
+<regions>
+    <cuboid name="falling-wood" min="199.5,0,43.5" max="183.5,10,25.5"/>
+    <apply block="deny-all">
+        <rectangle min="96.5,77.5" max="286.5,114.5"/>
+        <rectangle min="214.5,61.5" max="168.5,76.5"/>
+        <rectangle min="214.5,43.5" max="168.5,25.5"/>
+        <rectangle name="defender-sub-floor" min="167.5,7,13.5" max="215.5,11,24.5"/>
+    </apply>
+    <apply block="void">
+        <rectangle min="312.5,10.5" max="70.5,23.5"/>
+        <rectangle min="95.5,129.5" max="70.5,23.5"/>
+        <rectangle min="95.5,129.5" max="312.5,134.5"/>
+        <rectangle min="287.5,23.5" max="312.5,134.5"/>
+    </apply>
+    <apply enter="defenders-only" block="deny-all">
+        <cuboid min="167.5,12,11.5" max="215.5,17,24.5"/>
+    </apply>
+</regions>
+<falling-blocks>
+    <rule>
+        <filter>
+            <any>
+                <block damage="0">wood</block>
+            </any>
+        </filter>
+        <sticky>
+            <any>
+                <block>log</block>
+                <block>bedrock</block>
+            </any>
+        </sticky>
+    </rule>
+</falling-blocks>
+<toolrepair>
+    <tool>gold pickaxe</tool>
+    <tool>bow</tool>
+    <tool>diamond axe</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>shears</item>
+    <item>wood sword</item>
+    <item>stained clay</item>
+    <item>stained glass</item>
+    <item>nether fence</item>
+    <item>step</item>
+    <item>ladder</item>
+    <item>trap door</item>
+    <item>wood plate</item>
+    <item>piston base</item>
+    <item>redstone block</item>
+    <item>redstone</item>
+    <item>stone button</item>
+    <item>lever</item>
+    <item>redstone torch on</item>
+    <item>diode</item>
+    <item>water bucket</item>
+    <item>bucket</item>
+    <item>tnt</item>
+    <item>leather helmet</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>diamond chestplate</item>
+    <item>iron boots</item>
+</itemremove>
+<maxbuildheight>30</maxbuildheight>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
 </map>
