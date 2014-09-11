@@ -84,25 +84,77 @@
     <filter name="defenders-only">
         <team>defenders</team>
     </filter>
+    <filter name="only-ladder">
+        <block>ladder</block>
+    </filter>
+    <filter name="only-cobweb">
+        <block>web</block>
+    </filter>
+    <filter name="only-gold">
+        <block>gold block</block>
+    </filter>
 </filters>
 <regions>
     <cuboid name="falling-wood" min="199.5,0,43.5" max="183.5,10,25.5"/>
-    <apply block="deny-all">
+    <apply block="deny-all" message="You may not place or break blocks here!">
         <rectangle min="96.5,77.5" max="286.5,114.5"/>
         <rectangle min="214.5,61.5" max="168.5,76.5"/>
         <rectangle min="214.5,43.5" max="168.5,25.5"/>
-        <rectangle name="defender-sub-floor" min="167.5,7,13.5" max="215.5,11,24.5"/>
+        <cuboid name="attackers-drop" min="192.5,11,124.5" max="190.5,31,122.5"/>
     </apply>
-    <apply block="void">
+    <apply block="void" message="You may not build in the void!">
         <rectangle min="312.5,10.5" max="70.5,23.5"/>
         <rectangle min="95.5,129.5" max="70.5,23.5"/>
         <rectangle min="95.5,129.5" max="312.5,134.5"/>
         <rectangle min="287.5,23.5" max="312.5,134.5"/>
     </apply>
-    <apply enter="defenders-only" block="deny-all">
+    <apply enter="defenders-only" block="deny-all" message="You may not enter/break the (enemy) spawn!">
         <cuboid min="167.5,12,11.5" max="215.5,17,24.5"/>
     </apply>
+    <apply enter="attackers-only" block="attackers-only" message="You may not modify the attackers spawn!">
+        <cuboid min="208.5,0,114.5" max="200.5,31,128.5"/>
+        <cuboid min="174.5,0,114.5" max="182.5,31,129.5"/>
+    </apply>
+    <apply block="only-ladder" message="You may only place or break ladders here!">
+        <cuboid min="199.5,31,115.6" max="183.5,0,131.5"/>
+    </apply>
+    <apply block="only-cobweb">
+        <cuboid min="oo,30,oo" max="-oo,50,-oo"/>
+    </apply>
+    <apply block="only-gold" message="You may only break gold blocks in the defenders spawn1">
+        <cuboid name="defender-sub-floor" min="167.5,7,13.5" max="215.5,11,24.5"/>
+        <cuboid name="defender-roof" min="214.5,18,23.5" max="168.5,20,12.5"/>
+    </apply>
 </regions>
+<destroyables>
+    <destroyable name="Gem Monument" owner="Defenders" show-progress="true" materials="emerald block" completion="100%">
+        <cuboid min="190.5,12,51.5" max="192.5,23,53.5"/>
+   </destroyable>
+</destroyables>
+<blockdrops>
+    <rule>
+        <region>
+            <cuboid min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>gold block</block>
+        </filter>
+        <drops>
+            <item>gold helmet</item>
+            <item>gold leggings</item>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+</blockdrops>
+<renewables>
+    <renewable rate="2.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <cylinder base="0,117,0" radius="6" height="13"/>
+        </region>
+        <renew>gold block</renew>
+        <replace>air</replace>
+    </renewable>
+</renewables>
 <falling-blocks>
     <rule>
         <filter>
@@ -149,8 +201,10 @@
     <item>leather boots</item>
     <item>diamond chestplate</item>
     <item>iron boots</item>
+    <item>emerald block</item>
 </itemremove>
-<maxbuildheight>30</maxbuildheight>
+<time result="defenders">15m</time>
+<maxbuildheight>50</maxbuildheight>
 <hunger>
     <depletion>off</depletion>
 </hunger>
