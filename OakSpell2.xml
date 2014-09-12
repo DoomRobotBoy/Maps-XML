@@ -85,36 +85,57 @@ version>1.0.0</version>
     <apply name="void-protection" block="deny-all">
         <rectangle min="69.5,-87.5" max="69.5,-86.5"/>
         <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <rectangle min="70.5,-85.5" max="99.5,-85.5"/>
-        <block>100.5,-84.5</block>
-        <block>101.5,-83.5</block>
-        <block>102.5,-82.5</block>
-        <block>103.5,-81.5</block>
-        <block>104.5,-80.5</block>
-        <block>105.5,-79.5</block>
-        <block>106.5,-78.5</block>
-        <block>107.5,-77.5</block>
-        <block>108.5,-76.5</block>
-        <block>109.5,-75.5</block>
-        <block>110.5,-74.5</block>
-        <block>111.5,-73.5</block>
-        <block>112.5,-72.5</block>
-        <block>113.5,-71.5</block>
-        <block>114.5,-70.5</block>
-        <block>115.5,-69.5</block>
-        <block>116.5,-68.5</block>
-        <block>117.5,-67.5</block>
-        <block>118.5,-66.5</block>
-        <block>119.5,-65.5</block>
-        <block>120.5,-64.5</block>
+        <rectangle min="100.5,-84.5" max="100.5,-84.5"/>
+        <rectangle min="101.5,-83.5" max="101.5,-83.5"/>
+        <rectangle min="102.5,-82.5" max="102.5,-82.5"/>
+        <rectangle min="103.5,-81.5" max="103.5,-81.5"/>
+        <rectangle min="104.5,-80.5" max="104.5,-80.5"/>
+        <rectangle min="105.5,-79.5" max="105.5,-79.5"/>
+        <rectangle min="106.5,-78.5" max="106.5,-78.5"/>
+        <rectangle min="107.5,-77.5" max="107.5,-77.5"/>
+        <rectangle min="108.5,-76.5" max="108.5,-76.5"/>
+        <rectangle min="109.5,-75.5" max="109.5,-75.5"/>
+        <rectangle min="110.5,-74.5" max="110.5,-74.5"/>
+        <rectangle min="111.5,-73.5" max="111.5,-73.5"/>
+        <rectangle min="112.5,-72.5" max="112.5,-72.5"/>
+        <rectangle min="113.5,-71.5" max="113.5,-71.5"/>
+        <rectangle min="114.5,-70.5" max="114.5,-70.5"/>
+        <rectangle min="115.5,-69.5" max="115.5,-69.5"/>
+        <rectangle min="116.5,-68.5" max="116.5,-68.5"/>
+        <rectangle min="117.5,-67.5" max="117.5,-67.5"/>
+        <rectangle min="118.5,-66.5" max="118.5,-66.5"/>
+        <rectangle min="119.5,-65.5" max="119.5,-65.5"/>
+        <rectangle min="120.5,-64.5" max="120.5,-64.5"/>
         <rectangle min="121.5,-63.5" max="127.5,-63.5"/>
         <rectangle min="128.5,-62.5" max="130.5,-62.5"/>
+        <rectangle min="131.5,-61.5" max="131.5,-61.5"/>
+        <rectangle min="132.5,-60.5" max="132.5,-60.5"/>
+        <rectangle min="133.5,-59.5" max="133.5,-57.5"/>
+        <rectangle min="134.5,-56.5" max="134.5,-50.5"/>
+        <rectangle min="135.5,-49.5" max="135.5,-49.5"/>
+        <rectangle min="136.5,-48.5" max="136.5,-48.5"/>
+        <rectangle min="137.5,-47.5" max="137.5,-47.5"/>
+        <rectangle min="138.5,-46.5" max="138.5,-46.5"/>
+        <rectangle min="139.5,-45.5" max="139.5,-45.5"/>
+        <rectangle min="140.5,-44.5" max="140.5,-44.5"/>
+        <rectangle min="141.5,-43.5" max="141.5,-43.5"/>
+        <rectangle min="142.5,-42.5" max="142.5,-42.5"/>
+        <rectangle min="143.5,-41.5" max="143.5,-41.5"/>
+        <rectangle min="144.5,-40.5" max="144.5,-40.5"/>
+        <rectangle min="145.5,-39.5" max="145.5,-39.5"/>
+        <rectangle min="146.5,-38.5" max="146.5,-38.5"/>
+        <rectangle min="147.5,-37.5" max="147.5,-37.5"/>
+        <rectangle min="148.5,-36.5" max="148.5,-36.5"/>
+        <rectangle min="149.5,-35.5" max="149.5,-35.5"/>
+        <rectangle min="150.5,-34.5" max="150.5,-34.5"/>
+        <rectangle min="151.5,-33.5" max="151.5,-33.5"/>
+        <rectangle min="152.5,-32.5" max="152.5,-32.5"/>
+        <rectangle min="153.5,-31.5" max="153.5,-31.5"/>
+        <rectangle min="154.5,-30.5" max="154.5,-30.5"/>
+        <rectangle min="155.5,-29.5" max="155.5,-29.5"/>
+        <rectangle min="156.5,-28.5" max="156.5,0.5"/>
+        <rectangle min="157.5,1.5" max="158.5,1.5"/>
+        <rectangle min="139.5,20.5" max="139.5,19.5"/>
     </apply>
 </regions>
 <disabledamage>
