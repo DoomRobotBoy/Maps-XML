@@ -66,11 +66,17 @@ version>1.0.0</version>
     <mode after="30m" material="ender stone"/>
 </modes>
 <spawns>
-    <spawn team="red" kit="red" yaw="135">
+    <spawn team="red" kit="red" yaw="135" safe="true" sequential="true">
         <cylinder base="158.5,2,20.5" radius="1" height="1"/>
     </spawn>
-    <spawn team="green" kit="green" yaw="-45">
+    <spawn team="red" kit="red" yaw="135" safe="true" sequential="true">
+        <cylinder base="146.5,2,8.5" radius="1" height="1"/>
+    </spawn>
+    <spawn team="green" kit="green" yaw="-45" safe="true" sequential="true">
         <cylinder base="50.5,2,-87.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="green" kit="green" yaw="-45" safe="true" sequential="true">
+        <cylinder base="62.5,2,-75.5" radius="1" height="0"/>
     </spawn>
     <default yaw="90">
         <cylinder base="117,8,-15" radius="3" height="1"/>
@@ -79,6 +85,14 @@ version>1.0.0</version>
 <filters>
     <filter name="void">
         <void/>
+    </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
+    <filter name="deny-tnt-placing">
+        <block>tnt</block>
     </filter>
 </filters>
 <regions>
@@ -136,6 +150,65 @@ version>1.0.0</version>
         <rectangle min="156.5,-28.5" max="156.5,0.5"/>
         <rectangle min="157.5,1.5" max="158.5,1.5"/>
         <rectangle min="139.5,20.5" max="139.5,19.5"/>
+        <rectangle min="138.5,18.5" max="109.5,18.5"/>
+        <rectangle min="108.5,17.5" max="108.5,17.5"/>
+        <rectangle min="107.5,16.5" max="107.5,16.5"/>
+        <rectangle min="106.5,15.5" max="106.5,15.5"/>
+        <rectangle min="105.5,14.5" max="105.5,14.5"/>
+        <rectangle min="104.5,13.5" max="104.5,13.5"/>
+        <rectangle min="103.5,12.5" max="103.5,12.5"/>
+        <rectangle min="102.5,11.5" max="102.5,11.5"/>
+        <rectangle min="101.5,10.5" max="101.5,10.5"/>
+        <rectangle min="100.5,9.5" max="100.5,9.5"/>
+        <rectangle min="99.5,8.5" max="99.5,8.5"/>
+        <rectangle min="98.5,7.5" max="98.5,7.5"/>
+        <rectangle min="97.5,6.5" max="97.5,6.5"/>
+        <rectangle min="96.5,5.5" max="96.5,5.5"/>
+        <rectangle min="95.5,4.5" max="95.5,4.5"/>
+        <rectangle min="94.5,3.5" max="94.5,3.5"/>
+        <rectangle min="93.5,2.5" max="93.5,2.5"/>
+        <rectangle min="92.5,1.5" max="92.5,1.5"/>
+        <rectangle min="91.5,0.5" max="91.5,0.5"/>
+        <rectangle min="90.5,-0.5" max="90.5,-0.5"/>
+        <rectangle min="89.5,-1.5" max="89.5,-1.5"/>
+        <rectangle min="88.5,-2.5" max="88.5,-2.5"/>
+        <rectangle min="87.5,-3.5" max="81.5,-3.5"/>
+        <rectangle min="80.5,-4.5" max="78.5,-4.5"/>
+        <rectangle min="77.5,-5.5" max="77.5,-5.5"/>
+        <rectangle min="76.5,-6.5" max="76.5,-6.5"/>
+        <rectangle min="75.5,-7.5" max="75.5,-9.5"/>
+        <rectangle min="74.5,-10.5" max="74.5,-16.5"/>
+        <rectangle min="73.5,-17.5" max="73.5,-17.5"/>
+        <rectangle min="72.5,-18.5" max="72.5,-18.5"/>
+        <rectangle min="71.5,-19.5" max="71.5,-19.5"/>
+        <rectangle min="70.5,-20.5" max="70.5,-20.5"/>
+        <rectangle min="69.5,-21.5" max="69.5,-21.5"/>
+        <rectangle min="68.5,-22.5" max="68.5,-22.5"/>
+        <rectangle min="67.5,-23.5" max="67.5,-23.5"/>
+        <rectangle min="66.5,-24.5" max="66.5,-24.5"/>
+        <rectangle min="65.5,-25.5" max="65.5,-25.5"/>
+        <rectangle min="64.5,-26.5" max="64.5,-26.5"/>
+        <rectangle min="63.5,-27.5" max="63.5,-27.5"/>
+        <rectangle min="62.5,-28.5" max="62.5,-28.5"/>
+        <rectangle min="61.5,-29.5" max="61.5,-29.5"/>
+        <rectangle min="60.5,-30.5" max="60.5,-30.5"/>
+        <rectangle min="59.5,-31.5" max="59.5,-31.5"/>
+        <rectangle min="58.5,-32.5" max="58.5,-32.5"/>
+        <rectangle min="57.5,-33.5" max="57.5,-33.5"/>
+        <rectangle min="56.5,-34.5" max="56.5,-34.5"/>
+        <rectangle min="55.5,-35.5" max="55.5,-35.5"/>
+        <rectangle min="54.5,-36.5" max="54.5,-36.5"/>
+        <rectangle min="53.5,-37.5" max="53.5,-37.5"/>
+        <rectangle min="52.5,-38.5" max="52.5,-67.5"/>
+        <rectangle min="51.5,-68.5" max="50.5,-68.5"/>
+    </apply>
+    <apply block="deny-tnt">
+        <circle center="152.5,14.5" radius="15"/>
+        <circle center="56.5,-81.5" radius="15"/>
+    </apply>
+    <apply block="deny-tnt-placing">
+        <circle center="152.5,14.5" radius="15"/>
+        <circle center="56.5,-81.5" radius="15"/>
     </apply>
 </regions>
 <disabledamage>
