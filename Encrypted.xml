@@ -93,6 +93,14 @@
     <filter name="only-gold">
         <block>gold block</block>
     </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
+    <filter name="deny-sandstone">
+        <block>sandstone</block>
+    </filter>
 </filters>
 <regions>
     <cuboid name="falling-wood" min="199.5,0,43.5" max="183.5,10,25.5"/>
@@ -101,6 +109,10 @@
         <rectangle min="214.5,61.5" max="168.5,76.5"/>
         <rectangle min="214.5,43.5" max="168.5,25.5"/>
         <cuboid name="attackers-drop" min="192.5,11,124.5" max="190.5,31,122.5"/>
+        <union name="stairs-protection">
+            <cuboid min="220.5,13,14.5" max="215.5,18,22.5"/>
+            <cuboid min="162.5,13,14.5" max="167.5,18,22.5"/>
+        </union>
     </apply>
     <apply block="void" message="You may not build in the void!">
         <rectangle min="312.5,10.5" max="70.5,23.5"/>
@@ -121,13 +133,21 @@
     <apply block="only-cobweb">
         <cuboid min="oo,30,oo" max="-oo,50,-oo"/>
     </apply>
-    <apply block="only-gold" message="You may only break gold blocks in the defenders spawn1">
+    <apply block="only-gold" message="You may only break gold blocks in the defenders spawn!">
         <cuboid name="defender-sub-floor" min="167.5,7,13.5" max="215.5,11,24.5"/>
         <cuboid name="defender-roof" min="214.5,18,23.5" max="168.5,20,12.5"/>
     </apply>
+    <apply block="deny-tnt">
+        <rectangle min="182.5,60.5" max="200.5,25.5"/>
+        <rectangle min="215.5,24.5" max="167.5,11.5"/>
+        <rectangle min="183.5,115.5" max="199.5,148.5"/>
+    </apply>
+    <apply block="deny-sandstone">
+        <rectangle min="195.5,27.5" max="187.5,39.5"/>
+    </apply>
 </regions>
 <destroyables>
-    <destroyable name="Gem Monument" owner="Defenders" show-progress="true" materials="emerald block" completion="100%">
+    <destroyable name="The Gem" owner="Defenders" show-progress="true" materials="emerald block" completion="100%">
         <cuboid min="190.5,12,51.5" max="192.5,23,53.5"/>
    </destroyable>
 </destroyables>
