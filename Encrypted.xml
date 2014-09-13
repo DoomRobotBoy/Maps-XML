@@ -51,7 +51,7 @@
     </kit>
     <kit name="attacker" parents="spawn">
         <item slot="2" amount="32">ladder</item>
-        <item slot="29" name="`8Pointy Stick"
+        <item slot="29" name="`8Pointy Stick">wood sword</item>
         <helmet color="cd0000">leather helmet</helmet>
         <leggings color="cd0000">leather leggings</leggings>
         <boots color="cd0000">leather boots</boots>
@@ -76,7 +76,9 @@
 </spawns>
 <filters>
     <filter name="void">
-        <void/>
+        <not>
+            <void/>
+        </not>
     </filter>
     <filter name="attackers-only">
         <team>attackers</team>
@@ -179,9 +181,7 @@
 <falling-blocks>
     <rule>
         <filter>
-            <any>
-                <block damage="0">wood</block>
-            </any>
+            <block damage="0">wood</block>
         </filter>
         <sticky>
             <any>
