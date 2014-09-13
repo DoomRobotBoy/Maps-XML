@@ -141,6 +141,7 @@
         <rectangle min="182.5,60.5" max="200.5,25.5"/>
         <rectangle min="215.5,24.5" max="167.5,11.5"/>
         <rectangle min="183.5,115.5" max="199.5,148.5"/>
+        <rectangle min="72.5,138.5" max="310.5,131.5"/>
     </apply>
     <apply block="deny-sandstone">
         <rectangle min="195.5,27.5" max="187.5,39.5"/>
