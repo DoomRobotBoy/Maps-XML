@@ -1,0 +1,182 @@
+<map proto="1.3.2">
+<include src="tutorial.xml"/>
+<name>PixelMix</name>
+<version>1.1.1</version>
+<objective>
+    Take the enemy's wool located at two sides of the enemy's base and place it in your victory monument.
+</objective>
+<authors>
+    <author contribution="Idea, Map design and XML">DoomRobotBoy</author>
+</authors>
+<contributors>
+    <contributor contribution="XML Fixing">ItsMiiOlly</contributor>
+</contributors>
+<teams>
+    <team color="blue" max="24">Blue Team</team>
+    <team color="red" max="24">Red Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" enchantment="arrow infinite:1" damage="-3000">bow</item>
+        <item slot="2" enchantment="dig speed:1" damage="-3000">iron pickaxe</item>
+        <item slot="3">stone axe</item>
+        <item slot="4" amount="32">golden carrot</item>
+        <item slot="5" amount="32" damage="10">stained clay</item>
+        <item slot="6" amount="32" damage="2">log</item>
+        <item slot="7">bucket</item>
+        <item slot="8" attributes="generic.movementSpeed:base:0.10" name="`bSpeed Star `6| `9+10 Speed" lore="`3Hold this for a speed boost!">nether star</item>
+        <item slot="28" amount="1">arrow</item>
+        <item slot="35" amount="1">gold ingot</item>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="ff0000" damage="-3000">leather helmet</helmet>
+        <chestplate color="ff0000" damage="-3000">leather chestplate</chestplate>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots color="ff0000" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="0000ff" damage="-3000">leather helmet</helmet>
+        <chestplate color="0000ff" damage="-3000">leather chestplate</chestplate>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots color="0000ff" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter name="deny-wool-paths" parents="allow-blocks">
+        <deny>
+            <block>huge mushroom 1</block>
+            <block>huge mushroom 2</block>
+            <block>wood step</block>
+            <block>wood step:2</block>
+        </deny>
+    </filter>
+    <filter name="deny-red" parents="allow-players">
+        <deny>
+            <team>red</team>
+        </deny>
+    </filter>
+    <filter name="deny-blue" parents="allow-players">
+        <deny>
+            <team>blue</team>
+        </deny>
+    </filter>
+    <filter name="no-void" parents="allow-all">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-glass" parents="deny-blocks">
+        <allow>
+            <block>thin glass</block>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <union name="wool-rooms">
+        <rectangle name="red-flower-room" min="-1069,-267" max="-1047,-283"/>
+        <rectangle name="red-mushroom-room" min="-1069,-431" max="-1047,-447"/>
+        <rectangle name="blue-flower-room" min="-922,-447" max="-944,-431"/>
+        <rectangle name="blue-mushroom-room" min="-922,-283" max="-944,-267"/>
+    </union>
+    <union name="wool-room-lanes">
+        <rectangle name="red-flower-lane" min="-929,-431" max="-937,-404"/>
+        <rectangle name="red-mushroom-lane" min="-929,-310" max="-937,-283"/>
+        <rectangle name="blue-flower-lane" min="-1062,-283" max="-1054,-310"/>
+        <rectangle name="blue-mushroom-lane" min="-1054,-431" max="-1062,-404"/>
+    </union>
+    <union name="spawn-areas">
+        <rectangle name="blue-spawn" min="-907,-347" max="-942,-365"/>
+        <rectangle name="red-spawn" min="-1048,-366" max="-1083,-347"/>
+    </union>
+    <apply block="only-glass" message="You may not modify the wool rooms!">
+        <region name="wool-rooms"/>
+    </apply>
+    <apply block="deny-wool-paths" message="You may not destroy the lanes!">
+        <region name="wool-room-lanes"/>
+    </apply>
+    <apply block="deny-blocks" message="You may not modify the spawn areas!">
+        <region name="spawn-areas"/>
+    </apply>
+    <apply enter="deny-red" message="You may not enter your own wool room!">
+        <region name="red-flower-room"/>
+        <region name="red-mushroom-room"/>
+    </apply>
+    <apply enter="deny-blue" message="You may not enter your own wool room!">
+        <region name="blue-flower-room"/>
+        <region name="blue-mushroom-room"/>
+    </apply>
+    <apply block="no-void" message="You may not build in the void!">
+        <negative>
+            <rectangle min="-907,-448" max="-1084,-266"/>
+        </negative>
+    </apply>
+<!--
+    <apply block="deny-blocks" message="You may not build outside the wool rooms!">
+        <negative>
+            <region name="wool-rooms"/>
+        </negative>
+    </apply>
+-->
+</regions>
+<spawns>
+    <spawn team="red" kit="red" yaw="-89">
+        <cylinder base="-1070,63,-356" radius="2" height="0"/>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="89">
+        <cylinder base="-919,63,-356" radius="2" height="0"/>
+    </spawn>
+    <default yaw="179">
+        <cuboid min="-996,45,-432" max="-993,45,-429"/>
+    </default>
+</spawns>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>log 1</item>
+    <item>glowstone dust</item>
+    <item>golden carrot</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>leather boots</item>
+    <item>nether star</item>
+    <item>bucket</item>
+    <item>stone axe</item>
+    <item>nether warts</item>
+</itemremove>
+<blockdrops>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>brown mushroom</block>
+            <block>mushroom</block>
+        </filter>
+        <drops>
+            <item>gold ingot</item>
+        </drops>
+        <wrongtool>true</wrongtool>
+    </rule>
+</blockdrops>
+<maxbuildheight>35</maxbuildheight>
+<wools>
+    <wool team="red" color="red">
+        <block>-1078,9,-358</block>
+    </wool>
+    <wool team="red" color="orange">
+        <block>-1078,9,-356</block>
+    </wool>
+    <wool team="blue" color="blue">
+        <block>-913,9,-356</block>
+    </wool>
+    <wool team="blue" color="cyan">
+        <block>-913,9,-358</block>
+    </wool>
+</wools>
+</map>
