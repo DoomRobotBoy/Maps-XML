@@ -24,10 +24,10 @@
         <item slot="4" amount="32">golden carrot</item>
         <item slot="5" amount="32" damage="10">stained clay</item>
         <item slot="6" amount="32" damage="2">log</item>
-        <item slot="7">bucket</item>
+        <item slot="7">gold ingot</item>
         <item slot="8" attributes="generic.movementSpeed:base:0.10" name="`bSpeed Star `6| `9+10 Speed" lore="`3Hold this for a speed boost!">nether star</item>
         <item slot="28" amount="1">arrow</item>
-        <item slot="35" amount="1">gold ingot</item>
+        <item slot="35" enchantment="knockback:1" name="`bDry Bone `6| `Knockback I" lore="`3Knock people off the world using this mighty bone!">bone</item>
     </kit>
     <kit name="red" parents="spawn">
         <helmet color="ff0000" damage="-3000">leather helmet</helmet>
@@ -145,9 +145,12 @@
     <item>iron leggings</item>
     <item>leather boots</item>
     <item>nether star</item>
-    <item>bucket</item>
+    <item>bone</item>
     <item>stone axe</item>
     <item>nether warts</item>
+    <item>redstone lamp on</item>
+    <item>redstone lamp off</item>
+    <item>redstone block</item>
 </itemremove>
 <blockdrops>
     <rule>
@@ -165,6 +168,7 @@
     </rule>
 </blockdrops>
 <maxbuildheight>35</maxbuildheight>
+<timelock>on</timelock>
 <wools>
     <wool team="red" color="red">
         <block>-1078,9,-358</block>
