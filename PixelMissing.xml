@@ -169,6 +169,9 @@
 </blockdrops>
 <maxbuildheight>35</maxbuildheight>
 <timelock>on</timelock>
+<gamerules>
+    <doFireTick>false</doFireTick>
+</gamerules>
 <wools>
     <wool team="red" color="red">
         <block>-1078,9,-358</block>
