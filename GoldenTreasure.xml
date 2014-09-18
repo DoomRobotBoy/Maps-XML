@@ -25,7 +25,6 @@
         <item slot="30" amount="64" damage="2">wood</item>
         <item slot="3" amount="64" damage="2">wood</item>
         <item slot="22" amount="16">piston base</item>
-        <item slot="31" amount="64" damage="2">step</item>
         <potion duration="5" amplifier="10">heal</potion>
     </kit>
     <kit name="attacker" parents="spawn">
