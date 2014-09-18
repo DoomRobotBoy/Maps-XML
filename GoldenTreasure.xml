@@ -16,7 +16,7 @@
 </teams>
 <kits>
     <kit name="spawn" force="true">
-        <item slot="0" enchantment="dig speed:1">diamond axe</item>
+        <item slot="0" enchantment="dig speed:1"></item>
         <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="28">arrow</item>
         <item slot="27" enchantment="dig speed:2">gold pickaxe</item>
