@@ -68,10 +68,6 @@
         <block>sandstone</block>
         <block>grass</block>
     </filter>
-    <filter name="only-break">
-        <team>defenders</team>
-        <block damage="1">wood</block>
-    </filter>
     <filter name="deny-gold">
         <team>defenders</team>
         <block>gold block</block>
@@ -80,9 +76,6 @@
         <not>
             <cause>explosion</cause>
         </not>
-    </filter>
-    <filter name="deny-defenders">
-        <team>defenders</team>
     </filter>
 </filters>
 <regions>
@@ -107,6 +100,9 @@
     </apply>
     <apply velocity="@-37.0,2.0,12.0">
         <cuboid min="-1081,1,-2116" max="-1078,2,-2113"/>
+    </apply>
+    <apply use="deny-defenders">
+        <block>10.5,50,113.5</block>
     </apply>
 </regions>
 <destroyables>
