@@ -20,6 +20,7 @@
         <potion duration="5" amplifier="10">heal</potion>
     </kit>
     <kit name="attacker" parents="spawn">
+        <item slot="1" enchantment="damageall:1;durability:1" name="`fIron Hammer">iron axe</item>
         <item slot="2" enchantment="digspeed:1" name="`8Pickaxe" lore="Use this to mine the Golden Treasure!">stone pickaxe</item>
         <item slot="3" amount="64">bread</item>
         <item slot="4">golden apple</item>
@@ -31,6 +32,7 @@
         <boots color="cd0000">leather boots</boots>
     </kit>
     <kit name="defender" parents="spawn">
+        <item slot="1" enchantment="damageall:1;durability:1" name="`8Stone Blade">stone sword</item>
         <item slot="2" amount="64">bread</item>
         <item slot="3">golden apple</item>
         <item slot="4">TNT</item>
@@ -53,12 +55,6 @@
     </spawn>
 </spawns>
 <filters>
-    <filter name="attackers-only">
-        <team>attackers</team>
-    </filter>
-    <filter name="defenders-only">
-        <team>defenders</team>
-    </filter>
     <filter name="only-gold-break">
         <team>attackers</team>
         <block>gold block</block>
@@ -66,6 +62,15 @@
     <filter name="only-gold-place">
         <team>defenders</team>
         <block>gold block</block>
+    </filter>
+    <filter name="only-place">
+        <team>defenders</team>
+        <block>sandstone</block>
+        <block>grass</block>
+    </filter>
+    <filter name="only-break">
+        <team>defenders</team>
+        <block damage="1">wood</block>
     </filter>
     <filter name="deny-gold">
         <team>defenders</team>
@@ -76,12 +81,25 @@
             <cause>explosion</cause>
         </not>
     </filter>
+    <filter name="deny-defenders">
+        <team>defenders</team>
+    </filter>
 </filters>
 <regions>
     <apply block-break="only-gold-break" message="You may only break gold blocks!">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block-place="only-gold-place" message="You may only place gold blocks!">
+        <rectangle min="-174.5,19.5" max="-212.5,130.5"/>
+        <rectangle min="-42.5,130.5" max="21.5,19.5"/>
+    </apply>
+    <apply block="deny-all" message="You may not edit the surroundings of the enemy camp!">
+        <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
+    </apply>
+    <apply block-place="only-place" message="You may only place wood between ">
+        <rectangle min="-128.5,130.5" max="-43.5,19.5"/>
+    </apply>
+    <apply block-break="deny-defenders">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block="deny-gold" message="You may not place gold blocks here!">
