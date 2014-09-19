@@ -89,7 +89,7 @@
     <apply block="deny-all" message="You may not edit the surroundings of the enemy camp!">
         <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
     </apply>
-    <apply block-place="only-place" message="You may only place wood between...">
+    <apply block-place-against="only-place" message="You may only place wood between...">
         <rectangle min="-128.5,130.5" max="-43.5,19.5"/>
     </apply>
     <apply block-break="deny-defenders">
@@ -99,7 +99,7 @@
         <cuboid min="4.5,51,105.5" max="16.5,55,105.5"/>
     </apply>
     <apply velocity="@-37.0,2.0,12.0">
-        <cuboid min="-1081,1,-2116" max="-1078,2,-2113"/>
+        <cuboid min="-17.5,36,30.5" max="-17.5,37,30.5"/>
     </apply>
     <apply use="deny-defenders">
         <block>10.5,50,113.5</block>
@@ -107,7 +107,7 @@
 </regions>
 <destroyables>
     <destroyable name="Golden Treasure" owner="Defenders" show-progress="false" materials="gold block" completion="100%" repairable="true">
-        <cuboid min="-17.5,36,30.5" max="-17.5,37,30.5"/>
+        <cuboid min="4.5,51,107.5" max="16.5,54,113.5"/>
     </destroyable>
     <destroyable owner="Defenders" materials="glass" mode-changes="true">
         <cuboid min="-206.5,9,81.5" max="-202.5,9,77.5"/>
