@@ -24,6 +24,7 @@
         <item slot="3" amount="64">bread</item>
         <item slot="4">golden apple</item>
         <item slot="5">TNT</item>
+        <item slot="25">gold ingot</item>
         <item slot="28" amount="48">arrow</item>
         <helmet damage="-3000">chainmail helmet</helmet>
         <leggings color="cd0000">leather leggings</leggings>
@@ -42,13 +43,13 @@
 </kits>
 <spawns>
     <default yaw="-90">
-        <cylinder base="191.5,63,75.5" radius="2" height="0"/>
+        <cylinder base="-189.5,8,108.5" radius="180" height="0"/>
     </default>
-    <spawn team="attackers" kit="attacker" yaw="180">
-        <cylinder base="191.5,46,142.5" radius="1" height="0"/>
+    <spawn team="attackers" kit="attacker" yaw="-90">
+        <cylinder base="-204.5,8,79.5" radius="1" height="0"/>
     </spawn>
     <spawn team="defenders" kit="defender" yaw="0">
-        <cylinder base="191.5,13,18.5" radius="1" height="0"/>
+        <cylinder base="-2.5,42,24.5" radius="1" height="0"/>
     </spawn>
 </spawns>
 <filters>
@@ -66,6 +67,10 @@
         <team>defenders</team>
         <block>gold block</block>
     </filter>
+    <filter name="deny-gold">
+        <team>defenders</team>
+        <block>gold block</block>
+    </filter>
     <filter name="deny-tnt">
         <not>
             <cause>explosion</cause>
@@ -73,15 +78,30 @@
     </filter>
 </filters>
 <regions>
-    <apply block="only-gold" message="You may only break gold blocks">
+    <apply block-break="only-gold-break" message="You may only break gold blocks!">
         <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block-place="only-gold-place" message="You may only place gold blocks!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-gold" message="You may not place gold blocks here!">
+        <cuboid min="4.5,51,105.5" max="16.5,55,105.5"/>
+    </apply>
+    <apply velocity="@-37.0,2.0,12.0">
+        <cuboid min="-1081,1,-2116" max="-1078,2,-2113"/>
     </apply>
 </regions>
 <destroyables>
-    <destroyable name="Golden Treasure" owner="Defenders" show-progress="true" materials="gold block" completion="100%" repairable="true">
-        <cuboid min="4.5,51,107.5" max="16.5,54,113.5"/>
-   </destroyable>
+    <destroyable name="Golden Treasure" owner="Defenders" show-progress="false" materials="gold block" completion="100%" repairable="true">
+        <cuboid min="-17.5,36,30.5" max="-17.5,37,30.5"/>
+    </destroyable>
+    <destroyable owner="Defenders" materials="glass" mode-changes="true">
+        <cuboid min="-206.5,9,81.5" max="-202.5,9,77.5"/>
+    </destroyable>
 </destroyables>
+<modes>
+    <mode after="20s" material="air" name="`4Attackers have been released!"/>
+</modes>
 <killreward>
     <item>TNT</item>
 </killreward>
