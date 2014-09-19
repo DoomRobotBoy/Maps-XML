@@ -161,6 +161,10 @@
     <item>leather boots</item>
     <item>bread</item>
 </itemremove>
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>2s</fuse>
+</tnt>
 <time result="defenders">25m</time>
 <timelock>on</timelock>
 <maxbuildheight>50</maxbuildheight>
