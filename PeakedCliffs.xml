@@ -89,7 +89,7 @@
     <apply block="deny-all" message="You may not edit the surroundings of the enemy camp!">
         <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
     </apply>
-    <apply block-place="only-place" message="You may only place wood between ">
+    <apply block-place="only-place" message="You may only place wood between...">
         <rectangle min="-128.5,130.5" max="-43.5,19.5"/>
     </apply>
     <apply block-break="deny-defenders">
