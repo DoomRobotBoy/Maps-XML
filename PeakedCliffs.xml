@@ -55,7 +55,7 @@
     </spawn>
 </spawns>
 <filters>
-    <filter name="only-wood">
+    <filter name="only-wood-break">
         <block>wood 1</block>
     </filter>
     <filter name="only-gold-break">
@@ -85,14 +85,14 @@
     <apply block-break="only-gold-break" message="You may only break gold blocks!">
         <rectangle min="-128.5,130.5" max="21.5,19.5"/>
     </apply>
-    <apply block-break="only-wood" message="You may only break spruce wood planks here!">
+    <apply block-break="only-wood-break" message="You may only break spruce wood planks here!">
         <rectangle min="-129.5,130.5" max="-211.5,19.5"/>
     </apply>
     <apply block-place="only-gold-place" message="You may only place gold blocks!">
         <rectangle min="-174.5,19.5" max="-212.5,130.5"/>
         <rectangle min="-42.5,130.5" max="21.5,19.5"/>
     </apply>
-    <apply block="deny-all" message="You may not edit the surroundings of the enemy camp!">
+    <apply block="deny-defenders" message="You may not edit the surroundings of the enemy camp!">
         <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
     </apply>
     <!-- Defenders Regions -->
