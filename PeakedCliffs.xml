@@ -55,6 +55,9 @@
     </spawn>
 </spawns>
 <filters>
+    <filter name="only-wood">
+        <block>wood 1</block>
+    </filter>
     <filter name="only-gold-break">
         <team>attackers</team>
         <block>gold block</block>
@@ -68,7 +71,7 @@
         <block>sandstone</block>
         <block>grass</block>
     </filter>
-    <filter name="deny-gold">
+    <filter name="deny-gold-defenders">
         <team>defenders</team>
         <block>gold block</block>
     </filter>
@@ -80,7 +83,10 @@
 </filters>
 <regions>
     <apply block-break="only-gold-break" message="You may only break gold blocks!">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
+        <rectangle min="-128.5,130.5" max="21.5,19.5"/>
+    </apply>
+    <apply block-break="only-wood" message="You may only break spruce wood planks here!">
+        <rectangle min="-129.5,130.5" max="-211.5,19.5"/>
     </apply>
     <apply block-place="only-gold-place" message="You may only place gold blocks!">
         <rectangle min="-174.5,19.5" max="-212.5,130.5"/>
@@ -89,20 +95,27 @@
     <apply block="deny-all" message="You may not edit the surroundings of the enemy camp!">
         <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
     </apply>
-    <apply block-place-against="only-place" message="You may only place wood between...">
+    <!-- Defenders Regions -->
+    <apply block-place-against="only-place" message="You may only place wood in the river and savanna.">
         <rectangle min="-128.5,130.5" max="-43.5,19.5"/>
     </apply>
     <apply block-break="deny-defenders">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
-    <apply block="deny-gold" message="You may not place gold blocks here!">
-        <cuboid min="4.5,51,105.5" max="16.5,55,105.5"/>
+    <apply block="deny-gold-defenders" message="You may not place gold blocks here!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-tnt">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply velocity="@-37.0,2.0,12.0">
         <cuboid min="-17.5,36,30.5" max="-17.5,37,30.5"/>
     </apply>
     <apply use="deny-defenders">
         <block>10.5,50,113.5</block>
+    </apply>
+    <apply block="deny-tnt">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
 </regions>
 <destroyables>
