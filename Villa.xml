@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Villa</name>
+<version>1.0</version>
+<objective>Leak the enemies' cores!</objective>
+<authors>
+	<author>Avaleer</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+	<team color="green" max="10" max-overfill="15">Green Team</team>
+	<team color="blue" max="10" max-overfill="15">Blue Team</team>
+</teams>
+<broadcasts>
+	<tip after="2m" every="2m" count="oo"> The Pearl (Quartz Sphere) is the Monument</tip>
+</broadcasts>
+<destroyables name="Pearl" materials="quartz block" completion="100%">
+	<destroyable owner="green"
+		<cuboid min="-63,12,92" max="-58,17,87"/>
+	</destroyable>
+	<destroyable owner="blue"
+		<cuboid min="-58,12,27" max="-63,17,32"/>
+	</destroyable>
+</destroyables>
+<spawns>
+	<spawn team="green" kit="green">
+		<point yaw="180">
+			<cuboid min="-59.5,8,126.5" max="-61.5,9,124.5"/>
+		</point>
+	</spawn>
+	<spawn team="blue" kit="blue">
+		<point yaw="0">
+			<cuboid min="-59.5,8,-7.5" max="-61.5,9,-5.5"/>
+		</point>
+	</spawn>
+	<default yaw="90"><cuboid min="-59.5,38,58.5" max="-61.5,40,60.5"/></default>
+</spawns>
+<regions>
+	<apply block="deny-players" message="Do Not Destroy Spawn!">
+		<cuboid min="-40,-oo,130" max="-80,oo,113"/>
+		<cuboid min="-40,-oo,-20" max="-80,oo,6"/>
+	</apply>
+	<apply block="deny-players" message="Do Not Leave The Playing Field!">
+		<negative>
+			<region name="playable"/>
+		</negative>
+	</apply>
+	<apply block="deny-players" message="Do Not Destroy The Gold Source!">
+		<cuboid min="-60,7,75" max="-61,8,74"/>
+		<cuboid min="-60,7,45" max="-61,8,44"/>
+	</apply>
+</regions>
+<playable>
+	<cuboid min="-44,oo,-11" max="-77,18,130"/>
+</playable>
+<kit>
+	<kit name="spawn">
+		<item slot="0">stone sword</item>
+		<item slot="1" enchantment="arrow infinite:1">bow</item>
+		<item slot="2">stone pickaxe</item>
+		<item slot="3">stone axe</item>
+		<item slot="4" amount="64">sandstone</item>
+		<item slot="5" amount="64">spruce wood planks</item>
+		<item slot="6">boat</item>
+		<item slot="7" damage="16373">potion</item>
+		<item slot="8" amount="64">golden carrot</item>
+		<item slot="28">arrow</item>
+		<item slot="31" amount="64">sandstone</item>
+	</kit>
+	<kit name="green" parents="spawn">
+		<chestplate color="667F33">leather chestplate</chestplate>
+	</kit>
+	<kit name="blue" parents="spawn">
+		<chestplate color="334CB2">leather chestplate</chestplate>
+	</kit>
+</kits>
+<toolrepair>
+	<tool>stone sword</tool>
+	<tool>stone pickaxe</tool>
+	<tool>stone axe</tool>
+	<tool>bow</tool>
+</toolrepair>
+<itemremove>
+	<item>arrow</item>
+	<item>leather chestplate</item>
+	<item>golden carrot</item>
+	<item>quartz block</item>
+	<item>iron block</item>
+</itemremove>
+<killreward>
+	<item damage="16373">potion</item>
+</killreward>
+</map>
