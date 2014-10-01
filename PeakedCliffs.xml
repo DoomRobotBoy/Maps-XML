@@ -83,10 +83,10 @@
 </filters>
 <regions>
     <apply block-break="only-gold-break" message="You may only break gold blocks!">
-        <rectangle min="-129,131" max="21,19"/>
+        <rectangle min="-129,130" max="21,19"/>
     </apply>
     <apply block-break="only-wood-break" message="You may only break spruce wood planks here!">
-        <rectangle min="-130,130" max="-211,20"/>
+        <rectangle min="-130,130" max="-211,19"/>
     </apply>
     <apply block-place="only-gold-place" message="You may only place gold blocks!">
         <rectangle min="-175,19" max="-213,130"/>
