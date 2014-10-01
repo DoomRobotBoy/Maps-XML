@@ -83,21 +83,21 @@
 </filters>
 <regions>
     <apply block-break="only-gold-break" message="You may only break gold blocks!">
-        <rectangle min="-128.5,130.5" max="21.5,19.5"/>
+        <rectangle min="-129,131" max="21,19"/>
     </apply>
     <apply block-break="only-wood-break" message="You may only break spruce wood planks here!">
-        <rectangle min="-129.5,130.5" max="-211.5,19.5"/>
+        <rectangle min="-130,130" max="-211,20"/>
     </apply>
     <apply block-place="only-gold-place" message="You may only place gold blocks!">
-        <rectangle min="-174.5,19.5" max="-212.5,130.5"/>
-        <rectangle min="-42.5,130.5" max="21.5,19.5"/>
+        <rectangle min="-175,19" max="-213,130"/>
+        <rectangle min="-43,130" max="21,19"/>
     </apply>
     <apply block="deny-defenders" message="You may not edit the surroundings of the enemy camp!">
-        <rectangle min="-129.5,130.5" max="-211.5,19.5"/>       
+        <rectangle min="-130,130" max="-212,19"/>       
     </apply>
     <!-- Defenders Regions -->
     <apply block-place-against="only-place" message="You may only place wood in the river and savanna.">
-        <rectangle min="-128.5,130.5" max="-43.5,19.5"/>
+        <rectangle min="-129,130" max="-44,19"/>
     </apply>
     <apply block-break="deny-defenders">
         <rectangle min="oo,oo" max="-oo,-oo"/>
@@ -109,10 +109,10 @@
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply velocity="@-37.0,2.0,12.0">
-        <cuboid min="-17.5,36,30.5" max="-17.5,37,30.5"/>
+        <cuboid min="-18,36,30" max="-18,37,30"/>
     </apply>
     <apply use="deny-defenders">
-        <block>10.5,50,113.5</block>
+        <block>10,50,113</block>
     </apply>
     <apply block="deny-tnt">
         <rectangle min="oo,oo" max="-oo,-oo"/>
@@ -120,10 +120,10 @@
 </regions>
 <destroyables>
     <destroyable name="Golden Treasure" owner="Defenders" show-progress="false" materials="gold block" completion="100%" repairable="true">
-        <cuboid min="4.5,51,107.5" max="16.5,54,113.5"/>
+        <cuboid min="4,51,107" max="16,54,113"/>
     </destroyable>
     <destroyable owner="Defenders" materials="glass" mode-changes="true">
-        <cuboid min="-206.5,9,81.5" max="-202.5,9,77.5"/>
+        <cuboid min="-207,9,81" max="-203,9,77"/>
     </destroyable>
 </destroyables>
 <modes>
