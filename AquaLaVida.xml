@@ -1,99 +1,127 @@
 <?xml version="1.0"?>
-<map proto="1.3.3">
-<name>Storm</name>
-<version>0.1.4</version>
-<objective>Take control of all three hills!</objective>
+<map proto="1.3.5">
+<name>Aqua La Vida</name>
+<version>1.0.0</version>
+<objective>Capture the hills and reach the score limit!</objective>
 <authors>
-    <author>Plastix</author>
-    <author>Lyzak</author>
-    <author>SajinZero</author>
+    <author>DoomRobotBoy</author>
 </authors>
+<contributors>
+    <contributor contribution="Help with Center Town">Guicotsch</contributor>
+    <contributor contribution="Center Island/Help with Center Town">rockymine</contributor>
+</contributors>
 <teams>
-    <team color="dark red" max="32">Red Team</team>
-    <team color="blue" max="32">Blue Team</team>
+    <team color="dark red" max="25" overfill="28">Red Team</team>
+    <team color="blue" max="25" overfill="28">Blue Team</team>
 </teams>
 <kits>
     <kit name="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1" enchantment="arrow infinite:1">bow</item>
-        <item slot="28" amount="1">arrow</item>
-        <item slot="3" amount="1">golden apple</item>
-        <item slot="2" amount="64">baked potato</item>
-        <chestplate enchantment="protection projectile:1" damage="-3000">iron chestplate</chestplate>
+        <item slot="1">bow</item>
+        <item slot="28" amount="32">arrow</item>
+        <item slot="2" amount="1">golden apple</item>
+        <item slot="3" amount="64">baked potato</item>
+        <leggings enchantment="protection projectile:1" damage="-3000">chainmail leggings</leggings>
         <potion duration="5">heal</potion>
-        <potion duration="10" amplifier="4">damage resistance</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>
     </kit>
     <kit name="red" parents="spawn">
         <helmet color="cd0000" damage="-3000">leather helmet</helmet>
-        <leggings color="cd0000" damage="-3000">leather leggings</leggings>
+        <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
         <boots color="cd0000" damage="-3000">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
         <helmet color="0066cc" damage="-3000">leather helmet</helmet>
-        <leggings color="0066cc" damage="-3000">leather leggings</leggings>
+        <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
         <boots color="0066cc" damage="-3000">leather boots</boots>
     </kit>
 </kits>
 <filters>
-    <filter name="deny-beacons" parents="allow-all">
-        <deny><block>beacon</block></deny>
+    <filter name="red-team">
+        <team>red</team>
+    </filter>
+    <filter name="blue-team">
+        <team>blue</team>
     </filter>
 </filters>
 <regions>
-    <rectangle name="playable" min="-oo,-oo" max="oo,oo"/>
-    <cylinder name="red-spawn" base="49,4,66" radius="4" height="0"/>
-    <cylinder name="blue-spawn" base="-48,4,-65" radius="4" height="0"/>
-    <apply block="deny-all" use="deny-beacons"><region name="playable"/></apply>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply enter="deny-red-team">
+        <cuboid min="-91,6,-128" max="-91,7,-128"/>
+    </apply>
+    <apply enter="deny-blue-team">
+        <cuboid min="-109,6,-128" max="-109,7,-128"/>
+    </apply>
 </regions>
+<portals>
+    <portal name="red-well-portal" x="@-257" y="@6" z="@-231">
+        <cuboid min="-109,4,-128" max="-109,5,-128"/>
+    </portal>
+    <portal name="blue-well-portal" x="@57" y="@6" z="@-231">
+        <cuboid min="-91,4,-128" max="-91,5,-128"/>
+    </portal>
+</portals>
+<spawns>
+    <spawn team="red" kit="red" yaw="0">
+        <cylinder base="X,Y,Z" radius="1"/>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <cylinder base="61.5,5,-273.5" radius="1"/>
+    </spawn>
+    <default yaw="180">
+        <cylinder base="-99.5,12,-133.5" radius="1"/>
+    </default>
+</spawns>
+<king>
+    <hills>
+        <hill name="Blue Camp" capture-time="10s" ratio="1">
+            <capture><cylinder base="45.5,5,-139.5" radius="3"/></capture>
+            <progress><cylinder base="45.5,4,-139.5" radius="3"/></progress>
+            <captured><cuboid min="45,9,-139" max="46,10,-137"/></captured>
+        </hill>
+        <hill name="Center Town" capture-time="15s" ratio="1" neutral-state="true">
+            <capture><cylinder base="-99.5,5,-122.5" radius="4"/></capture>
+            <progress><cylinder base="-99.5,4,-122.5" radius="4"/></progress>
+            <captured><cuboid min="-100,8,-122" max="-98,9,-125"/></captured>
+        </hill>
+        <hill name="Center Island" capture-time="15s" ratio="1" neutral-state="true">
+            <capture><cylinder base="-99.5,4,-216.5" radius="4"/></capture>
+            <progress><cylinder base="-99.5,3,-216.5" radius="4"/></progress>
+            <captured><cuboid min="-100,7,-216" max="-99,8,-214"/></captured>
+        </hill>
+        <hill name="Red Camp" capture-time="10s" ratio="1">
+            <capture><cylinder base="-244.5,5,-139.5" radius="3"/></capture>
+            <progress><cylinder base="-244.5,4,-139.5" radius="3"/></progress>
+            <captured><cuboid min="-243,9,-139" max="-245,10,-136"/></captured>
+        </hill>
+    </hills>
+</king>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
 </toolrepair>
 <itemremove>
     <item>leather helmet</item>
-    <item>iron chestplate</item>
-    <item>leather leggings</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
     <item>leather boots</item>
     <item>arrow</item>
-    <item>ladder</item>
-    <item>baked potato</item>
     <item>golden apple</item>
     <item>glass bottle</item>
+    <item>stick</item>
+    <item>wood</item>
+    <item>boat</item>
+    <item>raw fish</item>
 </itemremove>
-<spawns>
-    <spawns yaw="90">
-        <spawn team="red" kit="red"><region name="red-spawn"/></spawn>
-    </spawns>
-    <spawns yaw="270">
-        <spawn team="blue" kit="blue"><region name="blue-spawn"/></spawn>
-    </spawns>
-    <default yaw="90">
-        <cylinder base="95,60,0" radius="3" height="0"/>
-    </default>
-</spawns>
-<king>
-    <hills>
-        <hill name="Point A" capture-time="10s" ratio="1">
-            <capture><cuboid min="37,12,-38" max="46,15,-29"/></capture>
-            <progress><cuboid min="37,11,-38" max="45,11,-30"/></progress>
-            <captured><cuboid min="36,11,-39" max="48,16,-27"/></captured>
-        </hill>
-        <hill name="Middle" capture-time="15s" ratio="1">
-            <capture><cuboid min="-4,4,-4" max="5,7,5"/></capture>
-            <progress><cuboid min="-4,3,-4" max="4,3,4"/></progress>
-            <captured><cuboid min="-5,3,-5" max="5,8,5"/></captured>
-        </hill>
-        <hill name="Point B" capture-time="10s" ratio="1">
-            <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
-            <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
-            <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
-        </hill>
-    </hills>
-</king>
 <score>
     <limit>750</limit>
-
-    <!-- Ignore points gained from kills -->
-    <king/>
 </score>
+<killreward>
+    <item amount="1">raw fish</item>
+</killreward>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
 </map>
