@@ -1,0 +1,123 @@
+<map proto="1.3.5">
+<name>Arrowhead</name>
+<version>1.0.0</version>
+<objective>Be the team with the most kills after 15 minutes!</objective>
+<authors>
+    <author>Puyiyo18</author>
+    <author>xI_LIKE_A_PIGx</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<rules>
+    <rule>Fall damage is disabled!</rule>
+</rules>
+<score>
+    <time>15m</time>
+</score>
+<rage/>
+<teams>
+    <team color="green" max="10">Green Team</team>
+    <team color="gold" max="10">Orange Team</team>
+    <team color="yellow" max="10">Yellow Team</team>
+    <team color="dark purple" max="10">Purple Team</team>
+</teams>
+<spawns>
+    <spawn team="green" kit="green">
+        <cuboid min="21,77,-10" max="17,77,-10"/>
+    </spawn>
+    <spawn team="orange" kit="orange">
+        <cuboid min="-30,77,-61" max="-30,77,-57"/>
+    </spawn>
+    <spawn team="yellow" kit="cyan">
+        <cuboid min="17,77,-108" max="21,77,-108"/>
+    </spawn>
+    <spawn team="purple" kit="purple">
+        <cuboid min="68,77,-61" max="68,77,-57"/>
+    </spawn>
+    <default yaw="0" kit="obs">
+        <cuboid min="20,145,-58" max="18,145,-60"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="teams" potion-particles="false">
+        <item slot="0" damage="-3000" enchantment="damage all:10" lore="`aOne-hit kill!">iron sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow damage:10" lore="`aOne-shot kill!">bow</item>
+        <item slot="2">arrow</item>
+        <helmet damage="-3000">iron helmet</helmet>
+        <potion duration="oo">speed</potion>
+        <potion duration="3" amplifier="100">heal</potion>
+        <potion duration="3" amplifier="100">damage resistance</potion>
+    </kit>
+    <kit name="purple" parents="teams">
+        <chestplate enchantment="protection environmental" damage="-3000" color="7729AB">leather chestplate</chestplate>
+        <boots damage="-3000" color="7729AB">leather boots</boots>
+    </kit>
+    <kit name="cyan" parents="teams">
+        <chestplate enchantment="protection environmental" damage="-3000" color="2E7B7B">leather chestplate</chestplate>
+        <boots damage="-3000" color="2E7B7B">leather boots</boots>
+    </kit>
+    <kit name="orange" parents="teams">
+        <chestplate enchantment="protection environmental" damage="-3000" color="FF6600">leather chestplate</chestplate>
+        <boots damage="-3000" color="FF6600">leather boots</boots>
+    </kit>
+    <kit name="lime" parents="teams">
+        <chestplate enchantment="protection environmental" damage="-3000" color="33C633">leather chestplate</chestplate>
+        <boots damage="-3000" color="33C633">leather boots</boots>
+    </kit>
+    <kit name="obs" potion-particles="false">
+        <potion duration="oo">speed</potion>
+        <potion duration="oo">night vision</potion>
+    </kit>
+</kits>
+<regions>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply velocity="@0,1.75,0.6">
+        <region name="o-right-spawn"/>
+        <region name="o-center"/>
+        <region name="o-left-spawn-below"/>
+        <region name="o-infront-spawn"/>
+        <region name="c-abnormal"/>
+    </apply>
+</regions>
+<itemremove>
+    <item>iron helmet</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>glass bottle</item>
+    <item>potion</item>
+    <item>arrow</item>
+</itemremove>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<killreward>
+    <item>arrow</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="3"/>
+    </filter>
+    <kit force="true" potion-particles="false">
+        <potion duration="oo" amplifier="2">speed</potion>
+    </kit>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="10"/>
+    </filter>
+    <kit force="true" potion-particles="false">
+        <potion duration="oo" amplifier="3">speed</potion>
+    </kit>
+</killreward>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<timelock>on</timelock>
+</map>
