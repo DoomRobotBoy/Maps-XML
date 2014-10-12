@@ -17,81 +17,112 @@
 </score>
 <rage/>
 <teams>
-    <team color="green" max="10">Green Team</team>
+    <team color="lime" max="10">Green Team</team>
     <team color="gold" max="10">Orange Team</team>
     <team color="yellow" max="10">Yellow Team</team>
     <team color="dark purple" max="10">Purple Team</team>
 </teams>
 <spawns>
-    <spawn team="green" kit="green">
-        <cuboid min="21,77,-10" max="17,77,-10"/>
+    <spawn team="green" kit="green" yaw="-45">
+        <cylinder base="-78.5,7,-124.5" radius="1"/>
     </spawn>
-    <spawn team="orange" kit="orange">
-        <cuboid min="-30,77,-61" max="-30,77,-57"/>
+    <spawn team="orange" kit="orange" yaw="45">
+        <cylinder base="81.5,7,-125.5" radius="1"/>
     </spawn>
-    <spawn team="yellow" kit="cyan">
-        <cuboid min="17,77,-108" max="21,77,-108"/>
+    <spawn team="yellow" kit="yellow" yaw="-135">
+        <cylinder base="-78.5,7,35.5" radius="1"/>
     </spawn>
-    <spawn team="purple" kit="purple">
-        <cuboid min="68,77,-61" max="68,77,-57"/>
+    <spawn team="purple" kit="purple" yaw="135">
+        <cylinder base="81.5,7,35.5" radius="1"/>
     </spawn>
-    <default yaw="0" kit="obs">
-        <cuboid min="20,145,-58" max="18,145,-60"/>
+    <default yaw="0">
+        <cuboid min="1,69,-45" max="0,69,-46"/>
     </default>
 </spawns>
 <kits>
-    <kit name="teams" potion-particles="false">
-        <item slot="0" damage="-3000" enchantment="damage all:10" lore="`aOne-hit kill!">iron sword</item>
+    <kit name="spawn" potion-particles="false">
+        <item slot="0" damage="-3000" enchantment="damage all:10" lore="`aOne-hit kill!">diamond sword</item>
         <item slot="1" damage="-3000" enchantment="arrow damage:10" lore="`aOne-shot kill!">bow</item>
         <item slot="2">arrow</item>
-        <helmet damage="-3000">iron helmet</helmet>
-        <potion duration="oo">speed</potion>
-        <potion duration="3" amplifier="100">heal</potion>
-        <potion duration="3" amplifier="100">damage resistance</potion>
+        <leggings damage="-3000">chainmail leggings</leggings>
+        <potion duration="oo" amplifier="1">speed</potion>
+        <potion duration="oo" amplifier="2">jump</potion>
+        <potion duration="5" amplifier="10">heal</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>
     </kit>
-    <kit name="purple" parents="teams">
-        <chestplate enchantment="protection environmental" damage="-3000" color="7729AB">leather chestplate</chestplate>
+    <kit name="purple" parents="spawn">
+        <helmet damage="-3000" color="7729AB">leather helmet</helmet>
+        <chestplate damage="-3000" color="7729AB">leather chestplate</chestplate>
         <boots damage="-3000" color="7729AB">leather boots</boots>
     </kit>
-    <kit name="cyan" parents="teams">
-        <chestplate enchantment="protection environmental" damage="-3000" color="2E7B7B">leather chestplate</chestplate>
-        <boots damage="-3000" color="2E7B7B">leather boots</boots>
+    <kit name="yellow" parents="spawn">
+        <helmet damage="-3000" color="E5E533">leather helmet</helmet>
+        <chestplate damage="-3000" color="E5E533">leather chestplate</chestplate>
+        <boots damage="-3000" color="E5E533">leather boots</boots>
     </kit>
-    <kit name="orange" parents="teams">
-        <chestplate enchantment="protection environmental" damage="-3000" color="FF6600">leather chestplate</chestplate>
+    <kit name="orange" parents="spawn">
+        <helmet damage="-3000" color="FF6600">leather helmet</helmet>
+        <chestplate damage="-3000" color="FF6600">leather chestplate</chestplate>
         <boots damage="-3000" color="FF6600">leather boots</boots>
     </kit>
-    <kit name="lime" parents="teams">
-        <chestplate enchantment="protection environmental" damage="-3000" color="33C633">leather chestplate</chestplate>
+    <kit name="green" parents="spawn">
+        <helmet damage="-3000" color="33C633">leather helmet</helmet>
+        <chestplate damage="-3000" color="33C633">leather chestplate</chestplate>
         <boots damage="-3000" color="33C633">leather boots</boots>
-    </kit>
-    <kit name="obs" potion-particles="false">
-        <potion duration="oo">speed</potion>
-        <potion duration="oo">night vision</potion>
     </kit>
 </kits>
 <regions>
     <apply block="deny-all">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
-    <apply velocity="@0,1.75,0.6">
-        <region name="o-right-spawn"/>
-        <region name="o-center"/>
-        <region name="o-left-spawn-below"/>
-        <region name="o-infront-spawn"/>
-        <region name="c-abnormal"/>
+    <apply velocity="@,,">
+        <cuboid name="green-middle" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="green-left" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="green-right" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="orange-middle" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="orange-left" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="orange-right" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="purple-middle" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="purple-left" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="purple-right" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="yellow-middle" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="yellow-left" min="-50,8,-79" max="-48,8,-81"/>
+    </apply>
+    <apply velocity="@,,">
+        <cuboid name="yellow-right" min="-50,8,-79" max="-48,8,-81"/>
     </apply>
 </regions>
 <itemremove>
-    <item>iron helmet</item>
+    <item>leather helmet</item>
     <item>leather chestplate</item>
+    <item>chainmail leggings</item>
     <item>leather boots</item>
     <item>glass bottle</item>
     <item>potion</item>
     <item>arrow</item>
 </itemremove>
 <toolrepair>
-    <tool>iron sword</tool>
+    <tool>diamond sword</tool>
     <tool>bow</tool>
 </toolrepair>
 <killreward>
@@ -99,7 +130,7 @@
 </killreward>
 <killreward>
     <filter>
-        <kill-streak count="3"/>
+        <kill-streak count="5"/>
     </filter>
     <kit force="true" potion-particles="false">
         <potion duration="oo" amplifier="2">speed</potion>
@@ -110,7 +141,7 @@
         <kill-streak count="10"/>
     </filter>
     <kit force="true" potion-particles="false">
-        <potion duration="oo" amplifier="3">speed</potion>
+        <potion duration="oo" amplifier="3">jump</potion>
     </kit>
 </killreward>
 <disabledamage>
