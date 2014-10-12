@@ -11,6 +11,7 @@
 </contributors>
 <rules>
     <rule>Fall damage is disabled!</rule>
+    <rule>Jumping or falling in the void will cause you to be teleported back to your spawn!</rule>
 </rules>
 <score>
     <time>15m</time>
