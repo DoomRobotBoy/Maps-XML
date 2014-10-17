@@ -8,6 +8,8 @@
 </authors>
 <contributors>
     <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor contribution="Server hosting">ShinyDialga45</contributor>
+    <contributor contribution="Feedback">ItzaMeLuigi_</contributor>
 </contributors>
 <rules>
     <rule>Fall damage is disabled!</rule>
