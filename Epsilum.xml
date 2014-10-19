@@ -48,17 +48,24 @@
     <filter name="only-red" parents="deny-players deny-world">
         <allow><team>red</team></allow>
     </filter>
+    <filter name="only-iron">
+        <allow><block>iron</block></allow>
+    </filter>
 </filters>
 <regions>
     <apply block="no-void" message="You may not edit the void area">
-        <negative>
-            <rectangle min="-14,-12" max="15,13"/>
-        </negative>
+        <rectangle min="-14,-12" max="15,13"/>
     </apply>
-    <cuboid name="blue-spawn-pad" min="250,72,-521" max="244,72,-515"/>
-    <cuboid name="blue-spawn-pad-not" min="248,72,-519" max="246,72,-517"/>
-    <cuboid name="red-spawn-pad" min="250,72,-327" max="244,72,-333"/>
-    <cuboid name="red-spawn-pad-not" min="248,72,-329" max="246,72,-331ee"/>
+    <rectangle name="orange-wool-void"/>
+    <rectangle name="yellow-wool-void"/>
+    <rectangle name="purple-wool-void"/>
+    <rectangle name="green-wool-void"/>
+    <rectangle name="red-side-back"/>
+    <rectangle name="red-side-front"/>
+    <rectangle name="blue-side-back"/>
+    <rectangle name="blue-side-front"/>
+    <rectangle name="middle-west-side"/>
+    <rectangle name="middle-east-side"/>
     <apply enter="only-red">
         <circle name="yellow-wool-protection" center="194.5,-508.5" radius="7"/>
         <circle name="orange-wool-protection" center="300.5,-508.5" radius="7"/>
@@ -66,6 +73,18 @@
     <apply enter="only-blue">
         <circle name="green-wool-protection" center="300.5,-338.5" radius="7"/>
         <circle name="purple-wool-protection" center="194.5,-338.5" radius="7"/>
+    </apply>
+    <cuboid name="red-spawn-pad" min="250,72,-327" max="244,72,-333"/>
+    <cuboid name="red-spawn-pad-not" min="248,72,-329" max="246,72,-331ee"/>
+    <cuboid name="blue-spawn-pad" min="250,72,-521" max="244,72,-515"/>
+    <cuboid name="blue-spawn-pad-not" min="248,72,-519" max="246,72,-517"/>
+    <cylinder name="red-spawn" base="247.5,0,-329.5" radius="13" height="10"/>
+    <cylinder name="blue-spawn" base="247.5,0,-517.5" radius="13" height="10"/>
+    <apply enter="only-red" apply block="only-iron">
+        <region name="red-spawn"/>
+    </apply>
+    <apply enter="only-red" apply block="only-iron">
+        <region name="red-spawn"/>
     </apply>
 </regions>
 <toolrepair>
