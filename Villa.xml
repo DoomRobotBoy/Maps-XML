@@ -15,13 +15,13 @@
 </teams>
 <destroyables materials="obsidian" leak="5" mode-changes="true">
 	<destroyable owner="green" name="Right Core">
-		<cuboid min="-889,5,828" max="-886,7,825"/>
+		<cuboid min="-889,5,828" max="-886,8,825"/>
 	</destroyable>
 	<destroyable owner="green" name="Left Core">
 		<cuboid min="-886,5,771" max="-889,8,774"/>
 	</destroyable>
 	<destroyable owner="blue" name="Right Core">
-		<cuboid min="-778,5,771" max="-781,7,774"/>
+		<cuboid min="-778,5,771" max="-781,8,774"/>
 	</destroyable>
 	<destroyable owner="blue" name="Left Core">
 		<cuboid min="-778,5,828" max="-781,8,825"/>
