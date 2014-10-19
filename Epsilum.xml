@@ -2,58 +2,49 @@
 <map proto="1.3.5">
 <name>Epsilum</name>
 <version>1.0.0</version>
-<objective>Take the enemy's wool located to either side of the enemy's base and place it in your victory monument.</objective>
+<objective>The team who first captures the other team's wools, located in the opposite wool rooms, wins!</objective>
 <authors>
-    <author contribution="map design and master gardener">MonsieurApple</author>
-    <author contribution="map design and code memorization">Plastix</author>
-    <author contribution="map design and beautification">IM_A_H0B0</author>
+    <author>xX_IGNA_Xx</author>
 </authors>
 <contributors>
-    <contributor contribution="item management and shenanigan manager">Anxuiz</contributor>
-    <contributor contribution="portals and various asthetics">Torn_Ares</contributor>
-    <contributor contribution="words">KasiCrafter</contributor>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
 <teams>
-    <team color="blue" max="50">Blue Team</team>
-    <team color="dark red" max="50">Red Team</team>
+    <team color="blue" max="25">Blue Team</team>
+    <team color="dark red" max="25">Red Team</team>
 </teams>
 <spawns>
     <spawns kit="spawn">
-        <spawn team="blue" yaw="180"><cylinder base="0.5,2,91.5" radius="5" height="0"/></spawn>
-        <spawn team="red" yaw="0"><cylinder base="0.5,2,-90.5" radius="5" height="0"/></spawn>
+        <spawn team="blue">
+            <complement><region name="blue-spawn-pad"/><region name="blue-spawn-pad-not"/>..</complement> 
+        </spawn>
+        <spawn team="red">
+            <complement><region name="red-spawn-pad"/><region name="red-spawn-pad-not"/>..</complement> 
+        </spawn>
     </spawns>
-    <default yaw="270"><cylinder base="44.5,8,0.5" radius="4" height="0"/></default>
-</spawns>
-<spawns>
-    <spawns kit="spawn">
-        <spawn team="blue" yaw="180"><cylinder base="0.5,2,91.5" radius="5" height="0"/></spawn>
-        <spawn team="red" yaw="0"><cylinder base="0.5,2,-90.5" radius="5" height="0"/></spawn>
-    </spawns>
-    <default yaw="270"><cylinder base="44.5,8,0.5" radius="4" height="0"/></default>
+    <default><cylinder base="247.50,8,-423.5" radius="1" height="0"/></default>
 </spawns>
 <kits>
     <kit name="spawn">
         <item slot="0">iron sword</item>
-        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="1">bow</item>
         <item slot="28">arrow</item>
-        <item slot="2" enchantment="durability:3;dig speed:1">iron pickaxe</item>
-        <item slot="3">iron axe</item>
-        <item slot="4" amount="64" damage="1">log</item>
+        <item slot="2" enchantment="durability:1;dig speed:1">iron pickaxe</item>
+        <item slot="3" amount="32">bread</item>
+        <item slot="4" amount="64">log_2</item>
         <item slot="5" amount="64">glass</item>
-        <item slot="6">bucket</item>
-        <item slot="7">golden apple</item>
-        <item slot="8" amount="64">cooked fish</item>
+        <item slot="6" amount="64">arrow</item>
+        <item slot="7" amount="64">arrow</item>
+        <item slot="8" amount="64">ladder</item>
     </kit>
 </kits>
 <filters>
     <filter name="no-void" parents="allow-all">
         <deny><void/></deny>
     </filter>
-
     <filter name="only-blue" parents="deny-players deny-world">
         <allow><team>blue</team></allow>
     </filter>
-
     <filter name="only-red" parents="deny-players deny-world">
         <allow><team>red</team></allow>
     </filter>
@@ -62,48 +53,49 @@
     <apply block="no-void" message="You may not edit the void area">
         <negative>
             <rectangle min="-14,-12" max="15,13"/>
-            <region name="portals"/>
         </negative>
+    </apply>
+    <cuboid name="blue-spawn-pad" min="250,72,-521" max="244,72,-515"/>
+    <cuboid name="blue-spawn-pad-not" min="248,72,-519" max="246,72,-517"/>
+    <cuboid name="red-spawn-pad" min="250,72,-327" max="244,72,-333"/>
+    <cuboid name="red-spawn-pad-not" min="248,72,-329" max="246,72,-331ee"/>
+    <apply enter="only-red">
+        <circle name="yellow-wool-protection" center="194.5,-508.5" radius="7"/>
+        <circle name="orange-wool-protection" center="300.5,-508.5" radius="7"/>
+    </apply>
+    <apply enter="only-blue">
+        <circle name="green-wool-protection" center="300.5,-338.5" radius="7"/>
+        <circle name="purple-wool-protection" center="194.5,-338.5" radius="7"/>
     </apply>
 </regions>
 <toolrepair>
     <tool>iron sword</tool>
-    <tool>iron pickaxe</tool>
-    <tool>iron axe</tool>
     <tool>bow</tool>
-    <tool>arrow</tool>
+    <tool>iron pickaxe</tool>
 </toolrepair>
 <itemremove>
-    <item>log</item>
     <item>wood</item>
-    <item>bucket</item>
-    <item>cooked fish</item>
-    <item>golden apple</item>
     <item>glass</item>
-    <item>seeds</item>
-    <item>sugar cane</item>
-    <item>string</item>
-    <item>glowstone dust</item>
+    <item>apple</item>
+    <item>stained clay</item>
 </itemremove>
-<maxbuildheight>40</maxbuildheight>
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>4s</fuse>
+</tnt>
+<maxbuildheight>35</maxbuildheight>
 <wools>
-    <wool team="red" color="purple">
-        <block location="-49,10,-91"/>
+    <wool team="red" color="orange">
+        <block location="254,7,-330"/>
     </wool>
     <wool team="red" color="yellow">
-        <block location="49,10,-91"/>
+        <block location="240,7,-330"/>
     </wool>
-    <wool team="red" color="cyan">
-        <block location="0,16,-140"/>
+    <wool team="blue" color="purple">
+        <block location="240,7,-518"/>
     </wool>
-    <wool team="blue" color="lime">
-        <block location="49,10,91"/>
-    </wool>
-    <wool team="blue" color="orange">
-        <block location="-49,10,91"/>
-    </wool>
-    <wool team="blue" color="pink">
-        <block location="0,16,140"/>
+    <wool team="blue" color="green">
+        <block location="254,7,-518"/>
     </wool>
 </wools>
 </map>
