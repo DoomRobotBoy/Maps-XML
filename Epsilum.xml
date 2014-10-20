@@ -53,19 +53,21 @@
     </filter>
 </filters>
 <regions>
-    <apply block="no-void" message="You may not edit the void area">
-        <rectangle min="-14,-12" max="15,13"/>
+    <apply block="no-void" message="You may not edit the void area!">
+        <region name="void-is-nice"/>
     </apply>
-    <rectangle name="orange-wool-void" min="312,-521" max="275,-497"/>
-    <rectangle name="yellow-wool-void" min="219,-521" max="182,-497"/>
-    <rectangle name="purple-wool-void" min="219,-351" max="182,-327"/>
-    <rectangle name="green-wool-void" min="275,-327" max="312,-351"/>
-    <rectangle name="red-side-back" min="274,-335" max="220,-316"/>
-    <rectangle name="red-side-front"/>
-    <rectangle name="blue-side-back"/>
-    <rectangle name="blue-side-front"/>
-    <rectangle name="middle-west-side"/>
-    <rectangle name="middle-east-side"/>
+    <union name="void-is-nice">
+        <rectangle name="orange-wool-void" min="312,-521" max="275,-497"/>
+        <rectangle name="yellow-wool-void" min="219,-521" max="182,-497"/>
+        <rectangle name="purple-wool-void" min="219,-351" max="182,-327"/>
+        <rectangle name="green-wool-void" min="275,-327" max="312,-351"/>
+        <rectangle name="red-side-back" min="275,-334" max="220,-316"/>
+        <rectangle name="red-side-front" min="219,-344" max="275,-399"/>
+        <rectangle name="blue-side-back" min="275,-514" max="219,534"/>
+        <rectangle name="blue-side-front" min="275,-504" max="219,-449"/>
+        <rectangle name="middle-west-side" min="224,-449" max="224,-399"/>
+        <rectangle name="middle-east-side" min="270,-399" max="270,-449"/>
+    </union>
     <apply enter="only-red">
         <circle name="yellow-wool-protection" center="194.5,-508.5" radius="7"/>
         <circle name="orange-wool-protection" center="300.5,-508.5" radius="7"/>
@@ -85,6 +87,10 @@
     </apply>
     <apply enter="only-red" apply block="only-iron">
         <region name="red-spawn"/>
+    </apply>
+    <apply block="deny-all" message="You may not edit the spawn or drop-tubes!">
+        <cuboid name="red-droptube" min="251,10,-334" max="243,77,-326"/>
+        <cuboid name="blue-droptube" min="243,10,-514" max="251,77,-522"/>
     </apply>
 </regions>
 <toolrepair>
