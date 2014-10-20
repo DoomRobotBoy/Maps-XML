@@ -56,11 +56,11 @@
     <apply block="no-void" message="You may not edit the void area">
         <rectangle min="-14,-12" max="15,13"/>
     </apply>
-    <rectangle name="orange-wool-void"/>
-    <rectangle name="yellow-wool-void"/>
-    <rectangle name="purple-wool-void"/>
-    <rectangle name="green-wool-void"/>
-    <rectangle name="red-side-back"/>
+    <rectangle name="orange-wool-void" min="312,-521" max="275,-497"/>
+    <rectangle name="yellow-wool-void" min="219,-521" max="182,-497"/>
+    <rectangle name="purple-wool-void" min="219,-351" max="182,-327"/>
+    <rectangle name="green-wool-void" min="275,-327" max="312,-351"/>
+    <rectangle name="red-side-back" min="274,-335" max="220,-316"/>
     <rectangle name="red-side-front"/>
     <rectangle name="blue-side-back"/>
     <rectangle name="blue-side-front"/>
@@ -97,6 +97,7 @@
     <item>glass</item>
     <item>apple</item>
     <item>stained clay</item>
+    <item>redstone</item>
 </itemremove>
 <tnt>
     <instantignite>on</instantignite>
