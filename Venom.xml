@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Venom</name>
+<version>1.3.5</version>
+<objective>Be the team with the least amount of deaths after 10 minutes.</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
