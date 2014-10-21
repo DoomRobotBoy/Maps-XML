@@ -27,6 +27,16 @@
         <potion duration="10" amplifier="10">damage resistance</potion>
     </kit>
 </kits>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>cooked beef</item>
+    <item>cake</item>
+    <item>diamond helmet</item>
+    <item>diamond chestplate</item>
+    <item>diamond leggings</item>
+    <item>diamond boots</item>
+</itemremove>
 <spawns>
     <spawn team="red" kit="spawn" yaw="90">
         <cylinder base="285.5,13,-437.5" radius="135"/>
