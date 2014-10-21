@@ -16,7 +16,7 @@
 </teams>
 <kits>
     <kit name="spawn" force="true">
-        <item slot="0">iron sword</item>
+        <item slot="0" enchantment="damage all:1">iron sword</item>
         <item slot="1" enchantment="arrow damage:1">bow</item>
         <item slot="2" amount="64">cooked beef</item>
         <item slot="3" amount="2">golden apple</item>
