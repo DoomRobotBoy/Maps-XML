@@ -27,6 +27,17 @@
         <potion duration="10" amplifier="10">damage resistance</potion>
     </kit>
 </kits>
+<spawns>
+    <spawn team="red" kit="red" yaw="90">
+        <cuboid min="-2,13,71" max="-9,13,78"/>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="-90">
+        <cuboid min="2,13,-71" max="9,13,-78"/>
+    </spawn>
+    <default yaw="-180">
+        <cuboid min="226,76,-488" max="228,76,-486"/>
+    </default>
+</spawns>
 <filters>
     <filter name="only-cake">
         <allow>cake</allow>
