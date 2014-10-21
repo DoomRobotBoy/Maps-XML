@@ -6,3 +6,15 @@
 <authors>
     <author>DoomRobotBoy</author>
 </authors>
+<teams>
+    <team color="blue" max="30">Blue Team</team>
+    <team color="dark red" max="30">Red Team</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0">iron sword</item>
+        <item slot="0">iron sword</item>
+        <item slot="0">iron sword</item>
+        <item slot="0">iron sword</item>
+    </kit>
+</kits>
