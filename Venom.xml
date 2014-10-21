@@ -22,7 +22,9 @@
         <chestplate damage="-3000">diamond chestplate</chestplate>
         <leggings damage="-3000">diamond leggings</leggings>
         <boots damage="-3000">diamond boots</boots>
-        
+        <potion duration="oo" amplifier="1">speed</potion>
+        <potion duration="8" amplifier="3">slow</potion>
+        <potion duration="10" amplifier="10">damage resistance</potion>
     </kit>
 </kits>
 <filters>
@@ -50,13 +52,3 @@
     </kit>
 </killreward>
 </map>
-
-
-
-
-
-
-
-
-
-
