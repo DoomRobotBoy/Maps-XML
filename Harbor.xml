@@ -31,7 +31,7 @@
         <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
     </kit>
     <kit name="blue" parents="spawn">
-        <helmet damage="-3000" color="334CB2">iron helmet</helmet>
+        <helmet damage="-3000" color="334CB2">leather helmet</helmet>
         <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
     </kit>
 </kits>
