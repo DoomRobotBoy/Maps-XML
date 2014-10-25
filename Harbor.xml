@@ -16,7 +16,7 @@
 <kits>
     <kit name="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1" enchantment="infinity:1">bow</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="2">diamond pickaxe</item>
         <item slot="3">stone axe</item>
         <item slot="4" amount="64">cooked fish</item>
