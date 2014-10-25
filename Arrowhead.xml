@@ -74,9 +74,6 @@
     </kit>
 </kits>
 <regions>
-    <apply block="deny-all">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
-    </apply>
     <apply velocity="@1.05,0.7,1.05">
         <cuboid name="green-middle" min="-45,9,-88" max="-42,9,-91"/>
     </apply>
@@ -112,6 +109,9 @@
     </apply>
     <apply velocity="@2.0,1.0,1.0">
         <cuboid name="yellow-right" min="-32,8,7" max="-35,8,4"/>
+    </apply>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
 <itemremove>
