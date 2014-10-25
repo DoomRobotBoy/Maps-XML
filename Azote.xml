@@ -30,7 +30,7 @@
     <kit name="red" parents="spawn">
         <helmet>iron helmet</helmet>
         <chestplate>iron chestplate</chestplate>
-        <helmet color="999999">leather helmet</helmet>
+        <leggings color="999999">leather leggings</leggings>
         <boots>iron boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
