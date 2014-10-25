@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Harbor</name>
+<version>1.1.0</version>
+<objective>Leak the enemy team's core!</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
+<contributors>
+    <contributor contribution="Boat builder, Measureman & Moral Support">Guicotsch</contributor>
+    <contributor contribution="MapDev Server Host">jollee999</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="25" max-overfill="27">Red Team</team>
+    <team color="blue" max="25" max-overfill="27">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="2">diamond pickaxe</item>
+        <item slot="3">stone axe</item>
+        <item slot="4" amount="64">cooked fish</item>
+        <item slot="5" amount="64">log</item>
+        <item slot="6" amount="64">glass</item>
+        <item slot="28">arrow</item>
+        <potion duration="5" amplifier="10">heal</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet damage="-3000" color="993333">leather helmet</helmet>
+        <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet damage="-3000" color="334CB2">leather helmet</helmet>
+        <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="-180">
+        <point>381.5,68,-389.5</point>
+    </default>
+    <spawn team="red" yaw="180" kit="red">
+        <union>
+            <point>411.5,11,-288.5</point>
+            <point>351.5,11,-288.5</point>
+        </union> 
+    </spawn>
+    <spawn team="blue" yaw="0" kit="blue">
+        <union>
+            <point>351.5,11,-490.5</point>
+            <point>411.5,11,-490.5</point>
+        </union> 
+    </spawn>
+</spawns>
+<cores material="obsidian" leak="10">
+    <core name="Red Crane Core" team="red">
+        <cuboid min="378,22,-354" max="382,29,-358"/>
+    </core>
+    <core name="Blue Crane Core" team="blue">
+        <cuboid min="384,22,-424" max="380,29,-420"/>
+    </core>
+</cores>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>stone axe</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>glass</item>
+    <item>cooked fish</item>
+    <item>log</item>
+    <item>obsidian</item>
+</itemremove>
+<maxbuildheight>51</maxbuildheight>
+</map>
