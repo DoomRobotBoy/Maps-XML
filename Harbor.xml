@@ -36,66 +36,84 @@
     </kit>
 </kits>
 <spawns>
-    <default yaw="90">
-        <point>-1601.5,50,561.5</point>
+    <default yaw="-180">
+        <point>381.5,68,-389.5</point>
     </default>
     <spawn team="red" yaw="180" kit="red">
-        <cylinder base="-1662.5,11,683.5" radius="1" height="0"/> 
+        <union>
+            <point>411.5,15,-288.5</point>
+            <point>351.5,15,-288.5</point>
+        </union> 
     </spawn>
     <spawn team="blue" yaw="0" kit="blue">
-        <cylinder base="-1660.5,11,438.5" radius="1" height="0"/> 
+        <union>
+            <point>351.5,15,-490.5</point>
+            <point>411.5,15,-490.5</point>
+        </union> 
     </spawn>
 </spawns>
 <filters>
     <filter name="no-void">
         <void/>
     </filter>
+    <filter name="deny-chest">
+        <deny><block>chest</block></deny>
+    </filter>
+    <filter name="deny-tnt">
+        <block>chest</block>
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
 </filters>
 <regions>
     <apply block="no-void" message="You may not modify the void area!">
-        <rectangle name="red-side" min="-1619.5,580.5" max="-1704.5,692.5"/>
-        <rectangle name="blue-side" min="-1703.5,541.5" max="-1618.5,429.5"/>
+        <rectangle min="oo,oo" max="--oo,-oo"/>
     </apply>
     <apply block="deny-all" message="You may not modify the spawn tower">
-        <cuboid min="-1653.5,0,675.5" max="-1668.5,27,689.5"/>
-        <cuboid min="-1669.5,0,446.5" max="-1654.5,27,432.5"/>
+        <region name="red-spawns"/>
+        <region name="blue-spawns"/>
     </apply>
-    <apply block="deny-all" message="You may not modify the void area!">
-        <rectangle min="-1699.5,579.5" max="-1699.5,542.5"/>
-        <rectangle min="-1623.5,542.5" max="-1623.5,579.5"/>
+    <apply block="deny-chest" message="You may not break the TNT chests!">
+        <union name="tnt-supplies">
+            <cuboid name="red-tnt-supplies" min="370,15,-331" max="377,19,-317"/>
+            <cuboid name="blue-tnt-supplies" min="392,15,-449" max="385,19,-463"/>
+        </union>
+    </apply>
+    <apply block="deny-tnt">
+        <region name="tnt-supplies"/>
+        <union name="red-spawns">
+            <rectangle min="354,-297" max="348,-286"/>
+            <rectangle min="408,-297" max="414,-286"/>
+        </union>
+        <union name="blue-spawns">
+            <rectangle min="354,-483" max="348,-494"/>
+            <rectangle min="408,-483" max="414,-494"/>
+        </union>
     </apply>
 </regions>
-<modes>
-    <mode after="20m" material="gold block" name="`6GOLD MODE"/>
-    <mode after="30m" mateiral="glass" name="`bGLASS MODE"/>
-</modes>
-<cores mode-changes="true" material="obsidian" leak="6">
-    <core team="red">
-        <cuboid min="-1632.5,17,625.5" max="-1626.5,22,631.5"/>
+<cores material="obsidian" leak="10">
+    <core name="Red Crane Core" team="red">
+        <cuboid min="378,26,-356" max="382,29,-358"/>
     </core>
-    <core team="red">
-        <cuboid min="-1659.5,35,680.5" max="-1665.5,40,686.5"/>
-    </core>
-    <core team="blue">
-        <cuboid min="-1690,17,496.5" max="-1696.5,22,490.5"/>
-    </core>
-    <core team="blue">
-        <cuboid min="-1663.5,35,441.5" max="-1657.5,42,435.5"/>
+    <core name="Blue Crane Core" team="blue">
+        <cuboid min="384,26,-424" max="380,29,-422"/>
     </core>
 </cores>
-<itemremove>
-    <item>iron helmet</item>
-    <item>iron chestplate</item>
-    <item>leather leggings</item>
-    <item>iron boots</item>
-    <item>glass</item>
-    <item>grilled pork</item>
-</itemremove>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
     <tool>diamond pickaxe</tool>
-    <tool>iron axe</tool>
+    <tool>stone axe</tool>
+    <tool>arrow</tool>
 </toolrepair>
-<maxbuildheight>46</maxbuildheight>
+<itemremove>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>glass</item>
+    <item>cooked fish</item>
+    <item>log</item>
+    <item>obsidian</item>
+</itemremove>
+<maxbuildheight>55</maxbuildheight>
 </map>
