@@ -53,12 +53,12 @@
         </union> 
     </spawn>
 </spawns>
-<cores material="obsidian" leak="10">
+<cores material="obsidian" leak="8">
     <core name="Red Crane Core" team="red">
-        <cuboid min="378,22,-354" max="382,29,-358"/>
+        <cuboid min="378,23,-347" max="383,20,-350"/>
     </core>
     <core name="Blue Crane Core" team="blue">
-        <cuboid min="384,22,-424" max="380,29,-420"/>
+        <cuboid min="385,23,-432" max="380,20,-429"/>
     </core>
 </cores>
 <toolrepair>
