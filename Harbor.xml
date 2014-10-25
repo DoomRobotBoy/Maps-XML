@@ -67,29 +67,32 @@
     </filter>
 </filters>
 <regions>
+    <union name="red-spawns">
+        <rectangle min="354,-297" max="348,-286"/>
+        <rectangle min="408,-297" max="414,-286"/>
+    </union>
+    <union name="blue-spawns">
+        <rectangle min="354,-483" max="348,-494"/>
+        <rectangle min="408,-483" max="414,-494"/>
+    </union>
+    <union name="tnt-supplies">
+        <cuboid name="red-tnt-supplies" min="370,15,-331" max="377,19,-317"/>
+        <cuboid name="blue-tnt-supplies" min="392,15,-449" max="385,19,-463"/>
+    </union>
     <apply block="no-void" message="You may not modify the void area!">
-        <rectangle min="oo,oo" max="--oo,-oo"/>
+        <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block="deny-all" message="You may not modify the spawn tower">
         <region name="red-spawns"/>
         <region name="blue-spawns"/>
     </apply>
     <apply block="deny-chest" message="You may not break the TNT chests!">
-        <union name="tnt-supplies">
-            <cuboid name="red-tnt-supplies" min="370,15,-331" max="377,19,-317"/>
-            <cuboid name="blue-tnt-supplies" min="392,15,-449" max="385,19,-463"/>
-        </union>
+        <region name="tnt-supplies"/>
     </apply>
     <apply block="deny-tnt">
         <region name="tnt-supplies"/>
-        <union name="red-spawns">
-            <rectangle min="354,-297" max="348,-286"/>
-            <rectangle min="408,-297" max="414,-286"/>
-        </union>
-        <union name="blue-spawns">
-            <rectangle min="354,-483" max="348,-494"/>
-            <rectangle min="408,-483" max="414,-494"/>
-        </union>
+        <region name="red-spawns"/>
+        <region name="blue-spawns"/>
     </apply>
 </regions>
 <cores material="obsidian" leak="10">
