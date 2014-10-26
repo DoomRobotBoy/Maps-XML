@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Tryclops Alpha</name>
+<version>1.0.0</version>
+<objective>Take control of the hill to advance!</objective>
+<authors>
+    <author contribution="Map Layout, Aesthetics, Main Builder, XML">DoomRobotBoy</author>
+    <author contribution="Aesthetics, Roof">lordblox5000</author>
+    <author contribution="Aesthetics, Roof">manucide</author>
+    <author contribution="Aesthetics, Roof fixing">Linehodres</author>
+</authors>
+<contributors>
+    <contributor contribution="Moral Support, Covering fireplaces">Guicotsch</contributor>
+    <contributor contribution="MapDev Server Host">jollee999</contributor>
+</contributors>
+<teams>
+    <team color="gold" max="8">Orange Team</team>
+    <team color="dark purple" max="8">Purple Team</team>
+    <team color="blue" max="8">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" amount="32">bread</item>
+        <item slot="3" amount="1">golden apple</item>
+        <item slot="28" amount="32">arrow</item>
+        <leggings damage="-3000">chainmail leggings</leggings>
+        <potion duration="5" amplifier="10">heal</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>
+    </kit>
+    <kit name="orange" parents="spawn">
+        <helmet color="D87F33" damage="-3000">leather helmet</helmet>
+        <chestplate color="D87F33" damage="-3000">leather chestplate</chestplate>
+        <boots color="D87F33" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="purple" parents="spawn">
+        <helmet color="7F3FB2" damage="-3000">leather helmet</helmet>
+        <chestplate color="7F3FB2" damage="-3000">leather chestplate</chestplate>
+        <boots color="7F3FB2" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="334CB2" damage="-3000">leather helmet</helmet>
+        <chestplate color="334CB2" damage="-3000">leather chestplate</chestplate>
+        <boots color="334CB2" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<spawns>
+    <spawns yaw="90">
+        <spawn team="red" kit="red"><region name="red-spawn"/></spawn>
+    </spawns>
+    <spawns yaw="270">
+        <spawn team="blue" kit="blue"><region name="blue-spawn"/></spawn>
+    </spawns>
+    <default yaw="90">
+        <cylinder base="95,60,0" radius="3" height="0"/>
+    </default>
+</spawns>
+<king>
+    <hills>
+        <hill name="CP-1" capture-time="10s" ratio="0">
+            <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
+            <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
+            <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
+        </hill>
+        <hill name="CP-2" capture-time="10s" ratio="1">
+            <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
+            <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
+            <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>1</limit>
+    <king/>
+</score>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>bread</item>
+    <item>golden apple</item>
+</itemremove>
