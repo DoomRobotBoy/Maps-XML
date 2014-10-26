@@ -53,6 +53,58 @@
         </union> 
     </spawn>
 </spawns>
+<filters>
+    <filter name="no-void">
+        <void/>
+    </filter>
+    <filter name="no-chest">
+        <deny><block>chest</block></deny>
+    </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <union name="red-spawns">
+        <rectangle min="355,-297" max="348,-285"/>
+        <rectangle min="408,-297" max="415,-285"/>
+    </union>
+    <union name="blue-spawns">
+        <rectangle min="355,-482" max="348,-494"/>
+        <rectangle min="408,-482" max="415,-494"/>
+    </union>
+    <union name="tnt-supplies">
+        <cuboid name="red-tnt-supplies" min="378,17,-316" max="370,11,-331"/>
+        <cuboid name="blue-tnt-supplies" min="392,11,-449" max="385,15,-463"/>
+    </union>
+    <union name="helpful-signs">
+        <cuboid min="356,13,-476" max="355,13,-474"/>
+        <cuboid min="407,13,-475" max="406,13,-473"/>
+        <cuboid min="407,13,-303" max="408,13,-305"/>
+        <cuboid min="356,13,-304" max="357,13,-306"/>
+    </union>
+    <apply block="deny-all" message="You may not modify the spawns!">
+        <region name="red-spawns"/>
+        <region name="blue-spawns"/>
+    </apply>
+    <apply block="no-chest" message="You may not break the TNT chests!">
+        <region name="tnt-supplies"/>
+    </apply>
+    <apply block="deny-tnt">
+        <region name="red-spawns"/>
+        <region name="blue-spawns"/>
+        <region name="tnt-supplies"/>
+        <region name="helpful-signs"/>
+    </apply>
+    <apply block="deny-all" message="Don't destroy helpful signs">
+        <region name="helpful-signs"/>
+    </apply>
+    <apply block="no-void" message="You may not modify the void area!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
 <cores material="obsidian" leak="8">
     <core name="Red Crane Core" team="red">
         <cuboid min="378,23,-347" max="383,20,-350"/>
