@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<map proto="1.3.5">
+<name>Tryclops Alpha</name>
+<version>1.0.0</version>
+<objective>Take control of the hill to advance!</objective>
+<authors>
+    <author contribution="Map Layout, Aesthetics, Main Builder, XML">DoomRobotBoy</author>
+    <author contribution="Aesthetics, Roof">lordblox5000</author>
+    <author contribution="Aesthetics, Roof">manucide</author>
+    <author contribution="Aesthetics, Roof fixing">Linehondres</author>
+</authors>
+<contributors>
+    <contributor contribution="Moral Support, Covering fireplaces">Guicotsch</contributor>
+    <contributor contribution="MapDev Server Host">jollee999</contributor>
+</contributors>
