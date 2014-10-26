@@ -57,15 +57,14 @@
     </default>
 </spawns>
 <filters>
-    <filter name="deny-beacons" parents="allow-all">
-        <deny><block>beacon</block></deny>
+    <filter name="only-stained-glass-pane">
+        <allow><block>stained glass pane</block></allow>
     </filter>
 </filters>
 <regions>
-    <rectangle name="playable" min="-oo,-oo" max="oo,oo"/>
-    <cylinder name="red-spawn" base="49,4,66" radius="4" height="0"/>
-    <cylinder name="blue-spawn" base="-48,4,-65" radius="4" height="0"/>
-    <apply block="deny-all" use="deny-beacons"><region name="playable"/></apply>
+    <apply block="only-stained-glass-pane">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
 </regions>
 <king>
     <hills>
