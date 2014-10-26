@@ -56,6 +56,17 @@
         <cylinder base="95,60,0" radius="3" height="0"/>
     </default>
 </spawns>
+<filters>
+    <filter name="deny-beacons" parents="allow-all">
+        <deny><block>beacon</block></deny>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="playable" min="-oo,-oo" max="oo,oo"/>
+    <cylinder name="red-spawn" base="49,4,66" radius="4" height="0"/>
+    <cylinder name="blue-spawn" base="-48,4,-65" radius="4" height="0"/>
+    <apply block="deny-all" use="deny-beacons"><region name="playable"/></apply>
+</regions>
 <king>
     <hills>
         <hill name="CP-1" capture-time="10s" ratio="0">
@@ -74,6 +85,12 @@
     <limit>1</limit>
     <king/>
 </score>
+<killreward>
+    <item amount="16">arrow</item>
+</killreward>
+<killreward>
+    <item>golden apple</item>
+</killreward>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
@@ -86,3 +103,4 @@
     <item>bread</item>
     <item>golden apple</item>
 </itemremove>
+</map>
