@@ -73,7 +73,7 @@
             <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
             <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
         </hill>
-        <hill name="CP-2" capture-time="10s" ratio="1">
+        <hill name="CP-2" capture-time="1s" ratio="1">
             <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
             <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
             <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
