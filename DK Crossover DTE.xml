@@ -149,9 +149,7 @@
     <mode after="3m" material="air" name="`6The wall has been `6`lremoved!"/>
 </modes>
 <broadcasts>
-    <tip after="10s">
-        `7The cobweb areas mark where you are unable to bridge!
-    </tip>
+    <tip after="10s">`7The cobweb areas mark where you are unable to bridge!</tip>
 </broadcasts>
 <portals>
 <!--  Blue's portals  -->
