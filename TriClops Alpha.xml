@@ -46,22 +46,52 @@
     </kit>
 </kits>
 <spawns>
-    <spawns yaw="90">
-        <spawn team="red" kit="red"><region name="red-spawn"/></spawn>
-    </spawns>
-    <spawns yaw="270">
-        <spawn team="blue" kit="blue"><region name="blue-spawn"/></spawn>
-    </spawns>
-    <default yaw="90">
-        <cylinder base="95,60,0" radius="3" height="0"/>
+    <spawn team="orange" kit="orange" yaw="0">
+        <point>258.5,11,113.5</point>
+    </spawn>
+    <spawn team="purple" kit="purple" yaw="0">
+        <point>208.5,11,96.5</point>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <point>158.5,11,113.5</point>
+    </spawn>
+    <default yaw="-180">
+        <cylinder base="208.5,25,187.5" radius="1" height="0"/>
     </default>
 </spawns>
 <filters>
+    <filter name="only-orange-stained-glass-pane">
+        <team>Orange Team</team>
+        <allow><block>stained glass pane</block></allow>
+    </filter>
+    <filter name="only-purple-stained-glass-pane">
+        <team>Purple Team</team>
+        <allow><block>stained glass pane</block></allow>
+    </filter>
+    <filter name="only-blue-stained-glass-pane">
+        <team>Blue Team</team>
+        <allow><block>stained glass pane</block></allow>
+    </filter>
+    <filter name="no-white-stained-glass-pane">
+        <deny><block>stained glass pane:0</block></deny>
+    </filter>
     <filter name="only-stained-glass-pane">
         <allow><block>stained glass pane</block></allow>
     </filter>
 </filters>
 <regions>
+    <apply block="only-orange-stained-glass-pane">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="only-purple-stained-glass-pane">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="only-blue-stained-glass-pane">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="no-white-stained-glass-pane">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
     <apply block="only-stained-glass-pane">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
@@ -69,19 +99,19 @@
 <king>
     <hills>
         <hill name="CP-1" capture-time="10s" ratio="0">
-            <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
-            <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
-            <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
+            <capture><cuboid min="205,9,222" max="212,12,229"/></capture>
+            <progress><cuboid min="205,9,222" max="212,12,229"/></progress>
+            <captured><cuboid min="203,8,222" max="214,13,233"/></captured>
         </hill>
         <hill name="CP-2" capture-time="1s" ratio="1">
-            <capture><cuboid min="-45,12,30" max="-36,15,39"/></capture>
-            <progress><cuboid min="-45,11,30" max="-37,11,38"/></progress>
-            <captured><cuboid min="-46,11,29" max="-34,16,41"/></captured>
+            <capture><cuboid min="205,9,236" max="212,12,243"/></capture>
+            <progress><cuboid min="205,8,236" max="212,8,243"/></progress>
+            <captured><cuboid min="205,8,236" max="212,8,243"/></captured>
         </hill>
     </hills>
 </king>
 <score>
-    <limit>1</limit>
+    <limit>5</limit>
     <king/>
 </score>
 <killreward>
