@@ -20,6 +20,9 @@
     <team color="blue" max="8">Blue Team</team>
 </teams>
 <kits>
+    <kit name="obs">
+        <potion duration="oo">night vision</potion>
+    </kit>
     <kit name="spawn">
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
@@ -29,6 +32,7 @@
         <leggings damage="-3000">chainmail leggings</leggings>
         <potion duration="5" amplifier="10">heal</potion>
         <potion duration="5" amplifier="10">damage resistance</potion>
+        <potion duration="oo">night vision</potion>
     </kit>
     <kit name="orange" parents="spawn">
         <helmet color="D87F33" damage="-3000">leather helmet</helmet>
@@ -62,7 +66,7 @@
             <point>158.5,11,113.5</point>
         </region>
     </spawn>
-    <default yaw="-180">
+    <default kit="obs" yaw="-180">
         <region>
             <cylinder base="208.5,25,187.5" radius="1" height="0"/>
         </region>
