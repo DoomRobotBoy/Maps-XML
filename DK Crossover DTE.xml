@@ -18,31 +18,29 @@
 <kits>
     <kit name="spawn">
         <item slot="0">iron sword</item>
-        <item slot="1" enchantment="arrow damage:1">bow</item>
+        <item slot="1" enchantment="arrow damage:1" attributes="generic.movementSpeed:base:-0.10">bow</item>
+        <item slot="28" amount="48">arrow</item>
         <item slot="2" enchantment="dig speed:2">iron pickaxe</item>
         <item slot="3" amount="64">vine</item>
-        <item slot="5" amount="16">stone button</item>
-        <item slot="6">water bucket</item>
-        <item slot="7" amount="16">redstone block</item>
-        <item slot="8" amount="64">tnt</item>
-        <item slot="9" amount="3">dispenser</item>
-        <item slot="14" amount="64">wood step</item>
-        <item slot="15">water bucket</item>
-        <item slot="17" amount="64">tnt</item>
-        <item slot="16" amount="16">diode</item>
-        <item slot="19" amount="64">arrow</item>
-        <item slot="21" amount="32">fence</item>
-        <item slot="23" amount="16">lever</item>
-        <item slot="25" amount="16">redstone torch on</item>
-        <item slot="24">water bucket</item>
-        <item slot="26" amount="64">tnt</item>
-        <item slot="28" amount="64">arrow</item>
         <item slot="30" amount="16">ladder</item>
-        <item slot="34" amount="64">redstone</item>
-        <item slot="35" amount="64">tnt</item>
+        <item slot="21" amount="1">dispenser</item>
+        <item slot="5" amount="16">stone button</item>
         <item slot="32" amount="16">wood plate</item>
-        <item slot="33">water bucket</item>
-        <item slot="10" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
+        <item slot="23" amount="16">lever</item>
+        <item slot="14" amount="64">wood step</item>
+        <item slot="6" amount="16">redstone block</item>
+        <item slot="33" amount="64">redstone</item>
+        <item slot="24" amount="16">redstone torch on</item>
+        <item slot="15" amount="16">diode</item>
+        <item slot="7" amount="32">trap door</item>
+        <item slot="34" amount="64">stone plate</item>
+        <item slot="25" amount="16">fence gate</item>
+        <item slot="16" amount="32">fence</item>
+        <item slot="8" amount="64">tnt</item>
+        <item slot="35" amount="64">tnt</item>
+        <item slot="26" amount="64">tnt</item>
+        <item slot="17" amount="64">tnt</item>
+        <item slot="9" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
         <potion duration="oo" amplifier="1">night vision</potion>
     </kit>
     <kit name="blue" parents="spawn">
@@ -111,7 +109,7 @@
             </all>
         </not>
     </filter>
-    <filter name="deny-greeb-explosions">
+    <filter name="deny-green-explosions">
         <not>
             <all>
                 <cause>explosion</cause>
