@@ -55,9 +55,9 @@
         <boots color="334CB2" enchantment="protection fall:1" damage="-3000">leather boots</boots>
     </kit>
     <kit name="green" parents="spawn">
-        <item slot="4" amount="64" damage="5">stained clay</item>
-        <item slot="31" amount="64" damage="5">stained clay</item>
-        <item slot="22" amount="64" damage="5">stained clay</item>
+        <item slot="4" amount="64" damage="13">stained clay</item>
+        <item slot="31" amount="64" damage="13">stained clay</item>
+        <item slot="22" amount="64" damage="13">stained clay</item>
         <helmet color="667F33" damage="-3000">leather helmet</helmet>
         <chestplate enchantment="protection explosions:3">chainmail chestplate</chestplate>
         <leggings damage="-3000">iron leggings</leggings>
@@ -84,6 +84,42 @@
             <block>glass</block>
         </not>
     </filter>
+    <filter name="deny-lime-clay">
+        <deny>
+            <block>stained clay:5</block>
+        </deny>
+    </filter>
+    <filter name="deny-cyan-clay">
+        <deny>
+            <block>stained clay:9</block>
+        </deny>
+    </filter>
+    <filter name="all-but-tnt">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>tnt</block>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-blue-explosions">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <team>blue</team>
+                <filter name="all-but-tnt"/>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-greeb-explosions">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <team>green</team>
+                <filter name="all-but-tnt"/>
+            </all>
+        </not>
+    </filter>
 </filters>
 <regions>
     <union name="jump-pads">
@@ -94,6 +130,8 @@
         <cuboid min="999,31,361" max="1002,33,364"/>
         <cuboid min="999,7,425" max="1002,9,428"/>
     </union>
+    <cuboid name="blue-side" min="972,0,359" max="1007,119,440"/>
+    <cuboid name="green-side" min="934,0,358" max="942,117,439"/>
     <apply block-break="deny-glass" message="You may not edit the wall!">
         <cuboid min="968,0,439" max="973,120,359"/>
     </apply>
@@ -108,6 +146,18 @@
             <cuboid min="934,0,439" max="1007,119,359"/>
         </negative>
     </apply>
+    <apply block="deny-blue-explosions" message="You may not blow up your own side!">
+        <region name="blue-side"/>
+    </apply>
+    <apply block="deny-green-explosions" message="You may not blow up your own side!">
+        <region name="green-side"/>
+    </apply>
+    <apply block="deny-lime-clay">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-cyan-clay">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
 <!--  green jump pads - top to bottom  -->
     <apply velocity="@0.0,2.4,0.0" block="deny-all">
         <region name="jump-pads"/>
@@ -119,21 +169,17 @@
             <cuboid min="972,0,359" max="1007,119,440"/>
             <cuboid min="934,0,358" max="942,117,439"/>
         </region>
-        <renew>stained clay:5</renew>
-        <renew>stained clay:11</renew>
         <renew>stained clay:14</renew>
-        <replace>stained clay:5</replace>
-        <replace>stained clay:11</replace>
         <replace>stained clay:14</replace>
         <replace>air</replace>
     </renewable>
 </renewables>
 <destroyables>
-    <destroyable name="Blue Side" owner="blue" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:7;stained clay:8;stained clay:11;stained clay:12;stained clay:14;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14;stained clay:15">
-        <cuboid min="972,0,359" max="1007,119,440"/>
+    <destroyable name="Blue Side" owner="blue" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14">
+        <region name="blue-side"/>
     </destroyable>
-    <destroyable name="Green Side" owner="green" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:5;stained clay:7;stained clay:8;stained clay:12;stained clay:14;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14;stained clay:15">
-        <cuboid min="934,0,358" max="942,117,439"/>
+    <destroyable name="Green Side" owner="green" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14">
+        <region name="green-side"/>
     </destroyable>
     <destroyable name="wall" owner="green" materials="glass;wool:4;stained clay:12;wood:1;gold block" completion="0" show="false" mode-changes="true">
         <cuboid min="968,0,439" max="973,120,359"/>
@@ -150,6 +196,8 @@
 </modes>
 <broadcasts>
     <tip after="10s">`7The cobweb areas mark where you are unable to bridge!</tip>
+    <tip after="2m">`7The cobweb areas mark where you are unable to bridge!</tip>
+    <tip after="5m">`7The cobweb areas mark where you are unable to bridge!</tip>
 </broadcasts>
 <portals>
 <!--  Blue's portals  -->
