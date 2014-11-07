@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Redime</name>
+<version>1.0.0</version>
+<objective>Be the team with the most amount of points after 10 minutes.</objective>
+<authors>
+    <author>rockymine</author>
+    <author>DoomRobotBoy</author>
+</authors>
+<teams>
+    <team color="blue" max="20" max-overfill="24">Blue Team</team>
+    <team color="dark red" max="20" max-overfill="24">Red Team</team>
+</teams>
+<score>
+    <time>600</time>
+    <limit>-1</limit>
+    <box filter="only-red" region="red-depot">
+        <redeemables>
+            <item points="20">emerald</item>
+            <item points="12">diamond</item>
+            <item points="6">gold ingot</item>
+        </redeemables>
+    </box>
+    <box filter="only-blue" region="blue-depot">
+        <redeemables>
+            <item points="20">emerald</item>
+            <item points="12">diamond</item>
+            <item points="6">gold ingot</item>
+        </redeemables>
+    </box>
+    <box value="6" filter="only-red" cooldown="1">
+        <region><cuboid min="92,3,-458" max="89,4,-459"/></region>
+    </box>
+    <box value="6" filter="only-red" cooldown="1">
+        <region><cuboid min="92,7,-458" max="89,8,-459"/></region>
+    </box>
+    <box value="6" filter="only-red" cooldown="1">
+        <region><cuboid min="145,3,-458" max="148,4,-459"/></region>
+    </box>
+    <box value="6" filter="only-red" cooldown="1">
+        <region><cuboid min="145,7,-458" max="148,8,-459"/></region>
+    </box>
+    <box value="6" filter="only-blue" cooldown="1">
+        <region><cuboid min="92,3,-458" max="89,4,-459"/></region>
+    </box>
+    <box value="6" filter="only-blue" cooldown="1">
+        <region><cuboid min="92,7,-458" max="89,8,-459"/></region>
+    </box>
+    <box value="6" filter="only-blue" cooldown="1">
+        <region><cuboid min="145,3,-458" max="148,4,-459"/></region>
+    </box>
+    <box value="6" filter="only-blue" cooldown="1">
+        <region><cuboid min="145,7,-458" max="148,8,-459"/></region>
+    </box>
+</score>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="2" amount="2">golden apple</item>
+        <item slot="28" amount="16">arrow</item>
+        <item slot="3" enchantment="dig speed:1" lore="Use this to mine the opposite teams' monument!" damage="-3000">iron pickaxe</item>
+        <leggings damage="-3000">chainmail leggings</leggings>
+        <boots damage="-3000">iron boots</boots>
+        <potion duration="5" amplifier="1">heal</potion>
+    </kit>
+    <kit name="red" parents="spawn" force="true">
+        <helmet color="993333" damage="-3000">leather helmet</helmet>
+        <chestplate color="993333" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="spawn" force="true">
+        <helmet color="334CB2" damage="-3000">leather helmet</helmet>
+        <chestplate color="334CB2" damage="-3000">leather chestplate</chestplate>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="red" yaw="0">
+        <block>118.5,11,-362.5</block>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="180">
+        <block>118.5,11,-458.5</block>
+    </spawn>
+    <default kit="default">
+        <block>118.5,3,-410.5</block>
+    </default>
+</spawns>
+<filters>
+    <filter name="red-only">
+        <team>Red Team</team>
+    </filter>
+    <filter name="blue-only">
+        <team>Blue Team</team>
+    </filter>
+</filters>
+<regions>
+    <cuboid name="red-depot" min="119,3,-370" max="118,5,-371"/>
+    <cuboid name="blue-depot" min="119,3,-450" max="118,5,-451"/>
+    <apply block-break="red-only">
+        <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
+        <union name="red-spawn-exits">
+            <cuboid name="left-exit" min="126,3,-368" max="123,5,-369"/>
+            <cuboid name="right-exit" min="111,3,-368" max="114,5,-369"/>
+        </union>
+    </apply>
+    <apply block-break="blue-only">
+        <cuboid name="red-monument" min="121,5,-394" max="115,18,-387"/>
+        <union name="blue-spawn-exits">
+            <cuboid name="left-exit" min="111,3,-452" max="114,5,-453"/>
+            <cuboid name="right-exit" min="126,3,-452" max="123,5,-453"/>
+        </union>
+    </apply>
+    <apply block="deny-all">
+        <negative>
+            <union name="destroyable-regions">
+                <cuboid name="red-monument" min="121,5,-394" max="115,18,-387"/>
+                <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
+            </union>
+        </negative>
+    </apply>
+    <apply velocity="@0.0,1.0,1.0">
+        <block name="red-jump-pad">118.5,11,-422.5</block> 
+    </apply>
+    <apply velocity="@0.0,1.0,-1.0">
+        <block name="blue-jump-pad">118.5,11,-422.5</block> 
+    </apply>
+</regions>
+<itemremove>
+    <item>iron pickaxe</item>
+    <item>arrow</item>
+    <item>golden apple</item>
+    <item>fence</item>
+    <item>trap door</item>
+    <item>sandstone stairs</item>
+    <item>sandstone</item>
+    <item>sandstone</item>
+    <item>wood step</item>
+    <item>step:1</item>
+</itemremove>
+<killreward>
+    <item amount="4">arrow</item>
+</killreward>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<blockdrops>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>gold block</block>
+        </filter>
+        <drops>
+            <item>gold ingot</item>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>diamond block</block>
+        </filter>
+        <drops>
+            <item>diamond</item>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+    <rule>
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+        <filter>
+            <block>emerald block</block>
+        </filter>
+        <drops>
+            <item>emerald</item>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+</blockdrops>
+</map>
