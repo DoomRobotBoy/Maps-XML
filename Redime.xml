@@ -194,7 +194,7 @@
     </rule>
 </blockdrops>
 <broadcasts>
-    <tip after="10s">Bring the gems, acquired from the opposing `8Monument, back to your Gem Scorepoint to recieve more points.</tip>
+    <tip after="10s">Bring the gems, acquired from the opposing `8Monument, back to your Gem Scorepoint to receive more points.</tip>
     <alert after="15s">Blockglitching is against the rules!</alert>
     <alert after="30s">To win you must have the most amount of points after 10 minutes!</alert>
     <alert after="5m">5 minutes left!</alert>
