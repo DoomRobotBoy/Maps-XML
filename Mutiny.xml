@@ -1,1 +1,29 @@
-bla
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Mutiny</name>
+<version>1.0.0</version>
+<objective>Leak lava from the enemy's obsidian core into the void.</objective>
+<authors>
+    <author>Avaleer</author>
+    <author>Sucitar</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<filters>
+    <filter name="void">
+        <void/>
+    </filter>
+</filters>
+<regions>
+    <apply block="deny-all">
+        <union name="spawns-protection">
+            <rectangle name="red-spawn-protect" min="" max=""/>
+            <rectangle name="blue-spawn-protect" min="" max=""/>
+        </union>
+    </apply>
+<-- Void filter must go last, since it overrides all regions under it </-->
+    <apply block="void" message="You may not modify the void area!">
+        <region min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
