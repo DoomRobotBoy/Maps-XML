@@ -1,0 +1,34 @@
+gold=6 points
+diamond=12 points
+emerald=20 points
+every block with 1 gem of it
+Monumental Miner (pickaxe) in monument region with effi I
+Stone sword
+bow with 16 arrows (4 as killreward)
+2 golden apples (no killreward)
+leather cap, chestplate, chainmail leggings, iron boots
+
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name></name>
+<version>1.0.0</version>
+<objective>Be the team with the most amount of points after 10 minutes.</objective>
+<authors>
+    <author>rockymine</author>
+    <author>DoomRobotBoy</author>
+</authors>
+<teams>
+    <team color="blue" max="20" max-overfill="24">Blue Team</team>
+    <team color="dark red" max="20" max-overfill="24">Red Team</team>
+</teams>
+<regions>
+    <apply block="deny-all">
+        <negative>
+            <union name="destroyable-regions">
+                <cuboid name="red-monument" min="121,5,-394" max="115,18,-387"/>
+                <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
+            </union>
+        </negative>
+    </apply>
+    <apply velocity="
+</regions>
