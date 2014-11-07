@@ -7,6 +7,9 @@
     <author>rockymine</author>
     <author>DoomRobotBoy</author>
 </authors>
+<rules>
+    <rule>Do not block-glitch on the sides!</rule>
+</rules>
 <teams>
     <team color="blue" max="20" max-overfill="24">Blue Team</team>
     <team color="dark red" max="20" max-overfill="24">Red Team</team>
@@ -190,4 +193,10 @@
         <wrongtool>false</wrongtool>
     </rule>
 </blockdrops>
+<broadcasts>
+    <tip after="10s">Bring the gems, acquired from the opposing `8Monument, back to your Gem Scorepoint to recieve more points.</tip>
+    <alert after="15s">Blockglitching is against the rules!</alert>
+    <alert after="30s">To win you must have the most amount of points after 10 minutes!</alert>
+    <alert after="5m">5 minutes left!</alert>
+</broadcasts>
 </map>
