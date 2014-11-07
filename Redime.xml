@@ -128,10 +128,10 @@
                 <cuboid min="115,13,-427" max="122,30,-421"/>
             </union>
         </negatuve>
-    <apply velocity="@0.0,1.0,1.0">
-        <block name="red-jump-pad">118.5,11,-422.5</block> 
+    <apply velocity="@0.0,1.3,0.8">
+        <block name="red-jump-pad">118.5,11,-398.5</block> 
     </apply>
-    <apply velocity="@0.0,1.0,-1.0">
+    <apply velocity="@0.0,1.3,-0.8">
         <block name="blue-jump-pad">118.5,11,-422.5</block> 
     </apply>
 </regions>
