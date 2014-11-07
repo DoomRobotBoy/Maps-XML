@@ -57,9 +57,9 @@
     <kit name="spawn">
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
-        <item slot="2" amount="2">golden apple</item>
+        <item slot="2" enchantment="dig speed:1" lore="Use this to mine the opposite teams' monument!" damage="-3000">iron pickaxe</item>
+        <item slot="3" amount="2">golden apple</item>
         <item slot="28" amount="16">arrow</item>
-        <item slot="3" enchantment="dig speed:1" lore="Use this to mine the opposite teams' monument!" damage="-3000">iron pickaxe</item>
         <leggings damage="-3000">chainmail leggings</leggings>
         <boots damage="-3000">iron boots</boots>
         <potion duration="5" amplifier="1">heal</potion>
