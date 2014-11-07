@@ -23,7 +23,12 @@
         <item slot="29" amount="64">wood:2</item>
         <item slot="20" amount="64">wood:2</item>
         <item slot="11" amount="64">wood:2</item>
-        
+        <item slot="3">boat</item>
+        <item slot="4" damage="8229">potion</item>
+        <item slot="5" amount="7">gold nugget</item>
+        <item slot="8" amount="64">cooked fish</item>
+        <chestplate color="FFFFFF" damage="-3000">leather chestplate</chestplate>
+        <potion duration="3" amplifier="1">heal</potion>
     </kit>
 </kits>
 <filters>
@@ -43,3 +48,6 @@
         <region min="oo,oo" max="-oo,-oo"/>
     </apply>
 </regions>
+<killreward>
+    <item amount="5">gold nugget</item>
+</killreward>
