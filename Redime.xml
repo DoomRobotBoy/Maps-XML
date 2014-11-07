@@ -97,17 +97,9 @@
     <cuboid name="blue-depot" min="119,3,-450" max="118,5,-451"/>
     <apply block-break="red-only">
         <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
-        <union name="red-spawn-exits">
-            <cuboid name="left-exit" min="126,3,-368" max="123,5,-369"/>
-            <cuboid name="right-exit" min="111,3,-368" max="114,5,-369"/>
-        </union>
     </apply>
     <apply block-break="blue-only">
         <cuboid name="red-monument" min="121,5,-394" max="115,18,-387"/>
-        <union name="blue-spawn-exits">
-            <cuboid name="left-exit" min="111,3,-452" max="114,5,-453"/>
-            <cuboid name="right-exit" min="126,3,-452" max="123,5,-453"/>
-        </union>
     </apply>
     <apply block="deny-all">
         <negative>
@@ -117,6 +109,25 @@
             </union>
         </negative>
     </apply>
+    <apply enter="only-red"/>
+        <union name="red-spawn-exits">
+            <cuboid name="left-exit" min="126,3,-368" max="123,5,-369"/>
+            <cuboid name="right-exit" min="111,3,-368" max="114,5,-369"/>
+        </union>
+    </apply>
+    <apply enter="only-blue"/>
+        <union name="blue-spawn-exits">
+            <cuboid name="left-exit" min="111,3,-452" max="114,5,-453"/>
+            <cuboid name="right-exit" min="126,3,-452" max="123,5,-453"/>
+        </union>
+    </apply>
+    <apply enter="deny-all"/>
+        <negative>
+            <union name="no-jumping">
+                <cuboid min="122,13,-400" max="115,30,-387"/>
+                <cuboid min="115,13,-427" max="122,30,-421"/>
+            </union>
+        </negatuve>
     <apply velocity="@0.0,1.0,1.0">
         <block name="red-jump-pad">118.5,11,-422.5</block> 
     </apply>
