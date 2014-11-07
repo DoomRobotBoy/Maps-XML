@@ -10,6 +10,21 @@
 <contributors>
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
+<teams>
+    <team color="dark red" max="18" max-overfill="22">Red Team</team>
+    <team color="blue" max="18" max-overfill="22">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="2" amount="64">wood:2</item>
+        <item slot="2" amount="64">wood:2</item>
+        <item slot="2" amount="64">wood:2</item>
+        <item slot="2" amount="64">wood:2</item><item slot="2" amount="64">wood:2</item>
+    </kit>
+</kits>
 <filters>
     <filter name="void">
         <void/>
@@ -22,7 +37,7 @@
             <rectangle name="blue-spawn-protect" min="" max=""/>
         </union>
     </apply>
-<-- Void filter must go last, since it overrides all regions under it -->
+<!-- Void filter must go last, since it overrides all regions under it -->
     <apply block="void" message="You may not modify the void area!">
         <region min="oo,oo" max="-oo,-oo"/>
     </apply>
