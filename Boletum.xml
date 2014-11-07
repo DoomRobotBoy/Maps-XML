@@ -7,8 +7,8 @@
     <author>jollee999</author>
 </authors>
 <teams>
-    <team color="gold" max="22" max-overfill="26">Orange Team</team>
-    <team color="green" max="22" max-overfill="26">Green Team</team>
+    <team color="gold" max="22" max-overfill="28">Orange Team</team>
+    <team color="green" max="22" max-overfill="28">Green Team</team>
 </teams>
 <kits>
     <kit name="teams">
