@@ -20,9 +20,10 @@
         <item slot="1">bow</item>
         <item slot="28" amount="64">arrow</item>
         <item slot="2" amount="64">wood:2</item>
-        <item slot="2" amount="64">wood:2</item>
-        <item slot="2" amount="64">wood:2</item>
-        <item slot="2" amount="64">wood:2</item><item slot="2" amount="64">wood:2</item>
+        <item slot="29" amount="64">wood:2</item>
+        <item slot="20" amount="64">wood:2</item>
+        <item slot="11" amount="64">wood:2</item>
+        
     </kit>
 </kits>
 <filters>
