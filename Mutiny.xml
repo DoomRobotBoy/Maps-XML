@@ -22,7 +22,7 @@
             <rectangle name="blue-spawn-protect" min="" max=""/>
         </union>
     </apply>
-<-- Void filter must go last, since it overrides all regions under it </-->
+<-- Void filter must go last, since it overrides all regions under it -->
     <apply block="void" message="You may not modify the void area!">
         <region min="oo,oo" max="-oo,-oo"/>
     </apply>
