@@ -148,6 +148,9 @@
     <item>sandstone</item>
     <item>wood step</item>
     <item>step:1</item>
+    <item>emerald</item>
+    <item>diamond</item>
+    <item>gold ingot</item>
 </itemremove>
 <killreward>
     <item amount="4">arrow</item>
