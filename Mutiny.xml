@@ -19,35 +19,64 @@
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
         <item slot="28" amount="64">arrow</item>
-        <item slot="2" amount="64">wood:2</item>
-        <item slot="29" amount="64">wood:2</item>
-        <item slot="20" amount="64">wood:2</item>
-        <item slot="11" amount="64">wood:2</item>
-        <item slot="3">boat</item>
-        <item slot="4" damage="8229">potion</item>
-        <item slot="5" amount="7">gold nugget</item>
+        <item slot="2">diamond pickaxe</item>
+        <item slot="3" enchantment="dig speed:6">stone axe</item>
+        <item slot="4" amount="64">wood:2</item>
+        <item slot="31" amount="64">wood:2</item>
+        <item slot="22" amount="64">wood:2</item>
+        <item slot="13" amount="64">wood:2</item>
+        <item slot="5">boat</item>
+        <item slot="6" damage="8229">potion</item>
+        <item slot="7" amount="7">gold nugget</item>
         <item slot="8" amount="64">cooked fish</item>
         <chestplate color="FFFFFF" damage="-3000">leather chestplate</chestplate>
         <potion duration="3" amplifier="1">heal</potion>
     </kit>
 </kits>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="45">
+        <cylinder base="715.5,9.5,-55.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="135">
+        <cylinder base="715.5,9.5,90.5" radius="1" height="0"/>
+    </spawn>
+    <default>
+        <cylinder base="699.5,46,17.5" radius="1" height="0"/>
+    </default>
+</spawns>
 <filters>
-    <filter name="void">
-        <void/>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
     </filter>
 </filters>
 <regions>
     <apply block="deny-all">
         <union name="spawns-protection">
-            <rectangle name="red-spawn-protect" min="" max=""/>
-            <rectangle name="blue-spawn-protect" min="" max=""/>
+            <rectangle name="red-spawn-protect" min="722,12,-53" max="713,10,-62"/>
+            <rectangle name="blue-spawn-protect" min="722,12,88" max="713,10,97"/>
         </union>
     </apply>
 <!-- Void filter must go last, since it overrides all regions under it -->
-    <apply block="void" message="You may not modify the void area!">
+    <apply block="no-void" message="You may not modify the void area!">
         <region min="oo,oo" max="-oo,-oo"/>
     </apply>
 </regions>
+<destroyables materials="obsidian" completion="100%">
+    <destroyable name="Front Monument" owner="red">
+       <region><cuboid min="713,18,-34" max="712,19,-35"/></region>
+    </destroyable>
+    <destroyable name="Back Monument" owner="red">
+       <region><cuboid min="678,11,-55" max="677,12,-56"/></region>
+    </destroyable>
+    <destroyable name="Front Monument" owner="blue">
+       <region><cuboid min="713,18,69" max="712,19,70"/></region>
+    </destroyable>
+    <destroyable name="Back Monument" owner="blue">
+       <region><cuboid min="678,11,90" max="677,12,91"/></region>
+    </destroyable>
+</destroyables>
 <killreward>
     <item amount="5">gold nugget</item>
 </killreward>
@@ -55,4 +84,17 @@
     <instantignite>on</instantignite>
     <fuse>4s</fuse>
 </tnt>
+<maxbuildheight>32</maxbuildheight>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>stone axe</tool>
+</toolrepair>
+<itemremove>
+    <item>glass bottle</item>
+    <item>potion</item>
+    <item>cooked fish</item>
+    <item>leather chestplate</item>
+</itemremove>
 </map>
