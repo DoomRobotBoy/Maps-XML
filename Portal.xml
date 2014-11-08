@@ -32,7 +32,7 @@
         <potion duration="oo">night vision</potion>
     </kit>
     <kit name="teams" parents="all" potion-particles="false">
-        <item slot="0" damage="-3000" >bow</item>
+        <item slot="0" damage="-3000" enchantment="damage all:3">bow</item>
         <item slot="1" amount="16">arrow</item>
         <potion duration="3" amplifier="100">damage resistance</potion>
         <potion duration="3" amplifier="100">heal</potion>
