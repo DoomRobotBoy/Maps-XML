@@ -51,3 +51,8 @@
 <killreward>
     <item amount="5">gold nugget</item>
 </killreward>
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>4s</fuse>
+</tnt>
+</map>
