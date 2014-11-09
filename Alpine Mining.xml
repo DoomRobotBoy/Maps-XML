@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <map proto="1.3.6">
-<name>Alpine Mining DTM</name>
+<name>Alpine Mining</name>
 <version>1.0.0</version>
 <objective>
     Destroy the enemy's 3 monuments!
@@ -67,10 +67,22 @@
         </not>
     </filter>
     <filter name="deny-beacon-use">
-<deny>
-<block>beacon</block>
-</deny>
-</filter>
+        <deny>
+            <block>beacon</block>
+        </deny>
+    </filter>
+    <filter name="portal-red" parents="deny-all">
+        <allow>
+            <objective>red-2</objective>
+            <objective>red-3</objective>
+        </allow>
+    </filter>
+    <filter name="portal-blue" parents="deny-all">
+        <allow>
+            <objective>blue-2</objective>
+            <objective>blue-3</objective>
+        </allow>
+    </filter>
 </filters>
 <regions>
     <apply block="deny-world" message="You may not build outside the map!">
@@ -134,22 +146,22 @@
     </apply>
 </regions>
 <destroyables materials="obsidian;beacon">
-    <destroyable owner="red" name="Monument A">
+    <destroyable owner="red" name="Monument A" id="red-1">
         <cuboid min="0,16,-49" max="1,18,-48"/>
     </destroyable>
-    <destroyable owner="blue" name="Monument A">
+    <destroyable owner="blue" name="Monument A" id="blue-1">
         <cuboid min="0,16,101" max="1,18,102"/>
     </destroyable>
-    <destroyable owner="red" name="Monument B">
+    <destroyable owner="red" name="Monument B" id="red-2">
         <cuboid min="-20,32,-187" max="-19,34,-186"/>
     </destroyable>
-    <destroyable owner="blue" name="Monument B">
+    <destroyable owner="blue" name="Monument B" id="blue-2">
         <cuboid min="20,32,239" max="21,34,240"/>
     </destroyable>
-        <destroyable owner="red" name="Monument C">
+        <destroyable owner="red" name="Monument C" id="red-3">
         <cuboid min="24,36,-224" max="25,38,-223"/>
     </destroyable>
-    <destroyable owner="blue" name="Monument C">
+    <destroyable owner="blue" name="Monument C" id="blue-3">
         <cuboid min="-24,36,276" max="-23,38,277"/>
     </destroyable>
 </destoryables>
@@ -160,8 +172,8 @@
     <portal x="@10.5" y="@25" z="@-224.5" yaw="180" protect="true" filter="only-red">
         <cuboid min="17,20,-173" max="18,23,-170"/>
     </portal>
-    <portal x="@-0.5" y="@14" z="@171.5" yaw="-180" protect="true" filter="only-red">
-        <cuboid min="-11,21,318" max="-12,21,319"/>
+    <portal x="@0.5" y="@14" z="@-118.5" yaw="0" protect="true" filter="portal-red">
+        <cuboid min="12,21,-265" max="13,23,-266"/>
     </portal>
     <portal x="@-15.5" y="@20" z="@-224.5" yaw="-90" protect="true" filter="only-blue">
         <cuboid min="-11,25,276" max="-8,28,277"/>
@@ -169,8 +181,8 @@
     <portal x="@-9.5" y="@25" z="@277.5" yaw="0" protect="true" filter="only-blue">
         <cuboid min="-16,20,223" max="-17,23,226"/>
     </portal>
-    <portal x="@-0.5" y="@14" z="@171.5" yaw="-180" protect="true" filter="only-blue">
-        <cuboid min="-11,21,318" max="-12,21,319"/>
+    <portal x="@-0.5" y="@14" z="@171.5" yaw="-180" protect="true" filter="portal-blue">
+        <cuboid min="-11,21,318" max="-12,23,319"/>
     </portal>
 </portals>
 <itemremove>
