@@ -119,6 +119,9 @@
             <region name="red-safety-exit"/>
         </mirror> 
     </apply>
+    <apply block="deny-all" message="You may not place blocks above y=35 over the oceans!">
+        <cuboid min="-46,35,147" max="47,3,-94"/>
+    </apply>
 </regions>
 <destoryables materials="obsidian;beacon">
     <destroyable owner="blue" name="Monument A">
