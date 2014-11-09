@@ -102,6 +102,9 @@
             <cuboid name="sign-4" min="1,36,175" max="0,40,177"/>
             <cuboid name="sign-5" min="-17,32,180" max="-16,35,182"/>
         </union>
+        <mirror normal="0.5,1,26.5">
+            <region name="red-signs"/>
+        </mirror> 
     </apply>
 </regions>
 <destoryables materials="obsidian;beacon">
