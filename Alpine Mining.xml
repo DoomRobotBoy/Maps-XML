@@ -96,6 +96,7 @@
     </apply>
     <apply block="deny-all" message="Do not destroy the helpful signs!">
         <union name="red-signs">
+            <cuboid name="portal-sign-1" min="-10,22,320" max="-8,22,322"/>
             <cuboid name="sign-1" min="15,16,333" max="13,19,335"/>
             <cuboid name="sign-2" min="0,35,232" max="-1,39,230"/>
             <cuboid name="sign-3" min="-13,30,195" max="-12,34,197"/>
@@ -104,6 +105,18 @@
         </union>
         <mirror normal="0.5,1,26.5">
             <region name="red-signs"/>
+        </mirror> 
+    </apply>
+    <apply block="deny-all" message="You may not break the end of the mineshaft!">
+        <cylinder name="red-safety-portal" base="0.5,10,172.5" radius="5" height="9"/>
+        <mirror normal="0.5,1,26.5">
+            <region name="red-safety-portal"/>
+        </mirror> 
+    </apply>
+    <apply block="deny-all" message="Don't clog up the mineshaft!">
+        <cuboid name="red-safety-exit" min="1,14,157" max="0,14,172"/>
+        <mirror normal="0.5,1,26.5">
+            <region name="red-safety-exit"/>
         </mirror> 
     </apply>
 </regions>
@@ -139,6 +152,9 @@
     </portal>
     <portal x="@-9.5" y="@25" z="@277.5" yaw="0" protect="true" filter="only-red">
         <cuboid min="-16,20,223" max="-17,23,226"/>
+    </portal>
+    <portal x="@-0.5" y="@14" z="@171.5" yaw="-180" protect="true" filter="only-red">
+        <cuboid min="-11,21,318" max="-12,21,319"/>
     </portal>
 </portals>
 <itemremove>
