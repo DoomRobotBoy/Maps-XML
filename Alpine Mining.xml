@@ -94,6 +94,15 @@
     <apply block="deny-lava">
         <region name="map"/>
     </apply>
+    <apply block="deny-all" message="Do not destroy the helpful signs!">
+        <union name="red-signs">
+            <cuboid name="sign-1" min="15,16,333" max="13,19,335"/>
+            <cuboid name="sign-2" min="0,35,232" max="-1,39,230"/>
+            <cuboid name="sign-3" min="-13,30,195" max="-12,34,197"/>
+            <cuboid name="sign-4" min="1,36,175" max="0,40,177"/>
+            <cuboid name="sign-5" min="-17,32,180" max="-16,35,182"/>
+        </union>
+    </apply>
 </regions>
 <destoryables materials="obsidian;beacon">
     <destroyable owner="blue" name="Monument A">
