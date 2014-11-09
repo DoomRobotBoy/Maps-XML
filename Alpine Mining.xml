@@ -164,7 +164,7 @@
     <destroyable owner="blue" name="Monument C" id="blue-3">
         <cuboid min="-24,36,276" max="-23,38,277"/>
     </destroyable>
-</destoryables>
+</destroyables>
 <portals>
     <portal x="@16.5" y="@20" z="@-171.5" yaw="90" protect="true" filter="only-red">
         <cuboid min="8,25,-224" max="13,28,-223"/>
