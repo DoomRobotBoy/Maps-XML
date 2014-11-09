@@ -61,6 +61,11 @@
     <filter name="only-red">
         <team>red</team>
     </filter>
+    <filter name="deny-lava">
+        <not>
+            <block>stationary lava</block>
+        </not>
+    </filter>
 </filters>
 <regions>
     <apply block="deny-world" message="You may not build outside the map!">
@@ -85,6 +90,9 @@
         <!-- Red portals -->
         <cuboid min="-12,25,276" max="-7,28,277"/>
         <cuboid min="-17,20,223" max="-16,23,226"/>
+    </apply>
+    <apply block="deny-lava">
+        <region name="map"/>
     </apply>
 </regions>
 <destoryables materials="obsidian;beacon">
