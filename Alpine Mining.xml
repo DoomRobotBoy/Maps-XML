@@ -186,11 +186,12 @@
     </portal>
 </portals>
 <itemremove>
-    <item>log 2</item>
+    <item>log:2</item>
     <item>leather chestplate</item>
     <item>leather leggings</item>
     <item>stone sword</item>
     <item>bread</item>
+    <item>obsidian</item>
 </itemremove>
 <toolrepair>
     <tool>arrow</tool>
