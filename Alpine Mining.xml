@@ -139,7 +139,7 @@
         </mirror> 
     </apply>
     <apply block="deny-all" message="You may not place blocks above y=35 over the oceans!">
-        <cuboid min="-46,35,147" max="47,3,-94"/>
+        <cuboid min="-46,36,147" max="47,56,-94"/>
     </apply>
     <apply use="deny-beacon-use">
         <region name="map"/>
