@@ -51,9 +51,17 @@
     <item>leather chestplate</item>
     <item>leather leggings</item>
     <item>obsidian</item>
+    <item>emerald</item>
+    <item>exp bottle</item>
 </itemremove>
 <killreward>
     <item>exp bottle</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="2" repeat="true"/>
+    </filter>
+    <item>golden apple</item>
 </killreward>
 <maxbuildheight>36</maxbuildheight>
 <spawns>
@@ -76,7 +84,7 @@
     </core>
 </cores>
 <modes>
-    <mode after="30m" material="gold block" name="GOLD CORE MODE"/>
+    <mode after="30m" material="emerald block" name="`aEMERALD `rCORE MODE"/>
 </modes>
 <filters>
     <filter name="deny-void">
