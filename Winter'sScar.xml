@@ -14,9 +14,10 @@
 <spawns>
     <spawns kit="spawn">
         <spawn team="blue">
+            <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
         </spawn>
         <spawn team="red">
-            <cylinder
+            <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
         </spawn>
     </spawns>
     <default>
