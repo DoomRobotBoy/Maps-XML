@@ -8,117 +8,89 @@
     <author>DoomRobotBoy</author>
 </authors>
 <teams>
-    <team color="blue" max="20">Blue Team</team>
-    <team color="dark red" max="20">Red Team</team>
+    <team color="blue" max="16" max-overfill="18">Blue Team</team>
+    <team color="dark red" max="16" max-overfill="18">Red Team</team>
 </teams>
 <spawns>
     <spawns kit="spawn">
         <spawn team="blue">
-            <complement><region name="blue-spawn-pad"/><region name="blue-spawn-pad-not"/>..</complement> 
         </spawn>
         <spawn team="red">
-            <complement><region name="red-spawn-pad"/><region name="red-spawn-pad-not"/>..</complement> 
+            <cylinder
         </spawn>
     </spawns>
-    <default><cylinder base="247.50,8,-423.5" radius="1" height="0"/></default>
+    <default>
+        <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
+    </default>
 </spawns>
 <kits>
     <kit name="spawn">
         <item slot="0">iron sword</item>
-        <item slot="1">bow</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="28">arrow</item>
-        <item slot="2" enchantment="durability:1;dig speed:1">iron pickaxe</item>
-        <item slot="3" amount="32">bread</item>
-        <item slot="4" amount="64">log_2</item>
+        <item slot="2" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="3" enchantment="dig speed:1">iron axe</item>
+        <item slot="4" amount="32">log:1</item>
         <item slot="5" amount="64">glass</item>
-        <item slot="6" amount="64">arrow</item>
-        <item slot="7" amount="64">arrow</item>
-        <item slot="8" amount="64">ladder</item>
+        <item slot="32" amount="64">glass</item>
+        <item slot="6" amount="16">snow ball</item>
+        <item slot="7" amount="64">golden apple</item>
+        <item slot="8" amount="32">cooked beef</item>
+    </kit>
+    <kit name="red" parents="spawn">
+        <chestplate color="993333" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <chestplate color="334CB2" damage="-3000">leather chestplate</chestplate>
     </kit>
 </kits>
 <filters>
     <filter name="no-void" parents="allow-all">
-        <deny><void/></deny>
+        <deny>
+            <void/>
+        </deny>
     </filter>
-    <filter name="only-blue" parents="deny-players deny-world">
-        <allow><team>blue</team></allow>
-    </filter>
-    <filter name="only-red" parents="deny-players deny-world">
-        <allow><team>red</team></allow>
-    </filter>
-    <filter name="only-iron">
-        <allow><block>iron</block></allow>
+    <filter name="only-cobweb">
+        <allow>
+            <block>cobweb</block>
+        </allow>
     </filter>
 </filters>
 <regions>
     <apply block="no-void" message="You may not edit the void area!">
         <region name="void-is-nice"/>
     </apply>
-    <union name="void-is-nice">
-        <rectangle name="orange-wool-void" min="312,-521" max="275,-497"/>
-        <rectangle name="yellow-wool-void" min="219,-521" max="182,-497"/>
-        <rectangle name="purple-wool-void" min="219,-351" max="182,-327"/>
-        <rectangle name="green-wool-void" min="275,-327" max="312,-351"/>
-        <rectangle name="red-side-back" min="275,-334" max="220,-316"/>
-        <rectangle name="red-side-front" min="219,-344" max="275,-399"/>
-        <rectangle name="blue-side-back" min="275,-514" max="219,534"/>
-        <rectangle name="blue-side-front" min="275,-504" max="219,-449"/>
-        <rectangle name="middle-west-side" min="224,-449" max="224,-399"/>
-        <rectangle name="middle-east-side" min="270,-399" max="270,-449"/>
-    </union>
     <apply enter="only-red">
         <circle name="yellow-wool-protection" center="194.5,-508.5" radius="7"/>
         <circle name="orange-wool-protection" center="300.5,-508.5" radius="7"/>
-    </apply>
-    <apply enter="only-blue">
-        <circle name="green-wool-protection" center="300.5,-338.5" radius="7"/>
-        <circle name="purple-wool-protection" center="194.5,-338.5" radius="7"/>
-    </apply>
-    <cuboid name="red-spawn-pad" min="250,72,-327" max="244,72,-333"/>
-    <cuboid name="red-spawn-pad-not" min="248,72,-329" max="246,72,-331ee"/>
-    <cuboid name="blue-spawn-pad" min="250,72,-521" max="244,72,-515"/>
-    <cuboid name="blue-spawn-pad-not" min="248,72,-519" max="246,72,-517"/>
-    <cylinder name="red-spawn" base="247.5,0,-329.5" radius="13" height="10"/>
-    <cylinder name="blue-spawn" base="247.5,0,-517.5" radius="13" height="10"/>
-    <apply enter="only-red" apply block="only-iron">
-        <region name="red-spawn"/>
-    </apply>
-    <apply enter="only-red" apply block="only-iron">
-        <region name="red-spawn"/>
-    </apply>
-    <apply block="deny-all" message="You may not edit the spawn or drop-tubes!">
-        <cuboid name="red-droptube" min="251,10,-334" max="243,77,-326"/>
-        <cuboid name="blue-droptube" min="243,10,-514" max="251,77,-522"/>
     </apply>
 </regions>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
 </toolrepair>
 <itemremove>
-    <item>wood</item>
-    <item>glass</item>
-    <item>apple</item>
-    <item>stained clay</item>
-    <item>redstone</item>
+    <item>arrow</item>
+    <item>leather chestplate</item>
+    <item>log:1</item>
+    <item>cooked beef</item>
+    <item>golden apple</item>
+    <item>string</item>
 </itemremove>
-<tnt>
-    <instantignite>on</instantignite>
-    <fuse>4s</fuse>
-</tnt>
-<maxbuildheight>35</maxbuildheight>
+<maxbuildheight>23</maxbuildheight>
 <wools>
-    <wool team="red" color="orange">
+    <wool team="red" color="magenta">
         <block location="254,7,-330"/>
     </wool>
-    <wool team="red" color="yellow">
+    <wool team="red" color="pink">
         <block location="240,7,-330"/>
     </wool>
-    <wool team="blue" color="purple">
+    <wool team="blue" color="green">
         <block location="240,7,-518"/>
     </wool>
-    <wool team="blue" color="green">
+    <wool team="blue" color="lime">
         <block location="254,7,-518"/>
     </wool>
 </wools>
