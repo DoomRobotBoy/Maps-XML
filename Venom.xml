@@ -33,7 +33,7 @@
 </kits>
 <spawns>
     <spawn team="red" kit="spawn" yaw="90">
-        <cylinder base="285.5,13,-437.5" radius="135"/>
+        <cylinder base="285.5,13,-437.5" radius="1"/>
     </spawn>
     <spawn team="blue" kit="spawn" yaw="-45">
         <cylinder base="168.5,13,-533.5" radius="1"/>
@@ -67,14 +67,14 @@
     </kit>
 </killreward>
 <toolrepair>
-    <tool>diamond helmet</tool>
-    <tool>diamond chestplate</tool>
-    <tool>diamond leggings</tool>
-    <tool>diamond boots</tool>
     <tool>iron sword</tool>
     <tool>bow</tool>
 </toolrepair>
 <itemremove>
+    <item>diamond helmet</item>
+    <item>diamond chestplate</item>
+    <item>diamond leggings</item>
+    <item>diamond boots</item>
     <item>cake</item>
     <item>golden apple</item>
     <item>cooked beef</item>
