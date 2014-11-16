@@ -74,6 +74,11 @@
     <rectangle name="magenta-wool" min="-168,-235" max="-180,-224"/>
     <rectangle name="green-wool" min="-276,-235" max="-289,-224"/>
     <rectangle name="lime-wool" min="-289,-324" max="-276,-335"/>
+    <rectangle name="red-spawn-side" min="-313,-264" max="-247,-295"/>
+    <rectangle name="red-wool-rooms" min="-168,-335" max="-180,-224"/>
+    <rectangle name="center" min="-247,-307" max="-210,-252"/>
+    <rectangle name="blue-wool-rooms" min="-289,-224" max="-276,-335"/>
+    <rectangle name="blue-spawn-side" min="-144,-295" max="-211,-264"/>
     <apply enter="only-red" message="Only Red Team may enter here!">
         <region name="red-spawn"/>
         <region name="pink-wool"/>
@@ -84,7 +89,7 @@
         <region name="green-wool"/>
         <region name="lime-wool"/>
     </apply>
-    <apply block="only-cobweb">
+    <apply block="only-cobweb" message="You may only destroy cobwebs in/around the Wool Room!">
         <region name="pink-wool"/>
         <region name="magenta-wool"/>
         <region name="green-wool"/>
@@ -95,7 +100,13 @@
         <region name="blue-spawn"/>
     </apply>
     <apply block="no-void" message="You may not edit the void area!">
-        <region name="void-is-nice"/>
+        <negative>
+            <region name="red-spawn-side"/>
+            <region name="red-wool-rooms"/>
+            <region name="center"/>
+            <region name="blue-wool-rooms"/>
+            <region name="blue-spawn-side"/>
+        </negative>
     </apply>
 </regions>
 <toolrepair>
