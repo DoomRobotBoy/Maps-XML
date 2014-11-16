@@ -46,7 +46,7 @@
     </kit>
 </kits>
 <filters>
-    <filter name="no-void" parents="allow-all">
+    <filter name="no-void">
         <deny>
             <void/>
         </deny>
