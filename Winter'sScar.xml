@@ -53,7 +53,7 @@
     </filter>
     <filter name="only-cobweb">
         <allow>
-            <block>cobweb</block>
+            <block>web</block>
         </allow>
     </filter>
     <filter name="only-red">
