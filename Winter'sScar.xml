@@ -12,16 +12,16 @@
     <team color="dark red" max="16" max-overfill="18">Red Team</team>
 </teams>
 <spawns>
-    <spawns kit="spawn">
-        <spawn team="blue">
-            <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
+    <spawns>
+        <spawn team="red" kit="red" yaw="-90">
+            <cylinder base="-307.5,8,-279.5" radius="1" height="0"/>
         </spawn>
-        <spawn team="red">
-            <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
+        <spawn team="blue" kit="blue" yaw="90">
+            <cylinder base="-149.5,8,-279.5" radius="1" height="0"/>
         </spawn>
     </spawns>
-    <default>
-        <cylinder base="247.50,8,-423.5" radius="1" height="0"/>
+    <default yaw="90">
+        <cylinder base="-228.5,46,-279.5" radius="1" height="0"/>
     </default>
 </spawns>
 <kits>
@@ -56,14 +56,36 @@
             <block>cobweb</block>
         </allow>
     </filter>
+    <filter name="only-red">
+        <allow>
+            <team>Red Team</team>
+        </allow>
+    </filter>
+    <filter name="only-blue">
+        <allow>
+            <team>Blue Team</team>
+        </allow>
+    </filter>
 </filters>
 <regions>
+    <rectangle name="red-spawn" min="-302,-295" max="-313,-264"/>
+    <rectangle name="blue-spawn" min="-155,-264" max="-144,-295"/>
+    <apply enter="only-red">
+        <region name="red-spawn"/>
+        <region name="magenta-wool"/>
+        <region name="pink-wool"/>
+    </apply>
+    <apply enter="only-blue">
+        <region name="blue-spawn"/>
+        <region name="green-wool"/>
+        <region name="lime-wool"/>
+    </apply>
+    <apply block="deny-all">
+        <region name="red-spawn"/>
+        <region name="blue-spawn"/>
+    </apply>
     <apply block="no-void" message="You may not edit the void area!">
         <region name="void-is-nice"/>
-    </apply>
-    <apply enter="only-red">
-        <circle name="yellow-wool-protection" center="194.5,-508.5" radius="7"/>
-        <circle name="orange-wool-protection" center="300.5,-508.5" radius="7"/>
     </apply>
 </regions>
 <toolrepair>
@@ -83,16 +105,16 @@
 <maxbuildheight>23</maxbuildheight>
 <wools>
     <wool team="red" color="magenta">
-        <block location="254,7,-330"/>
+        <monument><block location="-309.5,9,-282.5"/></monument>
     </wool>
     <wool team="red" color="pink">
-        <block location="240,7,-330"/>
+        <monument><block location="-309.5,9,-276.5"/></monument>
     </wool>
     <wool team="blue" color="green">
-        <block location="240,7,-518"/>
+        <monument><block location="-147.5,9,-282.5"/></monument>
     </wool>
     <wool team="blue" color="lime">
-        <block location="254,7,-518"/>
+        <monument><block location="-147.5,9,-276.5"/></monument>
     </wool>
 </wools>
 </map>
