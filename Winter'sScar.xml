@@ -68,19 +68,29 @@
     </filter>
 </filters>
 <regions>
-    <rectangle name="red-spawn" min="-302,-295" max="-313,-264"/>
-    <rectangle name="blue-spawn" min="-155,-264" max="-144,-295"/>
-    <apply enter="only-red">
+    <rectangle name="red-spawn" min="-303,-295" max="-313,-264"/>
+    <rectangle name="blue-spawn" min="-154,-264" max="-144,-295"/>
+    <rectangle name="pink-wool" min="-181,-324" max="-168,-335"/>
+    <rectangle name="magenta-wool" min="-168,-235" max="-180,-224"/>
+    <rectangle name="green-wool" min="-276,-235" max="-289,-224"/>
+    <rectangle name="lime-wool" min="-289,-324" max="-276,-335"/>
+    <apply enter="only-red" message="Only Red Team may enter here!">
         <region name="red-spawn"/>
-        <region name="magenta-wool"/>
         <region name="pink-wool"/>
+        <region name="magenta-wool"/>
     </apply>
-    <apply enter="only-blue">
+    <apply enter="only-blue" message="Only Blue Team may enter here!">
         <region name="blue-spawn"/>
         <region name="green-wool"/>
         <region name="lime-wool"/>
     </apply>
-    <apply block="deny-all">
+    <apply block="only-cobweb">
+        <region name="pink-wool"/>
+        <region name="magenta-wool"/>
+        <region name="green-wool"/>
+        <region name="lime-wool"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the spawns!">
         <region name="red-spawn"/>
         <region name="blue-spawn"/>
     </apply>
@@ -103,6 +113,13 @@
     <item>string</item>
 </itemremove>
 <maxbuildheight>23</maxbuildheight>
+<falling-blocks>
+    <rule>
+        <filter>
+            <block>snow block</block>
+        </filter>
+    </rule>
+</falling-blocks>
 <wools>
     <wool team="red" color="magenta">
         <monument><block location="-309.5,9,-282.5"/></monument>
