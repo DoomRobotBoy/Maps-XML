@@ -1,0 +1,251 @@
+<map proto="1.3.2">
+<include src="tutorial.xml"/>
+<name>Vengeance</name>
+<version>1.1.0</version>
+<objective>
+Be team with the most amount of kills after 15 minutes or the first team to 100 kills!
+</objective>
+<authors>
+    <author>HardstyleRaver2</author>
+    <author contribution="Improvement Map & XML">DoomRobotBoy</author>
+</authors>
+<contributors>
+    <contributor contribution="Pallete and Spawners">pikpikmerchant</contributor>
+    <contributor contribution="Feedback">ElectroidFilms</contributor>
+</contributors>
+<rules>
+    <rule>Fall damage is disabled!</rule>
+</rules>
+<teams>
+    <team color="yellow" max="40">Yellow Team</team>
+    <team color="dark green" max="40">Green Team</team>
+</teams>
+<score>
+    <time>15m</time>
+    <limit>100</limit>
+</score>
+<spawns safe="true">
+    <spawn team="yellow" kit="yellow" yaw="90">
+        <cuboid min="141,30.25,53" max="144,32,99"/>
+    </spawn>
+    <spawn team="green" kit="green" yaw="-90">
+        <cuboid min="-42,30.25,53" max="-45,32,99"/>
+    </spawn>
+    <default yaw="0" pitch="-5">
+        <cuboid min="51,61.25,-25" max="48,62,-28"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="give-invulnerability" force="true">
+        <potion duration="oo" amplifier="100">heal</potion>
+        <potion duration="oo" amplifier="100">damage resistance</potion>
+    </kit>
+    <kit name="take-invulnerability" force="true">
+        <potion duration="0" amplifier="0">heal</potion>
+        <potion duration="0" amplifier="0">damage resistance</potion>
+    </kit>
+    <kit name="teams" parents="give-invulnerability">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
+        <item slot="2" damage="-3000" enchantment="dig speed;silk touch">iron pickaxe</item>
+        <item slot="3" damage="-3000">iron axe</item>
+        <item slot="4" damage="1" amount="64">wood</item>
+        <item slot="5" damage="1" amount="64">wood</item>
+        <item slot="31" damage="1" amount="64">wood</item>
+        <item slot="32" damage="1" amount="64">wood</item>
+        <item slot="17" damage="1" amount="64">log</item>
+        <item slot="6" amount="64">glass</item>
+        <item slot="8" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse teammate's TNT|`7Does not work in `9water`7!">shears</item>
+        <item slot="28">arrow</item>
+    </kit>
+    <kit name="yellow" parents="teams">
+        <helmet damage="-3000" color="E5E533">leather helmet</helmet>
+        <chestplate damage="-3000" color="E5E533" enchantment="protection explosions:2">leather chestplate</chestplate>
+    </kit>
+    <kit name="green" parents="teams">
+        <helmet damage="-3000" color="4C4C4C">leather helmet</helmet>
+        <chestplate damage="-3000" color="4C4C4C" enchantment="protection explosions:2">leather chestplate</chestplate>
+    </kit>
+</kits>
+<filters>
+    <filter name="only-yellow">
+        <team>yellow</team>
+    </filter>
+    <filter name="only-green">
+        <team>green</team>
+    </filter>
+    <filter name="not-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+    <filter name="not-spawner">
+        <not>
+            <block>mob spawner</block>
+            <block>gold plate</block>
+        </not>
+    </filter>
+    <filter name="allow-some" parents="deny-all">
+        <allow>
+            <block>tnt</block>
+            <block>water</block>
+            <block>stationary water</block>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
+    <cuboid name="above-70" min="-oo,71,-oo" max="oo,oo,oo"/>
+    <union name="spawns">
+        <rectangle name="yellow-spawn" min="149,49" max="136,103"/>
+        <rectangle name="green-spawn" min="-50,103" max="-37,49"/>
+    </union>
+    <union name="icari">
+        <cuboid name="yellow-icarus" min="81,44,44" max="67,49,52"/>
+        <cuboid name="green-icarus" min="18,44,100" max="32,49,108"/>
+    </union>
+    <complement name="terrain">
+        <cuboid name="map" min="131,0,13" max="-32,50,139"/>
+        <region name="icari"/>
+    </complement>
+    <union name="void-exmptions">
+        <rectangle name="green-front" min="14,131" max="31,21"/>
+        <rectangle name="yellow-front" min="68,21" max="85,131"/>
+    </union>
+<!--  Applied  -->
+    <apply block="not-void" message="`eYou may not bridge: You must use a icarus or cannon!">
+        <complement>
+            <region name="all"/>
+            <region name="void-exmptions"/>
+        </complement>
+    </apply>
+    <apply block="deny-all" message="`eYou may not build above the height limit! (`c70 Blocks`e)">
+        <region name="above-70"/>
+    </apply>
+    <apply block-break="not-spawner" message="`eYou may not break the spawners!">
+        <region name="all"/>
+    </apply>
+    <apply block="deny-all" message="`eYou may not edit the spawn area!">
+        <region name="spawns"/>
+    </apply>
+    <apply block="allow-some" message="`eYou may not edit the icarus building!">
+        <region name="icari"/>
+    </apply>
+    <apply enter="deny-all" message="`eYou may not re-enter the spawn area!">
+        <region name="spawns"/>
+    </apply>
+    <apply kit="take-invulnerability">
+        <negative>
+            <region name="spawns"/>
+        </negative>
+    </apply>
+</regions>
+<renewables>
+    <renewable rate="15" grow="true" avoid-entities="true">
+        <region>
+            <region name="terrain"/>
+        </region>
+        <renew>stone</renew>
+        <renew>stained clay</renew>
+        <renew>step</renew>
+        <renew>double step</renew>
+        <renew>clay</renew>
+        <renew>step</renew>
+        <renew>smooth stairs</renew>
+        <renew>wood stairs</renew>
+    </renewable>
+</renewables>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+    <tool>bow</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+    <item>wood</item>
+    <item>log</item>
+    <item>glass</item>
+    <item>shears</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>stone</item>
+    <item>step</item>
+    <item>stained clay</item>
+    <item>smooth brick</item>
+    <item>clay ball</item>
+    <item>cobble wall</item>
+    <item>cobblestone</item>
+    <item>sign</item>
+    <item>gold plate</item>
+    <item>clay</item>
+    <item>double step</item>
+    <item>smooth stairs</item>
+    <item>wood stairs</item>
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+    <damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
+</disabledamage>
+<tutorial>
+    <stage title="Cannon TDM">
+        <message>
+            <line>
+            This map is a special type of `aTeam Death Match `r(TDM).
+            </line>
+            <line>
+            You have 15 minutes to get the most amount of kills or be the first to 100!
+            </line>
+            <line>
+            You cannot bridge over the void on this map, you must use cannons or an icarus.
+            </line>
+        </message>
+        <teleport>
+            <point yaw="-60" pitch="10">38,58,41</point>
+        </teleport>
+    </stage>
+    <stage title="Cannon Designs">
+        <message>
+            <line>
+            To learn more about how to make cannons, follow the link below:
+            </line>
+            <line>
+            `b`nhttps://oc.tc/forums/topics/515486c5ba60874911000011
+            </line>
+        </message>
+    </stage>
+    <stage title="iCarus">
+        <message>
+            <line>
+            On the top level of your side lies the icarus building.
+            </line>
+            <line>
+            Load TNT on the `cred stained clay blocks `rand flick the lever!
+            </line>
+            <line>
+            You can make your own icarus, but this one will always be here.
+            </line>
+        </message>
+        <teleport>
+            <point yaw="-100" pitch="10">61,47,50</point>
+        </teleport>
+    </stage>
+    <stage title="Backup TNT Spawners">
+        <message>
+            <line>
+            If your team runs out of TNT supplies they always will have the spawners avalible!
+            </line>
+            <line>
+            They are located behind spawn and all over the map!
+            </line>
+        </message>
+        <teleport>
+            <point yaw="150" pitch="15">164,32,105</point>
+        </teleport>
+    </stage>
+</tutorial>
+</map>
