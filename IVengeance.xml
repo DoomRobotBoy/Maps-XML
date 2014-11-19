@@ -2,9 +2,7 @@
 <include src="tutorial.xml"/>
 <name>Vengeance</name>
 <version>1.1.0</version>
-<objective>
-Be team with the most amount of kills after 15 minutes or the first team to 100 kills!
-</objective>
+<objective>Be team with the most amount of kills after 15 minutes or the first team to 100 kills!</objective>
 <authors>
     <author>HardstyleRaver2</author>
     <author contribution="Improvement Map and additional XML">DoomRobotBoy</author>
@@ -13,16 +11,13 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
     <contributor contribution="Pallete and Spawners">pikpikmerchant</contributor>
     <contributor contribution="Feedback">ElectroidFilms</contributor>
 </contributors>
-<rules>
-    <rule>Fall damage is disabled!</rule>
-</rules>
 <teams>
     <team color="yellow" max="40">Yellow Team</team>
     <team color="dark green" max="40">Green Team</team>
 </teams>
 <score>
     <time>15m</time>
-    <limit>100</limit>
+    <limit>300</limit>
 </score>
 <spawns safe="true">
     <spawn team="yellow" kit="yellow" yaw="90">
@@ -81,12 +76,6 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
             <void/>
         </not>
     </filter>
-    <filter name="not-spawner">
-        <not>
-            <block>mob spawner</block>
-            <block>gold plate</block>
-        </not>
-    </filter>
     <filter name="allow-some" parents="deny-all">
         <allow>
             <block>tnt</block>
@@ -94,10 +83,18 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
             <block>stationary water</block>
         </allow>
     </filter>
+    <filter name="deny-stained-clay-yellow-green-explosions">
+        <not>
+            <all>
+                <block>stained clay:4</block>
+                <block>stained clay:13</block>
+                <cause>explosion</cause>
+            </all>
+        </not>
+</filter>
 </filters>
 <regions>
     <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
-    <cuboid name="above-70" min="-oo,71,-oo" max="oo,oo,oo"/>
     <union name="spawns">
         <rectangle name="yellow-spawn" min="149,49" max="136,103"/>
         <rectangle name="green-spawn" min="-50,103" max="-37,49"/>
@@ -107,7 +104,7 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
         <cuboid name="green-icarus" min="18,44,100" max="32,49,108"/>
     </union>
     <complement name="terrain">
-        <cuboid name="map" min="131,0,13" max="-32,50,139"/>
+        <cuboid name="map" min="131,0,21" max="-32,36,130"/>
         <region name="icari"/>
     </complement>
     <union name="void-exmptions">
@@ -115,16 +112,7 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
         <rectangle name="yellow-front" min="68,21" max="85,131"/>
     </union>
 <!--  Applied  -->
-    <apply block="not-void" message="`eYou may not bridge: You must use a icarus or cannon!">
-        <complement>
-            <region name="all"/>
-            <region name="void-exmptions"/>
-        </complement>
-    </apply>
-    <apply block="deny-all" message="`eYou may not build above the height limit! (`c70 Blocks`e)">
-        <region name="above-70"/>
-    </apply>
-    <apply block-break="not-spawner" message="`eYou may not break the spawners!">
+    <apply block="deny-stained-clay-yellow-green-explosions">
         <region name="all"/>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the spawn area!">
@@ -141,6 +129,12 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
             <region name="spawns"/>
         </negative>
     </apply>
+    <apply block="not-void" message="`eYou may not bridge: You must use a icarus or cannon!">
+        <complement>
+            <region name="all"/>
+            <region name="void-exmptions"/>
+        </complement>
+    </apply>
 </regions>
 <renewables>
     <renewable rate="15" grow="true" avoid-entities="true">
@@ -148,7 +142,7 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
             <region name="terrain"/>
         </region>
         <renew>stone</renew>
-        <renew>stained clay</renew>
+        <renew>stained clay:9</renew>
         <renew>step</renew>
         <renew>double step</renew>
         <renew>clay</renew>
@@ -190,9 +184,9 @@ Be team with the most amount of kills after 15 minutes or the first team to 100 
     <depletion>off</depletion>
 </hunger>
 <disabledamage>
-    <damage>fall</damage>
     <damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
 </disabledamage>
+<maxbuildheight>36</maxbuildheight>
 <tutorial>
     <stage title="Cannon TDM">
         <message>
