@@ -123,6 +123,11 @@
             </all>
         </not>
     </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
 </filters>
 <regions>
     <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
@@ -138,9 +143,13 @@
         <cuboid name="map" min="131,0,21" max="-32,36,130"/>
         <region name="icari"/>
     </complement>
-    <union name="void-exmptions">
+    <union name="void-exceptions">
         <rectangle name="green-front" min="14,131" max="31,21"/>
         <rectangle name="yellow-front" min="68,21" max="85,131"/>
+    </union>
+    <union name="in-spawns">
+        <cuboid name="yellow-in-spawn" min="157,14,100" max="151,18,52"/>
+        <cuboid name="green-in-spawn" min="-59,14,52" max="-52,18,100"/>
     </union>
 <!--  Applied  -->
     <apply block="deny-stained-clay-yellow-green-explosions">
@@ -152,6 +161,9 @@
     <apply block="deny-all" message="`eYou may not edit the spawn area!">
         <region name="spawns"/>
     </apply>
+    <apply block="deny-tnt">
+        <region name="spawns"/>
+    </apply>
     <apply block="allow-some" message="`eYou may not edit the icarus building!">
         <region name="icari"/>
     </apply>
@@ -160,13 +172,13 @@
     </apply>
     <apply kit="take-invulnerability">
         <negative>
-            <region name="spawns"/>
+            <region name="in-spawns"/>
         </negative>
     </apply>
     <apply block="not-void" message="`eYou may not bridge: You must use a icarus or cannon!">
         <complement>
             <region name="all"/>
-            <region name="void-exmptions"/>
+            <region name="void-exceptions"/>
         </complement>
     </apply>
 </regions>
