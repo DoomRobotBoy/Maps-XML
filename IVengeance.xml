@@ -57,21 +57,23 @@
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
         <item slot="2" damage="-3000" enchantment="dig speed;silk touch">iron pickaxe</item>
+        <item slot="29" amount="1">dispenser</item>
         <item slot="3" amount="64">vine</item>
         <item slot="30" amount="16">ladder</item>
-        <item slot="21" amount="1">dispenser</item>
+        <item slot="22" amount="32">fence</item>
+        <item slot="13" amount="32">trap door</item>
         <item slot="5" amount="16">stone button</item>
         <item slot="32" amount="16">wood plate</item>
         <item slot="23" amount="16">lever</item>
         <item slot="14" amount="64">wood step</item>
-        <item slot="6" amount="16">redstone block</item>
-        <item slot="33" amount="64">redstone</item>
-        <item slot="24" amount="16">redstone torch on</item>
-        <item slot="15" amount="16">diode</item>
-        <item slot="7" amount="32">trap door</item>
-        <item slot="34" amount="64">stone plate</item>
-        <item slot="25" amount="16">fence gate</item>
-        <item slot="16" amount="32">fence</item>
+        <item slot="6">water bucket</item>
+        <item slot="33">water bucket</item>
+        <item slot="24">water bucket</item>
+        <item slot="15">water bucket</item>
+        <item slot="7" amount="16">redstone block</item>
+        <item slot="34" amount="64">redstone</item>
+        <item slot="25" amount="16">redstone torch on</item>
+        <item slot="16" amount="16">diode</item>
         <item slot="8" amount="64">tnt</item>
         <item slot="35" amount="64">tnt</item>
         <item slot="26" amount="64">tnt</item>
