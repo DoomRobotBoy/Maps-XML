@@ -115,14 +115,6 @@
             </all>
         </not>
     </filter>
-    <filter name="deny-stained-clay-yellow-green">
-        <not>
-            <all>
-                <block>stained clay:4</block>
-                <block>stained clay:13</block>
-            </all>
-        </not>
-    </filter>
     <filter name="deny-tnt">
         <not>
             <cause>explosion</cause>
@@ -154,9 +146,6 @@
     </union>
 <!--  Applied  -->
     <apply block="deny-stained-clay-yellow-green-explosions">
-        <region name="all"/>
-    </apply>
-    <apply block="deny-stained-clay-yellow-green">
         <region name="all"/>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the spawn area!">
@@ -241,7 +230,7 @@
             This map is a special type of `aTeam Death Match `r(TDM).
             </line>
             <line>
-            You have 15 minutes to get the most amount of kills or be the first to 100!
+            You have 15 minutes to get the most amount of kills or to be the first to 200 points!
             </line>
             <line>
             You cannot bridge over the void on this map, you must use cannons or an icarus.
@@ -274,20 +263,7 @@
             </line>
         </message>
         <teleport>
-            <point yaw="-100" pitch="10">61,47,50</point>
-        </teleport>
-    </stage>
-    <stage title="Backup TNT Spawners">
-        <message>
-            <line>
-            If your team runs out of TNT supplies they always will have the spawners avalible!
-            </line>
-            <line>
-            They are located behind spawn and all over the map!
-            </line>
-        </message>
-        <teleport>
-            <point yaw="150" pitch="15">164,32,105</point>
+            <point yaw="-100" pitch="10">61.5,30,49.5</point>
         </teleport>
     </stage>
 </tutorial>
