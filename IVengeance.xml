@@ -45,15 +45,26 @@
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
         <item slot="2" damage="-3000" enchantment="dig speed;silk touch">iron pickaxe</item>
-        <item slot="3" damage="-3000">iron axe</item>
-        <item slot="4" damage="1" amount="64">wood</item>
-        <item slot="5" damage="1" amount="64">wood</item>
-        <item slot="31" damage="1" amount="64">wood</item>
-        <item slot="32" damage="1" amount="64">wood</item>
-        <item slot="17" damage="1" amount="64">log</item>
-        <item slot="6" amount="64">glass</item>
-        <item slot="8" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse teammate's TNT|`7Does not work in `9water`7!">shears</item>
-        <item slot="28">arrow</item>
+        <item slot="3" amount="64">vine</item>
+        <item slot="30" amount="16">ladder</item>
+        <item slot="21" amount="1">dispenser</item>
+        <item slot="5" amount="16">stone button</item>
+        <item slot="32" amount="16">wood plate</item>
+        <item slot="23" amount="16">lever</item>
+        <item slot="14" amount="64">wood step</item>
+        <item slot="6" amount="16">redstone block</item>
+        <item slot="33" amount="64">redstone</item>
+        <item slot="24" amount="16">redstone torch on</item>
+        <item slot="15" amount="16">diode</item>
+        <item slot="7" amount="32">trap door</item>
+        <item slot="34" amount="64">stone plate</item>
+        <item slot="25" amount="16">fence gate</item>
+        <item slot="16" amount="32">fence</item>
+        <item slot="8" amount="64">tnt</item>
+        <item slot="35" amount="64">tnt</item>
+        <item slot="26" amount="64">tnt</item>
+        <item slot="17" amount="64">tnt</item>
+        <item slot="9" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
     </kit>
     <kit name="yellow" parents="teams">
         <helmet damage="-3000" color="E5E533">leather helmet</helmet>
@@ -91,17 +102,25 @@
                 <cause>explosion</cause>
             </all>
         </not>
-</filter>
+    </filter>
+    <filter name="deny-stained-clay-yellow-green">
+        <not>
+            <all>
+                <block>stained clay:4</block>
+                <block>stained clay:13</block>
+            </all>
+        </not>
+    </filter>
 </filters>
 <regions>
     <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
     <union name="spawns">
-        <rectangle name="yellow-spawn" min="149,49" max="136,103"/>
-        <rectangle name="green-spawn" min="-50,103" max="-37,49"/>
+        <rectangle name="yellow-spawn" min="131,34" max="166,118"/>
+        <rectangle name="green-spawn" min="-32,118" max="-67,34"/>
     </union>
     <union name="icari">
-        <cuboid name="yellow-icarus" min="81,44,44" max="67,49,52"/>
-        <cuboid name="green-icarus" min="18,44,100" max="32,49,108"/>
+        <cuboid name="yellow-icarus" min="81,29,52" max="67,33,44"/>
+        <cuboid name="green-icarus" min="18,29,100" max="32,33,108"/>
     </union>
     <complement name="terrain">
         <cuboid name="map" min="131,0,21" max="-32,36,130"/>
@@ -113,6 +132,9 @@
     </union>
 <!--  Applied  -->
     <apply block="deny-stained-clay-yellow-green-explosions">
+        <region name="all"/>
+    </apply>
+    <apply block="deny-stained-clay-yellow-green">
         <region name="all"/>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the spawn area!">
