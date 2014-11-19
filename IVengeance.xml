@@ -17,7 +17,19 @@
 </teams>
 <score>
     <time>15m</time>
-    <limit>300</limit>
+    <limit>200</limit>
+    <box points="4" filter="only-green">
+        <region><cuboid name="left-yellow-box" min="149,14,62" max="147,17,69"/></region>
+    </box>
+    <box points="4" filter="only-green">
+        <region><cuboid name="right-yellow-box" min="149,14,83" max="147,17,90"/></region>
+    </box>
+    <box points="4" filter="only-yellow">
+        <region><cuboid name="left-green-box" min="-50,22,90" max="-48,21,83"/></region>
+    </box>
+    <box points="4" filter="only-yellow">
+        <region><cuboid name="right-green-box" min="-50,22,69" max="-48,21,62"/></region>
+    </box>
 </score>
 <spawns safe="true">
     <spawn team="yellow" kit="yellow" yaw="90">
