@@ -144,8 +144,9 @@
         <region name="icari"/>
     </complement>
     <union name="void-exceptions">
-        <rectangle name="green-front" min="14,131" max="31,21"/>
-        <rectangle name="yellow-front" min="68,21" max="85,131"/>
+        <rectangle name="void-gap" min="71,129" max="28,23"/>
+        <rectangle name="yellow-front" min="70,51" max="87,101"/>
+        <rectangle name="green-front" min="29,101" max="12,51"/>
     </union>
     <union name="in-spawns">
         <cuboid name="yellow-in-spawn" min="157,14,100" max="151,18,52"/>
@@ -175,7 +176,7 @@
             <region name="in-spawns"/>
         </negative>
     </apply>
-    <apply block="not-void" message="`eYou may not bridge: You must use a icarus or cannon!">
+    <apply block="not-void" message="`eYou may not modify the void area!">
         <complement>
             <region name="all"/>
             <region name="void-exceptions"/>
