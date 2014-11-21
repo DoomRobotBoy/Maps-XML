@@ -56,6 +56,7 @@
     <kit name="teams" parents="give-invulnerability">
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
+        <item slot="28">arrow</item>
         <item slot="2" damage="-3000" enchantment="dig speed;silk touch">iron pickaxe</item>
         <item slot="29" amount="1">dispenser</item>
         <item slot="3" amount="64">vine</item>
@@ -175,7 +176,7 @@
     </apply>
 </regions>
 <renewables>
-    <renewable rate="15" grow="true" avoid-entities="true">
+    <renewable rate="15"avoid-entities="true">
         <region>
             <region name="terrain"/>
         </region>
@@ -188,7 +189,7 @@
         <renew>smooth stairs</renew>
         <renew>wood stairs</renew>
     </renewable>
-    <renewable rate="15" grow="true" avoid-entities="true">
+    <renewable rate="15" grow="true" avoid-entities="false">
         <region>
             <region name="terrain"/>
         </region>
@@ -204,6 +205,10 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>iron leggings</item>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>iron pickaxe</item>
     <item>stone</item>
     <item>step</item>
     <item>stained clay</item>
