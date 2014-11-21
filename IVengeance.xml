@@ -8,7 +8,7 @@
     <author contribution="Improvement Map and additional XML">DoomRobotBoy</author>
 </authors>
 <contributors>
-    <contributor contribution="Pallete and Spawners">pikpikmerchant</contributor>
+    <contributor contribution="Pallete">pikpikmerchant</contributor>
     <contributor contribution="Feedback">ElectroidFilms</contributor>
 </contributors>
 <teams>
@@ -188,14 +188,14 @@
         <renew>smooth stairs</renew>
         <renew>wood stairs</renew>
     </renewable>
+    <renewable rate="15" grow="true" avoid-entities="true">
+        <region>
+            <region name="terrain"/>
+        </region>
+        <renew>stained clay:4</renew>
+        <renew>stained clay:13</renew>
+    </renewable>
 </renewables>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>iron pickaxe</tool>
-    <tool>iron axe</tool>
-    <tool>bow</tool>
-    <tool>arrow</tool>
-</toolrepair>
 <itemremove>
     <item>wood</item>
     <item>log</item>
@@ -217,6 +217,23 @@
     <item>double step</item>
     <item>smooth stairs</item>
     <item>wood stairs</item>
+    <item>dispenser</item>
+    <item>water bucket</item>
+    <item>bucket</item>
+    <item>trap door</item>
+    <item>tnt</item>
+    <item>redstone block</item>
+    <item>redstone</item>
+    <item>redstone torch on</item>
+    <item>diode</item>
+    <item>vine</item>
+    <item>ladder</item>
+    <item>fence</item>
+    <item>trap door</item>
+    <item>stone button</item>
+    <item>wood plate</item>
+    <item>lever</item>
+    <item>wood step</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
