@@ -121,10 +121,10 @@
 <maxbuildheight>30</maxbuildheight>
 <wools>
     <wool team="red" color="magenta">
-        <monument><block>-309.5,9,-282.5</block></monument>
+        <monument><block>-385.5,11,-152.5</block></monument>
     </wool>
     <wool team="red" color="pink">
-        <monument><block>-309.5,9,-276.5</block></monument>
+        <monument><block>-385.5,11,-146.5</block></monument>
     </wool>
     <wool team="blue" color="green">
         <monument><block>-147.5,9,-282.5</block></monument>
