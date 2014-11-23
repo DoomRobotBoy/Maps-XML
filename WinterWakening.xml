@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Winter Wakening</name>
+<version>1.0.0</version>
+<objective>The team who first captures the other team's wools, located in the opposite wool rooms, wins!</objective>
+<authors>
+    <author>rockymine</author>
+    <author>DoomRobotBoy</author>
+</authors>
+<teams>
+    <team color="blue" max="35" max-overfill="40">Blue Team</team>
+    <team color="dark red" max="35" max-overfill="40">Red Team</team>
+</teams>
+<spawns>
+    <spawns>
+        <spawn team="red" kit="red" yaw="90">
+            <cylinder base="-375.5,10,-149.5" radius="1" height="0"/>
+        </spawn>
+        <spawn team="blue" kit="blue" yaw="-90">
+            <cylinder base="-149.5,8,-279.5" radius="1" height="0"/>
+        </spawn>
+    </spawns>
+    <default yaw="90">
+        <cylinder base="-228.5,46,-279.5" radius="1" height="0"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawn">
+        <item slot="0">iron sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <item slot="2" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="3" enchantment="dig speed:1">iron axe</item>
+        <item slot="4" amount="32" damage="1">log_2</item>
+        <item slot="5" amount="64">glass</item>
+        <item slot="32" amount="64">glass</item>
+        <item slot="6" amount="16">snow ball</item>
+        <item slot="7" amount="64">golden apple</item>
+        <item slot="8" amount="32">cooked beef</item>
+        <item slot="9" attributes="generic.movementSpeed:add:-1">shears</item>
+    </kit>
+    <kit name="red" parents="spawn">
+        <chestplate color="993333" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <chestplate color="334CB2" damage="-3000">leather chestplate</chestplate>
+    </kit>
+</kits>
+<filters>
+    <filter name="no-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-cobweb">
+        <allow>
+            <block>web</block>
+        </allow>
+    </filter>
+    <filter name="only-red">
+        <allow>
+            <team>Red Team</team>
+        </allow>
+    </filter>
+    <filter name="only-blue">
+        <allow>
+            <team>Blue Team</team>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="red-spawn" min="-368,-180" max="-401,-119"/>
+    <rectangle name="blue-spawn" min="-154,-264" max="-144,-295"/>
+    <circle name="pink-wool" base="-425.5,-211.5" radius="9"/>
+    <circle name="magenta-wool" base="-425.5,-211.5" radius="9"/>
+    <circle name="green-wool" base="-425.5,-211.5" radius="9"/>
+    <circle name="lime-wool" base="-425.5,-87.5" radius="9"/>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <rectangle name="void-gap"/>
+    <apply enter="only-red" message="Only Red Team may enter here!">
+        <region name="red-spawn"/>
+        <region name="pink-wool"/>
+        <region name="magenta-wool"/>
+    </apply>
+    <apply enter="only-blue" message="Only Blue Team may enter here!">
+        <region name="blue-spawn"/>
+        <region name="green-wool"/>
+        <region name="lime-wool"/>
+    </apply>
+    <apply block="only-cobweb" message="You may only destroy cobwebs in/around the Wool Room!">
+        <region name="pink-wool"/>
+        <region name="magenta-wool"/>
+        <region name="green-wool"/>
+        <region name="lime-wool"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the spawns!">
+        <region name="red-spawn"/>
+        <region name="blue-spawn"/>
+    </apply>
+    <apply block="no-void" message="You may not edit the void area!">
+        <complement>
+            <region name="map"/>
+            <region name="void-gap"/>
+        </complement>
+    </apply>
+</regions>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>arrow</item>
+    <item>leather chestplate</item>
+    <item>log_2</item>
+    <item>cooked beef</item>
+    <item>golden apple</item>
+    <item>string</item>
+</itemremove>
+<maxbuildheight>30</maxbuildheight>
+<wools>
+    <wool team="red" color="magenta">
+        <monument><block>-309.5,9,-282.5</block></monument>
+    </wool>
+    <wool team="red" color="pink">
+        <monument><block>-309.5,9,-276.5</block></monument>
+    </wool>
+    <wool team="blue" color="green">
+        <monument><block>-147.5,9,-282.5</block></monument>
+    </wool>
+    <wool team="blue" color="lime">
+        <monument><block>-147.5,9,-276.5</block></monument>
+    </wool>
+</wools>
+</map>
