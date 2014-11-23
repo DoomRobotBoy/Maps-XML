@@ -17,11 +17,11 @@
             <cylinder base="-375.5,10,-149.5" radius="1" height="0"/>
         </spawn>
         <spawn team="blue" kit="blue" yaw="-90">
-            <cylinder base="-149.5,8,-279.5" radius="1" height="0"/>
+            <cylinder base="-699.5,10,-149.5" radius="1" height="0"/>
         </spawn>
     </spawns>
     <default yaw="90">
-        <cylinder base="-228.5,46,-279.5" radius="1" height="0"/>
+        <cylinder base="-537.5,41,-149.5" radius="1" height="0"/>
     </default>
 </spawns>
 <kits>
@@ -70,13 +70,13 @@
 </filters>
 <regions>
     <rectangle name="red-spawn" min="-368,-180" max="-401,-119"/>
-    <rectangle name="blue-spawn" min="-154,-264" max="-144,-295"/>
-    <circle name="pink-wool" base="-425.5,-211.5" radius="9"/>
-    <circle name="magenta-wool" base="-425.5,-211.5" radius="9"/>
+    <rectangle name="blue-spawn" min="-707,-119" max="-674,-180"/>
+    <circle name="pink-wool" base="-649.5,-87.5" radius="9"/>
+    <circle name="magenta-wool" base="-649.5,-211.5" radius="9"/>
     <circle name="green-wool" base="-425.5,-211.5" radius="9"/>
     <circle name="lime-wool" base="-425.5,-87.5" radius="9"/>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <rectangle name="void-gap"/>
+    <rectangle name="void-gap" min="-576,14,-120" max="-499,12,-179"/>
     <apply enter="only-red" message="Only Red Team may enter here!">
         <region name="red-spawn"/>
         <region name="pink-wool"/>
@@ -127,10 +127,10 @@
         <monument><block>-385.5,11,-146.5</block></monument>
     </wool>
     <wool team="blue" color="green">
-        <monument><block>-147.5,9,-282.5</block></monument>
+        <monument><block>689.5,11,-152.5</block></monument>
     </wool>
     <wool team="blue" color="lime">
-        <monument><block>-147.5,9,-276.5</block></monument>
+        <monument><block>-689.5,11,-146.5</block></monument>
     </wool>
 </wools>
 </map>
