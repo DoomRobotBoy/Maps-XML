@@ -70,6 +70,9 @@
     </hills>
 </king>
 <itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>arrow</item>
     <item>leather helmet</item>
     <item>chainmail chestplate</item>
     <item>iron boots</item>
