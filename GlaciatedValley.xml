@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Glaciated Valley</name>
+<version>1.0.0</version>
+<objective>Be the first team to reach 600 points!</objective>
+<authors>
+    <author>rockymine</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="25" overfill="28">Red Team</team>
+    <team color="blue" max="25" overfill="28">Blue Team</team>
+</teams>
+<score>
+    <limit>600</limit>
+</score>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="32">arrow</item>
+        <item slot="2" amount="1">golden apple</item>
+        <item slot="3" amount="64">baked potato</item>
+        <leggings enchantment="protection projectile:1" damage="-3000">chainmail leggings</leggings>
+        <potion duration="5">heal</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>a
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="cd0000" damage="-3000">leather helmet</helmet>
+        <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
+        <boots color="cd0000" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="0066cc" damage="-3000">leather helmet</helmet>
+        <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
+        <boots color="0066cc" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter name="red-team">
+        <team>red</team>
+    </filter>
+    <filter name="blue-team">
+        <team>blue</team>
+    </filter>
+</filters>
+<regions>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply enter="deny-red-team">
+        <cuboid min="-91,6,-128" max="-91,7,-128"/>
+    </apply>
+    <apply enter="deny-blue-team">
+        <cuboid min="-109,6,-128" max="-109,7,-128"/>
+    </apply>
+</regions>
+<portals>
+    <portal name="red-well-portal" x="@-257" y="@6" z="@-231">
+        <cuboid min="-109,4,-128" max="-109,5,-128"/>
+    </portal>
+    <portal name="blue-well-portal" x="@57" y="@6" z="@-231">
+        <cuboid min="-91,4,-128" max="-91,5,-128"/>
+    </portal>
+</portals>
+<spawns>
+    <spawn team="red" kit="red" yaw="0">
+        <cylinder base="X,Y,Z" radius="1"/>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <cylinder base="61.5,5,-273.5" radius="1"/>
+    </spawn>
+    <default yaw="180">
+        <cylinder base="-99.5,12,-133.5" radius="1"/>
+    </default>
+</spawns>
+<king>
+    <hills>
+        <hill name="Blue Camp" capture-time="10s" ratio="1">
+            <capture><cylinder base="45.5,5,-139.5" radius="3"/></capture>
+            <progress><cylinder base="45.5,4,-139.5" radius="3"/></progress>
+            <captured><cuboid min="45,9,-139" max="46,10,-137"/></captured>
+        </hill>
+        <hill name="Center Town" capture-time="15s" ratio="1" neutral-state="true">
+            <capture><cylinder base="-99.5,5,-122.5" radius="4"/></capture>
+            <progress><cylinder base="-99.5,4,-122.5" radius="4"/></progress>
+            <captured><cuboid min="-100,8,-122" max="-98,9,-125"/></captured>
+        </hill>
+        <hill name="Center Island" capture-time="15s" ratio="1" neutral-state="true">
+            <capture><cylinder base="-99.5,4,-216.5" radius="4"/></capture>
+            <progress><cylinder base="-99.5,3,-216.5" radius="4"/></progress>
+            <captured><cuboid min="-100,7,-216" max="-99,8,-214"/></captured>
+        </hill>
+        <hill name="Red Camp" capture-time="10s" ratio="1">
+            <capture><cylinder base="-244.5,5,-139.5" radius="3"/></capture>
+            <progress><cylinder base="-244.5,4,-139.5" radius="3"/></progress>
+            <captured><cuboid min="-243,9,-139" max="-245,10,-136"/></captured>
+        </hill>
+    </hills>
+</king>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>golden apple</item>
+    <item>glass bottle</item>
+    <item>stick</item>
+    <item>wood</item>
+    <item>boat</item>
+    <item>raw fish</item>
+</itemremove>
+<killreward>
+    <item amount="1">raw fish</item>
+</killreward>
+<killreward>
+    <item amount="16">arrow</item>
+</killreward>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+</map>
