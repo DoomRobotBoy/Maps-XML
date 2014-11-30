@@ -54,18 +54,18 @@
     <hills>
         <hill name="Lake Hill" capture-time="20s" ratio="1" neutral-state="true">
             <capture><cylinder base="-536.5,10,-372.5" radius="6" height="2"/></capture>
-            <progress><cylinder base="-536.5,9,-372.5" radius="6" height="2"/></progress>
-            <captured><cylinder base="-536.5,9,-372.5" radius="6" height="2"/></captured>
+            <progress><cuboid min="-530,9,-366" max="-543,10,-379"/></progress>
+            <captured><cuboid min="-530,9,-366" max="-543,10,-379"/></captured>
         </hill>
         <hill name="Glacier Hill" capture-time="15s" ratio="1.5">
             <capture><cylinder base="-536.5,5,-333.5" radius="5" height="2"/></capture>
-            <progress><cylinder base="-536.5,4,-333.5" radius="5" height="2"/></progress>
-            <captured><cylinder base="-536.5,4,-333.5" radius="5" height="2"/></captured>
+            <progress><cuboid min="-531,3,-339" max="-542,4,-328"/></progress>
+            <captured><cuboid min="-531,3,-339" max="-542,4,-328"/></captured>
         </hill>
         <hill name="Cave Hill" capture-time="15s" ratio="0.5">
             <capture><cylinder base="-536.5,12,-305.5" radius="2"/></capture>
-            <progress><cylinder base="-536.5,11,-305.5" radius="2"/></progress>
-            <captured><cylinder base="-536.5,11,-305.5" radius="2"/></captured>
+            <progress><cuboid min="-534,11,-308" max="-539,11,303"/></progress>
+            <captured><cuboid min="-534,11,-308" max="-539,11,303"/></captured>
         </hill>
     </hills>
 </king>
