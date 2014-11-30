@@ -25,7 +25,7 @@
         <chestplate enchantment="protection projectile:1" damage="-3000">chainmail chestplate</chestplate>
         <boots enchantment="protection fall:1" damage="-3000">iron boots</boots>
         <potion duration="4">heal</potion>
-        <potion duration="4" amplifier="10">damage resistance</potion>a
+        <potion duration="4" amplifier="10">damage resistance</potion>
     </kit>
     <kit name="red" parents="spawn">
         <helmet color="cd0000" damage="-3000">leather helmet</helmet>
