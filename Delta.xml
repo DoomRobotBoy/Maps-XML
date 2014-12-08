@@ -19,8 +19,9 @@
     <kit name="spawn">
         <item slot="0">iron sword</item>
         <item slot="1" enchantment="arrow damage:1">bow</item>
-        <item slot="2" amount="32">golden carrot</item>
-        <item slot="3">golden apple</item>
+        <item slot="2" amount="16" damage="1">leaves</item>
+        <item slot="3" amount="32">golden carrot</item>
+        <item slot="4">golden apple</item>
         <item slot="8" amount="16">arrow</item>
         <leggings enchantment="protection projectile:2">chainmail leggings</leggings>
     </kit>
@@ -77,6 +78,8 @@
     <item>golden carrot</item>
     <item>glass bottle</item>
     <item>potion</item>
+    <item>wood</item>
+    <item>stick</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
