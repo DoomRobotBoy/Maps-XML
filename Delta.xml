@@ -25,9 +25,9 @@
         <leggings enchantment="protection projectile:2">chainmail leggings</leggings>
     </kit>
     <kit name="red" parents="spawn">
-        <helmet color="334CB2">leather helmet</helmet>
-        <chestplate color="334CB2">leather chestplate</chestplate>
-        <boots color="334CB2">leather boots</boots>
+        <helmet color="993333">leather helmet</helmet>
+        <chestplate color="993333">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
         <helmet color="334CB2">leather helmet</helmet>
@@ -48,17 +48,17 @@
     </filter>
 </filters>
 <regions>
-    <cylinder name="red-spawn" base="" radius="1"/>
-    <cylinder name="blue-spawn" base="" radius="1"/>
-    <cylinder name="obs-spawn" base="" radius="1"/>
+    <cylinder name="red-spawn" base="-115.5,16,-535.5" radius="1"/>
+    <cylinder name="blue-spawn" base="-245.5,16,-475.5" radius="1"/>
+    <cylinder name="obs-spawn" base="-180.5,37,-505.5" radius="1"/>
     <apply block="only-some">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
 <spawns>
-    <spawn team="red" kit="spawn" region="red-spawn" yaw="90"/>
-    <spawn team="blue" kit="spawn" region="blue-spawn" yaw="90"/>
-    <default kit="obs-spawn" region="obs-spawn" yaw="-90" />
+    <spawn team="red" kit="red" region="red-spawn" yaw="0"/>
+    <spawn team="blue" kit="blue" region="blue-spawn" yaw="180"/>
+    <default kit="obs-spawn" region="obs-spawn"/>
 </spawns>
 <blitz>
     <time>6m</time>
