@@ -24,17 +24,20 @@
         <item slot="5" amount="64">log</item>
         <item slot="6" amount="64">glass</item>
         <item slot="28">arrow</item>
+        <leggings>chainmail leggings</leggings>
         <potion duration="8">heal</potion>
         <potion duration="8" amplifier="10">damage resistance</potion>
-        <potion duration="5" amplifier="10">slow</potion>
+        <potion duration="5" amplifier="10">slow</potion>   
     </kit>
     <kit name="red" parents="spawn">
-        <helmet damage="-3000" color="993333">leather helmet</helmet>
-        <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+        <helmet color="993333">leather helmet</helmet>
+        <chestplate color="993333">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
-        <helmet damage="-3000" color="334CB2">leather helmet</helmet>
-        <chestplate damge="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+        <helmet color="334CB2">leather helmet</helmet>
+        <chestplate color="334CB2">leather chestplate</chestplate>
+        <boots color="334CB2">leather boots</boots>
     </kit>
 </kits>
 <spawns>
