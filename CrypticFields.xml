@@ -43,35 +43,38 @@
 <filters>
 </filters>
 <regions>
-    <cylinder name="default-spawn" base="-229.5,34,-753.5" radius="1"/>
-    <cuboid name="red-center-core" min="-181,15,-705" max="-178,19,-702"/>
-    <cuboid name="red-north-core" min="-172,11,-726" max="-169,13,-729"/>
-    <cuboid name="red-south-core" min="-202,11,-696" max="-205,13,-693"/>
-    <cuboid name="blue-center-core" min="-278,15,-802" max="-281,19,-805"/>
-    <cuboid name="blue-north-core" min="-257,11,-811" max="-254,13,-814"/>
-    <cuboid name="blue-south-core" min="-287,11,-781" max="-290,13,-778"/>
+    <cylinder name="default-spawn" base="-229.5,39,-753.5" radius="1"/>
+    <cuboid name="red-center-core" min="-181,20,-705" max="-178,24,-702"/>
+    <cuboid name="red-north-core" min="-172,15,-726" max="-169,18,-729"/>
+    <cuboid name="red-south-core" min="-202,15,-696" max="-205,18,-693"/>
+    <cuboid name="blue-center-core" min="-278,19,-802" max="-281,24,-805"/>
+    <cuboid name="blue-north-core" min="-257,15,-811" max="-254,18,-814"/>
+    <cuboid name="blue-south-core" min="-287,15,-781" max="-290,18,-778"/>
     <apply block="deny-all" message="You may not modify the spawns!">
         <rectangle name="red-right-spawn" min="-183,-675" max="-197,-662"/>
         <rectangle name="red-left-spawn" min="-151,-707" max="-138,-721"/>
         <rectangle name="blue-right-spawn" min="-276,-832" max="-262,-845"/>
         <rectangle name="blue-left-spawn" min="-308,-800" max="-321,786"/>
     </apply>
+    <apply block="deny-all">
+        <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red">
         <region>
-            <cuboid min="-147,9,-713" max="-144,9,-716"/>
+            <cuboid min="-147,14,-713" max="-144,14,-716"/>
         </region>
         <region>
-            <cuboid min="-192,9,-668" max="-189,9,-671"/>
+            <cuboid min="-192,14,-668" max="-189,14,-671"/>
         </region> 
     </spawn>
     <spawn team="blue" kit="blue">
         <region>
-            <cuboid min="-315,9,-794" max="-312,9,-791"/>
+            <cuboid min="-315,14,-794" max="-312,14,-791"/>
         </region>
         <region>
-            <cuboid min="-267,9,-839" max="-270,9,-836"/>
+            <cuboid min="-267,14,-839" max="-270,14,-836"/>
         </region> 
     </spawn>
     <default region="default-spawn" yaw="90"/>
@@ -88,10 +91,10 @@
     <rule>
         <region>
             <union>
-                <cuboid min="-257,12,-814" max="-254,12,-811"/>
-                <cuboid min="-290,12,-781" max="-287,12,-778"/>
-                <cuboid min="-205,12,-696" max="-202,12,-693"/>
-                <cuboid min="-172,12,-726" max="-169,12,-729"/>
+                <cuboid min="-257,17,-814" max="-254,17,-811"/>
+                <cuboid min="-290,17,-781" max="-287,17,-778"/>
+                <cuboid min="-205,17,-696" max="-202,17,-693"/>
+                <cuboid min="-172,17,-726" max="-169,17,-729"/>
             </union>
         </region>
         <filter>
