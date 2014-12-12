@@ -40,31 +40,40 @@
         <boots color="334CB2">leather boots</boots>
     </kit>
 </kits>
-<spawns>
-    <default yaw="-180">
-        <point>381.5,68,-389.5</point>
-    </default>
-    <spawn team="red" yaw="180" kit="red">
-        <union>
-            <point>411.5,11,-288.5</point>
-            <point>351.5,11,-288.5</point>
-        </union> 
-    </spawn>
-    <spawn team="blue" yaw="0" kit="blue">
-        <union>
-            <point>351.5,11,-490.5</point>
-            <point>411.5,11,-490.5</point>
-        </union> 
-    </spawn>
-</spawns>
 <filters>
 </filters>
 <regions>
+    <cylinder name="default-spawn" base="-229.5,34,-753.5" radius="1"/>
+    <cuboid name="red-center-core" min="-181,15,-705" max="-178,19,-702"/>
+    <cuboid name="blue-center-core" min="-278,15,-802" max="-281,19,-805"/>
+    <cuboid name="red-northeast-monument" min="-256,11,-812" max="-255,12,-813"/>
 </regions>
+<spawns>
+    <spawn team="red" kit="red">
+        <region>
+            <cuboid min="-147,9,-713" max="-144,9,-716"/>
+        </region>
+        <region>
+            <cuboid min="-192,9,-668" max="-189,9,-671"/>
+        </region> 
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <region>
+            <cuboid min="-315,9,-794" max="-312,9,-791"/>
+        </region>
+        <region>
+            <cuboid min="-267,9,-839" max="-270,9,-836"/>
+        </region> 
+    </spawn>
+    <default region="default-spawn" yaw="90"/>
+</spawns>
 <cores material="obsidian" leak="4">
     <core name="Center Core" team="red" region="red-center-core"/>
     <core name="Southwest Core" team="red" region="red-south-core"/>
     <core name="Northeast Core" team="red" region="red-north-core"/>
+    <core name="Center Core" team="red" region="blue-center-core"/>
+    <core name="Southwest Core" team="red" region="blue-south-core"/>
+    <core name="Northeast Core" team="red" region="blue-north-core"/>
 </cores>
 <toolrepair>
     <tool>iron sword</tool>
@@ -82,5 +91,5 @@
     <item>obsidian</item>
     <item>tnt</item>
 </itemremove>
-<maxbuildheight>51</maxbuildheight>
+<maxbuildheight>25</maxbuildheight>
 </map>
