@@ -1,6 +1,6 @@
-<map proto="1.3.5">
+<map proto="1.3.6">
 <name>DK Crossovers DTE</name>
-<version>1.3.0</version>
+<version>1.3.1</version>
 <objective>Destroy 70% of the enemy's side!</objective>
 <authors>
     <author>DoomRobotBoy</author>
@@ -18,16 +18,20 @@
 <kits>
     <kit name="spawn">
         <item slot="0">iron sword</item>
+        <item slot="27" enchantment="dig speed:2">iron pickaxe</item>
         <item slot="1" enchantment="arrow damage:1" attributes="generic.movementSpeed:base:-0.10">bow</item>
         <item slot="28" amount="48">arrow</item>
-        <item slot="2" enchantment="dig speed:2">iron pickaxe</item>
-        <item slot="3" amount="64">vine</item>
-        <item slot="30" amount="16">ladder</item>
-        <item slot="21" amount="1">dispenser</item>
-        <item slot="5" amount="16">stone button</item>
-        <item slot="32" amount="16">wood plate</item>
-        <item slot="23" amount="16">lever</item>
-        <item slot="14" amount="64">wood step</item>
+        <item slot="2" amount="64">vine</item>
+        <item slot="29" amount="16">ladder</item>
+        <item slot="20" amount="1">dispenser</item>
+        <item slot="4" amount="16">stone button</item>
+        <item slot="31" amount="16">wood plate</item>
+        <item slot="22" amount="16">lever</item>
+        <item slot="13" amount="64">wood step</item>
+        <item slot="5">water bucket</item>
+        <item slot="32">water bucket</item>
+        <item slot="23">water bucket</item>
+        <item slot="14">water bucket</item>
         <item slot="6" amount="16">redstone block</item>
         <item slot="33" amount="64">redstone</item>
         <item slot="24" amount="16">redstone torch on</item>
@@ -44,18 +48,18 @@
         <potion duration="oo" amplifier="1">night vision</potion>
     </kit>
     <kit name="blue" parents="spawn">
-        <item slot="4" amount="64" damage="11">stained clay</item>
-        <item slot="31" amount="64" damage="11">stained clay</item>
-        <item slot="22" amount="64" damage="11">stained clay</item>
+        <item slot="3" amount="64" damage="11">stained clay</item>
+        <item slot="30" amount="64" damage="11">stained clay</item>
+        <item slot="21" amount="64" damage="11">stained clay</item>
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
         <chestplate enchantment="protection explosions:3" damage="-3000">chainmail chestplate</chestplate>
         <leggings damage="-3000">iron leggings</leggings>
         <boots color="334CB2" enchantment="protection fall:1" damage="-3000">leather boots</boots>
     </kit>
     <kit name="green" parents="spawn">
-        <item slot="4" amount="64" damage="13">stained clay</item>
-        <item slot="31" amount="64" damage="13">stained clay</item>
-        <item slot="22" amount="64" damage="13">stained clay</item>
+        <item slot="3" amount="64" damage="13">stained clay</item>
+        <item slot="30" amount="64" damage="13">stained clay</item>
+        <item slot="21" amount="64" damage="13">stained clay</item>
         <helmet color="667F33" damage="-3000">leather helmet</helmet>
         <chestplate enchantment="protection explosions:3">chainmail chestplate</chestplate>
         <leggings damage="-3000">iron leggings</leggings>
@@ -65,17 +69,6 @@
         <potion duration="oo" amplifier="1">night vision</potion>
     </kit>
 </kits>
-<spawns>
-    <spawn team="blue" yaw="0" kit="blue">
-        <cuboid min="989,114,444" max="998,114,446"/>
-    </spawn>
-    <spawn team="green" yaw="0" kit="green">
-        <cuboid min="943,114,444" max="952,114,446"/>
-    </spawn>
-    <default yaw="0" kit="obs">
-        <cuboid min="969,117,441" max="972,117,444"/>
-    </default>
-</spawns>
 <filters>
     <filter name="deny-glass">
         <not>
@@ -128,8 +121,12 @@
         <cuboid min="999,31,361" max="1002,33,364"/>
         <cuboid min="999,7,425" max="1002,9,428"/>
     </union>
+    <cuboid name="blue-spawn" min="989,114,444" max="998,114,446"/>
+    <cuboid name="green-spawn" min="943,114,444" max="952,114,446"/>
+    <cuboid name="default-spawn" min="969,117,441" max="972,117,444"/>
     <cuboid name="blue-side" min="972,0,359" max="1007,119,440"/>
     <cuboid name="green-side" min="934,0,358" max="942,117,439"/>
+    <cuboid name="the-wall" min="968,0,439" max="973,120,359"/>
     <apply block-break="deny-glass" message="You may not edit the wall!">
         <cuboid min="968,0,439" max="973,120,359"/>
     </apply>
@@ -161,6 +158,11 @@
         <region name="jump-pads"/>
     </apply>
 </regions>
+<spawns>
+    <spawn team="blue" region="blue-spawn" yaw="0" kit="blue"/>
+    <spawn team="green" region="green-spawn" yaw="0" kit="green">
+    <default region="default-spawn" yaw="0" kit="obs"/>
+</spawns>
 <renewables>
     <renewable rate="6.5" grow="true" particles="false" sound="false">
         <region>
@@ -173,15 +175,9 @@
     </renewable>
 </renewables>
 <destroyables>
-    <destroyable name="Blue Side" owner="blue" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14">
-        <region name="blue-side"/>
-    </destroyable>
-    <destroyable name="Green Side" owner="green" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14">
-        <region name="green-side"/>
-    </destroyable>
-    <destroyable name="wall" owner="green" materials="glass;wool:4;stained clay:12;wood:1;gold block" completion="0" show="false" mode-changes="true">
-        <cuboid min="968,0,439" max="973,120,359"/>
-    </destroyable>
+    <destroyable name="Blue Side" owner="blue" region="blue-side" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14"/>
+    <destroyable name="Green Side" owner="green" region="green-side" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14"/>
+    <destroyable name="wall" owner="green" region="the-wall" materials="glass;wool:4;stained clay:12;wood:1;gold block" completion="0" show="false" mode-changes="true">
 </destroyables>
 <modes boss-bar="false">
     <mode after="1s" material="glass" name="`6The wall will fall down in `43 minutes`6!"/>
@@ -220,6 +216,10 @@
     </portal>
 </portals>
 <itemremove>
+    <item>leather helmet</item>
+    <item>chainmail chestplate</item>
+    <item>iron leggings</item>
+    <item>leather boots</item>
     <item>redstone</item>
     <item>TNT</item>
     <item>diode</item>
@@ -228,10 +228,6 @@
     <item>redstone torch on</item>
     <item>stone button</item>
     <item>arrow</item>
-    <item>leather helmet</item>
-    <item>chainmail chestplate</item>
-    <item>iron leggings</item>
-    <item>leather boots</item>
     <item>wood plate</item>
     <item>ladder</item>
     <item>step</item>
