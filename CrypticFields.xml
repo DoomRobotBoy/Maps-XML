@@ -47,6 +47,12 @@
     <cuboid name="red-center-core" min="-181,15,-705" max="-178,19,-702"/>
     <cuboid name="blue-center-core" min="-278,15,-802" max="-281,19,-805"/>
     <cuboid name="red-northeast-monument" min="-256,11,-812" max="-255,12,-813"/>
+    <apply block="deny-all" message="You may not modify the spawns!">
+        <rectangle name="red-right-spawn" min="-183,-675" max="-197,-662"/>
+        <rectangle name="red-left-spawn" min="-151,-707" max="-138,-721"/>
+        <rectangle name="blue-right-spawn" min="-276,-832" max="-262,-845"/>
+        <rectangle name="blue-left-spawn" min="-308,-800" max="-321,786"/>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red">
@@ -75,6 +81,22 @@
     <core name="Southwest Core" team="red" region="blue-south-core"/>
     <core name="Northeast Core" team="red" region="blue-north-core"/>
 </cores>
+<blockdrops>
+    <rule>
+        <region>
+            <union>
+                <cuboid min="-257,12,-814" max="-254,12,-811"/>
+                <cuboid min="-290,12,-781" max="-287,12,-778"/>
+                <cuboid min="-205,12,-696" max="-202,12,-693"/>
+                <cuboid min="-172,12,-726" max="-169,12,-729"/>
+            </union>
+        </region>
+        <filter>
+            <block>cobble wall</block>
+        </filter>
+        <replacement>obsidian</replacement>
+    </rule>
+</blockdrops>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
