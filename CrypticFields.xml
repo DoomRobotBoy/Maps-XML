@@ -41,6 +41,11 @@
     </kit>
 </kits>
 <filters>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
 </filters>
 <regions>
     <cylinder name="default-spawn" base="-229.5,39,-753.5" radius="1"/>
@@ -58,6 +63,9 @@
     </apply>
     <apply block="deny-all">
         <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
+    </apply>
+    <apply block="no-void">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
 </regions>
 <spawns>
