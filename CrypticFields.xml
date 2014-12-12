@@ -21,7 +21,7 @@
         <item slot="2" enchantment="dig speed:1">diamond pickaxe</item>
         <item slot="3">stone axe</item>
         <item slot="4" amount="64">cooked fish</item>
-        <item slot="5" amount="64">log</item>
+        <item slot="5" amount="64" damage="1">log</item>
         <item slot="6" amount="64">glass</item>
         <item slot="28">arrow</item>
         <leggings>chainmail leggings</leggings>
@@ -97,6 +97,9 @@
         <replacement>obsidian</replacement>
     </rule>
 </blockdrops>
+<killreward>
+    <item amount="32" damage="1">log</item>
+</killreward>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
