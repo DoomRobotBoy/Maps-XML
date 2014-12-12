@@ -45,11 +45,11 @@
 <regions>
     <cylinder name="default-spawn" base="-229.5,34,-753.5" radius="1"/>
     <cuboid name="red-center-core" min="-181,15,-705" max="-178,19,-702"/>
-    <cuboid name="red-north-core" min="-172,11,-726" max="-169,14,-729"/>
-    <cuboid name="red-south-core" min="-202,11,-696" max="-205,14,-693"/>
+    <cuboid name="red-north-core" min="-172,11,-726" max="-169,13,-729"/>
+    <cuboid name="red-south-core" min="-202,11,-696" max="-205,13,-693"/>
     <cuboid name="blue-center-core" min="-278,15,-802" max="-281,19,-805"/>
-    <cuboid name="blue-north-core" min="-172,11,-726" max="-169,14,-729"/>
-    <cuboid name="blue-south-core" min="-202,11,-696" max="-205,14,-693"/>
+    <cuboid name="blue-north-core" min="-257,11,-811" max="-254,13,-814"/>
+    <cuboid name="blue-south-core" min="-287,11,-781" max="-290,13,-778"/>
     <apply block="deny-all" message="You may not modify the spawns!">
         <rectangle name="red-right-spawn" min="-183,-675" max="-197,-662"/>
         <rectangle name="red-left-spawn" min="-151,-707" max="-138,-721"/>
