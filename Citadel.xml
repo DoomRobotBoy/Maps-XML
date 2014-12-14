@@ -11,70 +11,55 @@
     <contributor contribution="XML">DoomRobotBoy</contributor>
     <contributor contribution="Ship Builder">Aalhond</contributor>
 </contributors>
+<broadcasts>
+    <tip after="15s">The `a`lVictory Monument`r, where the `4Attackers`r need to place the `1`lWool`r, is located on the giant ship!</tip>
+    <alert after="20s">The `4Attackers`r can craft `nTNT`r with `7Gunpowder`r you get from killrewards.</alert>
+</broadcasts>
 <teams>
    <team color="dark red" max="18" max-overfill="20">Attackers</team>
    <team color="blue" max="16" max-overfill="18">Defenders</team>
 </teams>
 <kits>
     <kit name="spawn" force="true">
-        <item slot="1">bow</item>
-        <potion duration="5" amplifier="10">heal</potion>
+        <potion duration="5">heal</potion>
     </kit>
     <kit name="attacker" parents="spawn">
-        <item slot="1" enchantment="damageall:1;durability:1" name="`fIron Hammer">iron axe</item>
-        <item slot="2" enchantment="digspeed:1" name="`8Pickaxe" lore="Use this to mine the Golden Treasure!">stone pickaxe</item>
-        <item slot="3" amount="64">bread</item>
-        <item slot="4">golden apple</item>
-        <item slot="5">TNT</item>
-        <item slot="25">gold ingot</item>
-        <item slot="28" amount="48">arrow</item>
-        <helmet damage="-3000">chainmail helmet</helmet>
-        <leggings color="cd0000">leather leggings</leggings>
-        <boots color="cd0000">leather boots</boots>
+        <item slot="0" enchantment="damage all:1">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">stone pickaxe</item>
+        <item slot="3" amount="32" damage="14">stained clay</item>
+        <item slot="7" amount="16">arrow</item>
+        <item slot="8" amount="32">cooked fish</item>
+        <helmet color="8C3342" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate color="8C3342">leather chestplate</chestplate>
+        <boots color="8C3342">leather boots</boots>
+        <potion duration="7">slow</potion>
+        <potion duration="3">regeneration</potion>
     </kit>
     <kit name="defender" parents="spawn">
-        <item slot="1" enchantment="damageall:1;durability:1" name="`8Stone Blade">stone sword</item>
-        <item slot="2" amount="64">bread</item>
-        <item slot="3">golden apple</item>
-        <item slot="4">TNT</item>
-        <item slot="28" amount="64">arrow</item>
-        <item slot="19" amount="16">arrow</item>
-        <helmet damage="-3000">gold helmet</helmet>
-        <leggings color="0066cc">leather leggings</leggings>
-        <boots color="0066cc">leather boots</boots>
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3" amount="64" damage="3">stained clay</item>
+        <item slot="30" amount="64" damage="3">stained clay</item>
+        <item slot="4" amount="32">wood</item>
+        <item slot="5" amount="32">glass</item>
+        <item slot="7" amount="6">arrow</item>
+        <item slot="8" amount="32">bread</item>
+        <helmet color="52839D" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate color="52839D">leather chestplate</chestplate>
+        <leggings>iron leggings</chestplate>
+        <potion duration="5">speed</potion>
     </kit>
 </kits>
-<spawns>
-    <default yaw="-90">
-        <cylinder base="-189.5,8,108.5" radius="180" height="0"/>
-    </default>
-    <spawn team="attackers" kit="attacker" yaw="-90">
-        <cylinder base="-204.5,8,79.5" radius="1" height="0"/>
-    </spawn>
-    <spawn team="defenders" kit="defender" yaw="0">
-        <cylinder base="-2.5,42,24.5" radius="1" height="0"/>
-    </spawn>
-</spawns>
 <filters>
-    <filter name="only-wood-break">
-        <block>wood 1</block>
-    </filter>
-    <filter name="only-gold-break">
-        <team>attackers</team>
-        <block>gold block</block>
-    </filter>
-    <filter name="only-gold-place">
-        <team>defenders</team>
-        <block>gold block</block>
-    </filter>
     <filter name="only-place">
         <team>defenders</team>
         <block>sandstone</block>
         <block>grass</block>
     </filter>
-    <filter name="deny-gold-defenders">
-        <team>defenders</team>
-        <block>gold block</block>
+    <filter name="deny-wool">
+        <block damage="11">wool</block>
     </filter>
     <filter name="deny-tnt">
         <not>
@@ -119,17 +104,22 @@
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
 </regions>
-<destroyables>
-    <destroyable name="Golden Treasure" owner="Defenders" show-progress="false" materials="gold block" completion="100%" repairable="true">
-        <cuboid min="4,51,107" max="16,54,113"/>
-    </destroyable>
-    <destroyable owner="Defenders" materials="glass" mode-changes="true">
-        <cuboid min="-207,9,81" max="-203,9,77"/>
-    </destroyable>
-</destroyables>
-<modes>
-    <mode after="20s" material="air" name="`4Attackers have been released!"/>
-</modes>
+<spawns>
+    <default yaw="-90">
+        <cylinder base="-189.5,8,108.5" radius="180" height="0"/>
+    </default>
+    <spawn team="attackers" kit="attacker" yaw="-90">
+        <cylinder base="-204.5,8,79.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="defenders" kit="defender" yaw="0">
+        <cylinder base="-2.5,42,24.5" radius="1" height="0"/>
+    </spawn>
+</spawns>
+<wools>
+    <wool team="Attackers" color="blue">
+        <monument><block>0.5,11,-92.5</block></monument>
+    </wool>
+</wools>
 <killreward>
     <filter>
         <allow><team>Attackers</team></allow>
@@ -144,18 +134,40 @@
     </filter>
     <item amount="3">arrow</item>
 </killreward>
-<toolrepair>
-    <tool>iron sword</tool>
-    <tool>bow</tool>
-    <tool>iron axe</tool>
-    <tool>stone pickaxe</tool>
-</toolrepair>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
-    <item>leather leggings</item>
+    <item>iron leggings</item>
     <item>leather boots</item>
     <item>bread</item>
+    <item>cooked fish</item>
+    <item>arrow</item>
+    <item damage="0">wood</item>
+    <item>glass</item>
+    <item damage="3">stained clay</item>
+    <item damage="9">stained clay</item>
+    <item damage="14">stained clay</item>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>iron pickaxe</item>
+    <item>stone pickaxe</item>
+    <item>anvil</item>
+    <item>wheat</item>
+    <item>seeds</item>
+    <item>sapling</item>
+    <item>apple</item>
+    <item>red rose</item>
+    <item>item frame</item>
+    <item>string</item>
+    <item>snow ball</item>
+    <item>clay ball</item>
+    <item>iron fence</item>
+    <item>sugar cane</item>
+    <item>sign</item>
+    <item damage="7">carpet</item>
+    <item damage="8">carpet</item>
+    <item damage="14">carpet</item>
 </itemremove>
 <tnt>
     <instantignite>on</instantignite>
@@ -163,5 +175,8 @@
 </tnt>
 <time result="defenders">14m</time>
 <timelock>on</timelock>
+<gamerules>
+    <doFireTick>false</doFireTick>
+</gamerules>
 <maxbuildheight>70</maxbuildheight>
 </map>
