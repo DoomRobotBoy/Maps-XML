@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Citadel</name>
+<version>1.0.0</version>
+<objective>Attackers must capture the wool before the time limit of 14 minutes runs out!</objective>
+<authors>
+    <author>Diamyx</author>
+    <author>SamSafari</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor contribution="Ship Builder">Aalhond</contributor>
+</contributors>
+<teams>
+   <team color="dark red" max="18" max-overfill="20">Attackers</team>
+   <team color="blue" max="16" max-overfill="18">Defenders</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="1">bow</item>
+        <potion duration="5" amplifier="10">heal</potion>
+    </kit>
+    <kit name="attacker" parents="spawn">
+        <item slot="1" enchantment="damageall:1;durability:1" name="`fIron Hammer">iron axe</item>
+        <item slot="2" enchantment="digspeed:1" name="`8Pickaxe" lore="Use this to mine the Golden Treasure!">stone pickaxe</item>
+        <item slot="3" amount="64">bread</item>
+        <item slot="4">golden apple</item>
+        <item slot="5">TNT</item>
+        <item slot="25">gold ingot</item>
+        <item slot="28" amount="48">arrow</item>
+        <helmet damage="-3000">chainmail helmet</helmet>
+        <leggings color="cd0000">leather leggings</leggings>
+        <boots color="cd0000">leather boots</boots>
+    </kit>
+    <kit name="defender" parents="spawn">
+        <item slot="1" enchantment="damageall:1;durability:1" name="`8Stone Blade">stone sword</item>
+        <item slot="2" amount="64">bread</item>
+        <item slot="3">golden apple</item>
+        <item slot="4">TNT</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="19" amount="16">arrow</item>
+        <helmet damage="-3000">gold helmet</helmet>
+        <leggings color="0066cc">leather leggings</leggings>
+        <boots color="0066cc">leather boots</boots>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="-90">
+        <cylinder base="-189.5,8,108.5" radius="180" height="0"/>
+    </default>
+    <spawn team="attackers" kit="attacker" yaw="-90">
+        <cylinder base="-204.5,8,79.5" radius="1" height="0"/>
+    </spawn>
+    <spawn team="defenders" kit="defender" yaw="0">
+        <cylinder base="-2.5,42,24.5" radius="1" height="0"/>
+    </spawn>
+</spawns>
+<filters>
+    <filter name="only-wood-break">
+        <block>wood 1</block>
+    </filter>
+    <filter name="only-gold-break">
+        <team>attackers</team>
+        <block>gold block</block>
+    </filter>
+    <filter name="only-gold-place">
+        <team>defenders</team>
+        <block>gold block</block>
+    </filter>
+    <filter name="only-place">
+        <team>defenders</team>
+        <block>sandstone</block>
+        <block>grass</block>
+    </filter>
+    <filter name="deny-gold-defenders">
+        <team>defenders</team>
+        <block>gold block</block>
+    </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <apply block-break="only-gold-break" message="You may only break gold blocks!">
+        <rectangle min="-129,130" max="21,19"/>
+    </apply>
+    <apply block-break="only-wood-break" message="You may only break spruce wood planks here!">
+        <rectangle min="-130,130" max="-211,19"/>
+    </apply>
+    <apply block-place="only-gold-place" message="You may only place gold blocks!">
+        <rectangle min="-175,19" max="-213,130"/>
+        <rectangle min="-43,130" max="21,19"/>
+    </apply>
+    <apply block="deny-defenders" message="You may not edit the surroundings of the enemy camp!">
+        <rectangle min="-130,130" max="-212,19"/>       
+    </apply>
+    <!-- Defenders Regions -->
+    <apply block-place-against="only-place" message="You may only place wood in the river and savanna.">
+        <rectangle min="-129,130" max="-44,19"/>
+    </apply>
+    <apply block-break="deny-defenders">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-gold-defenders" message="You may not place gold blocks here!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-tnt">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply velocity="@-37.0,2.0,12.0">
+        <cuboid min="-18,36,30" max="-18,37,30"/>
+    </apply>
+    <apply use="deny-defenders">
+        <block>10,50,113</block>
+    </apply>
+    <apply block="deny-tnt">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<destroyables>
+    <destroyable name="Golden Treasure" owner="Defenders" show-progress="false" materials="gold block" completion="100%" repairable="true">
+        <cuboid min="4,51,107" max="16,54,113"/>
+    </destroyable>
+    <destroyable owner="Defenders" materials="glass" mode-changes="true">
+        <cuboid min="-207,9,81" max="-203,9,77"/>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="20s" material="air" name="`4Attackers have been released!"/>
+</modes>
+<killreward>
+    <filter>
+        <allow><team>Attackers</team></allow>
+    </filter>
+    <item amount="2">sulphur</item>
+    <item amount="4">arrow</item>
+    <item amount="12" damage="14">stained clay</item>
+</killreward>
+<killreward>
+    <filter>
+        <allow><team>Defenders</team></allow>
+    </filter>
+    <item amount="3">arrow</item>
+</killreward>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron axe</tool>
+    <tool>stone pickaxe</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>bread</item>
+</itemremove>
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>2s</fuse>
+</tnt>
+<time result="defenders">14m</time>
+<timelock>on</timelock>
+<maxbuildheight>70</maxbuildheight>
+</map>
