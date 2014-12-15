@@ -85,6 +85,22 @@
             <block>stained clay:9</block>
         </deny>
     </filter>
+    <filter name="deny-lime-clay-explosions">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>stained clay:5</block>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-cyan-clay-explosions">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>stained clay:9</block>
+            </all>
+        </not>
+    </filter>
     <filter name="all-but-tnt">
         <not>
             <all>
@@ -151,6 +167,12 @@
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block="deny-cyan-clay">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-lime-clay-explosions">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-cyan-clay-explosions">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
 <!--  green jump pads - top to bottom  -->
