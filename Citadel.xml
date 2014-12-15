@@ -171,6 +171,8 @@
     <item damage="7">carpet</item>
     <item damage="8">carpet</item>
     <item damage="14">carpet</item>
+    <item>wood button</item>
+    <item>stone button</item>
 </itemremove>
 <tnt>
     <instantignite>on</instantignite>
@@ -181,5 +183,5 @@
 <gamerules>
     <doFireTick>false</doFireTick>
 </gamerules>
-<maxbuildheight>70</maxbuildheight>
+<maxbuildheight>71</maxbuildheight>
 </map>
