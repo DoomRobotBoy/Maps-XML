@@ -12,8 +12,8 @@
     <contributor contribution="Ship Builder">Aalhond</contributor>
 </contributors>
 <broadcasts>
-    <tip after="15s">The `a`lVictory Monument`r, where the `4Attackers`r need to place the `1`lWool`r, is located on the giant ship!</tip>
-    <alert after="20s">The `4Attackers`r can craft `nTNT`r with `7Gunpowder`r you get from killrewards.</alert>
+    <tip after="15s">`rThe `a`lVictory Monument`r, where the `4Attackers`r need to place the `1`lWool`r, is located on the giant ship!</tip>
+    <alert after="20s">`rThe `4Attackers`r can craft `nTNT`r with the `7Gunpowder`r you get from killrewards.</alert>
 </broadcasts>
 <teams>
    <team color="dark red" max="18" max-overfill="20">Attackers</team>
@@ -61,6 +61,9 @@
     <filter name="deny-wool">
         <block damage="11">wool</block>
     </filter>
+    <filter name="deny-attackers">
+        <not><team>attackers</team></not>
+    </filter>
     <filter name="deny-tnt">
         <not>
             <cause>explosion</cause>
@@ -68,15 +71,21 @@
     </filter>
 </filters>
 <regions>
-    <apply block-break="only-gold-break" message="You may only break gold blocks!">
-        <rectangle min="-129,130" max="21,19"/>
+    <cylinder name="observer-spawn" base="-202.5,100,-49.5" radius="1"/>
+    <union name="attacker-spawn">
+        <cylinder base="-4.5,30,-60.5" radius="1"/>
+        <cylinder base="0.5,30,-66.5" radius="1"/>
+        <cylinder base="-2.5,30,-29.5" radius="1"/>
+    </union>    
+    <cuboid name="defender-spawn" min="-202,89,-50" max="-203,89,-48"/>
+    <apply block="deny-wool" message="You may not place safeties!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
-    <apply block-break="only-wood-break" message="You may only break spruce wood planks here!">
-        <rectangle min="-130,130" max="-211,19"/>
+    <apply enter="deny-attackers" message="You may not enter the Defenders' spawn!">
+        <rectangle min="-188,-87" max="-188,-3"/>
     </apply>
-    <apply block-place="only-gold-place" message="You may only place gold blocks!">
-        <rectangle min="-175,19" max="-213,130"/>
-        <rectangle min="-43,130" max="21,19"/>
+    <apply block="deny-all" message="You may not destroy the Defenders' spawn!">
+        <rectangle min="-188,-87" max="-220,-3"/>
     </apply>
     <apply block="deny-defenders" message="You may not edit the surroundings of the enemy camp!">
         <rectangle min="-130,130" max="-212,19"/>       
@@ -105,15 +114,9 @@
     </apply>
 </regions>
 <spawns>
-    <default yaw="-90">
-        <cylinder base="-189.5,8,108.5" radius="180" height="0"/>
-    </default>
-    <spawn team="attackers" kit="attacker" yaw="-90">
-        <cylinder base="-204.5,8,79.5" radius="1" height="0"/>
-    </spawn>
-    <spawn team="defenders" kit="defender" yaw="0">
-        <cylinder base="-2.5,42,24.5" radius="1" height="0"/>
-    </spawn>
+    <default region="observer-spawn" yaw="-90"/>
+    <spawn team="attackers" kit="attacker" region="attacker-spawn" yaw="-90"/>
+    <spawn team="defenders" kit="defender" region="defender-spawn" yaw="180"/>
 </spawns>
 <wools>
     <wool team="Attackers" color="blue">
