@@ -61,8 +61,15 @@
     <filter name="deny-wool">
         <block damage="11">wool</block>
     </filter>
+    <filter name="deny-water">
+        <block>water</block>
+        <block>stationary water</block>
+    </filter>
     <filter name="deny-attackers">
         <not><team>attackers</team></not>
+    </filter>
+    <filter name="deny-spawn-destruction">
+        <allow>leaves</allow>
     </filter>
     <filter name="deny-tnt">
         <not>
@@ -78,7 +85,7 @@
         <cylinder base="-2.5,30,-29.5" radius="1"/>
     </union>    
     <cuboid name="defender-spawn" min="-202,89,-50" max="-203,89,-48"/>
-    <apply block="deny-wool" message="You may not place safeties!">
+    <apply block="deny-wool" message="No safeties allowed.">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply enter="deny-attackers" message="You may not enter the Defenders' spawn!">
@@ -87,27 +94,19 @@
     <apply block="deny-all" message="You may not destroy the Defenders' spawn!">
         <rectangle min="-188,-87" max="-220,-3"/>
     </apply>
-    <apply block="deny-defenders" message="You may not edit the surroundings of the enemy camp!">
-        <rectangle min="-130,130" max="-212,19"/>       
+    <apply block="deny-spawn-destruction" message="You may not destroy the Attackers' spawn!">
+        <union>
+            <rectangle min="-14,-65" max="-3,-56"/>
+            <rectangle min="-4,-65" max="-5,-76"/>
+            <rectangle min="-7,-20" max="2,-31"/>
+        </union>
     </apply>
-    <!-- Defenders Regions -->
-    <apply block-place-against="only-place" message="You may only place wood in the river and savanna.">
-        <rectangle min="-129,130" max="-44,19"/>
+    <apply block="deny-all" message="You may not place or destroy blocks in the ocean!">
+        <rectangle min="39,-87" max="87,-3"/>
     </apply>
-    <apply block-break="deny-defenders">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-    <apply block="deny-gold-defenders" message="You may not place gold blocks here!">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-    <apply block="deny-tnt">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-    <apply velocity="@-37.0,2.0,12.0">
-        <cuboid min="-18,36,30" max="-18,37,30"/>
-    </apply>
-    <apply use="deny-defenders">
-        <block>10,50,113</block>
+    <apply block-break="deny-water">
+        <rectangle min="87,-88" max="-220,-87"/>
+        <rectangle min="87,-3" max="-220,-2"/>
     </apply>
     <apply block="deny-tnt">
         <rectangle min="oo,oo" max="-oo,-oo"/>
