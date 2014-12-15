@@ -102,7 +102,7 @@
         </union>
     </apply>
     <apply block="deny-all" message="You may not place or destroy blocks in the ocean!">
-        <rectangle min="39,-87" max="87,-3"/>
+        <rectangle min="38,-87" max="87,-3"/>
     </apply>
     <apply block-break="deny-water">
         <rectangle min="87,-88" max="-220,-87"/>
