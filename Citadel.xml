@@ -124,6 +124,14 @@
         <region name="defenders-spawn-area"/>
         <region name="ocean"/>
     </apply>
+    <apply block="deny-all" message="You may not modify the void area!">
+        <negative>
+            <complement>
+                <rectangle min="-220,-3" max="87,-87"/>
+                <cuboid min="39,,13,-3" max="-220,19,-87"/>
+            </complement>
+        </negative>
+    </apply>
 </regions>
 <spawns>
     <default region="observer-spawn" yaw="-90"/>
@@ -132,7 +140,7 @@
 </spawns>
 <wools>
     <wool team="Attackers" color="blue">
-        <monument><block>0.5,11,-92.5</block></monument>
+        <monument><block>69.5,40,-13.5</block></monument>
     </wool>
 </wools>
 <killreward>
