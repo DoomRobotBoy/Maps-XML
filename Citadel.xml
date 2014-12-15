@@ -53,11 +53,6 @@
     </kit>
 </kits>
 <filters>
-    <filter name="only-place">
-        <team>defenders</team>
-        <block>sandstone</block>
-        <block>grass</block>
-    </filter>
     <filter name="deny-wool">
         <block damage="11">wool</block>
     </filter>
@@ -68,9 +63,13 @@
     <filter name="deny-attackers">
         <not><team>attackers</team></not>
     </filter>
+    <filter name="deny-defenders">
+        <not><team>defenders</team></not>
+    </filter>
     <filter name="deny-spawn-destruction">
         <allow>leaves</allow>
     </filter>
+    <filter name="deny-defender-wool-destruction"
     <filter name="deny-tnt">
         <not>
             <cause>explosion</cause>
@@ -92,24 +91,38 @@
         <rectangle min="-188,-87" max="-188,-3"/>
     </apply>
     <apply block="deny-all" message="You may not destroy the Defenders' spawn!">
-        <rectangle min="-188,-87" max="-220,-3"/>
+        <rectangle name="defenders-spawn-area" min="-188,-87" max="-220,-3"/>
     </apply>
     <apply block="deny-spawn-destruction" message="You may not destroy the Attackers' spawn!">
-        <union>
+        <union name="attackers-spawn-area">
             <rectangle min="-14,-65" max="-3,-56"/>
             <rectangle min="-4,-65" max="-5,-76"/>
             <rectangle min="-7,-20" max="2,-31"/>
         </union>
     </apply>
     <apply block="deny-all" message="You may not place or destroy blocks in the ocean!">
-        <rectangle min="38,-87" max="87,-3"/>
+        <rectangle name="ocean" min="38,-87" max="87,-3"/>
+    </apply>
+    <apply block="deny-all" message="You may not break the boat-chest!">
+        <cuboid min="18,29,-36" max="20,29,-34"/>
     </apply>
     <apply block-break="deny-water">
         <rectangle min="87,-88" max="-220,-87"/>
         <rectangle min="87,-3" max="-220,-2"/>
     </apply>
+    <apply block="deny-attackers" message="You are not allowed to edit the wool room!">
+        <circle base="-134.5,0,-45.5" radius="11" height="53"/>
+    </apply>
+    <apply block="deny-defenders" message="You are not allowed to edit the wool room!">
+        <circle base="-134.5,0,-45.5" radius="23"/>
+    </apply>
+    <apply enter="deny-defenders">
+        <region name="ocean"/>
+    </apply>
     <apply block="deny-tnt">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
+        <region name="attackers-spawn-area"/>
+        <region name="defenders-spawn-area"/>
+        <region name="ocean"/>
     </apply>
 </regions>
 <spawns>
