@@ -91,6 +91,15 @@
     <destroyable name="East Monument" region="blue-east-monument" owner="blue"/>
     <destroyable name="West Monument" region="blue-west-monument" owner="blue"/>
 </destroyables>
+<renewables>
+    <renewable rate="0.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <region name="spawn-protect"/>
+        </region>
+        <renew>gold block</renew>
+        <replace>air</replace>
+    </renewable>
+</renewables>
 <maxbuildheight>38</maxbuildheight>
 <toolrepair>
     <tool>stone sword</tool>
