@@ -6,6 +6,9 @@
 <authors>
     <author>DoomRobotBoy</author>
 </authors>
+<contributors>
+    <contributor contribution="Feedback and Aesthetics-help">Linehodres</contributor>
+</contributors>
 <teams>
     <team id="red" color="dark red" max="50">Red Team</team>
     <team id="blue" color="blue" max="50">Blue Team</team>
