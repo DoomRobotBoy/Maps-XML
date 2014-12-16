@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Mutiny</name>
+<version>1.0.0</version>
+<objective>Destroy the enemies' monuments!</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
+<teams>
+    <team color="dark red" max="50">Red Team</team>
+    <team color="blue" max="50">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="2" enchantment="dig speed:1">diamond pickaxe</item>
+        <item slot="3">iron axe</item>
+        <item slot="4" amount="64">log</item>
+        <item slot="5" amount="64">cobblestone</item>
+        <item slot="6" damage="8261">potion</item>
+        <item slot="7" amount="64">cooked fish</item>
+        <item slot="8">bucket</item>
+        <helmet color="B2CCEB" damage="-3000">leather helmet</helmet>
+        <chestplate color="B2CCEB" damage="-3000">leather chestplate</chestplate>
+        <potion duration="5">heal</potion>
+    </kit>
+</kits>
+<killreward>
+    <item amount="16">arrow</item>
+</killreward>
+<filters>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <cylinder name="red-spawn" base="-203.5,3,366.5" radius="1"/>
+    <cylinder name="blue-spawn" base="-198.5,3,-27.5" radius="1"/>
+    <cuboid name="default-spawn" min="-200,8,170" max="-202,8,160"/>
+    <cuboid name="red-east-monument" min="-165,31,279" max="-164,34,278"/>
+    <cuboid name="red-west-monument" min="-285,13,278" max="-286,16,279"/>
+    <cuboid name="blue-west-monument" min="-237,31,60" max="-238,34,61"/>
+    <cuboid name="blue-east-monument" min="-117,13,61" max="-116,16,60"/>
+    <apply block="deny-all">
+        <cuboid name="default-protection" min="-198,7,167" max="-204,10,172"/>
+    </apply>
+<!-- Void filter must go last, since it overrides all regions under it -->
+    <apply block="no-void" message="You may not modify the void area!">
+        <region min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red" kit="spawn" region="red-spawn" yaw="180"/>
+    <spawn team="blue" kit="spawn" region="blue-spawn" yaw="0"/>
+    <default region="default-spawn"/>
+</spawns>
+<destroyables materials="obsidian" completion="100%">
+    <destroyable name="East Monument" region="red-east-monument" owner="red"/>
+    <destroyable name="West Monument" region="red-west-monument" owner="red"/>
+    <destroyable name="East Monument" region="blue-east-monument" owner="blue"/>
+    <destroyable name="West Monument" region="blue-west-monument" owner="blue"/>
+</destroyables>
+<maxbuildheight>38</maxbuildheight>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>glass bottle</item>
+    <item>potion</item>
+    <item>cooked fish</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+</itemremove>
+</map>
