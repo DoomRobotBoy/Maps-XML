@@ -42,7 +42,7 @@
         <item slot="2">iron pickaxe</item>
         <item slot="3" amount="64" damage="3">stained clay</item>
         <item slot="30" amount="64" damage="3">stained clay</item>
-        <item slot="4" amount="32">wood</item>
+        <item slot="4" amount="16">wood</item>
         <item slot="5" amount="32">glass</item>
         <item slot="7" amount="6">arrow</item>
         <item slot="8" amount="32">bread</item>
