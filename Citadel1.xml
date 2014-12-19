@@ -54,9 +54,9 @@
 </king>
 <kits>
     <kit name="spawn" potion-particles="false">
-        <potion duration="5">heal</potion>
+        <potion duration="3">heal</potion>
     </kit>
-    <kit name="attacker" parents="spawn">
+    <kit name="attacker" parents="spawn" potion-particles="false">
         <item slot="0" attributes="generic.attackDamage:add:6.5">iron sword</item>
         <item slot="1">bow</item>
         <item slot="2">stone pickaxe</item>
@@ -70,7 +70,7 @@
         <potion duration="4" amplifier="2">slow</potion>
         <potion duration="4" amplifier="1">regeneration</potion>
     </kit>
-    <kit name="defender" parents="spawn">
+    <kit name="defender" parents="spawn" potion-particles="false">
         <item slot="0">iron sword</item>
         <item slot="1" enchantment="arrow damage:1">bow</item>
         <item slot="2">iron pickaxe</item>
