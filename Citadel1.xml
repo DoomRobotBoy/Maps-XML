@@ -45,7 +45,7 @@
 </wools>
 <king>
     <hills>
-        <hill id="tents" name="Attackers' Camp" capture-time="2s" points="0" initial-owner="defenders" show="false" permanent="true">
+        <hill id="tents" name="Attackers' Camp" capture-time="2s" points="0" initial-owner="defenders" show="false" permanent="true" visual-materials="only-blue-to-red">
             <capture><region name="hill"/></capture>
             <progress><region name="hill"/></progress>
             <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
@@ -91,6 +91,11 @@
     <filter name="attacker-moving" parents="deny-all">
         <allow>
             <objective>tents</objective>
+        </allow>
+    </filter>
+    <filter name="only-blue-to-red">
+        <allow>
+            <block damage="11">wool</block>
         </allow>
     </filter>
     <filter name="deny-safties">
