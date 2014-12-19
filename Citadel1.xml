@@ -1,0 +1,201 @@
+<map proto="1.3.6">
+<name>Citadel</name>
+<version>1.0.1</version>
+<objective>Attackers must capture the wool before the time limit of 14 minutes runs out!</objective>
+<authors>
+    <author>Diamyx</author>
+    <author>SamSafari</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor contribution="Ship Builder">Aalhond</contributor>
+</contributors>
+<teams>
+    <team id="attackers" color="dark red" max="18" max-overfill="20">Attackers</team>
+    <team id="defenders" color="blue" max="18" max-overfill="20">Defenders</team>
+</teams>
+<spawns safe="true">
+    <default yaw="-90">
+        <regions>
+            <region name="observer-spawn"/>
+        </regions>
+    </default>
+    <spawn team="attackers" kit="attacker" yaw="90">
+        <regions>
+            <cuboid min="22,27,-82" max="-15,34,-10"/>
+        </regions>
+    </spawn>
+    <spawn team="defenders" kit="defender" yaw="180">
+        <regions>
+            <region name="defender-spawn"/>
+        </regions>
+    </spawn>
+</spawns>
+<wools>
+    <wool team="attackers" color="blue" location="-134.5,75,-45.5">
+        <monument>
+            <block>69.5,40,-13.5</block>
+        </monument>
+    </wool>
+</wools>
+<kits>
+    <kit name="spawn" potion-particles="false">
+        <potion duration="5">heal</potion>
+    </kit>
+    <kit name="attacker" parents="spawn">
+        <item slot="0" attributes="generic.attackDamage:add:6.5">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">stone pickaxe</item>
+        <item slot="3" amount="32" damage="14">stained clay</item>
+        <item slot="7" amount="16">arrow</item>
+        <item slot="8" amount="32">cooked fish</item>
+        <helmet locked="true" damage="-3000" color="8C3342" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="8C3342">leather chestplate</chestplate>
+        <boots locked="true" damage="-3000" color="8C3342">leather boots</boots>
+        <potion duration="4" amplifier="2">slow</potion>
+        <potion duration="4" amplifier="1">regeneration</potion>
+    </kit>
+    <kit name="defender" parents="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1" enchantment="arrow damage">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3" amount="64" damage="3">stained clay</item>
+        <item slot="30" amount="64" damage="3">stained clay</item>
+        <item slot="4" amount="16">wood</item>
+        <item slot="5" amount="32">glass</item>
+        <item slot="7" amount="12">arrow</item>
+        <item slot="8" amount="32">bread</item>
+        <helmet locked="true" damage="-3000" color="52839D" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="52839D">leather chestplate</chestplate>
+        <leggings locked="true" damage="-3000">iron leggings</leggings>
+        <potion duration="5">speed</potion>
+    </kit>
+</kits>
+<filters>
+    <filter name="attacker-moving" parents="deny-all">
+        <allow>
+            <objective>tents</objective>
+        </allow>
+    </filter>
+    <filter name="deny-safties">
+        <deny>
+            <block damage="11">wool</block>
+        </deny>
+    </filter>
+    <filter name="deny-attackers">
+        <not>
+            <team>attackers</team>
+        </not>
+    </filter>
+    <filter name="deny-defenders">
+        <not>
+            <team>defenders</team>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="everything" min="oo,oo" max="-oo,-oo"/>
+    <union name="spawns">
+        <cylinder name="observer-spawn" base="-202.5,100,-49.5" radius="1" height="1"/>
+        <cuboid name="defender-spawn" min="-202,89,-50" max="-203,89,-48"/>
+    </union>
+    <apply block-place="deny-safties" message="No wool safties are allowed">
+        <region name="everything"/>
+    </apply>
+    <apply enter="deny-attackers" message="You may not enter the defenders' spawn">
+        <rectangle min="-188,-87" max="-188,-3"/>
+    </apply>
+    <apply block="deny-all" message="You may not destroy the defenders' spawn">
+        <rectangle min="-188,-87" max="-220,-3"/>
+    </apply>
+    <apply block="deny-all" message="You may not edit blocks near the ship">
+        <rectangle name="ocean" min="38,-87" max="87,-3"/>
+    </apply>
+    <apply block-break="deny-all" message="You may not break this chest">
+        <cuboid min="19,28,-36" max="20,29,-34"/>
+    </apply>
+    <apply block="deny-all" message="You are not allowed to edit the wool room">
+        <circle center="-134.5,-45.5" radius="13"/>
+    </apply>
+    <apply enter="deny-defenders" message="You are not allowed to enter the wool room">
+        <circle center="-134.5,-45.5" radius="13"/>
+    </apply>
+    <apply block-place="deny-defenders" message="You aren't allowed to place blocks in-front of the wool room">
+        <circle center="-134.5,-45.5" radius="23"/>
+    </apply>
+    <apply enter="deny-defenders" message="You may not traverse this far into enemy territory">
+        <region name="ocean"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the void area">
+        <negative>
+            <complement>
+                <rectangle min="-220,-3" max="87,-87"/>
+                <cuboid min="39,13,-3" max="-220,19,-87"/>
+            </complement>
+        </negative>
+    </apply>
+</regions>
+<killreward>
+    <filter>
+        <team>attackers</team>
+    </filter>
+    <item>tnt</item>
+    <item amount="6">arrow</item>
+    <item amount="12" damage="14">stained clay</item>
+</killreward>
+<killreward>
+    <filter>
+        <team>defenders</team>
+    </filter>
+    <item amount="12">arrow</item>
+</killreward>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>leather boots</item>
+    <item>bread</item>
+    <item>cooked fish</item>
+    <item>arrow</item>
+    <item damage="0">wood</item>
+    <item>glass</item>
+    <item damage="3">stained clay</item>
+    <item damage="9">stained clay</item>
+    <item damage="14">stained clay</item>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>iron pickaxe</item>
+    <item>stone pickaxe</item>
+    <item>anvil</item>
+    <item>wheat</item>
+    <item>seeds</item>
+    <item>sapling</item>
+    <item>apple</item>
+    <item>red rose</item>
+    <item>item frame</item>
+    <item>string</item>
+    <item>snow ball</item>
+    <item>clay ball</item>
+    <item>iron fence</item>
+    <item>sugar cane</item>
+    <item>sign</item>
+    <item damage="7">carpet</item>
+    <item damage="8">carpet</item>
+    <item damage="14">carpet</item>
+    <item>wood button</item>
+    <item>stone button</item>
+    <item>flint</item>
+</itemremove>
+<tnt>
+    <instantignite>on</instantignite>
+    <blockdamage>true</blockdamage>
+    <fuse>2s</fuse>
+</tnt>
+<time result="defenders">15m</time>
+<timelock>on</timelock>
+<gamerules>
+    <doFireTick>false</doFireTick>
+</gamerules>
+<maxbuildheight>73</maxbuildheight>
+</map>
