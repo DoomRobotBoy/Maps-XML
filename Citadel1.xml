@@ -14,13 +14,13 @@
     <team id="attackers" color="dark red" max="18" max-overfill="20">Attackers</team>
     <team id="defenders" color="blue" max="18" max-overfill="20">Defenders</team>
 </teams>
-<spawns safe="true">
+<spawns>
     <default yaw="-90">
         <regions>
             <region name="observer-spawn"/>
         </regions>
     </default>
-    <spawn team="attackers" kit="attacker" yaw="90">
+    <spawn team="attackers" kit="attacker" yaw="90" safe="true" sequential="true">
         <regions>
             <cuboid min="22,27,-82" max="-15,34,-10"/>
         </regions>
