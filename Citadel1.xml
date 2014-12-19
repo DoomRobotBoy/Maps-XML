@@ -49,9 +49,10 @@
         <item slot="3" amount="32" damage="14">stained clay</item>
         <item slot="7" amount="16">arrow</item>
         <item slot="8" amount="32">cooked fish</item>
-        <helmet locked="true" damage="-3000" color="8C3342" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet locked="true" damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
         <chestplate locked="true" damage="-3000" color="8C3342">leather chestplate</chestplate>
-        <boots locked="true" damage="-3000" color="8C3342">leather boots</boots>
+        <leggings locked="true" damage="-3000" color="8C3342">leather leggings</leggings>
+        <boots locked="true" damage="-3000">iron boots</boots>
         <potion duration="4" amplifier="2">slow</potion>
         <potion duration="4" amplifier="1">regeneration</potion>
     </kit>
@@ -65,9 +66,10 @@
         <item slot="5" amount="32">glass</item>
         <item slot="7" amount="12">arrow</item>
         <item slot="8" amount="32">bread</item>
-        <helmet locked="true" damage="-3000" color="52839D" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet locked="true" damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
         <chestplate locked="true" damage="-3000" color="52839D">leather chestplate</chestplate>
-        <leggings locked="true" damage="-3000">iron leggings</leggings>
+        <leggings locked="true" damage="-3000" color="52839D">leather leggings</leggings>
+        <boots locked="true" damage="-3000">iron boots</boots>
         <potion duration="5">speed</potion>
     </kit>
 </kits>
@@ -198,4 +200,8 @@
     <doFireTick>false</doFireTick>
 </gamerules>
 <maxbuildheight>73</maxbuildheight>
+<broadcasts>
+    <tip after="15s">`rThe `a`lVictory Monument`r, where the `4Attackers`r need to place the `1`lWool`r, is located on the giant ship!</tip>
+    <alert after="20s">`rThe `4Attackers`r can craft `nTNT`r with the `7Gunpowder`r you get from killrewards.</alert>
+</broadcasts>
 </map>
