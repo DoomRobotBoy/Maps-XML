@@ -25,6 +25,11 @@
             <cuboid min="22,27,-82" max="-15,34,-10"/>
         </regions>
     </spawn>
+    <spawn team="attackers" kit="attacker" yaw="90" filter="attacker-moving">
+        <regions>
+            <cuboid min="22,27,-82" max="-15,34,-10"/>
+        </regions>
+    </spawn>
     <spawn team="defenders" kit="defender" yaw="180">
         <regions>
             <region name="defender-spawn"/>
@@ -38,6 +43,15 @@
         </monument>
     </wool>
 </wools>
+<king>
+    <hills>
+        <hill id="tents" name="Attackers' Camp" capture-time="2s" points="0" initial-owner="defenders" show="false" permanent="true">
+            <capture><region name="hill"/></capture>
+            <progress><region name="hill"/></progress>
+            <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+        </hill>
+    </hills>
+</king>
 <kits>
     <kit name="spawn" potion-particles="false">
         <potion duration="5">heal</potion>
@@ -57,14 +71,14 @@
         <potion duration="4" amplifier="1">regeneration</potion>
     </kit>
     <kit name="defender" parents="spawn">
-        <item slot="0">stone sword</item>
-        <item slot="1" enchantment="arrow damage">bow</item>
+        <item slot="0">iron sword</item>
+        <item slot="1" enchantment="arrow damage:1">bow</item>
         <item slot="2">iron pickaxe</item>
         <item slot="3" amount="64" damage="3">stained clay</item>
         <item slot="30" amount="64" damage="3">stained clay</item>
         <item slot="4" amount="16">wood</item>
         <item slot="5" amount="32">glass</item>
-        <item slot="7" amount="12">arrow</item>
+        <item slot="7" amount="20">arrow</item>
         <item slot="8" amount="32">bread</item>
         <helmet locked="true" damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
         <chestplate locked="true" damage="-3000" color="52839D">leather chestplate</chestplate>
@@ -96,6 +110,7 @@
     </filter>
 </filters>
 <regions>
+    <cuboid name="hill" min="-50,31,-76" max="5,38,-6"/>
     <rectangle name="everything" min="oo,oo" max="-oo,-oo"/>
     <union name="spawns">
         <cylinder name="observer-spawn" base="-202.5,100,-49.5" radius="1" height="1"/>
