@@ -99,9 +99,12 @@
     <item name="`0`l`nTHE ENDER" grenade="true" grenade-power="100.0" grenade-destroy="false" locked="true">ender pearl</item>
 </killreward>
 <itemremove>
-    <item>snowball</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
+    <item>snowball</item>
+    <item>tnt</item>
+    <item>egg</item>
+    <item>ender pearl</item>
 </itemremove>
 <disabledamage>
     <damage>fall</damage>
