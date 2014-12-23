@@ -20,29 +20,44 @@
     <team id="red" color="dark red" max="9">Red Team</team>
     <team id="yellow" color="yellow" max="9">Yellow Team</team>
 </teams>
-<kits>
-    <kit name="spawn" force="true" potion-particles="false">
-        <item slot="0" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
-        <item slot="1" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
-        <potion duration="2" amplifier="50">damage resistance</potion>
-        <potion duration="2">heal</potion>
-        <potion duration="2">blindness</potion>
-        <potion duration="oo">speed</potion>
-    </kit>
-    <kit name="red" parents="spawn">
-        <helmet color="993333" locked="true">leather helmet</helmet>
-        <chestplate color="993333" locked="true">leather chestplate</chestplate>
-        <health>4</health>
-    </kit>
-    <kit name="yellow" parents="spawn">
-        <helmet color="E5E533" locked="true">leather helmet</helmet>
-        <chestplate color="E5E533" locked="true">leather chestplate</chestplate>
-        <health>4</health>
-    </kit>
-</kits>
+<classes family="station" sticky="true">
+    <class name="Player" description="Select this class and type /join." longdescription="Use TNT, grenades and more to kill your enemy!" icon="tnt">
+        <permission>gs.ability.placelandmine</permission>
+        <kit name="spawn" force="true" potion-particles="false">
+            <item slot="0" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
+            <item slot="1" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
+            <potion duration="2" amplifier="50">damage resistance</potion>
+            <potion duration="2">heal</potion>
+            <potion duration="2">blindness</potion>
+            <potion duration="oo">speed</potion>
+        </kit>
+        <kit name="red" parents="spawn">
+            <helmet color="993333" locked="true">leather helmet</helmet>
+            <chestplate color="993333" locked="true">leather chestplate</chestplate>
+            <health>4</health>
+        </kit>
+        <kit name="yellow" parents="spawn">
+            <helmet color="E5E533" locked="true">leather helmet</helmet>
+            <chestplate color="E5E533" locked="true">leather chestplate</chestplate>
+            <health>4</health>
+        </kit>
+    </class>
+</classes>
 <regions>
     <apply block="deny-all">
         <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply velocity="@0.0,2.0,0.0">
+        <block>-225.5,7,-492.5</block>
+        <block>-219.5,7,-492.5</block>
+        <block>-243.5,7,-493.5</block>
+        <block>-273.5,7,-492.5</block>
+        <block>-279.5,7,-492.5</block>
+        <block>-279.5,7,-464.5</block>
+        <block>-273.5,7,-464.5</block>
+        <block>-255.5,7,-463.5</block>
+        <block>-219.5,7,-464.5</block>
+        <block>-225.5,7,-464.5</block>
     </apply>
 </regions>
 <spawns>
