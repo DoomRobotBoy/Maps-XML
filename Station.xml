@@ -22,10 +22,8 @@
 </teams>
 <kits>
     <kit name="spawn" force="true" potion-particles="false">
-        <item slot="0" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true">snowball</item>
-        <item slot="1" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true">snowball</item>
-        <item slot="2" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true">snowball</item>
-        <item slot="3" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true">snowball</item>
+        <item slot="0" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
+        <item slot="1" amount="16" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">snow ball</item>
         <potion duration="2" amplifier="50">damage resistance</potion>
         <potion duration="2">heal</potion>
         <potion duration="2">blindness</potion>
@@ -42,14 +40,6 @@
         <health>4</health>
     </kit>
 </kits>
-<filters>
-    <filter name="red">
-        <team>red</team>
-    </filter>
-    <filter name="blue">
-        <team>blue</team>
-    </filter>
-</filters>
 <regions>
     <apply block="deny-all">
         <rectangle min="-oo,-oo" max="oo,oo"/>
@@ -57,21 +47,42 @@
 </regions>
 <spawns>
     <spawn team="red" kit="red">
-        <regions>
+        <regions yaw="90">
             <cuboid min="199,17,-462" max="-203,17,-495"/>
         </regions>
     </spawn>
     <spawn team="yellow" kit="yellow">
-        <regions>
-            <cuboid min="199,17,-462" max="-203,17,-495"/>
+        <regions yaw="-90">
+            <cuboid min="-300,17,-495" max="-296,17,-462"/>
         </regions>
     </spawn>
     <default>
         <regions yaw="0">
-            <cuboid min="1.5,40,1.5" max="-0.5,40,3.5"/>
+            <block>-249.5,30,-478.5</block>
         </regions>
     </default>
 </spawns>
+<killreward>
+    <item amount="8" grenade="true" grenade-power="2" grenade-destroy="false" locked="true">snow ball</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="3"/>
+    </filter>
+    <item name="`6Eggsplosive" grenade="true" grenade-power="10.0" grenade-destroy="false" locked="true">egg</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="5"/>
+    </filter>
+    <item amount="3" name="`4Landmine">tnt</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="20"/>
+    </filter>
+    <item name="`0`l`nTHE ENDER" grenade="true" grenade-power="100.0" grenade-destroy="false" locked="true">ender pearl</item>
+</killreward>
 <itemremove>
     <item>snowball</item>
     <item>leather helmet</item>
