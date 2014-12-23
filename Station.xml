@@ -47,7 +47,7 @@
     <apply block="deny-all">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
-    <apply velocity="@0.0,2.0,0.0">
+    <apply velocity="@0.0,1.4,0.0">
         <block>-225.5,7,-492.5</block>
         <block>-219.5,7,-492.5</block>
         <block>-243.5,7,-493.5</block>
