@@ -1,11 +1,11 @@
 <map proto="1.3.6">
 <include src="tutorial.xml"/>
-<name>Vengeance</name>
+<name>Explosive Vengeance</name>
 <version>1.1.1</version>
 <objective>Be team with the most amount of kills after 15 minutes or the first team to 100 kills!</objective>
 <authors>
     <author>HardstyleRaver2</author>
-    <author contribution="Improvement Map and additional XML">DoomRobotBoy</author>
+    <author contribution="Map improvement and additional XML">DoomRobotBoy</author>
 </authors>
 <contributors>
     <contributor contribution="Pallete">pikpikmerchant</contributor>
