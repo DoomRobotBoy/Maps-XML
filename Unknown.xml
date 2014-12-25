@@ -48,6 +48,14 @@
             <cuboid name="blue-iron" min="470,61,-885" max="486,63,-917"/>
         </complement>
     </apply>
+    <apply block="only-iron">
+        <region name="green-iron"/>
+        <region name="blue-iron"/>
+    </apply>
+    <apply block="deny-tnt">
+        <region name="green-spawn"/>
+        <region name="blue-spawn"/>
+    </apply>
 </regions>
 <spawns>
     <spawn team="green" yaw="90">
@@ -66,10 +74,16 @@
 </cores>
 <destroyables materials="lapis block" completion="100%">
     <destroyable name="North Monument" owner="green">
-       <region><cuboid min="46,16,26" max="45,14,25"/></region>
+       <region><cuboid min="280,38,-950" max="286,45,-956"/></region>
     </destroyable>
     <destroyable name="South Monument" owner="green">
-       <region><cuboid min="46,16,26" max="45,14,25"/></region>
+       <region><cuboid min="280,38,-851" max="286,45,-845"/></region>
+    </destroyable>
+    <destroyable name="North Monument" owner="blue">
+       <region><cuboid min="443,38,-950" max="437,45,-956"/></region>
+    </destroyable>
+    <destroyable name="South Monument" owner="blue">
+       <region><cuboid min="443,38,-851" max="437,45,-845"/></region>
     </destroyable>
 </destroyables>
 <itemremove>
