@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <map proto="1.3.6">
-<name>Fist-It</name>
+<name>Hand Combat</name>
 <version>1.0.0</version>
-<objective>Destroy the enemies' tree monuments!</objective>
+<objective>Destroy the enemies' tree monuments only using your bare hands!</objective>
 <authors>
     <author>rockymine</author>
 </authors>
