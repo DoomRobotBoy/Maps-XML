@@ -24,10 +24,22 @@
             <team>blue</team>
         </not>
     </filter>
+    <filter name="deny-tnt">
+        <not>
+            <cause>explosion</cause>
+        </not>
+    </filter>
+    <filter name="only-iron">
+        <allow>
+            <block>iron block</block>
+        </allow>
+    </filter>
 </filters>
 <regions>
-    <cuboid name="green-core" min="" max=""/>
-    <cuboid name="blue-core" min="" max=""/>
+    <cuboid name="green-spawn" min="282,0,-876" max="221,72,-924"/>
+    <cuboid name="blue-spawn" min="441,0,-925" max="502,73,-877"/>
+    <cuboid name="green-core" min="326,38,-904" max="333,44,-897"/>
+    <cuboid name="blue-core" min="397,38,-897" max="390,44,-904"/>
     <apply block="deny-all" message="You may not modfiy this area!">
         <complement>
             <rectangle min="-oo,-oo" max="oo,oo"/>
@@ -35,8 +47,6 @@
             <cuboid name="green-iron" min="252,60,-916" max="237,62,-884"/>
             <cuboid name="blue-iron" min="470,61,-885" max="486,63,-917"/>
         </complement>
-        <cuboid name="green-drop-water"/>
-        <cuboid name="blue-drop-water"/>
     </apply>
 </regions>
 <spawns>
@@ -50,15 +60,20 @@
         <regions><point>361.5,56.5,-976.5</point></regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="5" mode-changes="true">
+<cores material="obsidian" leak="3">
     <core team="green" region="green-core"/>
     <core team="blue" region="blue-core"/>
 </cores>
-<modes>
-    <mode after="30m" material="emerald block" name="`aEMERALD `rCORE MODE"/>
-</modes>
+<destroyables materials="lapis block" completion="100%">
+    <destroyable name="North Monument" owner="green">
+       <region><cuboid min="46,16,26" max="45,14,25"/></region>
+    </destroyable>
+    <destroyable name="South Monument" owner="green">
+       <region><cuboid min="46,16,26" max="45,14,25"/></region>
+    </destroyable>
+</destroyables>
 <itemremove>
     <item>obsidian</item>
 </itemremove>
-<maxbuildheight>36</maxbuildheight>
+<maxbuildheight>63</maxbuildheight>
 </map>
