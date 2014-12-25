@@ -10,100 +10,55 @@
   <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributor>
 <teams>
-    <team color="dark red" max="10">Red Team</team>
-    <team color="blue" max="10">Blue Team</team>
+    <team id="green" color="green" max="10">Green Team</team>
+    <team id="blue" color="blue" max="10">Blue Team</team>
 </teams>
 <filters>
-    <filter name="deny-void">
-        <deny>
-            <void/>
-        </deny>
+    <filter name="deny-green">
+        <not>
+            <team>green</team>
+        </not>
     </filter>
-    <filter name="deny-enchant">
-        <deny>
-            <block>enchantment table</block>
-        </deny>
-    </filter>
-    <filter name="allow-leaves">
-        <allow>
-            <block>leaves</block>
-        </allow>
+    <filter name="deny-blue">
+        <not>
+            <team>blue</team>
+        </not>
     </filter>
 </filters>
 <regions>
-    <cylinder name="red-core" base="-39.5,13,-7.5" radius="4" height="6"/>
-    <cylinder name="blue-core" base="-169.5,13,-7.5" radius="4" height="6"/>
-    <apply block="deny-all" message="You may not edit the spawn area!">
-<!--  Orange Spawn  -->
-        <rectangle min="-210,-11" max="-236,-4"/>
-        <circle center="-226.5,-7.5" radius="17"/>
-<!--  Green Spawn  -->
-        <rectangle min="1,-4" max="27,-11"/>
-        <circle center="17.5,-7.5" radius="17"/>
-    </apply>
-    <apply block-break="deny-enchant" message="You may not break the enchanting table!">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
-    </apply>
-    <apply block-break="allow-leaves">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
-    </apply>
-    <apply block="deny-void" message="You may not edit the void area">
-        <negative>
-            <rectangle min="-148,-69" max="-61,54"/>
-        </negative>
+    <cuboid name="green-core" min="" max=""/>
+    <cuboid name="blue-core" min="" max=""/>
+    <apply block="deny-all" message="You may not modfiy this area!">
+        <complement>
+            <rectangle min="-oo,-oo" max="oo,oo"/>
+            <rectangle name="map-playable" min="260,-963" max="463,-838"/>
+            <cuboid name="green-iron" min="252,60,-916" max="237,62,-884"/>
+            <cuboid name="blue-iron" min="470,61,-885" max="486,63,-917"/>
+        </complement>
+        <cuboid name="green-drop-water"/>
+        <cuboid name="blue-drop-water"/>
     </apply>
 </regions>
 <spawns>
-    <spawn team="orange" kit="orange" yaw="90">
-        <regions><point>23.5,18.5,-7.5</point></regions>
+    <spawn team="green" yaw="90">
+        <regions><cuboid min="251,66,-899" max"250,66,-901"/></regions>
     </spawn>
-    <spawn team="green" kit="green" yaw="-90">
-        <regions><point>-232.5,18,-7.5</point></regions>
+    <spawn team="blue" yaw="-90">
+        <regions><cuboid min="472,67,-902" max"473,67,-900"/></regions>
     </spawn>
     <default yaw="180">
         <regions><point>361.5,56.5,-976.5</point></regions>
     </default>
 </spawns>
 <cores material="obsidian" leak="5" mode-changes="true">
-    <core team="orange" region="orange-core"/>
     <core team="green" region="green-core"/>
+    <core team="blue" region="blue-core"/>
 </cores>
 <modes>
     <mode after="30m" material="emerald block" name="`aEMERALD `rCORE MODE"/>
 </modes>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>bow</tool>
-    <tool>iron axe</tool>
-    <tool>diamond pickaxe</tool>
-    <tool>stone spade</tool>
-    <tool>arrow</tool>
-</toolrepair>
 <itemremove>
-    <item>apple</item>
-    <item>wood</item>
-    <item>glass</item>
-    <item>iron boots</item>
-    <item>chainmail helmet</item>
-    <item>leather chestplate</item>
-    <item>leather leggings</item>
     <item>obsidian</item>
-    <item>emerald</item>
-    <item>exp bottle</item>
 </itemremove>
-<killreward>
-    <item>exp bottle</item>
-</killreward>
-<killreward>
-    <filter>
-        <kill-streak count="2" repeat="true"/>
-    </filter>
-    <item>golden apple</item>
-</killreward>
-<broadcasts>
-    <tip after="10s">`rUnder the Spawn Mushroom you can find an `3Enchanting Table `rand and in front of spawn 4 chests full of `1Defensive Equipment`r.</tip>
-    <tip after="20s">`rYou can find `aEmerald`r, `9Lapis `rand `0Coal `rores in the tunnels on the frontlines to gain experience.</tip>
-    <tip after="22s">`rYou also get a `3`lBottle 'o Enchanting `rafter killing someone.</tip>
-</broadcasts>
 <maxbuildheight>36</maxbuildheight>
 </map>
