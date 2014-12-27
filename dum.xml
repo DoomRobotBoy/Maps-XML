@@ -120,7 +120,7 @@
     <item>emerald</item>
 </itemremove>
 <broadcasts>
-    <tip after="10s">`2EMERALD`r CORE in 10 minutes.</tip>
+    <tip after="10s">`2EMERALD`r CORE at 10 minutes.</tip>
 </broadcasts>
 <maxbuildheight>36</maxbuildheight>
 </map>
