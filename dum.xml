@@ -43,6 +43,9 @@
             </all>
         </not>
     </filter>
+    <filter name="deny-dispenser">
+        <not><block>dispenser</block></not>
+    </filter>
 </filters>
 <regions>
     <cuboid name="red-core" min="-5,11,-190" max="-16,21,-201"/>
