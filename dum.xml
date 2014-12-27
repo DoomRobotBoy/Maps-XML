@@ -45,16 +45,19 @@
     </filter>
 </filters>
 <regions>
-    <cuboid name="red-core" min="" max=""/>
+    <cuboid name="red-core" min="-5,11,-190" max="-16,21,-201"/>
+    <cuboid name="blue-core" min="98,11,-77" max="109,21,-66"/>
     <apply block="deny-all">
         <union name="spawns-stuff">
         <!--  Red Spawn  -->
             <complement>
-                <cuboid min="-210,-11" max="-236,-4"/>
+                <rectangle min="36,-216" max="81,-273"/>
+                <cuboid min="79,0,-217" max="38,19,-216"/>
             </complement>
         <!--  Blue Spawn  -->
             <complement>
-                <cuboid min="-210,-11" max="-236,-4"/>
+                <rectangle min="-57,-51" max="-12,6"/>
+                <cuboid min="14,0,-50" max="55,19,-51"/>
             </complement>
         </union>
     </apply>
@@ -63,8 +66,9 @@
     </apply>
     <apply block="deny-void" message="You may not edit the void area!">
         <complement>
-            <rectangle name="map" min="" max=""/>
-            <rectangle name="bridging-area-exception" min="" max=""/>
+            <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+            <rectangle name="bridging-area-exception1" min="109,-89" max="143,-178"/>
+            <rectangle name="bridging-area-exception1" min="-16,-178" max="-50,-89"/>
         </complement>
     </apply>
 </regions>
@@ -83,10 +87,18 @@
         <regions><point>-103.5,51.5,-7.5</point></regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="5" mode-changes="true">
+<cores material="obsidian" leak="3" mode-changes="true">
     <core team="red" region="red-core"/>
     <core team="blue" region="blue-core"/>
 </cores>
+<destroyables name="Monument" materials="emerald block;beacon" completion="100%">
+    <destroyable owner="red">
+       <region><cuboid min="57,32,-197" max="60,40,-194"/></region>
+    </destroyable>
+    <destroyable owner="blue">
+       <region><cuboid min="36,32,-70" max="33,40,-73"/></region>
+    </destroyable>
+</destroyables>
 <modes>
     <mode after="10m" material="emerald block" name="`aEMERALD `rCORE MODE"/>
 </modes>
