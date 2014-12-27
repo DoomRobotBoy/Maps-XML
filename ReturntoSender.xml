@@ -58,6 +58,9 @@
     <apply block="deny-fireball-damage">
         <cuboid min="-82,45,718" max="-72,51,729"/>
     </apply>
+    <apply block="deny-all">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red" region="red-spawn" yaw="90"/>
