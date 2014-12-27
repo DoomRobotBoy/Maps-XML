@@ -37,7 +37,7 @@
 </filters>
 <regions>
     <cuboid name="green-spawn" min="282,0,-876" max="221,72,-924"/>
-    <cuboid name="blue-spawn" min="441,0,-925" max="502,73,-877"/>
+    <cuboid name="blue-spawn" min="441,0,-925" max="502,72,-877"/>
     <cuboid name="green-core" min="326,38,-904" max="333,44,-897"/>
     <cuboid name="blue-core" min="397,38,-897" max="390,44,-904"/>
     <apply block="deny-all" message="You may not modfiy this area!">
@@ -45,7 +45,7 @@
             <rectangle min="-oo,-oo" max="oo,oo"/>
             <rectangle name="map-playable" min="260,-963" max="463,-838"/>
             <cuboid name="green-iron" min="252,60,-916" max="237,62,-884"/>
-            <cuboid name="blue-iron" min="470,61,-885" max="486,63,-917"/>
+            <cuboid name="blue-iron" min="470,60,-885" max="486,62,-917"/>
         </complement>
     </apply>
     <apply block="only-iron">
@@ -62,7 +62,7 @@
         <regions><cuboid min="251,66,-899" max"250,66,-901"/></regions>
     </spawn>
     <spawn team="blue" yaw="-90">
-        <regions><cuboid min="472,67,-902" max"473,67,-900"/></regions>
+        <regions><cuboid min="472,66,-902" max"473,66,-900"/></regions>
     </spawn>
     <default yaw="180">
         <regions><point>361.5,56.5,-976.5</point></regions>
