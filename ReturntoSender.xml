@@ -51,6 +51,10 @@
     <cylinder name="red-spawn" base="-53.5,40,681.5" radius="1"/>
     <cylinder name="blue-spawn" base="-100.5,40,681.5" radius="1"/>
     <cuboid name="obs-spawn" min="-76,48,725" max="-78,48,723"/>
+    <union name="renewable-area">
+        <cuboid min="-110,33,703" max="-90,49,660"/>
+        <cuboid min="-44,33,703" max="-64,49,660"/>
+    </union>
     <apply block="deny-fireball-damage">
         <cuboid min="-82,45,718" max="-72,51,729"/>
     </apply>
@@ -71,10 +75,11 @@
 <renewables>
     <renewable rate="2.5" grow="true" particles="true" sound="true" avoid-entities="true">
         <region>
-            <cylinder base="0,117,0" radius="6" height="13"/>
+            <region name="renewable-area"/>
         </region>
-        <!-- These are the blocks that will renew -->
         <renew>quartz block</renew>
+        <renew>quartz block:1</renew>
+        <renew>quartz block:2</renew>
         <renew>quartz stairs</renew>
         <renew>step:7</renew>
         <renew>coal block</renew>
