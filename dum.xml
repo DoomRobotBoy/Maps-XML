@@ -83,8 +83,11 @@
             <cylinder base="34.5,68,2.5" radius="1"/>
         </regions>
     </spawn>
-    <default yaw="180">
-        <regions><point>-103.5,51.5,-7.5</point></regions>
+    <default>
+        <regions>
+            <cuboid min="57,68,-269" max="60,68,-270"/>
+            <cuboid min="36,68,2" max="33,68,3"/>
+        </regions>
     </default>
 </spawns>
 <cores material="obsidian" leak="3" mode-changes="true">
