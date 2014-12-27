@@ -1,0 +1,78 @@
+<map proto="1.3.6">
+<name>Wool Combat</name>
+<version>1.0.0</version>
+<objective>
+    Capture the enemy team's wools and destroy 50% percent of their wool monuments.
+</objective>
+<authors>
+    <author>rockymine</author>
+    <author>edde_valle_123</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="7" max-overfill="10">Red Team</team>
+    <team color="blue" max="7" max-overfill="10">Blue Team</team>ee
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-3000" enchantment="arrow damage:1">bow</item>
+        <leggings>iron leggings</leggings>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="993333">leather helmet</helmet>
+        <chestplate color="993333">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="334CB2">leather helmet</helmet>
+        <chestplate color="334CB2">leather chestplate</chestplate>
+        <boots color="334CB2">leather boots</boots>
+    </kit>
+</kits>
+<modifybowprojectile>
+    <projectile>FireBall</projectile>
+    <velocityMod>0.9</velocityMod>
+    <potion duration="1">slow</potion>
+    <potion duration="1">blindness</potion>
+</modifybowprojectile>
+<filters>
+    <filter name="deny-fireball-damage">
+        <deny>
+            <all>
+                <cause>explosion</cause>
+                <item>fireball</item>
+            </all>
+        </deny>
+    </filter>
+</filters>
+<regions>
+    <cylinder name="red-spawn" base="-53.5,40,681.5" radius="1"/>
+    <cylinder name="blue-spawn" base="-100.5,40,681.5" radius="1"/>
+    <cuboid name="obs-spawn" min="-76,48,725" max="-78,48,723"/>
+    <union name="renewable-area">
+        <cuboid min="-110,33,703" max="-90,49,660"/>
+        <cuboid min="-44,33,703" max="-64,49,660"/>
+    </union>
+    <apply block="deny-fireball-damage">
+        <cuboid min="-82,45,718" max="-72,51,729"/>
+    </apply>
+    <apply block="deny-all">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red" kit="red" region="red-spawn" yaw="90"/>
+    <spawn team="blue" kit="blue" region="blue-spawn" yaw="-90"/>
+    <default region="obs-spawn"/>
+</spawns>
+<blitz>
+    <time>10m</time>
+    <lives>1</lives>
+    <title>Blitz</title>
+</blitz>
+<hunger><depletion>off</depletion></hunger>
+<timelock>on</timelock>
+</map>
