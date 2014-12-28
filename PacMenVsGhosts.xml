@@ -1,0 +1,66 @@
+<map proto="1.3.6">
+<name>PacMen Vs. Ghosts</name>
+<version>1.0.0</version>
+<objective>
+    Eliminate the enemy team using fireballs.
+</objective>
+<authors>
+    <author>makerogel</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+    <team color="yellow" max="1">Pacman</team>
+    <team color="purple" max="4">Ghosts</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-3000" enchantment="arrow damage:1">bow</item>
+        <leggings>iron leggings</leggings>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="993333">leather helmet</helmet>
+        <chestplate color="993333">leather chestplate</chestplate>
+        <boots color="993333">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="334CB2">leather helmet</helmet>
+        <chestplate color="334CB2">leather chestplate</chestplate>
+        <boots color="334CB2">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter name="only-yellow">
+        <allow>
+            <block>wool:4</block>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <cylinder name="red-spawn" base="-53.5,40,681.5" radius="1"/>
+    <cylinder name="blue-spawn" base="-100.5,40,681.5" radius="1"/>
+    <cuboid name="obs-spawn" min="-76,48,725" max="-78,48,723"/>
+    <union name="renewable-area">
+        <cuboid min="-110,33,703" max="-90,49,660"/>
+        <cuboid min="-44,33,703" max="-64,49,660"/>
+    </union>
+    <apply block="only-yellow">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red" kit="red" region="red-spawn" yaw="90"/>
+    <spawn team="blue" kit="blue" region="blue-spawn" yaw="-90"/>
+    <default region="obs-spawn"/>
+</spawns>
+<blitz>
+    <time>10m</time>
+    <lives>1</lives>
+    <title>Blitz</title>
+</blitz>
+<hunger><depletion>off</depletion></hunger>
+<timelock>on</timelock>
+<gamerule><naturalRegeneration>false</naturalRegeneration></gamerule>
+</map>
