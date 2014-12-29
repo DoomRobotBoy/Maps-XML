@@ -2,7 +2,7 @@
 <name>PacMen Vs. Ghosts</name>
 <version>1.0.0</version>
 <objective>
-    Eliminate the enemy team using fireballs.
+    Eliminate the Pac-man before he eats all yellow dots, which are made out of wool.
 </objective>
 <authors>
     <author>makerogel</author>
@@ -11,49 +11,107 @@
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
 <teams>
-    <team color="yellow" max="1">Pacman</team>
-    <team color="purple" max="4">Ghosts</team>
+    <team id="pac" color="yellow" max="1" respawn-limit="2">Pac-man</team>
+    <team id="ghosts" color="purple" max="4">Ghosts</team>
 </teams>
 <kits>
-    <kit name="spawn">
-        <item slot="0" damage="-3000" enchantment="arrow damage:1">bow</item>
-        <leggings>iron leggings</leggings>
-        <potion duration="oo">night vision</potion>
+    <kit name="spawn" potion-particles="false" force="true">
+        <potion duration="oo" amplifier="4">speed</potion>
     </kit>
-    <kit name="red" parents="spawn">
-        <helmet color="993333">leather helmet</helmet>
-        <chestplate color="993333">leather chestplate</chestplate>
-        <boots color="993333">leather boots</boots>
+    <kit name="Pac-Man" parents="spawn" potion-particles="false">
+        <item slot="0" enchantment="dig speed:5">shears</item>
+        <helmet locked="true" enchantment="durability:10">gold helmet</helmet>
+        <chestplate locked="true" enchantment="durability:10">gold chestplate</chestplate>
+        <leggings locked="true" enchantment="durability:10">gold leggings</leggings>
+        <boots locked="true" enchantment="durability:10">gold boots</boots>
+        <potion duration="4">heal</potion>
     </kit>
-    <kit name="blue" parents="spawn">
-        <helmet color="334CB2">leather helmet</helmet>
-        <chestplate color="334CB2">leather chestplate</chestplate>
-        <boots color="334CB2">leather boots</boots>
+    <kit name="Inky" parents="spawn">
+        <item slot="0" enchantment="damage all:2">gold sword</item>
+        <helmet locked="true" damage="-3000" color="4C7F99">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="4C7F99">leather chestplate</chestplate>
+        <leggings locked="true" damage="-3000" color="4C7F99">leather leggings</leggings>
+        <boots locked="true" damage="-3000" color="4C7F99">leather boots</boots>
+    </kit>
+    <kit name="Pokey" parents="spawn">
+        <item slot="0" enchantment="damage all:2">gold sword</item>
+        <helmet locked="true" damage="-3000" color="D87F33">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="D87F33">leather chestplate</chestplate>
+        <leggings locked="true" damage="-3000" color="D87F33">leather leggings</leggings>
+        <boots locked="true" damage="-3000" color="D87F33">leather boots</boots>
+    </kit>
+    <kit name="Pinky" parents="spawn">
+        <item slot="0" enchantment="damage all:2">gold sword</item>
+        <helmet locked="true" damage="-3000" color="F27FA5">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="F27FA5">leather chestplate</chestplate>
+        <leggings locked="true" damage="-3000" color="F27FA5">leather leggings</leggings>
+        <boots locked="true" damage="-3000" color="F27FA5">leather boots</boots>
+    </kit>
+    <kit name="Blinky" parents="spawn">
+        <item slot="0" enchantment="damage all:2">gold sword</item>
+        <helmet locked="true" damage="-3000" color="993333">leather helmet</helmet>
+        <chestplate locked="true" damage="-3000" color="993333">leather chestplate</chestplate>
+        <leggings locked="true" damage="-3000" color="993333">leather leggings</leggings>
+        <boots locked="true" damage="-3000" color="993333">leather boots</boots>
     </kit>
 </kits>
 <filters>
     <filter name="only-yellow">
-        <allow>
+        <all>
             <block>wool:4</block>
-        </allow>
+            <team>pac</team>
+        </all>
+    </filter>
+    <filter name="deny-ghosts">
+        <not>
+            <team>ghosts</team>
+        </not>
     </filter>
 </filters>
 <regions>
-    <cylinder name="red-spawn" base="-53.5,40,681.5" radius="1"/>
-    <cylinder name="blue-spawn" base="-100.5,40,681.5" radius="1"/>
-    <cuboid name="obs-spawn" min="-76,48,725" max="-78,48,723"/>
-    <union name="renewable-area">
-        <cuboid min="-110,33,703" max="-90,49,660"/>
-        <cuboid min="-44,33,703" max="-64,49,660"/>
+    <cylinder name="pac-man-spawn" base="141.5,40,31.5" radius="1"/>
+    <union name="ghosts-spawns">
+        <cylinder base="139.5,43,0.5" radius="1"/>
+        <cylinder base="141.5,43,-0.5" radius="1"/>
+        <cylinder base="143.5,43,0.5" radius="1"/>
+        <cylinder base="141.5,43,1.5" radius="1"/>
     </union>
+    <cylinder name="obs-spawn" base="141.5,40,1.5" radius="1"/>
     <apply block="only-yellow">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
+    <apply block="deny-ghosts">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply kit="Inky">
+        <cylinder base="139.5,43,0.5" radius="1"/>
+    </apply>
+    <apply kit="Pokey">
+        <cylinder base="141.5,43,-0.5" radius="1"/>
+    </apply>
+    <apply kit="Pinky">
+        <cylinder base="143.5,43,0.5" radius="1"/>
+    </apply>
+    <apply kit="Blinky">
+        <cylinder base="141.5,43,1.5" radius="1"/>
+    </apply>
 </regions>
 <spawns>
-    <spawn team="red" kit="red" region="red-spawn" yaw="90"/>
-    <spawn team="blue" kit="blue" region="blue-spawn" yaw="-90"/>
-    <default region="obs-spawn"/>
+    <spawn team="pac" kit="Pac-Man"/>
+        <regions>
+            <region name="pac-man-spawn"/>
+        </regions>
+    </spawn>
+    <spawn team="ghosts"/>
+        <regions>
+            <region name="ghosts-spawns"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <region name="obs-spawn"/>
+        </regions>
+    </default>
 </spawns>
 <blitz>
     <time>10m</time>
@@ -62,5 +120,4 @@
 </blitz>
 <hunger><depletion>off</depletion></hunger>
 <timelock>on</timelock>
-<gamerule><naturalRegeneration>false</naturalRegeneration></gamerule>
 </map>
