@@ -113,6 +113,13 @@
         </regions>
     </default>
 </spawns>
+<destroyables name="Yellow Dots" materials="wool:4" completion="100%" show-progress="true">
+    <destroyable owner="ghosts">
+        <region>
+            <cuboid min="110,41,-30" max="170,41,30"/>
+        </region>
+    </destroyable>
+</destroyables>
 <blitz>
     <time>10m</time>
     <lives>1</lives>
