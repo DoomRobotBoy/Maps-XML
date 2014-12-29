@@ -22,33 +22,27 @@
     </kit>
 </kits>
 <filters>
-    <filter name="allow-wool">
-        <allow>
-            <block>wool</block>
-            <block>leaves</block>
-        </allow>
+    <filter name="useable-blocks">
+        <block>wool</block>
+        <block>leaves</block>
     </filter>
     <filter name="deny-leaves">
         <not>
             <block>leaves</block>
         </not>
     </filter>
-    <filter name="deny-red">
-        <not>
-            <team>red</team>
-        </not>
+    <filter name="only-red">
+        <team>red</team>
     </filter>
-    <filter name="deny-blue">
-        <not>
-            <team>blue</team>
-        </not>
+    <filter name="only-blue">
+        <team>blue</team>
     </filter>
 </filters>
 <regions>
     <cylinder name="red-spawn" base="-206.5,8,454.5" radius="1"/>
     <cylinder name="blue-spawn" base="-206.5,8,372.5" radius="1"/>
     <cylinder name="obs-spawn" base="-206.5,27,413.5" radius="1"/>
-    <apply block="allow-wool">
+    <apply block="useable-blocks">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block="deny-leaves">
@@ -56,37 +50,37 @@
             <rectangle min="oo,oo" max="-oo,-oo"/>
             <union name="wool-rooms">
                 <union name="red-owner-wool-rooms">
-                    <cuboid min="-184,7,447" max="-188,7,451"/>
-                    <cuboid min="-230,7,447" max="-226,7,451"/>
+                    <cuboid min="-188,7,447" max="-183,7,452"/>
+                    <cuboid min="-230,7,447" max="-225,7,452"/>
                 </union>
                 <union name="blue-owner-wool-rooms">
-                    <cuboid min="-230,7,379" max="-226,7,376"/>
-                    <cuboid min="-184,7,379" max="-188,7,375"/>
+                    <cuboid min="-225,7,380" max="-230,7,375"/>
+                    <cuboid min="-188,7,380" max="-183,7,375"/>
                 </union>
             </union>
         </complement>
     </apply>
-    <apply enter="deny-red">
-        <cuboid min="-215,8,375" max="-199,12,368"/>
+    <apply enter="only-blue">
+        <cuboid min="-213,0,375" max="-200,20,370"/>
         <region name="red-owner-wool-rooms"/>
     </apply>
-    <apply enter="deny-blue">
-        <cuboid min="-199,8,451" max="-215,13,458"/>
+    <apply enter="only-red">
+        <cuboid min="-200,0,452" max="-213,20,457"/>
         <region name="blue-owner-wool-rooms"/>
     </apply>
 </regions>
 <destroyables>
     <destroyable name="Purple Monument" owner="red" materials="wool:10" completion="50%">
-       <region><cuboid min="-191,8,444" max="-182,10,454"/></region>
+       <region><cuboid min="-191,8,444" max="-181,15,455"/></region>
     </destroyable>
     <destroyable name="Pink Monument" owner="red" materials="wool:6" completion="50%">
-       <region><cuboid min="-191,8,444" max="-182,10,454"/></region>
+       <region><cuboid min="-232,8,444" max="-222,15,455"/></region>
     </destroyable>
     <destroyable name="Light Blue Monument" owner="blue" materials="wool:3" completion="50%">
-       <region><cuboid min="-223,8,382" max="-232,10,372"/></region>
+       <region><cuboid min="-222,8,383" max="-232,15,372"/></region>
     </destroyable>
     <destroyable name="Cyan Monument" owner="blue" materials="wool:9" completion="50%">
-       <region><cuboid min="-191,8,382" max="-182,10,372"/></region>
+       <region><cuboid min="-181,8,383" max="-191,15,372"/></region>
     </destroyable>
     <destroyable owner="red" materials="obsidian" completion="0%" mode-changes="true">
         <region name="wool-rooms"/>
