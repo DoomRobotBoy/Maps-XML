@@ -110,9 +110,21 @@
     </wool>
 </wools>
 <spawns>
-    <spawn team="red" kit="red" region="red-spawn" yaw="180"/>
-    <spawn team="blue" kit="blue" region="blue-spawn" yaw="0"/>
-    <default region="obs-spawn"/>
+    <spawn team="red" kit="red"yaw="180">
+        <regions>
+            <region name="red-spawn"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <regions>
+            <region name="blue-spawn"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <region name="obs-spawn"/>
+        </regions>
+    </default>
 </spawns>
 <hunger><depletion>off</depletion></hunger>
 <timelock>on</timelock>
