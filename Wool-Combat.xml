@@ -110,7 +110,7 @@
     </wool>
 </wools>
 <spawns>
-    <spawn team="red" kit="red"yaw="180">
+    <spawn team="red" kit="red" yaw="180">
         <regions>
             <region name="red-spawn"/>
         </regions>
