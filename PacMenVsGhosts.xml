@@ -120,11 +120,7 @@
         </region>
     </destroyable>
 </destroyables>
-<blitz>
-    <time>10m</time>
-    <lives>1</lives>
-    <title>Blitz</title>
-</blitz>
+<time result="ghosts">5m</time>
 <hunger><depletion>off</depletion></hunger>
 <timelock>on</timelock>
 </map>
