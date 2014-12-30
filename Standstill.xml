@@ -93,6 +93,33 @@
         <rectangle name="blue-spawn-protect" min="-136,622" max="-69,598"/>
         <rectangle name="blue-spawn-protect-iron" min="-117,622" max="-88,638"/>
     </union>
+    <apply enter="only-red" apply block="only-red-wool">
+        <union name="pink-wool">
+            <cuboid min="-28,9,766" max="-39,21,775"/>
+            <cuboid min="-40,9,774" max="-39,21,767"/>
+            <cuboid min="-41,9,773" max="-40,21,768"/>
+            <cuboid min="-37,9,776" max="-30,21,775"/>
+            <cuboid min="-27,9,767" max="-28,21,774"/>
+            <cuboid min="-26,9,773" max="-27,21,768"/>
+            <cuboid min="-30,9,765" max="-37,21,766"/>
+        </union>
+        <union name="purple-wool">
+            <rectangle min="-93,742" max="-112,729"/>
+            <rectangle min="-113,730" max="-112,741"/>
+            <rectangle min="-111,743" max="-94,742"/>
+            <rectangle min="-92,741" max="-93,730"/>
+            <rectangle min="-94,728" max="-111,729"/>
+        </union>
+        <union name="cyan-wool">
+            <cuboid min="-166,9,637" max="-177,21,628"/>
+            <cuboid min="-178,9,629" max="-177,21,636"/>
+            <cuboid min="-179,9,630" max="-178,21,635"/>
+            <cuboid min="-175,9,638" max="-168,21,637"/>
+            <cuboid min="-165,9,636" max="-166,21,629"/>
+            <cuboid min="-164,9,635" max="-165,21,630"/>
+            <cuboid min="-168,9,627" max="-175,21,628"/>
+        </union>
+    </apply>
     <apply enter="only-blue" apply block="only-blue-wool">
         <union name="gray-wool">
             <cuboid min="-28,9,766" max="-39,21,775"/>
@@ -134,26 +161,31 @@
         </complement>
     </apply>
 </regions>
-<toolrepair>
-</toolrepair>
 <itemremove>
     <item>leather helmet</item>
-    <item>leather helmet</item>
-    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
 <wools>
-    <wool team="red" color="orange">
-        <block location="254,7,-330"/>
+    <wool team="red" color="purple">
+        <monument><block>-102.5,14,778.5</block></monument>
     </wool>
-    <wool team="red" color="yellow">
-        <block location="240,7,-330"/>
+    <wool team="red" color="cyan">
+        <monument><block>-85.5,14,797.5</block></monument>
     </wool>
-    <wool team="blue" color="purple">
-        <block location="240,7,-518"/>
+    <wool team="red" color="pink">
+        <monument><block>-119.5,14,797.5</block></monument>
     </wool>
-    <wool team="blue" color="green">
-        <block location="254,7,-518"/>
+    <wool team="blue" color="orange">
+        <monument><block>-102.5,14,624.5</block></monument>
+    </wool>
+    <wool team="blue" color="gray">
+        <monument><block>-119.5,14,605.5</block></monument>
+    </wool>
+    <wool team="blue" color="yellow">
+        <monument><block>-85.5,14,605.5</block></monument>
     </wool>
 </wools>
 </map>
