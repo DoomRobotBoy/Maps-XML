@@ -93,7 +93,7 @@
         <rectangle name="blue-spawn-protect" min="-136,622" max="-69,598"/>
         <rectangle name="blue-spawn-protect-iron" min="-117,622" max="-88,638"/>
     </union>
-    <apply enter="only-red" apply block="only-red-wool">
+    <apply enter="only-red" block="only-red-wool">
         <union name="cyan-wool">
             <cuboid min="-166,9,637" max="-177,21,628"/>
             <cuboid min="-178,9,629" max="-177,21,636"/>
@@ -120,7 +120,7 @@
             <cuboid min="-30,9,627" max="-37,21,628"/>
         </union>
     </apply>
-    <apply enter="only-blue" apply block="only-blue-wool">
+    <apply enter="only-blue" block="only-blue-wool">
         <union name="gray-wool">
             <cuboid min="-28,9,766" max="-39,21,775"/>
             <cuboid min="-40,9,774" max="-39,21,767"/>
