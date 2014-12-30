@@ -45,43 +45,56 @@
     </filter>
 </filters>
 <regions>
-    <cuboid name="red-core" min="-5,11,-190" max="-16,21,-201"/>
-    <cuboid name="blue-core" min="98,11,-77" max="109,21,-66"/>
+    <cuboid name="red-core" min="65,17,-93" max="72,25,-100"/>
+    <cuboid name="blue-core" min="72,17,-7" max="65,25,-0"/>
     <apply block="deny-void" message="You may not edit the void area!">
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-all">
+        <rectangle min="72,30" max="65,41"/>
+        <rectangle min="65,-130" max="72,-141"/>
     </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="spawn" yaw="0">
         <regions>
-            <cylinder base="58.5,68,-269.5" radius="1"/>
+            <cylinder base="68.5,63,-140.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="spawn" yaw="180">
         <regions>
-            <cylinder base="34.5,68,2.5" radius="1"/>
+            <cylinder base="68.5,63,40.5" radius="1"/>
         </regions>
     </spawn>
     <default>
         <regions>
-            <cuboid min="57,68,-269" max="60,68,-270"/>
-            <cuboid min="36,68,2" max="33,68,3"/>
+            <cylinder base="-11.5,8,-49.5" radius="1"/>
         </regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="3" mode-changes="true">
+<cores name="Core" material="obsidian" leak="3" mode-changes="true">
     <core team="red" region="red-core"/>
     <core team="blue" region="blue-core"/>
 </cores>
 <destroyables materials="obsidian" completion="100%">
-    <destroyable owner="red">
+    <destroyable name="West Monument" owner="red">
         <region>
-            <cuboid min="57,32,-197" max="60,40,-194"/>
+            <cuboid min="20,13,-80" max="21,15,-81"/>
         </region>
     </destroyable>
-    <destroyable owner="blue">
+    <destroyable name="East Monument" owner="red">
         <region>
-            <cuboid min="36,32,-70" max="33,40,-73"/>
+            <cuboid min="116,13,-80" max="117,15,-81"/>
+        </region>
+    </destroyable>
+    <destroyable name="West Monument" owner="blue">
+        <region>
+            <cuboid min="20,13,-20" max="21,15,-19"/>
+        </region>
+    </destroyable>
+    <destroyable name="East Monument" owner="blue">
+        <region>
+            <cuboid min="116,13,-20" max="117,15,-19"/>
         </region>
     </destroyable>
 </destroyables>
