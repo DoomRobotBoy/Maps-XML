@@ -29,12 +29,12 @@
         <potion duration="2" amplifier="1">confusion</potion>
     </kit>
     <kit name="red" parents="spawn">
-        <chestplate color="993333" enchantment="protection projectile:1>leather chestplate</chestplate>
-        <boots color="993333" enchantment="protection fall:2>leather boots</boots>
+        <chestplate color="993333" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="993333" enchantment="protection fall:2">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
-        <chestplate color="334CB2" enchantment="protection projectile:1>leather chestplate</chestplate>
-        <boots color="334CB2" enchantment="protection fall:2>leather boots</boots>
+        <chestplate color="334CB2" enchantment="protection projectile:1">leather chestplate</chestplate>
+        <boots color="334CB2" enchantment="protection fall:2">leather boots</boots>
     </kit>
 </kits>
 <filters>
