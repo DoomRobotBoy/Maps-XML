@@ -201,7 +201,7 @@
     <destroyable name="Green Side" owner="green" region="green-side" completion="70%" show-progress="true" materials="stained clay:1;stained clay:3;stained clay:12;stained clay:14;stained clay:15;gold block;lapis block;redstone block;wood;wood:3;stained glass:4;wool;wool:7;wool:8;wool:14"/>
     <destroyable name="wall" owner="green" region="the-wall" materials="glass;wool:4;stained clay:12;wood:1;gold block" completion="0" show="false" mode-changes="true">
 </destroyables>
-<modes boss-bar="true">
+<modes boss-bar="true" show-before="true">
     <mode after="1s" material="glass" name="`6The wall will fall down in `42 minutes`6!"/>
     <mode after="1m" material="glass" name="`6The wall will fall down in `41 minutes`6!"/>
     <mode after="90s" material="glass" name="`6The wall will fall down in `430 seconds`6!"/>
