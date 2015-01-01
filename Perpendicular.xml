@@ -324,6 +324,10 @@
     <apply block="deny-tnt-damage-world">
         <region name="world"/>
     </apply>
+    <apply enter="deny-all" message="You may not leave this map!">
+        <rectangle min="176,537" max="168,574"/>
+        <rectangle min="263,574" max="271,537"/>
+    </apply>
 </regions>
 <itemremove>
     <item>leather leggings</item>
