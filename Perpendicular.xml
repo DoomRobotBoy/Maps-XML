@@ -45,13 +45,13 @@
         <potion duration="5" amplifier="127">damage resistance</potion>
     </kit>
     <kit name="cannoneer" parents="classes">
-        <item slot="0">iron sword</item>
-        <item slot="18" amount="1">dispenser</item>
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="18" amount="3">dispenser</item>
         <item slot="9">workbench</item>
         <item slot="10" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
-        <item slot="1">bow</item>
+        <item slot="1" damage="-3000">bow</item>
         <item slot="28" amount="32">arrow</item>
-        <item slot="2" amount="64">diamond pickaxe</item>
+        <item slot="2" damage="-3000">diamond pickaxe</item>
         <item slot="3">water bucket</item>
         <item slot="30">water bucket</item>
         <item slot="21">water bucket</item>
@@ -76,40 +76,104 @@
         <item slot="35" amount="64">tnt</item>
         <item slot="26" amount="64">tnt</item>
         <item slot="17" amount="64">tnt</item>
+        <chestplate damage="-3000" enchantment="protection explosions:2">chainmail chestplate</chestplate>
+    </kit>
+    <kit name="red-cannoneer" parents="cannoneer">
+        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
+        <boots damage="-3000" color="993333">leather boots</boots>
+    </kit>
+    <kit name="blue-cannoneer" parents="cannoneer">
+        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
+        <boots damage="-3000" color="334CB2">leather boots</boots>
+    </kit>
+    <kit name="bridger" parents="classes">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow damage:1">bow</item>
+        <item slot="28" amount="24">arrow</item>
+        <item slot="2" damage="-3000">diamond pickaxe</item>
+        <item slot="3" damage="9" amount="64">stained clay</item>
+        <item slot="30" damage="9" amount="64">stained clay</item>
+        <item slot="21" damage="9" amount="64">stained clay</item>
+        <item slot="4" amount="16">quartz block</item>
+        <item slot="31" damage="9" amount="64">stained clay</item>
+        <item slot="22" damage="9" amount="64">stained clay</item>
+        <item slot="5">water bucket</item>
+        <item slot="32">water bucket</item>
+        <item slot="23">water bucket</item>
+        <item slot="6" amount="64">vine</item>
+        <item slot="33" amount="16">ladder</item>
+        <item slot="24" amount="64">step</item>
+        <item slot="7" amount="16">redstone block</item>
+        <item slot="34" amount="16">stone button</item>
+        <item slot="25" amount="16">stone plate</item>
+        <item slot="8" amount="64">tnt</item>
+        <item slot="35" amount="16">nether fence</item>
+        <helmet damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
+    </kit>
+    <kit name="red-bridger" parents="bridger">
+        
     </kit>
 </kits>
+
+<killreward>
+    <filter>
+        <class>Cannoneer</class>
+    </filter>
+    <item amount="8">arrow</item>
+    <item>dispenser</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Cannoneer</class>
+        <class>Bridger</class>
+        <class>Kamikaze</class>
+        <kill-streak count="3" repeat="true"/>
+    </filter>
+    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Bridger</class>
+    </filter>
+    <item amount="6">arrow</item>
+</killreward>
+
+
+
 <filters>
-<filter name="only-blue">
-<team>blue</team>
-</filter>
-<filter name="only-red">
-<team>red< /team>
-</filter>
-<filter name="deny-fire">
-<deny>
-<block>fire</block>
-</deny>
-</filter>
-<filter name="deny-void">
-<deny>
-<void/>
-</deny>
-</filter>
-<filter name="deny-some">
-<not>
-<block>155</block>
-<block>95</block>
-<block>160</block>
-<block>44:7</block>
-<block>159:12</block>
-<block>159:15</block>
-<block>156</block>
-<block>20</block>
-<block>beacon</block>
-<block>22</block>
-<block>87</block>
-</not>
-</filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="deny-fire">
+        <deny>
+            <block>fire</block>
+        </deny>
+    </filter>
+    <filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="deny-some">
+        <not>
+            <block>155</block>
+            <block>95</block>
+            <block>160</block>
+            <block>44:7</block>
+            <block>159:12</block>
+            <block>159:15</block>
+            <block>156</block>
+            <block>20</block>
+            <block>beacon</block>
+            <block>22</block>
+            <block>87</block>
+        </not>
+    </filter>
 </filters>
 <regions>
 <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
@@ -182,10 +246,6 @@
     <item>trap door</item>
     <item>fence gate</item>
 </itemremove>
-<killreward>
-    <item amount="16">tnt</item>
-    <item amount="16" damage="9" name="`aRepair Block" lore="`7Place this over your base to repair it!">stained clay</item>
-</killreward>
 <hunger>
     <depletion>off</depletion>
 </hunger>
