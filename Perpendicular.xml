@@ -175,6 +175,9 @@
         <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
     </kit>
+    <kit name="tunnel-speed" parents="all">
+        <potion duration="1" amplifier="11">speed</potion>
+    </kit>
 </kits>
 
 <killreward>
@@ -259,54 +262,67 @@
     </filter>
     <filter name="deny-some">
         <not>
-            <block>155</block>
-            <block>95</block>
-            <block>160</block>
-            <block>44:7</block>
-            <block>159:12</block>
-            <block>159:15</block>
-            <block>156</block>
-            <block>20</block>
-            <block>beacon</block>
-            <block>22</block>
-            <block>87</block>
+            <block>155:1</block>
+            <block>95:15</block>
+            <block>95:0</block>
+            <block>159:9</block>
+        </not>
+    </filter>
+    <filter name="deny-tnt-damage-world">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>tnt</block>
+                <any>
+                    <block>155:1</block>
+                    <block>95:15</block>
+                    <block>95:0</block>
+                    <block>159:9</block>
+                </any>
+            </all>
         </not>
     </filter>
 </filters>
 <regions>
-    <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
-    <cuboid name="above-map" min="-oo,33,-oo" max="oo,oo,oo"/>
+    <rectangle name="world" min="-oo,-oo" max="oo,oo"/>
     <union name="spawns">
         <cuboid name="blue-spawn" min="-27,3,70" max="28,3,84"/>
         <cuboid name="red-spawn" min="28,3,-69" max="-27,3,-83"/>
     </union>
-    <union name="bases">
-        <cuboid name="blue-base" min="-50,0,73" max="51,32,0"/>
-        <cuboid name="red-base" min="-50,0,-72" max="51,32,0"/>
+    <union name="glass-bridges">
+        <cuboid min="199,30,511" max="176,30,498"/>
+        <cuboid min="240,30,511" max="263,30,498"/>
+        <cuboid min="226,30,483" max="213,30,473"/>
+        <cuboid min="240,30,600" max="263,30,613"/>
+        <cuboid min="199,30,600" max="176,30,613"/>
+        <cuboid min="213,30,628" max="226,31,638"/>
     </union>
 <!--  Applied  -->
-    <apply block="deny-all" message="`eYou may not edit outside the main area!">
-        <negative>
-            <region name="bases"/>
-        </negative>
-    </apply>
-    <apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
-        <region name="bases"/>
-    </apply>
-    <apply block-place="deny-fire" message="`eYou may not burn down the bases!">
-        <region name="bases"/>
-    </apply>
-    <apply block-break="deny-some">
-        <region name="all"/>
-    </apply>
     <apply enter="only-blue" message="`eYou may not enter the enemy's spawn area!">
         <region name="blue-spawn"/>
     </apply>
     <apply enter="only-red" message="`eYou may not enter the enemy's spawn area!">
         <region name="red-spawn"/>
     </apply>
-    <apply enter="deny-all" message="`eYou may not go onto the roof">
-        <region name="above-map"/>
+    <apply block="deny-all" message="`eYou may not edit the glass bridges!">
+        <region name="glass-bridges"/>
+    </apply>
+    <apply block="deny-tnt-damage">
+        <negative>
+            <region name="glass-bridges"/>
+        </negative>
+    </apply>
+    <apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
+        <region name="bases"/>
+    </apply>
+    <apply block-place="deny-fire">
+        <region name="world"/>
+    </apply>
+    <apply block-break="deny-some">
+        <region name="world"/>
+    </apply>
+    <apply block="deny-tnt-damage-world">
+        <region name="world"/>
     </apply>
 </regions>
 <itemremove>
