@@ -42,7 +42,7 @@
     <kit name="all" potion-particles="false" force="true">
         <potion duration="oo">night vision</potion>
     </kit>
-    <kit name="classes" parents="all" potion-particles="false">
+    <kit name="classes" parents="all">
         <potion duration="5">heal</potion>
         <potion duration="5" amplifier="3">slowness</potion>
         <potion duration="5" amplifier="127">damage resistance</potion>
@@ -51,7 +51,6 @@
         <item slot="0" damage="-3000">iron sword</item>
         <item slot="18">dispenser</item>
         <item slot="9">workbench</item>
-        <item slot="10" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
         <item slot="1" damage="-3000">bow</item>
         <item slot="28" amount="32">arrow</item>
         <item slot="2" damage="-3000">diamond pickaxe</item>
@@ -127,7 +126,54 @@
         <boots damage="-3000" color="334CB2">leather boots</boots>
     </kit>
     <kit name="tank" parents="classes">
-        
+        <item slot="0" damage="-3000">diamond sword</item>
+        <item slot="1" amount="64">egg</item>
+        <item slot="2" damage="-3000">diamond pickaxe</item>
+        <item slot="3" amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+        <item slot="4" amount="64" damage="9">stained clay</item>
+        <item slot="5" amount="32">vine</item>
+        <item slot="7" amount="8">redstone block</item>
+        <item slot="8" amount="32">tnt</item>
+        <chestplate damage="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+        <leggings damage="-3000" enchantment="protection projectile:1">iron leggings</leggings>
+        <potion duration="oo" amplifier="2">jump</potion>
+        <potion duration="oo">slowness</potion>
+    </kit>
+    <kit="red-tank" parents="tank">
+        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <boots damage="-3000" color="993333">leather boots</boots>
+    </kit>
+    <kit="blue-tank" parents="tank">
+        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <boots damage="-3000" color="334CB2">leather boots</boots>
+    </kit>
+    <kit name="kamikaze" parents="classes">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="28" amount="16">arrow</item>
+        <item slot="2" damage="-3000" enchantment="dig speed:1">diamond pickaxe</item>
+        <item slot="3" amount="16" grenade="true" grenade-power="2" grenade-destroy="true" name="`eGrenade">snow ball</item>
+        <item slot="4" amount="64" damage="9">stained clay</item>
+        <item slot="31" amount="32" damage="9">stained clay</item>
+        <item slot="5" amount="64">vine</item>
+        <item slot="6">water bucket</item>
+        <item slot="7" amount="16">redstone block</item>
+        <item slot="8" amount="64">tnt</item>
+        <item slot="35" amount="64">tnt</item>
+        <chestplate damage="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
+        <boots damage="-3000">chainmail boots</boots>
+        <potion duration="oo">speed</potion>
+        <potion duration="oo">regeneration</potion>
+        <health>12</health>
+        <double-jump/>
+    </kit>
+    <kit name="red-kamikaze" parents="kamikaze">
+        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
+    </kit>
+    <kit name="blue-kamikaze" parents="kamikaze">
+        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
     </kit>
 </kits>
 
@@ -166,7 +212,32 @@
     </filter>
     <item amount="6">arrow</item>
 </killreward>
-
+<killreward>
+    <filter>
+        <class>Tank</class>
+    </filter>
+    <item amount="16">egg</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Tank</class>
+        <kill-streak count="3" repeat="true"/>
+    </filter>
+    <item amount="8" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Kamikaze</class>
+    </filter>
+    <item amount="8">arrow</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Kamikaze</class>
+        <kill-streak count="3" repeat="true"/>
+    </filter>
+    <item amount="16" grenade="true" grenade-power="2" grenade-destroy="true" name="`eGrenade">snow ball</item>
+</killreward>
 
 
 <filters>
@@ -203,40 +274,40 @@
     </filter>
 </filters>
 <regions>
-<rectangle name="all" min="-oo,-oo" max="oo,oo"/>
-<cuboid name="above-map" min="-oo,33,-oo" max="oo,oo,oo"/>
-<union name="spawns">
-<cuboid name="blue-spawn" min="-27,3,70" max="28,3,84"/>
-<cuboid name="red-spawn" min="28,3,-69" max="-27,3,-83"/>
-</union>
-<union name="bases">
-<cuboid name="blue-base" min="-50,0,73" max="51,32,0"/>
-<cuboid name="red-base" min="-50,0,-72" max="51,32,0"/>
-</union>
+    <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
+    <cuboid name="above-map" min="-oo,33,-oo" max="oo,oo,oo"/>
+    <union name="spawns">
+        <cuboid name="blue-spawn" min="-27,3,70" max="28,3,84"/>
+        <cuboid name="red-spawn" min="28,3,-69" max="-27,3,-83"/>
+    </union>
+    <union name="bases">
+        <cuboid name="blue-base" min="-50,0,73" max="51,32,0"/>
+        <cuboid name="red-base" min="-50,0,-72" max="51,32,0"/>
+    </union>
 <!--  Applied  -->
-<apply block="deny-all" message="`eYou may not edit outside the main area!">
-<negative>
-<region name="bases"/>
-</negative>
-</apply>
-<apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
-<region name="bases"/>
-</apply>
-<apply block-place="deny-fire" message="`eYou may not burn down the bases!">
-<region name="bases"/>
-</apply>
-<apply block-break="deny-some">
-<region name="all"/>
-</apply>
-<apply enter="only-blue" message="`eYou may not enter the enemy's spawn area!">
-<region name="blue-spawn"/>
-</apply>
-<apply enter="only-red" message="`eYou may not enter the enemy's spawn area!">
-<region name="red-spawn"/>
-</apply>
-<apply enter="deny-all" message="`eYou may not go onto the roof">
-<region name="above-map"/>
-</apply>
+    <apply block="deny-all" message="`eYou may not edit outside the main area!">
+        <negative>
+            <region name="bases"/>
+        </negative>
+    </apply>
+    <apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
+        <region name="bases"/>
+    </apply>
+    <apply block-place="deny-fire" message="`eYou may not burn down the bases!">
+        <region name="bases"/>
+    </apply>
+    <apply block-break="deny-some">
+        <region name="all"/>
+    </apply>
+    <apply enter="only-blue" message="`eYou may not enter the enemy's spawn area!">
+        <region name="blue-spawn"/>
+    </apply>
+    <apply enter="only-red" message="`eYou may not enter the enemy's spawn area!">
+        <region name="red-spawn"/>
+    </apply>
+    <apply enter="deny-all" message="`eYou may not go onto the roof">
+        <region name="above-map"/>
+    </apply>
 </regions>
 <itemremove>
     <item>leather leggings</item>
@@ -279,5 +350,12 @@
 <disabledamage>
     <damage>fall</damage>
 </disabledamage>
+<mobs>
+    <filter>
+        <not>
+            <spawn>egg</spawn>
+        </not>
+    </filter>
+</mobs>
 <maxbuildheight>55</maxbuildheight>
 </map>
