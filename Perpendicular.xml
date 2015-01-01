@@ -92,7 +92,7 @@
         <item slot="0" damage="-3000">iron sword</item>
         <item slot="1" damage="-3000" enchantment="arrow damage:1">bow</item>
         <item slot="28" amount="24">arrow</item>
-        <item slot="2" damage="-3000">diamond pickaxe</item>
+        <item slot="2" damage="-3000" enchantment="dig speed:1">diamond pickaxe</item>
         <item slot="3" damage="9" amount="64">stained clay</item>
         <item slot="30" damage="9" amount="64">stained clay</item>
         <item slot="21" damage="9" amount="64">stained clay</item>
@@ -113,7 +113,14 @@
         <helmet damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
     </kit>
     <kit name="red-bridger" parents="bridger">
-        
+        <chestplate damage="-3000" color="993333" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
+        <boots damage="-3000" color="993333">leather boots</boots>
+    </kit>
+    <kit name="blue-bridger" parents="bridger">
+        <chestplate damage="-3000" color="334CB2" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
+        <boots damage="-3000" color="334CB2">leather boots</boots>
     </kit>
 </kits>
 
