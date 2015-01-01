@@ -179,7 +179,6 @@
         <potion duration="1" amplifier="11">speed</potion>
     </kit>
 </kits>
-
 <killreward>
     <filter>
         <class>Cannoneer</class>
@@ -241,8 +240,6 @@
     </filter>
     <item amount="16" grenade="true" grenade-power="2" grenade-destroy="true" name="`eGrenade">snow ball</item>
 </killreward>
-
-
 <filters>
     <filter name="only-blue">
         <team>blue</team>
@@ -330,39 +327,46 @@
     </apply>
 </regions>
 <itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
     <item>leather leggings</item>
     <item>leather boots</item>
-    <item>stone sword</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>chainmail chestplate</item>
+    <item>chainmail boots</item>
+    <item>iron sword</item>
+    <item>diamond sword</item>
     <item>diamond pickaxe</item>
     <item>bow</item>
-    <item>flint and steel</item>
+    <item>fireball</item>
     <item>arrow</item>
+    <item>snow ball</item>
     <item>step</item>
     <item>chainmail chestplate</item>
     <item>shears</item>
-    <item>rails</item>
     <item>ladder</item>
-    <item>gold block</item>
-    <item>obsidian</item>
+    <item>vine</item>
     <item>stained clay</item>
     <item>bucket</item>
     <item>water bucket</item>
     <item>stone plate</item>
     <item>diode</item>
     <item>lever</item>
-    <item>iron door</item>
     <item>fence</item>
-    <item>wood</item>
     <item>tnt</item>
     <item>stone button</item>
     <item>redstone</item>
+    <item>redstone block</item>
+    <item>redstone torch on</item>
     <item>ladder</item>
     <item>log</item>
     <item>wood step</item>
     <item>gravel</item>
-    <item>flint</item>
     <item>trap door</item>
     <item>fence gate</item>
+    <item>nether fence</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
