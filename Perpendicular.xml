@@ -265,11 +265,41 @@
             <block>159:9</block>
         </not>
     </filter>
+    <filter name="deny-tnt-damage">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>tnt</block>
+            </all>
+        </not>
+    </filter>
     <filter name="deny-tnt-damage-world">
         <not>
             <all>
                 <cause>explosion</cause>
                 <block>tnt</block>
+                <any>
+                    <block>155:1</block>
+                    <block>95:15</block>
+                    <block>95:0</block>
+                    <block>159:9</block>
+                </any>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-fireball-damage">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <item>fireball</item>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-fireball-damage-world">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <item>fireball</item>
                 <any>
                     <block>155:1</block>
                     <block>95:15</block>
@@ -294,20 +324,25 @@
         <cuboid min="199,30,600" max="176,30,613"/>
         <cuboid min="213,30,628" max="226,31,638"/>
     </union>
+    <union name="red-tunnel">
+        <cuboid min="176,30,511" max="170,38,467"/>
+        <cuboid min="269,30,473" max="170,38,467"/>
+        <cuboid min="263,30,511" max="269,38,467"/>
+    </union>
+    <union name="blue-tunnel">
+        <cuboid min="176,30,600" max="170,38,644"/>
+        <cuboid min="170,30,644" max="269,38,638"/>
+        <cuboid min="263,30,600" max="269,38,644"/>
+    </union>
 <!--  Applied  -->
-    <apply enter="only-blue" message="`eYou may not enter the enemy's spawn area!">
-        <region name="blue-spawn"/>
+    <apply enter="only-red" message="`eYou may not enter the enemy's tunnel!">
+        <region name="red-tunnel"/>
     </apply>
-    <apply enter="only-red" message="`eYou may not enter the enemy's spawn area!">
-        <region name="red-spawn"/>
+    <apply enter="only-blue" message="`eYou may not enter the enemy's tunnel!">
+        <region name="blue-tunnel"/>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the glass bridges!">
         <region name="glass-bridges"/>
-    </apply>
-    <apply block="deny-tnt-damage">
-        <negative>
-            <region name="glass-bridges"/>
-        </negative>
     </apply>
     <apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
         <region name="bases"/>
@@ -320,6 +355,9 @@
     </apply>
     <apply block="deny-tnt-damage-world">
         <region name="world"/>
+    </apply>
+    <apply block="deny-tnt-damage">
+        <region name="glass-bridges"/>
     </apply>
     <apply enter="deny-all" message="You may not leave this map!">
         <rectangle min="176,537" max="168,574"/>
