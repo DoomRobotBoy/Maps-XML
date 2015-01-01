@@ -357,16 +357,15 @@
     <item>fence</item>
     <item>tnt</item>
     <item>stone button</item>
+    <item>stone plate</item>
     <item>redstone</item>
     <item>redstone block</item>
     <item>redstone torch on</item>
     <item>ladder</item>
-    <item>log</item>
-    <item>wood step</item>
-    <item>gravel</item>
     <item>trap door</item>
     <item>fence gate</item>
     <item>nether fence</item>
+    <item>quartz block</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
