@@ -49,7 +49,7 @@
     </kit>
     <kit name="cannoneer" parents="classes">
         <item slot="0" damage="-3000">iron sword</item>
-        <item slot="18" amount="3">dispenser</item>
+        <item slot="18">dispenser</item>
         <item slot="9">workbench</item>
         <item slot="10" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
         <item slot="1" damage="-3000">bow</item>
@@ -114,6 +114,7 @@
         <item slot="8" amount="64">tnt</item>
         <item slot="35" amount="16">nether fence</item>
         <helmet damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
+        <potion duration="oo" amplifier="2">speed</potion>
     </kit>
     <kit name="red-bridger" parents="bridger">
         <chestplate damage="-3000" color="993333" enchantment="protection explosions:2">leather chestplate</chestplate>
@@ -140,6 +141,19 @@
 <killreward>
     <filter>
         <class>Cannoneer</class>
+        <kill-streak count="3" repeat="true"/>
+    </filter>
+    <item amount="1">dispenser</item>
+</killreward>
+<killreward>
+    <filter>
+        <class>Cannoneer</class>
+        <kill-streak count="5" repeat="true"/>
+    </filter>
+    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+</killreward>
+<killreward>
+    <filter>
         <class>Bridger</class>
         <class>Kamikaze</class>
         <kill-streak count="3" repeat="true"/>
