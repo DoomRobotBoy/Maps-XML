@@ -39,7 +39,10 @@
     <class name="Kamikaze" description="Weak, but very agile, with an explosive bow." icon="fireball"/>
 </classes>
 <kits>
-    <kit name="classes" potion-particles="false">
+    <kit name="all" potion-particles="false" force="true">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="classes" parents="all" potion-particles="false">
         <potion duration="5">heal</potion>
         <potion duration="5" amplifier="3">slowness</potion>
         <potion duration="5" amplifier="127">damage resistance</potion>
@@ -121,6 +124,9 @@
         <chestplate damage="-3000" color="334CB2" enchantment="protection explosions:2">leather chestplate</chestplate>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
         <boots damage="-3000" color="334CB2">leather boots</boots>
+    </kit>
+    <kit name="tank" parents="classes">
+        
     </kit>
 </kits>
 
