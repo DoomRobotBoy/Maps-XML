@@ -129,7 +129,7 @@
         <item slot="0" damage="-3000">diamond sword</item>
         <item slot="1" amount="64">egg</item>
         <item slot="2" damage="-3000">diamond pickaxe</item>
-        <item slot="3" amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+        <item slot="3" amount="16" grenade="true" grenade-power="1" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
         <item slot="4" amount="64" damage="9">stained clay</item>
         <item slot="5" amount="32">vine</item>
         <item slot="7" amount="8">redstone block</item>
@@ -152,7 +152,7 @@
         <item slot="1">bow</item>
         <item slot="28" amount="16">arrow</item>
         <item slot="2" damage="-3000" enchantment="dig speed:1">diamond pickaxe</item>
-        <item slot="3" amount="16" grenade="true" grenade-power="2" grenade-destroy="true" name="`eGrenade">snow ball</item>
+        <item slot="3" amount="16" grenade="true" grenade-power="2" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
         <item slot="4" amount="64" damage="9">stained clay</item>
         <item slot="31" amount="32" damage="9">stained clay</item>
         <item slot="5" amount="64">vine</item>
@@ -201,7 +201,7 @@
         <class>Cannoneer</class>
         <kill-streak count="5" repeat="true"/>
     </filter>
-    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
 </killreward>
 <killreward>
     <filter>
@@ -209,7 +209,7 @@
         <class>Kamikaze</class>
         <kill-streak count="3" repeat="true"/>
     </filter>
-    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+    <item amount="16" grenade="true" grenade-power="1" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
 </killreward>
 <killreward>
     <filter>
@@ -228,7 +228,7 @@
         <class>Tank</class>
         <kill-streak count="3" repeat="true"/>
     </filter>
-    <item amount="8" grenade="true" grenade-power="1" grenade-destroy="true" name="`eGrenade">snow ball</item>
+    <item amount="8" grenade="true" grenade-power="1" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
 </killreward>
 <killreward>
     <filter>
@@ -241,7 +241,7 @@
         <class>Kamikaze</class>
         <kill-streak count="3" repeat="true"/>
     </filter>
-    <item amount="16" grenade="true" grenade-power="2" grenade-destroy="true" name="`eGrenade">snow ball</item>
+    <item amount="16" grenade="true" grenade-power="2" grenade-destroy="true" grenade-fire="false" name="`eGrenade">snow ball</item>
 </killreward>
 <filters>
     <filter name="only-blue">
@@ -335,13 +335,15 @@
         <cuboid min="176,30,511" max="170,38,467"/>
         <cuboid min="269,30,473" max="170,38,467"/>
         <cuboid min="263,30,511" max="269,38,467"/>
-        <cuboid min="176,17,489" max="169,30,482"/>
-        <cuboid min="263,17,488" max="270,30,481"/>
+        <cuboid name="jump-1" min="176,17,489" max="169,30,482"/>
+        <cuboid name="jump-2" min="263,17,488" max="270,30,481"/>
     </union>
     <union name="blue-tunnel">
         <cuboid min="176,30,600" max="170,38,644"/>
         <cuboid min="170,30,644" max="269,38,638"/>
         <cuboid min="263,30,600" max="269,38,644"/>
+        <cuboid name="jump-3" min="263,17,622" max="270,30,629"/>
+        <cuboid name="jump-4" min="176,17,623" max="169,30,630"/>
     </union>
 <!--  Applied  -->
     <apply kit="in-tunnel" enter="only-red" message="`eYou may not enter the enemy's tunnel!">
@@ -356,10 +358,15 @@
             <region name="blue-tunnel"/>
         </negative>
     </apply>
+    <apply velocity="@0.0,1.2,0.0">
+        <region name="jump-1"/>
+        <region name="jump-1"/>
+        <region name="jump-1"/>
+    </apply>
     <apply block="deny-all" message="`eYou may not edit the glass bridges!">
         <region name="glass-bridges"/>
     </apply>
-    <apply block-place="deny-fire">
+    <apply block="deny-fire">
         <region name="world"/>
     </apply>
     <apply block-break="deny-some">
@@ -368,7 +375,13 @@
     <apply block="deny-tnt-damage-world">
         <region name="world"/>
     </apply>
+    <apply block="deny-fireball-damage-world">
+        <region name="world"/>
+    </apply>
     <apply block="deny-tnt-damage">
+        <region name="glass-bridges"/>
+    </apply>
+    <apply block="deny-fireball-damage">
         <region name="glass-bridges"/>
     </apply>
     <apply enter="deny-all" message="You may not leave this map!">
