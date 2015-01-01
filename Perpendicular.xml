@@ -335,6 +335,8 @@
         <cuboid min="176,30,511" max="170,38,467"/>
         <cuboid min="269,30,473" max="170,38,467"/>
         <cuboid min="263,30,511" max="269,38,467"/>
+        <cuboid min="176,17,489" max="169,30,482"/>
+        <cuboid min="263,17,488" max="270,30,481"/>
     </union>
     <union name="blue-tunnel">
         <cuboid min="176,30,600" max="170,38,644"/>
