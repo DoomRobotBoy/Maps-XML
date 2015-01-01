@@ -175,8 +175,11 @@
         <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
     </kit>
-    <kit name="tunnel-speed" parents="all">
-        <potion duration="1" amplifier="11">speed</potion>
+    <kit name="in-tunnel" parents="all">
+        <potion duration="oo" amplifier="11">speed</potion>
+    </kit>
+    <kit name="out-tunnel" parents="all">
+        <potion duration="0" amplifier="0">speed</potion>
     </kit>
 </kits>
 <killreward>
@@ -279,7 +282,9 @@
                 <cause>explosion</cause>
                 <block>tnt</block>
                 <any>
+                    <block>155:0</block>
                     <block>155:1</block>
+                    <block>155:2</block>
                     <block>95:15</block>
                     <block>95:0</block>
                     <block>159:9</block>
@@ -301,7 +306,9 @@
                 <cause>explosion</cause>
                 <item>fireball</item>
                 <any>
+                    <block>155:0</block>
                     <block>155:1</block>
+                    <block>155:2</block>
                     <block>95:15</block>
                     <block>95:0</block>
                     <block>159:9</block>
@@ -335,17 +342,20 @@
         <cuboid min="263,30,600" max="269,38,644"/>
     </union>
 <!--  Applied  -->
-    <apply enter="only-red" message="`eYou may not enter the enemy's tunnel!">
+    <apply kit="in-tunnel" enter="only-red" message="`eYou may not enter the enemy's tunnel!">
         <region name="red-tunnel"/>
     </apply>
-    <apply enter="only-blue" message="`eYou may not enter the enemy's tunnel!">
+    <apply kit="in-tunnel" enter="only-blue" message="`eYou may not enter the enemy's tunnel!">
         <region name="blue-tunnel"/>
+    </apply>
+    <apply kit="out-tunnel">
+        <negative>
+            <region name="red-tunnel"/>
+            <region name="blue-tunnel"/>
+        </negative>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the glass bridges!">
         <region name="glass-bridges"/>
-    </apply>
-    <apply block-place="deny-void" message="`eYou may not bridge to the enemy side!">
-        <region name="bases"/>
     </apply>
     <apply block-place="deny-fire">
         <region name="world"/>
