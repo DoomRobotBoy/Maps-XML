@@ -462,6 +462,9 @@
         <renew>95</renew>
         <renew>155</renew>
         <renew>stained clay</renew>
+        <renew>stone</renew>
+        <renew>174</renew>
+        <renew>beacon</renew>
     </renewable>
 </renewables>
 <itemremove>
@@ -504,6 +507,8 @@
     <item>fence gate</item>
     <item>nether fence</item>
     <item>quartz block</item>
+    <item>beacon</item>
+    <item>174</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
