@@ -358,12 +358,19 @@
             <region name="blue-tunnel"/>
         </negative>
     </apply>
-    <apply velocity="@0.0,1.2,0.0">
+    <apply velocity="@0.0,1.8,0.0">
         <region name="jump-1"/>
-        <region name="jump-1"/>
-        <region name="jump-1"/>
+        <region name="jump-2"/>
+        <region name="jump-3"/>
+        <region name="jump-4"/>
     </apply>
     <apply block="deny-all" message="`eYou may not edit the glass bridges!">
+        <region name="glass-bridges"/>
+    </apply>
+    <apply block="deny-tnt-damage">
+        <region name="glass-bridges"/>
+    </apply>
+    <apply block="deny-fireball-damage">
         <region name="glass-bridges"/>
     </apply>
     <apply block="deny-fire">
@@ -377,12 +384,6 @@
     </apply>
     <apply block="deny-fireball-damage-world">
         <region name="world"/>
-    </apply>
-    <apply block="deny-tnt-damage">
-        <region name="glass-bridges"/>
-    </apply>
-    <apply block="deny-fireball-damage">
-        <region name="glass-bridges"/>
     </apply>
     <apply enter="deny-all" message="You may not leave this map!">
         <rectangle min="176,537" max="168,574"/>
