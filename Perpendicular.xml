@@ -11,6 +11,7 @@
 </contributors>
 <rules>
     <rule>Fall damage is disabled!</rule>
+    <rule>You may destroy the pillars on your team's side to make room for cannons.</rule>
 </rules>
 <teams>
     <team id="red" color="red" max="25" max-overfill="27">Red</team>
@@ -354,10 +355,14 @@
         <cuboid min="194,7,546" max="181,13,565"/>
         <cuboid min="208,20,548" max="231,26,563"/>
     </union>
-    <complement name="renewable area">
-        <cuboid min="270,5,645" max="169,54,466"/>
-        <rectangle min="168,574" max="271,537"/>
-    </complement>
+    <union name="stone-layer">
+        <cuboid min="235,21,518" max="204,21,512"/>
+        <cuboid min="204,21,593" max="235,21,599"/>
+    </union>
+    <union name="renewable-area">
+        <cuboid min="205,20,566" max="234,20,545"/>
+        <region name="glass-bridges"/>
+    </union>
 <!--  Applied  -->
     <apply kit="in-tunnel" enter="only-red" message="`eYou may not enter the enemy's tunnel!">
         <region name="red-tunnel"/>
@@ -377,12 +382,10 @@
         <region name="jump-3"/>
         <region name="jump-4"/>
     </apply>
-    <apply block="deny-all" message="`eYou may not edit the glass bridges!">
-        <region name="glass-bridges"/>
-    </apply>
     <apply block="deny-tnt-damage">
         <region name="glass-bridges"/>
         <region name="control-points"/>
+        <region name="stone-layer"/>
     </apply>
     <apply block="deny-fireball-damage">
         <region name="glass-bridges"/>
@@ -455,16 +458,14 @@
     <kills>1</kills>
 </score>
 <renewables>
-    <renewable rate="5" grow="true" particles="true" sound="true" avoid-entities="true">
+    <renewable rate="1" grow="true" particles="true" sound="true" avoid-entities="true">
         <region>
             <region name="renewable-area"/>
         </region>
-        <renew>95</renew>
-        <renew>155</renew>
-        <renew>stained clay</renew>
-        <renew>stone</renew>
-        <renew>174</renew>
-        <renew>beacon</renew>
+        <renew>95:0</renew>
+        <renew>95:11</renew>
+        <renew>95:14</renew>
+        <renew>155:0</renew>
     </renewable>
 </renewables>
 <itemremove>
@@ -485,7 +486,6 @@
     <item>arrow</item>
     <item>snow ball</item>
     <item>step</item>
-    <item>chainmail chestplate</item>
     <item>shears</item>
     <item>ladder</item>
     <item>vine</item>
@@ -497,6 +497,7 @@
     <item>lever</item>
     <item>fence</item>
     <item>tnt</item>
+    <item>piston</item>
     <item>stone button</item>
     <item>stone plate</item>
     <item>redstone</item>
@@ -510,6 +511,8 @@
     <item>beacon</item>
     <item>174</item>
     <item>egg</item>
+    <item>dispenser</item>
+    <item>workbench</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
