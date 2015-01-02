@@ -4,9 +4,10 @@
 <objective>Be the first team to reach the score limit, or to hold the most points when time runs out.</objective>
 <authors>
     <author>Diamyx</author>
+    <author contributor="XML">DoomRobotBoy</author>
 </authors>
 <contributors>
-    <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor>SamSafari</contributor>
 </contributors>
 <rules>
     <rule>Fall damage is disabled!</rule>
