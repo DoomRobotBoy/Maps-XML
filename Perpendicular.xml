@@ -345,6 +345,11 @@
         <cuboid name="jump-3" min="263,17,622" max="270,30,629"/>
         <cuboid name="jump-4" min="176,17,623" max="169,30,630"/>
     </union>
+    <union name="control-points">
+        <cuboid min="245,7,565" max="257,13,546"/>
+        <cuboid min="194,7,546" max="181,13,565"/>
+        <cuboid min="208,20,548" max="231,26,563"/>
+    </union>
 <!--  Applied  -->
     <apply kit="in-tunnel" enter="only-red" message="`eYou may not enter the enemy's tunnel!">
         <region name="red-tunnel"/>
@@ -369,9 +374,11 @@
     </apply>
     <apply block="deny-tnt-damage">
         <region name="glass-bridges"/>
+        <region name="control-points"/>
     </apply>
     <apply block="deny-fireball-damage">
         <region name="glass-bridges"/>
+        <region name="control-points"/>
     </apply>
     <apply block="deny-fire">
         <region name="world"/>
@@ -389,7 +396,52 @@
         <rectangle min="176,537" max="168,574"/>
         <rectangle min="263,574" max="271,537"/>
     </apply>
+    <apply block="deny-all" message="You may not edit the control points!">
+        <region name="control-points"/>
+    </apply>
 </regions>
+<king>
+    <hills capture-time="25s" capture-rule="lead" neutral-state="true" time-multiplier="0.5">
+        <hill id="east-point" name="Eastern Hill" points="2" points-growth="1200">
+            <capture>
+                <cuboid min="245,14,565" max="258,18,546"/>
+            </capture>
+            <progress>
+                <cuboid min="245,7,565" max="257,13,546"/>
+            </progress>
+            <captured>
+                <cuboid min="245,7,565" max="257,13,546"/>
+            </captured>
+        </hill>
+        <hill id="west-point" name="Western Hill" points="2" points-growth="1200">
+            <capture>
+                <cuboid min="194,14,546" max="181,18,565"/>
+            </capture>
+            <progress>
+                <cuboid min="194,7,546" max="181,13,565"/>
+            </progress>
+            <captured>
+                <cuboid min="194,7,546" max="181,13,565"/>
+            </captured>
+        </hill>
+        <hill id="center-point" name="Center Hill" points="5">
+            <capture>
+                <cuboid min="208,27,548" max="231,31,563"/>
+            </capture>
+            <progress>
+                <cuboid min="208,20,548" max="231,26,563"/>
+            </progress>
+            <captured>
+                <cuboid min="208,20,548" max="231,26,563"/>
+            </captured>
+        </hill>
+    </hills>
+</king>
+<score>
+    <limit>4000</limit>
+    <deaths>0</deaths>
+    <kills>1</kills>
+</score>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
