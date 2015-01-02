@@ -264,11 +264,11 @@
     </filter>
     <filter name="deny-some">
         <not>
-            <block>155:1</block>
-            <block>95:15</block>
-            <block>95:0</block>
-            <block>159:9</block>
-            <block>44:7/block>
+            <block>quartz block:1</block>
+            <block>stained glass:0</block>
+            <block>stained glass:15</block>
+            <block>stained clay:9</block>
+            <block>step:7/block>
         </not>
     </filter>
     <filter name="deny-tnt-damage">
@@ -285,13 +285,13 @@
                 <cause>explosion</cause>
                 <block>tnt</block>
                 <any>
-                    <block>155:0</block>
-                    <block>155:1</block>
-                    <block>155:2</block>
-                    <block>95:15</block>
-                    <block>95:0</block>
-                    <block>159:9</block>
-                    <block>44:7/block>
+                    <block>quartz block:0</block>
+                    <block>quartz block:1</block>
+                    <block>quartz block:2</block>
+                    <block>stained glass:0</block>
+                    <block>stained glass:15</block>
+                    <block>stained clay:9</block>
+                    <block>step:7/block>
                 </any>
             </all>
         </not>
@@ -310,13 +310,13 @@
                 <cause>explosion</cause>
                 <item>fireball</item>
                 <any>
-                    <block>155:0</block>
-                    <block>155:1</block>
-                    <block>155:2</block>
-                    <block>95:15</block>
-                    <block>95:0</block>
-                    <block>159:9</block>
-                    <block>44:7/block>
+                    <block>quartz block:0</block>
+                    <block>quartz block:1</block>
+                    <block>quartz block:2</block>
+                    <block>stained glass:0</block>
+                    <block>stained glass:15</block>
+                    <block>stained clay:9</block>
+                    <block>step:7/block>
                 </any>
             </all>
         </not>
@@ -550,7 +550,6 @@
     <item>step</item>
     <item>ladder</item>
     <item>vine</item>
-    <item>stained clay</item>
     <item>bucket</item>
     <item>water bucket</item>
     <item>stone plate</item>
@@ -568,14 +567,23 @@
     <item>trap door</item>
     <item>fence gate</item>
     <item>nether fence</item>
-    <item>quartz block</item>
     <item>beacon</item>
-    <item>174</item>
+    <item>packed ice</item>
     <item>egg</item>
     <item>dispenser</item>
     <item>workbench</item>
     <item>diamond block</item>
     <item>iron block</item>
+    <item>stained clay:0</item>
+    <item>stained clay:3</item>
+    <item>stained clay:6</item>
+    <item>stained clay:9</item>
+    <item>stained clay:11</item>
+    <item>stained clay:14</item>
+    <item>stained clay:15</item>
+    <item>quartz block:0</item>
+    <item>quartz block:1</item>
+    <item>quartz block:2</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
