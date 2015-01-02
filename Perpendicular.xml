@@ -416,7 +416,7 @@
 </regions>
 <king>
     <hills capture-time="25s" capture-rule="lead" neutral-state="true" time-multiplier="0.5">
-        <hill id="east-point" name="Eastern Hill" points="2" points-growth="420">
+        <hill id="east-point" name="Eastern Hill" points="2" points-growth="480">
             <capture>
                 <cuboid min="245,14,565" max="258,18,546"/>
             </capture>
@@ -468,15 +468,61 @@
         <renew>155:0</renew>
     </renewable>
 </renewables>
+<destroyables show="false" name="drop-zones" materials="air" owner="red" completion="0%" mode-changes="true">
+    <destroyable id="fake-monument">
+        <region>
+            <cuboid min="218,57,557" max="221,57,554"/>
+        </region>
+    </destroyable>
+</destroyables>
 <modes boss-bar="true">
 <!--  Drop Zone Modes  -->
-    <mode show-before="90s" after="5m" material="iron block" name="`3Dropping an `airon `3supply"/>
-    <mode show-before="90s" after="7m" material="diamond block" name="`3Dropping an `airon/diamond `3supply"/>
-    <mode show-before="90s" after="15m" material="iron block" name="`3Dropping an `airon `3supply"/>
-    <mode show-before="90s" after="20m" material="diamond block" name="`3Dropping an `airon/diamond `3supply"/>
+    <mode show-before="60s" after="5m" material="air" name="`3Dropping an `airon `3supply"/>
+    <mode show-before="60s" after="7m" material="air" name="`3Dropping an `airon/diamond `3supply"/>
+    <mode show-before="60s" after="10m" material="air" name="`3Dropping an `airon `3supply"/>
+    <mode show-before="60s" after="14m" material="air" name="`3Dropping an `airon/diamond `3supply"/>
+    <mode show-before="30s" after="15m" material="air" name="`3Dropping an `airon `3supply"/>
 <!--  Point Growth Modes  -->
-    <mode show-before="60s" after="7m" material="diamond block" name="`3Both outer hills gain points `a2x `3faster"/>
+    <mode show-before="30s" after="8m" material="air" name="`3Both outer hills gain points `a2x `3faster"/>
 </modes>
+<blockdrops>
+    <rule>
+        <filter>
+            <block>iron block</block>
+        </filter>
+        <drops>
+            <item damage="-100">iron helmet</item>
+            <item damage="-100">iron leggings</item>
+            <item attributes="generic.movementSpeed:base:0.10">iron boots</item>
+        </drops>
+    </rule>
+    <rule>
+        <filter>
+            <block>diamond block</block>
+        </filter>
+        <drops>
+            <item damage="359" attributes="generic.movementSpeed:base:0.20;generic.knockbackResistance:add:1" enchantment="protection explosions:2">diamond boots</item>
+            <item name="`6Grenade" amount="8" grenade="true" grenade-power="1.5">snow ball</item>
+        </drops>
+    </rule>
+    <rule>
+        <filter>
+            <any>
+                <block>stained clay:3</block>
+                <block>stained clay:4</block>
+                <block>stained clay:9</block>
+                <block>stained clay:11</block>
+                <block>stained clay:14</block>
+                <block>water</block>
+                <block>stationary water</block>
+            </any>
+        </filter>
+        <fall-chance>0.35</fall-chance>
+        <land-chance>0.5</land-chance>
+        <fall-speed>0.75</fall-speed>
+        <drops/>
+    </rule>
+</blockdrops>
 <broadcasts>
     <alert after="1s">
         `a`oEvery `65 `a`ominutes there is an iron supply drop
