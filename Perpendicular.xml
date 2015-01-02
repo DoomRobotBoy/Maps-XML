@@ -468,6 +468,23 @@
         <renew>155:0</renew>
     </renewable>
 </renewables>
+<modes boss-bar="true">
+<!--  Drop Zone Modes  -->
+    <mode show-before="90s" after="5m" material="iron block" name="`3Dropping an `airon `3supply"/>
+    <mode show-before="90s" after="7m" material="diamond block" name="`3Dropping an `airon/diamond `3supply"/>
+    <mode show-before="90s" after="15m" material="iron block" name="`3Dropping an `airon `3supply"/>
+    <mode show-before="90s" after="20m" material="diamond block" name="`3Dropping an `airon/diamond `3supply"/>
+<!--  Point Growth Modes  -->
+    <mode show-before="60s" after="7m" material="diamond block" name="`3Both outer hills gain points `a2x `3faster"/>
+</modes>
+<broadcasts>
+    <alert after="1s">
+        `a`oEvery `65 `a`ominutes there is an iron supply drop
+    </alert>
+    <alert after="2s">
+        `a`oEvery `67 `a`ominutes there is a diamond supply drop
+    </alert>
+</broadcasts>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
