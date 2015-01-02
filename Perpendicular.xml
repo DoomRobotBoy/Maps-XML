@@ -28,9 +28,9 @@
             <cuboid min="221,18,635" max="218,18,631"/>
         </regions>
     </spawn>
-    <default yaw="90">
+    <default yaw="180">
         <regions>
-            <cuboid min="172,48,539" max="171,48,572"/>
+            <cuboid min="217,67,558" max="222,67,554"/>
         </regions>
     </default>
 </spawns>
@@ -80,17 +80,17 @@
         <item slot="35" amount="64">tnt</item>
         <item slot="26" amount="64">tnt</item>
         <item slot="17" amount="64">tnt</item>
-        <chestplate damage="-3000" enchantment="protection explosions:2">chainmail chestplate</chestplate>
+        <chestplate damage="-3000" locked="true" enchantment="protection explosions:2">chainmail chestplate</chestplate>
     </kit>
     <kit name="red-cannoneer" parents="cannoneer">
-        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet damage="-3000" locked="true" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
-        <boots damage="-3000" color="993333">leather boots</boots>
+        <boots damage="-3000" locked="true" color="993333">leather boots</boots>
     </kit>
     <kit name="blue-cannoneer" parents="cannoneer">
-        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet damage="-3000" locked="true" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
-        <boots damage="-3000" color="334CB2">leather boots</boots>
+        <boots damage="-3000" locked="true" color="334CB2">leather boots</boots>
     </kit>
     <kit name="bridger" parents="classes">
         <item slot="0" damage="-3000">iron sword</item>
@@ -114,18 +114,18 @@
         <item slot="25" amount="16">stone plate</item>
         <item slot="8" amount="64">tnt</item>
         <item slot="35" amount="16">nether fence</item>
-        <helmet damage="-3000" enchantment="protection projectile:1">iron helmet</helmet>
+        <helmet damage="-3000" locked="true" enchantment="protection projectile:1">iron helmet</helmet>
         <potion duration="oo" amplifier="2">speed</potion>
     </kit>
     <kit name="red-bridger" parents="bridger">
-        <chestplate damage="-3000" color="993333" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <chestplate damage="-3000" locked="true" color="993333" enchantment="protection explosions:2;water worker:1">leather chestplate</chestplate>
         <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
-        <boots damage="-3000" color="993333">leather boots</boots>
+        <boots damage="-3000" locked="true" color="993333">leather boots</boots>
     </kit>
     <kit name="blue-bridger" parents="bridger">
-        <chestplate damage="-3000" color="334CB2" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <chestplate damage="-3000" locked="true" color="334CB2" enchantment="protection explosions:2;water worker:1">leather chestplate</chestplate>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
-        <boots damage="-3000" color="334CB2">leather boots</boots>
+        <boots damage="-3000" locked="true" color="334CB2">leather boots</boots>
     </kit>
     <kit name="tank" parents="classes">
         <item slot="0" damage="-3000">diamond sword</item>
@@ -136,18 +136,18 @@
         <item slot="5" amount="32">vine</item>
         <item slot="7" amount="8">redstone block</item>
         <item slot="8" amount="32">tnt</item>
-        <chestplate damage="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
-        <leggings damage="-3000" enchantment="protection projectile:1">iron leggings</leggings>
+        <chestplate damage="-3000" locked="true" enchantment="protection explosions:3;water worker:1">iron chestplate</chestplate>
+        <leggings damage="-3000" enchantment="protection projectile:1">chainmail leggings</leggings>
         <potion duration="oo" amplifier="2">jump</potion>
         <potion duration="oo">slowness</potion>
     </kit>
     <kit="red-tank" parents="tank">
-        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
-        <boots damage="-3000" color="993333">leather boots</boots>
+        <helmet damage="-3000" locked="true" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <boots damage="-3000" locked="true" color="993333">leather boots</boots>
     </kit>
     <kit="blue-tank" parents="tank">
-        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
-        <boots damage="-3000" color="334CB2">leather boots</boots>
+        <helmet damage="-3000" locked="true" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <boots damage="-3000" locked="true" color="334CB2">leather boots</boots>
     </kit>
     <kit name="kamikaze" parents="classes">
         <item slot="0" damage="-3000">iron sword</item>
@@ -162,19 +162,19 @@
         <item slot="7" amount="16">redstone block</item>
         <item slot="8" amount="64">tnt</item>
         <item slot="35" amount="64">tnt</item>
-        <chestplate damage="-3000" enchantment="protection explosions:3">iron chestplate</chestplate>
-        <boots damage="-3000">chainmail boots</boots>
+        <chestplate damage="-3000" locked="true" enchantment="protection explosions:3;water worker:1">iron chestplate</chestplate>
+        <boots damage="-3000" locked="true">chainmail boots</boots>
         <potion duration="oo">speed</potion>
         <potion duration="oo">regeneration</potion>
         <health>12</health>
         <double-jump/>
     </kit>
     <kit name="red-kamikaze" parents="kamikaze">
-        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet damage="-3000" locked="true" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="993333" enchantment="protection projectile:1">leather leggings</leggings>
     </kit>
     <kit name="blue-kamikaze" parents="kamikaze">
-        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <helmet damage="-3000" locked="true" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
         <leggings damage="-3000" color="334CB2" enchantment="protection projectile:1">leather leggings</leggings>
     </kit>
     <kit name="in-tunnel" parents="all">
@@ -491,9 +491,7 @@
             <block>iron block</block>
         </filter>
         <drops>
-            <item damage="-100">iron helmet</item>
-            <item damage="-100">iron leggings</item>
-            <item attributes="generic.movementSpeed:base:0.10">iron boots</item>
+            <item enchantment="protection explosions:1;protection projectile:1">iron leggings</item>
         </drops>
     </rule>
     <rule>
@@ -501,24 +499,25 @@
             <block>diamond block</block>
         </filter>
         <drops>
-            <item damage="359" attributes="generic.movementSpeed:base:0.20;generic.knockbackResistance:add:1" enchantment="protection explosions:2">diamond boots</item>
-            <item name="`6Grenade" amount="8" grenade="true" grenade-power="1.5">snow ball</item>
+            <item damage="445" attributes="generic.movementSpeed:base:0.10" enchantment="protection explosions:2">diamond leggings</item>
         </drops>
     </rule>
     <rule>
         <filter>
             <any>
+                <block>stone</block>
+                <block>cobblestone</block>
                 <block>stained clay:3</block>
-                <block>stained clay:4</block>
-                <block>stained clay:9</block>
+                <block>stained clay:6</block>
                 <block>stained clay:11</block>
                 <block>stained clay:14</block>
                 <block>water</block>
                 <block>stationary water</block>
+                <block>packed ice</block>
             </any>
         </filter>
-        <fall-chance>0.35</fall-chance>
-        <land-chance>0.5</land-chance>
+        <fall-chance>0.20</fall-chance>
+        <land-chance>0.05</land-chance>
         <fall-speed>0.75</fall-speed>
         <drops/>
     </rule>
@@ -538,8 +537,8 @@
     <item>leather boots</item>
     <item>iron helmet</item>
     <item>iron chestplate</item>
-    <item>iron leggings</item>
     <item>chainmail chestplate</item>
+    <item>chainmail leggings</item>
     <item>chainmail boots</item>
     <item>iron sword</item>
     <item>diamond sword</item>
@@ -549,7 +548,6 @@
     <item>arrow</item>
     <item>snow ball</item>
     <item>step</item>
-    <item>shears</item>
     <item>ladder</item>
     <item>vine</item>
     <item>stained clay</item>
@@ -576,6 +574,8 @@
     <item>egg</item>
     <item>dispenser</item>
     <item>workbench</item>
+    <item>diamond block</item>
+    <item>iron block</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
