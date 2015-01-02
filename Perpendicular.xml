@@ -384,7 +384,10 @@
         <region name="world"/>
     </apply>
     <apply block-break="deny-some">
-        <region name="world"/>
+        <complement>
+            <region name="world"/>
+            <cuboid min="205,20,566" max="234,20,545"/>
+        </complement>
     </apply>
     <apply block="deny-tnt-damage-world">
         <region name="world"/>
