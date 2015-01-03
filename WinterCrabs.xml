@@ -1,0 +1,133 @@
+<map proto="1.3.6">
+<name>Winter Crabs</name>
+<version>1.0.0</version>
+<objective>Destroy the enemies' monuments and leak their core!</objective>
+<authors>
+    <author>cirenah</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="10">Red Team</team>
+    <team id="blue" color="blue" max="10">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">diamond pickaxe</item>
+        <potion duration="7" amplifier="4">damage resistance</potion>
+    </kit>
+</kits>
+<filters>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="deny-tnt-damage">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>tnt</block>
+            </all>
+        </not>
+    </filter>
+    <filter name="deny-dispenser">
+        <not><block>dispenser</block></not>
+    </filter>
+</filters>
+<regions>
+    <cuboid name="red-core" min="41,10,-3" max="34,14,4"/>
+    <cuboid name="blue-core" min="-40,10,4" max="-33,14,-3"/>
+    <apply block="deny-all">
+        <union name="spawns">
+            <rectangle name="red-spawn" min="63,-3" max="88,4"/>
+            <rectangle name="blue-spawn" min="-62,4" max="-87,-3"/>
+        </union>
+    </apply>
+    <apply block="deny-tnt-damage">
+        <region name="spawns"/>
+    </apply>
+    <apply block="deny-void" message="You may not edit the void area!">
+        <complement>
+            <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+            <rectangle name="bridging-area-exception1" min="-17,-64" max="18,65"/>
+        <!--    <rectangle name="bridging-area-exception2" min="34,39" max="-33,-38"/> -->
+        </complement>
+    </apply>
+    <apply enter="only-red">
+        <region name="red-spawn"/>
+    </apply>
+    <apply enter="only-blue">
+        <region name="blue-spawn"/>
+    </apply>
+    <apply block="deny-dispenser">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+</regions>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="90">
+        <regions>
+            <cylinder base="84.5,56,0.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="-90">
+        <regions>
+            <cylinder base="-83.5,56,0.5" radius="1"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <cylinder base="0.5,58,0.5" radius="1"/>
+        </regions>
+    </default>
+</spawns>
+<cores material="obsidian" leak="4" mode-changes="true">
+    <core team="red" region="red-core"/>
+    <core team="blue" region="blue-core"/>
+</cores>
+<destroyables materials="ender stone;beacon" completion="100%">
+    <destroyable name="North Monument" owner="red">
+        <region>
+            <cuboid min="21,5,-48" max="16,9,-53"/>
+        </region>
+    </destroyable>
+    <destroyable name="South Monument" owner="red">
+        <region>
+            <cuboid min="16,5,49" max="21,9,54"/>
+        </region>
+    </destroyable>
+    <destroyable name="North Monument" owner="blue">
+        <region>
+            <cuboid min="-15,5,-48" max="-20,9,-53"/>
+        </region>
+    </destroyable>
+    <destroyable name="South Monument" owner="blue">
+        <region>
+            <cuboid min="-20,5,49" max="-15,9,54"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="15m" material="gold block" name="`6GOLD `rCORE MODE"/>
+    <mode after="20m" material="glass" name="`bGLASS `rCORE MODE"/>
+</modes>
+<itemremove>
+    <item>obsidian</item>
+    <item>ender stone</item>
+    <item>beacon</item>
+    <item>snow ball</item>
+    <item>cobblestone stairs</item>
+    <item>smooth stairs</item>
+</itemremove>
+<broadcasts>
+    <tip after="10s">`6GOLD`r CORE at 15 minutes.</tip>
+    <tip after="15s">`bGLASS`r CORE at 20 minutes.</tip>
+</broadcasts>
+<maxbuildheight>38</maxbuildheight>
+</map>
