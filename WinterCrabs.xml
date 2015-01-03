@@ -54,13 +54,6 @@
     <apply block="deny-tnt-damage">
         <region name="spawns"/>
     </apply>
-    <apply block="deny-void" message="You may not edit the void area!">
-        <complement>
-            <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-            <rectangle name="bridging-area-exception1" min="-17,-64" max="18,65"/>
-        <!--    <rectangle name="bridging-area-exception2" min="34,39" max="-33,-38"/> -->
-        </complement>
-    </apply>
     <apply enter="only-red">
         <region name="red-spawn"/>
     </apply>
@@ -69,6 +62,14 @@
     </apply>
     <apply block="deny-dispenser">
         <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply block="deny-void" message="You may not edit the void area!">
+        <complement>
+            <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+            <rectangle name="bridging-area-exception1" min="-17,-64" max="18,65"/>
+            <rectangle name="bridging-area-exception2" min="34,39" max="-33,-38"/>
+        </complement>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="spawn" yaw="90">
