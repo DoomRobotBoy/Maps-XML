@@ -52,16 +52,16 @@
         <potion duration="3" amplifier="2">damage resistance</potion>
     </kit>
     <kit name="red" parents="teams">
-        <leggings damage="-3000" color="cd0000" locked="true">leather leggings</leggings>
+        <leggings damage="-3000" color="cd0000" locked="true" name="`4Better Than A Leotard">leather leggings</leggings>
     </kit>
     <kit name="blue" parents="teams">
-        <leggings damage="-3000" color="0066cc" locked="true">leather leggings</leggings>
+        <leggings damage="-3000" color="0066cc" locked="true" name="`1Better Than A Leotard">leather leggings</leggings>
     </kit>
     <kit name="purple" parents="teams">
-        <leggings damage="-3000" color="7F3FB2" locked="true">leather leggings</leggings>
+        <leggings damage="-3000" color="7F3FB2" locked="true" name="`5Better Than A Leotard">leather leggings</leggings>
     </kit>
     <kit name="yellow" parents="teams">
-        <leggings damage="-3000" color="E5E533" locked="true">leather leggings</leggings>
+        <leggings damage="-3000" color="E5E533" locked="true" name="`eBetter Than A Leotard">leather leggings</leggings>
     </kit>
 </kits>
 
