@@ -65,7 +65,11 @@
     </kit>
 </kits>
 <filters>
-<filters>
+    <filter name="deny-wool">
+        <not>
+            <block>wool</block>
+        </not>
+    </filter>
     <filter name="no-void">
         <deny>
             <void/>
@@ -116,12 +120,12 @@
         <region name="spawn-protect"/>
     </apply>
     <union name="side-barriers">
-        <rectangle min="298,94" max="299,44"/>
-        <rectangle min="335,6" max="385,7"/>
-        <rectangle min="423,43" max="422,93"/>
-        <rectangle min="386,131" max="336,130"/>
+        <rectangle min="298,95" max="299,42"/>
+        <rectangle min="334,6" max="387,7"/>
+        <rectangle min="423,42" max="422,95"/>
+        <rectangle min="387,131" max="334,130"/>
     </union>
-    <apply block="deny-all" message="You may not modify the void area!">
+    <apply block-place="deny-all" message="You may not modify the void area!">
         <region name="side-barriers"/>
     </apply>
     <union name="void-areas">
@@ -198,21 +202,21 @@
         <cuboid min="409.5,0,33.5" max="395.5,7,19.5"/>
         <cuboid min="395.5,0,117.5" max="409.5,7,103.5"/>
     </union>
-    -->
     <apply block="deny-all">
         <region name="wool-rooms-protect"/>
     </apply>
+    -->
     <apply enter="deny-red">
-        <rectangle name="wool-rooms-protect-red" min="311,110" max="319,118"/>
+        <rectangle name="wool-rooms-protect-red" min="311,105" max="324,118"/>
     </apply>
     <apply enter="deny-blue">
-        <rectangle name="wool-rooms-protect-blue" min="319,19" max="311,27"/>
+        <rectangle name="wool-rooms-protect-blue" min="324,19" max="311,32"/>
     </apply>
     <apply enter="deny-green">
-        <rectangle name="wool-rooms-protect-green" min="410,27" max="402,19"/>
+        <rectangle name="wool-rooms-protect-green" min="410,32" max="397,19"/>
     </apply>
     <apply enter="deny-yellow">
-        <rectangle name="wool-rooms-protect-yellow" min="402,118" max="410,110"/>
+        <rectangle name="wool-rooms-protect-yellow" min="397,118" max="410,105"/>
     </apply>
     <apply block="deny-all">
         <rectangle name="wool-rooms-protect-red"/>
@@ -220,21 +224,21 @@
         <rectangle name="wool-rooms-protect-green"/>
         <rectangle name="wool-rooms-protect-yellow"/>
     </apply>
-    <apply velocity="@0.0,0.5,-20">
-        <cuboid min="299.5,14,124.5" max="303.5,15,123.5"/>
-        <cuboid min="421.5,14,124.5" max="417.5,15,123.5"/>
+    <apply velocity="@0.0,0.3,-2.2">
+        <cuboid min="299,14,125" max="304,15,123"/>
+        <cuboid min="421,14,125" max="417,15,123"/>
     </apply>
-    <apply velocity="@20,0.5,0.0">
-        <cuboid min="304.5,14,7.5" max="305.5,15,11.5"/>
-        <cuboid min="304.5,14,129.5" max="305.5,15,125.5"/>
+    <apply velocity="@2.2,0.3,0.0">
+        <cuboid min="304,14,7" max="306,15,12"/>
+        <cuboid min="304,14,130" max="306,15,125"/>
     </apply>
-    <apply velocity="@0.0,0.5,20">
-        <cuboid min="421.5,14,12.5" max="417.5,15,13.5"/>
-        <cuboid min="299.5,14,12.5" max="303.5,15,13.5"/>
+    <apply velocity="@0.0,0.3,2.2">
+        <cuboid min="422,14,12" max="417,15,14"/>
+        <cuboid min="300,14,12" max="304,15,14"/>
     </apply>
-    <apply velocity="@-20,0.5,0.0">
-        <cuboid min="416.5,14,129.5" max="415.5,15,125.5"/>
-        <cuboid min="416.5,14,7.5" max="415.5,15,11.5"/>
+    <apply velocity="@-2.2,0.3,0.0">
+        <cuboid min="417,14,130" max="415,15,125"/>
+        <cuboid min="417,14,7" max="415,15,12"/>
     </apply>
 </regions>
 <wools team="red">
@@ -324,6 +328,7 @@
     <item>leather boots</item>
     <item>cooked fish:1</item>
     <item>sapling</item>
+    <item>apple</item>
     <item>piston base</item>
     <item>cobble wall</item>
     <item>wool</item>
