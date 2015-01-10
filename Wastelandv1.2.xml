@@ -8,6 +8,9 @@
 <contributors>
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
+<rules>
+    <rule>Spawncamping is not allowed!</rule>
+</rules>
 <teams>
     <team color="dark red" max="8" max-overfill="10">Red Team</team>
     <team color="blue" max="8" max-overfill="10">Blue Team</team>
