@@ -46,17 +46,19 @@
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <cuboid name="red-core-east" min="89,11,-201" max="100,21,-190"/>
     <cuboid name="red-core-west" min="28,11,-190" max="17,21,-201"/>
+    <cuboid name="blue-core-east" min="89,11,-93" max="100,21,-82"/>
+    <cuboid name="blue-core-west" min="28,11,-82" max="17,21,-93"/>
     <apply block="deny-all">
         <union name="spawns-stuff">
         <!--  Red Spawn  -->
             <complement>
-                <rectangle min="36,-216" max="81,-273"/>
-                <cuboid min="79,0,-217" max="38,19,-216"/>
+                <rectangle min="39,-216" max="81,-273"/>
+                <cuboid min="79,0,-217" max="39,19,-216"/>
             </complement>
         <!--  Blue Spawn  -->
             <complement>
-                <rectangle min="-57,-51" max="-12,6"/>
-                <cuboid min="14,0,-50" max="55,19,-51"/>
+                <rectangle min="78,-67" max="39,-10"/>
+                <cuboid min="39,0,-66" max="78,19,-67"/>
             </complement>
         </union>
     </apply>
@@ -66,8 +68,7 @@
     <apply block="deny-void" message="You may not edit the void area!">
         <complement>
             <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-            <rectangle name="bridging-area-exception1" min="109,-89" max="143,-178"/>
-            <rectangle name="bridging-area-exception1" min="-16,-178" max="-50,-89"/>
+            <rectangle name="exception" min="-17,-100" max="134,-183"/>
         </complement>
     </apply>
     <apply use="deny-dispenser">
@@ -82,19 +83,21 @@
     </spawn>
     <spawn team="blue" kit="spawn" yaw="180">
         <regions>
-            <cylinder base="34.5,68,2.5" radius="1"/>
+            <cylinder base="58.5,68,-13.5" radius="1"/>
         </regions>
     </spawn>
     <default>
         <regions>
             <cuboid min="57,68,-269" max="60,68,-270"/>
-            <cuboid min="36,68,2" max="33,68,3"/>
+            <cuboid min="57,68,-14" max="60,68,-13"/>
         </regions>
     </default>
 </spawns>
 <cores material="obsidian" leak="3" mode-changes="true">
-    <core team="red" region="red-core"/>
-    <core team="blue" region="blue-core"/>
+    <core name="Eastern Core" team="red" region="red-core-east"/>
+    <core name="Western Core" team="red" region="red-core-west"/>
+    <core name="Eastern Core" team="blue" region="blue-core-east"/>
+    <core name="Western Core" team="blue" region="blue-core-west"/>
 </cores>
 <modes>
     <mode after="10m" material="gold block" name="`6GOLD `rCORE MODE"/>
@@ -109,6 +112,7 @@
 <itemremove>
     <item>chainmail leggings</item>
     <item>obsidian</item>
+    <item>dispenser</item>
 </itemremove>
 <broadcasts>
     <tip after="10s">`6GOLD`r CORE at 10 minutes.</tip>
