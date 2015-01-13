@@ -109,52 +109,6 @@
     </filter>
 </filters>
 -->
-<!--
-<wools team="red">
-    <wool color="blue">
-        <block>-1,9,76</block>
-    </wool>
-    <wool color="yellow">
-        <block>0,9,76</block>
-    </wool>
-    <wool color="purple">
-        <block>1,9,76</block>
-    </wool>
-</wools>
-<wools team="purple">
-    <wool color="red">
-        <block>76,9,1</block>
-    </wool>
-    <wool color="blue">
-        <block>76,9,0</block>
-    </wool>
-    <wool color="yellow">
-        <block>76,9,-1</block>
-    </wool>
-</wools>
-<wools team="yellow">
-    <wool color="blue">
-        <block>-1,9,-76</block>
-    </wool>
-    <wool color="red">
-        <block>0,9,-76</block>
-    </wool>
-    <wool color="purple">
-        <block>1,9,-76</block>
-    </wool>
-</wools>
-<wools team="blue">
-    <wool color="yellow">
-        <block>-76,9,-1</block>
-    </wool>
-    <wool color="purple">
-        <block>-76,9,0</block>
-    </wool>
-    <wool color="red">
-        <block>-76,9,1</block>
-    </wool>
-</wools>
--->
 <timelock>on</timelock>
 <itemremove>
     <item>leather leggings</item>
