@@ -113,6 +113,7 @@
     <item>chainmail leggings</item>
     <item>obsidian</item>
     <item>dispenser</item>
+    <item>gold block</item>
 </itemremove>
 <broadcasts>
     <tip after="10s">`6GOLD`r CORE at 10 minutes.</tip>
