@@ -61,35 +61,7 @@
         <leggings damage="-3000" color="E5E533" locked="true" name="`eBetter Than A Leotard">leather leggings</leggings>
     </kit>
 </kits>
-
-<regions>
-    <block name="the-wool">367.5,23,733.5</block>
-    <apply block="deny-all">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-</regions>
-<!--
 <filters>
-    <filter name="deny-red">
-        <deny>
-            <team>red</team>
-        </deny>
-    </filter>
-    <filter name="deny-blue">
-        <deny>
-            <team>blue</team>
-        </deny>
-    </filter>
-    <filter name="deny-purple">
-        <deny>
-            <team>purple</team>
-        </deny>
-    </filter>
-    <filter name="deny-yellow">
-        <deny>
-            <team>yellow</team>
-        </deny>
-    </filter>
     <filter name="deny-wool">
         <deny>
             <block>wool</block>
@@ -108,7 +80,62 @@
         <team>yellow</team>
     </filter>
 </filters>
--->
+<regions>
+    <block name="the-wool">367.5,23,733.5</block>
+    <apply block="deny-all">
+        <complement>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <region name="the-wool"/>
+        </complement>
+    </apply>
+    <apply enter="only-red">
+        <cuboid name="red-spawn" min="370,18,760" max="365,18,762"/>
+    </apply>
+    <apply enter="only-blue">
+        <cuboid name="blue-spawn" min="341,18,736" max="339,18,731"/>
+    </apply>
+    <apply enter="only-purple">
+        <cuboid name="purple-spawn" min="365,18,707" max="370,18,705"/>
+    </apply>
+    <apply enter="only-yellow">
+        <cuboid name="yellow-spawn" min="394,18,731" max="396,18,736"/>
+    </apply>
+</regions>
+<score>
+    <box filter="only-red" region="red-spawn">
+        <redeemables>
+            <item points="100">wool:5</item>
+        </redeemables>
+    </box>
+    <box filter="only-blue" region="blue-spawn">
+        <redeemables>
+            <item points="100">wool:5</item>
+        </redeemables>
+    </box>
+    <box filter="only-purple" region="purple-spawn">
+        <redeemables>
+            <item points="100">wool:5</item>
+        </redeemables>
+    </box>
+    <box filter="only-yellow" region="yellow-spawn">
+        <redeemables>
+            <item points="100">wool:5</item>
+        </redeemables>
+    </box>
+</score>
+<destroyables material="wool" completion="0%" owner="yellow" mode-changes="true" show="false">
+    <destroyable>
+        <region>
+            <region name="the-wool"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="5s" material="air" name="This `aWool `rwill return every 2 minutes. It's worth 100 points!"/>
+    <mode after="2m" material="wool:5" name="The `aWool `rhas spawned!"/>
+    <mode after="4m" material="wool:5" name="The `aWool `rhas spawned!"/>
+    <mode after="6m" material="wool:5" name="The `aWool `rhas spawned!"/>
+</modes>
 <timelock>on</timelock>
 <itemremove>
     <item>leather leggings</item>
