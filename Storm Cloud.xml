@@ -25,7 +25,7 @@
         <item slot="7" damage="8229">potion</item>
         <item slot="8" amount="64">cooked pork</item>
         <item slot="27">arrow</item>
-        <chestplate>gold chestplate</chestplate>
+        <chestplate damage="-3000">gold chestplate</chestplate>
         <potion duration="5" amplifier="25">heal</potion>
         <potion duration="5" amplifier="25">damage resistance</potion>
   </kit>
