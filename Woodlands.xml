@@ -15,7 +15,7 @@
 </teams>
 <classes family="woodlands" sticky="true">
     <class name="Guard" default="false" description="Strong, slow, and great for defending!" icon="iron chestplate"/>
-    <class name="Specialist" default="false" description="Fast and weak, but powerful at ranged combat!" icon="iron chestplate"/>
+    <class name="Specialist" default="false" description="Fast and weak, but powerful at ranged combat!" icon="bow"/>
 </classes>
 <kits>
     <kit name="spawn">
@@ -97,8 +97,8 @@
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
     <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
-    <cuboid name="blue-core-front" min="272,41,345" max="263,49,336"/>
-    <cuboid name="blue-core-back" min="338,39,283" max="329,47,274"/>
+    <cuboid name="blue-core-front" min="349,41,473" max="358,49,482"/>
+    <cuboid name="blue-core-back" min="283,39,535" max="292,47,544"/>
     <cuboid name="portal-red" min="336,27,237" max="339,28,238"/>
     <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
     <apply block="deny-all">
@@ -153,9 +153,9 @@
     <item>ender stone</item>
 </itemremove>
 <broadcasts>
-    <tip after="10s">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
-    <tip after="1m">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
-    <tip after="2m" count="oo">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
+    <tip after="10s">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
+    <tip after="1m">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
+    <tip after="2m" count="oo">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
 </broadcasts>
 <maxbuildheight>36</maxbuildheight>
 <gamerule>
