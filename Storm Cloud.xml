@@ -95,7 +95,7 @@
         <rectangle name="red-bridge" min="-931,-1235" max="-940,-1230"/>
         <rectangle name="cyan-bridge" min="-864,-1210" max="-855,-1215"/>
     </union>
-    <union name="playable-area"
+    <union name="playable-area">
         <rectangle min="-864,-1197" max="-898,-1259"/>
         <rectangle min="-931,-1248" max="-897,-1186"/>
     </union>
