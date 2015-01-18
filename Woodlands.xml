@@ -95,10 +95,12 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
-    <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
-    <cuboid name="blue-core-front" min="349,41,473" max="358,49,482"/>
-    <cuboid name="blue-core-back" min="283,39,535" max="292,47,544"/>
+    <union name="cores">
+        <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
+        <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
+        <cuboid name="blue-core-front" min="349,41,473" max="358,49,482"/>
+        <cuboid name="blue-core-back" min="283,39,535" max="292,47,544"/>
+    </union>
     <cuboid name="portal-red" min="336,27,237" max="339,28,238"/>
     <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
     <apply block="deny-all">
@@ -142,6 +144,17 @@
     <core name="Front Core" team="blue" region="blue-core-front"/>
     <core name="Back Core" team="blue" region="blue-core-back"/>
 </cores>
+<blockdrops>
+    <rule>
+        <region>
+            <region name="cores"/>
+        </region>
+        <filter>
+            <block>ender stone</block>
+        </filter>
+        <replacement>wood:2</replacement>
+    </rule>
+</blockdrops>
 <itemremove>
     <item>iron helmet</item>
     <item>iron chestplate</item>
@@ -151,7 +164,7 @@
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
     <item>gold boots</item>
-    <item>ender stone</item>
+    <item>wood:2</item>
 </itemremove>
 <broadcasts>
     <tip after="10s">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
