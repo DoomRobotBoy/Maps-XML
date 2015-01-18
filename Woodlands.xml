@@ -13,7 +13,7 @@
     <team id="red" color="dark red" max="40" max-overfill="50">Red Team</team>
     <team id="blue" color="blue" max="40" max-overfill="50">Blue Team</team>
 </teams>
-<classes family="woodlands" sticky="true">
+<classes family="woodlands">
     <class name="Guard" default="false" description="Strong, slow, and great for defending!" icon="iron chestplate"/>
     <class name="Specialist" default="false" description="Fast and weak, but powerful at ranged combat!" icon="bow"/>
 </classes>
