@@ -1,0 +1,164 @@
+<map proto="1.3.6">
+<name>Woodlands</name>
+<version>1.0.0</version>
+<objective>Leak both enemy cores!</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+    <author>rockymine</author>
+</authors>
+<contributors>
+    <contributor contribution="Build Help">yoyo_power</contributor>
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="40" max-overfill="50">Red Team</team>
+    <team id="blue" color="blue" max="40" max-overfill="50">Blue Team</team>
+</teams>
+<classes family="woodlands" sticky="true">
+    <class name="Guard" default="false" description="Strong, slow, and great for defending!" icon="iron chestplate"/>
+    <class name="Specialist" default="false" description="Fast and weak, but powerful at ranged combat!" icon="iron chestplate"/>
+</classes>
+<kits>
+    <kit name="spawn">
+        <item slot="0" enchantment="arrow knockback:2;arrow infinite:1">bow</item>
+        <item slot="1">arrow</item>
+        <potion duration="oo" amplifier="10">heal</potion>
+        <potion duration="oo" amplifier="10">damage resistance</potion>
+    </kit>
+    <kit name="guard" parents="spawn">
+        <item slot="0" damage="-3000" enchantment="damage all:1">iron sword</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="28" amount="32">arrow</item>
+        <item slot="2" damage="-3000" enchantment="dig speed:1">stone pickaxe</item>
+        <item slot="3" amount="64">bread</item>
+        <item slot="4" amount="64">wood</item>
+        <item slot="5" amount="64">wood</item>
+        <item slot="6" amount="32">glass</item>
+        <item slot="8" amount="2">web</item>
+        <helmet damage="-3000" enchantment="protection environmental:1" locked="true" lore="This piece of armor is `4LOCKED`r.">iron helmet</helmet>
+        <chestplate damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">iron chestplate</chestplate>
+        <leggings damage="-3000" enchantment="protection projectile:2">chainmail leggings</leggings>
+        <boots damage="-3000" enchantment="protection fall:1" locked="true" lore="This piece of armor is `4LOCKED`r.">iron boots</boots>
+        <clear/>
+    </kit>
+    <kit name="specialist" parents="spawn">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <item slot="2" damage="-3000">iron pickaxe</item>
+        <item slot="3" damage="-3000">iron axe</item>
+        <item slot="4" amount="64">bread</item>
+        <item slot="5" amount="32">wood</item>
+        <leggings damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
+        <boots damage="-3000" enchantment="protection fall:2" locked="true" lore="This piece of armor is `4LOCKED`r.">gold boots</boots>
+        <potion duration="oo">speed</potion>
+        <clear/>
+    </kit>
+    <kit name="red-specialist" parents="specialist">
+        <helmet damage="-3000" color="993333" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate damage="-3000" color="993333">leather chestplate</chestplate>
+    </kit>
+    <kit name="blue-specialist" parents="specialist">
+        <helmet damage="-3000" color="334CB2" enchantment="protection projectile:1">leather helmet</helmet>
+        <chestplate damage="-3000" color="334CB2">leather chestplate</chestplate>
+    </kit>
+</kits>
+<filters>
+    <filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-red-guard">
+        <all>
+            <team>red</team>
+            <class>guard</class>
+        </all>
+    </filter>
+    <filter name="only-blue-guard">
+        <all>
+            <team>blue</team>
+            <class>guard</class>
+        </all>
+    </filter>
+    <filter name="only-red-specialist">
+        <all>
+            <team>red</team>
+            <class>specialist</class>
+        </all>
+    </filter>
+    <filter name="only-blue-specialist">
+        <all>
+            <team>blue</team>
+            <class>specialist</class>
+        </all>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
+    <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
+    <cuboid name="blue-core-front" min="272,41,345" max="263,49,336"/>
+    <cuboid name="blue-core-back" min="338,39,283" max="329,47,274"/>
+    <cuboid name="portal-red" min="336,27,237" max="339,28,238"/>
+    <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
+    <apply block="deny-all">
+        <union name="spawns-stuff">
+            
+        </union>
+    </apply>
+    <apply block-break="deny-void" message="You may not edit the void area!">
+        <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply region="portal-red" kit="guard" filter="only-red-guard"/>
+    <apply region="portal-red" kit="specialist" filter="only-red-specialist"/>
+    <apply region="portal-blue" kit="guard" filter="only-blue-guard"/>
+    <apply region="portal-blue" kit="specialist" filter="only-blue-specialist"/>
+</regions>
+<portals>
+    <portal x="@337.5" y="@27" z="@239.5" yaw="@0" region="portal-red"/>
+    <portal x="@283.5" y="@27" z="@578.5" yaw="@180" region="portal-blue"/>
+</portals>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="45">
+        <regions>
+            <cylinder base="350.5,44,214.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="-135">
+        <regions>
+            <cylinder base="270.5,44,603.5" radius="1"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <cuboid min="57,68,-269" max="60,68,-270"/>
+        </regions>
+    </default>
+</spawns>
+<cores material="ender stone" leak="5">
+    <core name="Front Core" team="red" region="red-core-front"/>
+    <core name="Back Core" team="red" region="red-core-back"/>
+    <core name="Front Core" team="blue" region="blue-core-front"/>
+    <core name="Back Core" team="blue" region="blue-core-back"/>
+</cores>
+<itemremove>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>gold boots</item>
+    <item>ender stone</item>
+</itemremove>
+<broadcasts>
+    <tip after="10s">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
+    <tip after="1m">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
+    <tip after="2m" count="oo">Walk against the fence wall at the end of the spawn-cave to receive your class.</tip>
+</broadcasts>
+<maxbuildheight>36</maxbuildheight>
+<gamerule>
+    <doFireTick>false</doFireTick>
+</gamerule>
+</map>
