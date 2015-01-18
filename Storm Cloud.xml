@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Storm Cloud</name>
+<version>1.0.0</version>
+<objective>Capture the enemy' team's wool and bring it back to win.</objective>
+<authors>
+    <author>Avaleer</author>
+</authors>
+<contributors>
+    <contributor contribution="XML">rockymine</contributor>
+    <contributor contribution="XML">yoyo_power</contributor>
+    <contributor contribution="XML">DoomRobotBoy</contributor>
+</contributors>
+<teams>
+    <team id="red" color="red" max="10" max-overfill="12">Red Team</team>
+    <team id="blue" color="light-blue" max="10" max-overfill="12">Blue Team</team> 
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1" damage="-30000" enchantment="arrow infinite:1">bow</item>
+        <item slot="2">stone pickaxe</item>
+        <item slot="3" amount="32">wood:1</item>
+        <item slot="6" damage="8229">potion</item>
+        <item slot="7" damage="8229">potion</item>
+        <item slot="8" amount="64">cooked pork</item>
+        <item slot="27">arrow</item>
+        <chestplate>gold chestplate</chestplate>
+        <potion duration="5" amplifier="25">heal</potion>
+        <potion duration="5" amplifier="25">damage resistance</potion>
+  </kit>
+  <kit name="red" parents="spawn">
+        <helmet color="ff0000" damage="-3000">leather helmet</helmet>
+        <leggings color="ff0000" damage="-3000">leather leggings</leggings>
+        <boots color="ff0000" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="6699D8" damage="-3000">leather helmet</helmet>
+        <leggings color="6699D8" damage="-3000">leather leggings</leggings>
+        <boots color="6699D8" damage="-3000">leather boots</boots>
+  </kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="red" yaw="-179">
+        <regions>
+            <cylinder base="-925.5,6,-1191.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <regions>
+            <cylinder base="-869.5,6,-1253.5" radius="1"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <cylinder base="-897.5,6,-1222.5" radius="1"/>
+        </regions>
+    </default>
+</spawns>
+<wools>
+    <wool team="red" color="cyan">
+        <monument><block>-925,7,-1189</block></monument>
+    </wool>
+    <wool team="blue" color="red">
+        <monument><block>-869,7,-1255</block></monument>
+    </wool>
+</wools>
+<filters>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>light-blue</team>
+    </filter>
+    <filter name="deny-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <union name="spawns">
+        <rectangle name="red-spawn" min="-931,-1186" max="-920,-1197"/>
+        <rectangle name="blue-spawn" min="-864,-1259" max="-875,-1248"/>
+    </union>
+    <union name="monuments">
+        <block>-926,7,-1190</block>
+        <block>-870,7,-1256</block>
+    </union>
+    <union name="woolrooms">
+        <rectangle name="red-wool-room" min="-940,-1238" max="-951,-1227"/>
+        <rectangle name="blue-wool-room" min="-855,-1207" max="-844,-1218"/>
+    </union>
+    <union name="bridges">
+        <rectangle name="red-bridge" min="-931,-1235" max="-940,-1230"/>
+        <rectangle name="cyan-bridge" min="-864,-1210" max="-855,-1215"/>
+    </union>
+    <union name="playable-area"
+        <rectangle min="-864,-1197" max="-898,-1259"/>
+        <rectangle min="-931,-1248" max="-897,-1186"/>
+    </union>
+    <apply enter="only-red" message="You may not enter your own woolroom!">
+        <region name="cyan-wool-room"/>
+    </apply>
+    <apply enter="only-blue" message="You may not enter your own woolroom!">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply block="deny-blocks">
+        <region name="spawns"/>
+        <region name="monuments"/>
+    </apply>
+    <apply block="deny-void" message="You may not build outside the playable region">
+        <complement>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <region name="playable-area"/>
+            <region name="bridges"/>
+            <region name="woolrooms"/>
+        </complement>
+    </apply>
+</regions>
+</map>
