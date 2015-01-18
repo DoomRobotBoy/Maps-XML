@@ -103,10 +103,11 @@
     <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
     <apply block="deny-all">
         <union name="spawns-stuff">
-            
+            <cuboid name="red-spawn" min="316,26,238" max="356,51,209"/>
+            <cuboid name="blue-spawn" min="305,26,580" max="265,51,609"/>
         </union>
     </apply>
-    <apply block-break="deny-void" message="You may not edit the void area!">
+    <apply block-break="deny-void" message="You may not place blocks in the void area!">
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply region="portal-red" kit="guard" filter="only-red-guard"/>
@@ -157,7 +158,7 @@
     <tip after="1m">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
     <tip after="2m" count="oo">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
 </broadcasts>
-<maxbuildheight>36</maxbuildheight>
+<maxbuildheight>60</maxbuildheight>
 <gamerule>
     <doFireTick>false</doFireTick>
 </gamerule>
