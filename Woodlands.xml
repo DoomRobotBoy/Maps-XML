@@ -38,6 +38,8 @@
         <chestplate damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">iron chestplate</chestplate>
         <leggings damage="-3000" enchantment="protection projectile:2">chainmail leggings</leggings>
         <boots damage="-3000" enchantment="protection fall:1" locked="true" lore="This piece of armor is `4LOCKED`r.">iron boots</boots>
+        <potion duration="0" amplifier="10">heal</potion>
+        <potion duration="0" amplifier="10">damage resistance</potion>
         <clear/>
     </kit>
     <kit name="specialist" parents="spawn">
@@ -51,6 +53,8 @@
         <leggings damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
         <boots damage="-3000" enchantment="protection fall:2" locked="true" lore="This piece of armor is `4LOCKED`r.">gold boots</boots>
         <potion duration="oo">speed</potion>
+        <potion duration="0" amplifier="10">heal</potion>
+        <potion duration="0" amplifier="10">damage resistance</potion>
         <clear/>
     </kit>
     <kit name="red-specialist" parents="specialist">
