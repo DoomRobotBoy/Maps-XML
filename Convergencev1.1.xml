@@ -44,10 +44,10 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid name="red-core-east" min="89,11,-201" max="100,21,-190"/>
-    <cuboid name="red-core-west" min="28,11,-190" max="17,21,-201"/>
-    <cuboid name="blue-core-east" min="89,11,-93" max="100,21,-82"/>
-    <cuboid name="blue-core-west" min="28,11,-82" max="17,21,-93"/>
+    <cuboid name="red-core-east" min="89,11,-201" max="100,22,-190"/>
+    <cuboid name="red-core-west" min="28,11,-190" max="17,22,-201"/>
+    <cuboid name="blue-core-east" min="89,11,-93" max="100,22,-82"/>
+    <cuboid name="blue-core-west" min="28,11,-82" max="17,22,-93"/>
     <apply block="deny-all">
         <union name="spawns-stuff">
         <!--  Red Spawn  -->
