@@ -100,17 +100,17 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="cores">
-        <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
-        <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
-        <cuboid name="blue-core-front" min="349,41,473" max="358,49,482"/>
-        <cuboid name="blue-core-back" min="283,39,535" max="292,47,544"/>
+        <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
+        <cuboid name="red-core-back" min="338,39,283" max="329,48,274"/>
+        <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
+        <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
     </union>
-    <cuboid name="portal-red" min="336,27,237" max="339,28,238"/>
-    <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
+    <cuboid name="portal-red" min="336,27,237" max="339,29,238"/>
+    <cuboid name="portal-blue" min="285,27,581" max="282,29,580"/>
     <apply block="deny-all">
         <union name="spawns-stuff">
-            <cuboid name="red-spawn" min="316,26,238" max="356,51,209"/>
-            <cuboid name="blue-spawn" min="305,26,580" max="265,51,609"/>
+            <cuboid name="red-spawn" min="316,26,238" max="356,52,209"/>
+            <cuboid name="blue-spawn" min="305,26,580" max="265,52,609"/>
         </union>
     </apply>
     <apply block-break="deny-void" message="You may not place blocks in the void area!">
