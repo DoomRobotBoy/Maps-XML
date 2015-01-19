@@ -16,6 +16,52 @@
     <team id="red" color="dark red" max="22">Attackers</team>
     <team id="blue" color="blue" max="22">Defenders</team>
 </teams>
+<kits>
+    <kit name="spawn" force="true" potion-particles="true">
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="2" amount="64">cooked beef</item>
+        <item slot="29" amount="64">ladder</item>
+        <item slot="4" amount="64">step:7</item>
+        <item slot="31" amount="64">redstone</item>
+        <item slot="22" amount="32">lever</item>
+        <item slot="5">water bucket</item>
+        <item slot="32">water bucket</item>
+        <item slot="6" amount="16">redstone block</item>
+        <item slot="33" amount="64">redstone</item>
+        <item slot="24" amount="32">diode</item>
+        <item slot="15" amount="16">redstone comparator</item>
+        <item slot="7" amount="64">fence</item>
+        <item slot="34" amount="64">stone plate</item>
+        <item slot="25" amount="16">stone button</item>
+        <item slot="8" amount="64">tnt</item>
+        <item slot="35" amount="64">tnt</item>
+        <item slot="26" amount="64">tnt</item>
+        <potion duration="oo" amplifier="1">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <item slot="0" damage="-3000">diamond pickaxe</item>
+        <item slot="27" damage="-3000" enchantment="knockback:1">stone sword</item>
+        <item slot="3" amount="64" damage="14">stained clay</item>
+        <item slot="30" amount="64" damage="14">stained clay</item>
+        <item slot="21" amount="64" damage="14">stained clay</item>
+        <helmet damage="-3000" enchantment="protection projectile:1">gold helmet</helmet>
+        <chestplate damage="-3000" enchantment="protection environmental:1">iron chestplate</chestplate>
+        <leggings color="993333" damage="-3000">leather leggings</leggings>
+        <boots color="993333" damage="-3000" enchantment="protection fall:1">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <item slot="0" damage="-3000" enchantment="damage all:1">diamond pickaxe</item>
+        <item slot="19" amount="64">arrow</item>
+        <item slot="3" amount="64" damage="11">stained clay</item>
+        <item slot="30" amount="64" damage="11">stained clay</item>
+        <item slot="21" amount="64" damage="11">stained clay</item>
+        <helmet damage="-3000" enchantment="protection explosions:1">iron helmet</helmet>
+        <chestplate damage="-3000" enchantment="protection environmental:1">diamond chestplate</chestplate>
+        <leggings damage="-3000">chainmail leggings</leggings>
+        <boots color="334CB2" damage="-3000" enchantment="protection fall:3">leather boots</boots>
+    </kit>
+</kits>
 <filters>
     <filter name="only-red">
         <team>red</team>
@@ -60,6 +106,11 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="horizontal-limit">
+        <circle base="-138.5,10.5" radius="93"/>
+        <cuboid name="east" min="-22,20,3" max="-47,38,16"/>
+        <cuboid name="north" min="-145,20,-106" max="-132,38,-81"/>
+        <cuboid name="west" min="-255,20,17" max="-230,38,4"/>
+        <cuboid name="south" min="132,20,127" max="-145,38,102"/>
     </union>
     <cuboid name="vertical-limit" min="oo,61,oo" max="-oo,109,-oo"/>
     <!-- Objectives -->
@@ -130,12 +181,12 @@
     </apply>
 </regions>
 <spawns>
-    <spawn team="red">
+    <spawn team="red" kit="red">
         <regions>
             <cylinder base="-138.5,103,10.5" radius="2"/>
         </regions>
     </spawn>
-    <spawn team="blue">
+    <spawn team="blue" kit="blue">
         <regions>
             <region name="defender-spawn"/>
         </regions>
@@ -167,14 +218,13 @@
             <region name="monument-panes"/>
         </region>
         <!-- These are the blocks that will renew -->
-        <renew>stained glass:11</renew>
         <renew>stained glass pane:11</renew>
         <!-- These blocks can be replaced by renewing blocks -->
         <replace>air</replace>
         <replace>stained clay</replace>
         <replace>quartz block</replace>
-        <block>quartz stairs</block>
-        <block>step:7</block>
+        <replace>quartz stairs</replace>
+        <replace>step:7</replace>
     </renewable>
 </renewables>
 <toolrepair>
