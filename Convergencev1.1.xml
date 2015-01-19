@@ -53,12 +53,12 @@
         <!--  Red Spawn  -->
             <complement>
                 <rectangle min="39,-216" max="81,-273"/>
-                <cuboid min="79,0,-217" max="39,19,-216"/>
+                <cuboid min="79,0,-217" max="39,20,-216"/>
             </complement>
         <!--  Blue Spawn  -->
             <complement>
                 <rectangle min="78,-67" max="39,-10"/>
-                <cuboid min="39,0,-66" max="78,19,-67"/>
+                <cuboid min="39,0,-66" max="78,20,-67"/>
             </complement>
         </union>
     </apply>
