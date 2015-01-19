@@ -95,22 +95,22 @@
 <destroyables materials="ender stone;beacon" completion="100%">
     <destroyable name="North Monument" owner="red">
         <region>
-            <cuboid min="21,5,-48" max="16,9,-53"/>
+            <cuboid min="21,5,-48" max="16,10,-53"/>
         </region>
     </destroyable>
     <destroyable name="South Monument" owner="red">
         <region>
-            <cuboid min="16,5,49" max="21,9,54"/>
+            <cuboid min="16,5,49" max="21,10,54"/>
         </region>
     </destroyable>
     <destroyable name="North Monument" owner="blue">
         <region>
-            <cuboid min="-15,5,-48" max="-20,9,-53"/>
+            <cuboid min="-15,5,-48" max="-20,10,-53"/>
         </region>
     </destroyable>
     <destroyable name="South Monument" owner="blue">
         <region>
-            <cuboid min="-20,5,49" max="-15,9,54"/>
+            <cuboid min="-20,5,49" max="-15,10,54"/>
         </region>
     </destroyable>
 </destroyables>
