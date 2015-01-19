@@ -1,4 +1,3 @@
-RawBlameHistory   
 <map proto="1.3.6">
 <name>Surrounded</name>
 <version>1.0.0</version>
@@ -166,7 +165,8 @@ RawBlameHistory
     <item>glowstone dust</item>
 </itemremove>
 <broadcasts>
-    <tip after="5s">Attackers have 30 minutes to destroy the Defenders' their 4 monuments. If they don't succeed, Defenders will have won!</tip>
+    <alert after="5s">`4`lAttackers `c`ohave 30 minutes to destroy the `3`lDefenders`c`o' their 4 monuments.</alert>
+    <alert after="8s">`c`oIf they don't succeed in doing so, `3`lDefenders `c`owill have won!</alert>
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <time result="Defenders">30m</time>
