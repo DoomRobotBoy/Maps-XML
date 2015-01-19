@@ -141,6 +141,7 @@
         <cuboid min="-135,103,14" max="-130,108,19"/>
         <cuboid min="-135,103,14" max="-131,108,19"/>
     </complement>
+    <cuboid name="attackers-spawn" min="-130,108,19" max="-147,103,2"/>
     <!-- Defenders -->
     <complement name="defender-spawn">
         <cuboid min="-135,67,14" max="-142,67,7"/>
@@ -197,12 +198,20 @@
         </regions>
     </default>
 </spawns>
-<destroyables owner="blue" materials="ender stone" completion="100%">
-    <destroyable name="North-East Monument" region="monument-north-east"/>
-    <destroyable name="North-Wast Monument" region="monument-north-wast"/>
-    <destroyable name="South-East Monument" region="monument-south-east"/>
-    <destroyable name="South-Wast Monument" region="monument-south-wast"/>
+<destroyables>
+    <destroyables owner="blue" materials="ender stone" completion="100%">
+        <destroyable name="North-East Monument" region="monument-north-east"/>
+        <destroyable name="North-Wast Monument" region="monument-north-wast"/>
+        <destroyable name="South-East Monument" region="monument-south-east"/>
+        <destroyable name="South-Wast Monument" region="monument-south-wast"/>
+    </destroyables>
+    <destroyables owner="red" materials="stained glass:0" completion="0%" mode-changes="true">
+        <destroyable region="attackers-spawn"/>
+    </destroyables>
 </destroyables>
+<modes>
+    <mode after="30s" material="air" name="`c`oAttackers have been released!" show-before="30s"/>
+</modes>
 <renewables>
     <renewable rate="10" grow="true" particles="false" sound="true" avoid-entities="true">
         <region>
@@ -244,14 +253,6 @@
 <time result="Defenders">30m</time>
 </map>
 
-- There are 4 spawns for Attackers, North, South, East, and West. There is only one spawn for Defenders which is located directly above Defender territory.
-- Defenders have 3 vertical levels to use to their advantage, while Attackers have a total of 12 islands completely surrounding them.
-- Attackers can bridge freely, while defenders cannot bridge past the Defenders' initial island, if that makes sense.
 - Attackers have a 30 or 45 second spawn delay (undecided), and in this time the defenders can set up proper defenses, such as water walls and cannons.
 - NIGHT TIME ALL TIME, add night vision
 - portals
-- kits
-
-Currently done:
-- Top part of xml (match info, team sizes/colors, contrib.'s)
-- Obs Spawn
