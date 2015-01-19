@@ -49,16 +49,16 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid name="red-core" min="-85,15,-110" max="-90,19,-105"/>
-    <cuboid name="blue-core" min="-90,15,-31" max="-85,19,-36"/>
+    <cuboid name="red-core" min="-85,15,-110" max="-90,20,-105"/>
+    <cuboid name="blue-core" min="-90,15,-31" max="-85,20,-36"/>
     <apply block="deny-all">
         <union name="spawn-drops">
             <!-- Red Team -->
-            <cuboid min="-76,62,-23" max="-81,21,-28"/>
-            <cuboid min="-120,62,-22" max="-125,15,-17"/>
+            <cuboid min="-76,63,-23" max="-81,21,-28"/>
+            <cuboid min="-120,63,-22" max="-125,15,-17"/>
             <!-- Blue Team -->
-            <cuboid min="-76,62,-113" max="-81,21,-118"/>
-            <cuboid min="-120,62,-124" max="-125,15,-119"/>
+            <cuboid min="-76,63,-113" max="-81,21,-118"/>
+            <cuboid min="-120,63,-124" max="-125,15,-119"/>
         </union>
     </apply>
     <apply block="deny-tnt-damage">
@@ -88,18 +88,18 @@
 <destroyables materials="coal block" completion="100%">
     <destroyables owner="red">
         <destroyable name="Western Monument">
-            <region><cuboid min="-130,25,-109" max="-133,32,-106"/></region>
+            <region><cuboid min="-130,25,-109" max="-133,33,-106"/></region>
         </destroyable>
         <destroyable name="Eastern Monument">
-            <region><cuboid min="-65,22,109" max="-62,29,-106"/></region>
+            <region><cuboid min="-65,22,109" max="-62,30,-106"/></region>
         </destroyable>
     </destroyables>
     <destroyables owner="blue">
         <destroyable name="Western Monument">
-            <region><cuboid min="-130,25,-32" max="-133,32,-35"/></region>
+            <region><cuboid min="-130,25,-32" max="-133,33,-35"/></region>
         </destroyable>
         <destroyable name="Eastern Monument">
-            <region><cuboid min="-65,22,-35" max="-62,29,-32"/></region>
+            <region><cuboid min="-65,22,-35" max="-62,30,-32"/></region>
         </destroyable>
     </destroyable>
 </destroyables>
@@ -132,6 +132,7 @@
     </rule>
 </blockdrops>
 <broadcasts>
+    <alert after="5s">Cores are obsidian now!</alert>
     <tip after="10s">`7STAINED GLASS`r CORE at 20 minutes.</tip>
 </broadcasts>
 <maxbuildheight>70</maxbuildheight>
