@@ -61,6 +61,9 @@
         <leggings damage="-3000">chainmail leggings</leggings>
         <boots color="334CB2" damage="-3000" enchantment="protection fall:3">leather boots</boots>
     </kit>
+    <kit name="portal-protect">
+        <potion duration="20" amplifier="10">damage resistance</potion>
+    </kit>
 </kits>
 <filters>
     <filter name="only-red">
@@ -82,7 +85,7 @@
             </all>
         </not>
     </filter>
-    <filter name="quartz-only-manually">
+    <filter name="quartz-and-stained-glass-only-manually">
         <all>
             <filter name="deny-tnt-damage"/>
             <any>
@@ -100,6 +103,11 @@
                 <block>stained glass pane:11</block>
                 <block>sign</block>
             </any>
+        </not>
+    </filter>
+    <filter name="deny-stained-glass">
+        <not>
+            <block>stained glass</block>
         </not>
     </filter>
 </filters>
@@ -127,22 +135,24 @@
     <cuboid name="monument-south-east" min="-127,32,22" max="-124,43,25"/>
     <cuboid name="monument-south-west" min="-150,32,22" max="-153,43,25"/>
     <!-- Attackers -->
-    <complement name="east-portal">
-        <cuboid min="-135,103,7" max="-130,108,2"/>
-        <cuboid min="-135,103,7" max="-131,108,3"/>
-    </complement>
-    <complement name="north-portal">
-        <cuboid min="-142,103,7" max="-147,108,2"/>
-        <cuboid min="-142,103,7" max="-146,108,3"/>
-    </complement>
-    <complement name="west-portal">
-        <cuboid min="-142,103,14" max="-147,108,19"/>
-        <cuboid min="-142,103,14" max="-146,108,18"/>
-    </complement>
-    <complement name="south-portal">
-        <cuboid min="-135,103,14" max="-130,108,19"/>
-        <cuboid min="-135,103,14" max="-131,108,19"/>
-    </complement>
+    <union name="portals">
+        <complement name="east-portal">
+            <cuboid min="-135,103,7" max="-130,108,2"/>
+            <cuboid min="-135,103,7" max="-131,108,3"/>
+        </complement>
+        <complement name="north-portal">
+            <cuboid min="-142,103,7" max="-147,108,2"/>
+            <cuboid min="-142,103,7" max="-146,108,3"/>
+        </complement>
+        <complement name="west-portal">
+            <cuboid min="-142,103,14" max="-147,108,19"/>
+            <cuboid min="-142,103,14" max="-146,108,18"/>
+        </complement>
+        <complement name="south-portal">
+            <cuboid min="-135,103,14" max="-130,108,19"/>
+            <cuboid min="-135,103,14" max="-131,108,19"/>
+        </complement>
+    </union>
     <union name="return-portals">
         <cuboid name="east-return" min="-13,20,7" max="-12,24,12"/>
         <cuboid name="north-return" min="-141,20,-115" max="-136,24,-116"/>
@@ -178,7 +188,10 @@
     <cylinder name="blue-drop" base="-138.5,38,10.5" radius="6" height="28"/>
     <cuboid name="blue-drop-room" min="-135,37,7" max="-142,43,14"/>
 <!-- Applied -->
-    <apply block="quartz-only-manually">
+    <apply block="quartz-and-stained-glass-only-manually">
+        <region name="map"/>
+    </apply>
+    <apply block="deny-stained-glass" message="You are not allowed to break stained glass!">
         <region name="map"/>
     </apply>
     <apply block="deny-all" message="You are not allowed to modify the Defenders' spawn.">
@@ -190,6 +203,9 @@
     </apply>
     <apply block="deny-all" message="You are not allowed to bridge to the Defenders' island diagonally!">
         <region name="no-diagonal"/>
+    </apply>
+    <apply kit="portal-protect">
+        <region name="portals"/>
     </apply>
     <apply block="deny-tnt-damage">
         <region name="horizontal-limit"/>
