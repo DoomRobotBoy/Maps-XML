@@ -52,11 +52,11 @@
     <cylinder name="blue-spawn" base="-100.5,40,681.5" radius="1"/>
     <cuboid name="obs-spawn" min="-76,48,725" max="-78,48,723"/>
     <union name="renewable-area">
-        <cuboid min="-110,33,703" max="-90,49,660"/>
-        <cuboid min="-44,33,703" max="-64,49,660"/>
+        <cuboid min="-110,33,703" max="-90,50,660"/>
+        <cuboid min="-44,33,703" max="-64,50,660"/>
     </union>
     <apply block="deny-fireball-damage">
-        <cuboid min="-82,45,718" max="-72,51,729"/>
+        <cuboid min="-82,45,718" max="-72,52,729"/>
     </apply>
     <apply block="deny-all">
         <rectangle min="oo,oo" max="-oo,-oo"/>
