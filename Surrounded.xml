@@ -105,13 +105,15 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <union name="horizontal-limit">
-        <circle base="-138.5,10.5" radius="93"/>
-        <cuboid name="east" min="-22,20,3" max="-47,38,16"/>
-        <cuboid name="north" min="-145,20,-106" max="-132,38,-81"/>
-        <cuboid name="west" min="-255,20,17" max="-230,38,4"/>
-        <cuboid name="south" min="132,20,127" max="-145,38,102"/>
-    </union>
+    <negative name="horizontal-limit">
+        <union>
+            <circle base="-138.5,10.5" radius="93"/>
+            <cuboid name="east" min="-22,20,3" max="-47,38,16"/>
+            <cuboid name="north" min="-145,20,-106" max="-132,38,-81"/>
+            <cuboid name="west" min="-255,20,17" max="-230,38,4"/>
+            <cuboid name="south" min="132,20,127" max="-145,38,102"/>
+        </union>
+    </negative>
     <cuboid name="vertical-limit" min="oo,61,oo" max="-oo,109,-oo"/>
     <!-- Objectives -->
     <union name="monument-panes">
@@ -141,6 +143,12 @@
         <cuboid min="-135,103,14" max="-130,108,19"/>
         <cuboid min="-135,103,14" max="-131,108,19"/>
     </complement>
+    <union name="return-portals">
+        <cuboid name="east-return" min="-13,20,7" max="-12,24,12"/>
+        <cuboid name="north-return" min="-141,20,-115" max="-136,24,-116"/>
+        <cuboid name="west-return" min="-264,20,13" max="-265,24,8"/>
+        <cuboid name="south-return" min="-136,20,136" max="-141,24,137"/>
+    </union>
     <cuboid name="attackers-spawn" min="-130,108,19" max="-147,103,2"/>
     <!-- Defenders -->
     <complement name="defender-spawn">
@@ -163,6 +171,7 @@
         <region name="vertical-limit"/>
     </apply>
     <apply block="deny-tnt-damage">
+        <region name="horizontal-limit"/>
         <region name="vertical-limit"/>
         <region name="blue-drop"/>
         <region name="blue-drop-room"/>
@@ -176,11 +185,36 @@
         <region name="blue-drop-room"/>
     </apply>
     <apply block-break="deny-void" message="You may not place blocks in the void area!">
-        <negative>
-            <region name="horizontal-limit"/>
-        </negative>
+        <region name="horizontal-limit"/>
     </apply>
 </regions>
+<portals>
+    <portal x="@-15.5" y="@20" z="@9.5" yaw="@90">
+        <region>
+            <region name="east-portal"/>
+        </region>
+    </portal>
+    <portal x="@-138.5" y="@20" z="@-112.5" yaw="@0">
+        <region>
+            <region name="north-portal"/>
+        </region>
+    </portal>
+    <portal x="@-261.5" y="@20" z="@10.5" yaw="@-90">
+        <region>
+            <region name="west-portal"/>
+        </region>
+    </portal>
+    <portal x="@-138.5" y="@20" z="@133.5" yaw="@180">
+        <region>
+            <region name="south-portal"/>
+        </region>
+    </portal>
+    <portal x="@-138.5" y="@103" z="@10.5">
+        <region>
+            <region name="return-portals"/>
+        </region>
+    </portal>
+</portals>
 <spawns>
     <spawn team="red" kit="red">
         <regions>
