@@ -37,27 +37,73 @@ RawBlameHistory
             </all>
         </not>
     </filter>
+    <filter name="quartz-only-manually">
+        <all>
+            <filter name="deny-tnt-damage"/>
+            <any>
+                <block>quartz block</block>
+                <block>quartz stairs</block>
+                <block>step:7</block>
+            </any>
+        </all>
+    </filter>
+    <filter name="deny-some">
+        <not>
+            <any>
+                <block>quartz block</block>
+                <block>quartz stairs</block>
+                <block>stained glass pane:11</block>
+                <block>sign</block>
+            </any>
+        </not>
+    </filter>
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid name="void-gap" min="411,31,337" max="467,50,457"/>
-    <rectangle name="void-gap-1" min="411,337" max="467,457"/>
-    <!-- Red -->
-    <cuboid name="red-right-core" min="374,15,421" max="368,19,427"/>
-    <cuboid name="red-left-core" min="374,15,373" max="368,19,367"/>
-    <cuboid name="red-drop" min="358,10,400" max="353,50,394"/>
-    <cuboid name="red-drop-pool" min="358,7,400" max="353,9,394"/>
-    <!-- Blue -->
-    <cuboid name="blue-right-core" min="504,15,373" max="510,19,367"/>
-    <cuboid name="blue-left-core" min="504,15,421" max="510,19,427"/>
-    <cuboid name="blue-drop" min="520,10,394" max="525,50,400"/>
-    <cuboid name="blue-drop-pool" min="520,7,394" max="525,9,400"/>
+    <rectangle name="horizontal-limit" min="" max=""/>
+    <cuboid name="vertical-limit" min="oo,61,oo" max="-oo,109,-oo"/>
+    <!-- Objectives -->
+    <union name="monument-panes">
+        <cuboid name="monument-panes-north-east" min="-131,38,3" max="-120,47,-8"/>
+        <cuboid name="monument-panes-north-west" min="-146,38,3" max="-157,47,-8"/>
+        <cuboid name="monument-panes-south-east" min="-131,38,18" max="-120,47,29"/>
+        <cuboid name="monument-panes-south-west" min="-146,38,18" max="-157,47,29"/>
+    </union>
+    <cuboid name="monument-north-east" min="-127,32,-1" max="-124,43,-4"/>
+    <cuboid name="monument-north-west" min="-150,32,-1" max="-153,43,-4"/>
+    <cuboid name="monument-south-east" min="-127,32,22" max="-124,43,25"/>
+    <cuboid name="monument-south-west" min="-150,32,22" max="-153,43,25"/>
+    <!-- Attackers -->
+    <complement name="east-portal">
+        <cuboid min="-135,103,7" max="-130,108,2"/>
+        <cuboid min="-135,103,7" max="-131,108,3"/>
+    </complement>
+    <complement name="north-portal">
+        <cuboid min="-142,103,7" max="-147,108,2"/>
+        <cuboid min="-142,103,7" max="-146,108,3"/>
+    </complement>
+    <complement name="west-portal">
+        <cuboid min="-142,103,14" max="-147,108,19"/>
+        <cuboid min="-142,103,14" max="-146,108,18"/>
+    </complement>
+    <complement name="south-portal">
+        <cuboid min="-135,103,14" max="-130,108,19"/>
+        <cuboid min="-135,103,14" max="-131,108,19"/>
+    </complement>
+    <!-- Defenders -->
+    <complement name="blue-spawn">
+        <cuboid min="-135,67,14" max="-142,67,7"/>
+        <cuboid min="-140,67,9" max="-137,67,12"/>
+    </complement>
+    <negative name="blue-prohibition">
+        <rectangle min="-113,-15" max="-164,36"/>
+    </negative>
+    <cuboid name="clay-renewable-area" min="-113,1,-15" max="-164,50,36"/>
+    <cylinder name="blue-drop" base="-138.5,38,10.5" radius="6" height="28"/>
+    <cuboid name="blue-drop-room" min="-135,37,7" max="-142,43,14"/>
 <!-- Applied -->
-    <apply block-place="deny-all">
-        <union name="spawn-drops">
-            <region name="red-drop"/>
-            <region name="blue-drop"/>
-        </union>
+    <apply block="quartz-only-manually">
+        <region name="map"/>
     </apply>
     <apply block="deny-all">
         <union name="spawn-drop-pools">
@@ -88,28 +134,28 @@ RawBlameHistory
     </apply>
 </regions>
 <spawns>
-    <spawn team="red" yaw="-90">
+    <spawn team="red">
         <regions>
-            <cuboid min="356,250,398" max="355,250,396"/>
+            <cylinder base="-138.5,103,10.5" radius="2"/>
         </regions>
     </spawn>
-    <spawn team="blue" yaw="90">
+    <spawn team="blue">
         <regions>
-            <cuboid min="522,250,396" max="523,250,398"/>
+            <region name="defender-spawn"/>
         </regions>
     </spawn>
-    <default yaw="0">
+    <default>
         <regions>
             <cylinder base="-138.5,73,10.5" radius="2"/>
         </regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="4">
-    <core name="Right Core" team="red" region="red-right-core"/>
-    <core name="Left Core" team="red" region="red-left-core"/>
-    <core name="Right Core" team="blue" region="blue-right-core"/>
-    <core name="Left Core" team="blue" region="blue-left-core"/>
-</cores>
+<destroyables owner="blue" materials="ender stone" completion="100%">
+    <destroyable name="North-East Monument" region="monument-north-east"/>
+    <destroyable name="North-Wast Monument" region="monument-north-wast"/>
+    <destroyable name="South-East Monument" region="monument-south-east"/>
+    <destroyable name="South-Wast Monument" region="monument-south-wast"/>
+</destroyables>
 <toolrepair>
     <tool>diamond sword</tool>
     <tool>bow</tool>
@@ -120,7 +166,21 @@ RawBlameHistory
     <item>glowstone dust</item>
 </itemremove>
 <broadcasts>
-    <tip after="1s">I advise you to not move after spawning until you land in the water, or you'll death will come rather quickly.</tip>
+    <tip after="5s">Attackers have 30 minutes to destroy the Defenders' their 4 monuments. If they don't succeed, Defenders will have won!</tip>
 </broadcasts>
-<maxbuildheight>50</maxbuildheight>
+<maxbuildheight>60</maxbuildheight>
+<time result="Defenders">30m</time>
 </map>
+
+- There are FOUR monuments. They are surrounded by glass panes, which very slowly regenerate.
+- There are 4 spawns for Attackers, North, South, East, and West. There is only one spawn for Defenders which is located directly above Defender territory.
+- Defenders have 3 vertical levels to use to their advantage, while Attackers have a total of 12 islands completely surrounding them.
+- The clay on the Defender's side regenerates.
+- All variations of quartz is invincible for TNT damage, but breakable by hand.
+- Attackers can bridge freely, while defenders cannot bridge past the Defenders' initial island, if that makes sense.
+- Attackers have a 30 or 45 second spawn delay (undecided), and in this time the defenders can set up proper defenses, such as water walls and cannons.
+- NIGHT TIME ALL TIME, add night vision
+
+Currently done:
+- Top part of xml (match info, team sizes/colors, contrib.'s)
+- Obs Spawn
