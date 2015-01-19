@@ -14,8 +14,8 @@ RawBlameHistory
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
 <teams>
-    <team id="red" color="dark red" max="22">Red Team</team>
-    <team id="blue" color="blue" max="22">Blue Team</team>
+    <team id="red" color="dark red" max="22">Attackers</team>
+    <team id="blue" color="blue" max="22">Defenders</team>
 </teams>
 <filters>
     <filter name="only-red">
