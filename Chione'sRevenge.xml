@@ -43,8 +43,8 @@
     </filter>
 </filters>
 <regions>
-    <cuboid name="red-core" min="41,10,-3" max="34,14,4"/>
-    <cuboid name="blue-core" min="-40,10,4" max="-33,14,-3"/>
+    <cuboid name="red-core" min="41,10,-3" max="34,15,4"/>
+    <cuboid name="blue-core" min="-40,10,4" max="-33,15,-3"/>
     <apply block="deny-all">
         <union name="spawns">
             <rectangle name="red-spawn" min="63,-3" max="88,4"/>
