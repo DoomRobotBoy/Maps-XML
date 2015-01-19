@@ -59,7 +59,8 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <rectangle name="horizontal-limit" min="" max=""/>
+    <union name="horizontal-limit">
+    </union>
     <cuboid name="vertical-limit" min="oo,61,oo" max="-oo,109,-oo"/>
     <!-- Objectives -->
     <union name="monument-panes">
@@ -90,13 +91,11 @@
         <cuboid min="-135,103,14" max="-131,108,19"/>
     </complement>
     <!-- Defenders -->
-    <complement name="blue-spawn">
+    <complement name="defender-spawn">
         <cuboid min="-135,67,14" max="-142,67,7"/>
         <cuboid min="-140,67,9" max="-137,67,12"/>
     </complement>
-    <negative name="blue-prohibition">
-        <rectangle min="-113,-15" max="-164,36"/>
-    </negative>
+    <rectangle name="blue-prohibition" min="-113,-15" max="-164,36"/>
     <cuboid name="clay-renewable-area" min="-113,1,-15" max="-164,50,36"/>
     <cylinder name="blue-drop" base="-138.5,38,10.5" radius="6" height="28"/>
     <cuboid name="blue-drop-room" min="-135,37,7" max="-142,43,14"/>
@@ -104,32 +103,30 @@
     <apply block="quartz-only-manually">
         <region name="map"/>
     </apply>
+    <apply block="deny-all" message="You are not allowed to modify the Defenders' spawn.">
+        <region name="blue-drop"/>
+        <region name="blue-drop-room"/>
+    </apply>
     <apply block="deny-all">
-        <union name="spawn-drop-pools">
-            <region name="red-drop-pool"/>
-            <region name="blue-drop-pool"/>
-        </union>
+        <region name="vertical-limit"/>
     </apply>
     <apply block="deny-tnt-damage">
-        <region name="spawn-drops"/>
-        <region name="spawn-drop-pools"/>
+        <region name="vertical-limit"/>
+        <region name="blue-drop"/>
+        <region name="blue-drop-room"/>
     </apply>
-    <apply enter="only-red">
-        <region name="red-drop"/>
-        <region name="red-drop-pool"/>
+    <apply enter="only-red" message="You are not allowed to leave the island.">
+        <negative>
+            <region name="blue-prohibition"/>
+        </negative>
     </apply>
     <apply enter="only-blue">
-        <region name="blue-drop"/>
-        <region name="blue-drop-pool"/>
-    </apply>
-    <apply block="deny-all" message="In the void gap you are not allowed to build above y=30!">
-        <region name="void-gap"/>
+        <region name="blue-drop-room"/>
     </apply>
     <apply block-break="deny-void" message="You may not place blocks in the void area!">
-        <complement>
-            <region name="map"/>
-            <region name="void-gap-1"/>
-        </complement>
+        <negative>
+            <region name="horizontal-limit"/>
+        </negative>
     </apply>
 </regions>
 <spawns>
@@ -155,6 +152,31 @@
     <destroyable name="South-East Monument" region="monument-south-east"/>
     <destroyable name="South-Wast Monument" region="monument-south-wast"/>
 </destroyables>
+<renewables>
+    <renewable rate="10" grow="true" particles="false" sound="true" avoid-entities="true">
+        <region>
+            <region name="clay-renewable-area"/>
+        </region>
+        <!-- These are the blocks that will renew -->
+        <renew>stained clay:3</renew>
+        <!-- These blocks can be replaced by renewing blocks -->
+        <replace>air</replace>
+    </renewable>
+    <renewable rate="3" grow="false" particles="false" sound="true" avoid-entities="true">
+        <region>
+            <region name="monument-panes"/>
+        </region>
+        <!-- These are the blocks that will renew -->
+        <renew>stained glass:11</renew>
+        <renew>stained glass pane:11</renew>
+        <!-- These blocks can be replaced by renewing blocks -->
+        <replace>air</replace>
+        <replace>stained clay</replace>
+        <replace>quartz block</replace>
+        <block>quartz stairs</block>
+        <block>step:7</block>
+    </renewable>
+</renewables>
 <toolrepair>
     <tool>diamond sword</tool>
     <tool>bow</tool>
@@ -172,14 +194,13 @@
 <time result="Defenders">30m</time>
 </map>
 
-- There are FOUR monuments. They are surrounded by glass panes, which very slowly regenerate.
 - There are 4 spawns for Attackers, North, South, East, and West. There is only one spawn for Defenders which is located directly above Defender territory.
 - Defenders have 3 vertical levels to use to their advantage, while Attackers have a total of 12 islands completely surrounding them.
-- The clay on the Defender's side regenerates.
-- All variations of quartz is invincible for TNT damage, but breakable by hand.
 - Attackers can bridge freely, while defenders cannot bridge past the Defenders' initial island, if that makes sense.
 - Attackers have a 30 or 45 second spawn delay (undecided), and in this time the defenders can set up proper defenses, such as water walls and cannons.
 - NIGHT TIME ALL TIME, add night vision
+- portals
+- kits
 
 Currently done:
 - Top part of xml (match info, team sizes/colors, contrib.'s)
