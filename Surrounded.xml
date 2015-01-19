@@ -150,6 +150,24 @@
         <cuboid name="south-return" min="-136,20,136" max="-141,24,137"/>
     </union>
     <cuboid name="attackers-spawn" min="-130,108,19" max="-147,103,2"/>
+    <union name="no-diagonal">
+        <complement name="north-east-cut">
+            <rectangle min="-76,-53" max="-113,-15"/>
+            <rectangle min="-76,-53" max="-79,-48"/>
+        </complement>
+        <complement name="north-west-cut">
+            <rectangle min="-202,-53" max="-164,-15"/>
+            <rectangle min="-202,-53" max="-198,-49"/>
+        </complement>
+        <complement name="south-east-cut">
+            <rectangle min="-76,74" max="-113,36"/>
+            <rectangle min="-76,74" max="-80,70"/>
+        </complement>
+        <complement name="south-west-cut">
+            <rectangle min="-202,74" max="-164,36"/>
+            <rectangle min="-202,74" max="-198,70"/>
+        </complement>
+    </union>
     <!-- Defenders -->
     <complement name="defender-spawn">
         <cuboid min="-135,67,14" max="-142,67,7"/>
@@ -169,6 +187,9 @@
     </apply>
     <apply block="deny-all">
         <region name="vertical-limit"/>
+    </apply>
+    <apply block="deny-all" message="You are not allowed to bridge to the Defenders' island diagonally!">
+        <region name="no-diagonal"/>
     </apply>
     <apply block="deny-tnt-damage">
         <region name="horizontal-limit"/>
@@ -270,14 +291,33 @@
         <replace>step:7</replace>
     </renewable>
 </renewables>
-<toolrepair>
-    <tool>diamond sword</tool>
-    <tool>bow</tool>
-    <tool>diamond pickaxe</tool>
-    <tool>diamond axe</tool>
 <itemremove>
-    <item>obsidian</item>
-    <item>glowstone dust</item>
+    <item>gold helmet</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>diamond chestplate</item>
+    <item>leather leggings</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>diamond pickaxe</item>
+    <item>stained clay</item>
+    <item>arrow</item>
+    <item>cooked beef</item>
+    <item>ladder</item>
+    <item>step:7</item>
+    <item>redstone</item>
+    <item>lever</item>
+    <item>water bucket</item>
+    <item>redstone block</item>
+    <item>redstone</item>
+    <item>diode</item>
+    <item>redstone comparator</item>
+    <item>fence</item>
+    <item>stone plate</item>
+    <item>stone button</item>
+    <item>tnt</item>
 </itemremove>
 <broadcasts>
     <alert after="5s">`4`lAttackers `c`ohave 30 minutes to destroy the `3`lDefenders`c`o' their 4 monuments.</alert>
@@ -285,8 +325,5 @@
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <time result="Defenders">30m</time>
+<timelock>on</timelock>
 </map>
-
-- Attackers have a 30 or 45 second spawn delay (undecided), and in this time the defenders can set up proper defenses, such as water walls and cannons.
-- NIGHT TIME ALL TIME, add night vision
-- portals
