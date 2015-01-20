@@ -73,9 +73,9 @@
         <team>blue</team>
     </filter>
     <filter name="deny-void">
-        <deny>
+        <not>
             <void/>
-        </deny>
+        </not>
     </filter>
     <filter name="deny-tnt-damage">
         <not>
