@@ -1,7 +1,7 @@
 <map proto="1.3.6">
 <name>Surrounded</name>
 <version>1.0.0</version>
-<objective>Attackers need to destroy all 4 monument before the 30 minutes run out, after that mark the Defenders have won.</objective>
+<objective>Attackers need to destroy all 4 monument before the 30 minutes run out, failure to do so will result in the Defenders winning.</objective>
 <authors>
     <author>CoolStoryBroFish</author>
     <author>philly44</author>
@@ -194,7 +194,7 @@
     <apply block="deny-stained-glass" message="You are not allowed to break stained glass!">
         <region name="map"/>
     </apply>
-    <apply block="deny-all" message="You are not allowed to modify the Defenders' spawn.">
+    <apply block="deny-all" message="You are not allowed to modify the spawn area.">
         <region name="blue-drop"/>
         <region name="blue-drop-room"/>
     </apply>
@@ -272,9 +272,9 @@
 <destroyables>
     <destroyables owner="blue" materials="ender stone" completion="100%">
         <destroyable name="North-East Monument" region="monument-north-east"/>
-        <destroyable name="North-Wast Monument" region="monument-north-wast"/>
+        <destroyable name="North-West Monument" region="monument-north-west"/>
         <destroyable name="South-East Monument" region="monument-south-east"/>
-        <destroyable name="South-Wast Monument" region="monument-south-wast"/>
+        <destroyable name="South-West Monument" region="monument-south-west"/>
     </destroyables>
     <destroyables owner="red" materials="stained glass:0" completion="0%" mode-changes="true">
         <destroyable region="attackers-spawn"/>
@@ -336,8 +336,8 @@
     <item>tnt</item>
 </itemremove>
 <broadcasts>
-    <alert after="5s">`4`lAttackers `c`ohave 30 minutes to destroy the `3`lDefenders`c`o' their 4 monuments.</alert>
-    <alert after="8s">`c`oIf they don't succeed in doing so, `3`lDefenders `c`owill have won!</alert>
+    <alert after="5s">`4`lAttackers `c`ohave 30 minutes to destroy the `3`lDefenders`c`o' monuments.</alert>
+    <alert after="8s">`c`oIf they don't succeed in doing so, the `3`lDefenders `c`owill win!</alert>
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <time result="Defenders">30m</time>
