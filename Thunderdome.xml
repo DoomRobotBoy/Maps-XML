@@ -42,9 +42,9 @@
 </spawns>
 <kits>
     <kit name="teams">
-        <item slot="0" enchantment="damage all:1;knockback:1">ladder</item>
-        <item slot="1" enchantment="damage all:1" name="Table">workbench</item>
-        <item slot="2" enchantment="knockback:2" name="Chair">quartz stairs</item>
+        <item slot="0" enchantment="damage all:1;knockback:1" attributes="generic.movementSpeed:add:0.85">ladder</item>
+        <item slot="1" enchantment="damage all:1" name="Table" attributes="generic.movementSpeed:add:0.53">workbench</item>
+        <item slot="2" enchantment="knockback:2" name="Chair" attributes="generic.movementSpeed:add:0.63">quartz stairs</item>
         <potion duration="3">heal</potion>
         <potion duration="3" amplifier="10">damage resistance</potion>
     </kit>
@@ -81,6 +81,12 @@
     </filter>
 </filters>
 <regions>
+    <union name="jump-pads">
+        <block>367.5,16,725.5</block>
+        <block>359.5,16,733.5</block>
+        <block>367.5,16,741.5</block>
+        <block>375.5,16,733.5</block>
+    </union>
     <block name="the-wool">367.5,23,733.5</block>
     <apply block="deny-all">
         <complement>
@@ -99,6 +105,9 @@
     </apply>
     <apply enter="only-yellow">
         <cuboid name="yellow-spawn" min="394,18,731" max="396,18,736"/>
+    </apply>
+    <apply velocity="@0.0,1.1,0.0">
+        <region name="jump-pads"/>
     </apply>
 </regions>
 <score>
@@ -122,6 +131,9 @@
             <item points="100">wool:5</item>
         </redeemables>
     </box>
+    <limit>250</limit>
+    <kills>5</kills>
+    <time>9m</time>
 </score>
 <destroyables material="wool" completion="0%" owner="yellow" mode-changes="true" show="false">
     <destroyable>
@@ -132,10 +144,28 @@
 </destroyables>
 <modes>
     <mode after="5s" material="air" name="This `aWool `rwill return every 2 minutes. It's worth 100 points!"/>
-    <mode after="2m" material="wool:5" name="The `aWool `rhas spawned!"/>
-    <mode after="4m" material="wool:5" name="The `aWool `rhas spawned!"/>
-    <mode after="6m" material="wool:5" name="The `aWool `rhas spawned!"/>
+    <mode after="180s" material="wool:5" name="The `aWool `rhas spawned!"/>
+    <mode after="5m" material="wool:5" name="The `aWool `rhas spawned!"/>
+    <mode after="480" material="wool:5" name="The `aWool `rhas spawned!"/>
 </modes>
+<killreward>
+    <filter>
+        <kill-streak count="2"/>
+    </filter>
+    <item damage="8194" potions="`bWater Bottle:1800:0:false">potion</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="5"/>
+    </filter>
+    <item damage="8201" potions="`4Energy Drink:1800:0:false">potion</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="9"/>
+    </filter>
+    <item damage="8261;8201;8226" potions="`cRed Bull:600:0:false">potion</item>
+</killreward>
 <timelock>on</timelock>
 <itemremove>
     <item>leather leggings</item>
