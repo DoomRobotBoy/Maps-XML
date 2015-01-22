@@ -10,10 +10,10 @@
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
 <teams>
-    <team id="yellow" color="yellow" max="2" max-overfill="5">Yellow Team</team>
-    <team id="purple" color="dark purple" max="2" max-overfill="5">Purple Team</team>
-    <team id="red" color="dark red" max="2" max-overfill="5">Red Team</team>
-    <team id="blue" color="blue" max="2" max-overfill="5">Blue Team</team>
+    <team id="yellow" color="yellow" max="5" max-overfill="7">Yellow Team</team>
+    <team id="purple" color="dark purple" max="5" max-overfill="7">Purple Team</team>
+    <team id="red" color="dark red" max="5" max-overfill="7">Red Team</team>
+    <team id="blue" color="blue" max="5" max-overfill="7">Blue Team</team>
 </teams>
 <spawns>
     <spawn team="red" kit="red" yaw="180">
@@ -37,7 +37,9 @@
         </regions>
     </spawn>
     <default yaw="0">
-        <cylinder base="0.5,30,0.5" radius="2" height="0"/>
+        <regions>
+            <cylinder base="0.5,30,0.5" radius="2" height="0"/>
+        </regions>
     </default>
 </spawns>
 <kits>
@@ -136,7 +138,7 @@
     <time>9m</time>
 </score>
 <destroyables material="wool" completion="0%" owner="yellow" mode-changes="true" show="false">
-    <destroyable>
+    <destroyable name="The Wool">
         <region>
             <region name="the-wool"/>
         </region>
@@ -152,19 +154,19 @@
     <filter>
         <kill-streak count="2"/>
     </filter>
-    <item damage="8194" potions="`bWater Bottle:1800:0:false">potion</item>
+    <item name="`bWater Bottle" damage="8194" potions="speed:1800:0:false">potion</item>
 </killreward>
 <killreward>
     <filter>
         <kill-streak count="5"/>
     </filter>
-    <item damage="8201" potions="`4Energy Drink:1800:0:false">potion</item>
+    <item name="`4Energy Drink" damage="8201" potions="increase damage:1800:0:false">potion</item>
 </killreward>
 <killreward>
     <filter>
         <kill-streak count="9"/>
     </filter>
-    <item damage="8261;8201;8226" potions="`cRed Bull:600:0:false">potion</item>
+    <item name="`cRed Bull" damage="8261;8201;8226" potions="heal;increase damage;speed:600:0:false">potion</item>
 </killreward>
 <timelock>on</timelock>
 <itemremove>
