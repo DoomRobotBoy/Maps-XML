@@ -100,6 +100,9 @@
     <mode after="1s" material="obsidian" name="`0OBSIDIAN `rCORE MODE"
     <mode after="10m" material="stained glass:15" name="`7STAINED GLASS `rCORE MODE"/>
 </modes>
+<killreward>
+    <item>dispenser</item>
+</killreward>
 <itemremove>
     <item>stained clay</item>
     <item>shears</item>
