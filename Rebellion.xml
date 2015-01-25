@@ -53,6 +53,7 @@
         <item slot="28" amount="32">arrow</item>
         <item slot="2" amount="64">cooked beef</item>
         <item slot="3" amount="16">wood:0</item>
+        <item slot="4" amount="8">vine</item>
         <helmet color="334CB2" damage="-3000" locked="true">leather helmet</helmet>
         <chestplate color="334CB2" damage="-3000" locked="true">leather chestplate</chestplate>
         <leggings color="334CB2" damage="-3000" locked="true">leather leggings</leggings>
@@ -73,6 +74,11 @@
             <block>acacia wood:9</block>
             <block>acacia wood:11</block>
             <block>acacia wood:13</block>
+        </any>
+    </filter>
+    <filter name="only-somer">
+        <any>
+            <block>ladder</block>
             <block>fence</block>
         </any>
     </filter>
@@ -85,7 +91,7 @@
 <!--  Control Point Filters  -->
     <filter name="red-has-1st">
         <all>
-            <objective id="red">mid</objective>
+            <objective id="red">red-1st</objective>
             <team>red</team>
         </all>
     </filter>
@@ -95,191 +101,102 @@
             <team>red</team>
         </all>
     </filter>
-    <filter name="red-has-3nd">
+    <filter name="red-has-3rd">
         <all>
-            <objective id="red">blue-2nd</objective>
+            <objective id="red">red-3rd</objective>
             <team>red</team>
-        </all>
-    </filter>
-    <filter name="to-capture-red-last">
-        <all>
-            <team>blue</team>
-            <objective>red-2nd</objective>
         </all>
     </filter>
     <filter name="to-capture-red-2nd">
-        <any>
-            <objective>red-last</objective>
-            <objective>mid</objective>
-        </any>
-    </filter>
-    <filter name="to-capture-mid">
-        <any>
-            <objective>red-2nd</objective>
-            <objective>blue-2nd</objective>
-        </any>
-    </filter>
-    <filter name="to-capture-blue-2nd">
-        <any>
-            <objective>blue-last</objective>
-            <objective>mid</objective>
-        </any>
-    </filter>
-    <filter name="to-capture-blue-last">
         <all>
             <team>red</team>
-            <objective>blue-2nd</objective>
+            <objective>red-1st</objective>
+        </all>
+    </filter>
+    <filter name="to-capture-red-3rd">
+        <all>
+            <team>red</team>
+            <objective>red-2nd</objective>
         </all>
     </filter>
 </filters>
-
 <regions>
 <!--  Region Definitions  -->
-<union name="points">
-<cuboid name="mid-point" min="-5,1,-5" max="5,6,5"/>
-<union name="red-points">
-<cuboid name="red-last-point" min="-5,5,58" max="5,9,68"/>
-<translate name="red-2nd-point" offset="0,2,-30">
-<region name="red-last-point"/>
-</translate>
-</union>
-<union name="blue-points">
-<mirror name="blue-last-point" origin="0,0,0" normal="0,0,-1">
-<region name="red-last-point"/>
-</mirror>
-<mirror name="blue-2nd-point" origin="0,0,0" normal="0,0,-1">
-<region name="red-2nd-point"/>
-</mirror>
-</union>
-</union>
-<union name="portals">
-<union name="red-portals">
-<cuboid name="red-to-red-2nd" min="3,1,92" max="5,4,93"/>
-<translate name="red-to-mid" offset="-4,0,0">
-<region name="red-to-red-2nd"/>
-</translate>
-<translate name="red-to-blue-2nd" offset="-4,0,0">
-<region name="red-to-mid"/>
-</translate>
-</union>
-<union name="blue-portals">
-<mirror name="blue-to-red-2nd" origin="0,0,0" normal="0,0,-1">
-<region name="red-to-red-2nd"/>
-</mirror>
-<mirror name="blue-to-mid" origin="0,0,0" normal="0,0,-1">
-<region name="red-to-mid"/>
-</mirror>
-<mirror name="blue-to-blue-2nd" origin="0,0,0" normal="0,0,-1">
-<region name="red-to-blue-2nd"/>
-</mirror>
-</union>
-</union>
-<union name="spawn-closures">
-<cuboid name="red-spawn-closure" min="-12,1,85" max="12,5,86"/>
-<mirror name="blue-spawn-closure" origin="0,0,0" normal="0,0,-1">
-<region name="red-spawn-closure"/>
-</mirror>
-</union>
-<!--  Block Rules  -->
-<apply block="deny-all">
-<rectangle min="-oo,-oo" max="oo,oo"/>
-</apply>
-<!--  Entry Rules  -->
-<apply enter="only-red" message="You may not enter the enemy spawn!">
-<rectangle name="red-spawn" min="-13,85" max="13,93"/>
-</apply>
-<apply enter="only-blue" message="You may not enter the enemy spawn!">
-<rectangle name="blue-spawn" min="-13,-85" max="13,-93"/>
-</apply>
+    <rectangle name="playable-area" min="359,16,83" max="283,-322"/>
+    <rectangle name="only-somer" min="359,83" max="283,44"/>
+    <cuboid min="portal-red-1" min="312,5,-297" max="311,7,-296"/>
+    <cuboid min="portal-red-2" min="312,5,-300" max="311,7,-301"/>
+    <cuboid min="portal-blue-1" min="325,4,75" max="323,8,76"/>
+    <cuboid min="portal-blue-2" min="319,4,75" max="317,8,76"/>
+    <cuboid min="falling-kit-1" min="323,81,-61" max="326,81,-58"/>
+    <cuboid min="falling-kit-2" min="326,81,-198" max="329,81,-195"/>
+<!--  Applied  -->
+    <apply block="deny-all">
+        <negative>
+            <region name="playable-area"/>
+        </negative>
+    </apply>
+    <apply block="only-some">
+        <complement>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <region name="only-somer"/>
+        </complement>
+    </apply>
+    <apply block="only-some-blocks">
+        <region name="only-somer"/>
+    </apply>
+    <apply enter="only-red" message="You may not enter the enemy spawn!">
+        <cuboid name="red-spawn" min="349,15,71" max="293,15,76"/>
+    </apply>
+    <apply enter="only-blue" message="You may not enter the enemy spawn!">
+        <rectangle name="blue-spawn" min="359,-284" max="283,-322"/>
+    </apply>
 </regions>
 <portals>
 <!--  Red Portals  -->
-<portal x="@0" y="@6" z="@55" yaw="180" filter="red-has-red-2nd">
-<region name="red-to-red-2nd"/>
-</portal>
-<portal x="@0" y="@6" z="@23" yaw="180" filter="red-has-mid">
-<region name="red-to-mid"/>
-</portal>
-<portal x="@0" y="@6" z="@-18" yaw="180" filter="red-has-blue-2nd">
-<region name="red-to-blue-2nd"/>
-</portal>
+    <portal x="@0" y="@6" z="@55" yaw="180" filter="red-has-red-2nd">
+        <region name="red-to-red-2nd"/>
+    </portal>
+    <portal x="@0" y="@6" z="@23" yaw="180" filter="red-has-mid">
+        <region name="red-to-mid"/>
+    </portal>
 <!--  Blue Portals  -->
-<portal x="@0" y="@6" z="@-55" yaw="180" filter="blue-has-blue-2nd">
-<region name="blue-to-blue-2nd"/>
-</portal>
-<portal x="@0" y="@6" z="@-23" yaw="180" filter="blue-has-mid">
-<region name="blue-to-mid"/>
-</portal>
-<portal x="@0" y="@6" z="@18" yaw="180" filter="blue-has-red-2nd">
-<region name="blue-to-red-2nd"/>
-</portal>
+    <portal x="@0" y="@6" z="@-55" yaw="180" filter="red-has-1st">
+        <region name="blue-to-blue-2nd"/>
+    </portal>
+    <portal x="@0" y="@6" z="@-23" yaw="180" filter="blue-has-mid">
+        <region name="blue-to-mid"/>
+    </portal>
 </portals>
-<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.25">
-    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="6s">
+<control-points initial-owner="blue" incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.25" capture-time="20s">
+    <control-point id="red-1st" name="Mountain Hill">
         <capture-region>
-            <region name="red-last-point"/>
+            <region name="red-1st-point"/>
         </capture-region>
         <progress-display-region>
-            <region name="red-last-point"/>
+            <region name="red-1st-point"/>
         </progress-display-region>
-        <player-filter>
-            <filter name="to-capture-red-last"/>
-        </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="8s">
+    <control-point id="red-2nd" name="Swamp Hill">
         <capture-region>
             <region name="red-2nd-point"/>
         </capture-region>
         <progress-display-region>
             <region name="red-2nd-point"/>
         </progress-display-region>
-        <owner-display-region>
-            <region name="red-to-red-2nd"/>
-            <region name="blue-to-red-2nd"/>
-        </owner-display-region>
         <player-filter>
             <filter name="to-capture-red-2nd"/>
         </player-filter>
     </control-point>
-    <control-point id="mid" name="Mid" capture-time="10s">
+    <control-point id="red-3rd" name="Castle Hill">
         <capture-region>
-            <region name="mid-point"/>
+            <region name="red-3rd-point"/>
         </capture-region>
         <progress-display-region>
-            <region name="mid-point"/>
-        </progress-display-region>
-        <owner-display-region>
-            <region name="red-to-mid"/>
-            <region name="blue-to-mid"/>
-        </owner-display-region>
-        <player-filter>
-            <filter name="to-capture-mid"/>
-        </player-filter>
-    </control-point>
-    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="8s">
-        <capture-region>
-            <region name="blue-2nd-point"/>
-        </capture-region>
-        <progress-display-region>
-            <region name="blue-2nd-point"/>
-        </progress-display-region>
-        <owner-display-region>
-            <region name="blue-to-blue-2nd"/>
-            <region name="red-to-blue-2nd"/>
-        </owner-display-region>
-        <player-filter>
-            <filter name="to-capture-blue-2nd"/>
-        </player-filter>
-    </control-point>
-    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="6s">
-        <capture-region>
-            <region name="blue-last-point"/>
-        </capture-region>
-        <progress-display-region>
-            <region name="blue-last-point"/>
+            <region name="red-3rd-point"/>
         </progress-display-region>
         <player-filter>
-            <filter name="to-capture-blue-last"/>
+            <filter name="to-capture-red-3rd"/>
         </player-filter>
     </control-point>
 </control-points>
@@ -292,8 +209,11 @@
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
+    <item>leather leggings</item>
     <item>leather boots</item>
     <item>iron chestplate</item>
+    <item>wood step:0</item>
+    <block>acacia wood:1</block>
     <item>cooked beef</item>
     <item>glass bottle</item>
     <item>arrow</item>
@@ -310,5 +230,6 @@
     <item amount="8">wood:0</item>
     <item damage="8261">potion</item>
 </killreward>
-<time result="objectives">20m</time>
+<maxbuildheight>41</maxbuildheight>
+<time team="Defenders">20m</time>
 </map>
