@@ -1,0 +1,314 @@
+<map proto="1.3.6">
+<name>Rebellion</name>
+<version>1.0.0</version>
+<objective>
+    The Attackers must capture all control points before time runs out! The Defenders need to stop them.
+</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
+<contributors>
+    <contributor contribution="Castle">Diamyx</contributor>
+    <contributor contribution="Ship">SamSafari</contributor>
+    <contributor contribution="Balloon Help">Guicotsch</contributor>
+</contributor>
+<teams>
+    <team id="red" color="dark red" max="20" max-overfill="22">Attackers</team>
+    <team id="blue" color="blue" max="20" max-overfill="22">Defenders</team>
+</teams>
+<spawns>
+    <default kit="obs">
+        <regions>
+            <cylinder base="324.5,105,-59.5" radius="1" height="1"/>
+        </regions>
+    </default>
+    <spawn team="red" kit="red" yaw="0">
+        <regions>
+            <point>320.5,5,-320.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue" yaw="0">
+        <regions>
+            <cuboid min="322,4,71" max="320,4,72"/>
+        </regions>
+    </spawn>
+</spawns>
+<kits>
+    <kit name="red" potion-particles="false">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" enchantment="arrow infinite:1" damage="-3000">bow</item>
+        <item slot="28" amount="1">arrow</item>
+        <item slot="2" damage="-3000">stone axe</item>
+        <item slot="3" amount="64">cooked beef</item>
+        <item slot="4" amount="32">wood:0</item>
+        <item slot="5" amount="8">wood step:0</item>
+        <helmet color="993333" damage="-3000" locked="true">leather helmet</helmet>
+        <chestplate damage="-3000" locked="true">iron chestplate</chestplate>
+        <leggings color="993333" damage="-3000" locked="true">leather leggings</leggings>
+        <boots color="993333" damage="-3000" locked="true">leather boots</boots>
+    </kit>
+    <kit name="blue" potion-particles="false">
+        <item slot="0" damage="-3000">iron axe</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="28" amount="32">arrow</item>
+        <item slot="2" amount="64">cooked beef</item>
+        <item slot="3" amount="16">wood:0</item>
+        <helmet color="334CB2" damage="-3000" locked="true">leather helmet</helmet>
+        <chestplate color="334CB2" damage="-3000" locked="true">leather chestplate</chestplate>
+        <leggings color="334CB2" damage="-3000" locked="true">leather leggings</leggings>
+        <boots color="334CB2" damage="-3000" locked="true">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter name="only-some">
+        <any>
+            <block>wood:0</block>
+            <block>wood step:0</block>
+            <block>wood step:1</block>
+            <block>wood step:5</block>
+            <block>acacia wood:1</block>
+            <block>acacia wood:3</block>
+            <block>acacia wood:5</block>
+            <block>acacia wood:7</block>
+            <block>acacia wood:9</block>
+            <block>acacia wood:11</block>
+            <block>acacia wood:13</block>
+            <block>fence</block>
+        </any>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+<!--  Control Point Filters  -->
+    <filter name="red-has-1st">
+        <all>
+            <objective id="red">mid</objective>
+            <team>red</team>
+        </all>
+    </filter>
+    <filter name="red-has-2nd">
+        <all>
+            <objective id="red">red-2nd</objective>
+            <team>red</team>
+        </all>
+    </filter>
+    <filter name="red-has-3nd">
+        <all>
+            <objective id="red">blue-2nd</objective>
+            <team>red</team>
+        </all>
+    </filter>
+    <filter name="to-capture-red-last">
+        <all>
+            <team>blue</team>
+            <objective>red-2nd</objective>
+        </all>
+    </filter>
+    <filter name="to-capture-red-2nd">
+        <any>
+            <objective>red-last</objective>
+            <objective>mid</objective>
+        </any>
+    </filter>
+    <filter name="to-capture-mid">
+        <any>
+            <objective>red-2nd</objective>
+            <objective>blue-2nd</objective>
+        </any>
+    </filter>
+    <filter name="to-capture-blue-2nd">
+        <any>
+            <objective>blue-last</objective>
+            <objective>mid</objective>
+        </any>
+    </filter>
+    <filter name="to-capture-blue-last">
+        <all>
+            <team>red</team>
+            <objective>blue-2nd</objective>
+        </all>
+    </filter>
+</filters>
+
+<regions>
+<!--  Region Definitions  -->
+<union name="points">
+<cuboid name="mid-point" min="-5,1,-5" max="5,6,5"/>
+<union name="red-points">
+<cuboid name="red-last-point" min="-5,5,58" max="5,9,68"/>
+<translate name="red-2nd-point" offset="0,2,-30">
+<region name="red-last-point"/>
+</translate>
+</union>
+<union name="blue-points">
+<mirror name="blue-last-point" origin="0,0,0" normal="0,0,-1">
+<region name="red-last-point"/>
+</mirror>
+<mirror name="blue-2nd-point" origin="0,0,0" normal="0,0,-1">
+<region name="red-2nd-point"/>
+</mirror>
+</union>
+</union>
+<union name="portals">
+<union name="red-portals">
+<cuboid name="red-to-red-2nd" min="3,1,92" max="5,4,93"/>
+<translate name="red-to-mid" offset="-4,0,0">
+<region name="red-to-red-2nd"/>
+</translate>
+<translate name="red-to-blue-2nd" offset="-4,0,0">
+<region name="red-to-mid"/>
+</translate>
+</union>
+<union name="blue-portals">
+<mirror name="blue-to-red-2nd" origin="0,0,0" normal="0,0,-1">
+<region name="red-to-red-2nd"/>
+</mirror>
+<mirror name="blue-to-mid" origin="0,0,0" normal="0,0,-1">
+<region name="red-to-mid"/>
+</mirror>
+<mirror name="blue-to-blue-2nd" origin="0,0,0" normal="0,0,-1">
+<region name="red-to-blue-2nd"/>
+</mirror>
+</union>
+</union>
+<union name="spawn-closures">
+<cuboid name="red-spawn-closure" min="-12,1,85" max="12,5,86"/>
+<mirror name="blue-spawn-closure" origin="0,0,0" normal="0,0,-1">
+<region name="red-spawn-closure"/>
+</mirror>
+</union>
+<!--  Block Rules  -->
+<apply block="deny-all">
+<rectangle min="-oo,-oo" max="oo,oo"/>
+</apply>
+<!--  Entry Rules  -->
+<apply enter="only-red" message="You may not enter the enemy spawn!">
+<rectangle name="red-spawn" min="-13,85" max="13,93"/>
+</apply>
+<apply enter="only-blue" message="You may not enter the enemy spawn!">
+<rectangle name="blue-spawn" min="-13,-85" max="13,-93"/>
+</apply>
+</regions>
+<portals>
+<!--  Red Portals  -->
+<portal x="@0" y="@6" z="@55" yaw="180" filter="red-has-red-2nd">
+<region name="red-to-red-2nd"/>
+</portal>
+<portal x="@0" y="@6" z="@23" yaw="180" filter="red-has-mid">
+<region name="red-to-mid"/>
+</portal>
+<portal x="@0" y="@6" z="@-18" yaw="180" filter="red-has-blue-2nd">
+<region name="red-to-blue-2nd"/>
+</portal>
+<!--  Blue Portals  -->
+<portal x="@0" y="@6" z="@-55" yaw="180" filter="blue-has-blue-2nd">
+<region name="blue-to-blue-2nd"/>
+</portal>
+<portal x="@0" y="@6" z="@-23" yaw="180" filter="blue-has-mid">
+<region name="blue-to-mid"/>
+</portal>
+<portal x="@0" y="@6" z="@18" yaw="180" filter="blue-has-red-2nd">
+<region name="blue-to-red-2nd"/>
+</portal>
+</portals>
+<control-points incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.25">
+    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="6s">
+        <capture-region>
+            <region name="red-last-point"/>
+        </capture-region>
+        <progress-display-region>
+            <region name="red-last-point"/>
+        </progress-display-region>
+        <player-filter>
+            <filter name="to-capture-red-last"/>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="8s">
+        <capture-region>
+            <region name="red-2nd-point"/>
+        </capture-region>
+        <progress-display-region>
+            <region name="red-2nd-point"/>
+        </progress-display-region>
+        <owner-display-region>
+            <region name="red-to-red-2nd"/>
+            <region name="blue-to-red-2nd"/>
+        </owner-display-region>
+        <player-filter>
+            <filter name="to-capture-red-2nd"/>
+        </player-filter>
+    </control-point>
+    <control-point id="mid" name="Mid" capture-time="10s">
+        <capture-region>
+            <region name="mid-point"/>
+        </capture-region>
+        <progress-display-region>
+            <region name="mid-point"/>
+        </progress-display-region>
+        <owner-display-region>
+            <region name="red-to-mid"/>
+            <region name="blue-to-mid"/>
+        </owner-display-region>
+        <player-filter>
+            <filter name="to-capture-mid"/>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="8s">
+        <capture-region>
+            <region name="blue-2nd-point"/>
+        </capture-region>
+        <progress-display-region>
+            <region name="blue-2nd-point"/>
+        </progress-display-region>
+        <owner-display-region>
+            <region name="blue-to-blue-2nd"/>
+            <region name="red-to-blue-2nd"/>
+        </owner-display-region>
+        <player-filter>
+            <filter name="to-capture-blue-2nd"/>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="6s">
+        <capture-region>
+            <region name="blue-last-point"/>
+        </capture-region>
+        <progress-display-region>
+            <region name="blue-last-point"/>
+        </progress-display-region>
+        <player-filter>
+            <filter name="to-capture-blue-last"/>
+        </player-filter>
+    </control-point>
+</control-points>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>iron axe</tool>
+    <tool>stone axe</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>iron chestplate</item>
+    <item>cooked beef</item>
+    <item>glass bottle</item>
+    <item>arrow</item>
+    <item>potion</item>
+</itemremove>
+<killreward>
+    <filter name="only-red"/>
+    <item amount="12">arrow</item>
+    <item amount="8">wood:0</item>
+    <item damage="8261">potion</item>
+</killreward>
+<killreward>
+    <filter name="only-blue"/>
+    <item amount="8">wood:0</item>
+    <item damage="8261">potion</item>
+</killreward>
+<time result="objectives">20m</time>
+</map>
