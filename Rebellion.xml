@@ -141,6 +141,8 @@
     <cuboid min="portal-blue-2" min="319,4,75" max="317,8,76"/>
     <cuboid min="falling-kit-1" min="326,81,-198" max="329,81,-195"/>
     <cuboid min="falling-kit-2" min="323,81,-61" max="326,81,-58"/>
+    <cuboid name="red-spawn" min="349,15,71" max="293,15,76"/>
+    <rectangle name="blue-spawn" min="359,-284" max="283,-322"/>
 <!--  Applied  -->
     <apply block="deny-all">
         <negative>
@@ -166,11 +168,11 @@
         <region name="blue-portal-1"/>
         <region name="blue-portal-2"/>
     </apply>
-    <apply enter="only-red" message="You may not enter the enemy spawn!">
-        <cuboid name="red-spawn" min="349,15,71" max="293,15,76"/>
+    <apply block="deny-all" enter="only-red" message="You may not enter the enemy spawn!">
+        <region name="red-spawn"/>
     </apply>
     <apply enter="only-blue" message="You may not enter the enemy spawn!">
-        <rectangle name="blue-spawn" min="359,-284" max="283,-322"/>
+        <region name="blue-spawn"/>
     </apply>
 </regions>
 <portals>
@@ -189,7 +191,7 @@
         <region name="portal-blue-2"/>
     </portal>
 </portals>
-<control-points initial-owner="blue" incremental="true" neutral-state="false" show-progress="true" scaled-time="true" time-multiplier="0.25" capture-time="20s">
+<control-points initial-owner="blue" incremental="true" show-progress="true" time-multiplier="0.1" capture-time="20s">
     <control-point id="red-1st" name="Mountain Hill">
         <capture-region>
             <region name="red-1st-point"/>
@@ -226,6 +228,7 @@
     <tool>bow</tool>
     <tool>iron axe</tool>
     <tool>stone axe</tool>
+    <tool>arrow</tool>
 </toolrepair>
 <itemremove>
     <item>leather helmet</item>
@@ -234,10 +237,9 @@
     <item>leather boots</item>
     <item>iron chestplate</item>
     <item>wood step:0</item>
-    <block>acacia wood:1</block>
+    <item>acacia wood:1</item>
     <item>cooked beef</item>
     <item>glass bottle</item>
-    <item>arrow</item>
     <item>potion</item>
 </itemremove>
 <killreward>
