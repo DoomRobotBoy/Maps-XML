@@ -9,7 +9,7 @@
     <contributor contribution="Castle">Diamyx</contributor>
     <contributor contribution="Ship">SamSafari</contributor>
     <contributor contribution="Balloon Help">Guicotsch</contributor>
-</contributor>
+</contributors>
 <teams>
     <team id="red" color="dark red" max="20" max-overfill="22">Attackers</team>
     <team id="blue" color="blue" max="20" max-overfill="22">Defenders</team>
@@ -134,13 +134,13 @@
     <rectangle name="playable-area" min="359,16,83" max="283,-322"/>
     <rectangle name="only-somer" min="359,83" max="283,44"/>
     <cylinder name="red-1st-point" base="327.5,23,-196.5" radius="4" height="3"/>
-    <cuboid name="red-2nd-point" min="327,6,-67" max="321,9,-61">
-    <cuboid min="portal-red-1" min="312,5,-297" max="311,7,-296"/>
-    <cuboid min="portal-red-2" min="312,5,-300" max="311,7,-301"/>
-    <cuboid min="portal-blue-1" min="325,4,75" max="323,8,76"/>
-    <cuboid min="portal-blue-2" min="319,4,75" max="317,8,76"/>
-    <cuboid min="falling-kit-1" min="326,81,-198" max="329,81,-195"/>
-    <cuboid min="falling-kit-2" min="323,81,-61" max="326,81,-58"/>
+    <cuboid name="red-2nd-point" min="327,6,-67" max="321,9,-61"/>
+    <cuboid name="portal-red-1" min="312,5,-297" max="311,7,-296"/>
+    <cuboid name="portal-red-2" min="312,5,-300" max="311,7,-301"/>
+    <cuboid name="portal-blue-1" min="325,4,75" max="323,8,76"/>
+    <cuboid name="portal-blue-2" min="319,4,75" max="317,8,76"/>
+    <cuboid name="falling-kit-1" min="326,81,-198" max="329,81,-195"/>
+    <cuboid name="falling-kit-2" min="323,81,-61" max="326,81,-58"/>
     <cuboid name="red-spawn" min="349,15,71" max="293,15,76"/>
     <rectangle name="blue-spawn" min="359,-284" max="283,-322"/>
 <!--  Applied  -->
@@ -221,7 +221,7 @@
         <player-filter>
             <filter name="to-capture-red-3rd"/>
         </player-filter>
-    </control-point>
+    </control-point>
 </control-points>
 <toolrepair>
     <tool>stone sword</tool>
