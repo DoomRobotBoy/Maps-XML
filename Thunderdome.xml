@@ -166,7 +166,7 @@
     <filter>
         <kill-streak count="9"/>
     </filter>
-    <item name="`cRed Bull" damage="8261" potions="heal;increase damage;speed:600:0:false">potion</item>
+    <item name="`cRed Bull" damage="8261" potions="heal:600:0:false;increase damage:600:0:false;speed:600:1:false">potion</item>
 </killreward>
 <timelock>on</timelock>
 <itemremove>
