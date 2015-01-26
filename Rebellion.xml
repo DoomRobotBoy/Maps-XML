@@ -34,12 +34,12 @@
 <kits>
     <kit name="red" potion-particles="false">
         <item slot="0" damage="-3000">iron sword</item>
-        <item slot="1" enchantment="arrow infinite:1" damage="-3000">bow</item>
+        <item slot="1" damage="-3000">bow</item>
         <item slot="28" amount="1">arrow</item>
         <item slot="2" damage="-3000">stone axe</item>
         <item slot="3" amount="64">cooked beef</item>
-        <item slot="4" amount="32">wood:0</item>
-        <item slot="5" amount="8">wood step:0</item>
+        <item slot="4" amount="32" damage="0">wood</item>
+        <item slot="5" amount="8" damage="0">wood step</item>
         <helmet color="993333" damage="-3000" locked="true">leather helmet</helmet>
         <chestplate damage="-3000" locked="true">iron chestplate</chestplate>
         <leggings color="993333" damage="-3000" locked="true">leather leggings</leggings>
@@ -47,10 +47,10 @@
     </kit>
     <kit name="blue" potion-particles="false">
         <item slot="0" damage="-3000">iron axe</item>
-        <item slot="1" damage="-3000">bow</item>
+        <item slot="1" enchantment="arrow infinite:1" damage="-3000">bow</item>
         <item slot="28" amount="32">arrow</item>
         <item slot="2" amount="64">cooked beef</item>
-        <item slot="3" amount="16">wood:0</item>
+        <item slot="3" amount="16" damage="0">wood</item>
         <item slot="4" amount="8">vine</item>
         <helmet color="334CB2" damage="-3000" locked="true">leather helmet</helmet>
         <chestplate color="334CB2" damage="-3000" locked="true">leather chestplate</chestplate>
@@ -85,7 +85,7 @@
             <block>acacia wood:13</block>
         </any>
     </filter>
-    <filter name="only-somer">
+    <filter name="only-some-blocks">
         <any>
             <block>ladder</block>
             <block>fence</block>
