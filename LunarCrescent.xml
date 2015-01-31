@@ -8,6 +8,9 @@
 <contributors>
     <contributor contribution="XML">DoomRobotBoy</contributor>
 </contributors>
+<broadcasts>
+    <tip after="10s">You can only break the monuments with TNT, not with your pickaxe/fist.</tip>
+</broadcasts>
 <teams>
     <team id="orange" color="gold" max="32" max-overfill="34">Orange Team</team>
     <team id="magenta" color="light purple" max="32" max-overfill="34">Magenta Team</team>
@@ -17,19 +20,15 @@
         <item slot="9">workbench</item>
         <item slot="18" amount="3">dispenser</item>
         <!--  slot="27"  -->
-        <!--  slot="0"  -->
+        <item slot="0">diamond pickaxe</item>
         <item slot="10">shears</item>
         <!--  slot="19"  -->
-        <!--  slot="28"  -->
-        <!--  slot="1"  -->
+        <item slot="28" amount="16">arrow</item>
+        <item slot="1">bow</item>
         <!--  slot="11"  -->
         <!--  slot="20"  -->
         <item slot="29" amount="64">vine</item>
         <item slot="2" amount="64">vine</item>
-        <!--  slot="12"  -->
-        <!--  slot="21"  -->
-        <!--  slot="30"  -->
-        <!--  slot="3"  -->
         <item slot="13" amount="16">trap door</item>
         <item slot="22" amount="16">ladder</item>
         <item slot="31" amount="64">step</item>
@@ -160,7 +159,19 @@
                 <cuboid min="-130,25,-109" max="-133,33,-106"/>
             </region>
         </destroyable>
-        <destroyable name="Platform Orange" material="ender stone" completion="100%" mode-changes="true">
+        <destroyable name="Platform Orange" show="false" material="ender stone" completion="0%" mode-changes="true">
+            <region>
+                <cuboid min="-130,25,-109" max="-133,33,-106"/>
+            </region>
+        </destroyable>
+    </destroyables>
+    <destroyables owner="magenta">
+        <destroyable name="Center Monument" material="packed ice" completion="100%">
+            <region>
+                <cuboid min="-130,25,-109" max="-133,33,-106"/>
+            </region>
+        </destroyable>
+        <destroyable name="Platform Purple" show="false" material="ender stone" completion="0%" mode-changes="true">
             <region>
                 <cuboid min="-130,25,-109" max="-133,33,-106"/>
             </region>
@@ -174,13 +185,42 @@
     <item>dispenser</item>
 </killreward>
 <itemremove>
-    <item>stained clay</item>
-    <item>shears</item>
-    <item>bow</item>
     <item>diamond pickaxe</item>
+    <item>workbench</item>
+    <item>dispenser</item>
+    <item>shears</item>
+    <item>wood sword</item>
+    <item>bow</item>
+    <item>snow ball</item>
+    <item>arrow</item>
+    <item>vine</item>
+    <item>stained clay</item>
+    <item>stained glass</item>
+    <item>nether fence</item>
+    <item>step</item>
+    <item>ladder</item>
+    <item>trap door</item>
+    <item>stone plate</item>
+    <item>piston base</item>
+    <item>redstone block</item>
+    <item>redstone</item>
+    <item>stone button</item>
+    <item>lever</item>
+    <item>redstone torch on</item>
+    <item>diode</item>
+    <item>water bucket</item>
+    <item>bucket</item>
+    <item>tnt</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
+    <item>diamond chestplate</item>
+    <item>ender stone</item>
 </itemremove>
-<broadcasts>
-    <tip after="10s">You can only break the monuments with TNT, not with your pickaxe/fist.</tip>
-</broadcasts>
 <maxbuildheight>69</maxbuildheight>
 </map>
