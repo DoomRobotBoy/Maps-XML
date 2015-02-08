@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<map proto="1.3.6">
+<name>Iced Wars</name>
+<version>1.0.0</version>
+<objective>Leak the enemy core and bring their wools back to your victory monument!</objective>
+ 
+<authors>
+    <author>Sharpie</author>
+    <author>SrHappyKiller</author>
+</authors>
+ 
+<contributors>
+    <contributor>GeRa_CuLe</contributor>
+    <contributor>xKenrooy</contributor>
+    <contributor contribution="XML Fixing">DoomRobotBoy</contributor>
+</contributors>
+ 
+<teams>
+   <team id="red-team" color="dark red" max="16" max-overfill="22">Red Team</team>
+   <team id="blue-team" color="blue" max="16" max-overfill="22">Blue Team</team>
+</teams>
+ 
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="2">diamond pickaxe</item>
+        <item slot="3" amount="64">arrow</item>
+        <item slot="4" amount="64">arrow</item>
+        <item slot="5" amount="64">golden carrot</item>
+        <item slot="6" amount="64">glass</item>
+        <item slot="7" amount="64" damage="0">log</item>
+        <item slot="8">bucket</item>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="cd0000">leather helmet</helmet>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="0066cc">leather helmet</helmet>
+    </kit>
+</kits>
+ 
+ <filters>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+    <filter name="only-cobweb">
+        <block>web</block>
+    </filter>
+    <filter name="some-blocks">
+        <any>
+            <block>log:0</block>
+            <block>wood:0</block>
+        </any>
+    </filter>
+    <filter name="only-iron">
+        <block>iron block</block>
+    </filter>
+ </filters>
+ 
+ <regions>
+    <union name="obs-spawn">
+        <complement>
+            <cylinder base="-34.5,53,-21.5" radius="3"/>
+            <cylinder base="-34.5,53,-21.5" radius="2"/>
+        </complement>
+    </union>
+    <union name="wool-lanes">
+        <cuboid name="yellow-lane" min="-19,4,-71" min="-74,55,-62"/>
+        <cuboid name="green-lane" min="-23,4,-62" min="78,55,-71"/>
+        <cuboid name="orange-lane" min="23,4,28" min="78,55,19"/>
+        <cuboid name="purple-lane" min="-19,4,19" min="-74,55,28"/>
+    </union>
+    <union name="wool-rooms">
+        <union name="blue-wools">
+            <rectangle name="purple" min="-74,28" max="-85,19"/>
+            <rectangle name="purple-front" min="-68,28" max="-74,19"/>
+            <rectangle name="orange" min="78,19" max="89,28"/>
+            <rectangle name="orange-front" min="72,19" max="78,28"/>
+        </union>
+        <union name="red-wools">
+            <rectangle name="green" min="78,-62" max="89,-71"/>
+            <rectangle name="green-front" min="72,-71" max="78,-62"/>
+            <rectangle name="yellow" min="-74,-71" max="-85,-62"/>
+            <rectangle name="yellow-front" min="-68,-62" max="-74,-71"/>
+        </union>
+    </union>
+    <union name="spawns">
+        <rectangle name="red-spawn" min="-19,-75" max="23,-112"/>
+        <rectangle name="blue-spawn" min="23,32" max="-19,69"/>
+    </union>
+    <rectangle name="center-gap" min="23,1" min="-19,-44"/>
+<!-- Applied -->
+    <apply block="some-blocks">
+        <region name="purple-front"/>
+        <region name="orange-front"/>
+        <region name="green-front"/>
+        <region name="yellow-front"/>
+    </apply>
+    <apply block="only-cobweb">
+        <region name="purple"/>
+        <region name="orange"/>
+        <region name="green"/>
+        <region name="yellow"/>
+    </apply>
+    <apply block="no-void" message="You may not build in the void!">
+        <complement>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <region name="center-gap"/>
+            <region name="wool-rooms"/>
+        </complement>
+    </apply>
+ </regions>
+ 
+<spawns>
+    <spawn team="red" kit="red">
+        <regions yaw="0">
+            <cuboid min="3,10,-93" max="0,10,-90"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <regions yaw="-180">
+            <cuboid min="1,10,50" max="4,10,47"/>
+        </regions>
+    </spawn>
+    <default region="obs-spawn"/>
+</spawns>
+ 
+<wools>
+    <wool team="red-team" color="orange" location="1636,26,553">
+        <monument><block>1569, 25, 449</block></monument>
+    </wool>
+    <wool team="red-team" color="purple" location="1507,25,553">
+        <monument><block>1573, 25, 449</block></monument>
+    </wool>
+    <wool team="blue-team" color="light green" location="1636,26,481">
+        <monument><block>1574, 25, 585</block></monument>
+    </wool>
+    <wool team="blue-team" color="yellow" location="1507,26,481">
+        <monument><block>1570, 25, 585</block></monument>
+    </wool>
+</wools>
+ 
+<cores material="obsidian" leak="5">
+    <core team="red-team">
+        <region><cuboid min="-1,15,-55" max="4,21,-60"/></region>
+    </core>
+    <core team="blue-team"/>
+        <region><cuboid min="5,15,12" max="0,21,17"/></region>
+    </core>
+</cores>
+ 
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+ 
+<itemremove>
+    <item>arrow</item>
+    <item>golden carrot</item>
+    <item>leather helmet</item>
+    <item>glass</item>
+    <item>string</item>
+</itemremove>
+ 
+<timelock>on</timelock>
+<maxbuildheight>55</maxbuildheight>
+</map>
