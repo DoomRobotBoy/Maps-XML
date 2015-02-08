@@ -142,17 +142,17 @@
     <default region="obs-spawn"/>
 </spawns>
 <wools>
-    <wool team="red-team" color="orange" location="1636,26,553">
-        <monument><block>1569, 25, 449</block></monument>
+    <wool team="red-team" color="orange" location="83.5,12,20.5">
+        <monument><block>-0.5,11,-98.5</block></monument>
     </wool>
-    <wool team="red-team" color="purple" location="1507,25,553">
-        <monument><block>1573, 25, 449</block></monument>
+    <wool team="red-team" color="purple" location="-79.5,12,20.5">
+        <monument><block>3.5,11,-98.5</block></monument>
     </wool>
-    <wool team="blue-team" color="light green" location="1636,26,481">
-        <monument><block>1574, 25, 585</block></monument>
+    <wool team="blue-team" color="light green" location="83.5,12,-63.5">
+        <monument><block>4.5,11,55.5</block></monument>
     </wool>
-    <wool team="blue-team" color="yellow" location="1507,26,481">
-        <monument><block>1570, 25, 585</block></monument>
+    <wool team="blue-team" color="yellow" location="-79.5,12,-63.5">
+        <monument><block>0.5,11,55.5</block></monument>
     </wool>
 </wools>
 <cores material="obsidian" leak="5">
