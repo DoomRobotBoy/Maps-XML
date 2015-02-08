@@ -138,6 +138,12 @@
             <block>wool</block>
         </not>
     </filter>
+    <filter name="no-water">
+        <not>
+            <block>water</block>
+            <block>stationary water</block>
+        </not>
+    </filter>
     <filter name="only-orange">
         <team>orange</team>
     </filter>
@@ -186,12 +192,21 @@
         <cuboid min="61,21,-162" max="65,29,-166"/>
         <cuboid min="69,21,-158" max="73,29,-154"/>
     </union>
+    <union name="not-water">
+        <rectangle min="-16,-26" max="-10,-33"/>
+        <rectangle min="-60,-81" max="-64,-75"/>
+        <rectangle min="25,-167" max="31,-173"/>
+        <rectangle min="74,-124" max="80,-118"/>
+    </union>
 <!-- Applied -->
     <apply block-break="only-wool" block-place="deny-all" enter="only-magenta" kit="fatigue-kit">
         <region name="orange-wool-room"/>
     </apply>
     <apply block-break="only-wool" block-place="deny-all" enter="only-orange" kit="fatigue-kit">
         <region name="magenta-wool-room"/>
+    </apply>
+    <apply block="no-water">
+        <region name="not-water"/>
     </apply>
     <apply kit="fall-kit">
         <region name="spawn-kits"/>
@@ -260,7 +275,7 @@
         </destroyable>
         <destroyable name="Left Monument" material="packed ice" completion="100%">
             <region>
-                <cuboid min="-60,36,-80" max="-64,51,-78"/>
+                <cuboid min="-60,36,-80" max="-64,51,-76"/>
             </region>
         </destroyable>
         <destroyable name="Platform Orange" show="false" material="ender stone" completion="0%" mode-changes="true">
