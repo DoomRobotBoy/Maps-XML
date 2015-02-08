@@ -456,5 +456,13 @@
         <wrongtool>false</wrongtool>
     </rule>
 </blockdrops>
+<falling-blocks>
+    <rule>
+        <filter>
+            <block>gold block</block>
+            <block>coal block</block>
+        </filter>
+    </rule>
+</falling-blocks>
 <maxbuildheight>69</maxbuildheight>
 </map>
