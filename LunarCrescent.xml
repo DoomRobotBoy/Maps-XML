@@ -427,5 +427,34 @@
     <item>ender stone</item>
     <item>packed ice</item>
 </itemremove>
+<blockdrops>
+    <rule>
+        <region>
+            <region name="map"/>
+        </region>
+        <filter>
+            <block>coal block</block>
+        </filter>
+        <drops>
+            <item amount="2" grenade="true" grenade-power="2" grenade-destroy="false" locked="true" name="`eGrenade">fireball</item>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+    <rule>
+        <region>
+            <region name="map"/>
+        </region>
+        <filter>
+            <block>gold block</block>
+        </filter>
+        <drops>
+            <item enchantment="arrow damage:1">bow</item>
+            <item amount="3">golden apple</item>
+            <helmet>iron helmet</helmet>
+            <leggings>iron leggings</leggings>
+        </drops>
+        <wrongtool>false</wrongtool>
+    </rule>
+</blockdrops>
 <maxbuildheight>69</maxbuildheight>
 </map>
