@@ -315,6 +315,30 @@
     <portal name="magenta-portal-pad-2-up" x="@45.5" y="@21" z="@-156.5">
         <region><cuboid min="44,29,-155" max="42,30,-157"/></region>
     </portal>
+    <portal name="orange-pressure-portal-1" x="@-56.5" y="@29" z="@-34.5">
+        <region><cuboid min="-56,21,-44" max="-57,23,-42"/></region>
+    </portal>
+    <portal name="orange-pressure-portal-2" x="@-56.5" y="@29" z="@-34.5">
+        <region><cuboid min="-49,21,-35" max="-47,23,-34"/></region>
+    </portal>
+    <portal name="orange-portal-pad-1" x="@-47.5" y="@29" z="@-71.5">
+        <region><cuboid min="-47,21,-62" max="-49,22,-64"/></region>
+    </portal>
+    <portal name="orange-portal-pad-2" x="@-19.5" y="@29" z="@-43.5">
+        <region><cuboid min="-29,21,-44" max="-27,22,-42"/></region>
+    </portal>
+    <portal name="orange-pressure-portal-1-up" x="@-51.5" y="@21" z="@-39.5">
+        <region><cuboid min="-56,29,-44" max="-57,31,-42"/></region>
+    </portal>
+    <portal name="orange-pressure-portal-2-up" x="@-51.5" y="@21" z="@-39.5">
+        <region><cuboid min="-49,29,-35" max="-47,31,-34"/></region>
+    </portal>
+    <portal name="orange-portal-pad-1-up" x="@-48.5" y="@21" z="@-60.5">
+        <region><cuboid min="-47,29,-62" max="-49,30,-64"/></region>
+    </portal>
+    <portal name="orange-portal-pad-2-up" x="@-30.5" y="@21" z="@-42.5">
+        <region><cuboid min="-29,29,-44" max="-27,30,-42"/></region>
+    </portal>
 </portals>
 <renewables>
     <renewable rate="2.5" grow="true" particles="true" sound="true" avoid-entities="true">
