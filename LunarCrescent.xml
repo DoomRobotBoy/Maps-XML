@@ -3,10 +3,10 @@
 <version>1.0.0</version>
 <objective>Destroy the enemy monuments!</objective>
 <authors>
-    <author>samtheman43</author>
+    <author uuid="7ab24d14-0801-48ba-8fea-147ddf400067"/>
 </authors>
 <contributors>
-    <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/>
 </contributors>
 <broadcasts>
     <tip after="10s">You can only break the monuments with TNT, not with your pickaxe/fist.</tip>
@@ -79,16 +79,64 @@
             <void/>
         </deny>
     </filter>
-    <filter name="deny-tnt-damage">
+    <filter name="deny-tnt-world">
+        <all>
+            <filter name="deny-world"/>
+            <any>
+                <block>quartz block:0</block>
+                <block>quartz block:1</block>
+                <block>quartz block:2</block>
+                <block>stained glass:1</block>
+                <block>stained glass:2</block>
+                <block>stained glass:14</block>
+                <block>step:7/block>
+                <block>step:15/block>
+                <block>quartz stairs</block>
+            </any>
+        </all>
+    </filter>
+    <filter name="deny-blocks-world">
         <not>
-            <all>
-                <cause>explosion</cause>
-                <block>tnt</block>
-            </all>
+            <any>
+                <block>quartz block:0</block>
+                <block>quartz block:1</block>
+                <block>quartz block:2</block>
+                <block>stained glass:1</block>
+                <block>stained glass:2</block>
+                <block>stained glass:14</block>
+                <block>step:7/block>
+                <block>step:15/block>
+                <block>quartz stairs</block>
+                <block>packed ice</block>
+            </any>
         </not>
+    </filter>
+    <filter name="only-cyan-clay">
+        <any>
+            <block>stained clay:9</block>
+            <not>
+                <any>
+                    <block>stained clay:1</block>
+                    <block>stained clay:2</block>
+                    <block>stained clay:10</block>
+                    <block>stained clay:14</block>
+                </any>
+            </not>
+        </any>
     </filter>
     <filter name="only-gold">
         <block>gold</block>
+    </filter>
+    <filter name="no-wool">
+        <not>
+            <block>wool</block>
+        </not>
+    </filter>
+    <filter name="only-orange">
+        <team>orange</team>
+    </filter>
+    <filter name="only-magenta">
+        <team>magenta</team>
     </filter>
 </filters>
 <regions>
@@ -113,6 +161,25 @@
         <cuboid name="purple-spawn-drop" min="77,108,-170" max="70,28,-163"/>
     </union>
     <cuboid name="supply-drop-zone-only-gold" min="12,30,-105" max="1,70,-94"/>
+    <union name="cyan-clay-renewables">    
+        <cuboid name="purple-cyan-renewable" min="22,20,-179" max="86,29,-115"/>
+        <cuboid name="orange-cyan-renewable" min="-7,20,-20" max="-71,29,-84"/>
+    </union>
+    <union name="endstone-renewables">
+        <cuboid name="purple-endstone-renewable" min="22,28,-179" max="86,34,-115"/>
+        <cuboid name="orange-endstone-renewable" min="-7,28,-20" max="-71,34,-84"/>
+        <cuboid name="center-endstone-renewable" min="-53,20,-161" max="68,35,-38"/>
+    </union>
+    <union name="orange-wool-room">
+        <cuboid min="-42,21,-49" max="-54,29,-37"/>
+        <cuboid min="-46,21,-37" max="-50,29,-33"/>
+        <cuboid min="-54,21,-45" max="-58,29,-41"/>
+    </union>
+    <union name="purple-wool-room">
+        <cuboid min="-42,21,-49" max="-54,29,-37"/>
+        <cuboid min="-46,21,-37" max="-50,29,-33"/>
+        <cuboid min="-54,21,-45" max="-58,29,-41"/>
+    </union>
 <!-- Applied -->
     <apply kit="fall-kit">
         <region name="spawn-kits"/>
@@ -128,8 +195,20 @@
             <region name="playable-area"/>
         </negative>
     </apply>
-    <apply block="deny-tnt-damage">
+    <apply block="deny-world">
         <region name="spawn-drops"/>
+    </apply>
+    <apply block="only-cyan-clay">
+        <region name="map"/>
+    </apply>
+    <apply block="no-wool">
+        <region name="map"/>
+    </apply>
+    <apply block="deny-tnt-world">
+        <region name="map"/>
+    </apply>
+    <apply block="deny-blocks-world">
+        <region name="map"/>
     </apply>
     <apply block="deny-void" message="You may not edit the void area!">
         <region name="map"/>
@@ -154,9 +233,14 @@
 </spawns>
 <destroyables>
     <destroyables owner="orange">
-        <destroyable name="Center Monument" material="packed ice" completion="100%">
+        <destroyable name="Right Monument" material="packed ice" completion="100%">
             <region>
-                <cuboid min="-130,25,-109" max="-133,33,-106"/>
+                <cuboid min="-15,36,-27" max="-11,51,-31"/>
+            </region>
+        </destroyable>
+        <destroyable name="Left Monument" material="packed ice" completion="100%">
+            <region>
+                <cuboid min="-60,36,-80" max="-64,51,-78"/>
             </region>
         </destroyable>
         <destroyable name="Platform Orange" show="false" material="ender stone" completion="0%" mode-changes="true">
@@ -166,9 +250,14 @@
         </destroyable>
     </destroyables>
     <destroyables owner="magenta">
-        <destroyable name="Center Monument" material="packed ice" completion="100%">
+        <destroyable name="Right Monument" material="packed ice" completion="100%">
             <region>
-                <cuboid min="-130,25,-109" max="-133,33,-106"/>
+                <cuboid min="26,36,-168" max="30,51,-172"/>
+            </region>
+        </destroyable>
+        <destroyable name="Left Monument" material="packed ice" completion="100%">
+            <region>
+                <cuboid min="75,36,-123" max="79,51,-119"/>
             </region>
         </destroyable>
         <destroyable name="Platform Purple" show="false" material="ender stone" completion="0%" mode-changes="true">
@@ -181,6 +270,36 @@
 <modes>
     <mode after="15s" material="air" name="Players are released!"/>
 </modes>
+<renewables>
+    <renewable rate="2.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <region name="endstone-renewables"/>
+        </region>
+        <renew>ender stone</renew>
+        <replace>air</replace>
+    </renewable>
+    <renewable rate="2.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <region name="cyan-clay-renewables"/>
+        </region>
+        <renew>stained clay:9</renew>
+        <replace>air</replace>
+    </renewable>
+    <renewable rate="0.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <cuboid min="-49,21,-46" max="-45,25,-42"/>
+        </region>
+        <renew>wool:1</renew>
+        <replace>air</replace>
+    </renewable>
+    <renewable rate="0.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <cuboid min="64,21,-153" max="60,25,-157"/>
+        </region>
+        <renew>wool:2</renew>
+        <replace>air</replace>
+    </renewable>
+</renewables>
 <killreward>
     <item>dispenser</item>
 </killreward>
@@ -221,6 +340,7 @@
     <item>iron boots</item>
     <item>diamond chestplate</item>
     <item>ender stone</item>
+    <item>packed ice</item>
 </itemremove>
 <maxbuildheight>69</maxbuildheight>
 </map>
