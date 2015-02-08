@@ -3,23 +3,19 @@
 <name>Iced Wars</name>
 <version>1.0.0</version>
 <objective>Leak the enemy core and bring their wools back to your victory monument!</objective>
- 
 <authors>
-    <author>Sharpie</author>
-    <author>SrHappyKiller</author>
+    <author uuid="1e79acd3-562e-42d4-9a6c-e923f5284329"/>
+    <author uuid="4c8b644b-4c7f-48db-92b1-f3aee86a328d"/>
 </authors>
- 
 <contributors>
-    <contributor>GeRa_CuLe</contributor>
-    <contributor>xKenrooy</contributor>
-    <contributor contribution="XML Fixing">DoomRobotBoy</contributor>
+    <contributor uuid="385710d4-a1c8-4e57-9900-1ecd169ab853"/>
+    <contributor uuid="98ad0d6c-26e8-48ee-8140-6fafcdd614da"/>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML Fixing"/>
 </contributors>
- 
 <teams>
    <team id="red-team" color="dark red" max="16" max-overfill="22">Red Team</team>
    <team id="blue-team" color="blue" max="16" max-overfill="22">Blue Team</team>
 </teams>
- 
 <kits>
     <kit name="spawn" force="true">
         <item slot="0">iron sword</item>
@@ -39,8 +35,7 @@
         <helmet color="0066cc">leather helmet</helmet>
     </kit>
 </kits>
- 
- <filters>
+<filters>
     <filter name="only-red">
         <team>red</team>
     </filter>
@@ -64,9 +59,8 @@
     <filter name="only-iron">
         <block>iron block</block>
     </filter>
- </filters>
- 
- <regions>
+</filters>
+<regions>
     <union name="obs-spawn">
         <complement>
             <cylinder base="-34.5,53,-21.5" radius="3"/>
@@ -74,10 +68,10 @@
         </complement>
     </union>
     <union name="wool-lanes">
-        <cuboid name="yellow-lane" min="-19,4,-71" min="-74,55,-62"/>
-        <cuboid name="green-lane" min="-23,4,-62" min="78,55,-71"/>
-        <cuboid name="orange-lane" min="23,4,28" min="78,55,19"/>
-        <cuboid name="purple-lane" min="-19,4,19" min="-74,55,28"/>
+        <cuboid name="yellow-lane" min="-19,4,-71" min="-74,56,-62"/>
+        <cuboid name="green-lane" min="-23,4,-62" min="78,56,-71"/>
+        <cuboid name="orange-lane" min="23,4,28" min="78,56,19"/>
+        <cuboid name="purple-lane" min="-19,4,19" min="-74,56,28"/>
     </union>
     <union name="wool-rooms">
         <union name="blue-wools">
@@ -98,6 +92,7 @@
         <rectangle name="blue-spawn" min="23,32" max="-19,69"/>
     </union>
     <rectangle name="center-gap" min="23,1" min="-19,-44"/>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
 <!-- Applied -->
     <apply block="some-blocks">
         <region name="purple-front"/>
@@ -111,15 +106,28 @@
         <region name="green"/>
         <region name="yellow"/>
     </apply>
+    <apply block-break="only-iron">
+        <region name="spawns"/>
+    </apply>
+    <apply block-place="deny-all">
+        <region name="spawns"/>
+    </apply>
+    <apply block="only-red" enter="only-red">
+        <region name="red-spawn"/>
+        <region name="blue-wools"/>
+    </apply>
+    <apply block="only-blue" enter="only-blue">
+        <region name="blue-spawn"/>
+        <region name="red-wools"/>
+    </apply>
     <apply block="no-void" message="You may not build in the void!">
         <complement>
-            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <region name="map" min="oo,oo" max="-oo,-oo"/>
             <region name="center-gap"/>
-            <region name="wool-rooms"/>
+            <region name="wool-lanes"/>
         </complement>
     </apply>
- </regions>
- 
+</regions>
 <spawns>
     <spawn team="red" kit="red">
         <regions yaw="0">
@@ -133,7 +141,6 @@
     </spawn>
     <default region="obs-spawn"/>
 </spawns>
- 
 <wools>
     <wool team="red-team" color="orange" location="1636,26,553">
         <monument><block>1569, 25, 449</block></monument>
@@ -148,7 +155,6 @@
         <monument><block>1570, 25, 585</block></monument>
     </wool>
 </wools>
- 
 <cores material="obsidian" leak="5">
     <core team="red-team">
         <region><cuboid min="-1,15,-55" max="4,21,-60"/></region>
@@ -157,12 +163,10 @@
         <region><cuboid min="5,15,12" max="0,21,17"/></region>
     </core>
 </cores>
- 
 <toolrepair>
     <tool>iron sword</tool>
     <tool>bow</tool>
 </toolrepair>
- 
 <itemremove>
     <item>arrow</item>
     <item>golden carrot</item>
@@ -170,7 +174,6 @@
     <item>glass</item>
     <item>string</item>
 </itemremove>
- 
 <timelock>on</timelock>
 <maxbuildheight>55</maxbuildheight>
 </map>
