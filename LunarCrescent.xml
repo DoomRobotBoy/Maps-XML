@@ -10,6 +10,10 @@
 </contributors>
 <broadcasts>
     <tip after="10s">You can only break the monuments with TNT, not with your pickaxe/fist.</tip>
+    <tip after="20s">`3`oEvery 5 minutes a `7`o`lCoal Blocks`3`o will drop on the little islands. Break them to receive `4`ogrenades`3`o.</tip>
+    <tip after="25s">`3`oEvery 10 minutes `6`o`lGold Blocks`3`o will drop on the center island. Break them to receive `b`oarmor`3`o, `b`ogolden apples`3`o and a `b`opower bow`3`o.</tip>
+    <alert after="5m" count="oo">`7`o`Coal Blocks`3`o have dropped!</alert>
+    <alert after="10m" count="oo">`6`o`Gold Blocks`3`o have dropped!</alert>
 </broadcasts>
 <teams>
     <team id="orange" color="gold" max="32" max-overfill="34">Orange Team</team>
@@ -76,7 +80,7 @@
         <potion duration="oo" amplifier="2">slow digging</potion>
     </kit>
     <kit name="no-fatigue-kit">
-        <potion duration="oo" amplifier="2">slow digging</potion>
+        <potion duration="0" amplifier="2">slow digging</potion>
     </kit>
 </kits>
 <filters>
@@ -131,7 +135,10 @@
         </any>
     </filter>
     <filter name="only-gold">
-        <block>gold</block>
+        <block>gold block</block>
+    </filter>
+    <filter name="only-coal">
+        <block>coal block</block>
     </filter>
     <filter name="no-wool">
         <not>
@@ -173,6 +180,10 @@
         <cuboid name="magenta-spawn-drop" min="77,108,-170" max="70,28,-163"/>
     </union>
     <cuboid name="supply-drop-zone-only-gold" min="12,30,-105" max="1,70,-94"/>
+    <union name="supply-drop-zone-only-coal">    
+        <region name="supply-drop-zone-only-coal-1"/>
+        <region name="supply-drop-zone-only-coal-2"/>
+    </union>
     <union name="cyan-clay-renewables">    
         <cuboid name="magenta-cyan-renewable" min="22,20,-179" max="86,29,-115"/>
         <cuboid name="orange-cyan-renewable" min="-7,20,-20" max="-71,29,-84"/>
@@ -221,6 +232,9 @@
     </apply>
     <apply block="only-gold">
         <region name="supply-drop-zone-only-gold"/>
+    </apply>
+    <apply block="only-gold">
+        <region name="supply-drop-zone-only-coal"/>
     </apply>
     <apply block="deny-all" message="You may not edit the spawn tubes!">
         <region name="spawn-drops"/>
