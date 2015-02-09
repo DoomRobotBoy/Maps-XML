@@ -181,8 +181,8 @@
     </union>
     <cuboid name="supply-drop-zone-only-gold" min="12,30,-105" max="1,70,-94"/>
     <union name="supply-drop-zone-only-coal">    
-        <region name="supply-drop-zone-only-coal-1"/>
-        <region name="supply-drop-zone-only-coal-2"/>
+        <cuboid name="supply-drop-zone-only-coal-1" min="44,31,-99" max="47,82,-96"/>
+        <cuboid name="supply-drop-zone-only-coal-2" min="-32,31,100" max="-35,82,-103"/>
     </union>
     <union name="cyan-clay-renewables">    
         <cuboid name="magenta-cyan-renewable" min="22,20,-179" max="86,29,-115"/>
