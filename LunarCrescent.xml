@@ -319,6 +319,14 @@
 <modes>
     <mode after="15s" material="air" name="Players are released!"/>
 </modes>
+<wools>
+    <wool team="orange" location="60.5,24,-153.5" color="magenta">
+        <monument><block>77.5,30,-170.5</block></monument>
+    </wool>
+    <wool team="orange" location="-45.5,24,-45.5" color="orange">
+        <monument><block>-62.5,30,-28.5</block></monument>
+    </wool>
+</wools>
 <portals>
     <portal name="magenta-pressure-portal-1" x="@71.5" y="@29" z="@-164.5">
         <region><cuboid min="71,21,-155" max="72,23,-157"/></region>
