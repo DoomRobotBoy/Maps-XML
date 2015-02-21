@@ -10,6 +10,50 @@
     <team id="red" color="dark red" max="10">Attackers</team>
     <team id="blue" color="blue" max="10">Defenders</team>
 </teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="2">stone pickaxe</item>
+        <item slot="3">stone axe</item>
+        <item slot="30">stone spade</item>
+        <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+        <item slot="5" amount="28">golden carrot</item>
+        <item slot="8">boat</item>
+        <leggings damage="-3000" enchantment="protection projectile:1">iron leggings</leggings>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <item slot="1" enchantment="arrow damage:1">bow</item>
+        <item slot="28" amount="64">arrow</item>
+        <helmet color="cd0000" damage="-3000">leather helmet</helmet>
+        <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
+        <boots color="cd0000" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <item slot="1">bow</item>
+        <item slot="28" amount="40">arrow</item>
+        <helmet color="0066cc" damage="-3000">leather helmet</helmet>
+        <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
+        <boots color="0066cc" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<spawns>
+    <default yaw="-90">
+        <regions>
+            <block>-213.5,54,-222.5</block>
+        </regions>
+    </default>
+    <spawn team="red" kit="red">
+        <regions>
+            <block>-213.5,51,-222.5</block>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <regions>
+            <block>-213.5,47,-222.5</block>
+        </regions>
+    </spawn>
+</spawns>
 <filters>
     <filter name="only-blue">
         <team>blue</team>
@@ -39,17 +83,16 @@
     </filter>
 </filters>
 <regions>
+    <apply block="deny-all">
+        <cuboid name="spawns-protection" min="-223,44,-213" max="-204,57,-232"/>
+    </apply>
     <apply block="no-void" message="You may not build in the void.">
         <complement>
             <rectangle name="map" min="-oo,-oo" max="oo,oo"/>
             <rectangle name="center" min="-229,-238" max="-198,-207"/>
+        </complement>
     </apply>
-    <apply enter="only-red" message="You may not enter the enemy spawn!">
-        <rectangle name="red-spawn" min="-13,85" max="13,93"/>
-    </apply>
-    <apply enter="only-blue" message="You may not enter the enemy spawn!">
-        <rectangle name="blue-spawn" min="-13,-85" max="13,-93"/>
-    </apply>
+
     <union name="red-2nd-owner">
         <cuboid min="2,2,-94" max="6,3,-92"/>
         <cuboid min="2,2,92" max="6,3,94"/>
@@ -66,68 +109,37 @@
     </union>
 </regions>
 
-<kits>
-    <kit name="spawn">
-        <item slot="0">stone sword</item>
-        <item slot="1">bow</item>
-        <item slot="2" damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
-        <item slot="3" amount="32">cooked beef</item>
-        <item slot="28" amount="24">arrow</item>
-        <potion duration="12" amplifier="3">heal</potion>
-        <potion duration="13" amplifier="2">damage resistance</potion>
-        <leggings damage="-3000" enchantment="protection_fire:2">iron leggings</leggings>
-        <potion duration="oo">night vision</potion>
-    </kit>
-    <kit name="red" parents="spawn">
-        <helmet color="cd0000" damage="-3000">leather helmet</helmet>
-        <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
-        <boots color="cd0000" damage="-3000">leather boots</boots>
-    </kit>
-    <kit name="blue" parents="spawn">
-        <helmet color="0066cc" damage="-3000">leather helmet</helmet>
-        <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
-        <boots color="0066cc" damage="-3000">leather boots</boots>
-    </kit>
-</kits>
-<spawns>
-    <default yaw="-90">
-        <regions>
-            <cylinder base="-24,16,0" radius="1" height="0"/>
-        </regions>
-    </default>
-    <spawn team="red" kit="red" yaw="0">
-        <regions>
-            <cylinder base="0,247,88" radius=".3" height="0"/>
-        </regions>
-    </spawn>
-    <spawn team="blue" kit="blue" yaw="180">
-        <regions>
-            <cylinder base="0,247,-88" radius=".3" height="0"/>
-        </regions>
-    </spawn>
-</spawns>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
+    <tool>stone pickaxe</tool>
+    <tool>stone axe</tool>
 </toolrepair>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
-    <item>leather boots</item>
     <item>iron leggings</item>
-    <item>cooked beef</item>
+    <item>leather boots</item>
+    <item>goldden carrot</item>
     <item>glass bottle</item>
     <item>potion</item>
     <item>arrow</item>
-    <item>iron helmet</item>
-    <item>iron chestplate</item>
-    <item>iron boots</item>
 </itemremove>
 <killreward>
     <item amount="12">arrow</item>
-    <item damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
-    <item amount="1">iron ingot</item>
+    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <filter>
+        <team>red</team>
+    </filter>
 </killreward>
+<killreward>
+    <item amount="16">arrow</item>
+    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <filter>
+        <team>blue</team>
+    </filter>
+</killreward>
+
 <portals>
     <portal x="@0" y="@6" z="@55" yaw="180" filter="red-2nd">
         <cuboid min="3,1,92" max="5,4,93"/>
