@@ -15,12 +15,6 @@
     <team id="blue" color="blue" max="10">Blue Team</team>
 </teams>
 <filters>
-    <filter name="only-red">
-        <team>red</team>
-    </filter>
-    <filter name="only-blue">
-        <team>blue</team>
-    </filter>
     <filter name="deny-void">
         <deny>
             <void/>
@@ -29,67 +23,53 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid name="void-gap" min="411,31,337" max="467,50,457"/>
-    <rectangle name="void-gap-1" min="411,337" max="467,457"/>
+    <rectangle name="void-gap" min="485,469" max="429,349"/>
+    <cuboid name="void-gap-height" min="485,31,469" max="429,50,349"/>
+    <union name="tunnels">
+        <rectangle name="red-tunnel" min="369,404" max="309,414"/>
+        <rectangle name="blue-tunnel" min="545,414" max="605,404"/>
+    </union>
+    <union name="in-front-of-spawn" message="You may not modify the area out of spawn!">
+        <rectangle name="in-front-of-red" min="386,405" max="369,413"/>
+        <rectangle name="in-front-of-blue" min="528,413" max="545,405"/>
+    </union>
     <!-- Red -->
-    <cuboid name="red-right-core" min="374,15,421" max="368,20,427"/>
-    <cuboid name="red-left-core" min="374,15,373" max="368,20,367"/>
-    <cuboid name="red-drop" min="358,10,400" max="353,50,394"/>
-    <cuboid name="red-drop-pool" min="358,7,400" max="353,9,394"/>
+    <cuboid name="red-right-core" min="392,15,433" max="386,20,439"/>
+    <cuboid name="red-left-core" min="392,15,385" max="386,20,379"/>
     <!-- Blue -->
-    <cuboid name="blue-right-core" min="504,15,373" max="510,20,367"/>
-    <cuboid name="blue-left-core" min="504,15,421" max="510,20,427"/>
-    <cuboid name="blue-drop" min="520,10,394" max="525,50,400"/>
-    <cuboid name="blue-drop-pool" min="520,7,394" max="525,9,400"/>
+    <cuboid name="blue-right-core" min="522,15,385" max="528,20,379"/>
+    <cuboid name="blue-left-core" min="522,15,433" max="528,20,439"/>
 <!-- Applied -->
-    <apply block-place="deny-all">
-        <union name="spawn-drops">
-            <region name="red-drop"/>
-            <region name="blue-drop"/>
-        </union>
-    </apply>
     <apply block="deny-all">
-        <union name="spawn-drop-pools">
-            <region name="red-drop-pool"/>
-            <region name="blue-drop-pool"/>
-        </union>
+        <region name="in-front-of-spawn"/>
     </apply>
-    <apply block="deny-tnt-damage">
-        <region name="spawn-drops"/>
-        <region name="spawn-drop-pools"/>
-    </apply>
-    <apply enter="only-red">
-        <region name="red-drop"/>
-        <region name="red-drop-pool"/>
-    </apply>
-    <apply enter="only-blue">
-        <region name="blue-drop"/>
-        <region name="blue-drop-pool"/>
+    <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
+        <region name="tunnels"/>
     </apply>
     <apply block="deny-all" message="In the void gap you are not allowed to build above y=30!">
-        <region name="void-gap"/>
+        <region name="void-gap-height"/>
     </apply>
-    <apply block-break="deny-void" message="You may not place blocks in the void area!">
+    <apply block-place="deny-void" message="You may not place blocks in the void area!">
         <complement>
             <region name="map"/>
-            <region name="void-gap-1"/>
+            <region name="void-gap"/>
         </complement>
     </apply>
 </regions>
 <spawns>
     <spawn team="red" yaw="-90">
         <regions>
-            <cuboid min="356,250,398" max="355,250,396"/>
+            <cuboid min="312,5,408" max="315,5,410"/>
         </regions>
     </spawn>
     <spawn team="blue" yaw="90">
         <regions>
-            <cuboid min="522,250,396" max="523,250,398"/>
+            <cuboid min="602,6,410" max="600,6,408"/>
         </regions>
     </spawn>
-    <default yaw="0">
+    <default yaw="-90">
         <regions>
-            <cuboid min="439,31,481" max="435,31,479"/>
+            <cuboid min="600,11,408" max="601,11,410"/>
         </regions>
     </default>
 </spawns>
@@ -108,8 +88,5 @@
     <item>obsidian</item>
     <item>glowstone dust</item>
 </itemremove>
-<broadcasts>
-    <tip after="1s">I advise you to not move after spawning until you land in the water, or you'll death will come rather quickly.</tip>
-
 <maxbuildheight>50</maxbuildheight>
 </map>
