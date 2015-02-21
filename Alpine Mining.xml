@@ -93,7 +93,7 @@
     <apply block="no-enchantment" message="You may not break the enchanting table!">
         <region name="map"/>
     </apply>
-    <apply block="deny-lava">
+    <apply block-place="deny-lava">
         <region name="map"/>
     </apply>
     <apply block="deny-all" message="You reached the maximum build limit over the ocean.">
