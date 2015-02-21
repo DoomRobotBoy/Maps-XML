@@ -33,6 +33,14 @@
         <rectangle name="in-front-of-red" min="386,405" max="369,413"/>
         <rectangle name="in-front-of-blue" min="528,413" max="545,405"/>
     </union>
+    <union name="spawn-chests">
+        <cuboid name="blue-1" min="513,11,389" max="520,5,397"/>
+        <cuboid name="blue-2" min="513,11,405" max="520,5,413"/>
+        <cuboid name="blue-3" min="513,11,421" max="520,5,429"/>
+        <cuboid name="red-1" min="401,11,429" max="394,5,421"/>
+        <cuboid name="red-2" min="401,11,413" max="394,5,405"/>
+        <cuboid name="red-3" min="401,11,397" max="394,5,389"/>
+    </union>
     <!-- Red -->
     <cuboid name="red-right-core" min="392,15,433" max="386,20,439"/>
     <cuboid name="red-left-core" min="392,15,385" max="386,20,379"/>
@@ -42,6 +50,9 @@
 <!-- Applied -->
     <apply block="deny-all">
         <region name="in-front-of-spawn"/>
+    </apply>
+    <apply block="deny-world">
+        <region name="spawn-chests"/>
     </apply>
     <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
         <region name="tunnels"/>
