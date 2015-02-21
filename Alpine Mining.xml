@@ -1,21 +1,23 @@
-<?xml version="1.1"?>
+<?xml version="1.2"?>
 <map proto="1.3.6">
 <name>Alpine Mining</name>
-<version>1.1.0</version>
-<objective>
-    Destroy the enemy's 3 monuments!
-</objective>
+<version>1.2.0</version>
+<objective>Destroy the enemy's 2 monuments!</objective>
 <authors>
-    <author contribution="Inventing theme/Name map/Gamemode">rockymine</author>
-    <author contribution="Aesthetics/Iron mine/Wisdom">jollee999</author>
-    <author contribution="Aesthetics/Village">DoomRobotBoy</author>
+    <author uuid="fe3608b7-d105-4029-8800-34b3147065b6" contribution="Inventing theme/Name map/Gamemode"/>
+    <!--  rockymine  -->
+    <author uuid="c2848337-b526-4db0-9130-fabd0a5c7cfb" contribution="Aesthetics/Iron mine/Wisdom"/>
+    <!--  jollee999  -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="Aesthetics/Village"/>
+    <!--  DoomRobotBoy  -->
 </authors>
 <contributors>
-    <contributor contribution="XML">orky48</contributor>
+    <contributor uuid="083ec416-c87e-438f-8732-170798b4fe93" contribution="XML"/>
+    <!--  orky48  -->
 </contributors>
 <teams>
-    <team color="blue" max="50" max-overfill="58">Blue Team</team>
-    <team color="dark red" max="50" max-overfill="58">Red Team</team>
+    <team color="blue" max="50" max-overfill="58">Blue</team>
+    <team color="dark red" max="50" max-overfill="58">Red</team>
 </teams>
 <kits>
     <kit name="spawn">
@@ -23,7 +25,7 @@
         <item slot="1" enchantment="arrow infinite">bow</item>
         <item slot="28">arrow</item>
         <item slot="2">diamond pickaxe</item>
-        <item slot="3">stone axe</item>
+        <item slot="3" enchantment="dig speed:1">iron axe</item>
         <item slot="4" enchantment="durability:1">stone spade</item>
         <item slot="5" amount="32">bread</item>
         <item slot="6" amount="32">log</item>
@@ -39,14 +41,20 @@
     </kit>
 </kits>
 <spawns>
-    <spawn team="red" kit="red" yaw="-90">
-        <cuboid min="-43,14,-287" max="-40,14,-284"/>
+    <spawn team="red" kit="red">
+        <regions yaw="-90">
+            <cuboid min="-42,27,-177" max="-39,27,-174"/>
+        </regions>
     </spawn>
-    <spawn team="blue" kit="blue" yaw="90">
-        <cuboid min="44,14,340" max="41,14,337"/>
+    <spawn team="blue" kit="blue">
+        <regions yaw="90">
+            <cuboid min="43,27,322" max="40,27,319"/>
+        </regions>
     </spawn>
     <default>
-        <block>55.5,56,26.5</block>
+        <regions>
+            <block>66.5,57,72.5</block>
+        </regions>
     </default>
 </spawns>
 <filters>
@@ -71,120 +79,74 @@
             <block>beacon</block>
         </deny>
     </filter>
-    <filter name="portal-red" parents="deny-all">
-        <allow>
-            <objective>red-2</objective>
-            <objective>red-3</objective>
-        </allow>
-    </filter>
-    <filter name="portal-blue" parents="deny-all">
-        <allow>
-            <objective>blue-2</objective>
-            <objective>blue-3</objective>
-        </allow>
-    </filter>
 </filters>
 <regions>
-    <apply block="deny-world" message="You may not build outside the map!">
-        <negative>
-            <rectangle name="map" min="-46,-294" max="47,347"/>
-        </negative>
+    <rectangle name="map" min="47,329" max="-46,-184"/>
+    <apply block="deny-all" message="You may not place or break blocks in spawn!">
+        <rectangle name="red-spawn" min="-46,-165" max="-32,-184"/>
+        <rectangle name="blue-spawn" min="47,310" max="33,329"/>
+    </apply>
+    <apply block="deny-all" message="You may not break the defense-chests!">
+        <cuboid name="red-chests" min="-9,22,-167" max="-14,24,-165"/>
+        <cuboid name="blue-chests" min="10,22,312" max="15,24,310"/>
     </apply>
     <apply block="no-enchantment" message="You may not break the enchanting table!">
         <region name="map"/>
     </apply>
-    <union name="spawns">
-        <rectangle name="red-spawn" min="-46,-294" max="-20,-272"/>
-        <rectangle name="blue-spawn" min="21,325" max="47,347"/>
-    </union>
-    <apply block="deny-world" message="You may not place or break blocks in spawn!">
-        <region name="spawns"/>
-    </apply>
-    <apply block="deny-world" message="You may not edit the portals!">
-        <!-- Red portals -->
-        <cuboid min="16,20,-173" max="19,23,-170"/>
-        <cuboid min="8,25,-225" max="13,28,-222"/>
-        <!-- Blue portals -->
-        <cuboid min="-12,25,276" max="-7,28,277"/>
-        <cuboid min="-17,20,223" max="-16,23,226"/>
-    </apply>
     <apply block="deny-lava">
         <region name="map"/>
     </apply>
-    <apply block="deny-all" message="Do not destroy the helpful signs!">
-        <union name="blue-signs">
-            <cuboid name="portal-sign-1" min="-10,22,320" max="-8,22,322"/>
-            <cuboid name="sign-1" min="15,16,333" max="13,19,335"/>
-            <cuboid name="sign-2" min="0,35,232" max="-1,39,230"/>
-            <cuboid name="sign-3" min="-13,30,195" max="-12,34,197"/>
-            <cuboid name="sign-4" min="1,36,175" max="0,40,177"/>
-            <cuboid name="sign-5" min="-17,32,180" max="-16,35,182"/>
-            <cuboid name="sign-6" min="6,18,324" max="7,21,322"/>
-            <cuboid name="sign-7" min="6,36,293" max="5,40,291"/>
-        </union>
-        <mirror normal="0.5,1,26.5">
-            <region name="blue-signs"/>
-        </mirror> 
-    </apply>
-    <apply block="deny-all" message="You may not break the end of the mineshaft!">
-        <cylinder name="blue-safety-portal" base="0.5,10,172.5" radius="5" height="9"/>
-        <mirror normal="0.5,1,26.5">
-            <region name="blue-safety-portal"/>
-        </mirror> 
-    </apply>
-    <apply block="deny-all" message="Don't clog up the mineshaft!">
-        <cuboid name="blue-safety-exit" min="1,14,157" max="0,14,172"/>
-        <mirror normal="0.5,1,26.5">
-            <region name="blue-safety-exit"/>
-        </mirror> 
-    </apply>
-    <apply block="deny-all" message="You may not place blocks above y=35 over the oceans!">
-        <cuboid min="-46,36,147" max="47,56,-94"/>
+    <apply block="deny-all" message="You reached the maximum build limit over the ocean.">
+        <cuboid min="-46,36,-2" max="47,56,147"/>
     </apply>
     <apply use="deny-beacon-use">
         <region name="map"/>
     </apply>
+    <apply block="deny-all" message="You may not build outside the map!">
+        <negative>
+            <region name="map"/
+        </negative>
+    </apply>
 </regions>
 <destroyables materials="obsidian;beacon">
-    <destroyable owner="red" name="Monument A" id="red-1">
-        <cuboid min="0,16,-49" max="1,18,-48"/>
-    </destroyable>
-    <destroyable owner="blue" name="Monument A" id="blue-1">
-        <cuboid min="0,16,101" max="1,18,102"/>
-    </destroyable>
-    <destroyable owner="red" name="Monument B" id="red-2">
-        <cuboid min="-20,32,-187" max="-19,34,-186"/>
-    </destroyable>
-    <destroyable owner="blue" name="Monument B" id="blue-2">
-        <cuboid min="20,32,239" max="21,34,240"/>
-    </destroyable>
-        <destroyable owner="red" name="Monument C" id="red-3">
-        <cuboid min="24,36,-224" max="25,38,-223"/>
-    </destroyable>
-    <destroyable owner="blue" name="Monument C" id="blue-3">
-        <cuboid min="-24,36,276" max="-23,38,277"/>
-    </destroyable>
+    <destroyables name="Monument A">
+        <destroyable owner="red" id="red-2">
+            <region>
+                <cuboid min="-19,32,-94" max="-20,35,-95"/>
+            </region>
+        </destroyable>
+        <destroyable owner="blue" id="blue-2">
+            <region>
+                <cuboid min="20,32,239" max="21,35,240"/>
+            </region>
+        </destroyable>
+    </destroyables>
+    <destroyables name="Monument B">
+        <destroyable owner="red" id="red-1">
+            <region>
+                <cuboid min="22,34,-69" max="23,37,-70"/>
+            </region>
+        </destroyable>
+        <destroyable owner="blue" id="blue-1">
+            <region>
+                <cuboid min="-21,34,214" max="-22,37,215"/>
+            </region>
+        </destroyable>
+    </destroyables>
 </destroyables>
-<portals>
-    <portal x="@16.5" y="@20" z="@-171.5" yaw="90" protect="true" filter="only-red">
-        <cuboid min="8,25,-224" max="13,28,-223"/>
-    </portal>
-    <portal x="@10.5" y="@25" z="@-224.5" yaw="180" protect="true" filter="only-red">
-        <cuboid min="17,20,-173" max="18,23,-170"/>
-    </portal>
-    <portal x="@0.5" y="@14" z="@-118.5" yaw="0" protect="true" filter="portal-red">
-        <cuboid min="12,21,-265" max="13,23,-266"/>
-    </portal>
-    <portal x="@-15.5" y="@20" z="@-224.5" yaw="-90" protect="true" filter="only-blue">
-        <cuboid min="-11,25,276" max="-8,28,277"/>
-    </portal>
-    <portal x="@-9.5" y="@25" z="@277.5" yaw="0" protect="true" filter="only-blue">
-        <cuboid min="-16,20,223" max="-17,23,226"/>
-    </portal>
-    <portal x="@-0.5" y="@14" z="@171.5" yaw="-180" protect="true" filter="portal-blue">
-        <cuboid min="-11,21,318" max="-12,23,319"/>
-    </portal>
-</portals>
+<blockdrops>
+    <rule>
+        <region>
+            <region name="map"/>
+        </region>
+        <filter>
+            <block>gravel</block>
+        </filter>
+        <drops>
+            <item>gravel</item>
+        </drops>
+    </rule>
+</blockdrops>
 <itemremove>
     <item>log:2</item>
     <item>leather chestplate</item>
@@ -192,6 +154,7 @@
     <item>stone sword</item>
     <item>bread</item>
     <item>obsidian</item>
+    <item>beacon</item>
 </itemremove>
 <toolrepair>
     <tool>arrow</tool>
