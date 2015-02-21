@@ -88,21 +88,22 @@
         <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
         <boots color="0066cc" damage="-3000">leather boots</boots>
     </kit>
-    <kit name="obs" potion-particles="false" force="true">
-        <potion duration="oo">night vision</potion>
-        <item slot="1">air</item>
-        <item slot="2">air</item>
-    </kit>
 </kits>
 <spawns>
-    <default kit="obs" yaw="-90">
-        <cylinder base="-24,16,0" radius="1" height="0"/>
+    <default yaw="-90">
+        <regions>
+            <cylinder base="-24,16,0" radius="1" height="0"/>
+        </regions>
     </default>
     <spawn team="red" kit="red" yaw="0">
-        <cylinder base="0,247,88" radius=".3" height="0"/>
+        <regions>
+            <cylinder base="0,247,88" radius=".3" height="0"/>
+        </regions>
     </spawn>
     <spawn team="blue" kit="blue" yaw="180">
-        <cylinder base="0,247,-88" radius=".3" height="0"/>
+        <regions>
+            <cylinder base="0,247,-88" radius=".3" height="0"/>
+        </regions>
     </spawn>
 </spawns>
 <toolrepair>
@@ -127,9 +128,6 @@
     <item damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
     <item amount="1">iron ingot</item>
 </killreward>
-<itemkeep>
-    <item>iron ingot</item>
-</itemkeep>
 <portals>
     <portal x="@0" y="@6" z="@55" yaw="180" filter="red-2nd">
         <cuboid min="3,1,92" max="5,4,93"/>
@@ -150,6 +148,7 @@
         <cuboid min="3,1,-93" max="5,4,-92"/>
     </portal>
 </portals>
+
 <control-points incremental="true" neutral-state="true" show-progress="true" scaled-time="true" time-multiplier="0.25">
 <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="3s">
 <capture-region>
@@ -232,5 +231,7 @@
     </control-point>
 </control-points>
 <king/>
+
 <time result="objectives">12m</time>
+<maxbuildheight>10</maxbuildheight>
 </map>
