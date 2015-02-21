@@ -3,10 +3,12 @@
 <version>1.0.0</version>
 <objective>Leak both enemy cores!</objective>
 <authors>
-    <author>Crafthappy2000</author>
+    <author uuid="7dee9c20-f1c4-4577-bf57-6f392e398b6d"/>
+    <!-- Crafte -->
 </authors>
 <contributors>
-    <contributor contribution="XML">DoomRobotBoy</contributor>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/>
+    <!-- DoomRobotBoy -->
 </contributors>
 <teams>
     <team id="red" color="dark red" max="10">Red Team</team>
@@ -23,14 +25,6 @@
         <deny>
             <void/>
         </deny>
-    </filter>
-    <filter name="deny-tnt-damage">
-        <not>
-            <all>
-                <cause>explosion</cause>
-                <block>tnt</block>
-            </all>
-        </not>
     </filter>
 </filters>
 <regions>
@@ -116,6 +110,6 @@
 </itemremove>
 <broadcasts>
     <tip after="1s">I advise you to not move after spawning until you land in the water, or you'll death will come rather quickly.</tip>
-</broadcasts>
+
 <maxbuildheight>50</maxbuildheight>
 </map>
