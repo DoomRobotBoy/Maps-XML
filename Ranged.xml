@@ -30,7 +30,7 @@
     <kit name="red" parents="spawn">
         <item slot="6" amount="18" damage="14">stained clay</item>
         <item slot="7" amount="8" damage="14">stained glass</item>
-        <item slot="28" amount="64">arrow</item>
+        <item slot="28" amount="40">arrow</item>
         <helmet color="cd0000" damage="-3000">leather helmet</helmet>
         <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
         <boots color="cd0000" damage="-3000">leather boots</boots>
@@ -38,7 +38,7 @@
     <kit name="blue" parents="spawn">
         <item slot="6" amount="18" damage="11">stained clay</item>
         <item slot="7" amount="8" damage="11">stained glass</item>
-        <item slot="28" amount="40">arrow</item>
+        <item slot="28" amount="64">arrow</item>
         <helmet color="0066cc" damage="-3000">leather helmet</helmet>
         <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
         <boots color="0066cc" damage="-3000">leather boots</boots>
@@ -153,6 +153,10 @@
         <rectangle name="red-north" min="-227,-327" max="-200,-307"/>
         <rectangle name="red-south" min="-200,-118" max="-227,-138"/>
     </union>
+    <union name="only-blue-spawn">
+        <cuboid min="-239,8,-221" max="-236,9,-224"/>
+        <cuboid min="-191,8,-221" max="-188,9,-224"/>
+    </union>
     <union name="lilypads">
         <rectangle min="-287,-201" max="-294,-198"/>
         <rectangle min="-287,-244" max="-294,-247"/>
@@ -262,8 +266,8 @@
         <cuboid min="-217,1,-318" max="-218,3,-316"/>
     </portal>
 </portals>
-<control-points incremental="true" neutral-state="true" show-progress="true" time-multiplier="0.2">
-    <control-point initial-owner="blue" id="west-hill" name="West Hill" capture-time="4s">
+<control-points incremental="true" neutral-state="true" show-progress="true" time-multiplier="0.1">
+    <control-point initial-owner="blue" id="west-hill" name="West Hill" capture-time="8s">
         <capture>
             <region name="west-capture"/>
         </capture>
@@ -271,7 +275,7 @@
             <region name="west-progress"/>
         </progress>
     </control-point>
-    <control-point initial owner="blue" id="center-hill" name="Center Hill" capture-time="5s">
+    <control-point initial owner="blue" id="center-hill" name="Center Hill" capture-time="12s">
         <capture>
             <region name="center-capture"/>
         </capture>
@@ -279,7 +283,7 @@
             <region name="center-progress"/>
         </progress>
     </control-point>
-    <control-point initial-owner="blue" id="east-hill" name="East Hill" capture-time="4s">
+    <control-point initial-owner="blue" id="east-hill" name="East Hill" capture-time="8s">
         <capture>
             <region name="east-capture"/>
         </capture>
