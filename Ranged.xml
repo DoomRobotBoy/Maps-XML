@@ -6,6 +6,10 @@
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
     <!--  DoomRobotBoy  -->
 </authors>
+<rules>
+    <rule>Fall damage is disabled.</rule>
+    <rule>TNT is auto-ignited.</rule>
+</rules>
 <teams>
     <team id="red" color="dark red" max="10">Attackers</team>
     <team id="blue" color="blue" max="10">Defenders</team>
@@ -24,12 +28,16 @@
         <potion duration="oo">night vision</potion>
     </kit>
     <kit name="red" parents="spawn">
+        <item slot="6" amount="18" damage="14">stained clay</item>
+        <item slot="7" amount="8" damage="14">stained glass</item>
         <item slot="28" amount="64">arrow</item>
         <helmet color="cd0000" damage="-3000">leather helmet</helmet>
         <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
         <boots color="cd0000" damage="-3000">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
+        <item slot="6" amount="18" damage="11">stained clay</item>
+        <item slot="7" amount="8" damage="11">stained glass</item>
         <item slot="28" amount="40">arrow</item>
         <helmet color="0066cc" damage="-3000">leather helmet</helmet>
         <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
@@ -63,16 +71,20 @@
     <filter name="only-red">
         <team>red</team>
     </filter>
-    <filter name="only-lilypads">
-        <block>water lily</block>
-    </filter>
-    <filter name="no-water">
+    <filter name="deny-some-world">
         <not>
             <any>
-                <block>water</block>
-                <block>stationary water</block>
+                <block>log:1</block>
+                <block>cobble wall</block>
+                <block>wood step:1</block>
+                <block>wood step:5</block>
+                <block>dark oak stairs</block>
+                <block>leaves:1</block>
             </any>
         </not>
+    </filter>
+    <filter name="only-lilypads">
+        <block>water lily</block>
     </filter>
     <filter name="west-hill" parents="deny-all">
         <allow>
@@ -97,6 +109,7 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <cuboid name="map-at-1" min="oo,0,oo" max="-oo,1,-oo"/>
     <circle name="negative-center" base="-213.5,-222.5" radius="40"/>
     <union name="spawns-protection">
         <rectangle name="blue-east" min="-192,-225" max="-187,-220"/>
@@ -116,6 +129,10 @@
         <cuboid min="-211,51,-227" max="-212,53,-229"/>
         <cuboid min="-215,51,-227" max="-216,53,-229"/>
     </union>
+    <union name="jump-pads">
+        <block name="east-jump-pad">-176.5,8,-222.5</block>
+        <block name="west-jump-pad">-250.5,8,-222.5</block>
+    </union>
     <union name="red-2nd-owner">
         <cuboid min="2,2,-94" max="6,3,-92"/>
         <cuboid min="2,2,92" max="6,3,94"/>
@@ -134,16 +151,19 @@
     <apply block="deny-all">
         <region name="spawns-protection"/>
     </apply>
+    <apply block="deny-all">
+        <region name="map-at-1"/>
+    </apply>
+    <apply block="deny-some-world">
+        <region name="map"/>
+    </apply>
+    <apply block=""
+        <region name="jump-pads"/>
     <apply block="only-lilypads" message="You may only place or break lilypads here.">
         <region name="lilypads"/>
     </apply>
     <apply kit="red-spawn">
         <region name="red-spawn-portals"/>
-    </apply>
-    <apply block-break="no-water">
-        <negative>
-            <region name="negative-center"/>
-        </negative>
     </apply>
     <apply block="no-void" message="You may not build in the void.">
         <complement>
@@ -171,16 +191,34 @@
 </itemremove>
 <killreward>
     <item amount="12">arrow</item>
-    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <item amount="8" damage="14">stained clay</item>
+    <item amount="4" damage="14">stained glass</item>
     <filter>
         <team>red</team>
     </filter>
 </killreward>
 <killreward>
     <item amount="16">arrow</item>
+    <item amount="8" damage="11">stained clay</item>
+    <item amount="4" damage="11">stained glass</item>
+    <filter>
+        <team>blue</team>
+    </filter>
+</killreward>
+<killreward>
+    <item>tnt</item>
+    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <filter>
+        <team>red</team>
+        <kill-streak count="2" repeat="true"/>
+    </filter>
+</killreward>
+<killreward>
+    <item>tnt</item>
     <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
     <filter>
         <team>blue</team>
+        <kill-streak count="2" repeat="true"/>
     </filter>
 </killreward>
 
@@ -300,6 +338,11 @@
 </control-points>
 <king/>
 
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>3s</fuse>
+    <blockdamage>false</blockdamage>
+</tnt>
 <disabledamage>
     <damage>fall</damage>
 </disabledamage>
