@@ -44,7 +44,7 @@
         <boots color="0066cc" damage="-3000">leather boots</boots>
     </kit>
     <kit name="red-spawn">
-        <potion duration="3" amplifier="127">damage resistance</potion>
+        <potion duration="4" amplifier="127">damage resistance</potion>
     </kit>
 </kits>
 <killreward>
