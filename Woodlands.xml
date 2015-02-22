@@ -109,6 +109,8 @@
 <regions>
     <rectangle name="map" min="241,203" max="380,615"/>
     <rectangle name="vines-gap" min="380,426" max="241,392"/>
+    <cuboid name="red-spawn-exit" min="266,64,228" max="241,78,203"/>
+    <cuboid name="blue-spawn-exit" min="355,64,590" max="380,78,615"/>
     <union name="cores">
         <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
         <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
@@ -123,6 +125,12 @@
             <cuboid name="red-spawn" min="316,26,238" max="356,51,209"/>
             <cuboid name="blue-spawn" min="305,26,580" max="265,51,609"/>
         </union>
+    </apply>
+    <apply block="deny-all" enter="only-red">
+        <region name="red-spawn-exit"/>
+    </apply>
+    <apply block="deny-all" enter="only-blue">
+        <region name="blue-spawn-exit"/>
     </apply>
     <apply block="only-vines">
         <region name="vines-gap"/>
