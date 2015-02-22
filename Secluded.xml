@@ -15,10 +15,10 @@
     <team id="blue" color="blue" max="10">Blue Team</team>
 </teams>
 <filters>
-    <filter name="deny-void">
-        <deny>
+    <filter name="no-void">
+        <not>
             <void/>
-        </deny>
+        </not>
     </filter>
 </filters>
 <regions>
@@ -57,10 +57,10 @@
     <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
         <region name="tunnels"/>
     </apply>
-    <apply block="deny-all" message="In the void gap you are not allowed to build above y=30!">
+    <apply block="deny-all" message="You may not build above y=30 here!">
         <region name="void-gap-height"/>
     </apply>
-    <apply block-place="deny-void" message="You may not place blocks in the void area!">
+    <apply block-place="no-void" message="You may not place blocks in the void area!">
         <complement>
             <region name="map"/>
             <region name="void-gap"/>
