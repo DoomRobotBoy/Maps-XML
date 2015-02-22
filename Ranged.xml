@@ -67,15 +67,6 @@
     <item>tnt</item>
     <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
     <filter>
-        <team>red</team>
-        <kill-streak count="2" repeat="true"/>
-    </filter>
-</killreward>
-<killreward>
-    <item>tnt</item>
-    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
-    <filter>
-        <team>blue</team>
         <kill-streak count="2" repeat="true"/>
     </filter>
 </killreward>
