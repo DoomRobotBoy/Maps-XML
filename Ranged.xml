@@ -13,6 +13,7 @@
 <kits>
     <kit name="spawn">
         <item slot="0">stone sword</item>
+        <item slot="1" enchantment="arrow damage:1">bow</item>
         <item slot="2">stone pickaxe</item>
         <item slot="3">stone axe</item>
         <item slot="30">stone spade</item>
@@ -23,18 +24,19 @@
         <potion duration="oo">night vision</potion>
     </kit>
     <kit name="red" parents="spawn">
-        <item slot="1" enchantment="arrow damage:1">bow</item>
         <item slot="28" amount="64">arrow</item>
         <helmet color="cd0000" damage="-3000">leather helmet</helmet>
         <chestplate color="cd0000" damage="-3000">leather chestplate</chestplate>
         <boots color="cd0000" damage="-3000">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
-        <item slot="1">bow</item>
         <item slot="28" amount="40">arrow</item>
         <helmet color="0066cc" damage="-3000">leather helmet</helmet>
         <chestplate color="0066cc" damage="-3000">leather chestplate</chestplate>
         <boots color="0066cc" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="red-spawn">
+        <potion duration="3" amplifier="127">damage resistance</potion>
     </kit>
 </kits>
 <spawns>
@@ -61,19 +63,30 @@
     <filter name="only-red">
         <team>red</team>
     </filter>
-    <filter name="blue-2nd" parents="deny-all">
+    <filter name="only-lilypads">
+        <block>water lily</block>
+    </filter>
+    <filter name="no-water">
+        <not>
+            <any>
+                <block>water</block>
+                <block>stationary water</block>
+            </any>
+        </not>
+    </filter>
+    <filter name="west-hill" parents="deny-all">
         <allow>
-            <objective>blue-2nd</objective>
+            <objective>west-hill</objective>
         </allow>
     </filter>
-    <filter name="red-2nd" parents="deny-all">
+    <filter name="east-hill" parents="deny-all">
         <allow>
-            <objective>red-2nd</objective>
+            <objective>east-hill</objective>
         </allow>
     </filter>
-    <filter name="mid-held" parents="deny-all">
+    <filter name="center-held" parents="deny-all">
         <allow>
-            <objective>mid</objective>
+            <objective>center-hill</objective>
         </allow>
     </filter>
     <filter name="no-void">
@@ -83,16 +96,26 @@
     </filter>
 </filters>
 <regions>
-    <apply block="deny-all">
-        <cuboid name="spawns-protection" min="-223,44,-213" max="-204,57,-232"/>
-    </apply>
-    <apply block="no-void" message="You may not build in the void.">
-        <complement>
-            <rectangle name="map" min="-oo,-oo" max="oo,oo"/>
-            <rectangle name="center" min="-229,-238" max="-198,-207"/>
-        </complement>
-    </apply>
-
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <circle name="negative-center" base="-213.5,-222.5" radius="40"/>
+    <union name="spawns-protection">
+        <rectangle name="blue-east" min="-192,-225" max="-187,-220"/>
+        <rectangle name="blue-west" min="-240,-225" max="-235,-220"/>
+        <rectangle name="red-north" min="-227,-327" max="-200,-307"/>
+        <rectangle name="red-south" min="-200,-118" max="-227,-138"/>
+    </union>
+    <union name="lilypads">
+        <rectangle min="-287,-201" max="-294,-198"/>
+        <rectangle min="-287,-244" max="-294,-247"/>
+        <rectangle min="-140,-244" max="-133,-247"/>
+        <rectangle min="-140,-201" max="-133,-198"/>
+    </union>
+    <union name="red-spawn-portals">
+        <cuboid min="-212,51,-218" max="-211,53,-216"/>
+        <cuboid min="-216,51,-218" max="-215,53,-216"/>
+        <cuboid min="-211,51,-227" max="-212,53,-229"/>
+        <cuboid min="-215,51,-227" max="-216,53,-229"/>
+    </union>
     <union name="red-2nd-owner">
         <cuboid min="2,2,-94" max="6,3,-92"/>
         <cuboid min="2,2,92" max="6,3,94"/>
@@ -107,6 +130,27 @@
         <cuboid min="-6,2,92" max="-2,3,94"/>
         <cuboid min="-2,6,-25" max="2,10,-16"/>
     </union>
+<!-- Applied -->
+    <apply block="deny-all">
+        <region name="spawns-protection"/>
+    </apply>
+    <apply block="only-lilypads" message="You may only place or break lilypads here.">
+        <region name="lilypads"/>
+    </apply>
+    <apply kit="red-spawn">
+        <region name="red-spawn-portals"/>
+    </apply>
+    <apply block-break="no-water">
+        <negative>
+            <region name="negative-center"/>
+        </negative>
+    </apply>
+    <apply block="no-void" message="You may not build in the void.">
+        <complement>
+            <region name="map"/>
+            <rectangle name="center" min="-229,-238" max="-198,-207"/>
+        </complement>
+    </apply>
 </regions>
 
 <toolrepair>
@@ -141,23 +185,35 @@
 </killreward>
 
 <portals>
-    <portal x="@0" y="@6" z="@55" yaw="180" filter="red-2nd">
-        <cuboid min="3,1,92" max="5,4,93"/>
+    <portal name="east-portal" x="@-189.5" y="@1" z="@-222.5">
+        <cuboid min="-207,47,-224" max="-206,50,-221"/>
     </portal>
-    <portal x="@0" y="@6" z="@23" yaw="180" filter="mid-held">
-        <cuboid min="-1,1,92" max="1,4,93"/>
+    <portal name="west-portal" x="@-237.5" y="@1" z="@-222.5">
+        <cuboid min="-220,47,-221" max="-221,50,-224"/>
     </portal>
-    <portal x="@0" y="@6" z="@-18" yaw="180" filter="blue-2nd">
-        <cuboid min="-5,1,92" max="-3,4,93"/>
+    <portal name="south-east-portal" x="@-206.5" y="@1" z="@-128.5" yaw="-90">
+        <cuboid min="-212,51,-218" max="-211,53,-216"/>
     </portal>
-    <portal x="@0" y="@6" z="@-55" yaw="180" filter="blue-2nd">
-        <cuboid min="-5,1,-93" max="-3,4,-92"/>
+    <portal name="south-west-portal" x="@-220.5" y="@1" z="@-128.5" yaw="90">
+        <cuboid min="-216,51,-218" max="-215,53,-216"/>
     </portal>
-    <portal x="@0" y="@6" z="@-23" yaw="180" filter="mid-held">
-        <cuboid min="-1,1,-93" max="1,4,-92"/>
+    <portal name="north-east-portal" x="@-206.5" y="@1" z="@-316.5" yaw="-90">
+        <cuboid min="-211,51,-227" max="-212,53,-229"/>
     </portal>
-    <portal x="@0" y="@6" z="@18" yaw="180" filter="red-2nd">
-        <cuboid min="3,1,-93" max="5,4,-92"/>
+    <portal name="north-west-portal" x="@-220.5" y="@1" z="@-316.5" yaw="90">
+        <cuboid min="-215,51,-227" max="-216,53,-229"/>
+    </portal>
+    <portal name="south-east-return-portal" x="@-213.5" y="@51" z="@-222.5" yaw="-90" filter="only-red">
+        <cuboid min="-210,1,-127" max="-209,3,-129"/>
+    </portal>
+    <portal name="south-west-return-portal" x="@-213.5" y="@51" z="@-222.5" yaw="90" filter="only-red">
+        <cuboid min="-217,1,-127" max="-218,3,-129"/>
+    </portal>
+    <portal name="north-east-return-portal" x="@-213.5" y="@51" z="@-222.5" yaw="-90" filter="only-red">
+        <cuboid min="-209,1,-316" max="-210,3,-318"/>
+    </portal>
+    <portal name="north-west-return-portal" x="@-213.5" y="@51" z="@-222.5" yaw="90" filter="only-red">
+        <cuboid min="-217,1,-318" max="-218,3,-316"/>
     </portal>
 </portals>
 
@@ -244,6 +300,9 @@
 </control-points>
 <king/>
 
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
 <time result="objectives">12m</time>
 <maxbuildheight>10</maxbuildheight>
 </map>
