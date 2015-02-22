@@ -138,8 +138,8 @@
     <apply region="portal-blue" kit="blue-specialist" filter="only-blue-specialist"/>
 </regions>
 <portals>
-    <portal x="@337.5" y="@27" z="@239.5" yaw="@0" region="portal-red"/>
-    <portal x="@283.5" y="@27" z="@578.5" yaw="@180" region="portal-blue"/>
+    <portal x="@255.5" y="@69" z="@215.5" yaw="@-45" region="portal-red"/>
+    <portal x="@365.5" y="@69" z="@602.5" yaw="@135" region="portal-blue"/>
 </portals>
 <spawns>
     <spawn team="red" kit="spawn">
