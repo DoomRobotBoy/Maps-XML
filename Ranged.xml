@@ -20,7 +20,7 @@
         <item slot="1" damage="-3000" enchantment="arrow damage:1">bow</item>
         <item slot="2" damage="-3000">stone pickaxe</item>
         <item slot="3" damage="-3000">stone axe</item>
-        <item slot="30">stone spade</item>
+        <item slot="30" damage="-3000">stone spade</item>
         <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
         <item slot="5" amount="28">golden carrot</item>
         <item slot="8">boat</item>
