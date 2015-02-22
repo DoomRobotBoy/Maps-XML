@@ -171,6 +171,10 @@
         <block name="east-spawn-jump-pad">-189.5,1,-222.5</block>
         <block name="west-spawn-jump-pad">-237.5,1,-222.5</block>
     </union>
+    <union name="jump-pads-protection">
+        <cuboid name="east-jump-pad-protection" min="-178,7,-224" max="-175,10,-221"/>
+        <cuboid name="west-jump-pad-protection" min="-249,7,-221" max="-252,10,-224"/>
+    </union>
     <union name="hills-stuff">
         <cylinder name="west-capture" base="-280.5,1,-222.5" radius="4" height="2"/>
         <cylinder name="west-progress" base="-280.5,0,-222.5" radius="4" height="1"/>
@@ -189,24 +193,27 @@
     </union>
 <!-- Applied -->
     <apply block="deny-all">
-        <region name="spawns-protection"/>
-    </apply>
-    <apply block="deny-all">
         <region name="map-at-1"/>
     </apply>
     <apply block="deny-some-world">
         <region name="map"/>
     </apply>
-    <apply block="deny-all">
+    <apply block="deny-all" message="You may not destroy the spawns!">
+        <region name="spawns-protection"/>
+    </apply>
+    <apply block="deny-all" message="You may not place blocks in the hill-regions!">
         <region name="hills-protection"/>
     </apply>
-    <apply velocity="" filter="west-hill">
+    <apply block="deny-all" message="You may not destroy the jump pads!">
+        <region name="jump-pads-protection"/>
+    </apply>
+    <apply velocity="@-1.65,1.0,0.0" filter="west-hill">
         <region name="west-jump-pad"/>
     </apply>
-    <apply velocity="" filter="east-hill">
+    <apply velocity="@1.65,1.0,0.0" filter="east-hill">
         <region name="east-jump-pad"/>
     </apply>
-    <apply veloctiy"">
+    <apply veloctiy="@0.0,1.45,0.0">
         <region name="east-spawn-jump-pad"/>
         <region name="west-spawn-jump-pad"/>
     </apply>
