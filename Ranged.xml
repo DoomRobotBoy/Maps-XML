@@ -289,6 +289,14 @@
     </control-point>
 </control-points>
 <king/>
+<destroyables name="Red-Spawn-Hold" show="false" materials="spruce wood stairs;web;glass" completion="0%" mode-changes="true">
+    <destroyable owner="red">
+       <region><cuboid min="-215,51,-224" max="-212,54,-221"/></region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="15s" material="air" name="`4Attackers `rhave been released`4!"/>
+</modes>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
