@@ -3,26 +3,29 @@
 <version>1.0.0</version>
 <objective>Leak both enemy cores!</objective>
 <authors>
-    <author>DoomRobotBoy</author>
-    <author>rockymine</author>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+    <!--  DoomRobotBoy  -->
+    <author uuid="fe3608b7-d105-4029-8800-34b3147065b6"/>
+    <!--  rockymine  -->
 </authors>
 <contributors>
-    <contributor contribution="Build Help">yoyo_power</contributor>
+    <contributor uuid="07fa10c6-f564-4630-861e-fe134ae27527" contribution="Build Help"/>
+    <!--  yoyo_power  -->
 </contributors>
+<rules>
+    <rule>Combining classes is illegal!</rule>
+</rules>
 <teams>
-    <team id="red" color="dark red" max="40" max-overfill="50">Red Team</team>
-    <team id="blue" color="blue" max="40" max-overfill="50">Blue Team</team>
+    <team id="red" color="dark red" max="40" max-overfill="50">Red</team>
+    <team id="blue" color="blue" max="40" max-overfill="50">Blue</team>
 </teams>
-<classes family="woodlands">
-    <class name="Guard" default="false" description="Strong, slow, and great for defending!" icon="iron chestplate"/>
+<classes family="woodlands" sticky="false">
+    <class name="Guard" default="true" description="Strong, slow, and great for defending!" icon="iron chestplate"/>
     <class name="Specialist" default="false" description="Fast and weak, but powerful at ranged combat!" icon="bow"/>
 </classes>
 <kits>
     <kit name="spawn">
-        <item slot="0" enchantment="arrow knockback:2;arrow infinite:1">bow</item>
-        <item slot="1">arrow</item>
-        <potion duration="oo" amplifier="10">heal</potion>
-        <potion duration="oo" amplifier="10">damage resistance</potion>
+        <item slot="0">air</item>
     </kit>
     <kit name="guard" parents="spawn">
         <item slot="0" damage="-3000" enchantment="damage all:1">iron sword</item>
@@ -33,28 +36,36 @@
         <item slot="4" amount="64">wood</item>
         <item slot="5" amount="64">wood</item>
         <item slot="6" amount="32">glass</item>
+        <item slot="7" amount="64">vines</item>
         <item slot="8" amount="2">web</item>
-        <helmet damage="-3000" enchantment="protection environmental:1" locked="true" lore="This piece of armor is `4LOCKED`r.">iron helmet</helmet>
         <chestplate damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">iron chestplate</chestplate>
-        <leggings damage="-3000" enchantment="protection projectile:2">chainmail leggings</leggings>
-        <boots damage="-3000" enchantment="protection fall:1" locked="true" lore="This piece of armor is `4LOCKED`r.">iron boots</boots>
-        <potion duration="1" amplifier="10">heal</potion>
-        <potion duration="1" amplifier="10">damage resistance</potion>
+        <leggings damage="-3000" enchantment="protection projectile:2" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
+        <potion duration="5" amplifier="1">heal</potion>
+        <potion duration="5" amplifier="1">damage resistance</potion>
         <clear/>
+    </kit>
+    <kit name="red-guard" parents="guard">
+        <helmet damage="-3000" color="993333" enchantment="protection environmental:1">leather helmet</helmet>
+        <boots damage="-3000" color="993333" enchantment="protection fall:1">leather boots</boots>
+    </kit>
+    <kit name="blue-guard" parents="guard">
+        <helmet damage="-3000" color="334CB2" enchantment="protection environmental:1">leather helmet</helmet>
+        <boots damage="-3000" color="334CB2"enchantment="protection fall:1">leather boots</boots>
     </kit>
     <kit name="specialist" parents="spawn">
         <item slot="0" damage="-3000">iron sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite:1;arrow damage:1">bow</item>
         <item slot="28">arrow</item>
         <item slot="2" damage="-3000">iron pickaxe</item>
         <item slot="3" damage="-3000">iron axe</item>
         <item slot="4" amount="64">bread</item>
         <item slot="5" amount="32">wood</item>
+        <item slot="6" amount="64">vines</item>
         <leggings damage="-3000" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
         <boots damage="-3000" enchantment="protection fall:2" locked="true" lore="This piece of armor is `4LOCKED`r.">gold boots</boots>
         <potion duration="oo">speed</potion>
-        <potion duration="1" amplifier="10">heal</potion>
-        <potion duration="1" amplifier="10">damage resistance</potion>
+        <potion duration="5" amplifier="1">heal</potion>
+        <potion duration="5" amplifier="1">damage resistance</potion>
         <clear/>
     </kit>
     <kit name="red-specialist" parents="specialist">
@@ -67,11 +78,6 @@
     </kit>
 </kits>
 <filters>
-    <filter name="deny-void">
-        <deny>
-            <void/>
-        </deny>
-    </filter>
     <filter name="only-red-guard">
         <all>
             <team>red</team>
@@ -96,53 +102,63 @@
             <class>specialist</class>
         </all>
     </filter>
+    <filter name="only-vines">
+        <block>vines</block>
+    </filter>
 </filters>
 <regions>
-    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <rectangle name="map" min="241,203" max="380,615"/>
+    <rectangle name="vines-gap" min="380,426" max="241,392"/>
     <union name="cores">
-        <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
-        <cuboid name="red-core-back" min="338,39,283" max="329,48,274"/>
-        <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
-        <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
+        <cuboid name="red-core-front" min="272,41,345" max="263,49,336"/>
+        <cuboid name="red-core-back" min="338,39,283" max="329,47,274"/>
+        <cuboid name="blue-core-front" min="349,41,473" max="358,49,482"/>
+        <cuboid name="blue-core-back" min="283,39,535" max="292,47,544"/>
     </union>
-    <cuboid name="portal-red" min="336,27,237" max="339,29,238"/>
-    <cuboid name="portal-blue" min="285,27,581" max="282,29,580"/>
+    <cuboid name="portal-red" min="336,27,237" max="339,28,238"/>
+    <cuboid name="portal-blue" min="285,27,581" max="282,28,580"/>
+<!-- Applied -->
     <apply block="deny-all">
         <union name="spawns-stuff">
-            <cuboid name="red-spawn" min="316,26,238" max="356,52,209"/>
-            <cuboid name="blue-spawn" min="305,26,580" max="265,52,609"/>
+            <cuboid name="red-spawn" min="316,26,238" max="356,51,209"/>
+            <cuboid name="blue-spawn" min="305,26,580" max="265,51,609"/>
         </union>
     </apply>
-    <apply block-break="deny-void" message="You may not place blocks in the void area!">
-        <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <apply block="only-vines">
+        <region name="vines-gap"/>
     </apply>
-    <apply region="portal-red" kit="guard" filter="only-red-guard"/>
-    <apply region="portal-red" kit="specialist" filter="only-red-specialist"/>
-    <apply region="portal-blue" kit="guard" filter="only-blue-guard"/>
-    <apply region="portal-blue" kit="specialist" filter="only-blue-specialist"/>
+    <apply block="deny-all" message="You may not place blocks in the void area!">
+        <negative>
+            <region name="map"/>
+        </negative>
+    </apply>
+    <apply region="portal-red" kit="red-guard" filter="only-red-guard"/>
+    <apply region="portal-red" kit="red-specialist" filter="only-red-specialist"/>
+    <apply region="portal-blue" kit="blue-guard" filter="only-blue-guard"/>
+    <apply region="portal-blue" kit="blue-specialist" filter="only-blue-specialist"/>
 </regions>
 <portals>
     <portal x="@337.5" y="@27" z="@239.5" yaw="@0" region="portal-red"/>
     <portal x="@283.5" y="@27" z="@578.5" yaw="@180" region="portal-blue"/>
 </portals>
 <spawns>
-    <spawn team="red" kit="spawn" yaw="45">
-        <regions>
-            <cylinder base="350.5,44,214.5" radius="1"/>
+    <spawn team="red" kit="spawn">
+        <regions yaw="45">
+            <cylinder base="350.5,44,214.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="spawn" yaw="-135">
-        <regions>
-            <cylinder base="270.5,44,603.5" radius="1"/>
+    <spawn team="blue" kit="spawn">
+        <regions yaw="-135">
+            <cylinder base="270.5,44,603.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default>
-        <regions>
-            <cuboid min="57,68,-269" max="60,68,-270"/>
+        <regions yaw="90">
+            <cuboid min="397,37,410" max="401,37,407"/>
         </regions>
     </default>
 </spawns>
-<cores material="ender stone" leak="5">
+<cores material="ender stone" leak="3">
     <core name="Front Core" team="red" region="red-core-front"/>
     <core name="Back Core" team="red" region="red-core-back"/>
     <core name="Front Core" team="blue" region="blue-core-front"/>
@@ -168,12 +184,27 @@
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
     <item>gold boots</item>
-    <item>wood:2</item>
+    <item>wood</item>
+    <item>wood button</item>
+    <item>red rose</item>
+    <item>bow</item>
+    <item>apple</item>
+    <item>sapling</item>
+    <item>seeds</item>
+    <item>iron sword</item>
+    <item>iron axe</item>
+    <item>iron pickaxe</item>
+    <item>arrow</item>
+    <item>wheat</item>
+    <item>flint</item>
+    <item>bread</item>
+    <item>glass</item>
+    <item>web</item>
+    <item>stone pickaxe</item>
 </itemremove>
 <broadcasts>
-    <tip after="10s">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
-    <tip after="1m">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
-    <tip after="2m" count="oo">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
+    <tip after="5s" repeat="2m">`3`oWalk against the `6fence wall `3`oat the end of the spawn-cave to receive your `aclass`3`o.</tip>
+    <alert after="20s" repeat="2m">`c`lCombining classes is illegal!</alert>
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <gamerule>
