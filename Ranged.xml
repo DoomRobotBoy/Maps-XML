@@ -47,6 +47,38 @@
         <potion duration="3" amplifier="127">damage resistance</potion>
     </kit>
 </kits>
+<killreward>
+    <item amount="12">arrow</item>
+    <item amount="8" damage="14">stained clay</item>
+    <item amount="4" damage="14">stained glass</item>
+    <filter>
+        <team>red</team>
+    </filter>
+</killreward>
+<killreward>
+    <item amount="16">arrow</item>
+    <item amount="8" damage="11">stained clay</item>
+    <item amount="4" damage="11">stained glass</item>
+    <filter>
+        <team>blue</team>
+    </filter>
+</killreward>
+<killreward>
+    <item>tnt</item>
+    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <filter>
+        <team>red</team>
+        <kill-streak count="2" repeat="true"/>
+    </filter>
+</killreward>
+<killreward>
+    <item>tnt</item>
+    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
+    <filter>
+        <team>blue</team>
+        <kill-streak count="2" repeat="true"/>
+    </filter>
+</killreward>
 <spawns>
     <default yaw="-90">
         <regions>
@@ -191,56 +223,6 @@
         </complement>
     </apply>
 </regions>
-
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>bow</tool>
-    <tool>stone pickaxe</tool>
-    <tool>stone axe</tool>
-</toolrepair>
-<itemremove>
-    <item>leather helmet</item>
-    <item>leather chestplate</item>
-    <item>iron leggings</item>
-    <item>leather boots</item>
-    <item>goldden carrot</item>
-    <item>glass bottle</item>
-    <item>potion</item>
-    <item>arrow</item>
-</itemremove>
-<killreward>
-    <item amount="12">arrow</item>
-    <item amount="8" damage="14">stained clay</item>
-    <item amount="4" damage="14">stained glass</item>
-    <filter>
-        <team>red</team>
-    </filter>
-</killreward>
-<killreward>
-    <item amount="16">arrow</item>
-    <item amount="8" damage="11">stained clay</item>
-    <item amount="4" damage="11">stained glass</item>
-    <filter>
-        <team>blue</team>
-    </filter>
-</killreward>
-<killreward>
-    <item>tnt</item>
-    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
-    <filter>
-        <team>red</team>
-        <kill-streak count="2" repeat="true"/>
-    </filter>
-</killreward>
-<killreward>
-    <item>tnt</item>
-    <item slot="4" damage="8261" potions="heal:1:0:false;regeneration:180:0:false">potion</item>
-    <filter>
-        <team>blue</team>
-        <kill-streak count="2" repeat="true"/>
-    </filter>
-</killreward>
-
 <portals>
     <portal name="east-portal" x="@-189.5" y="@1" z="@-222.5">
         <cuboid min="-207,47,-224" max="-206,50,-221"/>
@@ -273,7 +255,6 @@
         <cuboid min="-217,1,-318" max="-218,3,-316"/>
     </portal>
 </portals>
-
 <control-points incremental="true" neutral-state="true" show-progress="true" time-multiplier="0.2">
     <control-point initial-owner="blue" id="west-hill" name="West Hill" capture-time="4s">
         <capture>
@@ -301,6 +282,22 @@
     </control-point>
 </control-points>
 <king/>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+    <tool>stone pickaxe</tool>
+    <tool>stone axe</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>iron leggings</item>
+    <item>leather boots</item>
+    <item>goldden carrot</item>
+    <item>glass bottle</item>
+    <item>potion</item>
+    <item>arrow</item>
+</itemremove>
 <tnt>
     <instantignite>on</instantignite>
     <fuse>3s</fuse>
