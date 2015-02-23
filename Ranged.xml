@@ -71,11 +71,11 @@
     </filter>
 </killreward>
 <spawns>
-    <default yaw="-90">
+    <default>
         <regions>
             <block>-213.5,54,-222.5</block>
         </regions>
-    </default>
+    </default yaw="-90">
     <spawn team="red" kit="red">
         <regions>
             <block>-213.5,51,-222.5</block>
