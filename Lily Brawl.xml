@@ -1,0 +1,90 @@
+<map proto="1.3.6">
+<name>Lily Brawl</name>
+<version>1.0.0</version>
+<objective>Survive the TNT dropping out of the sky and be the last team standing!/objective>
+<include src="blitz-global.xml"/>
+<authors>
+    <author uuid="755acf7d-c9b4-4f1d-b7ac-db4dfdfa2b26"/>
+<!--  Stormer_  -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!--  DoomRobotBoy  -->
+</authors>
+<teams>
+    <team id="cyan" color="dark aqua" max="2">Cyan</team>
+    <team id="yellow" color="yellow" max="2">Yellow</team>
+    <team id="purple" color="dark purple" max="2">Purple</team>
+    <team id="orange" color="gold" max="2">Orange</team>
+</teams>
+<regions>
+    <apply block="deny-all">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<kits>
+    <kit name="spawn">
+        <potion duration="oo">night vision</potion>
+        <potion duration="3" amplifier="-1">jump</potion>
+        <potion duration="3" amplifier="3">slowness</potion>
+    </kit>
+    <kit name="cyan" parents="spawn">
+        <chestplate color="4C7F99" enchantment="protection explosions:3" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="yellow" parents="spawn">
+        <chestplate color="E5E533" enchantment="protection explosions:3" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="purple" parents="spawn">
+        <chestplate color="7F3FB2" enchantment="protection explosions:3" damage="-3000">leather chestplate</chestplate>
+    </kit>
+    <kit name="orange" parents="spawn">
+        <chestplate color="D87F33" enchantment="protection explosions:3" damage="-3000">leather chestplate</chestplate>
+    </kit>
+</kits>
+<timelock>on</timelock>
+<itemremove>
+    <item>arrow</item>
+    <item>bread</item>
+    <item>leather helmet</item>
+    <item>chainmail chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>bow</item>
+    <item>stone sword</item>
+    <item>stone pickaxe</item>
+    <item>stone axe</item>
+    <item>red rose</item>
+    <item>yellow flower</item>
+</itemremove>
+<spawns>
+    <spawn team="cyan" kit="cyan">
+        <regions>
+            <point>47.5,6,137.5</point>
+        </regions>
+    </spawn>
+    <spawn team="yellow" kit="yellow">
+        <regions>
+            <point>44.5,6,192.5</point>
+        </regions>
+    </spawn>
+    <spawn team="purple" kit="purple">
+        <regions>
+            <point>99.5,6,195.5</point>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="orange">
+        <regions>
+            <point>102.5,6,140.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="45">
+            <point>78.5,16,161.5</point>
+        </regions>
+    </default>
+</spawns>
+<blitz>
+    <time>10m</time>
+    <lives>1</lives>
+    <broadcastLives>true</broadcastLives>
+    <title>Survival</title>
+</blitz>
+</map>
