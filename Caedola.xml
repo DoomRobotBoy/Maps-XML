@@ -20,8 +20,8 @@
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infite:1">bow</item>
         <item slot="28">arrow</item>
-        <potion duration="5" amplifier="25">heal</potion>
-        <potion duration="5" amplifier="25">damage resistance</potion>
+        <potion duration="3">heal</potion>
+        <potion duration="3" amplifier="127">damage resistance</potion>
     </kit>
     <kit name="red" parents="spawn">
         <chestplate color="993333" damage="-3000">leather chestplate</chestplate>
