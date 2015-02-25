@@ -9,6 +9,10 @@
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
 <!--  DoomRobotBoy  -->
 </authors>
+<contributos>
+    <contributor uuid="fe3608b7-d105-4029-8800-34b3147065b6" contribution="Spawner Management"/>
+<!-- rockymine -->
+</contributos>
 <blitz>
     <time>10m</time>
     <lives>1</lives>
@@ -61,7 +65,7 @@
     <apply block="only-water">
         <region name="map"/>
     </apply>
-    <apply block="deny-world">
+    <apply block="deny-world" filter="only-water">
         <region name="map"/>
     </apply>
     <apply kit="anti-bucket" filter="empty-bucket">
@@ -122,9 +126,14 @@
         </regions>
     </default>
 </spawns>
+<tnt>
+    <instantignite>on</instantignite>
+    <fuse>4s</fuse>
+</tnt>
 <itemremove>
     <item>leather chestplate</item>
     <item>bucket</item>
+    <item>tnt</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
