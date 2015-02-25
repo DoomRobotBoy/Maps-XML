@@ -19,6 +19,10 @@
     <broadcastLives>true</broadcastLives>
     <title>Survival</title>
 </blitz>
+<broadcasts>
+    <tip after="1s">`3`oTo win you must survive the `6`o`lTNT `3`othat drops out of the sky. You can defuse the explosions with the `6`o`lwater buckets `3`othat spawn 3 seconds before the TNT spawns.</tip>
+    <alert after="5s">`4`oG`c`oa`4`om`c`oe `4`oo`c`on`4`o!</alert>
+</broadcasts>
 <teams>
     <team id="cyan" color="dark aqua" max="2">Cyan</team>
     <team id="yellow" color="yellow" max="2">Yellow</team>
@@ -28,8 +32,8 @@
 <kits>
     <kit name="spawn">
         <potion duration="oo">night vision</potion>
-        <potion duration="3" amplifier="-1">jump</potion>
-        <potion duration="3" amplifier="3">slowness</potion>
+        <potion duration="5" amplifier="-1">jump</potion>
+        <potion duration="5" amplifier="3">slowness</potion>
         <potion duration="oo">speed</potion>
     </kit>
     <kit name="cyan" parents="spawn">
