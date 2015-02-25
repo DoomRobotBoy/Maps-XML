@@ -30,6 +30,7 @@
         <potion duration="oo">night vision</potion>
         <potion duration="3" amplifier="-1">jump</potion>
         <potion duration="3" amplifier="3">slowness</potion>
+        <potion duration="oo">speed</potion>
     </kit>
     <kit name="cyan" parents="spawn">
         <chestplate color="4C7F99" enchantment="protection explosions:3" damage="-3000" locked="true">leather chestplate</chestplate>
