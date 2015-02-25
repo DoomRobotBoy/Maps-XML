@@ -21,7 +21,7 @@
 </blitz>
 <broadcasts>
     <tip after="1s">`3`oTo win you must survive the `6`o`lTNT `3`othat drops out of the sky. You can defuse the explosions with the `6`o`lwater buckets `3`othat spawn 3 seconds before the TNT spawns.</tip>
-    <alert after="5s">`4`oG`c`oa`4`om`c`oe `4`oo`c`on`4`o!</alert>
+    <alert after="5s">`4`o`lG`c`o`la`4`o`lm`c`o`le `4`o`lo`c`o`ln`4`o`l!</alert>
 </broadcasts>
 <teams>
     <team id="cyan" color="dark aqua" max="2">Cyan</team>
