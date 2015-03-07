@@ -1,8 +1,8 @@
 <map proto="1.3.6">
 <name>Outside Sanctuary</name>
-<version>1.0.1</version>
+<version>1.0.0</version>
 <objective>
-    Capture the other team's wools and take it to your victory monument to win.
+    Capture the other team's wools and bring them to your victory monument.
 </objective>
 <authors>
     <author uuid="129c85e1-e6cc-4b7e-896c-7ae66094f6c7"/>
@@ -93,11 +93,19 @@
     <apply block-break="only-iron" block-place="deny-all" enter="no-magenta">
         <region name="green-spawn"/>
     </apply>
-    <apply block="only-cobweb" enter="no-green">
+    <apply block-break="only-cobweb" block-place="deny-all" enter="no-green">
         <region name="green-wool-room"/>
         <region name="lime-wool-room"/>
     </apply>
-    <apply block="only-cobweb" enter="no-magenta">
+    <apply block-break="only-cobweb" block-place="deny-all" enter="no-magenta">
+        <region name="pink-wool-room"/>
+        <region name="purple-wool-room"/>
+    </apply>
+    <apply block="no-green">
+        <region name="green-wool-room"/>
+        <region name="lime-wool-room"/>
+    </apply>
+    <apply block="no-green">
         <region name="pink-wool-room"/>
         <region name="purple-wool-room"/>
     </apply>
@@ -137,11 +145,16 @@
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
     <tool>iron spade</tool>
+    <tool>arrow</tool>
 </toolrepair>
 <itemremove>
     <item>stone sword</item>
     <item>stone axe</item>
+    <item>stained clay</item>
     <item>pumpkin pie</item>
+    <item>furnace</item>
+    <item>leaves</item>
+    <item>glowstone dust</item>
     <item>string</item>
 </itemremove>
 <timelock>on</timelock>
