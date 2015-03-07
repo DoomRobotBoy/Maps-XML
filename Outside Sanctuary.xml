@@ -1,0 +1,201 @@
+<map proto="1.3.6">
+<name>Outside Sanctuary</name>
+<version>1.0.1</version>
+<objective>
+    Capture the other team's wools and take it to your victory monument to win.
+</objective>
+<authors>
+    <author uuid="129c85e1-e6cc-4b7e-896c-7ae66094f6c7"/>
+<!--  BlackBullAviator  -->
+    <author uuid="45e2e111-2003-48eb-a939-5bb251a91811"/>
+<!--  AnotherYT  -->
+</authors>
+<contributors>
+    <contributor uuid="c660c84a-9712-4b16-a9c8-039277fc25c5"/>
+<!-- Goblin21_PvP -->
+    <contributor uuid="1852d075-b132-442a-bccb-8e556a4d58ba"/>
+<!-- emstring -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/>
+<!-- DoomRobotBoy -->
+<teams>
+    <team id="green" color="dark green" max="32" max-overfill="40">Green Team</team>
+    <team id="magenta" color="light purple" max="32" max-overfill="40">Magenta Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3" damage="-3000">stone axe</item>
+        <item slot="4">iron spade</item>
+        <item slot="5" amount="64" damage="1">log</item>
+        <item slot="6" amount="32" damage="1">leaves</item>
+        <item slot="7" amount="64">pumpkin pie</item>
+        <item slot="8" amount="2">golden apple</item>
+        <item slot="28">arrow</item>
+        <potion duration="8" amplifier="127">damage resistance</potion>
+    </kit>
+</kits>
+<spawns>
+    <spawn kit="spawn" team="magenta">
+        <regions yaw="180">
+            <cuboid min="3,20,1" max="5,20,0"/>
+        </regions>
+    </spawn>
+    <spawn kit="spawn" team="green">
+        <regions yaw="0">
+            <cuboid min="4,20,-410" max="2,20,-409"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="-90">
+            <cylinder base="-51.5,54,-204.5" radius="1" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<filters>
+    <filter name="no-magenta">
+        <not>
+            <team>magenta</team>
+        </not>
+    </filter>
+    <filter name="no-green">
+        <not>
+            <team>green</team>
+        </not>
+    </filter>
+    <filter name="only-iron">
+        <block>iron block</block>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <rectangle name="void-gap-1" min="-27,-222" max="0,-187"/>
+    <rectangle name="void-gap-2" min="34,-187" max="7,-222"/>
+    <rectangle name="magenta-spawn" min="26,-74" max="-18,12"/>
+    <rectangle name="green-spawn" min="-19,-334" max="25,-421"/>
+<!-- Applied -->
+    <apply block-break="only-iron" block-place="deny-all" enter="no-green">
+        <region name="magenta-spawn"/>
+    </apply>
+    <apply block-break="only-iron" block-place="deny-all" enter="no-magenta">
+        <region name="green-spawn"/>
+    </apply>
+    <apply block="no-void" message=" You may not modify the void area!">
+        <complement>
+            <region name="map"/>
+            <region name="void-gap-1"/>
+            <region name="void-gap-2"/>
+        </complement>
+    </apply>
+    <apply enter="woolroom-y" message="You may not enter your own wool room.">
+        <region name="yellow-wool-room"/>
+    </apply>
+    <apply use="woolroom-y" message="You may not open chests in own wool room.">
+        <region name="yellow-wool-room"/>
+    </apply>
+    <apply enter="woolroom-r" message="You may not enter your own wool room.">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply use="woolroom-r" message="You may not open chests in own wool room.">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply enter="woolroom-g" message="You may not enter your own wool room.">
+        <region name="green-wool-room"/>
+    </apply>
+    <apply use="woolroom-g" message="You may not open chests in own wool room.">
+        <region name="green-wool-room"/>
+    </apply>
+<apply enter="woolroom-b" message="You may not enter your own wool room.">
+<region name="blue-wool-room"/>
+</apply>
+<apply use="woolroom-b" message="You may not open chests in own wool room.">
+<region name="blue-wool-room"/>
+</apply>
+<apply block="deny-all" message="You may not modify the wool rooms!">
+<union name="wool-rooms">
+<region name="yellow-wool-room"/>
+<region name="red-wool-room"/>
+<region name="green-wool-room"/>
+<region name="blue-wool-room"/>
+</union>
+</apply>
+<apply block="deny-blocks" message="You may not edit spawn.">
+<region name="spawns"/>
+</apply>
+<circle name="center" center="-48.5,30.5" radius="46"/>
+</regions>
+<wools team="red">
+    <wool color="green" location="-77.5,9,-53.5">
+        <monument>
+            <block>35,11,68</block>
+        </monument>
+    </wool>
+    <wool color="blue" location="-132.5,9,59.5">
+        <monument>
+            <block>35,11,69</block>
+        </monument>
+    </wool>
+    <wool color="yellow" location="35.5,9,1.5">
+        <monument>
+            <block>35,11,70</block>
+        </monument>
+    </wool>
+</wools>
+<wools team="blue">
+    <wool color="green" location="-77.5,9,-53.5">
+        <monument>
+            <block>-89,11,114</block>
+        </monument>
+    </wool>
+    <wool color="yellow" location="35.5,9,1.5">
+        <monument>
+            <block>-87,11,114</block>
+        </monument>
+    </wool>
+    <wool color="red" location="-19.5,9,114.5">
+        <monument>
+            <block>-88,11,114</block>
+        </monument>
+    </wool>
+</wools>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron spade</tool>
+    <tool>iron axe</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>cooked beef</item>
+    <item>sandstone</item>
+    <item>wood</item>
+    <item>iron helmet</item>
+    <item>chainmail chestplate</item>
+    <item>leather leggings</item>
+    <item>iron boots</item>
+    <item>seeds</item>
+    <item>wheat</item>
+    <item>sapling</item>
+    <item>apple</item>
+    <item>wood plate</item>
+    <item>book</item>
+    <item>gold plate</item>
+    <item>sandstone stairs</item>
+    <item>step</item>
+    <item>dirt</item>
+    <item>sand</item>
+    <item>sand</item>
+    <item>wood step</item>
+    <item>gold ore</item>
+    <item>fence gate</item>
+    <item>dark oak stairs</item>
+    <item>fence</item>
+</itemremove>
+<timelock>on</timelock>
+<maxbuildheight>36</maxbuildheight>
+</map>
