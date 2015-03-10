@@ -68,13 +68,41 @@
         <cylinder base="164.5,11,373.5" radius="0"/>
         <cylinder base="252.5,11,373.5" radius="0"/>
     </union>
+    <union name="orange-spawns-protection">
+        <cuboid min="158,9,140" max="165,14,139"/>
+        <cuboid min="164,9,139" max="172,14,138"/>
+        <cuboid min="171,9,138" max="177,14,137"/>
+        <cuboid min="258,9,140" max="252,14,139"/>
+        <cuboid min="253,9,139" max="245,14,138"/>
+        <cuboid min="246,9,138" max="240,14,137"/>
+    </union>
+    <union name="cyan-spawns-protection">
+        <cuboid min="259,9,359" max="252,14,360"/>
+        <cuboid min="253,9,360" max="245,14,361"/>
+        <cuboid min="246,9,361" max="240,14,362"/>
+        <cuboid min="158,9,359" max="165,14,360"/>
+        <cuboid min="164,14,360" max="172,14,361"/>
+        <cuboid min="171,9,361" max="177,14,362"/>
+    </union>
     <union name="orange-nets">
+        <block>252.5,11,373.5</block>
+        <block>164.5,11,373.5</block>
     </union>
     <union name="cyan-nets">
+        <block>252.5,11,125.5</block>
+        <block>164.5,11,125.5</block>
     </union>
+    <block name="orange-shrine-net">208.5,10,174.5</block>
+    <block name="cyan-shrine-net">208.5,10,324.5</block>
 <!-- Applied -->
     <apply block="deny-all">
         <region name="map"/>
+    </apply>
+    <apply enter="only-orange">
+        <region name="orange-spawns-protection"/>
+    </apply>
+    <apply enter="only-cyan">
+        <region name="cyan-spawns-protection"/>
     </apply>
 </regions>
 <spawns>
@@ -95,28 +123,20 @@
     </default>
 </spawns>
 <flags>
-    <post id="center-post">13,1,11</post>
-    <post id="orange-post" owner="orange" yaw="90" points-rate="1" pickup-filter="only-orange">24,5,11</post>
-    <post id="cyan-post" owner="cyan" yaw="90" points-rate="1" pickup-filter="only-cyan">24,5,11</post>
-    <flag name="Flag" color="white" shared="true" post="center-post" points-rate="0.5">
-        <net owner="orange" region="orange-nets" post="orange-post" capture-filter="only-orange"/>
-        <net owner="cyan" region="cyan-nets" post="cyan-post" capture-filter="only-cyan"/>
+    <post id="center-post">208.5,9,249.5</post>
+    <post id="orange-post" owner="orange" yaw="0" points-rate="1" pickup-filter="only-orange">208.5,10,174.5</post>
+    <post id="cyan-post" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-cyan">208.5,10,324.5</post>
+    <flag name="Shrine Flag" color="white" shared="true" post="center-post" points-rate="0.5">
+        <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
+        <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
     </flag>
     <flag id="orange-flag" name="Orange Flag" color="gold">
         <post pickup-filter="only-orange">2,5,11</post>
-        <net points="1" region="orange-nets">
-            <capture-filter>
-                <flag-returned>orange-flag</flag-returned>
-            </capture-filter>
-        </net>
+        <net points="30" region="orange-nets"/>
     </flag>
     <flag id="cyan-flag" name="Cyan Flag" color="dark aqua">
         <post pickup-filter="only-cyan">24,5,11</post>
-        <net points="1" region="cyan-nets">
-            <capture-filter>
-                <flag-returned>cyan-flag</flag-returned>
-            </capture-filter>
-        </net>
+        <net points="30" region="cyan-nets"/>
     </flag>
 </flags>
 <killreward>
