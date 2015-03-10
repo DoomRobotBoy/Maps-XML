@@ -140,11 +140,11 @@
             <potion duration="0">slow</potion>
         </drop-kit>
     </flag>
-    <flag id="orange-flag" name="Orange Flag" color="gold" shared="true">
+    <flag id="orange-flag" name="Orange Flag" color="gold" shared="true" return-time="0s">
         <post pickup-filter="only-orange">2,5,11</post>
         <net points="30" region="orange-nets"/>
     </flag>
-    <flag id="cyan-flag" name="Cyan Flag" color="dark aqua" shared="true">
+    <flag id="cyan-flag" name="Cyan Flag" color="dark aqua" shared="true" return-time="0s">
         <post pickup-filter="only-cyan">24,5,11</post>
         <net points="30" region="cyan-nets"/>
     </flag>
