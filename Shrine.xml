@@ -81,9 +81,11 @@
         <cuboid min="253,9,360" max="245,14,361"/>
         <cuboid min="246,9,361" max="240,14,362"/>
         <cuboid min="158,9,359" max="165,14,360"/>
-        <cuboid min="164,14,360" max="172,14,361"/>
+        <cuboid min="164,9,360" max="172,14,361"/>
         <cuboid min="171,9,361" max="177,14,362"/>
     </union>
+    <cuboid name="orange-wool-room" min="198,11,386" max="219,16,385"/>
+    <cuboid name="cyan-wool-room" min="198,11,114" max="219,16,113"/>
     <union name="orange-nets">
         <block>252.5,11,373.5</block>
         <block>164.5,11,373.5</block>
@@ -98,11 +100,13 @@
     <apply block="deny-all">
         <region name="map"/>
     </apply>
-    <apply enter="only-orange">
+    <apply enter="only-orange" message="Only Orange Team is allowed here!">
         <region name="orange-spawns-protection"/>
+        <region name="orange-wool-room"/>
     </apply>
-    <apply enter="only-cyan">
+    <apply enter="only-cyan" message="Only Cyan Team is allowed here!">
         <region name="cyan-spawns-protection"/>
+        <region name="cyan-wool-room"/>
     </apply>
 </regions>
 <spawns>
