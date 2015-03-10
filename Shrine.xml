@@ -133,12 +133,18 @@
     <flag name="Shrine Flag" color="white" shared="true" post="center-post" points-rate="0.5">
         <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
         <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
+        <pickup-kit force="true">
+            <potion duration="oo">slow</potion>
+        </pickup-kit>
+        <drop-kit force="true">
+            <potion duration="0">slow</potion>
+        </drop-kit>
     </flag>
-    <flag id="orange-flag" name="Orange Flag" color="gold">
+    <flag id="orange-flag" name="Orange Flag" color="gold" shared="true">
         <post pickup-filter="only-orange">2,5,11</post>
         <net points="30" region="orange-nets"/>
     </flag>
-    <flag id="cyan-flag" name="Cyan Flag" color="dark aqua">
+    <flag id="cyan-flag" name="Cyan Flag" color="dark aqua" shared="true">
         <post pickup-filter="only-cyan">24,5,11</post>
         <net points="30" region="cyan-nets"/>
     </flag>
