@@ -5,11 +5,11 @@
 <objective>Capture and Retrieve Your Enemy's Wool To Win!</objective>
 <authors>
     <author uuid="e3fdaea1-8a19-4378-8ad7-41cf63f5d141"/>
-    <!-- Avaleer --!>
+<!-- Avaleer -->
 </authors>
 <contributors>
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/>
-    <!-- DoomRobotBoy --!>
+<!-- DoomRobotBoy -->
 </contributors>
 <teams>
     <team id="red" color="red" max="10" max-overfill="12">Red Team</team>
