@@ -24,6 +24,7 @@
         <item slot="8" amount="32">vines</item>
         <item slot="28" amount="1">arrow</item>
         <potion duration="3" amplifier="127">damage resistance</potion>
+        <potion duration="oo">night vision</potion>
     </kit>
     <kit name="red" parents="spawn">
         <helmet color="993333" damage="-3000">leather helmet</helmet>
@@ -54,6 +55,7 @@
         <item slot="28" amount="1">arrow</item>
         <helmet color="993333" damage="-3000">leather helmet</helmet>
         <chestplate color="993333" enchantment="protection projectile:2" damage="-3000">leather chestplate</chestplate>
+        <potion duration="oo">night vision</potion>
         <clear/>
     </kit>
     <kit name="blue-no-kit">
@@ -69,6 +71,7 @@
         <item slot="28" amount="1">arrow</item>
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
         <chestplate color="334CB2" enchantment="protection projectile:2" damage="-3000">leather chestplate</chestplate>
+        <potion duration="oo">night vision</potion>
         <clear/>
     </kit>
 </kits>
