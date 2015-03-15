@@ -146,7 +146,8 @@
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <rectangle name="field" min="-648,-82" max="-717,-179"/>
+        <rectangle name="red-map" min="-648,-131" max="-717,-179"/>
+        <rectangle name="blue-map" min="-648,-82" max="-717,-130"/>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
@@ -154,21 +155,24 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="none"/>
+        	<net id="red-center-net" region="red-map" points="1" post="central-post" capture-filter="red-has-all"/>
+        	<net id="blue-center-net" region="blue-map" points="1" post="central-post" capture-filter="blue-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="none"/>
+        	<net id="red-south-net" region="red-map" points="1" post="south-post" capture-filter="red-has-all"/>
+        	<net id="blue-south-net" region="blue-map" points="1" post="south-post" capture-filter="blue-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="none"/>
+        	<net id="red-north-net" region="red-map" points="1" post="north-post" capture-filter="red-has-all"/>
+        	<net id="blue-north-net" region="blue-map" points="1" post="north-post" capture-filter="blue-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
