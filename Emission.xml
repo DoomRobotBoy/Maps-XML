@@ -95,45 +95,45 @@
             <all>
                 <any>
                     <carrying-flag>central-flag</carrying-flag>
-                    <carrying-flag>south-flag</carrying-flag>
                     <carrying-flag>north-flag</carrying-flag>
+                    <carrying-flag>south-flag</carrying-flag>
                 </any>
                 <team>blue</team>
             </all>
         </filter> -->
         <filter name="blue-has-south">
         	<all>
-        		<objective>south-flag</objective>
+        		<carrying-flag>south-flag</carrying-flag>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-center">
         	<all>
-        		<objective>center-flag</objective>
+        		<carrying-flag>central-flag</carrying-flag>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-north">
         	<all>
-        		<objective>north-flag</objective>
+        		<carrying-flag>north-flag</carrying-flag>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="red-has-south">
         	<all>
-        		<objective>south-flag</objective>
+        		<carrying-flag>north-flag</carrying-flag>
         		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-center">
         	<all>
-        		<objective>center-flag</objective>
+        		<carrying-flag>central-flag</carrying-flag>
         		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-north">
         	<all>
-        		<objective>north-flag</objective>
+        		<carrying-flag>south-flag</carrying-flag>
         		<team>red</team>
         	</all>
         </filter>
@@ -147,12 +147,6 @@
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <apply filter="a-flag-red" kit="flag-pickup">
-            <region name="map"/>
-        </apply>
-        <apply filter="a-flag-blue" kit="flag-pickup">
-            <region name="map"/>
-        </apply>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
@@ -184,13 +178,13 @@
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="south-west-post">-708.5,3,-99.5</post>
+        <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="north-east-post">-656.5,3,-161.5</post>
+        <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
