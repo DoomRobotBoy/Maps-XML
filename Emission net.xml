@@ -68,37 +68,37 @@
         <filter name="blue-has-south">
         	<all>
         		<flag-carried>south-flag</flag-carried>
-        		<team>blue</team>
+        		<filter name="only-blue"/>
         	</all>
         </filter>
         <filter name="blue-has-central">
         	<all>
         		<flag-carried>central-flag</flag-carried>
-        		<team>blue</team>
+        		<filter name="only-blue"/>
         	</all>
         </filter>
         <filter name="blue-has-north">
         	<all>
         		<flag-carried>north-flag</flag-carried>
-        		<team>blue</team>
+        		<filter name="only-blue"/>
         	</all>
         </filter>
         <filter name="red-has-south">
         	<all>
         		<flag-carried>south-flag</flag-carried>
-        		<team>red</team>
+        		<filter name="only-red"/>
         	</all>
         </filter>
         <filter name="red-has-central">
         	<all>
         		<flag-carried>central-flag</flag-carried>
-        		<team>red</team>
+        		<filter name="only-red"/>
         	</all>
         </filter>
         <filter name="red-has-north">
         	<all>
         		<flag-carried>north-flag</flag-carried>
-        		<team>red</team>
+        		<filter name="only-red"/>
         	</all>
         </filter>
         <filter name="blue-has-all">
