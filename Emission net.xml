@@ -121,10 +121,18 @@
                 <filter name="red-has-all"/>
             </any>
         </filter>
+        <filter name="blue-carrying-3">
+        	<all>
+        		<carrying-flag>south-flag</carrying-flag>
+        		<carrying-flag>center-flag</carrying-flag>
+        		<carrying-flag>north-flag</carrying-flag>
+        		<team>blue</team>
+        	</all>
+        </filter>
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <cuboid name="field" min="-648,0,-82" max="-717,13,-179"/>
+        <rectangle name="field" min="-648,-82" max="-717,-179"/>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
@@ -132,21 +140,21 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net region="field" points="1" capture-filter="team-has-all"/>
+        	<net id="map-net" region="field" points="1" post="central-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net region="field" points="1" capture-filter="team-has-all"/>
+        	<net id="map-net" region="field" points="1" post="south-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net region="field" points="1" capture-filter="team-has-all"/>
+        	<net id="map-net" region="field" points="1" post="north-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
