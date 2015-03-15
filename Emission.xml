@@ -5,13 +5,13 @@
 <objective>To win you have to control all three flags.</objective>
 <authors>
     <author uuid="fe3608b7-d105-4029-8800-34b3147065b6"/>
-<!--  rockymine  -->
+	<!--  rockymine  -->
 	<author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-<!-- DoomRobotBoy -->
+	<!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team id="red-team" color="dark red" max="10">Red Team</team>
-    <team id="blue-team" color="blue" max="10">Blue Team</team>
+    <team id="red" color="dark red" max="10">Red Team</team>
+    <team id="blue" color="blue" max="10">Blue Team</team>
 </teams>
 <kits>
     <kit name="spawn">
@@ -74,12 +74,38 @@
             <carrying-flag>north-flag</carrying-flag>
             <team>blue</team>
         </all>
-    </filter> -->
+    </filter>
+    <filter name="a-flag-red">
+    	<all>	
+    		<any>
+            	<carrying-flag>central-flag</carrying-flag>
+            	<carrying-flag>south-flag</carrying-flag>
+            	<carrying-flag>north-flag</carrying-flag>
+        	</any>
+        	<team>red</team>
+        </all>
+    </filter>
+    <filter name="a-flag-blue">
+    	<all>	
+    		<any>
+            	<carrying-flag>central-flag</carrying-flag>
+            	<carrying-flag>south-flag</carrying-flag>
+            	<carrying-flag>north-flag</carrying-flag>
+        	</any>
+        	<team>blue</team>
+        </all>
+    </filter>-->
 </filters>
 <regions>
-    <apply kit
+	<rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <!-- <apply filter="a-flag-red" kit="flag-pickup">
+    	<region name="map"/>
+    </apply>
+    <apply filter="a-flag-blue" kit="flag-pickup">
+    	<region name="map"/>
+    </apply> -->
 	<apply block="deny-blocks">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
+        <region name="map"/>
     </apply>
 </regions>
 <!-- <king>
