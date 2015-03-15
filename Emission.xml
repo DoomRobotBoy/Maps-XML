@@ -22,7 +22,7 @@
         <potion duration="3" amplifier="25">heal</potion>
         <potion duration="3" amplifier="25">damage resistance</potion>
 		<potion duration="oo">night vision</potion>
-    </kit>
+    </kit>	
     <kit name="red" parents="spawn">
         <leggings color="ff0000" damage="-3000">leather leggings</leggings>
         <boots color="ff0000" damage="-3000">leather boots</boots>
