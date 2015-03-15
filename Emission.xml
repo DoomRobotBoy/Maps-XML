@@ -124,7 +124,7 @@
     </regions>
     <king>
         <hills>
-            <hill name="hill" show="false" capture-time="1s" owner="red" permanent="true">
+            <hill name="blue-hill" show="false" capture-time="1s" owner="red" permanent="true">
                 <capture>
                     <cuboid min="-648,0,-82" max="-717,13,-179"/>
                 </capture>
@@ -142,7 +142,7 @@
     </king>
     <king>
         <hills>
-            <hill name="hill" show="false" capture-time="1s" owner="blue" permanent="true">
+            <hill name="red-hill" show="false" capture-time="1s" owner="blue" permanent="true">
                 <capture>
                     <cuboid min="-648,0,-82" max="-717,13,-179"/>
                 </capture>
