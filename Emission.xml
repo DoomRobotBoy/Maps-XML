@@ -124,7 +124,7 @@
     </regions>
     <king>
         <hills>
-            <hill name="blue-hill" show="false" capture-time="1s" owner="red" permanent="true">
+            <hill name="hill" show="false" capture-time="1s" permanent="true" capture-rule="majority">
                 <capture>
                     <cuboid min="-648,0,-82" max="-717,13,-179"/>
                 </capture>
@@ -135,14 +135,13 @@
                     <cuboid min="0,0,0" max="0,0,0"/>
                 </captured>
                 <capture-filter>
-                    <filter name="blue-has-all"/>
+                    <any>
+                    	<filter name="blue-has-all"/>
+                    	<filter name="red-has-all"/>
+                    </any>
                 </capture-filter>
             </hill>
-        </hills>
-    </king>
-    <king>
-        <hills>
-            <hill name="red-hill" show="false" capture-time="1s" owner="blue" permanent="true">
+           <!-- <hill name="red-hill" show="false" capture-time="1s" owner="blue" permanent="true">
                 <capture>
                     <cuboid min="-648,0,-82" max="-717,13,-179"/>
                 </capture>
@@ -155,7 +154,7 @@
                 <capture-filter>
                     <filter name="red-has-all"/>
                 </capture-filter>
-            </hill>
+            </hill> -->
         </hills>
     </king>
     <flags>
