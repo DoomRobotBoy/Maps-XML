@@ -135,9 +135,7 @@
                     <cuboid min="0,0,0" max="0,0,0"/>
                 </captured>
                 <capture-filter>
-                    <any>
-                    	<filter name="blue-has-all"/>
-                    </any>
+                    <filter name="blue-has-all"/>
                 </capture-filter>
             </hill>
            <!-- <hill name="red-hill" show="false" capture-time="1s" owner="blue" permanent="true">
