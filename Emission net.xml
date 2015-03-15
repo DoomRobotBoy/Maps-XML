@@ -71,9 +71,9 @@
         		<team>blue</team>
         	</all>
         </filter>
-        <filter name="blue-has-center">
+        <filter name="blue-has-central">
         	<all>
-        		<flag-carried>center-flag</flag-carried>
+        		<flag-carried>central-flag</flag-carried>
         		<team>blue</team>
         	</all>
         </filter>
@@ -89,9 +89,9 @@
         		<team>red</team>
         	</all>
         </filter>
-        <filter name="red-has-center">
+        <filter name="red-has-central">
         	<all>
-        		<flag-carried>center-flag</flag-carried>
+        		<flag-carried>central-flag</flag-carried>
         		<team>red</team>
         	</all>
         </filter>
@@ -104,14 +104,14 @@
         <filter name="blue-has-all">
         	<all>
         		<filter name="blue-has-south"/>
-        		<filter name="blue-has-center"/>
+        		<filter name="blue-has-central"/>
         		<filter name="blue-has-north"/>
         	</all>
         </filter>
         <filter name="red-has-all">
         	<all>
         		<filter name="red-has-south"/>
-        		<filter name="red-has-center"/>
+        		<filter name="red-has-central"/>
         		<filter name="red-has-north"/>
         	</all>
         </filter>
@@ -120,14 +120,6 @@
                 <filter name="blue-has-all"/>
                 <filter name="red-has-all"/>
             </any>
-        </filter>
-        <filter name="blue-carrying-3">
-        	<all>
-        		<carrying-flag>south-flag</carrying-flag>
-        		<carrying-flag>center-flag</carrying-flag>
-        		<carrying-flag>north-flag</carrying-flag>
-        		<team>blue</team>
-        	</all>
         </filter>
     </filters>
     <regions>
@@ -140,21 +132,21 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="blue-carrying-3"/>
+        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="blue-carrying-3"/>
+        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="blue-carrying-3"/>
+        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
