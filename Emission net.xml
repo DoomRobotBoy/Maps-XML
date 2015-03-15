@@ -10,7 +10,7 @@
         <!-- DoomRobotBoy -->
     </authors>
     <score>
-        <limit>3</limit>
+        <limit>1</limit>
     </score>
     <teams>
         <team id="red" color="dark red" max="14">Red Team</team>
