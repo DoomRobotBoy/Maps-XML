@@ -9,9 +9,6 @@
         <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
         <!-- DoomRobotBoy -->
     </authors>
-    <score>
-        <limit>1</limit>
-    </score>
     <teams>
         <team id="red" color="dark red" max="14">Red Team</team>
         <team id="blue" color="blue" max="14">Blue Team</team>
@@ -167,7 +164,7 @@
         </apply>
     </regions>
     <flags>
-        <post id="central-post">-682.5,10,-130.5</post>
+        <post id="central-post" pickup-filter="deny-all">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
         	<net id="red-center-net" region="red-map" points="1" post="central-post" capture-filter="red-not-blue"/>
         	<net id="blue-center-net" region="blue-map" points="1" post="central-post" capture-filter="blue-not-red"/>
@@ -175,7 +172,7 @@
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="south-post">-708.5,3,-99.5</post>
+        <post id="south-post" pickup-filter="deny-all" owner="red">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
         	<net id="red-south-net" region="red-map" points="1" post="south-post" capture-filter="red-not-blue"/>
         	<net id="blue-south-net" region="blue-map" points="1" post="south-post" capture-filter="blue-not-red"/>
@@ -183,7 +180,7 @@
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="north-post">-656.5,3,-161.5</post>
+        <post id="north-post" pickup-filter="deny-all" owner="blue">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
         	<net id="red-north-net" region="red-map" points="1" post="north-post" capture-filter="red-not-blue"/>
         	<net id="blue-north-net" region="blue-map" points="1" post="north-post" capture-filter="blue-not-red"/>
