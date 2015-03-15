@@ -65,42 +65,6 @@
         <filter name="only-blue">
             <team>blue</team>
         </filter>
-<!--        <filter name="all-flags-red">
-            <all>
-                <carrying-flag>central-flag</carrying-flag>
-                <carrying-flag>south-flag</carrying-flag>
-                <carrying-flag>north-flag</carrying-flag>
-                <team>red</team>
-            </all>
-        </filter>
-        <filter name="all-flags-blue">
-            <all>
-                <carrying-flag>central-flag</carrying-flag>
-                <carrying-flag>south-flag</carrying-flag>
-                <carrying-flag>north-flag</carrying-flag>
-                <team>blue</team>
-            </all>
-        </filter>
-        <filter name="a-flag-red">
-            <all>
-                <any>
-                    <carrying-flag>central-flag</carrying-flag>
-                    <carrying-flag>south-flag</carrying-flag>
-                    <carrying-flag>north-flag</carrying-flag>
-                </any>
-                <team>red</team>
-            </all>
-        </filter>
-        <filter name="a-flag-blue">
-            <all>
-                <any>
-                    <carrying-flag>central-flag</carrying-flag>
-                    <carrying-flag>north-flag</carrying-flag>
-                    <carrying-flag>south-flag</carrying-flag>
-                </any>
-                <team>blue</team>
-            </all>
-        </filter> -->
         <filter name="blue-has-south">
         	<all>
         		<carrying-flag>south-flag</carrying-flag>
@@ -144,6 +108,13 @@
         		<filter name="blue-has-north"/>
         	</all>
         </filter>
+        <filter name="red-has-all">
+        	<all>
+        		<filter name="red-has-south"/>
+        		<filter name="red-has-center"/>
+        		<filter name="red-has-north"/>
+        	</all>
+        </filter>
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
@@ -165,6 +136,24 @@
                 </captured>
                 <capture-filter>
                     <filter name="blue-has-all"/>
+                </capture-filter>
+            </hill>
+        </hills>
+    </king>
+    <king>
+        <hills>
+            <hill name="hill" show="false" capture-time="1s" owner="blue" permanent="true">
+                <capture>
+                    <cuboid min="-648,0,-82" max="-717,13,-179"/>
+                </capture>
+                <progress>
+                    <cuboid min="0,0,0" max="0,0,0"/>
+                </progress>
+                <captured>
+                    <cuboid min="0,0,0" max="0,0,0"/>
+                </captured>
+                <capture-filter>
+                    <filter name="red-has-all"/>
                 </capture-filter>
             </hill>
         </hills>
