@@ -10,7 +10,7 @@
         <!-- DoomRobotBoy -->
     </authors>
     <score>
-        <limit>1</limit>
+        <limit>3</limit>
     </score>
     <teams>
         <team id="red" color="dark red" max="14">Red Team</team>
@@ -130,27 +130,27 @@
         </apply>
     </regions>
     <flags>
-        <post id="blue-post" owner="blue" yaw="-90" points-rate="1" pickup-filter="only-blue">2,5,11
-        </post>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
+        	<net region="field" points="1" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
+        	<net region="field" points="1" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
+        	<net region="field" points="1" capture-filter="team-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-		<net id="world-net" region="field" points="1" capture-filter="team-has-all"/>
     </flags>
     <hunger>
         <depletion>off</depletion>
