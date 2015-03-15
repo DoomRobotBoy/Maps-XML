@@ -174,8 +174,8 @@
 		</flag>
         <post id="south-post" owner="red">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="red-south-net" region="red-map" points="1" "south-no-pickup" capture-filter="red-not-blue"/>
-        	<net id="blue-south-net" region="blue-map" points="1" "south-no-pickup" capture-filter="blue-not-red"/>
+        	<net id="red-south-net" region="red-map" points="1" post="south-no-pickup" capture-filter="red-not-blue"/>
+        	<net id="blue-south-net" region="blue-map" points="1" post="south-no-pickup" capture-filter="blue-not-red"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
