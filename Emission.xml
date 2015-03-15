@@ -179,11 +179,23 @@
         <post id="blue-post" owner="blue" yaw="-90" points-rate="1" pickup-filter="only-blue">2,5,11
         </post>
         <post id="central-post">-682.5,10,-130.5</post>
-        <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post"/>
+        <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
+            <pickup-kit force="true">
+		        <potion duration="3">slow</potion>
+		    </pickup-kit>
+		</flag>
         <post id="south-west-post">-708.5,3,-99.5</post>
-        <flag name="South Flag" id="south-flag" color="white" shared="true" post="south--post"/>
+        <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
+            <pickup-kit force="true">
+		        <potion duration="3">slow</potion>
+		    </pickup-kit>
+		</flag>
         <post id="north-east-post">-656.5,3,-161.5</post>
-        <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post"/>
+        <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
+            <pickup-kit force="true">
+		        <potion duration="3">slow</potion>
+		    </pickup-kit>
+		</flag>
     </flags>
     <hunger>
         <depletion>off</depletion>
