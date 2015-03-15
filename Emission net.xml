@@ -132,21 +132,24 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="team-has-all"/>
+        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="blue-has-all"/>
+        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="red-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="team-has-all"/>
+        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="blue-has-all"/>
+        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="red-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="team-has-all"/>
+        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="blue-has-all"/>
+        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="red-has-all"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
