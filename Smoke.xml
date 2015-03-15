@@ -149,29 +149,23 @@
             <progress-display-region>
                 <cuboid min="-4,7,28" max="4,22,36"/>
             </progress-display-region>
-            <owner-display-region>
-                <region name="red-2nd-owner"/>
-            </owner-display-region>
             <player-filter>
                 <any>
                     <objective>red-last</objective>
                     <all>
-                        <objective>back-mid</objective>
-                        <objective>front-mid</objective>
+                        <objective>top-mid</objective>
+                        <objective>bottom-mid</objective>
                     </all>
                 </any>
             </player-filter>
         </control-point>
-        <control-point id="front-mid" name="Front Mid" capture-time="5s">
+        <control-point id="top-mid" name="Top Mid" capture-time="5s">
             <capture-region>
                 <cuboid min="6,2,-5" max="-3,22,4"/>
             </capture-region>
             <progress-display-region>
                 <cuboid min="6,2,-5" max="-3,22,4"/>
             </progress-display-region>
-            <owner-display-region>
-                <region name="mid-owner"/>
-            </owner-display-region>
             <player-filter>
                 <any>
                     <objective>red-2nd</objective>
@@ -179,16 +173,13 @@
                 </any>
             </player-filter>
         </control-point>
-        <control-point id="back-mid" name="Back Mid" capture-time="5s">
+        <control-point id="bottom-mid" name="Bottom Mid" capture-time="5s">
             <capture-region>
                 <cuboid min="-17,9,18" max="-24,22,25"/>
             </capture-region>
             <progress-display-region>
                 <cuboid min="-17,9,18" max="-24,22,25"/>
             </progress-display-region>
-            <owner-display-region>
-                <region name="mid-owner"/>
-            </owner-display-region>
             <player-filter>
                 <any>
                     <objective>red-2nd</objective>
@@ -203,15 +194,12 @@
             <progress-display-region>
                 <cuboid min="-31,10,-19" max="-38,22,-26"/>
             </progress-display-region>
-            <owner-display-region>
-                <region name="yellow-2nd-owner"/>
-            </owner-display-region>
             <player-filter>
                 <any>
                     <objective>yellow-last</objective>
                     <all>
-                        <objective>back-mid</objective>
-                        <objective>front-mid</objective>
+                        <objective>top-mid</objective>
+                        <objective>bottom-mid</objective>
                     </all>
                 </any>
             </player-filter>
