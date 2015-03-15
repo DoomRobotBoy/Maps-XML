@@ -140,24 +140,6 @@
             </hill>
         </hills>
     </king>
-    <king>
-        <hills>
-            <hill name="hill" show="false" capture-time="1s" owner="blue" permanent="true">
-                <capture>
-                    <cuboid min="-648,0,-82" max="-717,13,-179"/>
-                </capture>
-                <progress>
-                    <cuboid min="0,0,0" max="0,0,0"/>
-                </progress>
-                <captured>
-                    <cuboid min="0,0,0" max="0,0,0"/>
-                </captured>
-                <capture-filter>
-                    <filter name="red-has-all"/>
-                </capture-filter>
-            </hill>
-        </hills>
-    </king>
     <flags>
         <post id="blue-post" owner="blue" yaw="-90" points-rate="1" pickup-filter="only-blue">2,5,11
         </post>
