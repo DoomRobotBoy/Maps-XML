@@ -1,0 +1,124 @@
+<?xml version="1.0">
+<map proto="1.3.6">
+<name>Emission</name>
+<version>1.0.0</version>
+<objective>To win you have to control all three flags.</objective>
+<authors>
+    <author uuid="fe3608b7-d105-4029-8800-34b3147065b6"/>
+<!--  rockymine  -->
+	<author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</authors>
+<teams>
+    <team id="red-team" color="dark red" max="10">Red Team</team>
+    <team id="blue-team" color="blue" max="10">Blue Team</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">iron sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <chestplate damage="-3000">iron chestplate</chestplate>
+        <potion duration="3" amplifier="25">heal</potion>
+        <potion duration="3" amplifier="25">damage resistance</potion>
+		<potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <leggings color="ff0000" damage="-3000">leather leggings</leggings>
+        <boots color="ff0000" damage="-3000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <leggings color="0000ff" damage="-3000">leather leggings</leggings>
+        <boots color="0000ff" damage="-3000">leather boots</boots>
+    </kit>
+	<kit name="obs">
+	    <potion duration="oo">night vision</potion>
+	</kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="red">
+        <regions yaw="-45">
+            <cuboid min="-704.5,8,-176.5" max="-703.5,8,-175.5"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <regions yaw="135">
+            <cuboid min="-660.5,8,-84.5" max="-661.5,8,-85.5"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="90" kit="obs">
+            <block>-725.5,22,-130.5"</block>
+        </regions>
+    </default>
+</spawns>
+<filters>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+<!-- <filter name="all-flags-red">
+        <all>
+            <carrying-flag>central-flag</carrying-flag>
+            <carrying-flag>south-flag</carrying-flag>
+            <carrying-flag>north-flag</carrying-flag>
+            <team>red</team>
+        </all>
+    </filter>
+    <filter name="all-flags-blue">
+        <all>
+            <carrying-flag>central-flag</carrying-flag>
+            <carrying-flag>south-flag</carrying-flag>
+            <carrying-flag>north-flag</carrying-flag>
+            <team>blue</team>
+        </all>
+    </filter> -->
+</filters>
+<regions>
+    <apply kit
+	<apply block="deny-blocks">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<!-- <king>
+    <hills>
+        <hill name="hill" show="false" capture-time="1s">
+            <capture><cuboid min="-648,0,-82" max="-717,13,-179"/></capture>
+            <progress><cuboid min="0,0,0" max="0,0,0"/</progress>
+            <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+            <capture-filter>
+                <any>
+                    <filter name="all-flags-red"/>
+                    <filter name="all-flags-blue"/>
+                </any>
+            </capture-filter>
+        </hill>
+    </hills>
+</king> -->
+<flags>
+	<post id="central-post">-682.5,10,-130.5</post>
+	<flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post"/>
+	<post id="south-west-post">-708.5,3,-99.5</post>
+	<flag name="South Flag" id="south-flag" color="white" shared="true" post="south--post"/>
+	<post id="north-east-post">-656.5,3,-161.5</post>
+	<flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post"/>
+</flags>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<itemremove>
+<!-- <item>iron sword</item> -->
+    <item>bow</item>
+    <item>iron chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<toolrepair>
+    <tool>iron sword</tool>
+	<tool>arrow</tool>
+</toolrepair>
+<timelock>on</timelock>
+<time result="objectives">10m</time>
+</map>
