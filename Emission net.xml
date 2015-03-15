@@ -68,37 +68,37 @@
         <filter name="blue-has-south">
         	<all>
         		<flag-carried>south-flag</flag-carried>
-        		<carrying-flag>blue</carrying-flag>
+        		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-central">
         	<all>
         		<flag-carried>central-flag</flag-carried>
-        		<carrying-flag>blue</carrying-flag>
+        		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-north">
         	<all>
         		<flag-carried>north-flag</flag-carried>
-        		<carrying-flag>blue</carrying-flag>
+        		<team>blue</team>
         	</all>
         </filter>
         <filter name="red-has-south">
         	<all>
         		<flag-carried>south-flag</flag-carried>
-        		<carrying-flag>red</carrying-flag>
+        		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-central">
         	<all>
         		<flag-carried>central-flag</flag-carried>
-        		<carrying-flag>red</carrying-flag>
+        		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-north">
         	<all>
         		<flag-carried>north-flag</flag-carried>
-        		<carrying-flag>red</carrying-flag>
+        		<team>red</team>
         	</all>
         </filter>
         <filter name="blue-has-all">
@@ -115,6 +115,20 @@
         		<filter name="red-has-north"/>
         	</all>
         </filter>
+        <filter name="blue-has-any">
+        	<any>
+        		<filter name="blue-has-south"/>
+        		<filter name="blue-has-central"/>
+        		<filter name="blue-has-north"/>
+        	</any>
+        </filter>
+        <filter name="red-has-any">
+        	<any>
+        		<filter name="red-has-south"/>
+        		<filter name="red-has-central"/>
+        		<filter name="red-has-north"/>
+        	</any>
+        </filter>
         <filter name="team-has-all">
             <any>
                 <filter name="blue-has-all"/>
@@ -125,7 +139,7 @@
         	<all>
         		<filter name="blue-has-all"/>
         		<not>
-        			<filter name="red-has-all"/>
+        			<filter name="red-has-any"/>
         		</not>
         	</all>
         </filter>
@@ -133,7 +147,7 @@
         	<all>
         		<filter name="red-has-all"/>
         		<not>
-        			<filter name="blue-has-all"/>
+        			<filter name="blue-has-any"/>
         		</not>
         	</all>
         </filter>
@@ -155,24 +169,24 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="red-center-net" region="red-map" points="1" post="central-post" capture-filter="red-has-all"/>
-        	<net id="blue-center-net" region="blue-map" points="1" post="central-post" capture-filter="blue-has-all"/>
+        	<net id="red-center-net" region="red-map" points="1" post="central-post" capture-filter="red-not-blue"/>
+        	<net id="blue-center-net" region="blue-map" points="1" post="central-post" capture-filter="blue-not-red"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="red-south-net" region="red-map" points="1" post="south-post" capture-filter="red-has-all"/>
-        	<net id="blue-south-net" region="blue-map" points="1" post="south-post" capture-filter="blue-has-all"/>
+        	<net id="red-south-net" region="red-map" points="1" post="south-post" capture-filter="red-not-blue"/>
+        	<net id="blue-south-net" region="blue-map" points="1" post="south-post" capture-filter="blue-not-red"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="red-north-net" region="red-map" points="1" post="north-post" capture-filter="red-has-all"/>
-        	<net id="blue-north-net" region="blue-map" points="1" post="north-post" capture-filter="blue-has-all"/>
+        	<net id="red-north-net" region="red-map" points="1" post="north-post" capture-filter="red-not-blue"/>
+        	<net id="blue-north-net" region="blue-map" points="1" post="north-post" capture-filter="blue-not-red"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
