@@ -67,37 +67,37 @@
         </filter>
         <filter name="blue-has-south">
         	<all>
-        		<carrying-flag>south-flag</carrying-flag>
+        		<flag-carried>south-flag</flag-carried>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-center">
         	<all>
-        		<carrying-flag>central-flag</carrying-flag>
+        		<flag-carried>center-flag</flag-carried>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="blue-has-north">
         	<all>
-        		<carrying-flag>north-flag</carrying-flag>
+        		<flag-carried>north-flag</flag-carried>
         		<team>blue</team>
         	</all>
         </filter>
         <filter name="red-has-south">
         	<all>
-        		<carrying-flag>north-flag</carrying-flag>
+        		<flag-carried>south-flag</flag-carried>
         		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-center">
         	<all>
-        		<carrying-flag>central-flag</carrying-flag>
+        		<flag-carried>center-flag</flag-carried>
         		<team>red</team>
         	</all>
         </filter>
         <filter name="red-has-north">
         	<all>
-        		<carrying-flag>south-flag</carrying-flag>
+        		<flag-carried>north-flag</flag-carried>
         		<team>red</team>
         	</all>
         </filter>
@@ -140,21 +140,21 @@
     <flags>
         <post id="central-post">-682.5,10,-130.5</post>
         <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="map-net" region="field" points="1" post="central-post" capture-filter="blue-carrying-3"/>
+        	<net id="center-net" region="field" points="1" post="central-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="south-post">-708.5,3,-99.5</post>
         <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="map-net" region="field" points="1" post="south-post" capture-filter="blue-carrying-3"/>
+        	<net id="south-net" region="field" points="1" post="south-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <post id="north-post">-656.5,3,-161.5</post>
         <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="map-net" region="field" points="1" post="north-post" capture-filter="blue-carrying-3"/>
+        	<net id="north-net" region="field" points="1" post="north-post" capture-filter="blue-carrying-3"/>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
