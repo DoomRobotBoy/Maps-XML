@@ -66,138 +66,34 @@
         <filter name="only-blue">
             <team>blue</team>
         </filter>
-        <!-- <filter name="blue-has-south">
-        	<all>
-        		<flag-carried>south-flag</flag-carried>
-        		<filter name="only-blue"/>
-        	</all>
-        </filter>
-        <filter name="blue-has-central">
-        	<all>
-        		<flag-carried>central-flag</flag-carried>
-        		<filter name="only-blue"/>
-        	</all>
-        </filter>
-        <filter name="blue-has-north">
-        	<all>
-        		<flag-carried>north-flag</flag-carried>
-        		<filter name="only-blue"/>
-        	</all>
-        </filter>
-        <filter name="red-has-south">
-        	<all>
-        		<flag-carried>south-flag</flag-carried>
-        		<filter name="only-red"/>
-        	</all>
-        </filter>
-        <filter name="red-has-central">
-        	<all>
-        		<flag-carried>central-flag</flag-carried>
-        		<filter name="only-red"/>
-        	</all>
-        </filter>
-        <filter name="red-has-north">
-        	<all>
-        		<flag-carried>north-flag</flag-carried>
-        		<filter name="only-red"/>
-        	</all>
-        </filter>
-        <filter name="blue-has-all">
-        	<all>
-        		<filter name="blue-has-south"/>
-        		<filter name="blue-has-central"/>
-        		<filter name="blue-has-north"/>
-        	</all>
-        </filter>
-        <filter name="red-has-all">
-        	<all>
-        		<filter name="red-has-south"/>
-        		<filter name="red-has-central"/>
-        		<filter name="red-has-north"/>
-        	</all>
-        </filter>
-        <filter name="blue-has-any">
-        	<any>
-        		<filter name="blue-has-south"/>
-        		<filter name="blue-has-central"/>
-        		<filter name="blue-has-north"/>
-        	</any>
-        </filter>
-        <filter name="red-has-any">
-        	<any>
-        		<filter name="red-has-south"/>
-        		<filter name="red-has-central"/>
-        		<filter name="red-has-north"/>
-        	</any>
-        </filter>
-        <filter name="team-has-all">
-            <any>
-                <filter name="blue-has-all"/>
-                <filter name="red-has-all"/>
-            </any>
-        </filter>
-        <filter name="blue-not-red">
-        	<all>
-        		<filter name="blue-has-all"/>
-        		<not>
-        			<filter name="red-has-any"/>
-        		</not>
-        	</all>
-        </filter>
-        <filter name="red-not-blue">
-        	<all>
-        		<filter name="red-has-all"/>
-        		<not>
-        			<filter name="blue-has-any"/>
-        		</not>
-        	</all>
-        </filter>
-        <filter name="none">
-        	<any>
-        		<filter name="blue-not-red"/>
-        		<filter name="red-not-blue"/>
-        	</any>
-        </filter> -->
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <!-- <rectangle name="red-map" min="-648,-131" max="-717,-179"/>
-        <rectangle name="blue-map" min="-648,-82" max="-717,-130"/> -->
         <rectangle name="playing-field" min="-648,-82" max="-717,-179"/>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
     </regions>
     <flags>
-        <post id="central-post">-682.5,10,-130.5</post>
-        <flag name="Central Flag" id="central-flag" color="white" shared="true" post="central-post">
-        	<net id="red-center-net" region="red-map" points="1" post="central-no-pickup" capture-filter="red-not-blue"/>
-        	<net id="blue-center-net" region="blue-map" points="1" post="central-no-pickup" capture-filter="blue-not-red"/>
+        <flag name="Central Flag" id="central-flag" color="white" show="false" points="-1" shared="true">
+        	<post id="central-post">-682.5,10,-130.5</post>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="south-post" owner="red">-708.5,3,-99.5</post>
-        <flag name="South Flag" id="south-flag" color="white" shared="true" post="south-post">
-        	<net id="red-south-net" region="red-map" points="1" post="south-no-pickup" capture-filter="red-not-blue"/>
-        	<net id="blue-south-net" region="blue-map" points="1" post="south-no-pickup" capture-filter="blue-not-red"/>
+        <flag name="South Flag" id="south-flag" color="white" show="false" points="-1" shared="true">
+            <post id="south-post" owner="red">-708.5,3,-99.5</post>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-        <post id="north-post" owner="blue">-656.5,3,-161.5</post>
-        <flag name="North Flag" id="north-flag" color="white" shared="true" post="north-post">
-        	<net id="red-north-net" region="red-map" points="1" post="north-no-pickup" capture-filter="red-not-blue"/>
-        	<net id="blue-north-net" region="blue-map" points="1" post="north-no-pickup" capture-filter="blue-not-red"/>
+        <flag name="North Flag" id="north-flag" color="white" show="false" points="-1" shared="true">
+            <post id="north-post" owner="blue">-656.5,3,-161.5</post>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
-		<post id="north-no-pickup" pickup-filter="deny-all">-723.5,22,-131.5</post>
-		<post id="central-no-pickup" pickup-filter="deny-all">-723.5,22,-130.5</post>
-		<post id="south-no-pickup" pickup-filter="deny-all">-723.5,22,-129.5</post>
     </flags>
-    
     <control-points>
         <control-point id="hill-central" name="Central Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
             <player-filter>
@@ -243,7 +139,6 @@
         </control-point>
     </control-points>
     <king />
-    
     <hunger>
         <depletion>off</depletion>
     </hunger>
