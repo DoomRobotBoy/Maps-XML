@@ -9,6 +9,10 @@
         <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
         <!-- DoomRobotBoy -->
     </authors>
+    <contributors>
+    	<contributor uuid="" contribution="Providing the working code"/>
+    	<!-- minimitch0199 -->
+    </contributors>
     <teams>
         <team id="red" color="dark red" max="14">Red Team</team>
         <team id="blue" color="blue" max="14">Blue Team</team>
@@ -62,7 +66,7 @@
         <filter name="only-blue">
             <team>blue</team>
         </filter>
-        <filter name="blue-has-south">
+        <!-- <filter name="blue-has-south">
         	<all>
         		<flag-carried>south-flag</flag-carried>
         		<filter name="only-blue"/>
@@ -153,12 +157,13 @@
         		<filter name="blue-not-red"/>
         		<filter name="red-not-blue"/>
         	</any>
-        </filter>
+        </filter> -->
     </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <rectangle name="red-map" min="-648,-131" max="-717,-179"/>
-        <rectangle name="blue-map" min="-648,-82" max="-717,-130"/>
+        <!-- <rectangle name="red-map" min="-648,-131" max="-717,-179"/>
+        <rectangle name="blue-map" min="-648,-82" max="-717,-130"/> -->
+        <rectangle name="playing-field" min="-648,-82" max="-717,-179"/>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
@@ -192,6 +197,53 @@
 		<post id="central-no-pickup" pickup-filter="deny-all">-723.5,22,-130.5</post>
 		<post id="south-no-pickup" pickup-filter="deny-all">-723.5,22,-129.5</post>
     </flags>
+    
+    <control-points>
+        <control-point id="hill-central" name="Central Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
+            <player-filter>
+                <carrying-flag>central-flag</carrying-flag>
+            </player-filter>
+            <capture-region>
+                <region name="playing-field"/>
+            </capture-region>
+            <progress-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </progress-display-region>
+            <owner-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </owner-display-region>
+        </control-point>
+        <control-point id="hill-south" name="South Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
+            <player-filter>
+                <carrying-flag>south-flag</carrying-flag>
+            </player-filter>
+            <capture-region>
+                <region name="playing-field"/>
+            </capture-region>
+            <progress-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </progress-display-region>
+            <owner-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </owner-display-region>
+        </control-point>
+        <control-point id="hill-north" name="North Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
+            <player-filter>
+                <carrying-flag>north-flag</carrying-flag>
+            </player-filter>
+            <capture-region>
+                <region name="playing-field"/>
+            </capture-region>
+            <progress-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </progress-display-region>
+            <owner-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </owner-display-region>
+        </control-point>
+    </control-points>
+    <king />
+    
     <hunger>
         <depletion>off</depletion>
     </hunger>
