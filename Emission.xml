@@ -19,11 +19,12 @@
     </teams>
     <kits>
         <kit name="spawn" potion-particles="false" force="true">
-            <item slot="0">stone sword</item>
+            <item slot="0">iron sword</item>
             <item slot="1" enchantment="arrow infinite:1">bow</item>
             <item slot="2">golden apple</item>
             <item slot="3" damage="8261">potion</item>
             <item slot="28">arrow</item>
+            <helmet damage="-3000" locked="true">chainmail helmet</helmet>
             <chestplate damage="-3000">iron chestplate</chestplate>
             <potion duration="3" amplifier="25">heal</potion>
             <potion duration="3" amplifier="25">damage resistance</potion>
@@ -40,9 +41,63 @@
         <kit name="obs">
             <potion duration="oo">night vision</potion>
         </kit>
+        <kit name="flag-pickup" force="true">
+        	<helmet enchantment="durability:1" damage="-3000" locked="true">diamond helmet</helmet>
+        	<potion duration="5" amplifier="2">slow</potion>
+        	<potion duration="oo">speed</potion>
+        </kit>
+        <kit name="flag-drop" force="true">
+        	<helmet damage="-3000" locked="true">chainmail helmet</helmet>
+        	<potion duration="3">slow</potion>
+        	<potion duration="0">speed</potion>
+        </kit>
     </kits>
+    <filters>
+        <filter name="only-red">
+            <team>red</team>
+        </filter>
+        <filter name="only-blue">
+            <team>blue</team>
+        </filter>
+        <filter name="flag-carriers">
+        	<any>
+        		<carrying-flag>central-flag</carrying-flag>
+        		<carrying-flag>south-flag</carrying-flag>
+        		<carrying-flag>north-flag</carrying-flag>
+        		<carrying-flag>west-central-flag</carrying-flag>
+        		<carrying-flag>east-central-flag</carrying-flag>
+        	</any>
+        </filter>
+        <filter name="not-flag-carriers">
+        	<not>
+        		<any>
+        			<carrying-flag>central-flag</carrying-flag>
+        			<carrying-flag>south-flag</carrying-flag>
+        			<carrying-flag>north-flag</carrying-flag>
+        			<carrying-flag>west-central-flag</carrying-flag>
+        			<carrying-flag>east-central-flag</carrying-flag>
+        		</any>
+        	</not>
+        </filter>
+    </filters>
     <killreward>
 		<item damage="8193" potions="regeneration:140:0:false;heal:1:0:false">potion</item>
+		<filter>
+			<filter name="not-flag-carriers"/>
+		</filter>
+	</killreward>
+	<killreward>
+		<filter>
+        	<kill-streak count="2" repeat="true"/>
+        	<filter name="not-flag-carriers"/>
+		</filter>
+		<item>golden apple</item>
+	</killreward>
+	<killreward>
+		<filter>
+        	<filter name="flag-carriers"/>
+		</filter>
+		<item>golden apple</item>
 	</killreward>
     <spawns>
         <spawn team="red" kit="red">
@@ -61,14 +116,6 @@
             </regions>
         </default>
     </spawns>
-    <filters>
-        <filter name="only-red">
-            <team>red</team>
-        </filter>
-        <filter name="only-blue">
-            <team>blue</team>
-        </filter>
-    </filters>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
         <rectangle name="playing-field" min="-648,-82" max="-717,-179"/>
@@ -76,36 +123,21 @@
             <region name="map"/>
         </apply>
     </regions>
-    <flags>
+    <flags pickup-kit="flag-pickup" drop-kit="flag-drop" return-time="2s">
         <flag name="Central Flag" id="central-flag" color="white" show="false" points="-1" shared="true">
         	<post id="central-post">-682.5,10,-130.5</post>
-            <pickup-kit force="true">
-		        <potion duration="3">slow</potion>
-		    </pickup-kit>
 		</flag>
         <flag name="South Flag" id="south-flag" color="white" show="false" points="-1" shared="true">
             <post id="south-post">-708.5,3,-99.5</post>
-            <pickup-kit force="true">
-		        <potion duration="3">slow</potion>
-		    </pickup-kit>
 		</flag>
         <flag name="North Flag" id="north-flag" color="white" show="false" points="-1" shared="true">
             <post id="north-post">-656.5,3,-161.5</post>
-            <pickup-kit force="true">
-		        <potion duration="3">slow</potion>
-		    </pickup-kit>
 		</flag>
 		<flag name="West-Central Flag" id="west-central-flag" color="white" show="false" points="-1" shared="true">
             <post id="west-central-post">-712.5,9,-130.5</post>
-            <pickup-kit force="true">
-		        <potion duration="3">slow</potion>
-		    </pickup-kit>
 		</flag>
         <flag name="East-Central Flag" id="east-central-flag" color="white" show="false" points="-1" shared="true">
             <post id="east-central-post">-652.5,9,-130.5</post>
-            <pickup-kit force="true">
-		        <potion duration="3">slow</potion>
-		    </pickup-kit>
 		</flag>
     </flags>
     <control-points>
@@ -196,6 +228,9 @@
         <item>iron chestplate</item>
         <item>leather leggings</item>
         <item>leather boots</item>
+        <item>potion</item>
+        <item>glass bottle</item>
+        <item>golden apple</item>
     </itemremove>
     <toolrepair>
         <tool>iron sword</tool>
