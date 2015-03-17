@@ -18,9 +18,11 @@
         <team id="blue" color="blue" max="14">Blue Team</team>
     </teams>
     <kits>
-        <kit name="spawn">
-            <item slot="0">iron sword</item>
-            <item slot="1" damage="-3000" enchantment="arrow infinite:1">bow</item>
+        <kit name="spawn" potion-particles="false" force="true">
+            <item slot="0">stone sword</item>
+            <item slot="1" enchantment="arrow infinite:1">bow</item>
+            <item slot="2">golden apple</item>
+            <item slot="3" damage="8261">potion</item>
             <item slot="28">arrow</item>
             <chestplate damage="-3000">iron chestplate</chestplate>
             <potion duration="3" amplifier="25">heal</potion>
@@ -28,33 +30,33 @@
             <potion duration="oo">night vision</potion>
         </kit>
         <kit name="red" parents="spawn">
-            <leggings color="ff0000" damage="-3000">leather leggings</leggings>
-            <boots color="ff0000" damage="-3000">leather boots</boots>
+            <leggings color="ff0000" damage="-3000" locked="true">leather leggings</leggings>
+            <boots color="ff0000" damage="-3000" locked="true">leather boots</boots>
         </kit>
         <kit name="blue" parents="spawn">
-            <leggings color="0000ff" damage="-3000">leather leggings</leggings>
-            <boots color="0000ff" damage="-3000">leather boots</boots>
+            <leggings color="0000ff" damage="-3000" locked="true">leather leggings</leggings>
+            <boots color="0000ff" damage="-3000" locked="true">leather boots</boots>
         </kit>
         <kit name="obs">
             <potion duration="oo">night vision</potion>
         </kit>
-        <kit name="flag-pickup">
-            <potion duration="10">regeneration</potion>
-        </kit>
     </kits>
+    <killreward>
+		<item damage="8193" potions="regeneration:140:0:false;heal:1:0:false">potion</item>
+	</killreward>
     <spawns>
         <spawn team="red" kit="red">
-            <regions yaw="-45">
-                <cuboid min="-704.5,8,-176.5" max="-703.5,8,-175.5" />
+            <regions yaw="0">
+                <cylinder base="-688.5,10,-195.5" radius="1"/>
             </regions>
         </spawn>
         <spawn team="blue" kit="blue">
-            <regions yaw="135">
-                <cuboid min="-660.5,8,-84.5" max="-661.5,8,-85.5" />
+            <regions yaw="180">
+                <cylinder base="-676.5,10,-65.5" radius="1"/>
             </regions>
         </spawn>
         <default>
-            <regions yaw="90" kit="obs">
+            <regions yaw="-90" kit="obs">
                 <block>-725.5,22,-130.5</block>
             </regions>
         </default>
@@ -82,13 +84,25 @@
 		    </pickup-kit>
 		</flag>
         <flag name="South Flag" id="south-flag" color="white" show="false" points="-1" shared="true">
-            <post id="south-post" owner="red">-708.5,3,-99.5</post>
+            <post id="south-post">-708.5,3,-99.5</post>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
 		</flag>
         <flag name="North Flag" id="north-flag" color="white" show="false" points="-1" shared="true">
-            <post id="north-post" owner="blue">-656.5,3,-161.5</post>
+            <post id="north-post">-656.5,3,-161.5</post>
+            <pickup-kit force="true">
+		        <potion duration="3">slow</potion>
+		    </pickup-kit>
+		</flag>
+		<flag name="West-Central Flag" id="west-central-flag" color="white" show="false" points="-1" shared="true">
+            <post id="west-central-post">-712.5,9,-130.5</post>
+            <pickup-kit force="true">
+		        <potion duration="3">slow</potion>
+		    </pickup-kit>
+		</flag>
+        <flag name="East-Central Flag" id="east-central-flag" color="white" show="false" points="-1" shared="true">
+            <post id="east-central-post">-652.5,9,-130.5</post>
             <pickup-kit force="true">
 		        <potion duration="3">slow</potion>
 		    </pickup-kit>
@@ -137,21 +151,57 @@
                 <cuboid min="0,0,0" max="0,0,0" />
             </owner-display-region>
         </control-point>
+        <control-point id="hill-west-central" name="West-Central Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
+            <player-filter>
+                <carrying-flag>west-central-flag</carrying-flag>
+            </player-filter>
+            <capture-region>
+                <region name="playing-field"/>
+            </capture-region>
+            <progress-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </progress-display-region>
+            <owner-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </owner-display-region>
+        </control-point>
+        <control-point id="hill-east-central" name="East-Central Flag" capture-time="0s" capture-rule="lead" show-progress="true" neutral-state="true">
+            <player-filter>
+                <carrying-flag>east-central-flag</carrying-flag>
+            </player-filter>
+            <capture-region>
+                <region name="playing-field"/>
+            </capture-region>
+            <progress-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </progress-display-region>
+            <owner-display-region>
+                <cuboid min="0,0,0" max="0,0,0" />
+            </owner-display-region>
+        </control-point>
     </control-points>
     <king />
+    <portals>
+    	<portal name="red-spawn" x="@-668.5" y="@8" z="@-176.5" yaw="@45">
+        	<region><cuboid min="-686,12,-190" max="-691,10,-191"/></region>
+    	</portal>
+    	<portal name="blue-spawn" x="@-696.5" y="@8" z="@-84.5" yaw="@-135">
+        	<region><cuboid min="-679,12,-71" max="-674,10,-70"/></region>
+    	</portal>
+	</portals>
     <hunger>
         <depletion>off</depletion>
     </hunger>
     <itemremove>
-        <item>iron sword</item>
-        <item>bow</item>
         <item>iron chestplate</item>
         <item>leather leggings</item>
         <item>leather boots</item>
     </itemremove>
     <toolrepair>
         <tool>iron sword</tool>
+        <tool>bow</tool>
         <tool>arrow</tool>
     </toolrepair>
     <timelock>on</timelock>
+    <time result="objectives">13m</time>
 </map>
