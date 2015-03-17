@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0.1"?>
 <map proto="1.3.6">
     <name>Emission</name>
-    <version>1.0.0</version>
-    <objective>To win you have to control all three flags.</objective>
+    <version>1.0.1</version>
+    <objective>To win you have to have control over all five flags!</objective>
     <authors>
         <author uuid="fe3608b7-d105-4029-8800-34b3147065b6"/>
         <!--  rockymine  -->
@@ -13,6 +13,15 @@
     	<contributor uuid="" contribution="Providing the working code"/>
     	<!-- minimitch0199 -->
     </contributors>
+    <broadcasts>
+    	<alert after="1s">To win you have to have control over all five flags!</alert>
+    	<alert after="3s">When you drop a flag you have two seconds to pick it up again, before it returns to the original post.</alert>
+    	<tip after="5s">Picking up a flag will reward you with special armor and killrewards. Dropping it will undo this.</tip>
+    	<tip after="10s">You get killrewards (golden apples/potions) from killing people.</tip>
+    	<tip after="1m" count="oo">You get killrewards (golden apples/potions) from killing people.</tip>
+    	<alert after="330s">To win you have to have control over all five flags!</alert>
+    	<alert after="12m">One minute remaining!</alert>
+	</broadcasts>
     <teams>
         <team id="red" color="dark red" max="14">Red Team</team>
         <team id="blue" color="blue" max="14">Blue Team</team>
@@ -118,7 +127,7 @@
     </spawns>
     <regions>
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-        <rectangle name="playing-field" min="-648,-82" max="-717,-179"/>
+        <rectangle name="playing-field" min="-639,-87" max="-726,-173"/>
         <apply block="deny-blocks">
             <region name="map"/>
         </apply>
@@ -128,10 +137,10 @@
         	<post id="central-post">-682.5,10,-130.5</post>
 		</flag>
         <flag name="South Flag" id="south-flag" color="white" show="false" points="-1" shared="true">
-            <post id="south-post">-708.5,3,-99.5</post>
+            <post id="south-post">-712.5,3,-99.5</post>
 		</flag>
         <flag name="North Flag" id="north-flag" color="white" show="false" points="-1" shared="true">
-            <post id="north-post">-656.5,3,-161.5</post>
+            <post id="north-post">-652.5,3,-161.5</post>
 		</flag>
 		<flag name="West-Central Flag" id="west-central-flag" color="white" show="false" points="-1" shared="true">
             <post id="west-central-post">-712.5,9,-130.5</post>
