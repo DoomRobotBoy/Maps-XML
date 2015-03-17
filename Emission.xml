@@ -34,7 +34,7 @@
             <item slot="3" damage="8261">potion</item>
             <item slot="28">arrow</item>
             <helmet damage="-3000" locked="true">chainmail helmet</helmet>
-            <chestplate damage="-3000">iron chestplate</chestplate>
+            <chestplate damage="-3000" locked="true">iron chestplate</chestplate>
             <potion duration="3" amplifier="25">heal</potion>
             <potion duration="3" amplifier="25">damage resistance</potion>
             <potion duration="oo">night vision</potion>
@@ -51,11 +51,12 @@
             <potion duration="oo">night vision</potion>
         </kit>
         <kit name="flag-pickup" force="true">
-        	<helmet enchantment="durability:1" damage="-3000" locked="true">diamond helmet</helmet>
+        	<chestplate damage="-3000" locked="true">diamond chestplate</chestplate>
         	<potion duration="5" amplifier="2">slow</potion>
         	<potion duration="oo">speed</potion>
         </kit>
         <kit name="flag-drop" force="true">
+        	<chestplate damage="-3000" locked="true">iron chestplate</chestplate>
         	<helmet damage="-3000" locked="true">chainmail helmet</helmet>
         	<potion duration="3">slow</potion>
         	<potion duration="0">speed</potion>
