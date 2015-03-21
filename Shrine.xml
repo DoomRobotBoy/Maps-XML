@@ -35,6 +35,7 @@
         <item slot="2" amount="48">bread</item>
         <item slot="3" amount="1">golden apple</item>
         <item slot="28" amount="32">arrow</item>
+        <item slot="4" name="Speed Boost" damage="16386" potions="speed:20:2:false">potion</item>
         <leggings damage="-3000">chainmail leggings</leggings>
         <potion duration="5" amplifier="10">heal</potion>
         <potion duration="5" amplifier="10">damage resistance</potion>
