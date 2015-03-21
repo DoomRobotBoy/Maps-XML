@@ -25,8 +25,8 @@
     <deaths>1</deaths>
 </score>
 <teams>
-    <team id="orange" color="gold" max="25" max-overfill="28">Orange Team</team>
-    <team id="cyan" color="dark aqua" max="25" max-overfill="28">Cyan Team</team>
+    <team id="orange" color="gold" max="18" max-overfill="22">Orange Team</team>
+    <team id="cyan" color="dark aqua" max="18" max-overfill="22">Cyan Team</team>
 </teams>
 <kits>
     <kit name="spawn">
@@ -122,14 +122,14 @@
     </spawn>
     <default>
         <regions yaw="-90">
-            <cylinder base="208.5,50,249.5" radius="1" height="0"/>
+            <cylinder base="208.5,50,221.5" radius="1" height="0"/>
         </regions>
     </default>
 </spawns>
 <flags>
-    <post id="center-post">208.5,9,249.5</post>
+    <post id="center-post">208.5,9,221.5</post>
     <post id="orange-post" owner="orange" yaw="0" points-rate="1" pickup-filter="only-orange">208.5,10,174.5</post>
-    <post id="cyan-post" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-cyan">208.5,10,324.5</post>
+    <post id="cyan-post" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-cyan">208.5,10,268.5</post>
     <flag name="Shrine Flag" color="white" shared="true" post="center-post" points-rate="0.5">
         <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
         <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
@@ -141,11 +141,11 @@
         </drop-kit>
     </flag>
     <flag id="orange-flag" name="Orange Flag" color="gold" shared="true" return-time="0s">
-        <post pickup-filter="only-orange">2,5,11</post>
+        <post pickup-filter="only-orange">208.5,11,339.5</post>
         <net points="30" region="orange-nets"/>
     </flag>
     <flag id="cyan-flag" name="Cyan Flag" color="dark aqua" shared="true" return-time="0s">
-        <post pickup-filter="only-cyan">24,5,11</post>
+        <post pickup-filter="only-cyan">208.5,11,103.5</post>
         <net points="30" region="cyan-nets"/>
     </flag>
 </flags>
