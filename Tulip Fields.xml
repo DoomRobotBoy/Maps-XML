@@ -2,57 +2,57 @@
 <map proto="1.3.6">
 <name>Tulip Fields</name>
 <version>1.0.0</version>
-<objective>Get 100 kills first or the highest amount of kills after 10 minutes.</objective>
+<objective>Eliminate your opponents before time runs out!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
 <!-- DoomRobotBoy -->
 </authors>
 <score> 
     <time>600</time>
-    <limit>100</limit>
 </score>
 <teams>
     <team color="dark red" max="9" max-overfill="11">Red Team</team>
     <team color="blue" max="9" max-overfill="11">Blue Team</team>
-    <team color="lime" max="9" max-overfill="11">Blue Team</team>
+    <team color="lime" max="9" max-overfill="11">Green Team</team>
 </teams>
 <kits>
     <kit name="spawn" force="true">
         <item slot="0" attribute="generic.attackDamage:add:2">iron hoe</item>
         <item slot="1">bow</item>
         <item slot="2" amount="2">golden apple</item>
+        <item slot="8" amount="64" damage="15">ink sack</item>
         <item slot="28" amount="32">egg</item>
         <chestplate damage="-3000">leather chestplate</chestplate>
         <leggings damage="-3000">chainmail leggings</leggings>
         <potion duration="10" amplifier="10">damage resistance</potion>
     </kit>
     <kit name="red" parents="spawn">
-        <helmet damage="-3000" color="">leather helmet</helmet>
-        <boots damage="-3000" color="">leather boots</boots>
+        <helmet damage="-3000" color="993333">leather helmet</helmet>
+        <boots damage="-3000" color="993333">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
-        <helmet damage="-3000" color="">leather helmet</helmet>
-        <boots damage="-3000" color="">leather boots</boots>
+        <helmet damage="-3000" color="334CB2">leather helmet</helmet>
+        <boots damage="-3000" color="334CB2">leather boots</boots>
     </kit>
     <kit name="green" parents="spawn">
-        <helmet damage="-3000" color="">leather helmet</helmet>
-        <boots damage="-3000" color="">leather boots</boots>
+        <helmet damage="-3000" color="7FCC19">leather helmet</helmet>
+        <boots damage="-3000" color="7FCC19">leather boots</boots>
     </kit>
 </kits>
 <spawns>
     <spawn team="red" kit="red">
-        <regions yaw="">
-            <cylinder base="285.5,13,-437.5" radius="1"/>
+        <regions yaw="180">
+            <cylinder base="77.5,10,-115.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue">
-        <regions yaw="">
-            <cylinder base="285.5,13,-437.5" radius="1"/>
+        <regions yaw="-90">
+            <cylinder base="138.5,10,-55.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="green" kit="green">
-        <regions yaw="">
-            <cylinder base="54.5,34,-29.5" radius="1"/>
+        <regions yaw="0">
+            <cylinder base="54.5,10,-29.5" radius="1"/>
         </regions>
     </spawn>
     <default>
@@ -64,38 +64,43 @@
 <modifybowprojectile>
     <projectile>egg</projectile>
 </modifybowprojectile>
+<filters>
+    <filter name="only-crops">
+        <block>crops:7</block>
+    </filter>
+</filters>
 <regions>
-    <apply block="only-cake" message="You may only place or destroy cakes.">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <apply block="only-crops" message="You can only break crops.">
+        <region name="map"/>
     </apply>
 </regions>
 <killreward>
-    <item>cake</item>
+    <item amount="16">egg</item>
 </killreward>
-<killreward>
-    <item amount="16">arrow</item>
-</killreward>
-<killreward>
-    <filter>
-        <kill-streak count="3"/>
-    </filter>
-    <kit force="true" potion-particles="false">
-        <potion duration="oo" amplifier="2">speed</potion>
-    </kit>
-</killreward>
-<toolrepair>
-    <tool>iron sword</tool>
-    <tool>bow</tool>
-</toolrepair>
+<blockdrops>
+    <rule>
+        <region>
+            <region name="map"/>
+        </region>
+        <filter>
+            <block>crops:7</block>
+        </filter>
+        <drops>
+            <item>bread</item>
+        </drops>
+        <replacement>crops:0</replacement>
+    </rule>
+</blockdrops>
 <itemremove>
-    <item>diamond helmet</item>
-    <item>diamond chestplate</item>
-    <item>diamond leggings</item>
-    <item>diamond boots</item>
-    <item>cake</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
     <item>golden apple</item>
-    <item>cooked beef</item>
+    <item>iron hoe</item>
     <item>bow</item>
+    <item>egg</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
