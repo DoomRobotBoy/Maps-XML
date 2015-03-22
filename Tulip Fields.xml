@@ -11,9 +11,9 @@
     <time>600</time>
 </score>
 <teams>
-    <team color="dark red" max="9" max-overfill="11">Red Team</team>
-    <team color="blue" max="9" max-overfill="11">Blue Team</team>
-    <team color="green" max="9" max-overfill="11">Green Team</team>
+    <team color="dark red" max="11" max-overfill="14">Red Team</team>
+    <team color="blue" max="11" max-overfill="14">Blue Team</team>
+    <team color="green" max="11" max-overfill="14">Green Team</team>
 </teams>
 <kits>
     <kit name="spawn" force="true">
