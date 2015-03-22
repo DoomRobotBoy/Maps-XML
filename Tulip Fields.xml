@@ -124,6 +124,7 @@
     <item>iron hoe</item>
     <item>bow</item>
     <item>egg</item>
+    <item>seeds</item>
 </itemremove>
 <timelock>on</timelock>
 <gamerules>
