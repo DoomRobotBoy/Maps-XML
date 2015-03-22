@@ -20,6 +20,7 @@
         <item slot="0" attribute="generic.attackDamage:add:2">iron hoe</item>
         <item slot="1">bow</item>
         <item slot="2" amount="2">golden apple</item>
+        <item slot="3" damage="16386" potions="speed:4800:0:false">potion</item>
         <item slot="8" amount="64" damage="15">ink sack</item>
         <item slot="28" amount="32">egg</item>
         <chestplate damage="-3000">leather chestplate</chestplate>
@@ -66,7 +67,10 @@
 </modifybowprojectile>
 <filters>
     <filter name="only-crops">
-        <block>crops:7</block>
+        <block>crops</block>
+    </filter>
+    <filter name="break-fire">
+        <block>fire</block>
     </filter>
 </filters>
 <regions>
@@ -74,9 +78,12 @@
     <apply block="only-crops" message="You can only break crops.">
         <region name="map"/>
     </apply>
+    <apply block-break="break-fire">
+        <region name="map"/>
+    </apply>
 </regions>
 <killreward>
-    <item amount="16">egg</item>
+    <item name="`e`lEggsplosive" amount="16" grenade="true" grenade-fire="true">egg</item>
 </killreward>
 <blockdrops>
     <rule>
@@ -103,4 +110,7 @@
     <item>egg</item>
 </itemremove>
 <timelock>on</timelock>
+<gamerules>
+    <doFireTick>false</doFireTick>
+</gamerules>
 </map>
