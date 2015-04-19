@@ -36,6 +36,7 @@
         <item slot="2" amount="32">bread</item>
         <item slot="3">golden apple</item>
         <item slot="4">torch</item>
+        <item slot="5" name="`4Brick`7`o" projectile="brick">clay brick</item>
         <helmet locked="true" damage="-3000">iron helmet</helmet>
         <leggings locked="true" damage="-3000">chainmail leggings</leggings>
     </kit>
@@ -48,6 +49,9 @@
         <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
     </kit>
 </kits>
+<projectiles>
+    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
+</projectiles>
 <killreward>
     <item>golden apple</item>
 </killreward>
