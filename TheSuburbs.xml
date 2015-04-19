@@ -36,16 +36,16 @@
         <item slot="2" amount="32">bread</item>
         <item slot="3">golden apple</item>
         <item slot="4">torch</item>
-        <helmet damage="-3000">iron helmet</helmet>
-        <leggings damage="-3000">chainmail leggings</leggings>
+        <helmet locked="true" damage="-3000">iron helmet</helmet>
+        <leggings locked="true" damage="-3000">chainmail leggings</leggings>
     </kit>
     <kit name="red" parents="spawn">
-        <chestplate color="907D66" damage="-3000">leather chestplate</chestplate>
-        <boots color="907D66" damage="-3000">leather boots</boots>
+        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
+        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
     </kit>
     <kit name="blue" parents="spawn">
-        <chestplate color="907D66" damage="-3000">leather chestplate</chestplate>
-        <boots color="907D66" damage="-3000">leather boots</boots>
+        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
+        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
     </kit>
 </kits>
 <killreward>
