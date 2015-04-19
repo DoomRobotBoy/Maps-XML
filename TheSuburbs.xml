@@ -56,13 +56,14 @@
     <item>golden apple</item>
 </killreward>
 <filters>
-    <filter name="only-glass">
+    <filter name="only-some">
         <block>stained glass pane</block>
         <block>thin glass</block>
+        <block>torch</block>
     </filter>
 </filters>
 <regions>
-    <apply block="only-glass">
+    <apply block="only-some">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
