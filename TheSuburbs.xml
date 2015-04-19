@@ -9,8 +9,8 @@
 <!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team color="dark red" max="16" max-overfill="18">Red Team</team>
-    <team color="blue" max="16" max-overfill="18">Blue Team</team>
+    <team show-name-tags="allies" color="dark red" max="14" max-overfill="16">Red Team</team>
+    <team show-name-tags="allies" color="blue" max="14" max-overfill="16">Blue Team</team>
 </teams>
 <spawns>
     <spawn team="red" kit="red">
