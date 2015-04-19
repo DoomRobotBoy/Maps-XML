@@ -51,8 +51,14 @@
 <killreward>
     <item>golden apple</item>
 </killreward>
+<filters>
+    <filter name="only-glass">
+        <block>stained glass pane</block>
+        <block>thin glass</block>
+    </filter>
+</filters>
 <regions>
-    <apply block="deny-all">
+    <apply block="only-glass">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
