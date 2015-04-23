@@ -14,8 +14,8 @@
 <!--  ItsMiiOlly  -->
 </contributors>
 <teams>
-    <team color="blue" max="27">Blue</team>
-    <team color="red" max="27">Red</team>
+    <team color="blue" max="28">Blue</team>
+    <team color="red" max="28">Red</team>
 </teams>
 <kits>
     <kit name="spawn">
