@@ -114,7 +114,7 @@
         <region name="blue-mushroom-room"/>
     </apply>
     <apply block="deny-world" message="You may not build under y=2!">
-        <cuboid min="-oo,0,-oo" max="oo,1,-oo"/>
+        <cuboid min="-oo,0,-oo" max="oo,0,oo"/>
     </apply>
     <apply block="no-void" message="You may not build in the void!">
         <rectangle min="-oo,-oo" max="oo,oo"/>
@@ -133,13 +133,13 @@
 </regions>
 <spawns>
     <spawn team="red" kit="red" yaw="-89">
-        <cylinder base="-1057.5,65,-356.5" radius="2" height="0"/>
+        <cylinder base="-1057.5,64,-356.5" radius="2" height="0"/>
     </spawn>
     <spawn team="blue" kit="blue" yaw="89">
-        <cylinder base="-932.5,65,-356.5" radius="2" height="0"/>
+        <cylinder base="-932.5,64,-356.5" radius="2" height="0"/>
     </spawn>
     <default yaw="179">
-        <cuboid min="-996,47,-432" max="-993,45,-429"/>
+        <cuboid min="-996,46,-432" max="-993,45,-429"/>
     </default>
 </spawns>
 <toolrepair>
@@ -165,16 +165,16 @@
 <maxbuildheight>26</maxbuildheight>
 <wools>
     <wool team="red" color="pink" location="0,0,0">
-        <block>-1078,11,-358</block>
+        <block>-1078,10,-358</block>
     </wool>
     <wool team="red" color="purple" location="0,0,0">
-        <block>-1078,11,-356</block>
+        <block>-1078,10,-356</block>
     </wool>
     <wool team="blue" color="light blue" location="0,0,0">
-        <block>-913,11,-356</block>
+        <block>-913,10,-356</block>
     </wool>
     <wool team="blue" color="cyan" location="0,0,0">
-        <block>-913,11,-358</block>
+        <block>-913,10,-358</block>
     </wool>
 </wools>
 </map>
