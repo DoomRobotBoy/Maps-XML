@@ -1,33 +1,41 @@
-<?xml version="1.0"?>
-<map proto="1.3.6">
+<?xml version="1.1"?>
+<map proto="1.4">
 <name>Winter Wakening</name>
-<version>1.0.0</version>
+<version>1.1.0</version>
 <objective>The team who first captures the other team's wools, located in the opposite wool rooms, wins!</objective>
 <authors>
-    <author>rockymine</author>
-    <author>DoomRobotBoy</author>
+    <author uuid=""/>
+<!-- rockymine -->
+    <author uuid=""/>
+<!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team color="blue" max="35" max-overfill="40">Blue Team</team>
-    <team color="dark red" max="35" max-overfill="40">Red Team</team>
+    <team color="blue" max="32" max-overfill="36">Blue Team</team>
+    <team color="dark red" max="32" max-overfill="36">Red Team</team>
 </teams>
 <spawns>
     <spawns>
-        <spawn team="red" kit="red" yaw="90">
-            <cylinder base="-375.5,10,-149.5" radius="1" height="0"/>
+        <spawn team="red" kit="red">
+            <regions yaw="90">
+                <cylinder base="-375.5,10,-149.5" radius="1" height="0"/>
+            </regions>
         </spawn>
-        <spawn team="blue" kit="blue" yaw="-90">
-            <cylinder base="-699.5,10,-149.5" radius="1" height="0"/>
+        <spawn team="blue" kit="blue">
+            <regions yaw="-90">
+                <cylinder base="-699.5,10,-149.5" radius="1" height="0"/>
+            </regions>
         </spawn>
     </spawns>
-    <default yaw="90">
-        <cylinder base="-537.5,41,-149.5" radius="1" height="0"/>
+    <default>
+        <regions yaw="90">
+            <cylinder base="-537.5,41,-149.5" radius="1" height="0"/>
+        </regions>
     </default>
 </spawns>
 <kits>
     <kit name="spawn">
         <item slot="0">iron sword</item>
-        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="1" enchantment="arrow infinite:1;arrow damage:1">bow</item>
         <item slot="28">arrow</item>
         <item slot="2" enchantment="dig speed:1">iron pickaxe</item>
         <item slot="3" enchantment="dig speed:1">iron axe</item>
@@ -48,14 +56,15 @@
 </kits>
 <filters>
     <filter name="no-void">
-        <deny>
+        <not>
             <void/>
-        </deny>
+        </not>
     </filter>
     <filter name="only-cobweb">
-        <allow>
-            <block>web</block>
-        </allow>
+        <block>web</block>
+    </filter>
+    <filter name="only-leaves">
+        <block>leaves_2</block>
     </filter>
     <filter name="only-red">
         <allow>
@@ -71,12 +80,13 @@
 <regions>
     <rectangle name="red-spawn" min="-368,-180" max="-401,-119"/>
     <rectangle name="blue-spawn" min="-707,-119" max="-674,-180"/>
-    <circle name="pink-wool" base="-649.5,-87.5" radius="9"/>
-    <circle name="magenta-wool" base="-649.5,-211.5" radius="9"/>
-    <circle name="green-wool" base="-425.5,-211.5" radius="9"/>
-    <circle name="lime-wool" base="-425.5,-87.5" radius="9"/>
+    <circle name="pink-wool" base="-658.5,-86.5" radius="9"/>
+    <circle name="magenta-wool" base="-658.5,-212.5" radius="9"/>
+    <circle name="green-wool" base="-416.5,-212.5" radius="9"/>
+    <circle name="lime-wool" base="-416.5,-86.5" radius="9"/>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <rectangle name="void-gap" min="-576,14,-120" max="-499,12,-179"/>
+    <rectangle name="void-gap" min="-576,-120" max="-499,-179"/>
+    <rectangle name="water-void-gap" min="-553,-142" max="522,158"/>
     <apply enter="only-red" message="Only Red Team may enter here!">
         <region name="red-spawn"/>
         <region name="pink-wool"/>
@@ -96,6 +106,9 @@
     <apply block="deny-all" message="You may not modify the spawns!">
         <region name="red-spawn"/>
         <region name="blue-spawn"/>
+    </apply>
+    <apply block="only-leaves" message="You may only build with leaves above the water in the center.">
+        <region name="water-void-gap"/>
     </apply>
     <apply block="no-void" message="You may not edit the void area!">
         <complement>
@@ -120,16 +133,16 @@
 </itemremove>
 <maxbuildheight>30</maxbuildheight>
 <wools>
-    <wool team="red" color="magenta">
+    <wool team="red" color="magenta" location="0,0,0">
         <monument><block>-385.5,11,-152.5</block></monument>
     </wool>
-    <wool team="red" color="pink">
+    <wool team="red" color="pink" location="0,0,0">
         <monument><block>-385.5,11,-146.5</block></monument>
     </wool>
-    <wool team="blue" color="green">
+    <wool team="blue" color="green" location="0,0,0">
         <monument><block>689.5,11,-152.5</block></monument>
     </wool>
-    <wool team="blue" color="lime">
+    <wool team="blue" color="lime" location="0,0,0">
         <monument><block>-689.5,11,-146.5</block></monument>
     </wool>
 </wools>
