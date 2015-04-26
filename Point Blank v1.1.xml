@@ -29,8 +29,8 @@
             <cylinder base="65.5,17.5,0.5" height="0" radius="1"/>
         </regions>
     </spawn>
-    <default yaw="180">
-        <regions>
+    <default>
+        <regions yaw="180">
             <cylinder base="0.5,27,-62.5" height="0" radius="2"/>
         </regions>
     </default>
