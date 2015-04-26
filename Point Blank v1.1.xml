@@ -70,12 +70,12 @@
             <void/>
         </deny>
     </filter>
-    <filter name="only-blue" parents="deny-players deny-world">
+    <filter name="only-blue" parents="deny-players">
         <allow>
             <team>blue</team>
         </allow>
     </filter>
-    <filter name="only-red" parents="deny-players deny-world">
+    <filter name="only-red" parents="deny-players">
         <allow>
             <team>red</team>
         </allow>
@@ -90,6 +90,46 @@
             <block>mob spawner</block>
             <block>web</block>
         </deny>
+    </filter>
+    <filter name="no-chests">
+        <not>
+            <block>chest</block>
+        </not>
+    </filter>
+    <filter name="tnt-proof-wool-rooms">
+        <not>
+            <all>
+                <any>
+                    <block>quartz block</block>
+                    <block>quartz stairs</block>
+                    <block>step:7</block>
+                    <block>glass</block>
+                    <block>double step</block>
+                    <block>chest</block>
+                </any>
+                <cause>explosion</cause>
+            </all>
+        </not>
+    </filter>
+    <filter name="tnt-proof">
+        <not>
+            <all>
+                <any>
+                    <block>quartz block</block>
+                    <block>quartz stairs</block>
+                    <block>wool</block>
+                    <block>coal block</block>
+                    <block>sign</block>
+                    <block>glass</block>
+                    <block>step</block>
+                    <block>double step</block>
+                    <block>gold plate</block>
+                    <block>iron plate</block>
+                    <block>mob spawner</block>
+                </any>
+                <cause>explosion</cause>
+            </all>
+        </not>
     </filter>
 </filters>
 <regions>
@@ -112,11 +152,19 @@
     <apply block="deny-all" message="You may not modify the TNT spawning lane">
         <region name="blue-gate"/>
         <region name="red-gate"/>
-        <cuboid max="-14,15,-8" min="15,5,9" name="tnt-lane"/>
+        <cuboid max="-14,15,-8" min="15,0,9" name="tnt-lane"/>
     </apply>
     <apply block="deny-all" message="You may not modify the Victory Monument.">
         <rectangle max="-78,-4" min="-74,5" name="blue-vm"/>
         <rectangle max="79,5" min="75,-4" name="red-vm"/>
+    </apply>
+    <apply block="no-chests" message="You may not break the chests in the wool rooms.">
+        <union name="wool-rooms">
+            <region name="pink-wool"/>
+            <region name="magenta-wool"/>
+            <region name="lightblue-wool"/>
+            <region name="cyan-wool"/>
+        </union>
     </apply>
     <!--  Wool Pad Block Protection  -->
     <apply block="only-blue" message="You may not modify your own wool pad.">
@@ -131,7 +179,27 @@
     <apply message="You may not place gravel above the TNT spawning lane." place="no-gravel">
         <cuboid max="18,oo,10" min="-17,16,-9" name="tnt-lane-upper"/>
     </apply>
-    <!--  Void Filter  -->
+    <!--  Stop Breaking Spawners and Cobwebs  -->
+    <apply block-break="no-spawners-cobwebs" message="You may not break spawners or cobwebs.">
+        <rectangle name="map" max="oo,oo" min="-oo,-oo"/>
+    </apply>
+    <!--  Protect Observer Spawn  -->
+    <apply block="deny-all">
+        <rectangle name="obs-spawn" max="7,-68" min="-6,-59"/>
+    </apply>
+    <!-- TNT Protection -->
+    <apply block="tnt-proof-wool-rooms">
+        <region name="wool-rooms"/>
+    </apply>
+    <apply block="tnt-proof">
+        <region name="obs-spawn"/>
+        <region name="tnt-lane"/>
+        <region name="blue-spawn"/>
+        <region name="red-spawn"/>
+        <region name="blue-gate"/>
+        <region name="red-gate"/>
+    </apply>
+    <!-- Void Filter -->
     <apply block="no-void" message="You may only bridge within the cobwebs.">
         <negative>
             <rectangle max="18,18" min="-17,48"/>
@@ -142,14 +210,6 @@
             <region name="lightblue-wool"/>
             <region name="cyan-wool"/>
         </negative>
-    </apply>
-    <!--  Stop Breaking Spawners and Cobwebs  -->
-    <apply block-break="no-spawners-cobwebs" message="You may not break spawners or cobwebs.">
-        <rectangle name="map" max="oo,oo" min="-oo,-oo"/>
-    </apply>
-    <!--  Protect Observer Spawn  -->
-    <apply block="deny-all">
-        <rectangle name="obs-spawn" max="7,-68" min="-6,-59"/>
     </apply>
 </regions>
 <proximity-alarms>
