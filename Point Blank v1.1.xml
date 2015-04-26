@@ -106,6 +106,7 @@
                     <block>glass</block>
                     <block>double step</block>
                     <block>chest</block>
+                    <block>mob spawner</block>
                 </any>
                 <cause>explosion</cause>
             </all>
