@@ -1,0 +1,209 @@
+<map proto="1.3.6">
+<name>Point Blank</name>
+<version>1.1.0</version>
+<objective>Capture the two wools from your opponent and place them on the Victory Monument.</objective>
+<authors>
+    <author uuid="a6a99e23-34c4-4957-8974-b78b4da9ce7c"/> <!--  AMo  -->
+    <author contribution="version 1.1" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
+</authors>
+<rules>
+    <rule>You may only bridge within the cobwebs.</rule>
+    <rule>You may not enter your own wool pad; watch where you jump!</rule>
+    <rule>You may not pass through the enemy's TNT gate (Above is fine).</rule>
+    <rule>Do not fire gravel into the TNT spawning lane.</rule>
+</rules>
+<teams>
+    <team color="blue" max="22" max-overfill="24">Blue Team</team>
+    <team color="dark red" max="22" max-overfill="24">Red Team</team>
+</teams>
+<timelock>on</timelock>
+<maxbuildheight>25</maxbuildheight>
+<spawns>
+    <spawns kit="blue" team="blue">
+        <regions yaw="90">
+            <cylinder base="-64.5,17.5,0.5" height="0" radius="2"/>
+        </regions>
+    </spawn>
+    <spawn kit="red" team="red">
+        <regions yaw="-90">
+            <cylinder base="65.5,17.5,0.5" height="0" radius="1"/>
+        </regions>
+    </spawn>
+    <default yaw="180">
+        <cylinder base="0.5,27,-62.5" height="0" radius="2"/>
+    </default>
+</spawns>
+<kits>
+    <kit name="spawn">
+        <item slot="0">iron sword</item>
+        <item slot="1" enchantment="arrow infinite">bow</item>
+        <item slot="2">iron pickaxe</item>
+        <item slot="3">iron axe</item>
+        <item slot="4" damage="2" amount="4">log</item>
+        <item slot="8" amount="32">cooked chicken</item>
+        <item slot="28">arrow</item>
+        <potion duration="3">heal</potion>
+        <potion amplifier="5" duration="3">damage resistance</potion>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <chestplate damage="-3000" color="334CB2" enchantment="protection explosions:4" name="§f§lFlak Jacket">leather chestplate</chestplate>
+    </kit>
+    <kit name="red" parents="spawn">
+        <chestplate damage="-3000" color="993333" enchantment="protection explosions:4" name="§f§lFlak Jacket">leather chestplate</chestplate>
+    </kit>
+</kits>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>leather chestplate</item>
+    <item>glowstone dust</item>
+    <item>cooked chicken</item>
+    <item>arrow</item>
+</itemremove>
+<filters>
+    <filter name="no-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+    <filter name="only-blue" parents="deny-players deny-world">
+        <allow>
+            <team>blue</team>
+        </allow>
+    </filter>
+    <filter name="only-red" parents="deny-players deny-world">
+        <allow>
+            <team>red</team>
+        </allow>
+    </filter>
+    <filter name="no-gravel">
+        <deny>
+            <block>gravel</block>
+        </deny>
+    </filter>
+    <filter name="no-spawners-cobwebs">
+        <deny>
+            <block>mob spawner</block>
+            <block>web</block>
+        </deny>
+    </filter>
+</filters>
+<regions>
+    <!--  Entry Protection  -->
+    <apply enter="only-blue" message="Only §1blue §rmay enter through here.">
+        <cuboid max="-14,11.5,-8" min="-17,5,9" name="blue-gate"/>
+        <circle center="57.5,41.5" name="pink-wool" radius="8.5"/>
+        <circle center="57.5,-40.5" name="magenta-wool" radius="8.5"/>
+    </apply>
+    <apply enter="only-red" message="Only §4red §rmay enter through here.">
+        <cuboid max="15,11.5,9" min="18,5,-8" name="red-gate"/>
+        <circle center="-56.5,41.5" name="lightblue-wool" radius="8.5"/>
+        <circle center="-56.5,-40.5" name="cyan-wool" radius="8.5"/>
+    </apply>
+    <!--  Blocks Protection  -->
+    <apply block="deny-all" message="You may not modify the spawns.">
+        <cylinder name="blue-spawn" base="-64.6,16,0.5" radius="3" height="10"/>
+        <cylinder name="red-spawn" base="65.6,16,0.5" radius="3" height="10"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the TNT spawning lane">
+        <region name="blue-gate"/>
+        <region name="red-gate"/>
+        <cuboid max="-14,15,-8" min="15,5,9" name="tnt-lane"/>
+    </apply>
+    <apply block="deny-all" message="You may not modify the Victory Monument.">
+        <rectangle max="-78,-4" min="-74,5" name="blue-vm"/>
+        <rectangle max="79,5" min="75,-4" name="red-vm"/>
+    </apply>
+    <!--  Wool Pad Block Protection  -->
+    <apply block="only-blue" message="You may not modify your own wool pad.">
+        <region name="pink-wool"/>
+        <region name="magenta-wool"/>
+    </apply>
+    <apply block="only-red" message="You may not modify your own wool pad.">
+        <region name="lightblue-wool"/>
+        <region name="cyan-wool"/>
+    </apply>
+    <!--  Stop Dropping Gravel Into TNT Spawn Lane  -->
+    <apply message="You may not place gravel above the TNT spawning lane." place="no-gravel">
+        <cuboid max="18,oo,10" min="-17,16,-9" name="tnt-lane-upper"/>
+    </apply>
+    <!--  Void Filter  -->
+    <apply block="no-void" message="You may only bridge within the cobwebs.">
+        <negative>
+            <rectangle max="18,34" min="-17,47"/>
+            <rectangle max="18,-46" min="-17,-33"/>
+            <rectangle max="-32,34" min="-17,-33"/>
+            <rectangle max="33,-33" min="18,34"/>
+            <cuboid min="-17,15,-10" max="18,35,11"/>
+            <region name="pink-wool"/>
+            <region name="magenta-wool"/>
+            <region name="lightblue-wool"/>
+            <region name="cyan-wool"/>
+        </negative>
+    </apply>
+    <!--  Stop Breaking Spawners and Cobwebs  -->
+    <apply block-break="no-spawners-cobwebs" message="You may not break spawners or cobwebs.">
+        <rectangle name="map" max="oo,oo" min="-oo,-oo"/>
+    </apply>
+    <!--  Protect Observer Spawn  -->
+    <apply block="deny-all">
+        <rectangle name="obs-spawn" max="7,-68" min="-6,-59"/>
+    </apply>
+</regions>
+<proximity-alarms>
+    <proximity-alarm message="Enemy entered §b§lLight Blue§r!">
+        <region>
+            <cylinder base="-56.5,5,41.5" radius="8.5" height="35"/>
+        </region>
+        <detect>
+            <team>red</team>
+        </detect>
+    </proximity-alarm>
+    <proximity-alarm message="Enemy entered §3§lCyan§r!">
+        <region>
+            <cylinder base="-56.5,5,-40.5" radius="8.5" height="35"/>
+        </region>
+        <detect>
+            <team>red</team>
+        </detect>
+    </proximity-alarm>
+    <proximity-alarm message="Enemy entered §d§lPink§r!">
+        <region>
+            <cylinder base="57.5,5,41.5" radius="8.5" height="35"/>
+        </region>
+        <detect>
+            <team>blue</team>
+        </detect>
+    </proximity-alarm>
+    <proximity-alarm message="Enemy entered §5§lMagenta§r!">
+        <region>
+            <cylinder base="57.5,5,-40.5" radius="8.5" height="35"/>
+        </region>
+        <detect>
+            <team>blue</team>
+        </detect>
+    </proximity-alarm>
+</proximity-alarms>
+<wools>
+    <wools team="blue">
+        <wool color="pink">
+            <block>-76.5,11.5,2.5</block>
+        </wool>
+        <wool color="magenta">
+            <block>-76.5,11.5,-1.5</block>
+        </wool>
+    </wools>
+    <wools team="red">
+        <wool color="cyan">
+            <block>77.5,11.5,-1.5</block>
+        </wool>
+        <wool color="light blue">
+            <block>77.5,11.5,2.5</block>
+        </wool>
+    </wools>
+</wools>
+</map>
