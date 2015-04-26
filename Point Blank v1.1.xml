@@ -19,7 +19,7 @@
 <timelock>on</timelock>
 <maxbuildheight>25</maxbuildheight>
 <spawns>
-    <spawns kit="blue" team="blue">
+    <spawn kit="blue" team="blue">
         <regions yaw="90">
             <cylinder base="-64.5,17.5,0.5" height="0" radius="2"/>
         </regions>
