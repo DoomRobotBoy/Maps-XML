@@ -251,18 +251,18 @@
 </proximity-alarms>
 <wools>
     <wools team="blue">
-        <wool color="pink">
+        <wool color="pink" location="0,0,0">
             <block>-76.5,11.5,2.5</block>
         </wool>
-        <wool color="magenta">
+        <wool color="magenta" location="0,0,0">
             <block>-76.5,11.5,-1.5</block>
         </wool>
     </wools>
     <wools team="red">
-        <wool color="cyan">
+        <wool color="cyan" location="0,0,0">
             <block>77.5,11.5,-1.5</block>
         </wool>
-        <wool color="light blue">
+        <wool color="light blue" location="0,0,0">
             <block>77.5,11.5,2.5</block>
         </wool>
     </wools>
