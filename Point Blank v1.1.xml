@@ -30,7 +30,9 @@
         </regions>
     </spawn>
     <default yaw="180">
-        <cylinder base="0.5,27,-62.5" height="0" radius="2"/>
+        <regions>
+            <cylinder base="0.5,27,-62.5" height="0" radius="2"/>
+        </regions>
     </default>
 </spawns>
 <kits>
