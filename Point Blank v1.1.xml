@@ -72,12 +72,12 @@
             <void/>
         </deny>
     </filter>
-    <filter name="only-blue" parents="deny-players">
+    <filter name="only-blue">
         <allow>
             <team>blue</team>
         </allow>
     </filter>
-    <filter name="only-red" parents="deny-players">
+    <filter name="only-red">
         <allow>
             <team>red</team>
         </allow>
