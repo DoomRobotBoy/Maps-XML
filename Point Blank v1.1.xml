@@ -134,11 +134,9 @@
     <!--  Void Filter  -->
     <apply block="no-void" message="You may only bridge within the cobwebs.">
         <negative>
-            <rectangle max="18,34" min="-17,47"/>
-            <rectangle max="18,-46" min="-17,-33"/>
-            <rectangle max="-32,34" min="-17,-33"/>
-            <rectangle max="33,-33" min="18,34"/>
-            <cuboid min="-17,15,-10" max="18,35,11"/>
+            <rectangle max="18,18" min="-17,48"/>
+            <rectangle max="18,-17" min="-17,-47"/>
+            <cuboid min="-17,15,-10" max="18,25,11"/>
             <region name="pink-wool"/>
             <region name="magenta-wool"/>
             <region name="lightblue-wool"/>
