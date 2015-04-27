@@ -84,17 +84,17 @@
 </spawns>
 <king>
     <hills>
-        <hill name="Green Hill" capture-time="10s" ratio="2" incremental="true">
+        <hill id="Green Hill" capture-time="10s" ratio="2" incremental="true">
             <capture><cylinder base="275.5,38,-191.5" radius="2" height="3"/></capture>
             <progress><cylinder base="275.5,37,-191.5" radius="2"/></progress>
             <captured><cylinder base="275.5,37,-191.5" radius="2"/></captured>
         </hill>
-        <hill name="Center Hill" capture-time="20s" ratio="2" incremental="true">
+        <hill id="Center Hill" capture-time="20s" ratio="2" incremental="true">
             <capture><cylinder base="215.5,21,-224.5" radius="9" height="3"/></capture>
             <progress><cylinder base="215.5,20,-224.5" radius="9"/></progress>
             <captured><cylinder base="215.5,20,-224.5" radius="9"/></captured>
         </hill>
-        <hill name="Yellow Hill" capture-time="10s" ratio="2" incremental="true">
+        <hill id="Yellow Hill" capture-time="10s" ratio="2" incremental="true">
             <capture><cylinder base="173.5,38,-257.5" radius="2" height="3"/></capture>
             <progress><cylinder base="173.5,37,-257.5" radius="2"/></progress>
             <captured><cylinder base="173.5,37,-257.5" radius="2"/></captured>
