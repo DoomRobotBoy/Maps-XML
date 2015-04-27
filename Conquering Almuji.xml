@@ -2,7 +2,7 @@
 <map proto="1.4">
 <name>Conquering Almuji</name>
 <version>1.0.0</version>
-<objective>Reach the 1000 score limit, by capturing hills and entering scoreboxes, before your enemy does!</objective>
+<objective>Reach the 750 score limit, by capturing hills and entering scoreboxes, before your enemy does!</objective>
 <authors>
     <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/> <!-- MeMySelfAndFrog -->
     <author uuid="4fcbcd4e-f3a1-4432-970c-82262a332d3c"/> <!-- PBnJelly -->
@@ -84,20 +84,20 @@
 </spawns>
 <king>
     <hills>
-        <hill name="Blue Camp" capture-time="10s" ratio="1">
-            <capture><cylinder base="45.5,5,-139.5" radius="3"/></capture>
-            <progress><cylinder base="45.5,4,-139.5" radius="3"/></progress>
-            <captured><cuboid min="45,9,-139" max="46,10,-137"/></captured>
+        <hill name="Green Hill" capture-time="10s" ratio="2" incremental="true">
+            <capture><cylinder base="275.5,38,-191.5" radius="2" height="3"/></capture>
+            <progress><cylinder base="275.5,37,-191.5" radius="2"/></progress>
+            <captured><cylinder base="275.5,37,-191.5" radius="2"/></captured>
         </hill>
-        <hill name="Center Town" capture-time="15s" ratio="1" neutral-state="true">
-            <capture><cylinder base="-99.5,5,-122.5" radius="4"/></capture>
-            <progress><cylinder base="-99.5,4,-122.5" radius="4"/></progress>
-            <captured><cuboid min="-100,8,-122" max="-98,9,-125"/></captured>
+        <hill name="Center Hill" capture-time="20s" ratio="2" incremental="true">
+            <capture><cylinder base="215.5,21,-224.5" radius="9" height="3"/></capture>
+            <progress><cylinder base="215.5,20,-224.5" radius="9"/></progress>
+            <captured><cylinder base="215.5,20,-224.5" radius="9"/></captured>
         </hill>
-        <hill name="Center Island" capture-time="15s" ratio="1" neutral-state="true">
-            <capture><cylinder base="-99.5,4,-216.5" radius="4"/></capture>
-            <progress><cylinder base="-99.5,3,-216.5" radius="4"/></progress>
-            <captured><cuboid min="-100,7,-216" max="-99,8,-214"/></captured>
+        <hill name="Yellow Hill" capture-time="10s" ratio="2" incremental="true">
+            <capture><cylinder base="173.5,38,-257.5" radius="2" height="3"/></capture>
+            <progress><cylinder base="173.5,37,-257.5" radius="2"/></progress>
+            <captured><cylinder base="173.5,37,-257.5" radius="2"/></captured>
         </hill>
     </hills>
 </king>
@@ -114,7 +114,9 @@
     <item>glass bottle</item>
 </itemremove>
 <score>
-    <limit>1000</limit>
+    <limit>750</limit>
+    <box points="6" region="green-owner-box"/>
+    <box points="6" region="yellow-owner-box"/>
 </score>
 <killreward>
     <item damage="8261">potion</item>
