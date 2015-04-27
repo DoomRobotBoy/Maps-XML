@@ -218,7 +218,7 @@
 <proximity-alarms>
     <proximity-alarm message="Enemy entered §b§lLight Blue§r!">
         <region>
-            <cylinder base="-56.5,5,41.5" radius="8.5" height="35"/>
+            <cylinder base="-56.5,5,41.5" radius="8.5" height="20"/>
         </region>
         <detect>
             <team>red</team>
@@ -226,7 +226,7 @@
     </proximity-alarm>
     <proximity-alarm message="Enemy entered §3§lCyan§r!">
         <region>
-            <cylinder base="-56.5,5,-40.5" radius="8.5" height="35"/>
+            <cylinder base="-56.5,5,-40.5" radius="8.5" height="20"/>
         </region>
         <detect>
             <team>red</team>
@@ -234,7 +234,7 @@
     </proximity-alarm>
     <proximity-alarm message="Enemy entered §d§lPink§r!">
         <region>
-            <cylinder base="57.5,5,41.5" radius="8.5" height="35"/>
+            <cylinder base="57.5,5,41.5" radius="8.5" height="20"/>
         </region>
         <detect>
             <team>blue</team>
@@ -242,7 +242,7 @@
     </proximity-alarm>
     <proximity-alarm message="Enemy entered §5§lMagenta§r!">
         <region>
-            <cylinder base="57.5,5,-40.5" radius="8.5" height="35"/>
+            <cylinder base="57.5,5,-40.5" radius="8.5" height="20"/>
         </region>
         <detect>
             <team>blue</team>
@@ -251,19 +251,19 @@
 </proximity-alarms>
 <wools>
     <wools team="blue">
-        <wool color="pink" location="0,0,0">
-            <block>-76.5,11.5,2.5</block>
+        <wool color="pink" location="57.5,6,41.5">
+            <monument><block>-76.5,11.5,2.5</block></monument>
         </wool>
-        <wool color="magenta" location="0,0,0">
-            <block>-76.5,11.5,-1.5</block>
+        <wool color="magenta" location="57.5,6,-40.5">
+            <monument><block>-76.5,11.5,-1.5</block></monument>
         </wool>
     </wools>
     <wools team="red">
-        <wool color="cyan" location="0,0,0">
-            <block>77.5,11.5,-1.5</block>
+        <wool color="cyan" location="-56.5,6,-40.5">
+            <monument><block>77.5,11.5,-1.5</block></monument>
         </wool>
-        <wool color="light blue" location="0,0,0">
-            <block>77.5,11.5,2.5</block>
+        <wool color="light blue" location="-56.5,6,41.5">
+            <monument><block>77.5,11.5,2.5</block></monument>
         </wool>
     </wools>
 </wools>
