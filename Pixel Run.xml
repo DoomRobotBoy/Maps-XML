@@ -36,14 +36,14 @@
 </blitz>
 <include src="blitz-global.xml"/>
 <kits>
-    <kit name="runner" parents="hunger">
+    <kit id="runner" parents="hunger">
         <helmet damage="-3000">leather helmet</helmet>
         <boots damage="-3000">leather boots</boots>
         <item slot="0" damage="62">wood sword</item>
         <potion duration="oo">jump</potion>
         <potion duration="oo">speed</potion>
     </kit>
-    <kit name="defender" parents="hunger">
+    <kit id="defender" parents="hunger">
         <boots damage="-3000">gold boots</boots>
         <item slot="0" unbreakable="true" enchantment="arrow knockback:1;arrow damage:2;arrow infinite:1">bow</item>
         <item slot="28" amount="1">arrow</item>
@@ -51,30 +51,30 @@
     </kit>
 </kits>
 <regions>
-    <cuboid name="defender-spawn" min="654,22,22" max="651,23,25"/>
-    <cuboid name="runner-spawn" min="226,57,19" max="228,57,22"/>
-    <cylinder name="observer-spawn" base="648.5,30,23.5" radius="1"/>
-    <cuboid name="north-portal" min="643,22,17" max="642,28,23"/>
-    <cuboid name="south-portal" min="643,22,30" max="642,28,24"/>
-    <block name="flag-net">631.5,22,29.5</block>
+    <cuboid id="defender-spawn" min="654,22,22" max="651,23,25"/>
+    <cuboid id="runner-spawn" min="226,57,19" max="228,57,22"/>
+    <cylinder id="observer-spawn" base="648.5,30,23.5" radius="1"/>
+    <cuboid id="north-portal" min="643,22,17" max="642,28,23"/>
+    <cuboid id="south-portal" min="643,22,30" max="642,28,24"/>
+    <block id="flag-net">631.5,22,29.5</block>
     <apply block="deny-all">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply velocity="0.0,1.9,0.0">
         <cuboid min="620,9,22" max="623,9,25"/>
     </apply>
-    <cuboid name="south-portals" min="614,47,86" max="251,53,87"/>
-    <cuboid name="north-portals" min="614,53,-50" max="251,53,-51"/>
+    <cuboid id="south-portals" min="614,47,86" max="251,53,87"/>
+    <cuboid id="north-portals" min="614,53,-50" max="251,53,-51"/>
 </regions>
 <portals>
     <portal x="@253" y="@47" z="@-48" yaw="@-90">
         <region>
-            <region name="north-portal"/>
+            <region id="north-portal"/>
         </region>
     </portal>
     <portal x="@253" y="@47" z="@84" yaw="@-90">
         <region>
-            <region name="south-portal"/>
+            <region id="south-portal"/>
         </region>
     </portal>
     <portal x="1" y="@49" z="134" region="south-portals"/>
@@ -88,17 +88,17 @@
 <spawns>
     <spawn team="Runners" kit="runner">
         <regions yaw="-90">
-            <region name="runner-spawn"/>
+            <region id="runner-spawn"/>
         </regions>
     </spawn>
     <spawn team="Defenders" kit="defender">
         <regions yaw="90">
-            <region name="defender-spawn"/>
+            <region id="defender-spawn"/>
         </regions>
     </spawn>
     <default>
         <regions yaw="90">
-            <region name="observer-spawn"/>
+            <region id="observer-spawn"/>
         </regions>
     </default>
 </spawns>
