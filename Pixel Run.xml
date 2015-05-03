@@ -38,6 +38,7 @@
 <kits>
     <kit id="runner" parents="hunger">
         <helmet damage="-3000">leather helmet</helmet>
+        <leggings damage="-3000">leather leggings</leggings>
         <boots damage="-3000">leather boots</boots>
         <item slot="0" damage="62">wood sword</item>
         <potion duration="oo">jump</potion>
