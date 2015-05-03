@@ -30,7 +30,7 @@
     </default>
 </spawns>
 <kits>
-    <kit name="spawn">
+    <kit id="spawn">
         <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
         <item slot="2" amount="32">bread</item>
@@ -40,11 +40,11 @@
         <helmet locked="true" damage="-3000">iron helmet</helmet>
         <leggings locked="true" damage="-3000">chainmail leggings</leggings>
     </kit>
-    <kit name="red" parents="spawn">
+    <kit id="red" parents="spawn">
         <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
         <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
     </kit>
-    <kit name="blue" parents="spawn">
+    <kit id="blue" parents="spawn">
         <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
         <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
     </kit>
@@ -56,7 +56,7 @@
     <item>golden apple</item>
 </killreward>
 <filters>
-    <filter name="only-some">
+    <filter id="only-some">
         <block>stained glass pane</block>
         <block>thin glass</block>
         <block>torch</block>
@@ -72,6 +72,7 @@
     <lives>1</lives>
     <title>Blitz</title>
 </blitz>
+<include src="blitz-global.xml"/>
 <itemremove>
     <item>iron helmet</item>
     <item>leather chestplate</item>
