@@ -52,7 +52,6 @@
 </kits>
 <regions>
     <cuboid name="defender-spawn" min="654,22,22" max="651,23,25"/>
-    </union>
     <cuboid name="runner-spawn" min="226,57,19" max="228,57,22"/>
     <cylinder name="observer-spawn" base="648.5,30,23.5" radius="1"/>
     <cuboid name="north-portal" min="643,22,17" max="642,28,23"/>
