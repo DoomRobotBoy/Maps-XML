@@ -1,0 +1,87 @@
+<map proto="1.4.0">
+<name>Golden Gate</name>
+<version>1.0.0</version>
+<objective>
+    Eliminate the enemy team before time runs out!
+</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</authors>
+<teams>
+    <team color="dark red" max="14" max-overfill="16">Red Team</team>
+    <team color="blue" max="14" max-overfill="16">Blue Team</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red">
+        <regions yaw="-90">
+            <cylinder base="-46.5,26,40.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue">
+        <regions yaw="90">
+            <cylinder base="147.5,26,40.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="-90">
+            <cylinder base="-46.5,26,40.5" radius="1" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="2" amount="32">bread</item>
+        <item slot="3">golden apple</item>
+        <item slot="4" id="`4Brick`7`o" projectile="brick">clay brick</item>
+        <item slot="5" amount="6" damage="2">leaves</item>
+        <item slot="6" amount="3">ladder</item>
+        <helmet locked="true" damage="-3000">iron helmet</helmet>
+        <leggings locked="true" damage="-3000">chainmail leggings</leggings>
+    </kit>
+    <kit id="red" parents="spawn">
+        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
+        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
+    </kit>
+    <kit id="blue" parents="spawn">
+        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
+        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<projectiles>
+    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
+</projectiles>
+<killreward>
+    <item>golden apple</item>
+</killreward>
+<filters>
+    <filter id="only-some">
+        <block>leaves:2</block>
+        <block>ladder</block>
+    </filter>
+</filters>
+<regions>
+    <apply block="only-some">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+</regions>
+<blitz>
+    <time>8m</time>
+    <lives>1</lives>
+    <title>Blitz</title>
+</blitz>
+<include src="blitz-global.xml"/>
+<itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>iron helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>bread</item>
+    <item>golden apple</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
