@@ -1,0 +1,121 @@
+<map proto="1.4.0">
+<name>Pixel Run</name>
+<version>1.0.0</version>
+<objective>
+    Runners must get from one side of the map to the other without getting killed by the Defenders.
+</objective>
+<authors>
+    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/>
+<!--  MeMyselfAndFrog  -->
+    <author uuid="fe3608b7-d105-4029-8800-34b3147065b6"/>
+<!--  rockymine  -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!--  DoomRobotBoy  -->
+</authors>
+<contributors>
+    <contributor uuid="a4266139-34f3-46c5-a730-f8828376a15a" contribution="Feedback"/>
+<!-- LArrowhead -->
+</contributors>
+<teams>
+    <team color="light purple" max="25" max-overfill="30">Runners</team>
+    <team color="dark blue" max="6" max-overfill="8">Defenders</team>
+</teams>
+<rules>
+    <rule>Fall Damage is Disabled.</rule>
+</rules>
+<broadcasts>
+    <tip filter="defenders-only" after="5s" every="1m">Walk against the black wool on the sides of the tracks to teleport to the other side.</tip>
+</broadcasts>
+<score>
+    <limit>1</limit>
+</score>
+<blitz>
+    <lives>1</lives>
+    <broadcastLives>true</broadcastLives>
+    <title>Rush</title>
+</blitz>
+<include src="blitz-global.xml"/>
+<kits>
+    <kit name="runner" parents="hunger">
+        <helmet damage="-3000">leather helmet</helmet>
+        <boots damage="-3000">leather boots</boots>
+        <item slot="0" damage="62">wood sword</item>
+        <potion duration="oo">jump</potion>
+        <potion duration="oo">speed</potion>
+    </kit>
+    <kit name="defender" parents="hunger">
+        <boots damage="-3000">gold boots</boots>
+        <item slot="0" unbreakable="true" enchantment="arrow knockback:1;arrow damage:2;arrow infinite:1">bow</item>
+        <item slot="28" amount="1">arrow</item>
+        <potion duration="oo" amplifier="2">speed</potion>
+    </kit>
+</kits>
+<regions>
+    <cuboid name="defender-spawn" min="654,22,22" max="651,23,25"/>
+    </union>
+    <cuboid name="runner-spawn" min="226,57,19" max="228,57,22"/>
+    <cylinder name="observer-spawn" base="648.5,30,23.5" radius="1"/>
+    <cuboid name="north-portal" min="643,22,17" max="642,28,23"/>
+    <cuboid name="south-portal" min="643,22,30" max="642,28,24"/>
+    <block name="flag-net">631.5,22,29.5</block>
+    <apply block="deny-all">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+    <apply velocity="@0.0,1.9,0.0">
+        <cuboid min="620,9,22" max="623,9,25"/>
+    </apply>
+</regions>
+<portals>
+    <portal x="@253" y="@47" z="@-48" yaw="@-90">
+        <region>
+            <region name="north-portal"/>
+        </region>
+    </portal>
+    <portal x="@253" y="@47" z="@84" yaw="@-90">
+        <region>
+            <region name="south-portal"/>
+        </region>
+    </portal>
+</portals>
+<flags>
+    <post id="flag-post" pickup-filter="blue-only">631.4,22,29.5</post>
+    <flag id="flag" name="Flag" color="dark green" post="flag-post"/>
+    <net post="flag-post" points="1" region="flag-net"/>
+</flags>
+<spawns>
+    <spawn team="Runners" kit="runner">
+        <regions yaw="-90">
+            <region name="runner-spawn"/>
+        </regions>
+    </spawn>
+    <spawn team="Defenders" kit="defender">
+        <regions yaw="90">
+            <region name="defender-spawn"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="90">
+            <region name="observer-spawn"/>
+        </regions>
+    </default>
+</spawns>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather boots</item>
+    <item>gold boots</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>wood</item>
+</itemremove>
+<toolrepair>
+    <tool>wood sword</tool>
+</toolrepair>
+<time result="Defenders">6m</time>
+<timelock>on</timelock>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disabledamage>
+    <damage>fall</damage>
+</disabledamage>
+</map>
