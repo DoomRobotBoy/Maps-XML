@@ -61,9 +61,11 @@
     <apply block="deny-all">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
-    <apply velocity="@0.0,1.9,0.0">
+    <apply velocity="0.0,1.9,0.0">
         <cuboid min="620,9,22" max="623,9,25"/>
     </apply>
+    <cuboid name="south-portals" min="614,47,86" max="251,53,87"/>
+    <cuboid name="north-portals" min="614,53,-50" max="251,53,-51"/>
 </regions>
 <portals>
     <portal x="@253" y="@47" z="@-48" yaw="@-90">
@@ -76,6 +78,8 @@
             <region name="south-portal"/>
         </region>
     </portal>
+    <portal x="1" y="@49" z="134" region="south-portals"/>
+    <portal x="1" y="@49" z="-134" region="north-portals"/>
 </portals>
 <flags>
     <post id="flag-post" pickup-filter="blue-only">631.4,22,29.5</post>
