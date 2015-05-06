@@ -50,6 +50,15 @@
         <leggings locked="true" color="334CB2" damage="-3000">leather leggings</boots>
         <boots locked="true" color="334CB2" damage="-3000">leather boots</boots>
     </kit>
+    <kit id="bomb-picked-kit" force="true">
+        <helmet>gold helmet</helmet>
+    </kit>
+    <kit id="bomb-dropped-kit" force="true">
+        <helmet>chainmail helmet</helmet>
+    </kit>
+    <kit id="defused-kit">
+        <item prevent-sharing="true">gold block</item>
+    </kit>
 </kits>
 <killreward>
     <item damage="8261">potion</item>
@@ -106,38 +115,18 @@
             </all>
         </any>
     </filter>
-    <filter id="carrying-bomb-b">
-        <all>
-            <carrying><item>painting</item></carrying>
-            <team>blue</team>
-        </all>
+    <filter id="bomb-picked">
+        <carrying><item>painting</item></carrying>
     </filter>
-    <filter id="carrying-bomb-y">
-        <all>
-            <carrying><item>painting</item></carrying>
-            <team>yellow</team>
-        </all>
-    </filter>
-    <filter id="dropped-bomb-b">
+    <filter id="bomb-dropped">
         <not>
-            <all>
-                <carrying><item>painting</item></carrying>
-                <team>blue</team>
-            </all>
-        </not>
-    </filter>
-    <filter id="dropped-bomb-y">
-        <not>
-            <all>
-                <carrying><item>painting</item></carrying>
-                <team>yellow</team>
-            </all>
+            <carrying><item>painting</item></carrying>
         </not>
     </filter>
     <filter id="defused">
         <all>
             <all>
-                <carrying><item prevent-sharing="true">painting</item></carrying>
+                <carrying><item>painting</item></carrying>
                 <team>blue</team>
             </all>
             <all>
@@ -151,7 +140,16 @@
 </filters>
 <regions>
     <apply block="only-some">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
+        <rectangle name="map" min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply kit="bomb-picked-kit" filter="bomb-picked">
+        <region name="map"/>
+    </apply>
+    <apply kit="bomb-dropped-kit" filter="bomb-dropped">
+        <region name="map"/>
+    </apply>
+    <apply kit="defused-kit" filter="defused">
+        <region name="map"/>
     </apply>
 </regions>
 <control-points incremental="true" show-progress="false">
@@ -176,6 +174,11 @@
 </control-points>
 <score>
     <limit>45</limit>
+    <box filter="defused" region="map">
+        <redeemables>
+            <item points="45">gold block</item>
+        </redeemables>
+    </box>
 </score>
 <blitz>
     <time>8m</time>
@@ -194,5 +197,5 @@
     <item>fence</item>
 </itemremove>
 <timelock>on</timelock>
-<time result="militia">8m</time>
+<time result="blue">8m</time>
 </map>
