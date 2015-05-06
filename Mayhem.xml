@@ -178,8 +178,14 @@
     <apply kit="bomb-dropped-kit" filter="bomb-dropped">
         <region name="map"/>
     </apply>
-    <apply kit="" filter="">
+    <apply kit="bomb" filter="give-bomb-abomb">
         <cuboid min="80,9,218" max="76,12,213"/>
+    </apply>
+    <apply kit="bomb" filter="give-bomb-bbomb">
+        <cuboid min="62,5,236" max="57,8,232"/>
+    </apply>
+    <apply kit="bomb" filter="give-bomb-cbomb">
+        <cuboid min="40,5,272" max="45,8,268"/>
     </apply>
     <apply kit="defused-kit" filter="defused">
         <region name="map"/>
