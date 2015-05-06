@@ -11,16 +11,16 @@
 <!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team show-name-tags="allies" color="dark red" max="8" max-overfill="9">Terrorists</team>
+    <team show-name-tags="allies" color="yellow" max="8" max-overfill="9">Terrorists</team>
     <team show-name-tags="allies" color="blue" max="8" max-overfill="9">Militia</team>
 </teams>
 <spawns>
-    <spawn team="red" kit="red">
+    <spawn team="terrorists" kit="terrorists">
         <regions yaw="-45">
             <cylinder base="-7.5,5,177.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue">
+    <spawn team="militia" kit="militia">
         <regions yaw="90">
             <cylinder base="91.5,5,274.5" radius="1" height="0"/>
         </regions>
@@ -33,29 +33,26 @@
 </spawns>
 <kits>
     <kit id="spawn">
-        <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
+        <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
-        <item slot="2" amount="32">bread</item>
+        <item slot="2" amount="32">cooked beef</item>
         <item slot="3">golden apple</item>
-        <item slot="4">torch</item>
-        <item slot="5" name="`4Brick`7`o" projectile="brick">clay brick</item>
-        <helmet locked="true" damage="-3000">iron helmet</helmet>
-        <leggings locked="true" damage="-3000">chainmail leggings</leggings>
+        <item slot="28" amount="32">arrow</item>
+        <helmet locked="true" damage="-3000">chainmail helmet</helmet>
     </kit>
-    <kit id="red" parents="spawn">
-        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
-        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
+    <kit id="terrorists" parents="spawn">
+        <chestplate locked="true" color="E5E533" damage="-3000" enchantment="protection environmental:1">leather chestplate</chestplate>
+        <leggings locked="true" color="E5E533" damage="-3000">leather leggings</boots>
+        <boots locked="true" color="E5E533" damage="-3000">leather boots</boots>
     </kit>
-    <kit id="blue" parents="spawn">
-        <chestplate locked="true" color="907D66" damage="-3000">leather chestplate</chestplate>
-        <boots locked="true" color="907D66" damage="-3000">leather boots</boots>
+    <kit id="militia" parents="spawn">
+        <chestplate locked="true" color="334CB2" damage="-3000" enchantment="protection environmental:1">leather chestplate</chestplate>
+        <leggings locked="true" color="334CB2" damage="-3000">leather leggings</boots>
+        <boots locked="true" color="334CB2" damage="-3000">leather boots</boots>
     </kit>
 </kits>
-<projectiles>
-    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
-</projectiles>
 <killreward>
-    <item>golden apple</item>
+    <item damage="8261">potion</item>
 </killreward>
 <filters>
     <filter id="only-some">
@@ -70,7 +67,7 @@
 <blitz>
     <time>8m</time>
     <lives>1</lives>
-    <title>Blitz</title>
+    <title>Search And Destroy</title>
 </blitz>
 <include src="blitz-global.xml"/>
 <itemremove>
@@ -78,9 +75,12 @@
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
     <item>leather boots</item>
-    <item>bread</item>
+    <item>cooked beef</item>
     <item>golden apple</item>
+    <item>potion</item>
+    <item>glass bottle</item>
     <item>fence</item>
 </itemremove>
 <timelock>on</timelock>
+<time result="militia">8m</time>
 </map>
