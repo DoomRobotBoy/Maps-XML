@@ -73,10 +73,26 @@
             <team>yellow</team>
         </all>
     </filter>
-    <filter id="b-defused">
-        <all>
+    <filter id="dropped-bomb-b">
+        <not>
             <all>
                 <carrying><item>painting</item></carrying>
+                <team>blue</team>
+            </all>
+        </not>
+    </filter>
+    <filter id="dropped-bomb-y">
+        <not>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>yellow</team>
+            </all>
+        </not>
+    </filter>
+    <filter id="defused">
+        <all>
+            <all>
+                <carrying><item prevent-sharing="true">painting</item></carrying>
                 <team>blue</team>
             </all>
             <all>
@@ -93,7 +109,7 @@
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
-<control-points incremental="true" show-progress="false">
+<control-points incremental="true" show-progress="false" initial-owner="blue">
     <control-point id="abomb" name="Bomb A" capture-time="5s">
         <capture-filter>carrying-bomb</capture-filter>
         <capture><cuboid min="80,9,218" max="76,12,213"/></capture>
@@ -108,11 +124,14 @@
     </control-point>
     <control-point id="cbomb" name="Bomb C" capture-time="5s">
         <capture-filter>carrying-bomb</capture-filter>
-        <capture><cuboid min="80,9,218" max="76,11,213"/></capture>
+        <capture><cuboid min="40,5,272" max="45,8,268"/></capture>
         <progress><cuboid min="0,0" max="0,0"/></progress>
         <captured><cuboid min="0,0" max="0,0"/></captured>
     </control-point>
 </control-points>
+<score>
+    <limit>45</limit>
+</score>
 <blitz>
     <time>8m</time>
     <lives>1</lives>
