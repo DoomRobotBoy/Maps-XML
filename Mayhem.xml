@@ -58,8 +58,53 @@
     <filter id="only-some">
         <block>fence</block>
     </filter>
-    <filter id="carrying-bomb">
-        <carrying><item>painting</item></carrying>
+    <filter id="capture-abomb">
+        <any>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>yellow</team>
+            </all>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>blue</team>
+                <all>
+                    <objective>abomb</objective>
+                    <team>yellow</team>
+                </all>
+            </all>
+        </any>
+    </filter>
+    <filter id="capture-bbomb">
+        <any>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>yellow</team>
+            </all>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>blue</team>
+                <all>
+                    <objective>bbomb</objective>
+                    <team>yellow</team>
+                </all>
+            </all>
+        </any>
+    </filter>
+    <filter id="capture-cbomb">
+        <any>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>yellow</team>
+            </all>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>blue</team>
+                <all>
+                    <objective>cbomb</objective>
+                    <team>yellow</team>
+                </all>
+            </all>
+        </any>
     </filter>
     <filter id="carrying-bomb-b">
         <all>
@@ -109,9 +154,9 @@
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
-<control-points incremental="true" show-progress="false" initial-owner="blue">
+<control-points incremental="true" show-progress="false">
     <control-point id="abomb" name="Bomb A" capture-time="5s">
-        <capture-filter>carrying-bomb</capture-filter>
+        <capture-filter>capture-abomb</capture-filter>
         <capture><cuboid min="80,9,218" max="76,12,213"/></capture>
         <progress><cuboid min="0,0" max="0,0"/></progress>
         <captured><cuboid min="0,0" max="0,0"/></captured>
