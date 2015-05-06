@@ -58,6 +58,9 @@
     <filter id="only-some">
         <block>fence</block>
     </filter>
+    <filter id="carrying-bomb">
+        <carrying><item>painting</item></carrying>
+    </filter>
     <filter id="carrying-bomb-b">
         <all>
             <carrying><item>painting</item></carrying>
@@ -70,12 +73,46 @@
             <team>yellow</team>
         </all>
     </filter>
+    <filter id="b-defused">
+        <all>
+            <all>
+                <carrying><item>painting</item></carrying>
+                <team>blue</team>
+            </all>
+            <all>
+                <objective>abomb</objective>
+                <objective>bbomb</objective>
+                <objective>cbomb</objective>
+                <team>blue</team>
+            </all>
+        </all>
+    </filter>
 </filters>
 <regions>
     <apply block="only-some">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
+<control-points incremental="true" show-progress="false">
+    <control-point id="abomb" name="Bomb A" capture-time="5s">
+        <capture-filter>carrying-bomb</capture-filter>
+        <capture><cuboid min="80,9,218" max="76,12,213"/></capture>
+        <progress><cuboid min="0,0" max="0,0"/></progress>
+        <captured><cuboid min="0,0" max="0,0"/></captured>
+    </control-point>
+    <control-point id="bbomb" name="Bomb B" capture-time="5s">
+        <capture-filter>carrying-bomb</capture-filter>
+        <capture><cuboid min="62,5,236" max="57,8,232"/></capture>
+        <progress><cuboid min="0,0" max="0,0"/></progress>
+        <captured><cuboid min="0,0" max="0,0"/></captured>
+    </control-point>
+    <control-point id="cbomb" name="Bomb C" capture-time="5s">
+        <capture-filter>carrying-bomb</capture-filter>
+        <capture><cuboid min="80,9,218" max="76,11,213"/></capture>
+        <progress><cuboid min="0,0" max="0,0"/></progress>
+        <captured><cuboid min="0,0" max="0,0"/></captured>
+    </control-point>
+</control-points>
 <blitz>
     <time>8m</time>
     <lives>1</lives>
