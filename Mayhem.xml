@@ -56,6 +56,9 @@
     <kit id="bomb-dropped-kit" force="true">
         <helmet>chainmail helmet</helmet>
     </kit>
+    <kit id="bomb">
+        <item prevent-sharing="true" enchantment="durability:1" name="Bomb">painting</item>
+    </kit>
     <kit id="defused-kit">
         <item prevent-sharing="true">gold block</item>
     </kit>
@@ -115,6 +118,33 @@
             </all>
         </any>
     </filter>
+    <filter id="give-bomb-abomb">
+        <all>
+            <all>
+                <objective>abomb</objective>
+                <team>yellow</team>
+            </all>
+            <team>blue</team>
+        </all>
+    </filter>
+    <filter id="give-bomb-bbomb">
+        <all>
+            <all>
+                <objective>bbomb</objective>
+                <team>yellow</team>
+            </all>
+            <team>blue</team>
+        </all>
+    </filter>
+    <filter id="give-bomb-cbomb">
+        <all>
+            <all>
+                <objective>cbomb</objective>
+                <team>yellow</team>
+            </all>
+            <team>blue</team>
+        </all>
+    </filter>
     <filter id="bomb-picked">
         <carrying><item>painting</item></carrying>
     </filter>
@@ -147,6 +177,9 @@
     </apply>
     <apply kit="bomb-dropped-kit" filter="bomb-dropped">
         <region name="map"/>
+    </apply>
+    <apply kit="" filter="">
+        <cuboid min="80,9,218" max="76,12,213"/>
     </apply>
     <apply kit="defused-kit" filter="defused">
         <region name="map"/>
