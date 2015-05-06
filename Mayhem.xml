@@ -51,10 +51,10 @@
         <boots locked="true" color="334CB2" damage="-3000">leather boots</boots>
     </kit>
     <kit id="bomb-picked-kit" force="true">
-        <helmet>gold helmet</helmet>
+        <helmet locked="true">gold helmet</helmet>
     </kit>
     <kit id="bomb-dropped-kit" force="true">
-        <helmet>chainmail helmet</helmet>
+        <helmet locked="true">chainmail helmet</helmet>
     </kit>
     <kit id="bomb">
         <item prevent-sharing="true" enchantment="durability:1" name="Bomb">painting</item>
