@@ -2,7 +2,7 @@
 <name>Mayhem</name>
 <version>1.0.0</version>
 <objective>
-    Attackers win if they explode a bomb or kill all defenders. Defenders win if they defuse a bomb or kill all attackers.
+    Attackers (Terrorists) win if they explode a bomb or kill all defenders. Defenders (Militia) win if they defuse a bomb or kill all attackers.
 </objective>
 <authors>
     <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/>
@@ -11,16 +11,16 @@
 <!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team show-name-tags="allies" color="yellow" max="8" max-overfill="9">Terrorists</team>
-    <team show-name-tags="allies" color="blue" max="8" max-overfill="9">Militia</team>
+    <team id="yellow" show-name-tags="allies" color="yellow" max="8" max-overfill="9">Terrorists</team>
+    <team id="blue" show-name-tags="allies" color="blue" max="8" max-overfill="9">Militia</team>
 </teams>
 <spawns>
-    <spawn team="terrorists" kit="terrorists">
+    <spawn team="yellow" kit="terrorists">
         <regions yaw="-45">
             <cylinder base="-7.5,5,177.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="militia" kit="militia">
+    <spawn team="blue" kit="militia">
         <regions yaw="90">
             <cylinder base="91.5,5,274.5" radius="1" height="0"/>
         </regions>
@@ -32,7 +32,7 @@
     </default>
 </spawns>
 <kits>
-    <kit id="spawn">
+    <kit id="spawn" discard-potion-bottles="true">
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
         <item slot="2" amount="32">cooked beef</item>
@@ -58,6 +58,18 @@
     <filter id="only-some">
         <block>fence</block>
     </filter>
+    <filter id="carrying-bomb-b">
+        <all>
+            <carrying><item>painting</item></carrying>
+            <team>blue</team>
+        </all>
+    </filter>
+    <filter id="carrying-bomb-y">
+        <all>
+            <carrying><item>painting</item></carrying>
+            <team>yellow</team>
+        </all>
+    </filter>
 </filters>
 <regions>
     <apply block="only-some">
@@ -78,7 +90,6 @@
     <item>cooked beef</item>
     <item>golden apple</item>
     <item>potion</item>
-    <item>glass bottle</item>
     <item>fence</item>
 </itemremove>
 <timelock>on</timelock>
