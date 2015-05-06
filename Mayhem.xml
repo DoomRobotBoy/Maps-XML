@@ -11,23 +11,23 @@
 <!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team show-name-tags="allies" color="dark red" max="14" max-overfill="16">Red Team</team>
-    <team show-name-tags="allies" color="blue" max="14" max-overfill="16">Blue Team</team>
+    <team show-name-tags="allies" color="dark red" max="8" max-overfill="9">Terrorists</team>
+    <team show-name-tags="allies" color="blue" max="8" max-overfill="9">Militia</team>
 </teams>
 <spawns>
     <spawn team="red" kit="red">
-        <regions yaw="30">
-            <cylinder base="93.5,1.5,67.5" radius="1" height="0"/>
+        <regions yaw="-45">
+            <cylinder base="-7.5,5,177.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue">
-        <regions yaw="30">
-            <cylinder base="-3.5,3,157.5" radius="1" height="0"/>
+        <regions yaw="90">
+            <cylinder base="91.5,5,274.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default>
-        <regions yaw="30">
-            <cylinder base="41.5,13,162.5" radius="1" height="0"/>
+        <regions yaw="0">
+            <cylinder base="20.5,5,188.5" radius="1" height="0"/>
         </regions>
     </default>
 </spawns>
@@ -59,9 +59,7 @@
 </killreward>
 <filters>
     <filter id="only-some">
-        <block>stained glass pane</block>
-        <block>thin glass</block>
-        <block>torch</block>
+        <block>fence</block>
     </filter>
 </filters>
 <regions>
@@ -70,7 +68,7 @@
     </apply>
 </regions>
 <blitz>
-    <time>10m</time>
+    <time>8m</time>
     <lives>1</lives>
     <title>Blitz</title>
 </blitz>
@@ -82,6 +80,7 @@
     <item>leather boots</item>
     <item>bread</item>
     <item>golden apple</item>
+    <item>fence</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
