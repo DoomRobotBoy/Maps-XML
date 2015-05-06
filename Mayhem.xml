@@ -32,7 +32,7 @@
     </default>
 </spawns>
 <kits>
-    <kit id="spawn" discard-potion-bottles="true">
+    <kit id="spawn" discard-potion-bottles="true" force="true">
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
         <item slot="2" amount="32">cooked beef</item>
@@ -75,6 +75,18 @@
             <all>
                 <carrying><item>painting</item></carrying>
                 <team>yellow</team>
+                <not>
+                    <any>
+                        <all>
+                            <objective>bbomb</objective>
+                            <team>yellow</team>
+                        </all>
+                        <all>
+                            <objective>cbomb</objective>
+                            <team>yellow</team>
+                        </all>
+                    </any>
+                </not>
             </all>
             <all>
                 <carrying><item>painting</item></carrying>
@@ -91,6 +103,18 @@
             <all>
                 <carrying><item>painting</item></carrying>
                 <team>yellow</team>
+                <not>
+                    <any>
+                        <all>
+                            <objective>abomb</objective>
+                            <team>yellow</team>
+                        </all>
+                        <all>
+                            <objective>cbomb</objective>
+                            <team>yellow</team>
+                        </all>
+                    </any>
+                </not>
             </all>
             <all>
                 <carrying><item>painting</item></carrying>
@@ -107,6 +131,18 @@
             <all>
                 <carrying><item>painting</item></carrying>
                 <team>yellow</team>
+                <not>
+                    <any>
+                        <all>
+                            <objective>abomb</objective>
+                            <team>yellow</team>
+                        </all>
+                        <all>
+                            <objective>bbomb</objective>
+                            <team>yellow</team>
+                        </all>
+                    </any>
+                </not>
             </all>
             <all>
                 <carrying><item>painting</item></carrying>
