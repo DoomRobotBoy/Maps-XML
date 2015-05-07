@@ -181,35 +181,29 @@
             <team>blue</team>
         </all>
     </filter>
-    <filter id="bomb-picked">
+    <!-- <filter id="bomb-picked">
         <carrying><item>painting</item></carrying>
     </filter>
     <filter id="bomb-dropped">
         <not>
             <carrying><item>painting</item></carrying>
         </not>
-    </filter>
+    </filter> -->
     <filter id="defused">
-        <all>
+        <any>
             <all>
-                <carrying><item>painting</item></carrying>
+                <objective>abomb</objective>
                 <team>blue</team>
             </all>
-            <any>
-                <all>
-                    <objective>abomb</objective>
-                    <team>blue</team>
-                </all>
-                <all>
-                    <objective>bbomb</objective>
-                    <team>blue</team>
-                </all>
-                <all>
-                    <objective>cbomb</objective>
-                    <team>blue</team>
-                </all>
-            </any>
-        </all>
+            <all>
+                <objective>bbomb</objective>
+                <team>blue</team>
+            </all>
+            <all>
+                <objective>cbomb</objective>
+                <team>blue</team>
+            </all>
+        </any>
     </filter>
 </filters>
 <regions>
