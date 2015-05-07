@@ -246,7 +246,7 @@
         <progress><cuboid min="0,0" max="0,0"/></progress>
         <captured><cuboid min="0,0" max="0,0"/></captured>
     </control-point>
-    <control-point id="bomb-defused" show="false" name="Bomb D" capture-time="0s">
+    <control-point id="bomb-defused" show="false" name="Bomb D" point="45" capture-time="0s">
         <capture-filter>defused</capture-filter>
         <capture><cuboid min="-20,0,170" max="101,26,283"/></capture>
         <progress><cuboid min="0,0" max="0,0"/></progress>
