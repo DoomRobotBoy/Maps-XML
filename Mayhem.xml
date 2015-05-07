@@ -223,9 +223,9 @@
     <apply kit="bomb" filter="give-bomb-cbomb">
         <cuboid min="40,5,272" max="45,8,268"/>
     </apply>
-    <apply kit="defused-kit" filter="defused">
+    <!-- <apply kit="defused-kit" filter="defused">
         <region name="map"/>
-    </apply>
+    </apply> -->
 </regions>
 <control-points incremental="true" show-progress="false">
     <control-point id="abomb" name="Bomb A" capture-time="5s">
@@ -255,11 +255,6 @@
 </control-points>
 <score>
     <limit>45</limit>
-    <box filter="defused" region="map">
-        <redeemables>
-            <item points="45">gold block</item>
-        </redeemables>
-    </box>
 </score>
 <blitz>
     <time>8m</time>
