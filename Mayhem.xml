@@ -195,12 +195,20 @@
                 <carrying><item>painting</item></carrying>
                 <team>blue</team>
             </all>
-            <all>
-                <objective>abomb</objective>
-                <objective>bbomb</objective>
-                <objective>cbomb</objective>
-                <team>blue</team>
-            </all>
+            <any>
+                <all>
+                    <objective>abomb</objective>
+                    <team>blue</team>
+                </all>
+                <all>
+                    <objective>bbomb</objective>
+                    <team>blue</team>
+                </all>
+                <all>
+                    <objective>cbomb</objective>
+                    <team>blue</team>
+                </all>
+            </any>
         </all>
     </filter>
 </filters>
