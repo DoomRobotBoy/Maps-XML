@@ -50,12 +50,12 @@
         <leggings locked="true" color="334CB2" damage="-3000">leather leggings</boots>
         <boots locked="true" color="334CB2" damage="-3000">leather boots</boots>
     </kit>
-    <kit id="bomb-picked-kit" force="true">
+    <!-- <kit id="bomb-picked-kit" force="true">
         <helmet locked="true" damage="-3000">gold helmet</helmet>
     </kit>
     <kit id="bomb-dropped-kit" force="true">
         <helmet locked="true" damage="-3000">chainmail helmet</helmet>
-    </kit>
+    </kit> -->
     <kit id="bomb">
         <item prevent-sharing="true" enchantment="durability:1" name="Bomb">painting</item>
     </kit>
@@ -208,12 +208,12 @@
     <apply block="only-some">
         <rectangle name="map" min="-oo,-oo" max="oo,oo"/>
     </apply>
-    <apply kit="bomb-picked-kit" filter="bomb-picked">
+    <!-- <apply kit="bomb-picked-kit" filter="bomb-picked">
         <region name="map"/>
     </apply>
     <apply kit="bomb-dropped-kit" filter="bomb-dropped">
         <region name="map"/>
-    </apply>
+    </apply> -->
     <apply kit="bomb" filter="give-bomb-abomb">
         <cuboid min="80,9,218" max="76,12,213"/>
     </apply>
@@ -243,6 +243,12 @@
     <control-point id="cbomb" name="Bomb C" capture-time="5s">
         <capture-filter>carrying-bomb</capture-filter>
         <capture><cuboid min="40,5,272" max="45,8,268"/></capture>
+        <progress><cuboid min="0,0" max="0,0"/></progress>
+        <captured><cuboid min="0,0" max="0,0"/></captured>
+    </control-point>
+    <control-point id="bomb-defused" show="false" name="Bomb D" capture-time="0s">
+        <capture-filter>defused</capture-filter>
+        <capture><cuboid min="-20,0,170" max="101,26,283"/></capture>
         <progress><cuboid min="0,0" max="0,0"/></progress>
         <captured><cuboid min="0,0" max="0,0"/></captured>
     </control-point>
