@@ -44,6 +44,9 @@
         <item slot="28">arrow</item>
         <chestplate locked="true" damage="-3000">gold chestplate</chestplate>
     </kit>
+    <kit id="slow" message="You have been slowed for 2 seconds.">
+    	<potion duration="2" amplifier="127">slow</potion>
+    </kit>
 </kits>
 <killreward>
 	<item amount="4" lore="`6+4 `eevery kill!">wood</item>
@@ -90,12 +93,12 @@
 <spawns>
 	<spawn team="red" kit="red-kit">
 		<regions yaw="90">
-			<cylinder base="-23.5,30,100.5"/>
+			<cylinder id="red-spawn" base="-23.5,30,100.5"/>
 		</regions>
 	</spawn>
 	<spawn team="blue" kit="blue-kit">
 		<regions yaw="90">
-			<cylinder base="-159.5,30,100.5"/>
+			<cylinder id="blue-spawn" base="-159.5,30,100.5"/>
 		</regions>
 	</spawn>
 	<default>
@@ -173,6 +176,18 @@
 	<filter id="blue-center-hill">
 		<objective team="blue">c-hill</objective>
 	</filter>
+	<filter id="red-side-hill">
+		<any>
+			<objective team="blue">red-south-hill</objective>
+			<objective team="blue">red-north-hill</objective>
+		</any>
+	</filter>
+	<filter id="blue-side-hill">
+		<any>
+			<objective team="red">blue-south-hill</objective>
+			<objective team="red">blue-north-hill</objective>
+		</any>
+	</filter>
 </filters>
 <regions>
 	<union id="c-hill-capture">
@@ -195,6 +210,24 @@
 		<cuboid min="-98,2,102" max="-85,3,99"/>
 		<cuboid min="-99,2,101" max="-84,3,100"/>
 	</union>
+	<union id="red-castle">
+		<complement>
+			<cuboid min="-56,25,119" max="-23,38,82"/>
+			<cuboid min="-26,27,97" max="-21,31,104"/>
+		</complement>
+	</union>
+	<union id="blue-castle">
+		<complement>
+			<cuboid min="-127,25,82" max="-160,39,119"/>
+			<cuboid min="-157,27,104" max="-162,31,97"/>
+		</complement>
+	</union>
+	<apply kit="red-side-hill">
+		<region id="red-spawn"/>
+	</apply>
+	<apply kit="blue-side-hill">
+		<region id="blue-spawn"/>
+	</apply>
 	<apply block="no-tnt-center">
 		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
 	</apply>
@@ -221,6 +254,17 @@
 		<region id="map"/>
 	</apply>
 </regions>
+<destroyables 
+	name="Castle" 
+	materials="log_2;cobblestone stairs;dark oak stairs;double step:3;step:3;step:5;wood:5;wood step:5;log:1;leaves:1;cobble wall" 
+	completion="80%">
+    <destroyable owner="red">
+       <region><region id="red-castle"/></region>
+    </destroyable>
+    <destroyable owner="blue">
+       <region><region id="blue-castle"/></region>
+    </destroyable>
+</destroyables>
 <hills>
 	<hill id="c-hill" name="Center Hill" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
 		<capture>
