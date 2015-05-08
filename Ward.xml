@@ -1,11 +1,3 @@
-controlling koth in the center means 1 tnt per kill
-controlling one of the koth's besides the castle means slowness for 3 sec upon spawning of opposite team
-defending kit whilst in castle: punch bow with slowness on wearer, power bow
-every item is removed once dropped, even tnt
-killreward live-gear?
-only wood blocks in spawn kit
-eff II (2) iron axe
-
 <map proto="1.4.0">
 <name>Ward</name>
 <version>1.0.0</version>
@@ -20,90 +12,101 @@ eff II (2) iron axe
 </teams>
 <kits>
     <kit id="spawn">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow infinite;arrow damage">bow</item>
+        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow knockback">bow</item>
+        <item slot="28">arrow</item>
+        <chestplate damage="-3000">iron chestplate</chestplate>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <leggings damage="-3000" color="993333">leather leggings</leggings>
+        <boots damage="-3000" color="993333">leather boots</boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <leggings damage="-3000" color="334CB2" locked="true">leather leggings</leggings>
+        <boots damage="-3000" color="334CB2" locked="true">leather boots</boots>
+    </kit>
+    <kit id="leave-spawn">
         <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
-        <item slot="2" amount="16" lore="`6+4 `eevery kill!">wood</item>
+        <item slot="2" enchantment="dig speed:2">iron axe</item>
+        <item slot="3" amount="16" lore="`6+4 `eevery kill!">wood</item>
         <item slot="8" lore="`6+1 `eevery second kill!">golden apple</item>
         <item slot="28">arrow</item>
         <chestplate damage="-3000">gold chestplate</chestplate>
     </kit>
-    <kit id="leave-spawn">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000">bow</item>
-        <item slot="2" amount="8" damage="1" lore="`r`c+3 `7every kill!">leaves</item>
-        <item slot="5" damage="8" name="`cYou are not currently holding any wool!" lore="`r`7Gain control of the hill, then collect wool to gain extra points!">carpet</item>
-        <item slot="8" lore="`r`c+1 `7every `b2 `7kills!">golden apple</item>
-        <item slot="28" amount="18">arrow</item>
-        <chestplate damage="-3000" locked="true">gold chestplate</chestplate>
-        <potion duration="3" amplifier="10">heal</potion>
-        <potion duration="3" amplifier="10">damage resistance</potion>
-    </kit>
-    <kit name="purple" parents="spawn">
-        <leggings damage="-3000" color="FF00EE" locked="true">leather leggings</leggings>
-        <boots damage="-3000" color="FF00EE" locked="true">leather boots</boots>
-    </kit>
-    <kit name="orange" parents="spawn">
-        <leggings damage="-3000" color="FF7200" locked="true">leather leggings</leggings>
-        <boots damage="-3000" color="FF7200" locked="true">leather boots</boots>
-    </kit>
 </kits>
 <spawns>
-<spawn team="purple" kit="purple">
-<regions>
-<point yaw="-90">-66.5,48.5,-47.5</point>
-<point yaw="180">-66.5,48.5,-47.5</point>
-</regions>
-</spawn>
-<spawn team="orange" kit="orange">
-<regions>
-<point yaw="90">31.5,48.5,-145.5</point>
-<point yaw="0">31.5,48.5,-145.5</point>
-</regions>
-</spawn>
-<default yaw="-45" kit="all">
-<regions>
-<cylinder base="-27.5,74.5,-106.5" radius="3" height="0"/>
-</regions>
-</default>
+	<spawn team="red" kit="red-kit">
+		<regions yaw="90">
+			<cylinder base="-23.5,30,100.5"/>
+		</regions>
+	</spawn>
+	<spawn team="blue" kit="blue-kit">
+		<regions yaw="90">
+			<cylinder base="-159.5,30,100.5"/>
+		</regions>
+	</spawn>
+	<default>
+		<regions yaw="0">
+			<cylinder base="-94.5,6,155.5"/>
+		</regions>
+	</default>
 </spawns>
 <filters>
-<filter name="only-purple">
-<all>
-<team>purple</team>
-</all>
-</filter>
-<filter name="purple-box">
-<all>
-<team>purple</team>
-<wearing>
-<item damage="15">wool</item>
-</wearing>
-</all>
-</filter>
-<filter name="only-orange">
-<all>
-<team>orange</team>
-</all>
-</filter>
-<filter name="orange-box">
-<all>
-<team>orange</team>
-<wearing>
-<item damage="15">wool</item>
-</wearing>
-</all>
-</filter>
-<filter name="only-leaves">
-<any>
-<block>leaves</block>
-<block>tnt</block>
-</any>
-</filter>
-<filter name="deny-void">
-<deny>
-<void/>
-</deny>
-</filter>
+	<filter name="only-purple">
+		<team>purple</team>
+	</filter>
+	<filter name="only-orange">
+		<team>orange</team>
+	</filter>
+	<filter name="only-wood">
+		<block>wood:0</block>
+	</filter>
+	<filter name="no-tnt-center">
+		<not>
+			<all>
+				<any>
+					<block>grass</block>
+					<block>dirt</block>
+					<block>gravel</block>
+					<block>cobblestone</block>
+					<block>stone</block>
+					<block>stained clay</block>
+					<block>log_2</block>
+					<block>spruce fence</block>
+					<block>step</block>
+					<block>smooth brick</block>
+					<block>stone plate</block>
+					<block>spruce stairs</block>
+				</any>
+				<filter name="allow-world"/>
+			</all>
+		</not>
+	</filter>
+	<filter name="no-tnt-castles">
+		<not>
+			<all>
+				<any>
+					<block>grass</block>
+					<block>dirt</block>
+					<block>gravel</block>
+					<block>cobblestone</block>
+					<block>stone</block>
+					<block>stained clay</block>
+					<block>ladder</block>
+					<block>spruce fence</block>
+					<block>spruce stairs</block>
+				</any>
+				<filter name="allow-world"/>
+			</all>
+		</not>
+	</filter>
+	<filter name="deny-void">
+		<deny>
+			<void/>
+		</deny>
+	</filter>
 <filter name="objective-inclusive-nw">
 <any>
 <objective>hill-nw</objective>
@@ -140,119 +143,21 @@ eff II (2) iron axe
 </filter>
 </filters>
 <regions>
-<!--
- ==================
-          SCOREBOX REGIONS
-         ================== 
--->
-<cuboid name="purple-depot" min="-69,40,-46" max="-65,42,-50"/>
-<cuboid name="orange-depot" min="33,40,-148" max="29,42,-144"/>
-<apply filter="only-purple" kit="return-reward">
-<region name="purple-depot"/>
-</apply>
-<apply filter="only-orange" kit="return-reward">
-<region name="orange-depot"/>
-</apply>
-<!--
- ==================
-         OBJECTIVE REGIONS
-         ================== 
--->
-<!--  Hill capture region  -->
-<cylinder name="hill-se-capture" base="-1.5,29,-80.5" radius="6" height="5"/>
-<cylinder name="hill-nw-capture" base="-34,29,-113" radius="6" height="5"/>
-<!--  Hill progress region  -->
-<cylinder name="hill-se-progress" base="-1.5,24,-80.5" radius="7" height="12"/>
-<cylinder name="hill-nw-progress" base="-34,24,-113" radius="7" height="12"/>
-<!--  Hill captured region  -->
-<cylinder name="hill-se-captured" base="-1.5,20,-80.5" radius="7" height="12"/>
-<cylinder name="hill-nw-captured" base="-34,20,-113" radius="7" height="12"/>
-<!--  Wool island hill completion  -->
-<cylinder name="wool-island-complete" base="-17.5,19,-96.5" radius="4" height="19"/>
-<!--  SE jump pad hill completion  -->
-<cuboid name="se-jump-complete" min="4,20,-75" max="29,38,-50"/>
-<!--  NW jump pad hill completion  -->
-<cuboid name="nw-jump-complete" min="-40,20,-119" max="-65,38,-144"/>
-<!--
- ==================
-	    BLOCK REGIONS
-	 ================== 
--->
-<!--  Define boxes for deny  -->
-<cylinder name="purple-box-ex" base="-60.5,40,-139.5" radius="4" height="8"/>
-<cylinder name="orange-box-ex" base="24.5,40,-55.5" radius="4" height="8"/>
-<!--
- Deny other team entering blocks around the score box 
--->
-<apply enter="only-purple">
-<region name="purple-box-ex"/>
-</apply>
-<apply enter="only-orange">
-<region name="orange-box-ex"/>
-</apply>
-<!--  Void filter  -->
-<apply block="deny-void" message="You may not edit this part of the map">
-<rectangle min="-oo,-oo" max="oo,oo"/>
-</apply>
-<!--  Only allow leaves  -->
-<apply block="only-leaves" message="You may only interact with leaves">
-<rectangle min="-oo,-oo" max="oo,oo"/>
-</apply>
-<!--
- ==================
-	  VELOCITY REGIONS
-	 ================== 
--->
-<!--  NE pad (inner)  -->
-<apply velocity="@-0.7,2.3,0.7">
-<cylinder base="9.5,29,-123.5" radius="1.2" height="1"/>
-</apply>
-<!--  SW pad (inner)  -->
-<apply velocity="@0.7,2.3,-0.7">
-<cylinder base="-44.5,29,-69.5" radius="1.2" height="1"/>
-</apply>
-<!--
- ==================
-	   OBJECTIVE REGIONS
-	 ================== 
--->
-<!--   NW pad (outer)  -->
-<apply filter="objective-inclusive-nw" velocity="@2,2.3,2">
-<cylinder base="-55.5,31,-134.5" radius="1.2" height="1"/>
-</apply>
-<!--  SE pad (outer)  -->
-<apply filter="objective-inclusive-se" velocity="@-2,2.3,-2">
-<cylinder base="20.5,31,-58.5" radius="1.2" height="1"/>
-</apply>
-<!--  MID pad (inner)  -->
-<apply filter="objective-exclusive" velocity="@0,2.5,0">
-<cylinder base="-17.5,26,-96.5" radius="1" height="1"/>
-</apply>
-<apply filter="objective-single-se" kit="give-dark-grey">
-<region name="wool-island-complete"/>
-</apply>
-<apply filter="objective-single-nw" kit="give-dark-grey">
-<region name="wool-island-complete"/>
-</apply>
-<apply filter="objective-exclusive" kit="give-black">
-<region name="wool-island-complete"/>
-</apply>
+	<apply block="only-wood" message="You may only place or break wood under y=20.">
+		<cuboid min="oo,0,oo" max="-oo,20,-oo"/>
+	</apply>
+	<apply block="no-tnt-center">
+		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
+	</apply>
+	<apply block="no-tnt-castles">
+		<negative>
+			<region id="center"/>
+		</negative>
+	</apply>
+	<apply block="deny-void">
+		<rectangle min="oo,oo" max="-oo,-oo"/>
+	</apply>
 </regions>
-<falling-blocks>
-<rule>
-<filter>
-<block>leaves</block>
-</filter>
-<sticky>
-<any>
-<block>log 2:13</block>
-<block>smooth brick</block>
-<block>leaves</block>
-</any>
-</sticky>
-</rule>
-</falling-blocks>
-<king>
 <hills>
 <hill id="hill-nw" name="North West Hill" capture-time="12s" points="1" capture-rule="lead" show-progress="true">
 <capture>
@@ -285,7 +190,6 @@ eff II (2) iron axe
 </captured>
 </hill>
 </hills>
-</king>
 <portals>
 <portal enter="purple-box" x="@-66.5" y="@48" z="@-47.5" yaw="@-47">
 <region>
