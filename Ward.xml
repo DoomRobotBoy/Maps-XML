@@ -10,6 +10,30 @@
     <team id="red" color="dark red" max="24" max-overfill="27">Red Team</team>
     <team id="blue" color="blue" max="24" max-overfill="27">Blue Team</team>
 </teams>
+<broadcasts>
+<tip after="2s" every="3m" count="2">
+`r`bCapture the hills to gain access to small advantages!
+</tip>
+<tip after="15s" every="2m" count="5">
+`r`bThe `owool island `r`bis located on the lower floor, in the center!
+</tip>
+<tip after="16s" every="4m" count="2">
+`r`bCollect `8grey `bwool by controlling 1 of the 2 hills then entering the wool island
+</tip>
+<tip after="16s" every="4m" count="2">
+`r`bCollect `0black `bwool by controlling both hills then entering the wool island
+</tip>
+<tip after="30s" every="4m" count="3">
+`r`bReturn the wool to your team's scorebox to gain extra points!
+</tip>
+<tip after="31s" every="4m" count="3">
+`r`8Grey `bwool is worth `96 points`b, while `0black `bwool is worth `912 points`b!
+</tip>
+<tip after="45s" every="6m" count="2">
+`r`bThe outer jump pads (NW, SE) are controlled by the hills! When the hill is in a neural state, anyone can use them. However, when a team owns the hill, only they will be able to use that jump pad!
+</tip>
+<tip after="2m">`r`bTNT is rewarded after 5 kills!</tip>
+</broadcasts>
 <kits>
     <kit id="spawn">
         <item slot="0" damage="-3000">iron sword</item>
@@ -107,7 +131,7 @@
 			<void/>
 		</deny>
 	</filter>
-<filter name="objective-inclusive-nw">
+<filter name="red-center-hill">
 <any>
 <objective>hill-nw</objective>
 <not>
@@ -117,29 +141,6 @@
 </any>
 </not>
 </any>
-</filter>
-<filter name="objective-inclusive-se">
-<any>
-<objective>hill-se</objective>
-<not>
-<any>
-<objective team="orange">hill-se</objective>
-<objective team="purple">hill-se</objective>
-</any>
-</not>
-</any>
-</filter>
-<filter name="objective-exclusive">
-<all>
-<objective>hill-se</objective>
-<objective>hill-nw</objective>
-</all>
-</filter>
-<filter name="objective-single-se">
-<objective>hill-se</objective>
-</filter>
-<filter name="objective-single-nw">
-<objective>hill-nw</objective>
 </filter>
 </filters>
 <regions>
@@ -159,149 +160,77 @@
 	</apply>
 </regions>
 <hills>
-<hill id="hill-nw" name="North West Hill" capture-time="12s" points="1" capture-rule="lead" show-progress="true">
-<capture>
-<region name="hill-nw-capture"/>
-</capture>
-<progress>
-<region name="hill-nw-progress"/>
-</progress>
-<captured>
-<union>
-<region name="hill-nw-captured"/>
-<region name="nw-jump-complete"/>
-</union>
-</captured>
-</hill>
+	<hill id="c-hill" name="Center Control Point" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
+		<capture>
+			<region id="c-hill-capture"/>
+		</capture>
+		<progress>
+			<region id="c-hill-progress"/>
+		</progress>
+		<captured>
+			<region id="c-hill-progress"/>
+		</captured>
+	</hill>
 </hills>
-<hills>
-<hill id="hill-se" name="South East Hill" capture-time="12s" points="1" capture-rule="lead" show-progress="true">
-<capture>
-<region name="hill-se-capture"/>
-</capture>
-<progress>
-<region name="hill-se-progress"/>
-</progress>
-<captured>
-<union>
-<region name="hill-se-captured"/>
-<region name="se-jump-complete"/>
-</union>
-</captured>
-</hill>
-</hills>
-<portals>
-<portal enter="purple-box" x="@-66.5" y="@48" z="@-47.5" yaw="@-47">
-<region>
-<cuboid min="-69,40,-46" max="-65,42,-50"/>
-</region>
-</portal>
-<portal enter="orange-box" x="@31.5" y="@48" z="@-145.5" yaw="@45">
-<region>
-<cuboid min="33,40,-148" max="29,42,-144"/>
-</region>
-</portal>
-</portals>
 <itemremove>
-<item>stone sword</item>
-<item>bow</item>
-<item>leaves:1</item>
-<item>sapling:1</item>
-<item>apple</item>
-<item>arrow</item>
-<item>tnt</item>
-<item>golden apple</item>
-<item>gold chestplate</item>
-<item>chainmail chestplate</item>
-<item>leather leggings</item>
-<item>leather boots</item>
-<item>iron boots</item>
-<item>gold boots</item>
-<item>wool:15</item>
-<item>wool:7</item>
-<item>wool:9</item>
-<item>carpet:15</item>
-<item>carpet:8</item>
-<item>carpet:7</item>
-<item>carpet:9</item>
+	<item>stone sword</item>
+	<item>bow</item>
+	<item>leaves:1</item>
+	<item>sapling:1</item>
+	<item>apple</item>
+	<item>arrow</item>
+	<item>tnt</item>
+	<item>golden apple</item>
+	<item>gold chestplate</item>
+	<item>chainmail chestplate</item>
+	<item>leather leggings</item>
+	<item>leather boots</item>
+	<item>iron boots</item>
+	<item>gold boots</item>
+	<item>carpet:15</item>
+	<item>carpet:8</item>
+	<item>carpet:7</item>
+	<item>carpet:9</item>
 </itemremove>
 <killreward>
-<item amount="6">arrow</item>
-<item damage="1" amount="3" lore="`r`c+3 `7every kill!">leaves</item>
+	<item amount="4" lore="`6+4 `eevery kill!">wood</item>
 </killreward>
 <killreward>
-<filter>
-<kill-streak count="2" repeat="true"/>
-</filter>
-<item lore="`r`c+1 `7every `b2 `7kills!">golden apple</item>
+	<filter>
+		<kill-streak count="2" repeat="true"/>
+	</filter>
+	<item lore="`r`c+1 `7every `b2 `7kills!">golden apple</item>
 </killreward>
 <killreward>
-<filter>
-<kill-streak count="5" repeat="true"/>
-</filter>
-<item>tnt</item>
+	<filter>
+		<all>
+			<filter name="red-center-hill"/>
+			<team>red</team>
+		</all>
+	</filter>
+	<item>tnt</item>
+</killreward>
+<killreward>
+	<filter>
+		<all>
+			<filter name="blue-center-hill"/>
+			<team>blue</team>
+		</all>
+	</filter>
+	<item>tnt</item>
 </killreward>
 <disabledamage>
-<damage>fall</damage>
-<damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
+	<damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
 </disabledamage>
 <tnt>
-<instantignite>on</instantignite>
-<friendly-defuse>off</friendly-defuse>
-<licensing>off</licensing>
-<fuse>3s</fuse>
+	<instantignite>on</instantignite>
+	<fuse>3s</fuse>
+	<power>0.5</power>
+	<friendly-defuse>false</friendly-defuse>
+	<licensing>false</licensing>
 </tnt>
-<maxbuildheight>50</maxbuildheight>
+<maxbuildheight>46</maxbuildheight>
 <hunger>
-<depletion>off</depletion>
+	<depletion>off</depletion>
 </hunger>
-<broadcasts>
-<tip after="2s" every="3m" count="2">
-`r`bCapture the hills to gain access to small advantages!
-</tip>
-<tip after="15s" every="2m" count="5">
-`r`bThe `owool island `r`bis located on the lower floor, in the center!
-</tip>
-<tip after="16s" every="4m" count="2">
-`r`bCollect `8grey `bwool by controlling 1 of the 2 hills then entering the wool island
-</tip>
-<tip after="16s" every="4m" count="2">
-`r`bCollect `0black `bwool by controlling both hills then entering the wool island
-</tip>
-<tip after="30s" every="4m" count="3">
-`r`bReturn the wool to your team's scorebox to gain extra points!
-</tip>
-<tip after="31s" every="4m" count="3">
-`r`8Grey `bwool is worth `96 points`b, while `0black `bwool is worth `912 points`b!
-</tip>
-<tip after="45s" every="6m" count="2">
-`r`bThe outer jump pads (NW, SE) are controlled by the hills! When the hill is in a neural state, anyone can use them. However, when a team owns the hill, only they will be able to use that jump pad!
-</tip>
-<tip after="2m">`r`bTNT is rewarded after 5 kills!</tip>
-</broadcasts>
-<proximity-alarms>
-<proximity-alarm flare-radius="6">
-<region>
-<region name="wool-island-complete"/>
-</region>
-<detect>
-<any>
-<all>
-<team>orange</team>
-<any>
-<objective team="orange">hill-nw</objective>
-<objective team="orange">hill-se</objective>
-</any>
-</all>
-<all>
-<team>purple</team>
-<any>
-<objective team="purple">hill-nw</objective>
-<objective team="purple">hill-se</objective>
-</any>
-</all>
-</any>
-</detect>
-</proximity-alarm>
-</proximity-alarms>
 </map>
