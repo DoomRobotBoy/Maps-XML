@@ -375,4 +375,5 @@
 <hunger>
 	<depletion>off</depletion>
 </hunger>
+<timelock>on</timelock>
 </map>
