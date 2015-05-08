@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>Ward</name>
 <version>1.0.0</version>
-<objective>Tear down the enemy castle using TNT!</objective>
+<objective>Destroy 80% of the enemy castle!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
 <!--  DoomRobotBoy  -->
@@ -11,36 +11,20 @@
     <team id="blue" color="blue" max="24" max-overfill="27">Blue Team</team>
 </teams>
 <broadcasts>
-<tip after="2s" every="3m" count="2">
-`r`bCapture the hills to gain access to small advantages!
-</tip>
-<tip after="15s" every="2m" count="5">
-`r`bThe `owool island `r`bis located on the lower floor, in the center!
-</tip>
-<tip after="16s" every="4m" count="2">
-`r`bCollect `8grey `bwool by controlling 1 of the 2 hills then entering the wool island
-</tip>
-<tip after="16s" every="4m" count="2">
-`r`bCollect `0black `bwool by controlling both hills then entering the wool island
-</tip>
-<tip after="30s" every="4m" count="3">
-`r`bReturn the wool to your team's scorebox to gain extra points!
-</tip>
-<tip after="31s" every="4m" count="3">
-`r`8Grey `bwool is worth `96 points`b, while `0black `bwool is worth `912 points`b!
-</tip>
-<tip after="45s" every="6m" count="2">
-`r`bThe outer jump pads (NW, SE) are controlled by the hills! When the hill is in a neural state, anyone can use them. However, when a team owns the hill, only they will be able to use that jump pad!
-</tip>
-<tip after="2m">`r`bTNT is rewarded after 5 kills!</tip>
+	<tip after="2s" every="3m" count="oo">`3`oDestroy `6`o80% `3`oof the enemy castle to win!</tip>
+	<tip after="4s" every="3m" count="oo">`3`oThe castles can only be destroyed with `6`oTNT.</tip>
+	<tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter hill.</tip>
+	<tip after="10s" every="3m" count="oo">`3`oYou have a `6`odefenders kit `3`oin the castle, and an `6`oattackers kit `3`ooutside it.</tip>
+	<tip after="12s" every="3m" count="oo">`6`oDefenders `3`oget blocks for every second kill to repair the castle with.</tip>
+	<tip after="14s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
 </broadcasts>
 <kits>
     <kit id="spawn">
         <item slot="0" damage="-3000">iron sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite;arrow damage">bow</item>
-        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow knockback">bow</item>
+        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow infinite:arrow knockback">bow</item>
         <item slot="28">arrow</item>
-        <chestplate damage="-3000">iron chestplate</chestplate>
+        <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
     </kit>
     <kit id="red-kit" parents="spawn">
         <leggings damage="-3000" color="993333">leather leggings</leggings>
@@ -55,11 +39,53 @@
         <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
         <item slot="2" enchantment="dig speed:2">iron axe</item>
         <item slot="3" amount="16" lore="`6+4 `eevery kill!">wood</item>
-        <item slot="8" lore="`6+1 `eevery second kill!">golden apple</item>
+        <item slot="8" lore="`6+1 `eevery third kill!">golden apple</item>
         <item slot="28">arrow</item>
-        <chestplate damage="-3000">gold chestplate</chestplate>
+        <chestplate locked="true" damage="-3000">gold chestplate</chestplate>
     </kit>
 </kits>
+<killreward>
+	<item amount="4" lore="`6+4 `eevery kill!">wood</item>
+</killreward>
+<killreward>
+	<filter>
+		<wearing><item>gold chestplate</item></wearing>
+	</filter>
+	<potion duration="2" amplifier="2">regeneration</potion>
+</killreward>
+<killreward>
+	<filter>
+		<kill-streak count="3" repeat="true"/>
+	</filter>
+	<item lore="`6+1 `eevery third kill!">golden apple</item>
+</killreward>
+<killreward>
+	<filter>
+		<all>
+			<filter name="red-center-hill"/>
+			<team>red</team>
+		</all>
+	</filter>
+	<item>tnt</item>
+</killreward>
+<killreward>
+	<filter>
+		<all>
+			<filter name="blue-center-hill"/>
+			<team>blue</team>
+		</all>
+	</filter>
+	<item>tnt</item>
+</killreward>
+<killreward>
+	<filter>
+		<all>
+			<wearing><item>iron chestplate</item></wearing>
+			<kill-streak count="2" repeat="true"/>
+		</all>
+	</filter>
+	<item amount="8" lore="`eUse these blocks to repair your castle.">wood:5</item>
+</killreward>
 <spawns>
 	<spawn team="red" kit="red-kit">
 		<regions yaw="90">
@@ -78,16 +104,22 @@
 	</default>
 </spawns>
 <filters>
-	<filter name="only-purple">
+	<filter id="only-purple">
 		<team>purple</team>
 	</filter>
-	<filter name="only-orange">
+	<filter id="only-orange">
 		<team>orange</team>
 	</filter>
-	<filter name="only-wood">
+	<filter id="only-wood">
 		<block>wood:0</block>
 	</filter>
-	<filter name="no-tnt-center">
+	<filter id="only-some">
+		<any>
+			<block>tnt</block>
+			<block>wood:5</block>
+		</any>
+	</filter>
+	<filter id="no-tnt-center">
 		<not>
 			<all>
 				<any>
@@ -104,11 +136,11 @@
 					<block>stone plate</block>
 					<block>spruce stairs</block>
 				</any>
-				<filter name="allow-world"/>
+				<filter id="allow-world"/>
 			</all>
 		</not>
 	</filter>
-	<filter name="no-tnt-castles">
+	<filter id="no-tnt-castles">
 		<not>
 			<all>
 				<any>
@@ -122,16 +154,16 @@
 					<block>spruce fence</block>
 					<block>spruce stairs</block>
 				</any>
-				<filter name="allow-world"/>
+				<filter id="allow-world"/>
 			</all>
 		</not>
 	</filter>
-	<filter name="deny-void">
+	<filter id="deny-void">
 		<deny>
 			<void/>
 		</deny>
 	</filter>
-<filter name="red-center-hill">
+<filter id="red-center-hill">
 <any>
 <objective>hill-nw</objective>
 <not>
@@ -144,15 +176,23 @@
 </filter>
 </filters>
 <regions>
-	<apply block="only-wood" message="You may only place or break wood under y=20.">
-		<cuboid min="oo,0,oo" max="-oo,20,-oo"/>
-	</apply>
 	<apply block="no-tnt-center">
 		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
 	</apply>
 	<apply block="no-tnt-castles">
 		<negative>
 			<region id="center"/>
+		</negative>
+	</apply>
+	<apply block="only-wood" message="You may only place or break wood under y=20.">
+		<cuboid id="wood-place" min="oo,0,oo" max="-oo,20,-oo"/>
+	</apply>
+	<apply block-place="only-some">
+		<negative>
+			<union>
+				<region id="wood-place"/>
+				<region id="center"/>
+			</union>
 		</negative>
 	</apply>
 	<apply block="deny-void">
@@ -175,50 +215,28 @@
 <itemremove>
 	<item>stone sword</item>
 	<item>bow</item>
+	<item>gold chestplate</item>
+	<item>iron chestplate</item>
+	<item>leather helmet</item>
+	<item>leather leggings</item>
+	<item>leather boots</item>
+	<item>wood</item>
 	<item>leaves:1</item>
 	<item>sapling:1</item>
 	<item>apple</item>
 	<item>arrow</item>
 	<item>tnt</item>
 	<item>golden apple</item>
-	<item>gold chestplate</item>
-	<item>chainmail chestplate</item>
-	<item>leather leggings</item>
-	<item>leather boots</item>
-	<item>iron boots</item>
-	<item>gold boots</item>
-	<item>carpet:15</item>
-	<item>carpet:8</item>
 	<item>carpet:7</item>
-	<item>carpet:9</item>
+	<item>carpet:11</item>
+	<item>carpet:14</item>
+	<item>log_2</item>
+	<item>double step:3</item>
+	<item>step</item>
+	<item>smooth brick</item>
+	<item>stone plate</item>
+	<item>cob</item>
 </itemremove>
-<killreward>
-	<item amount="4" lore="`6+4 `eevery kill!">wood</item>
-</killreward>
-<killreward>
-	<filter>
-		<kill-streak count="2" repeat="true"/>
-	</filter>
-	<item lore="`r`c+1 `7every `b2 `7kills!">golden apple</item>
-</killreward>
-<killreward>
-	<filter>
-		<all>
-			<filter name="red-center-hill"/>
-			<team>red</team>
-		</all>
-	</filter>
-	<item>tnt</item>
-</killreward>
-<killreward>
-	<filter>
-		<all>
-			<filter name="blue-center-hill"/>
-			<team>blue</team>
-		</all>
-	</filter>
-	<item>tnt</item>
-</killreward>
 <disabledamage>
 	<damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
 </disabledamage>
