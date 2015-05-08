@@ -7,10 +7,6 @@
 <!--  DoomRobotBoy  -->
 </authors>
 <broadcasts>
-    <tip after="4s">`3`oYou have to capture the `6`nflag(s) `3`obehind `6`nspawn`3.</tip>
-    <tip after="6s">3`oTo make the `6`nflag(s) `3`orespawn you have to capture both enemy flags first.</tip>
-</broadcasts>
-<broadcasts>
     <tip after="4s">`3`oYou have to capture the `6`nflags`3`o behind `6`nspawn`3.</tip>
     <tip after="6s">`3`oTo make the `6`nflags`3`o respawn you have to capture both enemy flags first.</tip>
 </broadcasts>
