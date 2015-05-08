@@ -108,11 +108,11 @@
 	</default>
 </spawns>
 <filters>
-	<filter id="only-purple">
-		<team>purple</team>
+	<filter id="only-red">
+		<team>red</team>
 	</filter>
-	<filter id="only-orange">
-		<team>orange</team>
+	<filter id="only-blue">
+		<team>blue</team>
 	</filter>
 	<filter id="only-wood">
 		<block>wood:0</block>
@@ -212,13 +212,13 @@
 	</union>
 	<union id="red-castle">
 		<complement>
-			<cuboid min="-56,25,119" max="-23,38,82"/>
+			<cuboid id="red-attacker" min="-56,25,119" max="-23,38,82"/>
 			<cuboid min="-26,27,97" max="-21,31,104"/>
 		</complement>
 	</union>
 	<union id="blue-castle">
 		<complement>
-			<cuboid min="-127,25,82" max="-160,39,119"/>
+			<cuboid id="blue-attacker" min="-127,25,82" max="-160,39,119"/>
 			<cuboid min="-157,27,104" max="-162,31,97"/>
 		</complement>
 	</union>
@@ -227,6 +227,16 @@
 	</apply>
 	<apply kit="blue-side-hill">
 		<region id="blue-spawn"/>
+	</apply>
+	<apply kit="leave-spawn" filter="only-red">
+		<negative>
+			<region id="red-attacker"/>
+		</negative>
+	</apply>
+	<apply kit="leave-spawn" filter="only-blue">
+		<negative>
+			<region id="blue-attacker"/>
+		</negative>
 	</apply>
 	<apply block="no-tnt-center">
 		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
