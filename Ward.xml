@@ -16,7 +16,8 @@
 	<tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter hill.</tip>
 	<tip after="10s" every="3m" count="oo">`3`oYou have a `6`odefenders kit `3`oin the castle, and an `6`oattackers kit `3`ooutside it.</tip>
 	<tip after="12s" every="3m" count="oo">`6`oDefenders `3`oget blocks for every second kill to repair the castle with.</tip>
-	<tip after="14s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
+	<tip after="16s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
+	<tip after="20s" every="3m" count="oo">`3`oIf you control one of the hills next to the enemy castle the enemy team will receive a spawn delay.</tip>
 </broadcasts>
 <kits>
     <kit id="spawn">
@@ -119,6 +120,9 @@
 			<block>wood:5</block>
 		</any>
 	</filter>
+	<filter id="grass-everywhere">
+		<block>long grass</block>
+	</filter>
 	<filter id="no-tnt-center">
 		<not>
 			<all>
@@ -176,6 +180,16 @@
 </filter>
 </filters>
 <regions>
+	<union id="c-hill-capture">
+		<cuboid min="-95,3,106" max="-88,5,95"/>
+		<cuboid min="-94,3,93" max="-89,5,108"/>
+		<cuboid min="-98,3,110" max="-93,5,91"/>
+		<cuboid min="-92,3,89" max="-91,5,112"/>
+		<cuboid min="-95,3,104" max="-87,5,97"/>
+		<cuboid min="-97,3,103" max="-86,5,98"/>
+		<cuboid min="-98,3,102" max="-85,5,99"/>
+		<cuboid min="-99,3,101" max="-84,5,100"/>
+	</union>
 	<apply block="no-tnt-center">
 		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
 	</apply>
@@ -183,6 +197,9 @@
 		<negative>
 			<region id="center"/>
 		</negative>
+	</apply>
+	<apply block="grass-everywhere">
+		<rectangle id="map" min="oo,oo" max="-oo,-oo"/>
 	</apply>
 	<apply block="only-wood" message="You may only place or break wood under y=20.">
 		<cuboid id="wood-place" min="oo,0,oo" max="-oo,20,-oo"/>
@@ -196,7 +213,7 @@
 		</negative>
 	</apply>
 	<apply block="deny-void">
-		<rectangle min="oo,oo" max="-oo,-oo"/>
+		<region id="map"/>
 	</apply>
 </regions>
 <hills>
@@ -230,12 +247,16 @@
 	<item>carpet:7</item>
 	<item>carpet:11</item>
 	<item>carpet:14</item>
+	<item>log</item>
 	<item>log_2</item>
 	<item>double step:3</item>
 	<item>step</item>
 	<item>smooth brick</item>
 	<item>stone plate</item>
-	<item>cob</item>
+	<item>cobblestone stairs</item>
+	<item>cobble wall</item>
+	<item>stone button</item>
+	<item>dark oak stairs</item>
 </itemremove>
 <disabledamage>
 	<damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
