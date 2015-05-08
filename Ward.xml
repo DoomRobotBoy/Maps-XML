@@ -13,7 +13,7 @@
 <broadcasts>
 	<tip after="2s" every="3m" count="oo">`3`oDestroy `6`o80% `3`oof the enemy castle to win!</tip>
 	<tip after="4s" every="3m" count="oo">`3`oThe castles can only be destroyed with `6`oTNT.</tip>
-	<tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter hill.</tip>
+	<tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter Hill.</tip>
 	<tip after="10s" every="3m" count="oo">`3`oYou have a `6`odefenders kit `3`oin the castle, and an `6`oattackers kit `3`ooutside it.</tip>
 	<tip after="12s" every="3m" count="oo">`6`oDefenders `3`oget blocks for every second kill to repair the castle with.</tip>
 	<tip after="16s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
@@ -167,17 +167,12 @@
 			<void/>
 		</deny>
 	</filter>
-<filter id="red-center-hill">
-<any>
-<objective>hill-nw</objective>
-<not>
-<any>
-<objective team="orange">hill-nw</objective>
-<objective team="purple">hill-nw</objective>
-</any>
-</not>
-</any>
-</filter>
+	<filter id="red-center-hill">
+		<objective team="red">c-hill</objective>
+	</filter>
+	<filter id="blue-center-hill">
+		<objective team="blue">c-hill</objective>
+	</filter>
 </filters>
 <regions>
 	<union id="c-hill-capture">
@@ -189,6 +184,16 @@
 		<cuboid min="-97,3,103" max="-86,5,98"/>
 		<cuboid min="-98,3,102" max="-85,5,99"/>
 		<cuboid min="-99,3,101" max="-84,5,100"/>
+	</union>
+	<union id="c-hill-progress">
+		<cuboid min="-95,2,106" max="-88,3,95"/>
+		<cuboid min="-94,2,93" max="-89,3,108"/>
+		<cuboid min="-98,2,110" max="-93,3,91"/>
+		<cuboid min="-92,2,89" max="-91,3,112"/>
+		<cuboid min="-95,2,104" max="-87,3,97"/>
+		<cuboid min="-97,2,103" max="-86,3,98"/>
+		<cuboid min="-98,2,102" max="-85,3,99"/>
+		<cuboid min="-99,2,101" max="-84,3,100"/>
 	</union>
 	<apply block="no-tnt-center">
 		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
@@ -217,7 +222,7 @@
 	</apply>
 </regions>
 <hills>
-	<hill id="c-hill" name="Center Control Point" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
+	<hill id="c-hill" name="Center Hill" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
 		<capture>
 			<region id="c-hill-capture"/>
 		</capture>
@@ -226,6 +231,50 @@
 		</progress>
 		<captured>
 			<region id="c-hill-progress"/>
+		</captured>
+	</hill>
+	<hill id="red-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show-progress="true">
+		<capture>
+			<cuboid min="-37,23,137" max="-34,24,140"/>
+		</capture>
+		<progress>
+			<cuboid min="-37,22,137" max="-34,29,146"/>
+		</progress>
+		<captured>
+			<cuboid min="-37,22,137" max="-34,29,146"/>
+		</captured>
+	</hill>
+	<hill id="red-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+		<capture>
+			<cuboid min="-37,23,64" max="-34,24,61"/>
+		</capture>
+		<progress>
+			<cuboid min="-37,22,137" max="-34,29,60"/>
+		</progress>
+		<captured>
+			<cuboid min="-37,22,137" max="-34,29,60"/>
+		</captured>
+	</hill>
+	<hill id="blue-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+		<capture>
+			<cuboid min="-146,23,64" max="-148,24,61"/>
+		</capture>
+		<progress>
+			<cuboid min="-146,22,64" max="-148,29,55"/>
+		</progress>
+		<captured>
+			<cuboid min="-146,22,64" max="-148,29,55"/>
+		</captured>
+	</hill>
+	<hill id="blue-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+		<capture>
+			<cuboid min="-146,23,137" max="-148,24,140"/>
+		</capture>
+		<progress>
+			<cuboid min="-146,22,137" max="-149,29,141"/>
+		</progress>
+		<captured>
+			<cuboid min="-146,22,137" max="-149,29,141"/>
 		</captured>
 	</hill>
 </hills>
