@@ -56,11 +56,11 @@
     <item>golden apple</item>
 </killreward>
 <filters>
-    <filter id="only-some">
+    <any id="only-some">
         <block>stained glass pane</block>
         <block>thin glass</block>
         <block>torch</block>
-    </filter>
+    </any>
 </filters>
 <regions>
     <apply block="only-some">
