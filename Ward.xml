@@ -66,7 +66,7 @@
 <killreward>
 	<filter>
 		<all>
-			<filter name="red-center-hill"/>
+			<filter id="red-center-hill"/>
 			<team>red</team>
 		</all>
 	</filter>
@@ -93,12 +93,12 @@
 <spawns>
 	<spawn team="red" kit="red-kit">
 		<regions yaw="90">
-			<cylinder id="red-spawn" base="-23.5,30,100.5"/>
+			<cylinder id="red-spawn" base="-23.5,30,100.5" radius="1"/>
 		</regions>
 	</spawn>
 	<spawn team="blue" kit="blue-kit">
 		<regions yaw="90">
-			<cylinder id="blue-spawn" base="-159.5,30,100.5"/>
+			<cylinder id="blue-spawn" base="-159.5,30,100.5" radius="1"/>
 		</regions>
 	</spawn>
 	<default>
@@ -108,86 +108,62 @@
 	</default>
 </spawns>
 <filters>
-	<filter id="only-red">
-		<team>red</team>
-	</filter>
-	<filter id="only-blue">
-		<team>blue</team>
-	</filter>
-	<filter id="only-wood">
-		<block>wood:0</block>
-	</filter>
-	<filter id="only-some">
-		<any>
-			<block>tnt</block>
-			<block>wood:5</block>
-		</any>
-	</filter>
-	<filter id="grass-everywhere">
-		<block>long grass</block>
-	</filter>
-	<filter id="no-tnt-center">
-		<not>
-			<all>
-				<any>
-					<block>grass</block>
-					<block>dirt</block>
-					<block>gravel</block>
-					<block>cobblestone</block>
-					<block>stone</block>
-					<block>stained clay</block>
-					<block>log_2</block>
-					<block>spruce fence</block>
-					<block>step</block>
-					<block>smooth brick</block>
-					<block>stone plate</block>
-					<block>spruce stairs</block>
-				</any>
-				<filter id="allow-world"/>
-			</all>
-		</not>
-	</filter>
-	<filter id="no-tnt-castles">
-		<not>
-			<all>
-				<any>
-					<block>grass</block>
-					<block>dirt</block>
-					<block>gravel</block>
-					<block>cobblestone</block>
-					<block>stone</block>
-					<block>stained clay</block>
-					<block>ladder</block>
-					<block>spruce fence</block>
-					<block>spruce stairs</block>
-				</any>
-				<filter id="allow-world"/>
-			</all>
-		</not>
-	</filter>
-	<filter id="deny-void">
-		<deny>
-			<void/>
-		</deny>
-	</filter>
-	<filter id="red-center-hill">
-		<objective team="red">c-hill</objective>
-	</filter>
-	<filter id="blue-center-hill">
-		<objective team="blue">c-hill</objective>
-	</filter>
-	<filter id="red-side-hill">
-		<any>
-			<objective team="blue">red-south-hill</objective>
-			<objective team="blue">red-north-hill</objective>
-		</any>
-	</filter>
-	<filter id="blue-side-hill">
-		<any>
-			<objective team="red">blue-south-hill</objective>
-			<objective team="red">blue-north-hill</objective>
-		</any>
-	</filter>
+	<team id="only-red">red</team>
+	<team id="only-blue">blue</team>
+	<block id="only-wood">wood:0</block>
+	<any id="only-some">
+		<block>tnt</block>
+		<block>wood:5</block>
+	</any>
+	<block id="grass-everywhere">long grass</block>
+	<not id="no-tnt-center">
+		<all>
+			<any>
+				<block>grass</block>
+				<block>dirt</block>
+				<block>gravel</block>
+				<block>cobblestone</block>
+				<block>stone</block>
+				<block>stained clay</block>
+				<block>log_2</block>
+				<block>spruce fence</block>
+				<block>step</block>
+				<block>smooth brick</block>
+				<block>stone plate</block>
+				<block>spruce stairs</block>
+			</any>
+			<filter id="allow-world"/>
+		</all>
+	</not>
+	<not id="no-tnt-castles">
+		<all>
+			<any>
+				<block>grass</block>
+				<block>dirt</block>
+				<block>gravel</block>
+				<block>cobblestone</block>
+				<block>stone</block>
+				<block>stained clay</block>
+				<block>ladder</block>
+				<block>spruce fence</block>
+				<block>spruce stairs</block>
+			</any>
+			<filter id="allow-world"/>
+		</all>
+	</not>
+	<not id="deny-void">
+		<void/>
+	</not>
+	<objective id="red-center-hill" team="red">c-hill</objective>
+	<objective id="red-center-hill" team="blue">c-hill</objective>
+	<any id="red-side-hill">
+		<objective team="blue">red-south-hill</objective>
+		<objective team="blue">red-north-hill</objective>
+	</any>
+	<any id="blue-side-hill">
+		<objective team="red">blue-south-hill</objective>
+		<objective team="red">blue-north-hill</objective>
+	</any>
 </filters>
 <regions>
 	<union id="c-hill-capture">
