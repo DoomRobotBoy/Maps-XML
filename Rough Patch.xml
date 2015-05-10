@@ -1,0 +1,106 @@
+<map proto="1.3.6">
+<name>Rough Patch</name>
+<version>1.0.0</version>
+<objective>
+    Eliminate the enemy team before time runs out!
+</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</authors>
+<teams>
+    <team id="redt" color="dark red" max="14" max-overfill="16">Red Team</team>
+    <team id="bluet" color="blue" max="14" max-overfill="16">Blue Team</team>
+</teams>
+<spawns>
+    <spawn team="redt" kit="red">
+        <regions yaw="-180">
+            <cylinder base="296.5,23,153.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <spawn team="bluet" kit="blue">
+        <regions yaw="0">
+            <cylinder base="216.5,23,81.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="180">
+            <cylinder base="256.5,20,117.5" radius="1" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" damage="-3000" enchantment="arrow damage:1>bow</item>
+        <item slot="2">golden apple</item>
+        <item slot="4" damage="-3000" enchantment="dig speed:1">shears</item>
+        <item slot="8" amount="5">exp bottle</item>
+        <item slot="28" amount="16">arrow</item>
+        <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
+        <leggings locked="true" damage="-3000">iron leggings</leggings>
+    </kit>
+    <kit id="red" parents="spawn">
+        <item slot="3" damage="14">wool</item>
+        <helmet color="907D66" damage="-3000">leather helmet</helmet>
+        <boots color="907D66" damage="-3000">leather boots</boots>
+    </kit>
+    <kit id="blue" parents="spawn">
+        <item slot="3" damage="11">wool</item>
+        <helmet color="907D66" damage="-3000">leather helmet</helmet>
+        <boots color="907D66" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<killreward>
+    <item>golden apple</item>
+</killreward>
+<killreward>
+    <item amount="8" damage="14">wool</item>
+    <filter>
+        <team>redt</team>
+    </filter>
+</killreward>
+<killreward>
+    <item amount="8" damage="11">wool</item>
+    <filter>
+        <team>bluet</team>
+    </filter>
+</killreward>
+<filters>
+    <filter id="only-wool">
+        <block>wool</block>
+    </filter>
+    <filter id="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <apply block="only-wool">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply block="no-void">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+</regions>
+<blitz>
+    <time>7m</time>
+    <lives>1</lives>
+    <title>Blitz</title>
+</blitz>
+<include src="blitz-global.xml"/>
+<itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>leather boots</item>
+    <item>exp bottle</item>
+    <item>golden apple</item>
+    <item>wool</item>
+    <item>shears</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
