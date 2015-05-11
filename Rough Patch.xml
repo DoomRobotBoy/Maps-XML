@@ -32,7 +32,7 @@
 <kits>
     <kit id="spawn">
         <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow damage:1>bow</item>
+        <item slot="1" damage="-3000" enchantment="arrow damage:1">bow</item>
         <item slot="2">golden apple</item>
         <item slot="4" damage="-3000" enchantment="dig speed:1">shears</item>
         <item slot="8" amount="5">exp bottle</item>
