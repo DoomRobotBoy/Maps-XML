@@ -36,7 +36,8 @@
         <item slot="2">golden apple</item>
         <item slot="4" damage="-3000" enchantment="dig speed:1">shears</item>
         <item slot="8" amount="5">exp bottle</item>
-        <item slot="28" amount="16">arrow</item>
+        <item slot="28" amount="24">arrow</item>
+        <potion duration="oo">night vision</potion>
         <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
         <leggings locked="true" damage="-3000">iron leggings</leggings>
     </kit>
