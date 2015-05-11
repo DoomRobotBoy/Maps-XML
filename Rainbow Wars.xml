@@ -88,6 +88,9 @@
             <block>wool</block>
         </not>
     </filter>
+    <filter name="only-iron">
+        <block>iron block</block>
+    </filter>
     <filter name="no-void">
         <deny>
             <void/>
@@ -127,6 +130,38 @@
     </filter>
 </filters>
 <regions>
+    <rectangle name="red-wool-room" min="10,107" max="-9,97"/>
+    <rectangle name="blue-wool-room" min="-90,26" max="-80,7"/>
+    <rectangle name="green-wool-room" min="-90,26" max="-80,7"/>
+    <rectangle name="yellow-wool-room" min="-9,-74" max="10,-64"/>
+    <rectangle name="red-spawn" min="-9,74" max="10,82"/>
+    <rectangle name="blue-spawn" min="58,26" max="66,7"/>
+    <rectangle name="green-spawn" min="-57,7" max="-65,26"/>
+    <rectangle name="yellow-spawn" min="10,-41" max="-9,-49"/>
+    <apply block-break="only-iron" enter="only-red">
+        <region name="red-spawn"/>
+    </apply>
+    <apply block-break="only-iron" enter="only-blue">
+        <region name="blue-spawn"/>
+    </apply>
+    <apply block-break="only-iron" enter="only-green">
+        <region name="green-spawn"/>
+    </apply>
+    <apply block-break="only-iron" enter="only-yellow">
+        <region name="yellow-spawn"/>
+    </apply>
+    <apply block="deny-all" enter="deny-red">
+        <region name="red-wool-room"/>
+    </apply>
+    <apply block="deny-all" enter="deny-blue">
+        <region name="blue-wool-room"/>
+    </apply>
+    <apply block="deny-all" enter="deny-green">
+        <region name="green-wool-room"/>
+    </apply>
+    <apply block="deny-all" enter="deny-yellow">
+        <region name="yellow-wool-room"/>
+    </apply>
     <apply block="deny-wool">
         <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     </apply>
@@ -138,6 +173,9 @@
     </union>
     <apply block="deny-all" message="You may not modify the void area here.">
         <region name="inside-void"/>
+    </apply>
+    <apply block="deny-all" message="You may not destroy the center island">
+        <rectangle min="-5,22" max="6,11"/>
     </apply>
     <apply block-place="no-void" message="You may not modify the void area!">
         <negative>
@@ -228,17 +266,17 @@
 </toolrepair>
 <itemremove>
     <item>stained clay</item>
+    <item>stained glass</item>
     <item>nether brick</item>
-    <item>chainmail helmet</item>
+    <item>iron helmet</item>
     <item>leather chestplate</item>
-    <item>chainmail leggings</item>
+    <item>leather leggings</item>
     <item>leather boots</item>
-    <item>cooked fish:1</item>
-    <item>sapling</item>
-    <item>apple</item>
-    <item>piston base</item>
+    <item>cooked fish</item>
+    <item>step</item>
     <item>cobble wall</item>
-    <item>hardened clay</item>
+    <item>smooth brick</item>
+    <item>golden apple</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
 </map>
