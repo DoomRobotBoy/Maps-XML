@@ -45,7 +45,7 @@
 </spawns>
 <kits>
     <kit name="spawn">
-        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="0">iron sword</item>
         <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="2" enchantment="durability:3;dig speed:1">iron pickaxe</item>
         <item slot="8" amount="32" damage="1">cooked fish</item>
@@ -127,111 +127,8 @@
     </filter>
 </filters>
 <regions>
-    <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
-    <union name="spawn-protect">
-        <cylinder base="298.5,12,130.5" radius="12" height="6"/>
-        <cylinder base="298.5,12,6.5" radius="12" height="6"/>
-        <cylinder base="422.5,12,6.5" radius="12" height="6"/>
-        <cylinder base="422.5,12,130.5" radius="12" height="6"/>
-    </union>
-    <apply block="deny-all" message="You may not modify the spawn!">
-        <region name="spawn-protect"/>
-    </apply>
-    <union name="side-barriers">
-        <rectangle min="298,95" max="299,42"/>
-        <rectangle min="334,6" max="387,7"/>
-        <rectangle min="423,42" max="422,95"/>
-        <rectangle min="387,131" max="334,130"/>
-    </union>
-    <apply block-place="deny-all" message="You may not modify the void area!">
-        <region name="side-barriers"/>
-    </apply>
-    <apply block="deny-all" message="You may not modify the center house!">
-        <cuboid min="365,4,73" max="356,21,64"/>
-    </apply>
-    <union name="wool-placement">
-        <block>301.5,7,108.5</block>
-        <block>330.5,7,98.5</block>
-        <block>320.5,7,127.5</block>
-        <block>320.5,7,9.5</block>
-        <block>330.5,7,38.5</block>
-        <block>301.5,7,28.5</block>
-        <block>419.5,7,28.5</block>
-        <block>390.5,7,38.5</block>
-        <block>400.5,7,9.5</block>
-        <block>400.5,7,127.5</block>
-        <block>390.5,7,98.5</block>
-        <block>419.5,7,108.5</block>
-    </union>
-    <complement name="no-wool-placement">
-        <region name="all"/>
-        <region name="wool-placement"/>
-    </complement>
-    <apply block="deny-wool" message="`7No safety wools allowed!">
-        <region name="no-wool-placement"/>
-    </apply>
-    <union name="wool-placement-stand">
-        <block>301.5,6,108.5</block>
-        <block>330.5,6,98.5</block>
-        <block>320.5,6,127.5</block>
-        <block>320.5,6,9.5</block>
-        <block>330.5,6,38.5</block>
-        <block>301.5,6,28.5</block>
-        <block>419.5,6,28.5</block>
-        <block>390.5,6,38.5</block>
-        <block>400.5,6,9.5</block>
-        <block>400.5,6,127.5</block>
-        <block>390.5,6,98.5</block>
-        <block>419.5,6,108.5</block>
-    </union>
-    <apply block="deny-all">
-        <region name="wool-placement-stand"/>
-    </apply>
-    <union name="wool-placement-roof">
-        <cylinder base="301.5,8,108.5" radius="2" height="0"/>
-        <cylinder base="330.5,8,98.5" radius="2" height="0"/>
-        <cylinder base="320.5,8,127.5" radius="2" height="0"/>
-        <cylinder base="320.5,8,9.5" radius="2" height="0"/>
-        <cylinder base="330.5,8,38.5" radius="2" height="0"/>
-        <cylinder base="301.5,8,28.5" radius="2" height="0"/>
-        <cylinder base="419.5,8,28.5" radius="2" height="0"/>
-        <cylinder base="390.5,8,38.5" radius="2" height="0"/>
-        <cylinder base="400.5,8,9.5" radius="2" height="0"/>
-        <cylinder base="400.5,8,127.5" radius="2" height="0"/>
-        <cylinder base="390.5,8,98.5" radius="2" height="0"/>
-        <cylinder base="419.5,8,108.5" radius="2" height="0"/>
-    </union>
-    <apply block="deny-all">
-        <region name="wool-placement-roof"/>
-    </apply>
-    <!--
-    <union name="wool-room-protect">
-        <cuboid min="311.5,0,103.5" max="325.5,7,117.5"/>
-        <cuboid min="325.5,0,19.5" max="311.5,7,33.5"/>
-        <cuboid min="409.5,0,33.5" max="395.5,7,19.5"/>
-        <cuboid min="395.5,0,117.5" max="409.5,7,103.5"/>
-    </union>
-    <apply block="deny-all">
-        <region name="wool-rooms-protect"/>
-    </apply>
-    -->
-    <apply enter="deny-red">
-        <rectangle name="wool-rooms-protect-red" min="311,105" max="324,118"/>
-    </apply>
-    <apply enter="deny-blue">
-        <rectangle name="wool-rooms-protect-blue" min="324,19" max="311,32"/>
-    </apply>
-    <apply enter="deny-green">
-        <rectangle name="wool-rooms-protect-green" min="410,32" max="397,19"/>
-    </apply>
-    <apply enter="deny-yellow">
-        <rectangle name="wool-rooms-protect-yellow" min="397,118" max="410,105"/>
-    </apply>
-    <apply block="deny-all">
-        <rectangle name="wool-rooms-protect-red"/>
-        <rectangle name="wool-rooms-protect-blue"/>
-        <rectangle name="wool-rooms-protect-green"/>
-        <rectangle name="wool-rooms-protect-yellow"/>
+    <apply block="deny-wool">
+        <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     </apply>
     <union name="inside-void">
         <rectangle min="26,-9" max="6,11"/>
@@ -249,47 +146,47 @@
     </apply>
 </regions>
 <wools team="red">
-    <wool color="blue">
-        <monument><block>301.5,7,108.5</block></monument>
+    <wool color="blue" location="85.5,6,16.5">
+        <monument><block>2.5,12,75.5</block></monument>
     </wool>
-    <wool color="lime">
-        <monument><block>330.5,7,98.5</block></monument>
+    <wool color="green" location="-84.5,6,16.5">
+        <monument><block>-1.5,12,75.5</block></monument>
     </wool>
-    <wool color="yellow">
-        <monument><block>320.5,7,127.5</block></monument>
+    <wool color="yellow" location="0.5,6,-68.5">
+        <monument><block>0.5,12,75.5</block></monument>
     </wool>
 </wools>
 <wools team="blue">
-    <wool color="lime">
-        <monument><block>320.5,7,9.5</block></monument>
+    <wool color="green" location="-84.5,6,16.5">
+        <monument><block>59.5,12,16.5</block></monument>
     </wool>
-    <wool color="yellow">
-        <monument><block>330.5,7,38.5</block></monument>
+    <wool color="yellow" location="0.5,6,-68.5">
+        <monument><block>59.5,12,14.5</block></monument>
     </wool>
-    <wool color="red">
-        <monument><block>301.5,7,28.5</block></monument>
+    <wool color="red" location="0.5,6,101.5">
+        <monument><block>59.5,12,18.5</block></monument>
     </wool>
 </wools>
-<wools team="green">
-    <wool color="yellow">
-        <monument><block>419.5,7,28.5</block></monument>
+<wools team="green" location="-84.5,6,16.5">
+    <wool color="yellow" location="0.5,6,-68.5">
+        <monument><block>-58.5,12,14.5</block></monument>
     </wool>
-    <wool color="red">
-        <monument><block>390.5,7,38.5</block></monument>
+    <wool color="red" location="0.5,6,101.5">
+        <monument><block>-58.5,12,18.5</block></monument>
     </wool>
-    <wool color="blue">
-        <monument><block>400.5,7,9.5</block></monument>
+    <wool color="blue" location="85.5,6,16.5">
+        <monument><block>-58.5,12,16.5</block></monument>
     </wool>
 </wools>
 <wools team="yellow">
-    <wool color="red">
-        <monument><block>400.5,7,127.5</block></monument>
+    <wool color="red" location="0.5,6,101.5">
+        <monument><block>0.5,12,-42.5</block></monument>
     </wool>
-    <wool color="blue">
-        <monument><block>390.5,7,98.5</block></monument>
+    <wool color="blue" location="85.5,6,16.5">
+        <monument><block>2.5,12,-42.5</block></monument>
     </wool>
-    <wool color="lime">
-        <monument><block>419.5,7,108.5</block></monument>
+    <wool color="green" location="-84.5,6,16.5">
+        <monument><block>-1.5,12,-42.5</block></monument>
     </wool>
 </wools>
 <killreward>
@@ -328,11 +225,10 @@
     <tool>stone sword</tool>
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
-    <tool>iron spade</tool>
 </toolrepair>
 <itemremove>
     <item>stained clay</item>
-    <item>clay ball</item>
+    <item>nether brick</item>
     <item>chainmail helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
@@ -343,7 +239,6 @@
     <item>piston base</item>
     <item>cobble wall</item>
     <item>hardened clay</item>
-    <item>item frame</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
 </map>
