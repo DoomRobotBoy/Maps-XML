@@ -23,7 +23,7 @@
     <kit id="spawn">
         <item slot="0" damage="-3000">iron sword</item>
         <item slot="1" damage="-3000" enchantment="arrow infinite;arrow damage">bow</item>
-        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow infinite:arrow knockback">bow</item>
+        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow infinite;arrow knockback">bow</item>
         <item slot="28">arrow</item>
         <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
     </kit>
@@ -93,12 +93,12 @@
 <spawns>
 	<spawn team="red" kit="red-kit">
 		<regions yaw="90">
-			<cylinder id="red-spawn" base="-23.5,30,100.5" radius="1" height="0/>
+			<cylinder id="red-spawn" base="-23.5,30,100.5" radius="1" height="0"/>
 		</regions>
 	</spawn>
 	<spawn team="blue" kit="blue-kit">
 		<regions yaw="90">
-			<cylinder id="blue-spawn" base="-159.5,30,100.5" radius="1" height="0/>
+			<cylinder id="blue-spawn" base="-159.5,30,100.5" radius="1" height="0"/>
 		</regions>
 	</spawn>
 	<default>
