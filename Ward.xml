@@ -130,7 +130,7 @@
 				<block>step</block>
 				<block>smooth brick</block>
 				<block>stone plate</block>
-				<block>spruce stairs</block>
+				<block>spruce wood stairs</block>
 			</any>
 			<filter id="allow-world"/>
 		</all>
