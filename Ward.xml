@@ -198,10 +198,10 @@
 			<cuboid min="-157,27,104" max="-162,31,97"/>
 		</complement>
 	</union>
-	<apply kit="red-side-hill">
+	<apply kit="slow" filter="red-side-hill">
 		<region id="red-spawn"/>
 	</apply>
-	<apply kit="blue-side-hill">
+	<apply kit="slow" filter="blue-side-hill">
 		<region id="blue-spawn"/>
 	</apply>
 	<apply kit="leave-spawn" filter="only-red">
