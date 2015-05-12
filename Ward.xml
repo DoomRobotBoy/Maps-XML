@@ -110,12 +110,12 @@
 <filters>
 	<team id="only-red">red</team>
 	<team id="only-blue">blue</team>
-	<block id="only-wood">wood:0</block>
+	<material id="only-wood">wood:0</material>
 	<any id="only-some">
 		<block>tnt</block>
 		<block>wood:5</block>
 	</any>
-	<block id="grass-everywhere">long grass</block>
+	<material id="grass-everywhere">long grass</material>
 	<not id="no-tnt-center">
 		<all>
 			<any>
