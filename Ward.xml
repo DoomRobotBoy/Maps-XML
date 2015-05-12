@@ -251,8 +251,8 @@
        <region><region id="blue-castle"/></region>
     </destroyable>
 </destroyables>
-<hills>
-	<hill id="c-hill" name="Center Hill" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
+<control-points>
+	<control-point id="c-hill" name="Center Hill" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
 		<capture>
 			<region id="c-hill-capture"/>
 		</capture>
@@ -262,8 +262,8 @@
 		<captured>
 			<region id="c-hill-progress"/>
 		</captured>
-	</hill>
-	<hill id="red-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show-progress="true">
+	</control-point>
+	<control-point id="red-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show-progress="true">
 		<capture>
 			<cuboid min="-37,23,137" max="-34,24,140"/>
 		</capture>
@@ -273,8 +273,8 @@
 		<captured>
 			<cuboid min="-37,22,137" max="-34,29,146"/>
 		</captured>
-	</hill>
-	<hill id="red-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+	</control-point>
+	<control-point id="red-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
 		<capture>
 			<cuboid min="-37,23,64" max="-34,24,61"/>
 		</capture>
@@ -284,8 +284,8 @@
 		<captured>
 			<cuboid min="-37,22,137" max="-34,29,60"/>
 		</captured>
-	</hill>
-	<hill id="blue-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+	</control-point>
+	<control-point id="blue-south-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
 		<capture>
 			<cuboid min="-146,23,64" max="-148,24,61"/>
 		</capture>
@@ -295,8 +295,8 @@
 		<captured>
 			<cuboid min="-146,22,64" max="-148,29,55"/>
 		</captured>
-	</hill>
-	<hill id="blue-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
+	</control-point>
+	<control-point id="blue-north-hill" initial-owner="red" capture-time="8s" points="0" capture-rule="lead" show="false">
 		<capture>
 			<cuboid min="-146,23,137" max="-148,24,140"/>
 		</capture>
@@ -306,8 +306,8 @@
 		<captured>
 			<cuboid min="-146,22,137" max="-149,29,141"/>
 		</captured>
-	</hill>
-</hills>
+	</control-point>
+</control-points>
 <itemremove>
 	<item>stone sword</item>
 	<item>bow</item>
