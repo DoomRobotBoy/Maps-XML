@@ -75,7 +75,7 @@
 <killreward>
 	<filter>
 		<all>
-			<filter name="blue-center-hill"/>
+			<filter id="blue-center-hill"/>
 			<team>blue</team>
 		</all>
 	</filter>
