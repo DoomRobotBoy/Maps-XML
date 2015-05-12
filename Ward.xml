@@ -1,355 +1,379 @@
+<?xml version="1.0"?>
 <map proto="1.4.0">
-<name>Ward</name>
-<version>1.0.0</version>
-<objective>Destroy 80% of the enemy castle!</objective>
-<authors>
-    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-<!--  DoomRobotBoy  -->
-</authors>
-<teams>
-    <team id="red" color="dark red" max="24" max-overfill="27">Red Team</team>
-    <team id="blue" color="blue" max="24" max-overfill="27">Blue Team</team>
-</teams>
-<broadcasts>
-	<tip after="2s" every="3m" count="oo">`3`oDestroy `6`o80% `3`oof the enemy castle to win!</tip>
-	<tip after="4s" every="3m" count="oo">`3`oThe castles can only be destroyed with `6`oTNT.</tip>
-	<tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter Hill.</tip>
-	<tip after="10s" every="3m" count="oo">`3`oYou have a `6`odefenders kit `3`oin the castle, and an `6`oattackers kit `3`ooutside it.</tip>
-	<tip after="12s" every="3m" count="oo">`6`oDefenders `3`oget blocks for every second kill to repair the castle with.</tip>
-	<tip after="16s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
-	<tip after="20s" every="3m" count="oo">`3`oIf you control one of the hills next to the enemy castle the enemy team will receive a spawn delay.</tip>
-</broadcasts>
-<kits>
-    <kit id="spawn">
-        <item slot="0" damage="-3000">iron sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow infinite;arrow damage">bow</item>
-        <item slot="2" damage="-3000" attributes="generic.movementSpeed:add:-0.1" enchantment="arrow infinite;arrow knockback">bow</item>
-        <item slot="28">arrow</item>
-        <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
-    </kit>
-    <kit id="red-kit" parents="spawn">
-        <leggings damage="-3000" color="993333">leather leggings</leggings>
-        <boots damage="-3000" color="993333">leather boots</boots>
-    </kit>
-    <kit id="blue-kit" parents="spawn">
-        <leggings damage="-3000" color="334CB2" locked="true">leather leggings</leggings>
-        <boots damage="-3000" color="334CB2" locked="true">leather boots</boots>
-    </kit>
-    <kit id="leave-spawn">
-        <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
-        <item slot="2" enchantment="dig speed:2">iron axe</item>
-        <item slot="3" amount="16" lore="`6+4 `eevery kill!">wood</item>
-        <item slot="8" lore="`6+1 `eevery third kill!">golden apple</item>
-        <item slot="28">arrow</item>
-        <chestplate locked="true" damage="-3000">gold chestplate</chestplate>
-    </kit>
-    <kit id="slow" message="You have been slowed for 2 seconds.">
-    	<potion duration="2" amplifier="127">slow</potion>
-    </kit>
-</kits>
-<killreward>
-	<item amount="4" lore="`6+4 `eevery kill!">wood</item>
-</killreward>
-<killreward>
-	<filter>
-		<wearing><item>gold chestplate</item></wearing>
-	</filter>
-	<potion duration="2" amplifier="2">regeneration</potion>
-</killreward>
-<killreward>
-	<filter>
-		<kill-streak count="3" repeat="true"/>
-	</filter>
-	<item lore="`6+1 `eevery third kill!">golden apple</item>
-</killreward>
-<killreward>
-	<filter>
-		<all>
-			<filter id="red-center-hill"/>
-			<team>red</team>
-		</all>
-	</filter>
-	<item>tnt</item>
-</killreward>
-<killreward>
-	<filter>
-		<all>
-			<filter id="blue-center-hill"/>
-			<team>blue</team>
-		</all>
-	</filter>
-	<item>tnt</item>
-</killreward>
-<killreward>
-	<filter>
-		<all>
-			<wearing><item>iron chestplate</item></wearing>
-			<kill-streak count="2" repeat="true"/>
-		</all>
-	</filter>
-	<item amount="8" damage="5" lore="`eUse these blocks to repair your castle.">wood</item>
-</killreward>
-<spawns>
-	<spawn team="red" kit="red-kit">
-		<regions yaw="90">
-			<cylinder id="red-spawn" base="-23.5,30,100.5" radius="1" height="0"/>
-		</regions>
-	</spawn>
-	<spawn team="blue" kit="blue-kit">
-		<regions yaw="90">
-			<cylinder id="blue-spawn" base="-159.5,30,100.5" radius="1" height="0"/>
-		</regions>
-	</spawn>
-	<default>
-		<regions yaw="0">
-			<cylinder base="-94.5,6,155.5" radius="1" height="0"/>
-		</regions>
-	</default>
-</spawns>
-<filters>
-	<team id="only-red">red</team>
-	<team id="only-blue">blue</team>
-	<material id="only-wood">wood:0</material>
-	<any id="only-some">
-		<block>tnt</block>
-		<block>wood:5</block>
-	</any>
-	<material id="grass-everywhere">long grass</material>
-	<not id="no-tnt-center">
-		<all>
-			<any>
-				<block>grass</block>
-				<block>dirt</block>
-				<block>gravel</block>
-				<block>cobblestone</block>
-				<block>stone</block>
-				<block>stained clay</block>
-				<block>log_2</block>
-				<block>spruce fence</block>
-				<block>step</block>
-				<block>smooth brick</block>
-				<block>stone plate</block>
-				<block>spruce wood stairs</block>
-			</any>
-			<filter id="allow-world"/>
-		</all>
-	</not>
-	<not id="no-tnt-castles">
-		<all>
-			<any>
-				<block>grass</block>
-				<block>dirt</block>
-				<block>gravel</block>
-				<block>cobblestone</block>
-				<block>stone</block>
-				<block>stained clay</block>
-				<block>ladder</block>
-				<block>spruce fence</block>
-				<block>spruce stairs</block>
-			</any>
-			<filter id="allow-world"/>
-		</all>
-	</not>
-	<not id="deny-void">
-		<void/>
-	</not>
-	<objective id="red-center-hill" team="red">c-hill</objective>
-	<objective id="blue-center-hill" team="blue">c-hill</objective>
-	<any id="red-side-hill">
-		<objective team="blue">red-south-hill</objective>
-		<objective team="blue">red-north-hill</objective>
-	</any>
-	<any id="blue-side-hill">
-		<objective team="red">blue-south-hill</objective>
-		<objective team="red">blue-north-hill</objective>
-	</any>
-</filters>
-<regions>
-	<union id="c-hill-capture">
-		<cuboid min="-95,3,106" max="-88,5,95"/>
-		<cuboid min="-94,3,93" max="-89,5,108"/>
-		<cuboid min="-98,3,110" max="-93,5,91"/>
-		<cuboid min="-92,3,89" max="-91,5,112"/>
-		<cuboid min="-95,3,104" max="-87,5,97"/>
-		<cuboid min="-97,3,103" max="-86,5,98"/>
-		<cuboid min="-98,3,102" max="-85,5,99"/>
-		<cuboid min="-99,3,101" max="-84,5,100"/>
-	</union>
-	<union id="c-hill-progress">
-		<cuboid min="-95,2,106" max="-88,3,95"/>
-		<cuboid min="-94,2,93" max="-89,3,108"/>
-		<cuboid min="-98,2,110" max="-93,3,91"/>
-		<cuboid min="-92,2,89" max="-91,3,112"/>
-		<cuboid min="-95,2,104" max="-87,3,97"/>
-		<cuboid min="-97,2,103" max="-86,3,98"/>
-		<cuboid min="-98,2,102" max="-85,3,99"/>
-		<cuboid min="-99,2,101" max="-84,3,100"/>
-	</union>
-	<union id="red-castle">
-		<complement>
-			<cuboid id="red-attacker" min="-56,25,119" max="-23,38,82"/>
-			<cuboid min="-26,27,97" max="-21,31,104"/>
-		</complement>
-	</union>
-	<union id="blue-castle">
-		<complement>
-			<cuboid id="blue-attacker" min="-127,25,82" max="-160,39,119"/>
-			<cuboid min="-157,27,104" max="-162,31,97"/>
-		</complement>
-	</union>
-	<apply kit="slow" filter="red-side-hill">
-		<region id="red-spawn"/>
-	</apply>
-	<apply kit="slow" filter="blue-side-hill">
-		<region id="blue-spawn"/>
-	</apply>
-	<apply kit="leave-spawn" filter="only-red">
-		<negative>
-			<region id="red-attacker"/>
-		</negative>
-	</apply>
-	<apply kit="leave-spawn" filter="only-blue">
-		<negative>
-			<region id="blue-attacker"/>
-		</negative>
-	</apply>
-	<apply block="no-tnt-center">
-		<cuboid id="center" min="-60,0,143" max="-123,27,58"/>
-	</apply>
-	<apply block="no-tnt-castles">
-		<negative>
-			<region id="center"/>
-		</negative>
-	</apply>
-	<apply block="grass-everywhere">
-		<rectangle id="map" min="oo,oo" max="-oo,-oo"/>
-	</apply>
-	<apply block="only-wood" message="You may only place or break wood under y=20.">
-		<cuboid id="wood-place" min="oo,0,oo" max="-oo,20,-oo"/>
-	</apply>
-	<apply block-place="only-some">
-		<negative>
-			<union>
-				<region id="wood-place"/>
-				<region id="center"/>
-			</union>
-		</negative>
-	</apply>
-	<apply block="deny-void">
-		<region id="map"/>
-	</apply>
-</regions>
-<destroyables 
-	name="Castle" 
-	materials="log_2;cobblestone stairs;dark oak stairs;double step:3;step:3;step:5;wood:5;wood step:5;log:1;leaves:1;cobble wall" 
-	completion="80%">
-    <destroyable owner="red">
-       <region><region id="red-castle"/></region>
-    </destroyable>
-    <destroyable owner="blue">
-       <region><region id="blue-castle"/></region>
-    </destroyable>
-</destroyables>
-<control-points>
-	<control-point id="c-hill" name="Center Hill" capture-time="10s" capture-rule="lead" show-progress="true">
-		<capture>
-			<region id="c-hill-capture"/>
-		</capture>
-		<progress>
-			<region id="c-hill-progress"/>
-		</progress>
-		<captured>
-			<region id="c-hill-progress"/>
-		</captured>
-	</control-point>
-	<control-point id="red-south-hill" initial-owner="red" capture-time="8s" capture-rule="lead" show-progress="true">
-		<capture>
-			<cuboid min="-37,23,137" max="-34,24,140"/>
-		</capture>
-		<progress>
-			<cuboid min="-37,22,137" max="-34,29,146"/>
-		</progress>
-		<captured>
-			<cuboid min="-37,22,137" max="-34,29,146"/>
-		</captured>
-	</control-point>
-	<control-point id="red-north-hill" initial-owner="red" capture-time="8s" capture-rule="lead" show="false">
-		<capture>
-			<cuboid min="-37,23,64" max="-34,24,61"/>
-		</capture>
-		<progress>
-			<cuboid min="-37,22,137" max="-34,29,60"/>
-		</progress>
-		<captured>
-			<cuboid min="-37,22,137" max="-34,29,60"/>
-		</captured>
-	</control-point>
-	<control-point id="blue-south-hill" initial-owner="red" capture-time="8s" capture-rule="lead" show="false">
-		<capture>
-			<cuboid min="-146,23,64" max="-148,24,61"/>
-		</capture>
-		<progress>
-			<cuboid min="-146,22,64" max="-148,29,55"/>
-		</progress>
-		<captured>
-			<cuboid min="-146,22,64" max="-148,29,55"/>
-		</captured>
-	</control-point>
-	<control-point id="blue-north-hill" initial-owner="red" capture-time="8s" capture-rule="lead" show="false">
-		<capture>
-			<cuboid min="-146,23,137" max="-148,24,140"/>
-		</capture>
-		<progress>
-			<cuboid min="-146,22,137" max="-149,29,141"/>
-		</progress>
-		<captured>
-			<cuboid min="-146,22,137" max="-149,29,141"/>
-		</captured>
-	</control-point>
-</control-points>
-<itemremove>
-	<item>stone sword</item>
-	<item>bow</item>
-	<item>gold chestplate</item>
-	<item>iron chestplate</item>
-	<item>leather helmet</item>
-	<item>leather leggings</item>
-	<item>leather boots</item>
-	<item>wood</item>
-	<item>leaves:1</item>
-	<item>sapling:1</item>
-	<item>apple</item>
-	<item>arrow</item>
-	<item>tnt</item>
-	<item>golden apple</item>
-	<item>carpet:7</item>
-	<item>carpet:11</item>
-	<item>carpet:14</item>
-	<item>log</item>
-	<item>log_2</item>
-	<item>double step:3</item>
-	<item>step</item>
-	<item>smooth brick</item>
-	<item>stone plate</item>
-	<item>cobblestone stairs</item>
-	<item>cobble wall</item>
-	<item>stone button</item>
-	<item>dark oak stairs</item>
-</itemremove>
-<disabledamage>
-	<damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
-</disabledamage>
-<tnt>
-	<instantignite>on</instantignite>
-	<fuse>3s</fuse>
-	<power>0.5</power>
-	<friendly-defuse>false</friendly-defuse>
-	<licensing>false</licensing>
-</tnt>
-<maxbuildheight>46</maxbuildheight>
-<hunger>
-	<depletion>off</depletion>
-</hunger>
-<timelock>on</timelock>
+    <name>Ward</name>
+    <version>1.0.0</version>
+    <objective>Destroy 80% of the enemy castle!</objective>
+    <authors>
+        <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2" />
+        <!--  DoomRobotBoy  -->
+    </authors>
+    <teams>
+        <team id="red" color="dark red" max="24" max-overfill="27">Red Team</team>
+        <team id="blue" color="blue" max="24" max-overfill="27">Blue Team</team>
+    </teams>
+    <broadcasts>
+        <tip after="2s" every="3m" count="oo">`3`oDestroy `6`o80% `3`oof the enemy castle to win!</tip>
+        <tip after="4s" every="3m" count="oo">`3`oThe castles can only be destroyed with `6`oTNT.</tip>
+        <tip after="6s" every="3m" count="oo">`6`oTNT `3`ois a killreward, which can only be earned when your team has control of the `6`oCenter Hill.</tip>
+        <tip after="10s" every="3m" count="oo">`3`oYou have a `6`odefenders kit `3`oin the castle, and an `6`oattackers kit `3`ooutside it.</tip>
+        <tip after="12s" every="3m" count="oo">`6`oDefenders `3`oget blocks for every second kill to repair the castle with.</tip>
+        <tip after="16s" every="3m" count="oo">`3`oYou cannot place wood above y=20, TNT however can be placed anywhere.</tip>
+        <tip after="20s" every="3m" count="oo">`3`oIf you control one of the hills next to the enemy castle the enemy team will receive a spawn delay.</tip>
+    </broadcasts>
+    <kits>
+        <kit id="spawn">
+            <item slot="0" damage="-3000">iron sword</item>
+            <item slot="1" damage="-3000" enchantment="arrow infinite;arrow damage">bow</item>
+            <item slot="2" damage="-3000" attributes="generic.movementSpeed:multiply:0.8" enchantment="arrow infinite:1;arrow knockback:1">bow</item>
+            <item slot="28">arrow</item>
+            <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
+        </kit>
+        <kit id="red-kit" parents="spawn">
+            <leggings damage="-3000" color="993333">leather leggings</leggings>
+            <boots damage="-3000" color="993333">leather boots</boots>
+        </kit>
+        <kit id="blue-kit" parents="spawn">
+            <leggings damage="-3000" color="334CB2" locked="true">leather leggings</leggings>
+            <boots damage="-3000" color="334CB2" locked="true">leather boots</boots>
+        </kit>
+        <kit id="leave-spawn">
+            <item slot="0" damage="-3000" attributes="generic.attackDamage:add:0.1">stone sword</item>
+            <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
+            <item slot="2" enchantment="dig speed:2">iron axe</item>
+            <item slot="3" amount="16" lore="`6+4 `eevery kill!">wood</item>
+            <item slot="8" lore="`6+1 `eevery third kill!">golden apple</item>
+            <item slot="28">arrow</item>
+            <chestplate locked="true" damage="-3000">gold chestplate</chestplate>
+        </kit>
+        <kit id="slow" message="You have been slowed for 2 seconds.">
+            <potion duration="2" amplifier="127">slow</potion>
+        </kit>
+    </kits>
+    <killreward>
+        <item amount="4" lore="`6+4 `eevery kill!">wood</item>
+    </killreward>
+    <killreward>
+        <filter>
+            <wearing>
+                <item>gold chestplate</item>
+            </wearing>
+        </filter>
+        <potion duration="2" amplifier="2">regeneration</potion>
+    </killreward>
+    <killreward>
+        <filter>
+            <kill-streak count="3" repeat="true" />
+        </filter>
+        <item lore="`6+1 `eevery third kill!">golden apple</item>
+    </killreward>
+    <killreward>
+        <filter>
+            <all>
+                <filter id="red-center-hill" />
+                <team>red</team>
+            </all>
+        </filter>
+        <item>tnt</item>
+    </killreward>
+    <killreward>
+        <filter>
+            <all>
+                <filter id="blue-center-hill" />
+                <team>blue</team>
+            </all>
+        </filter>
+        <item>tnt</item>
+    </killreward>
+    <killreward>
+        <filter>
+            <all>
+                <wearing>
+                    <item>iron chestplate</item>
+                </wearing>
+                <kill-streak count="2" repeat="true" />
+            </all>
+        </filter>
+        <item amount="8" damage="5" lore="`eUse these blocks to repair your castle.">wood</item>
+    </killreward>
+    <spawns>
+        <spawn team="red" kit="red-kit">
+            <regions yaw="90">
+                <cylinder id="red-spawn" base="-23.5,30,100.5" radius="1" height="1" />
+            </regions>
+        </spawn>
+        <spawn team="blue" kit="blue-kit">
+            <regions yaw="90">
+                <cylinder id="blue-spawn" base="-159.5,30,100.5" radius="1" height="1" />
+            </regions>
+        </spawn>
+        <default>
+            <regions yaw="0">
+                <cylinder base="-91.5,6,155.5" radius="1" height="1" />
+            </regions>
+        </default>
+    </spawns>
+    <control-points incremental="true">
+        <control-point id="hill-center" name="Center Hill" capture-time="10s" points="0" capture-rule="lead" show-progress="true">
+            <capture>
+                <region id="c-hill-capture" />
+            </capture>
+            <progress>
+                <region id="c-hill-progress" />
+            </progress>
+            <captured>
+                <region id="c-hill-progress" />
+            </captured>
+        </control-point>
+        <control-point id="red-sh" name="red-sh" initial-owner="red" capture-time="6s" points="0" capture-rule="lead" show="false">
+            <capture>
+                <cuboid min="-37,23,137" max="-34,24,140" />
+            </capture>
+            <progress>
+                <cuboid min="-37,22,137" max="-34,29,146" />
+            </progress>
+            <captured>
+                <cuboid min="-37,22,137" max="-34,29,146" />
+            </captured>
+        </control-point>
+        <control-point id="red-nh" name="red-nh" initial-owner="red" capture-time="6s" points="0" capture-rule="lead" show="false">
+            <capture>
+                <cuboid min="-37,23,64" max="-34,24,61" />
+            </capture>
+            <progress>
+                <cuboid min="-37,22,137" max="-34,29,60" />
+            </progress>
+            <captured>
+                <cuboid min="-37,22,137" max="-34,29,60" />
+            </captured>
+        </control-point>
+        <control-point id="blue-sh" name="blue-sh" initial-owner="blue" capture-time="6s" points="0" capture-rule="lead" show="false">
+            <capture>
+                <cuboid min="-146,23,64" max="-149,24,61" />
+            </capture>
+            <progress>
+                <cuboid min="-146,22,64" max="-149,29,55" />
+            </progress>
+            <captured>
+                <cuboid min="-146,22,64" max="-149,29,55" />
+            </captured>
+        </control-point>
+        <control-point id="blue-nh" name="blue-nh" initial-owner="blue" capture-time="6s" points="0" capture-rule="lead" show="false">
+            <capture>
+                <cuboid min="-146,23,137" max="-149,24,140" />
+            </capture>
+            <progress>
+                <cuboid min="-146,22,137" max="-149,29,141" />
+            </progress>
+            <captured>
+                <cuboid min="-146,22,137" max="-149,29,141" />
+            </captured>
+        </control-point>
+    </control-points>
+    <filters>
+        <team id="only-red">red</team>
+        <all id="leave-spawn-red">
+        	<wearing>
+                <item>gold chestplate</item>
+            </wearing>
+            <team>red</team>
+        </all>
+        <all id="leave-spawn-blue">
+        	<wearing>
+                <item>gold chestplate</item>
+            </wearing>
+            <team>blue</team>
+        </all>
+        <team id="only-blue">blue</team>
+        <material id="only-wood">wood:0</material>
+        <any id="only-some">
+            <material>tnt</material>
+            <material>wood:5</material>
+        </any>
+        <material id="grass-everywhere">long grass</material>
+        <not id="no-tnt-center">
+            <all>
+                <any>
+                    <material>grass</material>
+                    <material>dirt</material>
+                    <material>gravel</material>
+                    <material>cobblestone</material>
+                    <material>stone</material>
+                    <material>stained clay</material>
+                    <material>log_2</material>
+                    <material>spruce fence</material>
+                    <material>step</material>
+                    <material>smooth brick</material>
+                    <material>stone plate</material>
+                    <material>spruce wood stairs</material>
+                </any>
+                <cause>player</cause>
+            </all>
+        </not>
+        <not id="no-tnt-castles">
+            <all>
+                <any>
+                    <material>grass</material>
+                    <material>dirt</material>
+                    <material>gravel</material>
+                    <material>cobblestone</material>
+                    <material>stone</material>
+                    <material>stained clay</material>
+                    <material>ladder</material>
+                    <material>spruce fence</material>
+                    <material>spruce wood stairs</material>
+                </any>
+                   <cause>player</cause>
+            </all>
+        </not>
+        <not id="deny-void">
+            <void />
+        </not>
+        <any id="red-center-hill">
+            <objective team="red">hill-center</objective>
+        </any>
+        <any id="blue-center-hill">
+            <objective team="blue">hill-center</objective>
+        </any>
+        <any id="red-side-hill">
+            <objective team="blue">red-sh</objective>
+            <objective team="blue">red-nh</objective>
+        </any>
+        <any id="blue-side-hill">
+            <objective team="red">blue-sh</objective>
+            <objective team="red">blue-nh</objective>
+        </any>
+    </filters>
+    <regions>
+        <union id="c-hill-capture">
+            <cuboid min="-95,3,106" max="-88,5,95" />
+            <cuboid min="-94,3,93" max="-89,5,108" />
+            <cuboid min="-98,3,110" max="-93,5,91" />
+            <cuboid min="-92,3,89" max="-91,5,112" />
+            <cuboid min="-95,3,104" max="-87,5,97" />
+            <cuboid min="-97,3,103" max="-86,5,98" />
+            <cuboid min="-98,3,102" max="-85,5,99" />
+            <cuboid min="-99,3,101" max="-84,5,100" />
+            <cuboid min="-90,3,91" max="-93,5,110" />
+        </union>
+        <union id="c-hill-progress">
+            <cuboid min="-95,2,106" max="-88,3,95" />
+            <cuboid min="-94,2,93" max="-89,3,108" />
+            <cuboid min="-98,2,110" max="-93,3,91" />
+            <cuboid min="-92,2,89" max="-91,3,112" />
+            <cuboid min="-95,2,104" max="-87,3,97" />
+            <cuboid min="-97,2,103" max="-86,3,98" />
+            <cuboid min="-98,2,102" max="-85,3,99" />
+            <cuboid min="-99,2,101" max="-84,3,100" />
+            <cuboid min="-90,2,91" max="-93,3,110" />
+        </union>
+        <union id="red-castle">
+            <complement>
+                <cuboid id="red-attacker" min="-56,25,119" max="-23,38,82" />
+                <cuboid min="-26,27,97" max="-21,31,104" />
+            </complement>
+        </union>
+        <union id="blue-castle">
+            <complement>
+                <cuboid id="blue-attacker" min="-127,25,82" max="-160,39,119" />
+                <cuboid min="-157,27,104" max="-162,31,97" />
+            </complement>
+        </union>
+        <apply kit="slow" filter="red-side-hill">
+            <region id="red-spawn" />
+        </apply>
+        <apply kit="slow" filter="blue-side-hill">
+            <region id="blue-spawn" />
+        </apply>
+        <apply kit="leave-spawn" filter="leave-spawn-red">
+            <negative>
+                <region id="red-attacker" />
+            </negative>
+        </apply>
+        <apply kit="leave-spawn" filter="leave-spawn-blue">
+            <negative>
+                <region id="blue-attacker" />
+            </negative>
+        </apply>
+        <apply block="no-tnt-center">
+            <cuboid id="center" min="-60,0,143" max="-123,27,58" />
+        </apply>
+        <apply block="no-tnt-castles">
+            <negative>
+                <region id="center" />
+            </negative>
+        </apply>
+        <apply block="grass-everywhere">
+            <rectangle id="map" min="oo,oo" max="-oo,-oo" />
+        </apply>
+        <apply block="only-wood" message="You may only place or break wood under y=20.">
+            <cuboid id="wood-place" min="oo,0,oo" max="-oo,20,-oo" />
+        </apply>
+        <apply block-place="only-some">
+            <negative>
+                <union>
+                    <region id="wood-place" />
+                    <region id="center" />
+                </union>
+            </negative>
+        </apply>
+        <apply block="deny-void">
+            <region id="map" />
+        </apply>
+    </regions>
+    <destroyables name="Castle" materials="log_2;cobblestone stairs;dark oak stairs;double step:3;step:3;step:5;wood:5;wood step:5;log:1;leaves:1;cobble wall" completion="80%">
+        <destroyable owner="red">
+            <region>
+                <region id="red-castle" />
+            </region>
+        </destroyable>
+        <destroyable owner="blue">
+            <region>
+                <region id="blue-castle" />
+            </region>
+        </destroyable>
+    </destroyables>
+    <itemremove>
+        <item>stone sword</item>
+        <item>bow</item>
+        <item>gold chestplate</item>
+        <item>iron chestplate</item>
+        <item>leather helmet</item>
+        <item>leather leggings</item>
+        <item>leather boots</item>
+        <item>wood</item>
+        <item>leaves:1</item>
+        <item>sapling:1</item>
+        <item>apple</item>
+        <item>arrow</item>
+        <item>tnt</item>
+        <item>golden apple</item>
+        <item>carpet:7</item>
+        <item>carpet:11</item>
+        <item>carpet:14</item>
+        <item>log</item>
+        <item>log_2</item>
+        <item>double step:3</item>
+        <item>step</item>
+        <item>smooth brick</item>
+        <item>stone plate</item>
+        <item>cobblestone stairs</item>
+        <item>cobble wall</item>
+        <item>stone button</item>
+        <item>dark oak stairs</item>
+    </itemremove>
+    <disabledamage>
+        <damage ally="true" self="false" enemy="false" other="false">block explosion</damage>
+    </disabledamage>
+    <tnt>
+        <instantignite>on</instantignite>
+        <fuse>3s</fuse>
+        <power>0.8</power>
+        <friendly-defuse>false</friendly-defuse>
+        <licensing>false</licensing>
+    </tnt>
+    <maxbuildheight>46</maxbuildheight>
+    <hunger>
+        <depletion>off</depletion>
+    </hunger>
+    <timelock>on</timelock>
 </map>
