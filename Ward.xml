@@ -155,7 +155,7 @@
 		<void/>
 	</not>
 	<objective id="red-center-hill" team="red">c-hill</objective>
-	<objective id="red-center-hill" team="blue">c-hill</objective>
+	<objective id="blue-center-hill" team="blue">c-hill</objective>
 	<any id="red-side-hill">
 		<objective team="blue">red-south-hill</objective>
 		<objective team="blue">red-north-hill</objective>
