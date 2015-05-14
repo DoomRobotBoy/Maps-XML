@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<map proto="1.4">
+<name>King's Chess</name>
+<version>1.0.0</version>
+<objective>Reach the 750 score limit, by capturing hills and entering scoreboxes, before your enemy does!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</authors>
+<teams>
+    <team color="orange" max="18" overfill="20">Green Team</team>
+    <team color="magenta" max="18" overfill="20">Yellow Team</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="28" amount="48">arrow</item>
+        <item slot="2" amount="64">golden carrot</item>
+        <item slot="3" damage="8261">potion</item>
+        <chestplate damage="-3000">iron chestplate</chestplate>
+        <potion duration="5">heal</potion>
+        <potion duration="5" amplifier="10">damage resistance</potion>
+    </kit>
+    <kit id="green" parents="spawn">
+        <helmet color="667F33" damage="-3000">leather helmet</helmet>
+        <leggings color="667F33" damage="-3000">leather leggings</leggings>
+        <boots color="667F33" damage="-3000">leather boots</boots>
+    </kit>
+    <kit id="yellow" parents="spawn">
+        <helmet color="E5E533" damage="-3000">leather helmet</helmet>
+        <leggings color="E5E533" damage="-3000">leather leggings</leggings>
+        <boots color="E5E533" damage="-3000">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <filter id="only-green">
+        <team>green</team>
+    </filter>
+    <filter id="only-yellow">
+        <team>yellow</team>
+    </filter>
+</filters>
+<regions>
+    <apply block="deny-all">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+    <apply enter="only-green">
+        <cuboid min="145,25,-199" max="149,26,-200"/>
+    </apply>
+    <apply enter="only-yellow">
+        <cuboid min="286,25,-250" max="282,26,-249"/>
+    </apply>
+</regions>
+<portals>
+    <portal id="green-owner-scorebox" x="@151.5" y="@38" z="@-217.5" yaw="@-90">
+        <cuboid id="green-owner-box" min="286,23,-246" max="282,24,-244"/>
+    </portal>
+    <portal id="yellow-owner-scorebox" x="@279.5" y="@38" z="@-231.5" yaw="@90">
+        <cuboid id="yellow-owner-box" min="145,23,-203" max="149,24,-205"/>
+    </portal>
+</portals>
+<spawns>
+    <spawn team="green" kit="green">
+        <regions yaw="90"/>
+            <cylinder base="279.5,38,-231.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="yellow" kit="yellow">
+        <regions yaw="-90"/>
+            <cylinder base="151.5,38,-217.5" radius="1"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="180"/>
+            <cylinder base="215.5,53,-292.5" radius="2"/>
+        </regions>
+    </default>
+</spawns>
+<king>
+    <hills>
+        <hill id="Green Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
+            <capture><cylinder base="275.5,38,-191.5" radius="2" height="3"/></capture>
+            <progress><cylinder base="275.5,37,-191.5" radius="2"/></progress>
+            <captured><cylinder base="275.5,37,-191.5" radius="2"/></captured>
+        </hill>
+        <hill id="Center Hill" capture-players="lead" capture-time="20s" ratio="2" incremental="true">
+            <capture><cylinder base="215.5,21,-224.5" radius="9" height="3"/></capture>
+            <progress><cylinder base="215.5,20,-224.5" radius="9"/></progress>
+            <captured><cylinder base="215.5,20,-224.5" radius="9"/></captured>
+        </hill>
+        <hill id="Yellow Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
+            <capture><cylinder base="173.5,38,-257.5" radius="2" height="3"/></capture>
+            <progress><cylinder base="173.5,37,-257.5" radius="2"/></progress>
+            <captured><cylinder base="173.5,37,-257.5" radius="2"/></captured>
+        </hill>
+    </hills>
+</king>
+<itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>golden carrot</item>
+    <item>potion</item>
+    <item>glass bottle</item>
+</itemremove>
+<score>
+    <limit>750</limit>
+    <box points="6" region="green-owner-box"/>
+    <box points="6" region="yellow-owner-box"/>
+</score>
+<killreward>
+    <item damage="8261">potion</item>
+</killreward>
+</map>
