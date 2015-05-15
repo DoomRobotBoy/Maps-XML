@@ -23,7 +23,7 @@
         <item slot="8" lore="Use this in conjunction with the scoreboard to find out what hills remain to be captured!">compass</item>
         <chestplate unbreakable="true">iron chestplate</chestplate>
         <potion duration="4">heal</potion>
-        <potion duration="4" amplifier="25">damage resistance</potion>
+        <potion duration="4" amplifier="127">damage resistance</potion>
     </kit>
     <kit id="o-kit" parents="spawn">
         <helmet color="D87F33" unbreakable="true">leather helmet</helmet>
@@ -309,6 +309,24 @@
             </not>
         </all>
     </any>
+    <all id="orange-center">
+        <objective team="orange">c-hill</objective>
+        <not>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">w-hill</objective>
+            <objective team="orange">s-hill</objective>
+            <objective team="orange">e-hill</objective>
+        </not>
+    </all>
+    <all id="magenta-center">
+        <objective team="orange">c-hill</objective>
+        <not>
+            <objective team="magenta">n-hill</objective>
+            <objective team="magenta">w-hill</objective>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">e-hill</objective>
+        </not>
+    </all>
 </filters>
 <regions>
     <union id="center-capture">
@@ -350,6 +368,12 @@
             <cylinder base="177.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
+    <spawn team="orange" kit="o-kit" filter="orange-center">
+        <regions/>
+            <point yaw="90">275.5,100,-88.5</point>
+            <point yaw="-90">251.5,100,-88.5</point>
+        </regions>
+    </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-northeast">
         <regions yaw="-135"/>
             <cylinder base="177.5,6,-2.5" radius="1"/>
@@ -370,9 +394,15 @@
             <cylinder base="349.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
+    <spawn team="magenta" kit="m-kit" filter="magenta-center">
+        <regions/>
+            <point yaw="90">275.5,100,-88.5</point>
+            <point yaw="-90">251.5,100,-88.5</point>
+        </regions>
+    </spawn>
     <default>
         <regions yaw="180"/>
-            <cylinder base="215.5,53,-292.5" radius="2"/>
+            <cylinder base="263.5,21,-88.5" radius="1"/>
         </regions>
     </default>
 </spawns>
