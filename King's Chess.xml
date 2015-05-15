@@ -18,8 +18,9 @@
         <item slot="28" amount="64">arrow</item>
         <item slot="2" amount="16" damage="2">leaves</item>
         <item slot="3" amount="16">vine</item>
-        <item slot="7" damage="8193" potions="regeneration:200:0:false">potion</item>
-        <item slot="8" amount="64">cooked fish</item>
+        <item slot="6" damage="8193" potions="regeneration:200:0:false">potion</item>
+        <item slot="7" amount="64">cooked fish</item>
+        <item slot="8" lore="Use this in conjunction with the scoreboard to find out what hills remain to be captured!">compass</item>
         <chestplate unbreakable="true">iron chestplate</chestplate>
         <potion duration="4">heal</potion>
         <potion duration="4" amplifier="25">damage resistance</potion>
@@ -50,20 +51,129 @@
                 <objective team="orange">w-hill</objective>
             </all>
         </not>
-        <objective team="orange">s-hill</objective>
+        <all>
+            <objective team="orange">s-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">e-hill</objective>
+                    <objective team="orange">n-hill</objective>
+                    <objective team="orange">w-hill</objective>
+                </all>
+            </not>
+        </all>
         <all>
             <objective team="orange">s-hill</objective>
             <objective team="orange">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">e-hill</objective>
+                    <objective team="orange">h-hill</objective>
+                </all>
+            </not>
         </all>
         <all>
             <objective team="orange">s-hill</objective>
             <objective team="orange">w-hill</objective>
             <objective team="orange">e-hill</objective>
+            <not>
+                <objective team="orange">n-hill</objective>
+            </not>
         </all>
         <all>
             <objective team="orange">s-hill</objective>
             <objective team="orange">w-hill</objective>
+            <objective team="orange">e-hill</objective>
             <objective team="orange">n-hill</objective>
+        </all>
+    </any>
+    <any id="orange-northwest">
+        <all>
+            <objective team="orange">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">e-hill</objective>
+                    <objective team="orange">n-hill</objective>
+                    <objective team="orange">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">e-hill</objective>
+                    <objective team="orange">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">w-hill</objective>
+            <objective team="orange">s-hill</objective>
+            <not>
+                <objective team="orange">e-hill</objective>
+            </not>
+        </all>
+    </any>
+    <any id="orange-northeast">
+        <all>
+            <objective team="orange">n-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">e-hill</objective>
+                    <objective team="orange">w-hill</objective>
+                    <objective team="orange">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">w-hill</objective>
+                    <objective team="orange">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">w-hill</objective>
+            <objective team="orange">e-hill</objective>
+            <not>
+                <objective team="orange">s-hill</objective>
+            </not>
+        </all>
+    </any>
+    <any id="orange-southeast">
+        <all>
+            <objective team="orange">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">n-hill</objective>
+                    <objective team="orange">w-hill</objective>
+                    <objective team="orange">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">s-hill</objective>
+            <objective team="orange">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="orange">w-hill</objective>
+                    <objective team="orange">n-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="orange">s-hill</objective>
+            <objective team="orange">n-hill</objective>
+            <objective team="orange">e-hill</objective>
+            <not>
+                <objective team="orange">w-hill</objective>
+            </not>
         </all>
     </any>
     <any id="magenta-northeast">
@@ -75,20 +185,128 @@
                 <objective team="magenta">w-hill</objective>
             </all>
         </not>
-        <objective team="magenta">n-hill</objective>
         <all>
             <objective team="magenta">n-hill</objective>
-            <objective team="magenta">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">e-hill</objective>
+                    <objective team="magenta">w-hill</objective>
+                    <objective team="magenta">s-hill</objective>
+                </all>
+            </not>
         </all>
         <all>
             <objective team="magenta">n-hill</objective>
             <objective team="magenta">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">w-hill</objective>
+                    <objective team="magenta">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">n-hill</objective>
             <objective team="magenta">w-hill</objective>
+            <objective team="magenta">e-hill</objective>
+            <not>
+                <objective team="magenta">s-hill</objective>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">w-hill</objective>
+            <objective team="magenta">e-hill</objective>
+            <objective team="magenta">n-hill</objective>
+        </all>
+    </any>
+    <any id="magenta-southeast">
+        <all>
+            <objective team="magenta">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">n-hill</objective>
+                    <objective team="magenta">w-hill</objective>
+                    <objective team="magenta">s-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">e-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">w-hill</objective>
+                    <objective team="magenta">n-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">n-hill</objective>
+            <objective team="magenta">e-hill</objective>
+            <not>
+                <objective team="magenta">w-hill</objective>
+            </not>
+        </all>
+    </any>
+    <any id="magenta-southwest">
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">e-hill</objective>
+                    <objective team="magenta">n-hill</objective>
+                    <objective team="magenta">w-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">e-hill</objective>
+                    <objective team="magenta">h-hill</objective>
+                </all>
+            </not>
+        </all>
+        <all>
+            <objective team="magenta">s-hill</objective>
+            <objective team="magenta">w-hill</objective>
+            <objective team="magenta">e-hill</objective>
+            <not>
+                <objective team="magenta">n-hill</objective>
+            </not>
+        </all>
+    </any>
+    <any id="magenta-northwest">
+        <all>
+            <objective team="magenta">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">e-hill</objective>
+                    <objective team="magenta">n-hill</objective>
+                    <objective team="magenta">s-hill</objective>
+                </all>
+            </not>
+        <all>
+            <objective team="magenta">n-hill</objective>
+            <objective team="magenta">w-hill</objective>
+            <not>
+                <all>
+                    <objective team="magenta">e-hill</objective>
+                    <objective team="magenta">s-hill</objective>
+                </all>
+            </not>
         </all>
         <all>
             <objective team="magenta">n-hill</objective>
-            <objective team="magenta">e-hill</objective>
+            <objective team="magenta">w-hill</objective>
             <objective team="magenta">s-hill</objective>
+            <not>
+                <objective team="magenta">e-hill</objective>
+            </not>
         </all>
     </any>
 </filters>
@@ -196,6 +414,7 @@
     <item>leather boots</item>
     <item>cooked fish</item>
     <item>potion</item>
+    <item>compass</item>
 </itemremove>
 <score>
     <limit>1500</limit>
