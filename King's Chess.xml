@@ -8,29 +8,31 @@
 <!-- DoomRobotBoy -->
 </authors>
 <teams>
-    <team id="orange" color="gold" max="18" overfill="20">Orange Team</team>
-    <team id="magenta" color="light purple" max="18" overfill="20">Magenta Team</team>
+    <team id="orange" color="gold" max="30" overfill="34">Orange Team</team>
+    <team id="magenta" color="light purple" max="30" overfill="34">Magenta Team</team>
 </teams>
 <kits>
     <kit id="spawn">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000">bow</item>
-        <item slot="28" amount="48">arrow</item>
-        <item slot="2" amount="64">golden carrot</item>
-        <item slot="3" damage="8261">potion</item>
-        <chestplate damage="-3000">iron chestplate</chestplate>
-        <potion duration="5">heal</potion>
-        <potion duration="5" amplifier="10">damage resistance</potion>
+        <item slot="0" unbreakable="true">iron sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="2" amount="16" damage="2">leaves</item>
+        <item slot="3" amount="16">vine</item>
+        <item slot="7" damage="8193" potions="regeneration:200:0:false">potion</item>
+        <item slot="8" amount="64">cooked fish</item>
+        <chestplate unbreakable="true">iron chestplate</chestplate>
+        <potion duration="4">heal</potion>
+        <potion duration="4" amplifier="25">damage resistance</potion>
     </kit>
     <kit id="o-kit" parents="spawn">
-        <helmet color="667F33" damage="-3000">leather helmet</helmet>
-        <leggings color="667F33" damage="-3000">leather leggings</leggings>
-        <boots color="667F33" damage="-3000">leather boots</boots>
+        <helmet color="D87F33" unbreakable="true">leather helmet</helmet>
+        <leggings color="D87F33" unbreakable="true">leather leggings</leggings>
+        <boots color="D87F33" unbreakable="true">leather boots</boots>
     </kit>
     <kit id="m-kit" parents="spawn">
-        <helmet color="E5E533" damage="-3000">leather helmet</helmet>
-        <leggings color="E5E533" damage="-3000">leather leggings</leggings>
-        <boots color="E5E533" damage="-3000">leather boots</boots>
+        <helmet color="B24CD8" unbreakable="true">leather helmet</helmet>
+        <leggings color="B24CD8" unbreakable="true">leather leggings</leggings>
+        <boots color="B24CD8" unbreakable="true">leather boots</boots>
     </kit>
 </kits>
 <filters>
@@ -91,14 +93,22 @@
     </any>
 </filters>
 <regions>
+    <union id="center-capture">
+        <cuboid min="265,8,-83" max="262,9,-94"/>
+        <cuboid min="266,8,-84" max="261,9,-93"/>
+        <cuboid min="267,8,-85" max="260,9,-92"/>
+        <cuboid min="268,8,-86" max="259,9,-91"/>
+        <cuboid min="269,8,-87" max="258,9,-90"/>
+    </union>
+    <union id="center-progress">
+        <cuboid min="265,7,-83" max="262,8,-94"/>
+        <cuboid min="266,7,-84" max="261,8,-93"/>
+        <cuboid min="267,7,-85" max="260,8,-92"/>
+        <cuboid min="268,7,-86" max="259,8,-91"/>
+        <cuboid min="269,7,-87" max="258,8,-90"/>
+    </union>
     <apply block="only-some">
         <rectangle min="-oo,-oo" max="oo,oo"/>
-    </apply>
-    <apply enter="only-green">
-        <cuboid min="145,25,-199" max="149,26,-200"/>
-    </apply>
-    <apply enter="only-yellow">
-        <cuboid min="286,25,-250" max="282,26,-249"/>
     </apply>
 </regions>
 <spawns>
@@ -119,31 +129,79 @@
     </default>
 </spawns>
 <king>
-    <hills>
-        <hill id="Green Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
-            <capture><cylinder base="275.5,38,-191.5" radius="2" height="3"/></capture>
-            <progress><cylinder base="275.5,37,-191.5" radius="2"/></progress>
-            <captured><cylinder base="275.5,37,-191.5" radius="2"/></captured>
+    <hills capture-players="lead" incremental="true" neutral-state="true">
+        <hill name="North Castle Hill" capture-time="12s" ratio="3">
+            <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"></capture>
+            <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"></progress>
+            <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"></captured>
+        </hill>
+        <hill name="East Castle Hill" capture-time="14s" ratio="2">
+            <capture><cuboid min="356,26,-86" max="361,27,-91"/></capture>
+            <progress><cuboid min="356,25,-86" max="361,26,-91"/></progress>
+            <captured><cuboid min="356,25,-86" max="361,70,-91"/></captured>
+        </hill>
+        <hill name="Middle Castle Hill" capture-time="12s" ratio="3">
+            <capture region="center-capture"/>
+            <progress region="center-progress"/>
+            <captured region="center-progress"/>
+        </hill>
+        <hill name="West Castle Hill" capture-time="14s" ratio="2">
+            <capture><cuboid min="171,26,-91" max="166,27,-86"/></capture>
+            <progress><cuboid min="171,25,-91" max="166,26,-86"/></progress>
+            <captured><cuboid min="171,25,-91" max="166,70,-86"/></captured>
+        </hill>
+        <hill name="South Castle Hill" capture-time="12s" ratio="3">
+            <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"></capture>
+            <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"></progress>
+            <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"></captured>
         </hill>
     </hills>
 </king>
+<control-points capture-players="lead" incremental="true" neutral-state="true" show="false" ratio="0">
+    <control-point id="n-hill" capture-time="12s">
+        <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"></capture>
+        <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"></progress>
+        <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"></captured>
+    </control-point>
+    <control-point id="e-hill" capture-time="14s">
+        <capture><cuboid min="356,26,-86" max="361,27,-91"/></capture>
+        <progress><cuboid min="356,25,-86" max="361,26,-91"/></progress>
+        <captured><cuboid min="356,25,-86" max="361,70,-91"/></captured>
+    </control-point>
+    <control-point id="m-hill" capture-time="12s">
+        <capture region="center-capture"/>
+        <progress region="center-progress"/>
+        <captured region="center-progress"/>
+    </control-point>
+    <control-point id="w-hill" capture-time="14s">
+        <capture><cuboid min="171,26,-91" max="166,27,-86"/></capture>
+        <progress><cuboid min="171,25,-91" max="166,26,-86"/></progress>
+        <captured><cuboid min="171,25,-91" max="166,70,-86"/></captured>
+    </control-point>
+    <control-point id="s-hill" capture-time="12s">
+        <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"></capture>
+        <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"></progress>
+        <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"></captured>
+    </control-point>
+</control-points>
 <itemremove>
-    <item>stone sword</item>
+    <item>iron sword</item>
     <item>bow</item>
     <item>arrow</item>
+    <item>leaves</item>
+    <item>vine</item>
     <item>leather helmet</item>
     <item>iron chestplate</item>
     <item>leather leggings</item>
     <item>leather boots</item>
-    <item>golden carrot</item>
+    <item>cooked fish</item>
     <item>potion</item>
-    <item>glass bottle</item>
 </itemremove>
 <score>
     <limit>1500</limit>
     <kills>1</kills>
 </score>
 <killreward>
-    <item damage="8261">potion</item>
+    <item damage="8193" potions="regeneration:20:2:false">potion</item>
 </killreward>
 </map>
