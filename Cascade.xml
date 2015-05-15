@@ -1,0 +1,79 @@
+<map proto="1.4.0">
+<name>Cascade</name>
+<version>1.0.0</version>
+<objective>
+    Eliminate the enemy team before time runs out!
+</objective>
+<authors>
+    <author uuid="1cc7c321-f7f3-42c2-a260-3c9b65aca235"/>
+<!-- _Bunnies -->
+</authors>
+<contributors>
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="14" max-overfill="16">Red Team</team>
+    <team id="blue color="blue" max="14" max-overfill="16">Blue Team</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions yaw="-180">
+            <cylinder base="0.5,125,-1.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions yaw="0">
+            <cylinder base="0.5,125,2.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="-90">
+            <cylinder base="0.5,130,0.5" radius="1" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" damage="-3000">iron sword</item>
+        <item slot="1" damage="-3000">bow</item>
+        <item slot="2" amount="16">bread</item>
+        <item slot="3">golden apple</item>
+        <item slot="28" amount="64">arrow</item>
+        <item slot="19" amount="32">arrow</item>
+        <chestplate damage="-3000">diamond chestplate</chestplate>
+        <leggings damage="-3000">iron leggings</leggings>
+        <boots damage="-3000">diamond boots</boots>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="993333" damage="-3000">leather helmet</helmet>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="334CB2" damage="-3000">leather helmet</helmet>
+    </kit>
+</kits>
+<regions>
+    <apply block="never">
+        <rectangle min="-oo,-oo" max="oo,oo"/>
+    </apply>
+</regions>
+<blitz>
+    <time>10m</time>
+    <lives>1</lives>
+    <title>Blitz</title>
+</blitz>
+<include src="blitz-global.xml"/>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>leather helmet</item>
+    <item>diamond chestplate</item>
+    <item>iron leggings</item>
+    <item>diamond boots</item>
+    <item>bread</item>
+    <item>golden apple</item>
+    <item>arrow</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
