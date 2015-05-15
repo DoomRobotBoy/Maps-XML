@@ -331,13 +331,43 @@
 </regions>
 <spawns>
     <spawn team="orange" kit="o-kit" filter="orange-southwest">
-        <regions yaw="90"/>
-            <cylinder base="279.5,38,-231.5" radius="1"/>
+        <regions yaw="45"/>
+            <cylinder base="349.5,6,-174.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="o-kit" filter="orange-northeast">
+        <regions yaw="-135"/>
+            <cylinder base="177.5,6,-2.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="o-kit" filter="orange-southeast">
+        <regions yaw="135"/>
+            <cylinder base="349.5,6,-2.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="o-kit" filter="orange-northwest">
+        <regions yaw="-45"/>
+            <cylinder base="177.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-northeast">
-        <regions yaw="-90"/>
-            <cylinder base="151.5,38,-217.5" radius="1"/>
+        <regions yaw="-135"/>
+            <cylinder base="177.5,6,-2.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="magenta" kit="m-kit" filter="magenta-southeast">
+        <regions yaw="135"/>
+            <cylinder base="349.5,6,-2.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="magenta" kit="m-kit" filter="magenta-northwest">
+        <regions yaw="-45"/>
+            <cylinder base="177.5,6,-174.5" radius="1"/>
+        </regions>
+    </spawn>
+    <spawn team="magenta" kit="m-kit" filter="magenta-southwest">
+        <regions yaw="45"/>
+            <cylinder base="349.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <default>
