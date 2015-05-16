@@ -29,7 +29,7 @@
         <item slot="6" amount="32">wood</item>
         <item slot="7" amount="16">glass</item>
         <item slot="8" amount="32">vine</item>
-        <item slot="28" amount="64">arrow</item>
+        <item slot="28" amount="48">arrow</item>
         <potion duration="3" amplifier="127">damage resistance</potion>
         <kit name="nv">
             <potion duration="oo">night vision</potion>
