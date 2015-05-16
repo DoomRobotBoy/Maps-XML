@@ -313,19 +313,23 @@
     <all id="orange-center">
         <objective team="orange">c-hill</objective>
         <not>
-            <objective team="orange">n-hill</objective>
-            <objective team="orange">w-hill</objective>
-            <objective team="orange">s-hill</objective>
-            <objective team="orange">e-hill</objective>
+            <all>
+                <objective team="orange">n-hill</objective>
+                <objective team="orange">w-hill</objective>
+                <objective team="orange">s-hill</objective>
+                <objective team="orange">e-hill</objective>
+            </all>
         </not>
     </all>
     <all id="magenta-center">
         <objective team="orange">c-hill</objective>
         <not>
-            <objective team="magenta">n-hill</objective>
-            <objective team="magenta">w-hill</objective>
-            <objective team="magenta">s-hill</objective>
-            <objective team="magenta">e-hill</objective>
+            <all>
+                <objective team="magenta">n-hill</objective>
+                <objective team="magenta">w-hill</objective>
+                <objective team="magenta">s-hill</objective>
+                <objective team="magenta">e-hill</objective>
+            </all>
         </not>
     </all>
 </filters>
