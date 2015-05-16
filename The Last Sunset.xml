@@ -3,7 +3,7 @@
 <version>1.2.4</version>
 <objective>Capture the enemy flag(s) 4 times!</objective>
 <authors>
-<author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
 <!--   DoomRobotBoy   -->
 </authors>
 <broadcasts>
