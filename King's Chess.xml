@@ -290,6 +290,7 @@
                     <objective team="magenta">s-hill</objective>
                 </all>
             </not>
+        </all>
         <all>
             <objective team="magenta">n-hill</objective>
             <objective team="magenta">w-hill</objective>
@@ -349,97 +350,97 @@
 </regions>
 <spawns>
     <spawn team="orange" kit="o-kit" filter="orange-southwest">
-        <regions yaw="45"/>
+        <regions yaw="45">
             <cylinder base="349.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="orange" kit="o-kit" filter="orange-northeast">
-        <regions yaw="-135"/>
+        <regions yaw="-135">
             <cylinder base="177.5,6,-2.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="orange" kit="o-kit" filter="orange-southeast">
-        <regions yaw="135"/>
+        <regions yaw="135">
             <cylinder base="349.5,6,-2.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="orange" kit="o-kit" filter="orange-northwest">
-        <regions yaw="-45"/>
+        <regions yaw="-45">
             <cylinder base="177.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="orange" kit="o-kit" filter="orange-center">
-        <regions/>
+        <regions>
             <point yaw="90">275.5,100,-88.5</point>
             <point yaw="-90">251.5,100,-88.5</point>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-northeast">
-        <regions yaw="-135"/>
+        <regions yaw="-135">
             <cylinder base="177.5,6,-2.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-southeast">
-        <regions yaw="135"/>
+        <regions yaw="135">
             <cylinder base="349.5,6,-2.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-northwest">
-        <regions yaw="-45"/>
+        <regions yaw="-45">
             <cylinder base="177.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-southwest">
-        <regions yaw="45"/>
+        <regions yaw="45">
             <cylinder base="349.5,6,-174.5" radius="1"/>
         </regions>
     </spawn>
     <spawn team="magenta" kit="m-kit" filter="magenta-center">
-        <regions/>
+        <regions>
             <point yaw="90">275.5,100,-88.5</point>
             <point yaw="-90">251.5,100,-88.5</point>
         </regions>
     </spawn>
     <default>
-        <regions yaw="180"/>
+        <regions yaw="180">
             <cylinder base="263.5,21,-88.5" radius="1"/>
         </regions>
     </default>
 </spawns>
 <king>
-    <hills capture-players="lead" incremental="true" neutral-state="true">
-        <hill name="North Castle Hill" capture-time="12s" ratio="3">
-            <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"></capture>
-            <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"></progress>
-            <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"></captured>
-        </hill>
-        <hill name="East Castle Hill" capture-time="14s" ratio="2">
+    <control-points capture-players="lead" incremental="true" neutral-state="true">
+        <control-point name="North Castle Hill" id="n-hill" capture-time="12s" ratio="3">
+            <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"/></capture>
+            <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"/></progress>
+            <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"/></captured>
+        </control-point>
+        <control-point name="East Castle Hill" id="e-hill" capture-time="14s" ratio="2">
             <capture><cuboid min="356,26,-86" max="361,27,-91"/></capture>
             <progress><cuboid min="356,25,-86" max="361,26,-91"/></progress>
             <captured><cuboid min="356,25,-86" max="361,70,-91"/></captured>
-        </hill>
-        <hill name="Middle Castle Hill" capture-time="12s" ratio="3">
+        </control-point>
+        <control-point name="Middle Castle Hill" id="m-hill" capture-time="12s" ratio="3">
             <capture region="center-capture"/>
             <progress region="center-progress"/>
             <captured region="center-progress"/>
-        </hill>
-        <hill name="West Castle Hill" capture-time="14s" ratio="2">
+        </control-point>
+        <control-point name="West Castle Hill" id="w-hill" capture-time="14s" ratio="2">
             <capture><cuboid min="171,26,-91" max="166,27,-86"/></capture>
             <progress><cuboid min="171,25,-91" max="166,26,-86"/></progress>
             <captured><cuboid min="171,25,-91" max="166,70,-86"/></captured>
-        </hill>
-        <hill name="South Castle Hill" capture-time="12s" ratio="3">
-            <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"></capture>
-            <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"></progress>
-            <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"></captured>
-        </hill>
-    </hills>
+        </control-point>
+        <control-point name="South Castle Hill" id="s-hill" capture-time="12s" ratio="3">
+            <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"/></capture>
+            <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"/></progress>
+            <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"/></captured>
+        </control-point>
+    </control-points>
 </king>
-<control-points capture-players="lead" incremental="true" neutral-state="true" show="false" ratio="0">
+<!-- <control-points capture-players="lead" incremental="true" neutral-state="true" show="false" ratio="0">
     <control-point id="n-hill" capture-time="12s">
-        <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"></capture>
-        <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"></progress>
-        <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"></captured>
+        <capture><cylinder base="263.5,45,-166.5" radius="2" height="2"/></capture>
+        <progress><cylinder base="263.5,45,-166.5" radius="2" height="2"/></progress>
+        <captured><cylinder base="263.5,45,-166.5" radius="2" height="38"/></captured>
     </control-point>
     <control-point id="e-hill" capture-time="14s">
         <capture><cuboid min="356,26,-86" max="361,27,-91"/></capture>
@@ -457,11 +458,11 @@
         <captured><cuboid min="171,25,-91" max="166,70,-86"/></captured>
     </control-point>
     <control-point id="s-hill" capture-time="12s">
-        <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"></capture>
-        <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"></progress>
-        <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"></captured>
+        <capture><cylinder base="263.5,45,-10.5" radius="2" height="2"/></capture>
+        <progress><cylinder base="263.5,45,-10.5" radius="2" height="2"/></progress>
+        <captured><cylinder base="263.5,45,-10.5" radius="2" height="38"/></captured>
     </control-point>
-</control-points>
+</control-points> -->
 <itemremove>
     <item>iron sword</item>
     <item>bow</item>
