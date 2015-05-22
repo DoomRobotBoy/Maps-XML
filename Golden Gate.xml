@@ -51,16 +51,16 @@
     </kit>
 </kits>
 <projectiles>
-    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
+    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Small FireBall" throwable="true" cooldown="2s"/>
 </projectiles>
 <killreward>
     <item>golden apple</item>
 </killreward>
 <filters>
-    <filter id="only-some">
+    <any id="only-some">
         <block>leaves:2</block>
         <block>ladder</block>
-    </filter>
+    </any>
 </filters>
 <regions>
     <apply block="only-some">
