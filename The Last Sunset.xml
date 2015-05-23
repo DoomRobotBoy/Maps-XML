@@ -40,11 +40,11 @@
     </kit>
     <kit name="red" parents="spawn">
         <helmet color="993333" damage="-3000">leather helmet</helmet>
-        <chestplate color="993333" enchantment="protection projectile:4" damage="-3000">leather chestplate</chestplate>
+        <chestplate color="993333" enchantment="protection projectile:3" damage="-3000">leather chestplate</chestplate>
     </kit>
     <kit name="blue" parents="spawn">
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
-        <chestplate color="334CB2" enchantment="protection projectile:4" damage="-3000">leather chestplate</chestplate>
+        <chestplate color="334CB2" enchantment="protection projectile:3" damage="-3000">leather chestplate</chestplate>
     </kit>
     <kit name="pickup" force="true">
         <leggings enchantment="durability:1" locked="true">gold leggings</leggings>
