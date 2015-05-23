@@ -33,9 +33,9 @@
         <boots color="667F33" unbreakable="true">leather boots</boots>
     </kit>
     <kit id="yellow-kit" parents="spawn">
-        <helmet color="E5E533" damage="-3000">leather helmet</helmet>
-        <leggings color="E5E533" damage="-3000">leather leggings</leggings>
-        <boots color="E5E533" damage="-3000">leather boots</boots>
+        <helmet color="E5E533" unbreakable="true">leather helmet</helmet>
+        <leggings color="E5E533" unbreakable="true">leather leggings</leggings>
+        <boots color="E5E533" unbreakable="true">leather boots</boots>
     </kit>
 </kits>
 <filters>
