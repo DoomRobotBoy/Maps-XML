@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<map proto="1.4">
+<map proto="1.4.0">
 <name>Conquering Almuji</name>
 <version>1.0.0</version>
-<objective>Reach the 750 score limit, by capturing hills and entering scoreboxes, before your enemy does!</objective>
+<objective>Reach the 750 score limit, by capturing hills and scoring in scoreboxes, before your enemy does!</objective>
 <authors>
     <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/> <!-- MeMySelfAndFrog -->
     <author uuid="4fcbcd4e-f3a1-4432-970c-82262a332d3c"/> <!-- PBnJelly -->
@@ -18,86 +18,86 @@
 </teams>
 <kits>
     <kit id="spawn">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000">bow</item>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
         <item slot="28" amount="48">arrow</item>
         <item slot="2" amount="64">golden carrot</item>
         <item slot="3" damage="8261">potion</item>
-        <chestplate damage="-3000">iron chestplate</chestplate>
+        <chestplate unbreakable="true">iron chestplate</chestplate>
         <potion duration="5">heal</potion>
         <potion duration="5" amplifier="10">damage resistance</potion>
     </kit>
-    <kit id="green" parents="spawn">
-        <helmet color="667F33" damage="-3000">leather helmet</helmet>
-        <leggings color="667F33" damage="-3000">leather leggings</leggings>
-        <boots color="667F33" damage="-3000">leather boots</boots>
+    <kit id="green-kit" parents="spawn">
+        <helmet color="667F33" unbreakable="true">leather helmet</helmet>
+        <leggings color="667F33" unbreakable="true">leather leggings</leggings>
+        <boots color="667F33" unbreakable="true">leather boots</boots>
     </kit>
-    <kit id="yellow" parents="spawn">
+    <kit id="yellow-kit" parents="spawn">
         <helmet color="E5E533" damage="-3000">leather helmet</helmet>
         <leggings color="E5E533" damage="-3000">leather leggings</leggings>
         <boots color="E5E533" damage="-3000">leather boots</boots>
     </kit>
 </kits>
 <filters>
-    <filter id="only-green">
-        <team>green</team>
-    </filter>
-    <filter id="only-yellow">
-        <team>yellow</team>
-    </filter>
+    <team id="only-green">green</team>
+    <team id="only-yellow">yellow</team>
 </filters>
 <regions>
-    <apply block="deny-all">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
+    <cuboid id="green-owner-box" min="286,23,-246" max="282,24,-244"/>
+    <cuboid id="yellow-owner-box" min="145,23,-203" max="149,24,-205"/>
+    <apply block="never">
+        <region>
+            <rectangle min="-oo,-oo" max="oo,oo"/>
+        </region>
     </apply>
     <apply enter="only-green">
-        <cuboid min="145,25,-199" max="149,26,-200"/>
+        <region>
+            <cuboid min="145,25,-199" max="149,26,-200"/>
+        </region>
     </apply>
     <apply enter="only-yellow">
-        <cuboid min="286,25,-250" max="282,26,-249"/>
+        <region>
+            <cuboid min="286,25,-250" max="282,26,-249"/>
+        </region>
     </apply>
 </regions>
 <portals>
-    <portal id="green-owner-scorebox" x="@151.5" y="@38" z="@-217.5" yaw="@-90">
-        <cuboid id="green-owner-box" min="286,23,-246" max="282,24,-244"/>
-    </portal>
-    <portal id="yellow-owner-scorebox" x="@279.5" y="@38" z="@-231.5" yaw="@90">
-        <cuboid id="yellow-owner-box" min="145,23,-203" max="149,24,-205"/>
-    </portal>
+    <portal id="green-owner-scorebox" x="@151.5" y="@38" z="@-217.5" yaw="@-90" region="green-owner-box"/>
+    <portal id="yellow-owner-scorebox" x="@279.5" y="@38" z="@-231.5" yaw="@90" region="yellow-owner-box"/>
 </portals>
 <spawns>
-    <spawn team="green" kit="green">
+    <spawn team="green" kit="green-kit">
         <regions yaw="90"/>
-            <cylinder base="279.5,38,-231.5" radius="1"/>
+            <cylinder base="279.5,38,-231.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="yellow" kit="yellow">
+    <spawn team="yellow" kit="yellow-kit">
         <regions yaw="-90"/>
-            <cylinder base="151.5,38,-217.5" radius="1"/>
+            <cylinder base="151.5,38,-217.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default>
         <regions yaw="180"/>
-            <cylinder base="215.5,53,-292.5" radius="2"/>
+            <cylinder base="215.5,53,-292.5" radius="2" height="0"/>
         </regions>
     </default>
 </spawns>
 <king>
     <hills>
-        <hill id="Green Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
+        <hill name="Green Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
             <capture><cylinder base="275.5,38,-191.5" radius="2" height="3"/></capture>
-            <progress><cylinder base="275.5,37,-191.5" radius="2"/></progress>
-            <captured><cylinder base="275.5,37,-191.5" radius="2"/></captured>
+            <progress><cylinder base="275.5,37,-191.5" radius="2" height="0"/></progress>
+            <captured><cylinder base="275.5,37,-191.5" radius="2" height="0"/></captured>
         </hill>
-        <hill id="Center Hill" capture-players="lead" capture-time="20s" ratio="2" incremental="true">
+        <hill name="Center Hill" capture-players="lead" capture-time="20s" ratio="2" incremental="true">
             <capture><cylinder base="215.5,21,-224.5" radius="9" height="3"/></capture>
-            <progress><cylinder base="215.5,20,-224.5" radius="9"/></progress>
-            <captured><cylinder base="215.5,20,-224.5" radius="9"/></captured>
+            <progress><cylinder base="215.5,20,-224.5" radius="9" height="0"/></progress>
+            <captured><cylinder base="215.5,20,-224.5" radius="9" height="0"/></captured>
         </hill>
-        <hill id="Yellow Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
+        <hill name="Yellow Hill" capture-players="lead" capture-time="10s" ratio="2" incremental="true">
             <capture><cylinder base="173.5,38,-257.5" radius="2" height="3"/></capture>
-            <progress><cylinder base="173.5,37,-257.5" radius="2"/></progress>
-            <captured><cylinder base="173.5,37,-257.5" radius="2"/></captured>
+            <progress><cylinder base="173.5,37,-257.5" radius="2" height="0"/></progress>
+            <captured><cylinder base="173.5,37,-257.5" radius="2" height="0"/></captured>
         </hill>
     </hills>
 </king>
@@ -115,8 +115,8 @@
 </itemremove>
 <score>
     <limit>750</limit>
-    <box points="6" region="green-owner-box"/>
-    <box points="6" region="yellow-owner-box"/>
+    <box points="6" region="green-owner-box" filter="only-yellow"/>
+    <box points="6" region="yellow-owner-box" filter="only-green"/>
 </score>
 <killreward>
     <item damage="8261">potion</item>
