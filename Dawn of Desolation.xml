@@ -31,17 +31,24 @@
         <block>-0.5,27,-62.5</block>
         <block>-0.5,27,63.5</block>
     </union>
+    <union name="monuments">
+        <cuboid min="-2,6,-49" max="1,9,-51"/>
+        <cuboid min="1,6,50" max="-2,9,52"/>
+    </union>
 <!-- Applied -->
-    <apply block="only-blue" message="You may not break your own wool source!">
+    <apply block="only-blue" message="You may not break your own wool source.">
         <region name="red-wool-source"/>
     </apply>
-    <apply block="only-red" message="You may not break your own wool source!">
+    <apply block="only-red" message="You may not break your own wool source.">
         <region name="blue-wool-source"/>
     </apply>
-    <apply block="deny-world" message="You may not break the center block of this wool source!">
+    <apply block="deny-world" message="You may not break the center block of this wool source.">
         <region name="center-wools"/>
     </apply>
-    <apply block="deny-world">
+    <apply block-break="deny-world" message="You may not destroy the wool monument!">
+        <region name="monuments"/>
+    </apply>
+    <apply block="deny-world" message="You may not build in the void.">
         <negative>
             <region name="build-region"/>
         </negative>
