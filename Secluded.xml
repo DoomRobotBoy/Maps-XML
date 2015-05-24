@@ -43,9 +43,6 @@
     <apply block="deny-all">
         <region name="in-front-of-spawn"/>
     </apply>
-    <apply block="deny-world">
-        <region name="spawn-chests"/>
-    </apply>
     <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
         <region name="tunnels"/>
     </apply>
