@@ -95,6 +95,20 @@
         <region><cuboid min="-4,44,62" max="-5,47,65"/></region>
     </portal>
 </portals>
+<renewables>
+    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="red-wool-source">
+        <renew-filter>
+            <block>wool:14</block>
+        </renew-filter>
+        <!-- These blocks can be replaced by renewing blocks -->
+    </renewable>
+    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="blue-wool-source">
+        <renew-filter>
+            <block>wool:11</block>
+        </renew-filter>
+        <!-- These blocks can be replaced by renewing blocks -->
+    </renewable>
+</renewables>
 <itemremove>
     <item>obsidian</item>
     <item>smooth brick:0</item>
