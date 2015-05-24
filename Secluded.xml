@@ -1,6 +1,6 @@
 <map proto="1.3.6">
 <name>Secluded</name>
-<version>1.0.0</version>
+<version>1.3.0</version>
 <objective>Leak both enemy cores!</objective>
 <authors>
     <author uuid="7dee9c20-f1c4-4577-bf57-6f392e398b6d"/>
@@ -23,30 +23,22 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <rectangle name="void-gap" min="485,469" max="429,349"/>
-    <cuboid name="void-gap-height" min="485,31,469" max="429,50,349"/>
+    <rectangle name="void-gap" min="395,398" max="515,438"/>
+    <cuboid name="void-gap-height" min="395,31,398" max="515,50,438"/>
     <union name="tunnels">
-        <rectangle name="red-tunnel" min="369,404" max="309,414"/>
-        <rectangle name="blue-tunnel" min="545,414" max="605,404"/>
+        <rectangle name="red-tunnel" min="460,558" max="450,498"/>
+        <rectangle name="blue-tunnel" min="450,278" max="460,338"/>
     </union>
     <union name="in-front-of-spawn" message="You may not modify the area out of spawn!">
-        <rectangle name="in-front-of-red" min="386,405" max="369,413"/>
-        <rectangle name="in-front-of-blue" min="528,413" max="545,405"/>
-    </union>
-    <union name="spawn-chests">
-        <cuboid name="blue-1" min="513,11,389" max="520,5,397"/>
-        <cuboid name="blue-2" min="513,11,405" max="520,5,413"/>
-        <cuboid name="blue-3" min="513,11,421" max="520,5,429"/>
-        <cuboid name="red-1" min="401,11,429" max="394,5,421"/>
-        <cuboid name="red-2" min="401,11,413" max="394,5,405"/>
-        <cuboid name="red-3" min="401,11,397" max="394,5,389"/>
+        <rectangle name="in-front-of-red" min="451,498" max="459,490"/>
+        <rectangle name="in-front-of-blue" min="459,338" max="451,346"/>
     </union>
     <!-- Red -->
-    <cuboid name="red-right-core" min="392,15,433" max="386,20,439"/>
-    <cuboid name="red-left-core" min="392,15,385" max="386,20,379"/>
+    <cuboid name="red-right-core" min="485,15,481" max="479,20,475"/>
+    <cuboid name="red-left-core" min="425,15,481" max="431,20,475"/>
     <!-- Blue -->
-    <cuboid name="blue-right-core" min="522,15,385" max="528,20,379"/>
-    <cuboid name="blue-left-core" min="522,15,433" max="528,20,439"/>
+    <cuboid name="blue-right-core" min="485,15,355" max="479,20,361"/>
+    <cuboid name="blue-left-core" min="425,15,355" max="431,20,361"/>
 <!-- Applied -->
     <apply block="deny-all">
         <region name="in-front-of-spawn"/>
@@ -70,12 +62,12 @@
 <spawns>
     <spawn team="red" yaw="-90">
         <regions>
-            <cuboid min="312,5,408" max="315,5,410"/>
+            <cuboid min="454,5,554" max="456,5,553"/>
         </regions>
     </spawn>
     <spawn team="blue" yaw="90">
         <regions>
-            <cuboid min="602,6,410" max="600,6,408"/>
+            <cuboid min="456,5,282" max="454,5,283"/>
         </regions>
     </spawn>
     <default yaw="-90">
@@ -84,7 +76,7 @@
         </regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="4">
+<cores material="obsidian" leak="6">
     <core name="Right Core" team="red" region="red-right-core"/>
     <core name="Left Core" team="red" region="red-left-core"/>
     <core name="Right Core" team="blue" region="blue-right-core"/>
@@ -98,6 +90,9 @@
 <itemremove>
     <item>obsidian</item>
     <item>glowstone dust</item>
+    <item>grass</item>
+    <item>dirt</item>
+    <item>cobblestone</item>
 </itemremove>
 <maxbuildheight>50</maxbuildheight>
 </map>
