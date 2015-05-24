@@ -60,12 +60,12 @@
     </apply>
 </regions>
 <spawns>
-    <spawn team="red" yaw="-90">
+    <spawn team="red" yaw="180">
         <regions>
             <cuboid min="454,5,554" max="456,5,553"/>
         </regions>
     </spawn>
-    <spawn team="blue" yaw="90">
+    <spawn team="blue" yaw="0">
         <regions>
             <cuboid min="456,5,282" max="454,5,283"/>
         </regions>
