@@ -1,0 +1,93 @@
+<map proto="1.3.6">
+<name>Dawn of Desolation</name>
+<version>1.0.0</version>
+<objective>Capture the enemy wool!</objective>
+<authors>
+    <author uuid="ca2306d1-1198-4d46-8c44-a82f5b3c8a4e"/>
+    <!-- BeanButt -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/>
+    <!-- DoomRobotBoy -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="10">Red Team</team>
+    <team id="blue" color="blue" max="10">Blue Team</team>
+</teams>
+<filters>
+    <filter name="no-void">
+        <not>
+            <void/>
+        </not>
+    </filter>
+</filters>
+<regions>
+    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
+    <rectangle name="void-gap" min="395,398" max="515,438"/>
+    <cuboid name="void-gap-height" min="395,31,398" max="515,50,438"/>
+    <union name="tunnels">
+        <rectangle name="red-tunnel" min="460,558" max="450,498"/>
+        <rectangle name="blue-tunnel" min="450,278" max="460,338"/>
+    </union>
+    <union name="in-front-of-spawn" message="You may not modify the area out of spawn!">
+        <rectangle name="in-front-of-red" min="451,498" max="459,490"/>
+        <rectangle name="in-front-of-blue" min="459,338" max="451,346"/>
+    </union>
+    <!-- Red -->
+    <cuboid name="red-right-core" min="485,15,481" max="479,20,475"/>
+    <cuboid name="red-left-core" min="425,15,481" max="431,20,475"/>
+    <!-- Blue -->
+    <cuboid name="blue-right-core" min="485,15,355" max="479,20,361"/>
+    <cuboid name="blue-left-core" min="425,15,355" max="431,20,361"/>
+<!-- Applied -->
+    <apply block="deny-all">
+        <region name="in-front-of-spawn"/>
+    </apply>
+    <apply block="deny-world">
+        <region name="spawn-chests"/>
+    </apply>
+    <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
+        <region name="tunnels"/>
+    </apply>
+    <apply block="deny-all" message="You may not build above y=30 here!">
+        <region name="void-gap-height"/>
+    </apply>
+    <apply block-place="no-void" message="You may not place blocks in the void area!">
+        <complement>
+            <region name="map"/>
+            <region name="void-gap"/>
+        </complement>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red">
+        <regions yaw="180">
+            <cuboid min="454,5,554" max="456,5,553"/>
+        </regions>
+    </spawn>
+    <spawn team="blue">
+        <regions yaw="0">
+            <cuboid min="456,5,282" max="454,5,283"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="-90">
+            <cuboid min="456,10,282" max="454,10,283"/>
+        </regions>
+    </default>
+</spawns>
+<cores material="obsidian" leak="6">
+    <core name="Right Core" team="red" region="red-right-core"/>
+    <core name="Left Core" team="red" region="red-left-core"/>
+    <core name="Right Core" team="blue" region="blue-right-core"/>
+    <core name="Left Core" team="blue" region="blue-left-core"/>
+</cores>
+<itemremove>
+    <item>obsidian</item>
+    <item>smooth brick</item>
+    <item>grass</item>
+    <item>dirt</item>
+    <item>cobblestone</item>
+</itemremove>
+<maxbuildheight>50</maxbuildheight>
+</map>
