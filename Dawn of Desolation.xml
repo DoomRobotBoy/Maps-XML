@@ -15,79 +15,79 @@
     <team id="blue" color="blue" max="10">Blue Team</team>
 </teams>
 <filters>
-    <filter name="no-void">
-        <not>
-            <void/>
-        </not>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="only-blue">
+        <team>blue</team>
     </filter>
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <rectangle name="void-gap" min="395,398" max="515,438"/>
-    <cuboid name="void-gap-height" min="395,31,398" max="515,50,438"/>
-    <union name="tunnels">
-        <rectangle name="red-tunnel" min="460,558" max="450,498"/>
-        <rectangle name="blue-tunnel" min="450,278" max="460,338"/>
+    <rectangle name="build-region" min="-35,73" max="34,-72"/>
+    <cuboid name="red-wool-source" min="2,25,-60" max="-3,30,-65"/>
+    <cuboid name="blue-wool-source" min="-3,25,61" max="2,30,66"/>
+    <union name="center-wools">
+        <block>-0.5,27,-62.5</block>
+        <block>-0.5,27,63.5</block>
     </union>
-    <union name="in-front-of-spawn" message="You may not modify the area out of spawn!">
-        <rectangle name="in-front-of-red" min="451,498" max="459,490"/>
-        <rectangle name="in-front-of-blue" min="459,338" max="451,346"/>
-    </union>
-    <!-- Red -->
-    <cuboid name="red-right-core" min="485,15,481" max="479,20,475"/>
-    <cuboid name="red-left-core" min="425,15,481" max="431,20,475"/>
-    <!-- Blue -->
-    <cuboid name="blue-right-core" min="485,15,355" max="479,20,361"/>
-    <cuboid name="blue-left-core" min="425,15,355" max="431,20,361"/>
 <!-- Applied -->
-    <apply block="deny-all">
-        <region name="in-front-of-spawn"/>
+    <apply block="only-blue" message="You may not break your own wool source!">
+        <region name="red-wool-source"/>
+    </apply>
+    <apply block="only-red" message="You may not break your own wool source!">
+        <region name="blue-wool-source"/>
+    </apply>
+    <apply block="deny-world" message="You may not break the center block of this wool source!">
+        <region name="center-wools"/>
     </apply>
     <apply block="deny-world">
-        <region name="spawn-chests"/>
-    </apply>
-    <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
-        <region name="tunnels"/>
-    </apply>
-    <apply block="deny-all" message="You may not build above y=30 here!">
-        <region name="void-gap-height"/>
-    </apply>
-    <apply block-place="no-void" message="You may not place blocks in the void area!">
-        <complement>
-            <region name="map"/>
-            <region name="void-gap"/>
-        </complement>
+        <negative>
+            <region name="build-region"/>
+        </negative>
     </apply>
 </regions>
 <spawns>
     <spawn team="red">
-        <regions yaw="180">
-            <cuboid min="454,5,554" max="456,5,553"/>
+        <regions yaw="0">
+            <cylinder base="-0.5,44,-62.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue">
-        <regions yaw="0">
-            <cuboid min="456,5,282" max="454,5,283"/>
+        <regions yaw="180">
+            <cylinder base="-0.5,44,63.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default>
         <regions yaw="-90">
-            <cuboid min="456,10,282" max="454,10,283"/>
+            <cylinder base="0.5,68,0.5" radius="1" height="0"/>
         </regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="6">
-    <core name="Right Core" team="red" region="red-right-core"/>
-    <core name="Left Core" team="red" region="red-left-core"/>
-    <core name="Right Core" team="blue" region="blue-right-core"/>
-    <core name="Left Core" team="blue" region="blue-left-core"/>
-</cores>
+<portals>
+<!-- Red -->
+    <portal x="@-36.5" y="@36" z="@-43.5">
+        <region><cuboid min="-4,44,-61" max="-5,47,-64"/></region>
+    </portal>
+    <portal x="@35.5" y="@36" z="@-43.5">
+        <region><cuboid min="3,44,61" max="4,47,-64"/></region>
+    </portal>
+<!-- Blue -->
+    <portal x="@35.5" y="@36" z="@44.5">
+        <region><cuboid min="3,44,62" max="4,47,-65"/></region>
+    </portal>
+    <portal x="@-36.5" y="@36" z="@44.5">
+        <region><cuboid min="-4,44,62" max="-5,47,65"/></region>
+    </portal>
+</portals>
 <itemremove>
     <item>obsidian</item>
-    <item>smooth brick</item>
-    <item>grass</item>
-    <item>dirt</item>
-    <item>cobblestone</item>
+    <item>smooth brick:0</item>
+    <item>smooth brick:3</item>
+    <item>beacon</item>
+    <item>cobblestone stairs</item>
+    <item>smooth stairs</item>
+    <item>hard clay</item>
 </itemremove>
-<maxbuildheight>50</maxbuildheight>
+<maxbuildheight>42</maxbuildheight>
 </map>
