@@ -87,6 +87,7 @@
     <tool>bow</tool>
     <tool>diamond pickaxe</tool>
     <tool>diamond axe</tool>
+</toolrepair>
 <itemremove>
     <item>obsidian</item>
     <item>glowstone dust</item>
