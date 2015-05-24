@@ -60,19 +60,19 @@
     </apply>
 </regions>
 <spawns>
-    <spawn team="red" yaw="180">
-        <regions>
+    <spawn team="red">
+        <regions yaw="180">
             <cuboid min="454,5,554" max="456,5,553"/>
         </regions>
     </spawn>
-    <spawn team="blue" yaw="0">
-        <regions>
+    <spawn team="blue">
+        <regions yaw="0">
             <cuboid min="456,5,282" max="454,5,283"/>
         </regions>
     </spawn>
-    <default yaw="-90">
-        <regions>
-            <cuboid min="600,11,408" max="601,11,410"/>
+    <default>
+        <regions yaw="-90">
+            <cuboid min="456,10,282" max="454,10,283"/>
         </regions>
     </default>
 </spawns>
