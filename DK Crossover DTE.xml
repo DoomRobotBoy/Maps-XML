@@ -72,7 +72,10 @@
 <filters>
     <filter name="deny-glass">
         <not>
-            <block>stained glass:0</block>
+            <any>
+                <block>stained glass:0</block>
+                <block>stained glass:15</block>
+            </any>
         </not>
     </filter>
     <filter name="deny-lime-clay">
@@ -130,8 +133,9 @@
     <cuboid name="blue-side" min="972,0,359" max="1007,119,440"/>
     <cuboid name="green-side" min="934,0,358" max="942,117,439"/>
     <cuboid name="the-wall" min="968,0,439" max="973,120,359"/>
+<!-- Applied -->
     <apply block-break="deny-glass" message="You may not edit the wall!">
-        <cuboid min="968,0,439" max="973,120,359"/>
+        <region name="map"/>
     </apply>
     <apply block="deny-blocks" message="Bridging is disabled in this area!">
         <cuboid min="944,117,439" max="996,59,359"/>
@@ -188,14 +192,15 @@
     <destroyable name="wall" owner="green" region="the-wall" materials="stained glass:0;wool:4;stained clay:12;wood:1;gold block" completion="0" show="false" mode-changes="true"/>
 </destroyables>
 <modes>
-    <mode after="2m" material="air" name="`3The wall has been removed!"/>
+    <mode after="2m" show-before="0" material="air"/>
 </modes>
 <broadcasts>
     <alert after="1s">Wall comes down in 2 minutes..</alert>
     <alert after="1m">Wall comes down in 1 minute..</alert>
-    <alert after="1m30">Wall comes down in 30 seconds..</alert>
-    <alert after="1m45s">Wall comes down in 15 seconds..</alert>
-    <alert after="1m55s">Wall comes down in 5 seconds..</alert>
+    <alert after="90s">Wall comes down in 30 seconds..</alert>
+    <alert after="105s">Wall comes down in 15 seconds..</alert>
+    <alert after="115s">Wall comes down in 5 seconds..</alert>
+    <alert after="2m">The wall has been removed!</alert>
     <tip after="10s">`7The cobweb areas mark where you are unable to bridge!</tip>
     <tip after="20s">`7There is a jump pad at the bottom of each ladder.</tip>
     <tip after="2m" every="2m" count="oo">`7The cobweb areas mark where you are unable to bridge!</tip>
