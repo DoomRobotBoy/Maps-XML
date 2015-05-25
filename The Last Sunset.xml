@@ -8,13 +8,13 @@
 </authors>
 <broadcasts>
     <tip after="4s" every="3m" count="oo">
-        `3`oYou have to capture the `6`nflags`3`o behind `6`nspawn`3.
+        `3`oYou have to capture the `6flags`3`o behind `6`nspawn`3.
     </tip>
     <tip after="6s" every="3m" count="oo">
-        `3`oTo make the `6`nflags`3`o respawn you have to capture both enemy flags first.
+        `3`oTo make the `6flags`3`o respawn you have to capture both enemy flags first.
     </tip>
     <tip after="10s" every="3m" count="oo">
-        `3`oThere is a `6`nlilypad spawner`3`o in the center that can assist you in offense.
+        `3`oThere is a `6lilypad spawner`3`o in the center that can assist you in offense.
     </tip>
 </broadcasts>
 <teams>
@@ -87,7 +87,7 @@
         <rectangle min="-956,-385" max="-962,-402"/>
     </union>
     <union name="blue-spawn">
-        <rectangle min="-830,-392" max="-808,395"/>
+        <rectangle min="-830,-392" max="-808,-395"/>
         <rectangle min="-825,-396" max="-825,-391"/>
         <rectangle min="-824,-399" max="-809,-388"/>
         <rectangle min="-823,-400" max="-810,-387"/>
