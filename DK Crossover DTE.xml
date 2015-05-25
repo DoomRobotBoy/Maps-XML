@@ -72,17 +72,18 @@
 <filters>
     <filter name="deny-glass">
         <not>
-            <block>stained glass:0</block>
+            <any>
+                <block>stained glass:0</block>
+                <block>stained glass:15</block>
+            </any>
         </not>
     </filter>
-    <filter name="deny-lime-clay">
+    <filter name="deny-some-clay">
         <not>
-            <block>stained clay:5</block>
-        </not>
-    </filter>
-    <filter name="deny-cyan-clay">
-        <not>
-            <block>stained clay:9</block>
+            <any>
+                <block>stained clay:5</block>
+                <block>stained clay:9</block>
+            </any>
         </not>
     </filter>
     <filter name="all-but-tnt">
@@ -131,7 +132,10 @@
     <cuboid name="green-side" min="934,0,358" max="942,117,439"/>
     <cuboid name="the-wall" min="968,0,439" max="973,120,359"/>
 <!-- Applied -->
-    <apply block-break="deny-glass" message="You may not edit the wall!">
+    <apply block-break="deny-glass" message="You may not break white and black glass.">
+        <region name="map"/>
+    </apply>
+    <apply block="deny-some-clay">
         <region name="map"/>
     </apply>
     <apply block="deny-blocks" message="Bridging is disabled in this area!">
@@ -150,12 +154,6 @@
     </apply>
     <apply block="deny-green-explosions" message="You may not blow up your own side!">
         <region name="green-side"/>
-    </apply>
-    <apply block="deny-lime-clay">
-        <region name="map"/>
-    </apply>
-    <apply block="deny-cyan-clay">
-        <region name="map"/>
     </apply>
 <!--  green jump pads - top to bottom  -->
     <apply velocity="@0.0,2.4,0.0" block="deny-all">
