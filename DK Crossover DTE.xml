@@ -72,10 +72,7 @@
 <filters>
     <filter name="deny-glass">
         <not>
-            <any>
-                <block>stained glass:0</block>
-                <block>stained glass:15</block>
-            </any>
+            <block>stained glass:0</block>
         </not>
     </filter>
     <filter name="deny-lime-clay">
