@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<map proto="1.3.5">
+<map proto="1.3.6">
 <name>Harbor</name>
 <version>1.0.0</version>
 <objective>Leak the enemy team's core!</objective>
 <authors>
-    <author>DoomRobotBoy</author>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
 </authors>
 <contributors>
-    <contributor contribution="Boat builder, Measureman & Moral Support">Guicotsch</contributor>
-    <contributor contribution="MapDev Server Host">jollee999</contributor>
+    <contributor uuid="03236737-c1f8-429c-83df-24b537365f5a" contribution="Boat builder, Measureman and Moral Support"/> <!-- Guicotsch -->
+    <contributor uuid="c2848337-b526-4db0-9130-fabd0a5c7cfb" contribution="MapDev Server Host"/> <!-- Rasta_Jol -->
 </contributors>
 <teams>
     <team color="dark red" max="25" max-overfill="27">Red Team</team>
@@ -41,75 +41,65 @@
         <point>381.5,68,-389.5</point>
     </default>
     <spawn team="red" yaw="180" kit="red">
-        <union>
-            <point>411.5,15,-288.5</point>
-            <point>351.5,15,-288.5</point>
-        </union> 
+        <point>411.5,15,-288.5</point>
+        <point>351.5,15,-288.5</point>
     </spawn>
     <spawn team="blue" yaw="0" kit="blue">
-        <union>
-            <point>351.5,15,-490.5</point>
-            <point>411.5,15,-490.5</point>
-        </union> 
+        <point>351.5,15,-490.5</point>
+        <point>411.5,15,-490.5</point>
     </spawn>
 </spawns>
 <filters>
     <filter name="no-void">
-        <void/>
-    </filter>
-    <filter name="no-chest">
-        <deny><block>chest</block></deny>
-    </filter>
-    <filter name="no-chest-tnt">
-        <block>chest</block>
         <not>
-            <cause>explosion</cause>
+            <void/>
         </not>
     </filter>
+    <filter name="deny-chest">
+        <deny><block>chest</block></deny>
+    </filter>
     <filter name="deny-tnt">
+        <block>chest</block>
         <not>
             <cause>explosion</cause>
         </not>
     </filter>
 </filters>
 <regions>
+    <cuboid name="red-core" min="378,26,-358" max="383,30,-355"/>
+    <cuboid name="blue-core" min="385,26,-421" max="380,30,-424"/>
     <union name="red-spawns">
-        <rectangle min="354,-296" max="348,-284"/>
-        <rectangle min="408,-296" max="414,-284"/>
+        <rectangle min="415,-297" max="408,-285"/>
+        <rectangle min="355,-297" max="348,-285"/>
     </union>
     <union name="blue-spawns">
-        <rectangle min="354,-482" max="348,-494"/>
-        <rectangle min="408,-482" max="414,-494"/>
+        <rectangle min="408,-482" max="415,-494"/>
+        <rectangle min="348,-482" max="355,-494"/>
     </union>
     <union name="tnt-supplies">
         <cuboid name="red-tnt-supplies" min="370,15,-331" max="377,19,-317"/>
         <cuboid name="blue-tnt-supplies" min="392,15,-449" max="385,19,-463"/>
     </union>
-    <apply block="no-void" message="You may not modify the void area!">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-    <apply block="deny-all" message="You may not modify the spawns!">
+<!-- Applied -->
+    <apply block="deny-blocks" message="You may not modify the spawn area!">  
         <region name="red-spawns"/>
         <region name="blue-spawns"/>
     </apply>
-    <apply block="no-chest" message="You may not break the TNT chests!">
-        <region name="tnt-supplies"/>
-    </apply>
-    <apply block="no-chest-tnt">
+    <apply block="deny-chest" message="You may not break the TNT chests!">
         <region name="tnt-supplies"/>
     </apply>
     <apply block="deny-tnt">
+        <region name="tnt-supplies"/>
         <region name="red-spawns"/>
         <region name="blue-spawns"/>
     </apply>
+    <apply block="no-void" message="You may not modify the void area!">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
 </regions>
 <cores material="obsidian" leak="10">
-    <core name="Red Crane Core" team="red">
-        <cuboid min="378,26,-354" max="382,29,-358"/>
-    </core>
-    <core name="Blue Crane Core" team="blue">
-        <cuboid min="384,26,-424" max="380,29,-420"/>
-    </core>
+    <core name="Red Crane Core" team="red" region="red-core"/>
+    <core name="Blue Crane Core" team="blue" region="blue-core"/>
 </cores>
 <toolrepair>
     <tool>iron sword</tool>
