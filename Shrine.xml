@@ -4,21 +4,29 @@
 <version>1.0.1</version>
 <objective>Capture the enemy flag and control the center flag to reach the score limit first.</objective>
 <authors>
-    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="Main Author"/>
-<!-- DoomRobotBoy -->
-    <author uuid="557a98be-4ec0-4ac1-a2c4-73eee6c21a5e" contribution="Aesthetics, Roof"/>
-<!-- Linehodres -->
-    <author uuid="dd0aa4b8-f7d7-4e0e-9d13-e5f220f86a7e" contribution="Aesthetics, Roof"/>
-<!-- lordblox -->
-    <author uuid="256194af-149c-4216-8606-65418aa463ed" contribution="Aesthetics, Roof"/>
-<!-- Manucide -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="Main Author"/> <!-- DoomRobotBoy -->
+    <author uuid="557a98be-4ec0-4ac1-a2c4-73eee6c21a5e" contribution="Aesthetics, Roof"/> <!-- Linehodres -->
+    <author uuid="dd0aa4b8-f7d7-4e0e-9d13-e5f220f86a7e" contribution="Aesthetics, Roof"/> <!-- lordblox -->
+    <author uuid="256194af-149c-4216-8606-65418aa463ed" contribution="Aesthetics, Roof"/> <!-- Manucide -->
 </authors>
 <contributors>
-    <contributor uuid="03236737-c1f8-429c-83df-24b537365f5a" contribution="Moral Support"/>
-<!-- Guicotsch -->
-    <contributor uuid="c2848337-b526-4db0-9130-fabd0a5c7cfb" contribution="MapDev Server Host"/>
-<!-- Rasta_Jol -->
+    <contributor uuid="03236737-c1f8-429c-83df-24b537365f5a" contribution="Moral Support"/> <!-- Guicotsch -->
+    <contributor uuid="c2848337-b526-4db0-9130-fabd0a5c7cfb" contribution="MapDev Server Host"/> <!-- Rasta_Jol -->
 </contributors>
+<broadcasts>
+    <tip after="1s">This map is a KotF/CTF map. You have to capture the flags to gain points.</tip>
+    <tip after="3s">Capture the Orange/Cyan Flags in your team's spawn. Each capture awards the team 30 points.</tip>
+    <tip after="4s">The Center flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
+    <tip after="5s">It will give your team 1 point per 2 seconds.</tip>
+    <tip after="6s">Furthermore, kills add 2 points and deaths deduct 1 point.</tip>
+    <tip after="8s">To win you have to be the first team to reach 220 points. Good luck!</tip>
+    <tip after="5m">This map is a KotF/CTF map. You have to capture the flags to gain points.</tip>
+    <tip after="302s">Capture the Orange/Cyan Flags in your team's spawn. Each capture awards the team 30 points.</tip>
+    <tip after="303s">The Center flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
+    <tip after="304s">It will give your team 1 point per 2 seconds.</tip>
+    <tip after="305s">Furthermore, kills add 2 points and deaths deduct 1 point.</tip>
+    <tip after="307s">To win you have to be the first team to reach 220 points.</tip>
+</broadcasts>
 <score>
     <limit>220</limit>
     <kills>2</kills>
@@ -31,7 +39,7 @@
 <kits>
     <kit name="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1" enchantment="arrow fire:1">bow</item>
+        <item slot="1">bow</item>
         <item slot="2" amount="48">bread</item>
         <item slot="3" amount="1">golden apple</item>
         <item slot="28" amount="32">arrow</item>
@@ -39,14 +47,13 @@
         <leggings damage="-3000">chainmail leggings</leggings>
         <potion duration="5" amplifier="10">heal</potion>
         <potion duration="5" amplifier="10">damage resistance</potion>
-        <potion duration="oo">fire resistance</potion>
     </kit>
-    <kit name="orange" parents="spawn">
+    <kit name="orange-kit" parents="spawn">
         <helmet color="D87F33" damage="-3000">leather helmet</helmet>
         <chestplate color="D87F33" damage="-3000">leather chestplate</chestplate>
         <boots color="D87F33" damage="-3000">leather boots</boots>
     </kit>
-    <kit name="cyan" parents="spawn">
+    <kit name="cyan-kit" parents="spawn">
         <helmet color="4C7F99" damage="-3000">leather helmet</helmet>
         <chestplate color="4C7F99" damage="-3000">leather chestplate</chestplate>
         <boots color="4C7F99" damage="-3000">leather boots</boots>
@@ -54,10 +61,10 @@
 </kits>
 <filters>
     <filter name="only-orange">
-        <team>Orange Team</team>
+        <team>orange</team>
     </filter>
     <filter name="only-cyan">
-        <team>Cyan Team</team>
+        <team>cyan</team>
     </filter>
 </filters>
 <regions>
@@ -86,7 +93,7 @@
         <cuboid min="164,9,304" max="172,14,305"/>
         <cuboid min="171,9,305" max="177,14,306"/>
     </union>
-    <cuboid name="orange-wool-room" min="198,11,386" max="219,16,385"/>
+    <cuboid name="orange-wool-room" min="198,11,330" max="219,16,329"/>
     <cuboid name="cyan-wool-room" min="198,11,114" max="219,16,113"/>
     <union name="orange-nets">
         <block>252.5,11,125.5</block>
@@ -112,12 +119,12 @@
     </apply>
 </regions>
 <spawns>
-    <spawn team="orange" kit="orange">
+    <spawn team="orange" kit="orange-kit">
         <regions yaw="0">
             <region name="orange-spawns"/>
         </regions>
     </spawn>
-    <spawn team="cyan" kit="cyan">
+    <spawn team="cyan" kit="cyan-kit">
         <regions yaw="180">
             <region name="cyan-spawns"/>
         </regions>
@@ -130,8 +137,8 @@
 </spawns>
 <flags>
     <post id="center-post" recover-time="0s" respawn-time="5s">208.5,9,221.5</post>
-    <post id="orange-post" recover-time="5s" respawn-time="5s" owner="orange" yaw="0" points-rate="1" pickup-filter="only-orange">208.5,10,174.5</post>
-    <post id="cyan-post" recover-time="5s" respawn-time="5s" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-cyan">208.5,10,268.5</post>
+    <post id="orange-post" recover-time="5s" respawn-time="3s" owner="orange" yaw="0" points-rate="1" pickup-filter="only-cyan">208.5,10,174.5</post>
+    <post id="cyan-post" recover-time="5s" respawn-time="3s" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-orange">208.5,10,268.5</post>
     <flag name="Shrine Flag" color="white" shared="true" post="center-post" points-rate="0.5">
         <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
         <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
@@ -141,14 +148,17 @@
         <drop-kit force="true">
             <potion duration="0">slow</potion>
         </drop-kit>
+        <carry-message>Capture the flag on the emerald block in the center of your team's side.</carry-message>
     </flag>
     <flag id="orange-flag" name="Orange Flag" color="gold" shared="true">
-        <post recover-time="0s" respawn-time="5s" pickup-filter="only-cyan">208.5,11,103.5</post>
+        <post recover-time="2s" respawn-time="5s" pickup-filter="only-cyan">208.5,11,103.5</post>
         <net points="30" region="orange-nets"/>
+        <carry-message>You are carrying the flag! Capture it in your spawn.</carry-message>
     </flag>
     <flag id="cyan-flag" name="Cyan Flag" color="dark aqua" shared="true">
-        <post recover-time="0s" respawn-time="5s" pickup-filter="only-orange">208.5,11,339.5</post>
+        <post recover-time="2s" respawn-time="5s" pickup-filter="only-orange">208.5,11,339.5</post>
         <net points="30" region="cyan-nets"/>
+        <carry-message>You are carrying the flag! Capture it in your spawn.</carry-message>
     </flag>
 </flags>
 <killreward>
