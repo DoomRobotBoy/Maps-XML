@@ -40,7 +40,7 @@
     <cuboid name="blue-right-core" min="485,15,355" max="479,20,361"/>
     <cuboid name="blue-left-core" min="425,15,355" max="431,20,361"/>
 <!-- Applied -->
-    <apply block="deny-all">
+    <apply block="deny-world">
         <region name="in-front-of-spawn"/>
     </apply>
     <apply enter="deny-all" block="deny-world" message="You may not enter the spawn tunnel!">
