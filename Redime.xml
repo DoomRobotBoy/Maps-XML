@@ -2,102 +2,72 @@
 <map proto="1.3.6">
 <name>Redime</name>
 <version>1.0.0</version>
-<objective>Be the team with the most amount of points after 10 minutes.</objective>
+<objective>Be the team with the most points after 10 minutes.</objective>
 <authors>
     <author>rockymine</author>
     <author>DoomRobotBoy</author>
 </authors>
-<rules>
-    <rule>Do not block-glitch on the sides!</rule>
-</rules>
 <teams>
-    <team color="blue" max="20" max-overfill="24">Blue Team</team>
-    <team color="dark red" max="20" max-overfill="24">Red Team</team>
+    <team id="blue" color="blue" max="20" max-overfill="24">Blue Team</team>
+    <team id="red" color="dark red" max="20" max-overfill="24">Red Team</team>
 </teams>
-<score>
-    <time>600</time>
-    <limit>-1</limit>
-    <box filter="only-red" region="red-depot">
-        <redeemables>
-            <item points="20">emerald</item>
-            <item points="12">diamond</item>
-            <item points="6">gold ingot</item>
-        </redeemables>
-    </box>
-    <box filter="only-blue" region="blue-depot">
-        <redeemables>
-            <item points="20">emerald</item>
-            <item points="12">diamond</item>
-            <item points="6">gold ingot</item>
-        </redeemables>
-    </box>
-    <box value="6" filter="only-red" cooldown="1">
-        <region><cuboid min="92,3,-458" max="89,4,-459"/></region>
-    </box>
-    <box value="6" filter="only-red" cooldown="1">
-        <region><cuboid min="92,7,-458" max="89,8,-459"/></region>
-    </box>
-    <box value="6" filter="only-red" cooldown="1">
-        <region><cuboid min="145,3,-458" max="148,4,-459"/></region>
-    </box>
-    <box value="6" filter="only-red" cooldown="1">
-        <region><cuboid min="145,7,-458" max="148,8,-459"/></region>
-    </box>
-    <box value="6" filter="only-blue" cooldown="1">
-        <region><cuboid min="92,3,-458" max="89,4,-459"/></region>
-    </box>
-    <box value="6" filter="only-blue" cooldown="1">
-        <region><cuboid min="92,7,-458" max="89,8,-459"/></region>
-    </box>
-    <box value="6" filter="only-blue" cooldown="1">
-        <region><cuboid min="145,3,-458" max="148,4,-459"/></region>
-    </box>
-    <box value="6" filter="only-blue" cooldown="1">
-        <region><cuboid min="145,7,-458" max="148,8,-459"/></region>
-    </box>
-</score>
 <kits>
     <kit name="spawn">
-        <item slot="0" damage="-3000">stone sword</item>
+        <item slot="0" damage="-3000">iron sword</item>
         <item slot="1" damage="-3000">bow</item>
-        <item slot="2" enchantment="dig speed:1" lore="Use this to mine the opposite teams' monument!" damage="-3000">iron pickaxe</item>
+        <item slot="2" enchantment="dig speed:1" name="Monumental Miner" lore="Use this to mine the opposite teams' monument!" damage="-3000">iron pickaxe</item>
         <item slot="3" amount="2">golden apple</item>
         <item slot="28" amount="16">arrow</item>
         <leggings damage="-3000">chainmail leggings</leggings>
         <boots damage="-3000">iron boots</boots>
         <potion duration="5" amplifier="1">heal</potion>
     </kit>
-    <kit name="red" parents="spawn" force="true">
+    <kit name="red-kit" parents="spawn" force="true">
         <helmet color="993333" damage="-3000">leather helmet</helmet>
         <chestplate color="993333" damage="-3000">leather chestplate</chestplate>
     </kit>
-    <kit name="blue" parents="spawn" force="true">
+    <kit name="blue-kit" parents="spawn" force="true">
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
         <chestplate color="334CB2" damage="-3000">leather chestplate</chestplate>
     </kit>
 </kits>
 <spawns>
-    <spawn team="red" kit="red" yaw="0">
-        <block>118.5,11,-362.5</block>
+    <spawn team="red" kit="red-kit">
+        <regions yaw="0">
+            <block name="red-spawn">118.5,11,-362.5</block>
+        </regions>
     </spawn>
-    <spawn team="blue" kit="blue" yaw="180">
-        <block>118.5,11,-458.5</block>
+    <spawn team="blue" kit="blue-kit">
+        <regions yaw="180">
+            <block name="blue-spawn">118.5,11,-458.5</block>
+        </regions>
     </spawn>
-    <default kit="default">
-        <block>118.5,3,-410.5</block>
+    <default>
+        <regions>
+            <block>118.5,3,-410.5</block>
+        </regions>
     </default>
 </spawns>
 <filters>
     <filter name="red-only">
-        <team>Red Team</team>
+        <team>red</team>
     </filter>
     <filter name="blue-only">
-        <team>Blue Team</team>
+        <team>blue</team>
     </filter>
 </filters>
 <regions>
     <cuboid name="red-depot" min="119,3,-370" max="118,5,-371"/>
     <cuboid name="blue-depot" min="119,3,-450" max="118,5,-451"/>
+    <union name="red-scoreboxes">
+        <cuboid name="scorebox-blue-1" min="88,3,-460" max="93,9,-458"/>
+        <cuboid name="scorebox-blue-2" min="144,3,-460" max="149,9,-458"/>
+    </union>
+    <union name="blue-scoreboxes">
+        <cuboid name="scorebox-red-1" min="88,3,-363" max="93,9,-361"/>
+        <cuboid name="scorebox-red-2" min="144,3,-363" max="149,9,-361"/>
+    </union>
+<!-- Applied -->
     <apply block-break="red-only">
         <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
     </apply>
@@ -107,8 +77,8 @@
     <apply block="deny-all">
         <negative>
             <union name="destroyable-regions">
-                <cuboid name="red-monument" min="121,5,-394" max="115,18,-387"/>
-                <cuboid name="blue-monument" min="115,5,-427" max="122,18,-434"/>
+                <region name="blue-monument"/>
+                <region name="red-monument"/>
             </union>
         </negative>
     </apply>
@@ -138,6 +108,32 @@
         <block name="blue-jump-pad">118.5,11,-422.5</block> 
     </apply>
 </regions>
+<score>
+    <time>600</time>
+    <limit>-1</limit>
+    <box filter="only-red" region="red-depot">
+        <redeemables>
+            <item points="20">emerald</item>
+            <item points="12">diamond</item>
+            <item points="6">gold ingot</item>
+        </redeemables>
+    </box>
+    <box filter="only-blue" region="blue-depot">
+        <redeemables>
+            <item points="20">emerald</item>
+            <item points="12">diamond</item>
+            <item points="6">gold ingot</item>
+        </redeemables>
+    </box>
+    <box value="6" filter="only-red" region="scorebox-blue-1"/>
+    <box value="6" filter="only-red" region="scorebox-blue-2"/>
+    <box value="6" filter="only-blue" region="scorebox-red-1"/>
+    <box value="6" filter="only-blue" region="scorebox-red-2"/>
+</score>
+<portals>
+    <portal destination="red-spawn" region="blue-scoreboxes"/>
+    <portal destination="blue-spawn" region="red-scoreboxes"/>
+</portals>
 <itemremove>
     <item>iron pickaxe</item>
     <item>arrow</item>
@@ -198,8 +194,6 @@
 </blockdrops>
 <broadcasts>
     <tip after="10s" every="2m">Bring the gems, acquired from the opposing `8Monument, back to your Gem Scorepoint to receive more points.</tip>
-    <alert after="15s" every="2m">Blockglitching is against the rules!</alert>
-    <alert after="25s" every="2m">To win you must have the most amount of points after 10 minutes!</alert>
-    <alert after="5m">5 minutes left!</alert>
+    <alert after="15s" every="2m">To win you must have the most amount of points after 10 minutes!</alert>
 </broadcasts>
 </map>
