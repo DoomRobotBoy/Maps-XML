@@ -1,17 +1,17 @@
-<map proto="1.3.6">
+<map proto="1.4.0" game="Blitz">
 <name>Rough Patch</name>
 <version>1.0.0</version>
-<objective>
-    Eliminate the enemy team before time runs out!
-</objective>
+<objective>Eliminate the enemy team before time runs out!</objective>
 <authors>
-    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-<!-- DoomRobotBoy -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </authors>
 <teams>
-    <team id="redt" color="dark red" max="14" max-overfill="16">Red Team</team>
-    <team id="bluet" color="blue" max="14" max-overfill="16">Blue Team</team>
+    <team id="redt" color="dark red" max="14" max-overfill="16">Red</team>
+    <team id="bluet" color="blue" max="14" max-overfill="16">Blue</team>
 </teams>
+<broadcasts>
+    <tip after="5s">For enchanting you need lapis lazuli, which can be found in your inventory.</tip>
+</broadcasts>
 <spawns>
     <spawn team="redt" kit="red">
         <regions yaw="-180">
@@ -23,72 +23,71 @@
             <cylinder base="216.5,23,81.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <default>
+    <default kit="all">
         <regions yaw="180">
             <cylinder base="256.5,20,117.5" radius="1" height="0"/>
         </regions>
     </default>
 </spawns>
 <kits>
-    <kit id="spawn">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow damage:1">bow</item>
-        <item slot="2">golden apple</item>
-        <item slot="4" damage="-3000" enchantment="dig speed:1">shears</item>
-        <item slot="8" amount="5">exp bottle</item>
-        <item slot="28" amount="24">arrow</item>
+    <kit id="all">
         <potion duration="oo">night vision</potion>
-        <chestplate locked="true" damage="-3000">iron chestplate</chestplate>
-        <leggings locked="true" damage="-3000">iron leggings</leggings>
+    </kit>
+    <kit id="spawn" parents="all">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow damage:1">bow</item>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1">shears</item>
+        <item slot="5" amount="32">golden carrot</item>
+        <item slot="6" amount="5">exp bottle</item>
+        <item slot="7">golden apple</item>
+        <item slot="8" amount="24">arrow</item>
+        <item slot="17" amount="64" damage="4">ink sack</item>
+        <chestplate unbreakable="true" enchantment="protection projectile:1">iron chestplate</chestplate>
+        <leggings unbreakable="true">iron leggings</leggings>
     </kit>
     <kit id="red" parents="spawn">
-        <item slot="3" damage="14">wool</item>
-        <helmet color="907D66" damage="-3000">leather helmet</helmet>
-        <boots color="907D66" damage="-3000">leather boots</boots>
+        <item slot="3" damage="14" amount="12">wool</item>
+        <helmet color="993333" unbreakable="true">leather helmet</helmet>
+        <boots color="993333" unbreakable="true">leather boots</boots>
     </kit>
     <kit id="blue" parents="spawn">
-        <item slot="3" damage="11">wool</item>
-        <helmet color="907D66" damage="-3000">leather helmet</helmet>
-        <boots color="907D66" damage="-3000">leather boots</boots>
+        <item slot="3" damage="11" amount="12">wool</item>
+        <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
+        <boots color="334CB2" unbreakable="true">leather boots</boots>
     </kit>
 </kits>
 <killreward>
     <item>golden apple</item>
 </killreward>
 <killreward>
-    <item amount="8" damage="14">wool</item>
+    <item amount="4" damage="14">wool</item>
     <filter>
         <team>redt</team>
     </filter>
 </killreward>
 <killreward>
-    <item amount="8" damage="11">wool</item>
+    <item amount="4" damage="11">wool</item>
     <filter>
         <team>bluet</team>
     </filter>
 </killreward>
 <filters>
-    <filter id="only-wool">
-        <block>wool</block>
-    </filter>
-    <filter id="no-void">
-        <not>
-            <void/>
-        </not>
-    </filter>
+    <material id="only-wool">wool</material>
+    <not id="no-void">
+        <void/>
+    </not>
 </filters>
 <regions>
     <apply block="only-wool">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
+        <everywhere/>
     </apply>
     <apply block="no-void">
-        <rectangle min="-oo,-oo" max="oo,oo"/>
+        <everywhere/>
     </apply>
 </regions>
+<time>7m</time>
 <blitz>
-    <time>7m</time>
     <lives>1</lives>
-    <title>Blitz</title>
 </blitz>
 <include src="blitz-global.xml"/>
 <itemremove>
@@ -100,8 +99,10 @@
     <item>leather boots</item>
     <item>exp bottle</item>
     <item>golden apple</item>
+    <item>ink sack</item>
     <item>wool</item>
     <item>shears</item>
+    <item>golden carrot</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
