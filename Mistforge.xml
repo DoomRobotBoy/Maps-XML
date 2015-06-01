@@ -11,8 +11,8 @@
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/< <!-- DoomRobotBoy -->
 </contributors>
 <teams>
-    <team color="dark red" max="7">Red</team>
-    <team color="blue" max="7">Blue</team>
+    <team id="red" color="dark red" max="20" max-overfill="24">Red Team</team>
+    <team id="blue" color="blue" max="20" max-overfill="24">Blue Team</team>
 </teams>
 <kits>
     <kit name="spawn">
@@ -26,12 +26,12 @@
         <leggings unbreakable="true" enchantment="protection_fire:2">iron leggings</leggings>
         <potion duration="oo">night vision</potion>
     </kit>
-    <kit name="red" parents="spawn">
+    <kit id="red-kit" parents="spawn">
         <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
         <chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
         <boots color="cd0000" unbreakable="true">leather boots</boots>
     </kit>
-    <kit name="blue" parents="spawn">
+    <kit id="blue-kit" parents="spawn">
         <helmet color="0066cc" unbreakable="true">leather helmet</helmet>
         <chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
         <boots color="0066cc" unbreakable="true">leather boots</boots>
@@ -59,29 +59,6 @@
     <item>iron chestplate</item>
     <item>iron boots</item>
 </itemremove>
-<filters>
-    <filter name="only-blue">
-        <team>blue</team>
-    </filter>
-    <filter name="only-red">
-        <team>red</team>
-    </filter>
-    <filter name="blue-2nd" parents="deny-all">
-        <allow>
-            <objective>blue-2nd</objective>
-        </allow>
-    </filter>
-    <filter name="red-2nd" parents="deny-all">
-        <allow>
-            <objective>red-2nd</objective>
-        </allow>
-    </filter>
-    <filter name="mid-held" parents="deny-all">
-        <allow>
-            <objective>mid</objective>
-        </allow>
-    </filter>
-</filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
 <!-- Applied -->
