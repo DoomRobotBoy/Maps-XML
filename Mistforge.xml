@@ -54,8 +54,10 @@
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+    <cuboid id="jump-pad" min="-61,16,126" max="-60,16,127"/>
 <!-- Applied -->
     <apply block="only-leaves" region="map"/>
+    <apply velocity="0.0,0.8,0.0" region="jump-pad"/>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
