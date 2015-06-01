@@ -62,10 +62,18 @@
     </filter>
 </filters>
 <regions>
+    <rectangle min="oo,oo" max="-oo,oo"/>
     <apply block="deny-players">
         <rectangle min="-oo,-oo" max="oo,oo"/>
     </apply>
 </regions>
+<control-points show-progress="false">
+    <control-point id="center" capture-time="0s">
+        <capture><region name="map"/></capture>
+        <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
+        <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+    </control-point>
+</control-points>
 <itemremove>
     <item>leather helmet</item>
     <item>golden apple</item>
