@@ -6,9 +6,9 @@
     <author uuid="15dc7f7a-40cd-4389-ad45-f8a33a09a394"/> <!--  Avoire  -->
 </authors>
 <contributors>
-    <contributor uuid="c65e66b3-e932-4b33-b907-fe4916806076" contribution="Tree Help"/< <!-- Draco_Rogue -->
-    <contributor uuid="dad8b95c-cf6a-44df-982e-8c8dd70201e0" contribution="Feedback"/< <!-- ElectroidFilms -->
-    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/< <!-- DoomRobotBoy -->
+    <contributor uuid="c65e66b3-e932-4b33-b907-fe4916806076" contribution="Tree Help"/> <!-- Draco_Rogue -->
+    <contributor uuid="dad8b95c-cf6a-44df-982e-8c8dd70201e0" contribution="Feedback"/> <!-- ElectroidFilms -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
 </contributors>
 <teams>
     <team id="red" color="dark red" max="32" max-overfill="44">Red</team>
@@ -20,11 +20,9 @@
         <item slot="1" enchanment="arrow_infinite:1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
         <item slot="3">golden apple</item>
-        <item slot="28" amount="1">arrow</item>
-        <potion duration="12" amplifier="3">heal</potion>
-        <potion duration="13" amplifier="2">damage resistance</potion>
+        <item slot="28">arrow</item>
+        <potion duration="4">damage resistance</potion>
         <leggings unbreakable="true">iron leggings</leggings>
-        <potion duration="oo">night vision</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
         <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
@@ -52,26 +50,22 @@
     <item>iron leggings</item>
 </itemremove>
 <filters>
-    <filter name="only-leaves">
-        <block>leaves</block>
-    </filter>
+    <material id="only-leaves">leaves</material>
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
 <!-- Applied -->
-    <apply block="only-leaves">
-        <region name="map"/>
-    </apply>
+    <apply block="only-leaves" region="map"/>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
-        <regions yaw="">
-            <cylinder base="0,247,88" radius=".3" height="0"/>
+        <regions yaw="135">
+            <cylinder base="-18.5,25,212.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
-        <regions yaw="">
-            <cylinder base="0,247,88" radius=".3" height="0"/>
+        <regions yaw="45">
+            <cylinder base="-18.5,25,40.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default>
