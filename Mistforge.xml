@@ -11,19 +11,19 @@
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/< <!-- DoomRobotBoy -->
 </contributors>
 <teams>
-    <team id="red" color="dark red" max="20" max-overfill="24">Red Team</team>
-    <team id="blue" color="blue" max="20" max-overfill="24">Blue Team</team>
+    <team id="red" color="dark red" max="32" max-overfill="44">Red</team>
+    <team id="blue" color="blue" max="32" max-overfill="44">Blue</team>
 </teams>
 <kits>
     <kit name="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1">bow</item>
-        <item slot="2" damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
-        <item slot="3" amount="32">cooked beef</item>
-        <item slot="28" amount="24">arrow</item>
+        <item slot="1" enchanment="arrow_infinite:1">bow</item>
+        <item slot="2" amount="32">cooked beef</item>
+        <item slot="3">golden apple</item>
+        <item slot="28" amount="1">arrow</item>
         <potion duration="12" amplifier="3">heal</potion>
         <potion duration="13" amplifier="2">damage resistance</potion>
-        <leggings unbreakable="true" enchantment="protection_fire:2">iron leggings</leggings>
+        <leggings unbreakable="true">iron leggings</leggings>
         <potion duration="oo">night vision</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
@@ -38,31 +38,30 @@
     </kit>
 </kits>
 <killreward>
-    <item amount="12">arrow</item>
-    <item damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
-    <item amount="1">iron ingot</item>
+    <item>golden apple</item>
 </killreward>
-<toolrepair>
-    <tool>stone sword</tool>
-    <tool>bow</tool>
-</toolrepair>
 <itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>cooked beef</item>
+    <item>golden apple</item>
+    <item>arrow</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>leather boots</item>
     <item>iron leggings</item>
-    <item>cooked beef</item>
-    <item>glass bottle</item>
-    <item>potion</item>
-    <item>arrow</item>
-    <item>iron helmet</item>
-    <item>iron chestplate</item>
-    <item>iron boots</item>
 </itemremove>
+<filters>
+    <filter name="only-leaves">
+        <block>leaves</block>
+    </filter>
+</filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
 <!-- Applied -->
-    <apply block="never" region="map"/>
+    <apply block="only-leaves">
+        <region name="map"/>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
@@ -82,7 +81,7 @@
     </default>
 </spawns>
 <control-points incremental="true" neutral-state="true" show-progress="true">
-    <control-point initial-owner="red" id="red-back" name="Red Back Point" capture-time="3s">
+    <control-point initial-owner="red" id="red-last" name="Red Courtyard" capture-time="10s">
         <capture>
             <cylinder base="-35.5,24,232.5" radius="5" height="2"/>
         </capture>
@@ -99,7 +98,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-front" name="Red Front Point" capture-time="4s">
+    <control-point initial-owner="red" id="red-2nd" name="Red Aqueduct" capture-time="12s">
         <capture>
             <cylinder base="-96.5,22,187.5" radius="5" height="2"/>
         </capture>
@@ -119,7 +118,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid-dam" name="Dam Point" capture-time="5s">
+    <control-point id="mid-dam" name="Dam" capture-time="15s">
         <capture>
             <cylinder base="-48.5,24,126.5" radius="5" height="2"/>
         </capture>
@@ -131,12 +130,12 @@
         </captured>
         <player-filter>
             <any>
-                <objective>red-front</objective>
-                <objective>blue-front</objective>
+                <objective>red-2nd</objective>
+                <objective>blue-2nd</objective>
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid-river" name="River Point" capture-time="5s">
+    <control-point id="mid-river" name="River" capture-time="15s">
         <capture>
             <cylinder base="-150.5,18,126.5" radius="5" height="2"/>
         </capture>
@@ -148,12 +147,12 @@
         </captured>
         <player-filter>
             <any>
-                <objective>red-front</objective>
-                <objective>blue-front</objective>
+                <objective>red-2nd</objective>
+                <objective>blue-2nd</objective>
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-front" name="Blue Front Point" capture-time="4s">
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue Aqueduct" capture-time="12s">
         <capture>
             <cylinder base="-96.5,22,65.5" radius="5" height="2"/>
         </capture>
@@ -169,11 +168,11 @@
                     <objective>mid-dam</objective>
                     <objective>mid-river</objective>
                 </all>
-                <objective>blue-back</objective>
+                <objective>blue-last</objective>
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-back" name="Blue Back Point" capture-time="3s">
+    <control-point initial-owner="blue" id="blue-last" name="Blue Courtyard" capture-time="10s">
         <capture>
             <cylinder base="-35.5,24,20.5" radius="5" height="2"/>
         </capture>
@@ -185,11 +184,11 @@
         </captured>
         <player-filter>
             <any>
-                <objective>blue-front</objective>
+                <objective>blue-2nd</objective>
                 <team>blue</team>
             </any>
         </player-filter>
     </control-point>
 </control-points>
-<time result="objectives">12m</time>
+<time result="objectives">25m</time>
 </map>
