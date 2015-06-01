@@ -114,13 +114,13 @@
     </control-point>
     <control-point id="mid-dam" name="Dam" capture-time="15s">
         <capture>
-            <cylinder base="-48.5,24,126.5" radius="6" height="2"/>
+            <cylinder base="-48.5,24,126.5" radius="7" height="2"/>
         </capture>
         <progress>
-            <cylinder base="-48.5,23,126.5" radius="6" height="1"/>
+            <cylinder base="-48.5,23,126.5" radius="7" height="1"/>
         </progress>
         <captured>
-            <cylinder base="-48.5,23,126.5" radius="6" height="1"/>
+            <cylinder base="-48.5,23,126.5" radius="7" height="1"/>
         </captured>
         <player-filter>
             <any>
