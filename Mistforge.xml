@@ -75,9 +75,9 @@
             <cylinder base="0,247,88" radius=".3" height="0"/>
         </regions>
     </spawn>
-    <default kit="obs">
-        <regions yaw="">
-            <cylinder base="0,247,88" radius=".3" height="0"/>
+    <default>
+        <regions yaw="90">
+            <cylinder base="-60.5,32,126.5" radius=".5" height="0"/>
         </regions>
     </default>
 </spawns>
