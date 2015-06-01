@@ -1,0 +1,218 @@
+<map proto="1.4.0">
+<name>Mistforge</name>
+<version>1.0.0</version>
+<objective>Capture all 6 sequential control points.</objective>
+<authors>
+    <author uuid="15dc7f7a-40cd-4389-ad45-f8a33a09a394"/> <!--  Avoire  -->
+</authors>
+<contributors>
+    <contributor uuid="c65e66b3-e932-4b33-b907-fe4916806076" contribution="Tree Help"/< <!-- Draco_Rogue -->
+    <contributor uuid="dad8b95c-cf6a-44df-982e-8c8dd70201e0" contribution="Feedback"/< <!-- ElectroidFilms -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/< <!-- DoomRobotBoy -->
+</contributors>
+<teams>
+    <team color="dark red" max="7">Red</team>
+    <team color="blue" max="7">Blue</team>
+</teams>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
+        <item slot="3" amount="32">cooked beef</item>
+        <item slot="28" amount="24">arrow</item>
+        <potion duration="12" amplifier="3">heal</potion>
+        <potion duration="13" amplifier="2">damage resistance</potion>
+        <leggings unbreakable="true" enchantment="protection_fire:2">iron leggings</leggings>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+        <chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+        <boots color="cd0000" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+        <chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+        <boots color="0066cc" unbreakable="true">leather boots</boots>
+    </kit>
+</kits>
+<killreward>
+    <item amount="12">arrow</item>
+    <item damage="8225" potions="regeneration:120:1:false;heal:1:0:false">potion</item>
+    <item amount="1">iron ingot</item>
+</killreward>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>iron leggings</item>
+    <item>cooked beef</item>
+    <item>glass bottle</item>
+    <item>potion</item>
+    <item>arrow</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron boots</item>
+</itemremove>
+<filters>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="blue-2nd" parents="deny-all">
+        <allow>
+            <objective>blue-2nd</objective>
+        </allow>
+    </filter>
+    <filter name="red-2nd" parents="deny-all">
+        <allow>
+            <objective>red-2nd</objective>
+        </allow>
+    </filter>
+    <filter name="mid-held" parents="deny-all">
+        <allow>
+            <objective>mid</objective>
+        </allow>
+    </filter>
+</filters>
+<regions>
+    <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+<!-- Applied -->
+    <apply block="never" region="map"/>
+</regions>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions yaw="">
+            <cylinder base="0,247,88" radius=".3" height="0"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions yaw="">
+            <cylinder base="0,247,88" radius=".3" height="0"/>
+        </regions>
+    </spawn>
+    <default kit="obs">
+        <regions yaw="">
+            <cylinder base="0,247,88" radius=".3" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<control-points incremental="true" neutral-state="true" show-progress="true">
+    <control-point initial-owner="red" id="red-back" name="Red Back Point" capture-time="3s">
+        <capture>
+            <cylinder base="-35.5,24,232.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-35.5,23,232.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-35.5,23,232.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-2nd</objective>
+                <team>red</team>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="red" id="red-front" name="Red Front Point" capture-time="4s">
+        <capture>
+            <cylinder base="-96.5,22,187.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-96.5,21,187.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-96.5,21,187.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-last</objective>
+                <all>
+                    <objective>mid-dam</objective>
+                    <objective>mid-river</objective>
+                </all>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point id="mid-dam" name="Dam Point" capture-time="5s">
+        <capture>
+            <cylinder base="-48.5,24,126.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-48.5,23,126.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-48.5,23,126.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-front</objective>
+                <objective>blue-front</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point id="mid-river" name="River Point" capture-time="5s">
+        <capture>
+            <cylinder base="-150.5,18,126.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-150.5,17,126.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-150.5,17,126.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-front</objective>
+                <objective>blue-front</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-front" name="Blue Front Point" capture-time="4s">
+        <capture>
+            <cylinder base="-96.5,22,65.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-96.5,21,65.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-96.5,21,65.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <all>
+                    <objective>mid-dam</objective>
+                    <objective>mid-river</objective>
+                </all>
+                <objective>blue-back</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-back" name="Blue Back Point" capture-time="3s">
+        <capture>
+            <cylinder base="-35.5,24,20.5" radius="5" height="2"/>
+        </capture>
+        <progress>
+            <cylinder base="-35.5,23,20.5" radius="5" height="1"/>
+        </progress>
+        <captured>
+            <cylinder base="-35.5,23,20.5" radius="5" height="1"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>blue-front</objective>
+                <team>blue</team>
+            </any>
+        </player-filter>
+    </control-point>
+</control-points>
+<time result="objectives">12m</time>
+</map>
