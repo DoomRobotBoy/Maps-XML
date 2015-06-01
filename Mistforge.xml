@@ -15,7 +15,7 @@
     <team id="blue" color="blue" max="32" max-overfill="44">Blue</team>
 </teams>
 <kits>
-    <kit name="spawn">
+    <kit id="spawn">
         <item slot="0">stone sword</item>
         <item slot="1" enchanment="arrow_infinite:1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
