@@ -11,7 +11,7 @@
 <broadcasts>
     <tip after="1s">You can capture the flag at the beacon after the entire enemy team is dead.</tip>
     <tip after="3s">Note that teams can respawn when in possession of the flag.</tip>
-    <tip after="3s">Teams can also respawn when no one has control of the flag.</tip>
+    <tip after="4s">Teams can also respawn when no one has control of the flag.</tip>
 </broadcasts>
 <teams>
     <team color="blue" max="20" max-overfill="24">Blue Team</team>
@@ -108,9 +108,9 @@
     <net id="net" flag="flag" point="1" filter="hill">
         <block>-260.5,5,98.5</block>
     </net>
-    <post id="post" return-time="0s" respawn-time="7s">
+    <post id="post" return-time="0s" respawn-time="10s">
         <block>-260.5,5,98.5</block>
     </post>
-    <flag id="flag" name="Flag" shared="true" post="post" net="net" pickup-kit="flag" drop-kit="reset-health"/>
+    <flag id="flag" name="Flag" color="white" shared="true" post="post" net="net" pickup-kit="flag" drop-kit="reset-health"/>
 </flags>
 </map>
