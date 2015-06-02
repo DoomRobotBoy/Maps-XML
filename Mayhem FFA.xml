@@ -92,7 +92,7 @@
     </filter>
 </killreward>
 <killreward>
-    <potion duration="3" amplifier="5">health boost</potion>
+    <potion duration="3" amplifier="3">health boost</potion>
     <filter>
         <kill-streak count="6" repeat="true"/>
     </filter>
