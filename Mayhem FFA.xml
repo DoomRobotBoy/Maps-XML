@@ -1,0 +1,127 @@
+<map proto="1.4.0">
+<name>Mayhem</name>
+<version>1.0.0</version>
+<objective>
+    Kill or get killed. Player with the most amount of kills wins!
+</objective>
+<authors>
+    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/>
+<!-- ogel -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+<!-- DoomRobotBoy -->
+</authors>
+<rules>
+    <rule>Forming alliances is allowed.</rule>
+    <rule>Fall Damage is disabled.</rule>
+</rules>
+<score>
+    <kills>1</kills>
+    <deaths>1</deaths>
+</score>
+<time>10m</time>
+<rage/>
+<broadcasts>
+    <alert after="2s">Spawners are spread throughout the map, each containing an ingredient for making arrows.</alert>
+</broadcasts>
+<players max="18" max-overfill="20" show-name-tags="false"/>
+<spawns>
+    <spawn kit="spawn" spread="true">
+        <regions>
+            <point yaw="-180">60.5,5,280.5</point>
+            <point yaw="-35">-15.5,5,250.5</point>
+            <point yaw="0">69.5,5,173.5</point>
+            <point yaw="45">85.5,9,234.5</point>
+            <point yaw="90">85.5,265.5</point>
+            <point yaw="180">93.5,9,268.5</point>
+            <point yaw="0">49.5,5,263.5</point>
+            <point yaw="180">47.5,9,255.5</point>
+            <point yaw="-90">27.5,5,252.5</point>
+            <point yaw="135">40.5,9,235.5</point>
+            <point yaw="-90">18.5,9,229.5</point>
+            <point yaw="0">3.5,5,231.5</point>
+            <point yaw="180">-0.5,9,225.5</point>
+            <point yaw="-90">-1.5,9,207.5</point>
+            <point yaw="-125">21.5,5,181.5</point>
+            <point yaw="135">14.5,15,185.5</point>
+            <point yaw="180">42.5,9,192.5</point>
+            <point yaw="0">56.5,14,182.5</point>
+            <point yaw="90">66.5,5,181.5</point>
+            <point yaw="0">80.5,9,188.5</point>
+            <point yaw="180">81.5,5,208.5</point>
+            <point yaw="-90">80.5,9,214.5</point>
+            <point yaw="-180">52.5,5,203.5</point>
+            <point yaw="90">54.5,9,200.5</point>
+            <point yaw="90">24.5,5,219.5</point>
+            <point yaw="0">14.5,9,217.5</point>
+            <point yaw="90">35.5,9,266.5</point>
+            <point yaw="-180">24.5,5,268.5</point>
+            <point yaw="0">-4.5,5,269.5</point>
+            <point yaw="135">96.5,5,273.5</point>
+            <point yaw="90">93.5,5,200.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="0">20.5,5,188.5</point>
+        </regions>
+    </default>
+</spawns>
+<respawn auto="true" delay="3s" spectate="true" blackout="false"/>
+<kits>
+    <kit id="spawn" discard-potion-bottles="true">
+        <item slot="0" enchantment="damage all:10" unbreakable="true">iron sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow damage:10">bow</item>
+        <item slot="2" unbreakable="true">diamond axe</item>
+        <item slot="8" amount="1">arrow</item>
+        <helmet locked="true" color="191919" unbreakable="true">leather helmet</helmet>
+        <chestplate locked="true" color="191919" unbreakable="true">leather chestplate</chestplate>
+        <leggings locked="true" color="191919" unbreakable="true">leather leggings</leggings>
+        <boots locked="true" color="191919" unbreakable="true">leather boots</boots>
+        <potion duration="2" amplifier="5">weakness</potion>
+        <potion duration="2" amplifier="25">damage resistance</potion>
+        <potion duration="oo">speed</potion>
+    </kit>
+</kits>
+<killreward>
+    <potion duration="3" amplifier="1">speed</potion>
+</killreward>
+<killreward>
+    <item>arrow</item>
+    <filter>
+        <kill-streak count="2" repeat="true"/>
+    </filter>
+</killreward>
+<killreward>
+    <potion duration="3" amplifier="5">health boost</potion>
+    <filter>
+        <kill-streak count="6" repeat="true"/>
+    </filter>
+</killreward>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<itemremove>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>iron ingot</item>
+    <item>arrow</item>
+    <item>iron sword</item>
+    <item>diamond axe</item>
+    <item>bow</item>
+    <item>fence</item>
+</itemremove>
+<disabledamage>
+    <damage>fall</damage>
+    <damage>suffocation</damage>
+</disabledamage>
+<filters>
+    <material id="only-fences">fence</material>
+</filters>
+<regions>
+    <apply block="only-fences">
+        <everywhere/>
+    </apply>
+</regions>
+</map>
