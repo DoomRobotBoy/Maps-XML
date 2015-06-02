@@ -10,12 +10,14 @@
 </contributors>
 <broadcasts>
     <tip after="1s">You can capture the flag at the beacon after the entire enemy team is dead.</tip>
-    <tip after="3s">Note that teams can respawn when in possession of the flag.</tip>
-    <tip after="4s">Teams can also respawn when no one has control of the flag.</tip>
+    <tip after="2s">Note that teams can respawn when in possession of the flag.</tip>
+    <tip after="3s">Teams can also respawn when no one has control of the flag.</tip>
+    <tip after="4s">You can destroy spruce leaves.</tip>
+    <tip after="5s">Gold pressure plates are jump pads and iron pressure plates are health kits.</tip>
 </broadcasts>
 <teams>
-    <team color="blue" max="20" max-overfill="24">Blue Team</team>
-    <team color="red" max="20" max-overfill="24">Red Team</team>
+    <team id="blue" color="blue" max="16" max-overfill="18">Blue Team</team>
+    <team id="red" color="dark red" max="16" max-overfill="18">Red Team</team>
 </teams>
 <kits>
     <kit name="all">
@@ -27,6 +29,8 @@
         <item slot="28" amount="1">arrow</item>
         <chestplate unbreakable="true">iron chestplate</chestplate>
         <item slot="2" amount="64">golden carrot</item>
+        <potion duration="7" amplifier="1">speed</potion>
+        <potion duration="7">slow digging</potion>
         <health>20</health>
     </kit>
     <kit name="red-kit" parents="spawn">
@@ -38,6 +42,9 @@
         <helmet unbreakable="true" color="6E6EF9">leather helmet</helmet>
         <leggings unbreakable="true" color="6E6EF9">leather leggings</leggings>
         <boots unbreakable="true" color="6E6EF9" enchantment="protection_fall:1">leather boots</boots>
+    </kit>
+    <kit name="heatlh-kit" force="true">
+        <potion duration="30" amplifier="1">health boost</potion>
     </kit>
     <kit name="flag" force="true">
         <potion duration="oo" amplifier="-3">health boost</potion>
@@ -67,6 +74,13 @@
             <carrying-flag>flag</carrying-flag>
         </same-team>
     </filter>
+    <filter name="health-kit-filter">
+        <not>
+            <same-team>
+                <carrying-flag>flag</carrying-flag>
+            </same-team>
+        </not>
+    </filter>
     <filter name="hill">
         <objective>hill</objective>
     </filter>
@@ -74,6 +88,24 @@
 <regions>
     <apply block="deny-all">
         <rectangle name="map" min="oo,oo" max="-oo,oo"/>
+    </apply>
+    <apply velocity="0.0,1.2,0.0">
+        <block>-260.5,5,53.5</block>
+        <block>-223.5,5,98.5</block>
+        <block>-260.5,5,143.5</block>
+        <block>-297.5,5,98.5</block>
+    </apply>
+    <apply velocity="0.7,0.6,0.7">
+        <block>-270.5,10,88.5</block>
+    </apply>
+    <apply velocity="-0.7,0.6,-0.7">
+        <block>-250.5,10,108.5</block>
+    </apply>
+    <apply kit="health-kit" filter="health-kit-filter">
+        <block>-240.5,5,131.5</block>
+        <block>-280.5,5,131.5</block>
+        <block>-280.5,5,65.5</block>
+        <block>-240.5,5,65.5</block>
     </apply>
 </regions>
 <control-points>
