@@ -90,7 +90,7 @@
     </union>
     <block id="side-jump-pad-1">-270.5,10,88.5</block>
     <block id="side-jump-pad-2">-250.5,10,108.5</block>
-    <union id="heatlh-kit-region">
+    <union id="health-kit-region">
         <block>-240.5,5,131.5</block>
         <block>-280.5,5,131.5</block>
         <block>-280.5,5,65.5</block>
