@@ -149,6 +149,7 @@
         <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
             <region id="flag-region"/>
         </post>
+        <carry-message>You are carrying the flag! Stay alive and kill the enemy team!</carry-message>
     </flag>
 </flags>
 </map>
