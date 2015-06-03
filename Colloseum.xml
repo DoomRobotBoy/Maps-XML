@@ -109,7 +109,7 @@
     <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
 <control-points>
-    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" required="false" points="0">
+    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" required="false" points="0" incremental="true">
         <capture><region id="capture-region"/></capture>
         <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
         <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
