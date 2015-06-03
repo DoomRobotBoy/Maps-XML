@@ -111,7 +111,7 @@
 </regions>
 <king>
     <hills>
-        <hill id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="true" points="0">
+        <hill id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" required="false" points="0">
             <capture><region id="capture-region"/></capture>
             <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
             <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
