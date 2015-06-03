@@ -109,13 +109,15 @@
     <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
     <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
-<control-points>
-    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="true" points="0">
-        <capture><region id="capture-region"/></capture>
-        <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
-        <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
-    </control-point>
-</control-points>
+<king>
+    <hills>
+        <hill id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="true" points="0">
+            <capture><region id="capture-region"/></capture>
+            <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
+            <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+        </hill>
+    </hills>
+</king>
 <spawns>
     <spawn team="red" kit="red-kit" filter="respawn">
         <regions yaw="-90">
