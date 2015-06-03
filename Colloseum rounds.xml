@@ -120,6 +120,16 @@
         <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
         <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
     </control-point>
+    <control-point id="center-hill-2" name="Hill 2" capture-players="exclusive" capture-time="3s" neutral-state="true" required="false" points="0" capture-filter="center-captured">
+        <capture><region id="capture-region"/></capture>
+        <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
+        <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+    </control-point>
+    <control-point id="center-hill-3" name="Hill 3" capture-players="exclusive" capture-time="3s" neutral-state="true" required="false" points="0" capture-filter="west-captured">
+        <capture><region id="capture-region"/></capture>
+        <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
+        <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+    </control-point>
 </control-points>
 <spawns>
     <spawn team="red" kit="red-kit" filter="respawn">
@@ -158,8 +168,8 @@
         </post>
         <carry-message>You can capture the flag in the center after the enemy team is dead.</carry-message>
     </flag>
-    <flag id="west-flag" name="Flag 2" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
-        <net id="net" points="1" capture-filter="center-captured">
+    <flag id="west-flag" name="Flag 2" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" pickup-filter="center-captured">
+        <net id="net" points="1" capture-filter="hill-2-filter">
             <region id="flag-region"/>
         </net>
         <post id="post" permanent="true" return-time="oo" region="flag-region">
@@ -167,8 +177,8 @@
         </post>
         <carry-message>You can capture the flag in the center after the enemy team is dead.</carry-message>
     </flag>
-    <flag id="east-flag" name="Flag 3" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
-        <net id="net" points="1" capture-filter="west-captured">
+    <flag id="east-flag" name="Flag 3" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health" pickup-filter="west-captured">
+        <net id="net" points="1" capture-filter="hill-3-filter">
             <region id="flag-region"/>
         </net>
         <post id="post" permanent="true" return-time="oo" region="flag-region">
