@@ -75,6 +75,9 @@
         </same-team>
         <flag-returned>center-flag</flag-returned>
         <flag-dropped>center-flag</flag-dropped>
+        <not>
+            <flag-carried>center-flag</flag-carried>
+        </not>
     </any>
     <not id="health-kit-filter">
         <same-team>
