@@ -77,7 +77,7 @@
             <carrying-flag>center-flag</carrying-flag>
         </same-team>
     </not>
-    <objective id="hill-filter">hill</objective>
+    <objective id="hill-filter">center-hill</objective>
 </filters>
 <regions>
     <block id="flag-region">-260.5,5,98.5</block>
@@ -104,8 +104,8 @@
     <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
 <control-points>
-    <control-point id="hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="false" point="0">
-        <capture><region name="map"/></capture>
+    <control-point id="center-hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="false" point="0">
+        <capture><region id="map"/></capture>
         <progress><cylinder base="0.5,22,7.5" radius="7" height="4"/></progress>
         <captured><cylinder base="0.5,64,7.5" radius="7" height="5"/></captured>
     </control-point>
@@ -139,7 +139,7 @@
 </score>
 <flags>
     <flag id="center-flag" name="Flag" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
-        <net id="net" flag="center-flag" point="1" capture-filter="hill-filter">
+        <net id="net" point="1" capture-filter="hill-filter">
             <region id="flag-region"/>
         </net>
         <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
