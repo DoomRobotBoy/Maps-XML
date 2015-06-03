@@ -110,7 +110,7 @@
     <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
 <control-points>
-    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="true" point="0">
+    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="true" points="0">
         <capture><region id="capture-region"/></capture>
         <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
         <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
@@ -151,7 +151,7 @@
         <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
             <region id="flag-region"/>
         </post>
-        <carry-message>You are carrying the flag! Stay alive and kill the enemy team!</carry-message>
+        <carry-message>You are carrying the flag! You can capture it on the beacon after the enemy team is dead.</carry-message>
     </flag>
 </flags>
 </map>
