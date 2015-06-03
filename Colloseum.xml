@@ -137,7 +137,7 @@
     <deaths>0</deaths>
 </score>
 <flags>
-    <net id="net" flag="flag" point="1" filter="hill">
+    <net id="net" flag="center-flag" point="1" filter="hill">
         <block>-260.5,5,98.5</block>
     </net>
     <post id="post" return-time="0s" respawn-time="10s">
