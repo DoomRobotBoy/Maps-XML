@@ -9,7 +9,7 @@
     <contributor uuid="a4266139-34f3-46c5-a730-f8828376a15a" contribution="Build Help"/> <!-- LArrowHead -->
 </contributors>
 <broadcasts>
-    <tip after="1s">You can capture the flag at the beacon after the entire enemy team is dead.</tip>
+    <tip after="1s">You can capture the flag in the center after the entire enemy team is dead.</tip>
     <tip after="2s">Players can only respawn when either their team or no team has control of the flag.</tip>
     <tip after="4s">You can destroy leaves.</tip>
     <tip after="5s">Gold pressure plates are jump pads and iron pressure plates are health kits.</tip>
@@ -154,7 +154,7 @@
         <post id="post" return-time="0s" respawn-time="2s" region="flag-region">
             <region id="flag-region"/>
         </post>
-        <carry-message>You can capture the flag on the beacon after the enemy team is dead.</carry-message>
+        <carry-message>You can capture the flag in the center after the enemy team is dead.</carry-message>
     </flag>
 </flags>
 </map>
