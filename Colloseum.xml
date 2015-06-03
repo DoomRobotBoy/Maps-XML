@@ -85,6 +85,7 @@
         </same-team>
     </not>
     <objective id="hill-filter">center-hill</objective>
+    <material id="only-leaves">leaves:1</material>
 </filters>
 <regions>
     <block id="flag-region">-260.5,5,98.5</block>
@@ -104,7 +105,7 @@
         <block>-240.5,5,65.5</block>
     </union>
 <!-- Applied -->
-    <apply block="never" region="map"/>
+    <apply block="only-leaves" region="map"/>
     <apply velocity="0.0,1.2,0.0" region="jump-pads"/>
     <apply velocity="0.7,0.6,0.7" region="side-jump-pad-1"/>
     <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
