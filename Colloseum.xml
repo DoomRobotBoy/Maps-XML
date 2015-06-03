@@ -132,7 +132,7 @@
         </regions>
     </default>
 </spawns>
-<respawn auto="true">
+<respawn auto="true" spectate="true">
     <message>
         { translate: "death.respawn.confirmed.waiting.flagDropped" }
     </message>
@@ -144,10 +144,10 @@
 </score>
 <flags>
     <flag id="center-flag" name="Flag" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
-        <net id="net" point="1" capture-filter="hill-filter">
+        <net id="net" points="1" capture-filter="hill-filter">
             <region id="flag-region"/>
         </net>
-        <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
+        <post id="post" return-time="0s" respawn-time="2s" region="flag-region">
             <region id="flag-region"/>
         </post>
         <carry-message>You can capture the flag on the beacon after the enemy team is dead.</carry-message>
