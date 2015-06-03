@@ -73,11 +73,7 @@
         <same-team>
             <carrying-flag>center-flag</carrying-flag>
         </same-team>
-        <not>
-            <same-team>
-                <carrying-flag>center-flag</carrying-flag>
-            </same-team>
-        </not>
+        <flag-returned>center-flag</flag-returned>
     </any>
     <not id="health-kit-filter">
         <same-team>
