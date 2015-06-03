@@ -86,6 +86,7 @@
     </filter>
 </filters>
 <regions>
+    <block name="net-region">-260.5,5,98.5</block>
     <apply block="deny-all">
         <rectangle name="map" min="oo,oo" max="-oo,oo"/>
     </apply>
@@ -137,9 +138,7 @@
     <deaths>0</deaths>
 </score>
 <flags>
-    <net id="net" flag="center-flag" point="1" capture-filter="hill">
-        <block>-260.5,5,98.5</block>
-    </net>
+    <net id="net" flag="center-flag" point="1" capture-filter="hill" region="net-region"/>
     <post id="post" return-time="0s" respawn-time="10s">
         <block>-260.5,5,98.5</block>
     </post>
