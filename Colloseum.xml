@@ -43,7 +43,7 @@
         <leggings unbreakable="true" color="6E6EF9">leather leggings</leggings>
         <boots unbreakable="true" color="6E6EF9" enchantment="protection_fall:1">leather boots</boots>
     </kit>
-    <kit name="heatlh-kit" force="true">
+    <kit name="health-kit" force="true">
         <potion duration="30" amplifier="1">health boost</potion>
     </kit>
     <kit name="flag" force="true">
@@ -71,13 +71,13 @@
 <filters>
     <filter name="respawn">
         <same-team>
-            <carrying-flag>flag</carrying-flag>
+            <carrying-flag>center-flag</carrying-flag>
         </same-team>
     </filter>
     <filter name="health-kit-filter">
         <not>
             <same-team>
-                <carrying-flag>flag</carrying-flag>
+                <carrying-flag>center-flag</carrying-flag>
             </same-team>
         </not>
     </filter>
@@ -143,6 +143,6 @@
     <post id="post" return-time="0s" respawn-time="10s">
         <block>-260.5,5,98.5</block>
     </post>
-    <flag id="flag" name="Flag" color="white" shared="true" post="post" net="net" pickup-kit="flag" drop-kit="reset-health"/>
+    <flag id="center-flag" name="Flag" color="white" shared="true" post="post" net="net" pickup-kit="flag" drop-kit="reset-health"/>
 </flags>
 </map>
