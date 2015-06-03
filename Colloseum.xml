@@ -69,9 +69,16 @@
     <item>golden apple</item>
 </itemremove>
 <filters>
-    <same-team id="respawn">
-        <carrying-flag>center-flag</carrying-flag>
-    </same-team>
+    <any id="respawn">
+        <same-team>
+            <carrying-flag>center-flag</carrying-flag>
+        </same-team>
+        <not>
+            <same-team>
+                <carrying-flag>center-flag</carrying-flag>
+            </same-team>
+        </not>
+    </any>
     <not id="health-kit-filter">
         <same-team>
             <carrying-flag>center-flag</carrying-flag>
