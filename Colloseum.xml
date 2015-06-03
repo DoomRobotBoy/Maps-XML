@@ -10,9 +10,8 @@
 </contributors>
 <broadcasts>
     <tip after="1s">You can capture the flag at the beacon after the entire enemy team is dead.</tip>
-    <tip after="2s">Note that teams can respawn when in possession of the flag.</tip>
-    <tip after="3s">Teams can also respawn when no one has control of the flag.</tip>
-    <tip after="4s">You can destroy spruce leaves.</tip>
+    <tip after="2s">Players can only respawn when either their team or no team has control of the flag.</tip>
+    <tip after="4s">You can destroy leaves.</tip>
     <tip after="5s">Gold pressure plates are jump pads and iron pressure plates are health kits.</tip>
 </broadcasts>
 <teams>
