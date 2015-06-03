@@ -102,21 +102,19 @@
         <block>-240.5,5,65.5</block>
     </union>
 <!-- Applied -->
-    <apply block="only-leaves" region="map"/>
+    <apply block="only-leaves" region="capture-region"/>
     <apply velocity="0.0,1.2,0.0" region="jump-pads"/>
     <apply velocity="0.7,0.6,0.7" region="side-jump-pad-1"/>
     <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
     <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
-<king>
-    <hills>
-        <hill id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" required="false" points="0">
-            <capture><region id="capture-region"/></capture>
-            <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
-            <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
-        </hill>
-    </hills>
-</king>
+<control-points>
+    <control-point id="center-hill" name="Hill" capture-players="exclusive" capture-time="3s" show-progress="false" required="false" points="0">
+        <capture><region id="capture-region"/></capture>
+        <progress><cuboid min="0,0,0" max="0,0,0"/></progress>
+        <captured><cuboid min="0,0,0" max="0,0,0"/></captured>
+    </control-point>
+</control-points>
 <spawns>
     <spawn team="red" kit="red-kit" filter="respawn">
         <regions yaw="-90">
@@ -134,7 +132,7 @@
         </regions>
     </default>
 </spawns>
-<respawn auto="true" spectate="true">
+<respawn auto="true">
     <message>
         { translate: "death.respawn.confirmed.waiting.flagDropped" }
     </message>
