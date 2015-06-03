@@ -77,31 +77,31 @@
             <carrying-flag>center-flag</carrying-flag>
         </same-team>
     </not>
-    <objective id="hill">hill</objective>
+    <objective id="hill-filter">hill</objective>
 </filters>
 <regions>
     <block id="flag-region">-260.5,5,98.5</block>
-    <apply block="deny-all">
-        <rectangle id="map" min="oo,oo" max="-oo,oo"/>
-    </apply>
-    <apply velocity="0.0,1.2,0.0">
+    <rectangle id="map" min="oo,oo" max="-oo,oo"/>
+    <union id="jump-pads">
         <block>-260.5,5,53.5</block>
         <block>-223.5,5,98.5</block>
         <block>-260.5,5,143.5</block>
         <block>-297.5,5,98.5</block>
-    </apply>
-    <apply velocity="0.7,0.6,0.7">
-        <block>-270.5,10,88.5</block>
-    </apply>
-    <apply velocity="-0.7,0.6,-0.7">
-        <block>-250.5,10,108.5</block>
-    </apply>
-    <apply kit="health-kit" filter="health-kit-filter">
+    </union>
+    <block id="side-jump-pad-1">-270.5,10,88.5</block>
+    <block id="side-jump-pad-2">-250.5,10,108.5</block>
+    <union id="heatlh-kit-region">
         <block>-240.5,5,131.5</block>
         <block>-280.5,5,131.5</block>
         <block>-280.5,5,65.5</block>
         <block>-240.5,5,65.5</block>
-    </apply>
+    </union>
+<!-- Applied -->
+    <apply block="never" region="map"/>
+    <apply velocity="0.0,1.2,0.0" region="jump-pads"/>
+    <apply velocity="0.7,0.6,0.7" region="side-jump-pad-1"/>
+    <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
+    <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
 </regions>
 <control-points>
     <control-point id="hill" capture-players="exclusive" capture-time="3s" show-progress="false" show="false" point="0">
@@ -139,7 +139,7 @@
 </score>
 <flags>
     <flag id="center-flag" name="Flag" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
-        <net id="net" flag="center-flag" point="1" capture-filter="hill">
+        <net id="net" flag="center-flag" point="1" capture-filter="hill-filter">
             <region id="flag-region"/>
         </net>
         <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
