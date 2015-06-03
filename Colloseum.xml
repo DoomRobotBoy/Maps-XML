@@ -140,10 +140,10 @@
 <flags>
     <flag id="center-flag" name="Flag" color="white" shared="true" post="post" net="net" pickup-kit="flag" drop-kit="reset-health">
         <net id="net" flag="center-flag" point="1" capture-filter="hill">
-            <region="flag-region"/>
+            <region id="flag-region"/>
         </net>
         <post id="post" return-time="0s" respawn-time="10s" region="flag-region">
-            <region="flag-region"/>
+            <region id="flag-region"/>
         </post>
     </flag>
 </flags>
