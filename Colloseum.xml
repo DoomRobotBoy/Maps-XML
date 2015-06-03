@@ -44,6 +44,7 @@
     </kit>
     <kit id="health-kit" force="true">
         <potion duration="30" amplifier="1">health boost</potion>
+        <potion duration="3" amplifier="1">speed</potion>
     </kit>
     <kit id="flag-kit" force="true">
         <potion duration="oo" amplifier="-3">health boost</potion>
