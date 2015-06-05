@@ -16,21 +16,16 @@
 <broadcasts>
     <tip after="1s">This map is a KotF/CTF map. You have to capture the flags to gain points.</tip>
     <tip after="3s">Capture the Orange/Cyan Flags in your team's spawn. Each capture awards the team 30 points.</tip>
-    <tip after="4s">The Center flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
-    <tip after="5s">It will give your team 1 point per 2 seconds.</tip>
-    <tip after="6s">Furthermore, kills add 2 points and deaths deduct 1 point.</tip>
-    <tip after="8s">To win you have to be the first team to reach 220 points. Good luck!</tip>
-    <tip after="5m">This map is a KotF/CTF map. You have to capture the flags to gain points.</tip>
+    <tip after="5s">The Shrine flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
+    <tip after="7s">To win you have to be the first team to reach 220 points. Good luck!</tip>
+    <tip after="5m">You have to capture the flags to gain points.</tip>
     <tip after="302s">Capture the Orange/Cyan Flags in your team's spawn. Each capture awards the team 30 points.</tip>
-    <tip after="303s">The Center flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
-    <tip after="304s">It will give your team 1 point per 2 seconds.</tip>
-    <tip after="305s">Furthermore, kills add 2 points and deaths deduct 1 point.</tip>
-    <tip after="307s">To win you have to be the first team to reach 220 points.</tip>
+    <tip after="304s">The Shrine flag needs to be captured and protected at the emerald block, located in the center of your team's side.</tip>
 </broadcasts>
 <score>
     <limit>220</limit>
-    <kills>2</kills>
-    <deaths>1</deaths>
+    <kills>0</kills>
+    <deaths>0</deaths>
 </score>
 <teams>
     <team id="orange" color="gold" max="18" max-overfill="22">Orange Team</team>
@@ -136,9 +131,9 @@
     </default>
 </spawns>
 <flags>
-    <post id="center-post" recover-time="0s" respawn-time="5s">208.5,9,221.5</post>
-    <post id="orange-post" recover-time="5s" respawn-time="3s" owner="orange" yaw="0" points-rate="1" pickup-filter="only-cyan">208.5,10,174.5</post>
-    <post id="cyan-post" recover-time="5s" respawn-time="3s" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-orange">208.5,10,268.5</post>
+    <post id="center-post" recover-time="0s" respawn-time="8s">208.5,9,221.5</post>
+    <post id="orange-post" recover-time="3s" respawn-time="0s" owner="orange" yaw="0" points-rate="1" pickup-filter="only-cyan">208.5,10,268.5</post>
+    <post id="cyan-post" recover-time="3s" respawn-time="0s" owner="cyan" yaw="180" points-rate="1" pickup-filter="only-orange">208.5,10,174.5</post>
     <flag name="Shrine Flag" color="white" shared="true" post="center-post" points-rate="0.5">
         <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
         <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
