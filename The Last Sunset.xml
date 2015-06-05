@@ -1,4 +1,4 @@
-<map proto="1.3.6">
+<map proto="1.4.0">
 <name>The Last Sunset</name>
 <version>1.3.0</version>
 <objective>Capture the enemy flag(s) 4 times!</objective>
@@ -8,7 +8,7 @@
 </authors>
 <broadcasts>
     <tip after="4s" every="3m" count="oo">
-        `3`oYou have to capture the `6flags`3`o behind `6`nspawn`3.
+        `3`oYou have to capture the `6flags`3`o behind `6spawn`3.
     </tip>
     <tip after="6s" every="3m" count="oo">
         `3`oTo make the `6flags`3`o respawn you have to capture both enemy flags first.
@@ -18,11 +18,11 @@
     </tip>
 </broadcasts>
 <teams>
-    <team id="red" color="dark red" max="22" max-overfill="26">Red Team</team>
-    <team id="blue" color="blue" max="22" max-overfill="26">Blue Team</team>
+    <team id="red" color="dark red" max="22" max-overfill="26">Red</team>
+    <team id="blue" color="blue" max="22" max-overfill="26">Blue</team>
 </teams>
 <kits>
-    <kit name="spawn">
+    <kit id="spawn">
         <item slot="0" damage="-3000">stone sword</item>
         <item slot="1" damage="-3000">bow</item>
         <item slot="2" damage="-3000">diamond pickaxe</item>
@@ -34,23 +34,23 @@
         <item slot="8" amount="32">vine</item>
         <item slot="28" amount="48">arrow</item>
         <potion duration="3" amplifier="127">damage resistance</potion>
-        <kit name="nv">
+        <kit id="nv">
             <potion duration="oo">night vision</potion>
         </kit>
     </kit>
-    <kit name="red" parents="spawn">
+    <kit id="red-kit" parents="spawn">
         <helmet color="993333" damage="-3000">leather helmet</helmet>
         <chestplate color="993333" enchantment="protection projectile:3" damage="-3000">leather chestplate</chestplate>
     </kit>
-    <kit name="blue" parents="spawn">
+    <kit id="blue-kit" parents="spawn">
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
         <chestplate color="334CB2" enchantment="protection projectile:3" damage="-3000">leather chestplate</chestplate>
     </kit>
-    <kit name="pickup" force="true">
+    <kit id="pickup" force="true">
         <leggings enchantment="durability:1" locked="true">gold leggings</leggings>
         <boots enchantment="durability:1" locked="true">gold boots</boots>
     </kit>
-    <kit name="drop" force="true">
+    <kit id="drop" force="true">
         <leggings>air</leggings>
         <boots>air</boots>
     </kit>
@@ -59,26 +59,18 @@
     <item amount="8">arrow</item>
 </killreward>
 <filters>
-    <filter name="no-void">
-        <not>
-            <void/>
-        </not>
-    </filter>
-    <filter name="only-red">
-        <team>red</team>
-    </filter>
-    <filter name="only-blue">
-        <team>blue</team>
-    </filter>
-    <filter name="not-spawner">
-        <not>
-            <block>mob spawner</block>
-        </not>
-    </filter>
+    <not id="no-void">
+        <void/>
+    </not>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <not id="not-spawner">
+        <material>mob spawner</material>
+    </not>
 </filters>
 <regions>
-    <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <union name="red-spawn">
+    <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+    <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
         <rectangle min="-950,-391" max="-951,-396"/>
         <rectangle min="-951,-388" max="-966,-399"/>
@@ -86,7 +78,7 @@
         <rectangle min="-954,-386" max="-964,-401"/>
         <rectangle min="-956,-385" max="-962,-402"/>
     </union>
-    <union name="blue-spawn">
+    <union id="blue-spawn">
         <rectangle min="-830,-392" max="-808,-395"/>
         <rectangle min="-825,-396" max="-825,-391"/>
         <rectangle min="-824,-399" max="-809,-388"/>
@@ -94,44 +86,43 @@
         <rectangle min="-821,-401" max="-811,-386"/>
         <rectangle min="-819,-402" max="-813,-385"/>
     </union>
-    <union name="all-flag-posts-y">
-        <circle base="-964.5,5,-339.5" radius="1"/>
-        <circle base="-964.5,5,-447.5" radius="1"/>
-        <circle base="-810.5,5,-339.5" radius="1"/>
-        <circle base="-810.5,5,-447.5" radius="1"/>
+    <union id="spawns">
+        <region id="red-spawn"/>
+        <region id="blue-spawn"/>
     </union>
-    <union name="beacons">
-        <cuboid min="-993,1,-395" max="-990,5,-392"/>
-        <cuboid min="-785,1,-395" max="-782,5,-392"/>
+    <union id="all-flag-posts-y">
+        <!--  Red  -->
+        <cylinder base="-964.5,6,-339.5" radius="2" height="3"/>
+        <cylinder base="-964.5,6,-447.5" radius="2" height="3"/>
+        <!--  Blue  -->
+        <cylinder base="-810.5,6,-339.5" radius="2" height="3"/>
+        <cylinder base="-810.5,6,-447.5" radius="2" height="3"/>
     </union>
-    <cylinder name="red-net" base="-991.5,5,-393.5" radius="2" height="2"/>
-    <cylinder name="blue-net" base="-783.5,5,-393.5" radius="2" height="2"/>
+    <union id="beacons">
+        <cuboid min="-990.5,1,-394.5" max="-992.5,5,-392.5"/>
+        <cuboid min="-784.5,1,-392.5" max="-782.5,5,-394.5"/>
+    </union>
+    <cylinder id="red-net" base="-991.5,5,-393.5" radius="2" height="2"/>
+    <cylinder id="blue-net" base="-783.5,5,-393.5" radius="2" height="2"/>
 <!--   Applied   -->
-    <apply block="deny-all" message="You many not break the beacons!">
-        <cuboid min="-993,1,-395" max="-990,5,-392"/>
-        <cuboid min="-785,1,-395" max="-782,5,-392"/>
-    </apply>
-    <apply block="deny-all" message="You may not modify the spawn areas!">
-        <region name="red-spawn"/>
-        <region name="blue-spawn"/>
-    </apply>
-    <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
-        <region name="all-flag-posts-y"/>
-    </apply>
-    <apply block="not-spawner" message="You may not destroy the spawner!">
-        <region name="map"/>
-    </apply>
-    <apply block="no-void" message="You may not modify the void area!">
-        <region name="map"/>
+    <apply block="never" message="You many modify the area around the beacons!" region="beacons"/>
+    <apply block="never" message="You may not modify the spawn areas!" region="spawns"/>
+    <apply block="never" region="all-flag-posts-y"/>
+    <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
+    <apply block="no-void" message="You may not modify the void area!" region="map"/>
+    <apply block="never">
+        <region>
+            <below y="1" /> 
+        </region>
     </apply>
 </regions>
 <spawns>
-    <spawn team="red" kit="red">
+    <spawn team="red" kit="red-kit">
         <regions yaw="-90">
             <cylinder base="-958.5,5,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue">
+    <spawn team="blue" kit="blue-kit">
         <regions yaw="90">
             <cylinder base="-816.5,5,-393.5" radius="1" height="0"/>
         </regions>
@@ -150,26 +141,26 @@
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-964.5,6,-339.5</post>
+        <post pickup-filter="only-blue" recover-time="15s">-965,6,-340</post>
     </flag>
     <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-964.5,6,-447.5</post>
+        <post pickup-filter="only-blue" recover-time="15s">-965,6,-448</post>
     </flag>
     <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-810.5,6,-339.5</post>
+        <post pickup-filter="only-red" recover-time="15s">-811,6,-340</post>
     </flag>
     <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-810.5,6,-447.5</post>
+        <post pickup-filter="only-red" recover-time="15s">-811,6,-448</post>
     </flag>
     <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
@@ -192,4 +183,4 @@
     <item>stained clay:15</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
-</map>
+</map> 
