@@ -29,7 +29,7 @@
         <chestplate unbreakable="true" enchantment="protection projectile">chainmail chestplate</chestplate>
         <leggings unbreakable="true">leather leggings</leggings>
         <boots unbreakable="true" enchantment="protection fall">leather boots</boots>
-        <potion duration="1" amplifier="10">damage resistance</potion>
+        <potion duration="2" amplifier="127">damage resistance</potion>
     </kit>
 </kits>
 <killreward>
