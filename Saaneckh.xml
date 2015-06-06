@@ -1,0 +1,147 @@
+<map proto="1.4.0">
+<name>Saaneckh</name>
+<version>1.0.0</version>
+<objective>
+    Kill everyone, and try not to die. Arrows kill instantly!
+</objective>
+<authors>
+    <author uuid="48924ea3-3aad-4e16-838c-368d8d9e0a25"/> <!--  matic0basle  -->
+</authors>
+<contributors>
+    <contributor uuid="fe3608b7-d105-4029-8800-34b3147065b6" contribution="Trees"/> <!-- rockymine -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
+</contributors>
+<players max="40" max-overfill="44" show-name-tags="false"/>
+<score>
+    <kills>1</kills>
+    <deaths>1</deaths>
+</score>
+<time>10m</time>
+<kits>
+    <kit id="spawn-kit" discard-potion-bottles="false">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="2" amount="16">arrow</item>
+        <item slot="7" amount="32">pumpkin pie</item>
+        <item slot="8">golden apple</item>
+        <helmet unbreakable="true">leather helmet</helmet>
+        <chestplate unbreakable="true" enchantment="protection projectile">chainmail chestplate</chestplate>
+        <leggings unbreakable="true">leather leggings</leggings>
+        <boots unbreakable="true" enchantment="protection fall">leather boots</boots>
+        <potion duration="1" amplifier="10">damage resistance</potion>
+    </kit>
+</kits>
+<killreward>
+    <item amount="16">arrow</item>
+    <item>golden apple</item>
+</killreward>
+<killreward>
+    <boots unbreakable="true" enchantment="protection fall">chainmail boots</boots>
+    <filter>
+        <kill-streak count="2"/>
+    </filter>
+</killreward>
+<killreward>
+    <helmet unbreakable="true">chainmail helmet</helmet>
+    <filter>
+        <kill-streak count="3"/>
+    </filter>
+</killreward>
+<killreward>
+    <leggings unbreakable="true">chainmail leggings</leggings>
+    <filter>
+        <kill-streak count="4"/>
+    </filter>
+</killreward>
+<killreward>
+    <item slot="0" unbreakable="true">iron sword</item>
+    <item slot="1" unbreakable="true" enchantment="arrow damage">bow</item>
+    <filter>
+        <kill-streak count="5"/>
+    </filter>
+</killreward>
+<killreward>
+    <boots unbreakable="true" enchantment="protection fall:2">iron boots</boots>
+    <filter>
+        <kill-streak count="6"/>
+    </filter>
+</killreward>
+<killreward>
+    <helmet unbreakable="true">iron helmet</helmet>
+    <filter>
+        <kill-streak count="7"/>
+    </filter>
+</killreward>
+<killreward>
+    <leggings unbreakable="true">iron leggings</leggings>
+    <filter>
+        <kill-streak count="8"/>
+    </filter>
+</killreward>
+<killreward>
+    <chestplate unbreakable="true" enchantment="protection projectile:2">iron chestplate</chestplate>
+    <filter>
+        <kill-streak count="9"/>
+    </filter>
+</killreward>
+<killreward>
+    <item slot="0" unbreakable="true" enchantment="damage all">iron sword</item>
+    <item slot="1" unbreakable="true" enchantment="arrow damage:2">bow</item>
+    <filter>
+        <kill-streak count="10"/>
+    </filter>
+</killreward>
+<itemremove>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>pumpkin pie</item>
+    <item>golden apple</item>
+    <item>leather helmet</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>chainmail helmet</item>
+    <item>chainmail chestplate</item>
+    <item>chainmail leggings</item>
+    <item>chainmail boots</item>
+    <item>iron helmet</item>
+    <item>iron chestplate</item>
+    <item>iron leggings</item>
+    <item>iron boots</item>
+</itemremove>
+<spawns>
+    <default>
+        <regions yaw="90">
+            <cylinder base="0.5,61,0.5" radius="1" height="0"/>
+        </regions>
+    </default>
+    <spawn kit="spawn-kit" spread="true">
+        <regions>
+            <point yaw="-45">-43.5, 22, -10.5</point>
+            <point yaw="-160">-17.5, 24, 15.5</point>
+            <point yaw="140">2.5, 24, 11.5</point>
+            <point yaw="135">30.5, 5, 14.5</point>
+            <point yaw="-90">9.5, 10, -1.5</point>
+            <point yaw="135">-6.5, 24, -22.5</point>
+            <point yaw="-45">-26.5, 16, -47.5</point>
+            <point yaw="-90">-33.5, 6, -19.5</point>
+            <point yaw="0">8.5, 16, -72.5</point>
+            <point yaw="-180">8.5, 10, -32.5</point>
+            <point yaw="0">44.5, 16.1, -26.5</point>
+            <point yaw="90">64.5, 22, -74.5</point>
+            <point yaw="-45">21.5, 7, -94.5</point>
+            <point yaw="90">38.5, 26, -26.5</point>
+            <point yaw="-135">-1.5, 8, 8.5</point>
+            <point yaw="-90">20.5, 21, -55.5</point>
+        </regions>
+    </spawn>
+</spawns>
+<regions>
+    <apply block="never">
+        <region>
+            <rectangle min="-oo,-oo" max="oo,oo"/>
+        </region>
+    </apply>
+</regions>
+</map>
