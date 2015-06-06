@@ -15,7 +15,7 @@
 <respawn delay="3s" spectate="true"/>
 <score>
     <kills>1</kills>
-    <deaths>1</deaths>
+    <deaths>0</deaths>
 </score>
 <time>10m</time>
 <kits>
