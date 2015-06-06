@@ -11,7 +11,7 @@
     <contributor uuid="fe3608b7-d105-4029-8800-34b3147065b6" contribution="Trees"/> <!-- rockymine -->
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
 </contributors>
-<players max="40" max-overfill="44" show-name-tags="false"/>
+<players max="40" max-overfill="45" show-name-tags="false"/>
 <respawn delay="3s" spectate="true"/>
 <score>
     <kills>1</kills>
