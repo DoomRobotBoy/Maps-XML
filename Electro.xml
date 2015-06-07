@@ -1,6 +1,6 @@
-<map proto="1.3.6">
+<map proto="1.4.0">
 <name>Electro</name>
-<version>0.2</version>
+<version>1.0.0</version>
 <objective>Capture the enemy's flag 3 times to win!</objective>
 <authors>
     <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
@@ -10,8 +10,8 @@
     <rule>Fall damage is disabled</rule>
 </rules>
 <teams>
-    <team id="red" color="dark red" max="8">Red</team>
-    <team id="blue" color="blue" max="8">Blue</team>
+    <team id="red" color="dark red" max="18" max-overfill="20">Red</team>
+    <team id="blue" color="blue" max="18" max-overfill="20">Blue</team>
 </teams>
 <flags>
     <flag id="red-flag" name="Red Flag" owner="red" color="red" pickup-filter="only-blue" return-time="45s">
@@ -90,17 +90,8 @@
 </kit>
 </kits>
 <filters>
-<filter name="only-red">
-<team>red</team>
-</filter>
-<filter name="only-blue">
-<team>blue</team>
-</filter>
-<filter name="no-beacon">
-<not>
-<block>beacon</block>
-</not>
-</filter>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
 </filters>
 <regions>
 <apply block="deny-all" use="no-beacon">
@@ -158,13 +149,13 @@
 </apply>
 </regions>
 <itemremove>
-<item>arrow</item>
-<item>iron chestplate</item>
-<item>leather leggings</item>
-<item>leather boots</item>
-<item>stained clay</item>
-<item>bow</item>
-<item>stone sword</item>
+    <item>arrow</item>
+    <item>iron chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>stained clay</item>
+    <item>bow</item>
+    <item>stone sword</item>
 </itemremove>
 <killreward>
 <filter>
