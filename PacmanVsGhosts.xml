@@ -2,7 +2,7 @@
 <name>Pacman Vs. Ghosts</name>
 <version>1.0.0</version>
 <objective>
-    Eliminate the Pac-man before he eats all yellow dots, which are made out of wool.
+    Eliminate the Pac-man before he eats all the yellow dots!
 </objective>
 <authors>
     <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"> <!-- ogel -->
@@ -15,59 +15,66 @@
     <team id="ghosts" color="purple" max="4">Ghosts</team>
 </teams>
 <kits>
-    <kit id="spawn-kit" potion-particles="false" force="true">
+    <kit id="spawn-kit" potion-particles="false" force="true" discard-potion-bottles="true">
         <potion duration="oo">night vision</potion>
+        <game-mode>adventure</game-mode>
     </kit>
     <kit id="pac-kit" parents="spawn-kit">
-        <item slot="0" enchantment="dig speed:5">shears</item>
-        <helmet locked="true" enchantment="durability:10">gold helmet</helmet>
-        <chestplate locked="true" enchantment="durability:10">gold chestplate</chestplate>
-        <leggings locked="true" enchantment="durability:10">gold leggings</leggings>
-        <boots locked="true" enchantment="durability:10">gold boots</boots>
+        <item slot="0" enchantment="dig speed:10" unbreakable="true" material="gold pickaxe">
+            <can-destroy>
+                <material>gold block</material>
+            </can-destroy>
+        </item>
+        <helmet locked="true" unbreakable="true">gold helmet</helmet>
+        <chestplate locked="true" unbreakable="true">gold chestplate</chestplate>
+        <leggings locked="true" unbreakable="true">gold leggings</leggings>
+        <boots locked="true" unbreakable="true">gold boots</boots>
         <potion duration="4">heal</potion>
         <potion duration="oo" amplifier="4">speed</potion>
     </kit>
     <kit id="ghosts-kit" parents="spawn-kit">
-        <item slot="0" enchantment="damage all:2">gold sword</item>
+        <item slot="0" prevent-sharing="true" enchantment="damage all:2">gold sword</item>
+        <item slot="1" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="2" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="3" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="4" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="5" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="6" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="7" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <item slot="8" prevent-sharing="true" damage="15" name="`0.">stained glass pane</item>
+        <potion duration="oo">heal</potion>
         <potion duration="oo" amplifier="3">speed</potion>
+        <potion duration="2" amplifier="10">slow</potion>
+        <potion duration="2">blindness</potion>
     </kit>
-       <kit id="Inky" parents="ghosts-kit">
--        <helmet locked="true" damage="-3000" color="4C7F99">leather helmet</helmet>
--        <chestplate locked="true" damage="-3000" color="4C7F99">leather chestplate</chestplate>
--        <leggings locked="true" damage="-3000" color="4C7F99">leather leggings</leggings>
--        <boots locked="true" damage="-3000" color="4C7F99">leather boots</boots>
--    </kit>
--    <kit id="Pokey" parents="ghosts-kit">
--        <helmet locked="true" damage="-3000" color="D87F33">leather helmet</helmet>
--        <chestplate locked="true" damage="-3000" color="D87F33">leather chestplate</chestplate>
--        <leggings locked="true" damage="-3000" color="D87F33">leather leggings</leggings>
--        <boots locked="true" damage="-3000" color="D87F33">leather boots</boots>
--    </kit>
--    <kit id="Pinky" parents="ghosts-kit">
--        <helmet locked="true" damage="-3000" color="F27FA5">leather helmet</helmet>
--        <chestplate locked="true" damage="-3000" color="F27FA5">leather chestplate</chestplate>
--        <leggings locked="true" damage="-3000" color="F27FA5">leather leggings</leggings>
--        <boots locked="true" damage="-3000" color="F27FA5">leather boots</boots>
--    </kit>
--    <kit id="Blinky" parents="ghosts-kit">
--        <helmet locked="true" damage="-3000" color="993333">leather helmet</helmet>
--        <chestplate locked="true" damage="-3000" color="993333">leather chestplate</chestplate>
--        <leggings locked="true" damage="-3000" color="993333">leather leggings</leggings>
--        <boots locked="true" damage="-3000" color="993333">leather boots</boots>
--    </kit>
+    <kit id="Inky" parents="ghosts-kit">
+        <helmet locked="true" unbreakable="true" color="4C7F99">leather helmet</helmet>
+        <chestplate locked="true" unbreakable="true" color="4C7F99">leather chestplate</chestplate>
+        <leggings locked="true" unbreakable="true" color="4C7F99">leather leggings</leggings>
+        <boots locked="true" unbreakable="true" color="4C7F99">leather boots</boots>
+    </kit>
+    <kit id="Pokey" parents="ghosts-kit">
+        <helmet locked="true" unbreakable="true" color="D87F33">leather helmet</helmet>
+        <chestplate locked="true" unbreakable="true" color="D87F33">leather chestplate</chestplate>
+        <leggings locked="true" unbreakable="true" color="D87F33">leather leggings</leggings>
+        <boots locked="true" unbreakable="true" color="D87F33">leather boots</boots>
+    </kit>
+    <kit id="Pinky" parents="ghosts-kit">
+        <helmet locked="true" unbreakable="true" color="F27FA5">leather helmet</helmet>
+        <chestplate locked="true" unbreakable="true" color="F27FA5">leather chestplate</chestplate>
+        <leggings locked="true" unbreakable="true" color="F27FA5">leather leggings</leggings>
+        <boots locked="true" unbreakable="true" color="F27FA5">leather boots</boots>
+    </kit>
+    <kit id="Blinky" parents="ghosts-kit">
+        <helmet locked="true" unbreakable="true" color="993333">leather helmet</helmet>
+        <chestplate locked="true" unbreakable="true" color="993333">leather chestplate</chestplate>
+        <leggings locked="true" unbreakable="true" color="993333">leather leggings</leggings>
+        <boots locked="true" unbreakable="true" color="993333">leather boots</boots>
+    </kit>
 </kits>
 <itemremove>
     <item>gold block</item>
 </itemremove>
-<filters>
-    <all id="only-yellow">
-        <block>wool:4</block>
-        <team>pac</team>
-    </all>
-    <not id="deny-ghosts">
-        <team>ghosts</team>
-    </not>
-</filters>
 <regions>
     <union id="ghosts-spawns">
         <cylinder base="153.5,40,27.5" radius="1" height="0"/>
@@ -75,25 +82,32 @@
         <cylinder base="154.5,40,27.5" radius="1" height="0"/>
         <cylinder base="152.5,40,27.5" radius="1" height="0"/>
     </union>
-    <apply block="only-yellow">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
-    <apply block="deny-ghosts">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
     <apply kit="Inky">
--        <cylinder base="153.5,40,27.5" radius="1" height="0"/>
--    </apply>
--    <apply kit="Pokey">
--        <cylinder base="153.5,40,26.5" radius="1" height="0"/>
--    </apply>
--    <apply kit="Pinky">
--        <cylinder base="154.5,40,27.5" radius="1" height="0"/>
--    </apply>
--    <apply kit="Blinky">
--        <cylinder base="152.5,40,27.5" radius="1" height="0"/>
--    </apply>
+        <cylinder base="153.5,40,27.5" radius="1" height="0"/>
+    </apply>
+    <apply kit="Pokey">
+        <cylinder base="153.5,40,26.5" radius="1" height="0"/>
+    </apply>
+    <apply kit="Pinky">
+        <cylinder base="154.5,40,27.5" radius="1" height="0"/>
+    </apply>
+    <apply kit="Blinky">
+        <cylinder base="152.5,40,27.5" radius="1" height="0"/>
+    </apply>
 </regions>
+<blockdrops>
+    <rule>
+        <filter>
+            <block>sea lantern</block>
+        </filter>
+        <drops>
+            <item material="potion" damage="8201" name="`e`lPOWER UP">
+                <potion duration="10s" amplifier="10">increase damage</potion>
+                <potion duration="10s" amplifier="10">damage resistance</potion>
+            </item>
+        </drops>
+    </rule>
+</blockdrops>
 <portals>
     <portal x="@114.5" y="@40" z="@3.5" yaw="-90">
         <region>
