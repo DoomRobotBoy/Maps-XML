@@ -1,5 +1,5 @@
 <map proto="1.4.0">
-<name>PacMan Vs. Ghosts</name>
+<name>Pacman Vs. Ghosts</name>
 <version>1.0.0</version>
 <objective>
     Eliminate the Pac-man before he eats all yellow dots, which are made out of wool.
@@ -29,41 +29,70 @@
     </kit>
     <kit id="ghosts-kit" parents="spawn-kit">
         <item slot="0" enchantment="damage all:2">gold sword</item>
-        <helmet locked="true" damage="-3000" color="4C7F99">leather helmet</helmet>
-        <chestplate locked="true" damage="-3000" color="4C7F99">leather chestplate</chestplate>
-        <leggings locked="true" damage="-3000" color="4C7F99">leather leggings</leggings>
-        <boots locked="true" damage="-3000" color="4C7F99">leather boots</boots>
         <potion duration="oo" amplifier="3">speed</potion>
     </kit>
+       <kit id="Inky" parents="ghosts-kit">
+-        <helmet locked="true" damage="-3000" color="4C7F99">leather helmet</helmet>
+-        <chestplate locked="true" damage="-3000" color="4C7F99">leather chestplate</chestplate>
+-        <leggings locked="true" damage="-3000" color="4C7F99">leather leggings</leggings>
+-        <boots locked="true" damage="-3000" color="4C7F99">leather boots</boots>
+-    </kit>
+-    <kit id="Pokey" parents="ghosts-kit">
+-        <helmet locked="true" damage="-3000" color="D87F33">leather helmet</helmet>
+-        <chestplate locked="true" damage="-3000" color="D87F33">leather chestplate</chestplate>
+-        <leggings locked="true" damage="-3000" color="D87F33">leather leggings</leggings>
+-        <boots locked="true" damage="-3000" color="D87F33">leather boots</boots>
+-    </kit>
+-    <kit id="Pinky" parents="ghosts-kit">
+-        <helmet locked="true" damage="-3000" color="F27FA5">leather helmet</helmet>
+-        <chestplate locked="true" damage="-3000" color="F27FA5">leather chestplate</chestplate>
+-        <leggings locked="true" damage="-3000" color="F27FA5">leather leggings</leggings>
+-        <boots locked="true" damage="-3000" color="F27FA5">leather boots</boots>
+-    </kit>
+-    <kit id="Blinky" parents="ghosts-kit">
+-        <helmet locked="true" damage="-3000" color="993333">leather helmet</helmet>
+-        <chestplate locked="true" damage="-3000" color="993333">leather chestplate</chestplate>
+-        <leggings locked="true" damage="-3000" color="993333">leather leggings</leggings>
+-        <boots locked="true" damage="-3000" color="993333">leather boots</boots>
+-    </kit>
 </kits>
+<itemremove>
+    <item>gold block</item>
+</itemremove>
 <filters>
-    <filter name="only-yellow">
-        <all>
-            <block>wool:4</block>
-            <team>pac</team>
-        </all>
-    </filter>
-    <filter name="deny-ghosts">
-        <not>
-            <team>ghosts</team>
-        </not>
-    </filter>
+    <all id="only-yellow">
+        <block>wool:4</block>
+        <team>pac</team>
+    </all>
+    <not id="deny-ghosts">
+        <team>ghosts</team>
+    </not>
 </filters>
 <regions>
-    <cylinder name="pac-man-spawn" base="141.5,40,31.5" radius="1"/>
-    <union name="ghosts-spawns">
-        <cylinder base="139.5,43,0.5" radius="1"/>
-        <cylinder base="141.5,43,-0.5" radius="1"/>
-        <cylinder base="143.5,43,0.5" radius="1"/>
-        <cylinder base="141.5,43,1.5" radius="1"/>
+    <union id="ghosts-spawns">
+        <cylinder base="153.5,40,27.5" radius="1" height="0"/>
+        <cylinder base="153.5,40,26.5" radius="1" height="0"/>
+        <cylinder base="154.5,40,27.5" radius="1" height="0"/>
+        <cylinder base="152.5,40,27.5" radius="1" height="0"/>
     </union>
-    <cylinder name="obs-spawn" base="141.5,40,1.5" radius="1"/>
     <apply block="only-yellow">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
     <apply block="deny-ghosts">
         <rectangle min="oo,oo" max="-oo,-oo"/>
     </apply>
+    <apply kit="Inky">
+-        <cylinder base="153.5,40,27.5" radius="1" height="0"/>
+-    </apply>
+-    <apply kit="Pokey">
+-        <cylinder base="153.5,40,26.5" radius="1" height="0"/>
+-    </apply>
+-    <apply kit="Pinky">
+-        <cylinder base="154.5,40,27.5" radius="1" height="0"/>
+-    </apply>
+-    <apply kit="Blinky">
+-        <cylinder base="152.5,40,27.5" radius="1" height="0"/>
+-    </apply>
 </regions>
 <portals>
     <portal x="@114.5" y="@40" z="@3.5" yaw="-90">
@@ -85,7 +114,7 @@
     </spawn>
     <spawn team="ghosts" kit="ghosts-kit"/>
         <regions yaw="180">
-            <cylinder base="153.5,40,26.5" radius="1" height="0"/>
+            <region id="ghosts-spawns"/>
         </regions>
     </spawn>
     <default kit="spawn-kit">
