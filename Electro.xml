@@ -45,9 +45,15 @@
         <potion duration="oo">speed</potion>
     </kit>
     <kit id="blue-kit" parents="spawn-kit">
+        <helmet color="334CB2" locked="true">leather helmet</helmet>
+        <chestplate color="334CB2" locked="true">leather chestplate</chestplate>
+        <leggings color="334CB2" locked="true">leather leggings</leggings>
         <boots color="334CB2" locked="true">leather boots</boots>
     </kit>
     <kit id="red-kit" parents="spawn-kit">
+        <helmet color="993333" locked="true">leather helmet</helmet>
+        <chestplate color="993333" locked="true">leather chestplate</chestplate>
+        <leggings color="993333" locked="true">leather leggings</leggings>
         <boots color="993333" locked="true">leather boots</boots>
     </kit>
 </kits>
