@@ -86,6 +86,19 @@
             </any>
         </not>
     </filter>
+    <filter name="deny-web">
+        <not>
+            <block>web</block>
+        </not>
+    </filter>
+    <filter name="deny-web-explosions">
+        <not>
+            <all>
+                <cause>explosion</cause>
+                <block>web</block>
+            </all>
+        </not>
+    </filter>
     <filter name="all-but-tnt">
         <not>
             <all>
@@ -135,7 +148,13 @@
     <apply block-break="deny-glass" message="You may not break white and black glass.">
         <region name="map"/>
     </apply>
-    <apply block="deny-some-clay">
+    <apply block-break="deny-some-clay" message="You may not break lime and light blue clay.">
+        <region name="map"/>
+    </apply>
+    <apply block-break="web" message="You may not break cobwebs.">
+        <region name="map"/>
+    </apply>
+    <apply block="deny-web-explosions">
         <region name="map"/>
     </apply>
     <apply block="deny-blocks" message="Bridging is disabled in this area!">
@@ -161,14 +180,20 @@
     </apply>
 </regions>
 <spawns>
-    <spawn team="blue" yaw="0" kit="blue">
-        <regions><cuboid name="blue-spawn" min="989,114,444" max="998,114,446"/></regions>
+    <spawn team="blue" kit="blue">
+        <regions yaw="0">
+            <cuboid name="blue-spawn" min="989,114,444" max="998,114,446"/>
+        </regions>
     </spawn>
-    <spawn team="green" yaw="0" kit="green">
-        <regions><cuboid name="green-spawn" min="943,114,444" max="952,114,446"/></regions>
+    <spawn team="green" kit="green">
+        <regions yaw="0">
+            <cuboid name="green-spawn" min="943,114,444" max="952,114,446"/>
+        </regions>
     </spawn>
-    <default yaw="0" kit="obs">
-        <regions><cuboid name="default-spawn" min="969,117,441" max="972,117,444"/></regions>
+    <default kit="obs">
+        <regions yaw="0">
+            <cuboid name="default-spawn" min="969,117,441" max="972,117,444"/>
+        </regions>
     </default>
 </spawns>
 <renewables>
