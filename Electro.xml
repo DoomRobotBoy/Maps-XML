@@ -60,8 +60,23 @@
 <filters>
     <team id="only-red">red</team>
     <team id="only-blue">blue</team>
+    <not id="no-flag">
+        <any>
+            <carrying-flag>red-flag</carrying-flag>
+            <carrying-flag>blue-flag</carrying-flag>
+        </any>
+    </not>
 </filters>
 <regions>
+    <union id="no-flag-regions">
+        <cuboid min="-197,15,-433" max="-194,18,-434"/>
+        <cuboid min="-197,15,-499" max="-194,18,-500"/>
+    </union>
+    <apply enter="no-flag" message="You may not walk through this gate whilst carrying a flag.">
+        <region>
+            <region id="no-flag-regions"/>
+        </region>
+    </apply>
   <!-- Blue Pads -->
   <!-- Left of Spawn -->
     <apply velocity="-0.5,1.2,0.0">
@@ -268,6 +283,7 @@
             <cuboid min="-194,10,-456" max="-197,11,-453"/>
         </region>
     </apply>
+    <apply enter="no-red-flag" message=""
     <apply block="never">
         <region>
             <rectangle min="oo,oo" max="-oo,-oo"/>
@@ -306,6 +322,9 @@
     <item>iron sword</item>
     <item>bow</item>
     <item>arrow</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
     <item>leather boots</item>
 </itemremove>
 <killreward>
