@@ -11,7 +11,7 @@
 </rules>
 <teams>
     <team id="red" show-name-tags="allies" color="dark red" max="15" max-overfill="18">Red</team>
-    <team id="blue" show-name-tags="allies" color="blue" max="15" max-overfill="28">Blue</team>
+    <team id="blue" show-name-tags="allies" color="blue" max="15" max-overfill="18">Blue</team>
 </teams>
 <score>
     <limit>3</limit>
