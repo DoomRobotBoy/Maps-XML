@@ -283,7 +283,6 @@
             <cuboid min="-194,10,-456" max="-197,11,-453"/>
         </region>
     </apply>
-    <apply enter="no-red-flag" message=""
     <apply block="never">
         <region>
             <rectangle min="oo,oo" max="-oo,-oo"/>
