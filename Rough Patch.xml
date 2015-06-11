@@ -9,9 +9,6 @@
     <team id="redt" color="dark red" max="14" max-overfill="16">Red</team>
     <team id="bluet" color="blue" max="14" max-overfill="16">Blue</team>
 </teams>
-<broadcasts>
-    <tip after="5s">For enchanting you need lapis lazuli, which can be found in your inventory.</tip>
-</broadcasts>
 <spawns>
     <spawn team="redt" kit="red">
         <regions yaw="-180">
@@ -37,13 +34,13 @@
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true" enchantment="arrow damage:1">bow</item>
         <item slot="2" unbreakable="true" enchantment="dig speed:1">shears</item>
-        <item slot="5" amount="32">golden carrot</item>
+        <item slot="3" amount="64">golden carrot</item>
         <item slot="6" amount="5">exp bottle</item>
         <item slot="7">golden apple</item>
         <item slot="8" amount="24">arrow</item>
-        <item slot="17" amount="64" damage="4">ink sack</item>
-        <chestplate unbreakable="true" enchantment="protection projectile:1">iron chestplate</chestplate>
-        <leggings unbreakable="true">iron leggings</leggings>
+        <item slot="17" amount="3" damage="4">ink sack</item>
+        <chestplate locked="true" unbreakable="true" enchantment="protection projectile:1">iron chestplate</chestplate>
+        <leggings locked="true" unbreakable="true">iron leggings</leggings>
     </kit>
     <kit id="red" parents="spawn">
         <item slot="3" damage="14" amount="12">wool</item>
