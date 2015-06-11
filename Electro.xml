@@ -13,6 +13,7 @@
     <team id="red" show-name-tags="allies" color="dark red" max="15" max-overfill="18">Red</team>
     <team id="blue" show-name-tags="allies" color="blue" max="15" max-overfill="18">Blue</team>
 </teams>
+<respawn auto="true"/>
 <score>
     <limit>3</limit>
 </score>
