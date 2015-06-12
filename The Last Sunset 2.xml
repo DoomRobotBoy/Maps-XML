@@ -80,21 +80,21 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="spawn-areas-gold">
-        <cylinder base="-760.5,7,393.5" radius="23" height="15"/>
-        <cylinder base="-980.5,7,393.5" radius="23" height="15"/>
+        <cylinder base="-760.5,6,393.5" radius="23" height="15"/>
+        <cylinder base="-980.5,6,393.5" radius="23" height="15"/>
     </union>
     <union name="spawn-areas">
         <cylinder base="-980.5,0,393.5" radius="23" height="8"/>
         <cylinder base="-760.5,0,393.5" radius="23" height="8"/>
     </union>
     <union name="all-flag-posts-y">
-        <cylinder base="-797.5,6,-346.5" radius="1" height="4"/>
-        <cylinder base="-797.5,6,-440.5" radius="1" height="4"/>
-        <cylinder base="-943.5,6,-346.5" radius="1" height="4"/>
-        <cylinder base="-943.5,6,-440.5" radius="1" height="4"/>
+        <cylinder base="-797.5,5,-346.5" radius="1" height="4"/>
+        <cylinder base="-797.5,5,-440.5" radius="1" height="4"/>
+        <cylinder base="-943.5,5,-346.5" radius="1" height="4"/>
+        <cylinder base="-943.5,5,-440.5" radius="1" height="4"/>
     </union>
-    <cylinder name="red-net" base="-749.5,29,-393.5" radius="3" height="0"/>
-    <cylinder name="blue-net" base="-991.5,29,-393.5" radius="3" height="0"/>
+    <cylinder name="red-net" base="-749.5,21,-393.5" radius="3" height="0"/>
+    <cylinder name="blue-net" base="-991.5,21,-393.5" radius="3" height="0"/>
 <!--    Applied    -->
     <apply block="deny-all" message="You may not break the area under the flag post.">
         <cuboid min="-799,0,-439" max="-796,6,-442"/>
@@ -109,13 +109,13 @@
         <region name="spawn-areas-gold"/>
     </apply>
     <apply block-break="only-gold" block-place="deny-all">
-        <cuboid min="oo,22,oo" max="-oo,25,-oo"/>
+        <cuboid min="oo,21,oo" max="-oo,24,-oo"/>
     </apply>
     <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
         <region name="all-flag-posts-y"/>
     </apply>
     <apply block="deny-world">
-        <cuboid min="oo,0,oo" max="-oo,2,-oo"/>
+        <cuboid min="oo,0,oo" max="-oo,1,-oo"/>
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
         <region name="map"/>
@@ -124,12 +124,12 @@
 <spawns>
     <spawn team="red" kit="red">
         <regions yaw="90">
-            <cylinder base="-749.5,22,-393.5" radius="1" height="0"/>
+            <cylinder base="-749.5,21,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue">
         <regions yaw="-90">
-            <cylinder base="-991.5,22,-393.5" radius="1" height="0"/>
+            <cylinder base="-991.5,21,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default kit="nv">
@@ -146,26 +146,26 @@
         <carry-message>
             You have the flag! Return it to your `6`lspawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-797.5,6,-346.5</post>
+        <post pickup-filter="only-blue" recover-time="15s">-797.5,5,-346.5</post>
     </flag>
     <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island your `6`lspawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-797.5,6,-440.5</post>
+        <post pickup-filter="only-blue" recover-time="15s">-797.5,5,-440.5</post>
     </flag>
     <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-943.5,6,-346.5</post>
+        <post pickup-filter="only-red" recover-time="15s">-943.5,5,-346.5</post>
     </flag>
     <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-943.5,6,-440.5</post>
+        <post pickup-filter="only-red" recover-time="15s">-943.5,5,-440.5</post>
     </flag>
     <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
