@@ -80,8 +80,8 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="spawn-areas-gold">
-        <cylinder base="-760.5,7,393.5" radius="23" height="20"/>
-        <cylinder base="-980.5,7,393.5" radius="23" height="20"/>
+        <cylinder base="-760.5,7,393.5" radius="23" height="15"/>
+        <cylinder base="-980.5,7,393.5" radius="23" height="15"/>
     </union>
     <union name="spawn-areas">
         <cylinder base="-980.5,0,393.5" radius="23" height="8"/>
@@ -105,7 +105,7 @@
     <apply block="deny-all" message="You may not modify the spawn areas!">
         <region name="spawn-areas"/>
     </apply>
-    <apply block-break="only-gold">
+    <apply block-break="only-gold" block-place="deny-all">
         <region name="spawn-areas-gold"/>
     </apply>
     <apply block-break="only-gold" block-place="deny-all">
@@ -124,12 +124,12 @@
 <spawns>
     <spawn team="red" kit="red">
         <regions yaw="90">
-            <cylinder base="-749.5,30,-393.5" radius="1" height="0"/>
+            <cylinder base="-749.5,22,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue">
         <regions yaw="-90">
-            <cylinder base="-991.5,30,-393.5" radius="1" height="0"/>
+            <cylinder base="-991.5,22,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default kit="nv">
