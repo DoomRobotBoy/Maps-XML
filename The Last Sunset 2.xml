@@ -88,19 +88,16 @@
         <cylinder base="-760.5,0,393.5" radius="23" height="8"/>
     </union>
     <union name="all-flag-posts-y">
-        <cylinder base="-797.5,5,-346.5" radius="1" height="4"/>
-        <cylinder base="-797.5,5,-440.5" radius="1" height="4"/>
-        <cylinder base="-943.5,5,-346.5" radius="1" height="4"/>
-        <cylinder base="-943.5,5,-440.5" radius="1" height="4"/>
+        <cuboid name="red-north" min="-796,5,-439" max="-799,8,-442"/>
+        <cuboid name="red-south" min="-796,5,-345" max="-799,8,-348"/>
+        <cuboid name="blue-north" min="-942,5,-439" max="-945,8,-442"/>
+        <cuboid name="blue-south" min="-942,5,-345" max="-945,8,-348"/>
     </union>
     <cylinder name="red-net" base="-749.5,21,-393.5" radius="3" height="0"/>
     <cylinder name="blue-net" base="-991.5,21,-393.5" radius="3" height="0"/>
 <!--    Applied    -->
-    <apply block="deny-all" message="You may not break the area under the flag post.">
-        <cuboid min="-799,0,-439" max="-796,6,-442"/>
-        <cuboid min="-799,0,-348" max="-796,6,-345"/>
-        <cuboid min="-942,0,-439" max="-945,6,-442"/>
-        <cuboid min="-942,0,-348" max="-945,6,-345"/>
+    <apply block="deny-all" message="You may not break the area around the flag post.">
+        <region name="all-flag-posts-y"/>
     </apply>
     <apply block="deny-all" message="You may not modify the spawn areas!">
         <region name="spawn-areas"/>
