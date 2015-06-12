@@ -8,13 +8,13 @@
 </authors>
 <broadcasts>
     <tip after="4s">
-        `3`oYou have to capture the `6`nflags`3`o in `6`nspawn`3.
+        `3`oYou have to capture the `6flags`3`o in `6spawn`3.
     </tip>
     <tip after="6s">
-        `3`oTo make the `6`nflags`3`o respawn you have to capture both enemy flags first.
+        `3`oTo make the `6flags`3`o respawn you have to capture both enemy flags first.
     </tip>
     <tip after="6s">
-        `6`nThe gold ore`3`o in the `6`nmines under spawn`3`o drop gold blocks instead of gold ore.
+        `6The gold ore`3`o in the `6mines under spawn`3`o drop gold blocks instead of gold ore.
     </tip>
 </broadcasts>
 <teams>
@@ -26,11 +26,11 @@
 </rules>
 <kits>
     <kit name="spawn">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000">bow</item>
-        <item slot="2" damage="-3000" enchantment="dig speed:1">iron pickaxe</item>
-        <item slot="3">iron axe</item>
-        <item slot="4">stone spade</item>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="3" unbreakable="true">iron axe</item>
+        <item slot="4" unbreakable="true" enchantment="dig speed:1">wood spade</item>
         <item slot="5" amount="32">bread</item>
         <item slot="6" amount="32">wood</item>
         <item slot="7" amount="16">glass</item>
@@ -42,12 +42,12 @@
         </kit>
     </kit>
     <kit name="red" parents="spawn">
-        <helmet color="993333" damage="-3000">leather helmet</helmet>
-        <chestplate color="993333" enchantment="protection projectile:2" damage="-3000">leather chestplate</chestplate>
+        <helmet color="993333" unbreakable="true">leather helmet</helmet>
+        <chestplate color="993333" enchantment="protection projectile:2" unbreakable="true">leather chestplate</chestplate>
     </kit>
     <kit name="blue" parents="spawn">
-        <helmet color="334CB2" damage="-3000">leather helmet</helmet>
-    <chestplate color="334CB2" enchantment="protection projectile:2" damage="-3000">leather chestplate</chestplate>
+        <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
+    <chestplate color="334CB2" enchantment="protection projectile:2" unbreakable="true">leather chestplate</chestplate>
     </kit>
     <kit name="pickup" force="true">
         <leggings enchantment="durability:3" locked="true">gold leggings</leggings>
@@ -55,7 +55,7 @@
     </kit>
     <kit name="drop" force="true">
         <leggings>air</leggings>
-    <boots>air</boots>
+        <boots>air</boots>
     </kit>
 </kits>
 <killreward>
@@ -69,12 +69,6 @@
     </filter>
     <filter name="only-gold">
         <block>gold ore</block>
-    </filter>
-    <filter name="only-some">
-        <any>
-            <block>gold ore</block>
-            <block>sandstone</block>
-        </any>
     </filter>
     <filter name="only-red">
         <team>red</team>
@@ -99,8 +93,8 @@
         <cylinder base="-943.5,6,-346.5" radius="1" height="4"/>
         <cylinder base="-943.5,6,-440.5" radius="1" height="4"/>
     </union>
-    <cylinder name="red-net" base="-749.5,29,-393.5" radius="1" height="0"/>
-    <cylinder name="blue-net" base="-991.5,29,-393.5" radius="1" height="0"/>
+    <cylinder name="red-net" base="-749.5,29,-393.5" radius="3" height="0"/>
+    <cylinder name="blue-net" base="-991.5,29,-393.5" radius="3" height="0"/>
 <!--    Applied    -->
     <apply block="deny-all" message="You may not break the area under the flag post.">
         <cuboid min="-799,0,-439" max="-796,6,-442"/>
@@ -111,14 +105,17 @@
     <apply block="deny-all" message="You may not modify the spawn areas!">
         <region name="spawn-areas"/>
     </apply>
-    <apply block-break="only-some">
+    <apply block-break="only-gold">
         <region name="spawn-areas-gold"/>
+    </apply>
+    <apply block-break="only-gold" block-place="deny-all">
+        <cuboid min="oo,22,oo" max="-oo,25,-oo"/>
     </apply>
     <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
         <region name="all-flag-posts-y"/>
     </apply>
     <apply block="deny-world">
-        <cuboid min="oo,1,oo" max="-oo,1,-oo"/>
+        <cuboid min="oo,0,oo" max="-oo,2,-oo"/>
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
         <region name="map"/>
@@ -127,12 +124,12 @@
 <spawns>
     <spawn team="red" kit="red">
         <regions yaw="90">
-            <region name="red-net"/>
+            <cylinder base="-749.5,30,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue">
         <regions yaw="-90">
-            <region name="blue-net"/>
+            <cylinder base="-991.5,30,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default kit="nv">
@@ -147,30 +144,30 @@
 <flags>
     <flag id="south-red-flag" name="South Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
-            You have the flag! Return it to your`6`l spawn
+            You have the flag! Return it to your `6`lspawn
         </carry-message>
         <post pickup-filter="only-blue" recover-time="15s">-797.5,6,-346.5</post>
     </flag>
-<flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
-<carry-message>
-You have the flag! Return it to the island `6`lbehind spawn
-</carry-message>
-<post pickup-filter="only-blue" recover-time="15s">-797.5,6,-440.5</post>
-</flag>
-<net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
-<flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
-<carry-message>
-You have the flag! Return it to the island `6`lbehind spawn
-</carry-message>
-<post pickup-filter="only-red" recover-time="15s">-943.5,6,-346.5</post>
-</flag>
-<flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
-<carry-message>
-You have the flag! Return it to the island `6`lbehind spawn
-</carry-message>
-<post pickup-filter="only-red" recover-time="15s">-943.5,6,-440.5</post>
-</flag>
-<net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
+    <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
+        <carry-message>
+            You have the flag! Return it to the island your `6`lspawn
+        </carry-message>
+        <post pickup-filter="only-blue" recover-time="15s">-797.5,6,-440.5</post>
+    </flag>
+    <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
+    <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
+        <carry-message>
+            You have the flag! Return it to the island `6`lbehind spawn
+        </carry-message>
+        <post pickup-filter="only-red" recover-time="15s">-943.5,6,-346.5</post>
+    </flag>
+    <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
+        <carry-message>
+            You have the flag! Return it to the island `6`lbehind spawn
+        </carry-message>
+        <post pickup-filter="only-red" recover-time="15s">-943.5,6,-440.5</post>
+    </flag>
+    <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
 <toolrepair>
     <tool>stone sword</tool>
@@ -183,6 +180,7 @@ You have the flag! Return it to the island `6`lbehind spawn
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>arrow</item>
+    <item>bread</item>
 </itemremove>
 <blockdrops>
     <rule>
