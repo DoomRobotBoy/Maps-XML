@@ -202,14 +202,6 @@
             <block>gold ore</block>
         </renew-filter>
     </renewable>
-    <renewable rate="3.0" grow="true" particles="true" sound="true" avoid-entities="true">
-        <region>
-            <region name="spawn-areas-gold"/>
-        </region>
-        <renew-filter>
-            <block>sandstone</block>
-        </renew-filter>
-    </renewable>
 </renewables>
 <maxbuildheight>25</maxbuildheight>
 </map>
