@@ -79,13 +79,9 @@
 </filters>
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
-    <union name="spawn-areas-gold">
-        <cylinder base="-760.5,6,393.5" radius="23" height="15"/>
-        <cylinder base="-980.5,6,393.5" radius="23" height="15"/>
-    </union>
     <union name="spawn-areas">
-        <cylinder base="-980.5,0,393.5" radius="23" height="8"/>
-        <cylinder base="-760.5,0,393.5" radius="23" height="8"/>
+        <cylinder base="-980.5,0,393.5" radius="23" height="20"/>
+        <cylinder base="-760.5,0,393.5" radius="23" height="20"/>
     </union>
     <union name="all-flag-posts-y">
         <cuboid name="red-north" min="-796,5,-439" max="-799,8,-442"/>
@@ -99,14 +95,8 @@
     <apply block="deny-all" message="You may not break the area around the flag post.">
         <region name="all-flag-posts-y"/>
     </apply>
-    <apply block="deny-all" message="You may not modify the spawn areas!">
+    <apply block-break="only-gold" block-place="deny-all" message="You may not modify the spawn island!">
         <region name="spawn-areas"/>
-    </apply>
-    <apply block-break="only-gold" block-place="deny-all">
-        <region name="spawn-areas-gold"/>
-    </apply>
-    <apply block-break="only-gold" block-place="deny-all">
-        <cuboid min="oo,21,oo" max="-oo,24,-oo"/>
     </apply>
     <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
         <region name="all-flag-posts-y"/>
@@ -203,5 +193,5 @@
         </renew-filter>
     </renewable>
 </renewables>
-<maxbuildheight>25</maxbuildheight>
+<maxbuildheight>20</maxbuildheight>
 </map>
