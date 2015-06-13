@@ -80,14 +80,14 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="spawn-areas">
-        <cylinder base="-980.5,0,393.5" radius="23" height="20"/>
-        <cylinder base="-760.5,0,393.5" radius="23" height="20"/>
+        <cylinder base="-980.5,0,-393.5" radius="23" height="20"/>
+        <cylinder base="-760.5,0,-393.5" radius="23" height="20"/>
     </union>
     <union name="all-flag-posts-y">
-        <cuboid name="red-north" min="-796,5,-439" max="-799,8,-442"/>
-        <cuboid name="red-south" min="-796,5,-345" max="-799,8,-348"/>
-        <cuboid name="blue-north" min="-942,5,-439" max="-945,8,-442"/>
-        <cuboid name="blue-south" min="-942,5,-345" max="-945,8,-348"/>
+        <cuboid name="red-north" min="-796,0,-439" max="-799,8,-442"/>
+        <cuboid name="red-south" min="-796,0,-345" max="-799,8,-348"/>
+        <cuboid name="blue-north" min="-942,0,-439" max="-945,8,-442"/>
+        <cuboid name="blue-south" min="-942,0,-345" max="-945,8,-348"/>
     </union>
     <cylinder name="red-net" base="-749.5,21,-393.5" radius="3" height="0"/>
     <cylinder name="blue-net" base="-991.5,21,-393.5" radius="3" height="0"/>
@@ -133,26 +133,26 @@
         <carry-message>
             You have the flag! Return it to your `6`lspawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-797.5,5,-346.5</post>
+        <post pickup-filter="only-blue" recover-time="25s">-797.5,5,-346.5</post>
     </flag>
     <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island your `6`lspawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-797.5,5,-440.5</post>
+        <post pickup-filter="only-blue" recover-time="25s">-797.5,5,-440.5</post>
     </flag>
     <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-943.5,5,-346.5</post>
+        <post pickup-filter="only-red" recover-time="25s">-943.5,5,-346.5</post>
     </flag>
     <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-943.5,5,-440.5</post>
+        <post pickup-filter="only-red" recover-time="25s">-943.5,5,-440.5</post>
     </flag>
     <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
@@ -165,7 +165,7 @@
     <item>iron pickaxe</item>
     <item>bow</item>
     <item>iron axe</item>
-    <item>stone spade</item>
+    <item>wood spade</item>
 </itemremove>
 <blockdrops>
     <rule>
