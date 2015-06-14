@@ -12,7 +12,7 @@
 </contributors>
 <teams>
     <team id="pac" color="yellow" max="1" respawn-limit="2">Pacman</team>
-    <team id="ghosts" color="purple" max="4">Ghosts</team>
+    <team id="ghosts" color="dark purple" max="4">Ghosts</team>
 </teams>
 <kits>
     <kit id="spawn-kit" potion-particles="false" force="true" discard-potion-bottles="true">
@@ -76,12 +76,6 @@
     <item>gold block</item>
 </itemremove>
 <regions>
-    <union id="ghosts-spawns">
-        <cylinder base="153.5,40,27.5" radius="1" height="0"/>
-        <cylinder base="153.5,40,26.5" radius="1" height="0"/>
-        <cylinder base="154.5,40,27.5" radius="1" height="0"/>
-        <cylinder base="152.5,40,27.5" radius="1" height="0"/>
-    </union>
     <apply kit="Inky">
         <cylinder base="153.5,40,27.5" radius="1" height="0"/>
     </apply>
@@ -98,7 +92,7 @@
 <blockdrops>
     <rule>
         <filter>
-            <block>sea lantern</block>
+            <material>sea lantern</material>
         </filter>
         <drops>
             <item material="potion" damage="8201" name="`e`lPOWER UP">
@@ -126,9 +120,12 @@
             <cylinder base="153.5,43,8.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="ghosts" kit="ghosts-kit">
-        <regions yaw="180">
-            <region id="ghosts-spawns"/>
+    <spawn team="ghosts" kit="ghosts-kit" spread="true">
+        <regions>
+            <point yaw="180">153.5,40,27.5</point>
+            <point yaw="180">153.5,40,26.5</point>
+            <point yaw="180">154.5,40,27.5</point>
+            <point yaw="180">152.5,40,27.5</point>
         </regions>
     </spawn>
     <default kit="spawn-kit">
