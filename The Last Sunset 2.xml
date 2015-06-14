@@ -80,8 +80,8 @@
 <regions>
     <rectangle name="map" min="oo,oo" max="-oo,-oo"/>
     <union name="spawn-areas">
-        <cylinder base="-980.5,0,-393.5" radius="23" height="20"/>
-        <cylinder base="-760.5,0,-393.5" radius="23" height="20"/>
+        <cylinder base="-980.5,0,-393.5" radius="23" height="30"/>
+        <cylinder base="-760.5,0,-393.5" radius="23" height="30"/>
     </union>
     <union name="all-flag-posts-y">
         <cuboid name="red-north" min="-796,0,-439" max="-799,8,-442"/>
@@ -184,7 +184,7 @@
 <renewables>
     <renewable rate="3.0" grow="true" particles="true" sound="true" avoid-entities="true">
         <region>
-            <region name="spawn-areas-gold"/>
+            <region name="spawn-areas"/>
         </region>
         <renew-filter>
             <block>gold ore</block>
