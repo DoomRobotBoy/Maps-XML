@@ -98,7 +98,7 @@
     <apply block="deny-all" message="You may not break the area around the flag post.">
         <region name="all-flag-posts-y"/>
     </apply>
-    <apply block-break="only-gold" block-place="deny-all" message="You may not modify the spawn island!">
+    <apply block-break="only-gold" block-place="only-gold" message="You may not modify the spawn island!">
         <region name="spawn-areas"/>
     </apply>
     <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
