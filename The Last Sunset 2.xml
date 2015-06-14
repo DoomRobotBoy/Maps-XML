@@ -182,7 +182,7 @@
     </rule>
 </blockdrops>
 <renewables>
-    <renewable rate="3.0" grow="true" particles="true" sound="true" avoid-entities="true">
+    <renewable rate="3.0" grow="true" particles="true" sound="true">
         <region>
             <region name="spawn-areas"/>
         </region>
