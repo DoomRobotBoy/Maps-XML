@@ -126,7 +126,7 @@
             <cylinder base="153.5,43,8.5" radius="1" height="0"/>
         </regions>
     </spawn>
-    <spawn team="ghosts" kit="ghosts-kit"/>
+    <spawn team="ghosts" kit="ghosts-kit">
         <regions yaw="180">
             <region id="ghosts-spawns"/>
         </regions>
