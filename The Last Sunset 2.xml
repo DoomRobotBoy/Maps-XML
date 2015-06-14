@@ -185,7 +185,7 @@
     </rule>
 </blockdrops>
 <renewables>
-    <renewable rate="3.0" particles="true" sound="true">
+    <renewable rate="3.0">
         <region>
             <region name="spawn-areas"/>
         </region>
