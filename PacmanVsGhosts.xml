@@ -5,7 +5,7 @@
     Eliminate the Pac-man before he eats all the yellow dots!
 </objective>
 <authors>
-    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"> <!-- ogel -->
+    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/> <!-- ogel -->
 </authors>
 <contributors>
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
@@ -121,7 +121,7 @@
     </portal>
 </portals>
 <spawns>
-    <spawn team="pac" kit="pac-kit"/>
+    <spawn team="pac" kit="pac-kit">
         <regions yaw="180">
             <cylinder base="153.5,43,8.5" radius="1" height="0"/>
         </regions>
