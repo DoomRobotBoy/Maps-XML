@@ -1,0 +1,59 @@
+<map proto="1.4.0" game="Sumo">
+<name>Sumo</name>
+<version>1.0.0</version>
+<objective>Kill the enemy player!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+    <author uuid="9c0cd42f-fd79-45ff-b123-7da044ab2a0c"/> <!-- Merlijn -->
+</authors>
+<teams>
+    <team id="redt" color="dark red" max="1">Red</team>
+    <team id="bluet" color="blue" max="1">Blue</team>
+</teams>
+<spawns>
+    <spawn team="redt" kit="red">
+        <regions yaw="-180">
+            <cylinder base="296.5,23,153.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <spawn team="bluet" kit="blue">
+        <regions>
+            <point yaw="180">1.5,26,6.5</point>
+        </regions>
+    </spawn>
+    <default kit="all">
+        <regions yaw="180">
+            <cylinder base="256.5,20,117.5" radius="1" height="0"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="all">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red" parents="all">
+        <helmet color="993333" unbreakable="true" name="`4Red Boxing Glove">leather helmet</helmet>
+    </kit>
+    <kit id="blue" parents="all">
+        <helmet color="334CB2" unbreakable="true" name="`1Blue Boxing Glove">leather helmet</helmet>
+    </kit>
+</kits>
+<regions>
+    <apply block="never">
+        <everywhere/>
+    </apply>
+</regions>
+<time>10m</time>
+<blitz>
+    <broadcastLives>true</broadcastLives>
+    <lives>1</lives>
+</blitz>
+<include src="blitz-global.xml"/>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<itemremove>
+    <item>leather helmet</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
