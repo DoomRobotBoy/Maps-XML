@@ -48,7 +48,7 @@
     <destroyable id="wall" owner="redt" region="the-wall" materials="glass" completion="0" show="false" mode-changes="true"/>
 </destroyables>
 <modes>
-    <mode after="20s" show-before="20s" material="air" name="Wall removed"/>
+    <mode after="10s" show-before="10s" material="air" name="Wall removed"/>
 </modes>
 <time>10m</time>
 <blitz>
