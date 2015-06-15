@@ -12,8 +12,8 @@
 </teams>
 <spawns>
     <spawn team="redt" kit="red">
-        <regions yaw="-180">
-            <cylinder base="296.5,23,153.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="0">1.5,26,-3.5</point>
         </regions>
     </spawn>
     <spawn team="bluet" kit="blue">
@@ -22,8 +22,8 @@
         </regions>
     </spawn>
     <default kit="all">
-        <regions yaw="180">
-            <cylinder base="256.5,20,117.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="0">1.5,33,20.5</point>
         </regions>
     </default>
 </spawns>
@@ -39,10 +39,17 @@
     </kit>
 </kits>
 <regions>
+    <cuboid id="the-wall" min="-1,26,9" max="4,20,6"/>
     <apply block="never">
         <everywhere/>
     </apply>
 </regions>
+<destroyables>
+    <destroyable id="wall" owner="redt" region="the-wall" materials="glass" completion="0" show="false" mode-changes="true"/>
+</destroyables>
+<modes>
+    <mode after="20s" show-before="20s" material="air"/>
+</modes>
 <time>10m</time>
 <blitz>
     <broadcastLives>true</broadcastLives>
