@@ -1,0 +1,126 @@
+<map proto="1.4.0" game="Wool Story Bro">
+<name>Wool Story Bro</name>
+<version>1.0.0</version>
+<objective>Get the most points before time runs out!</objective>
+<authors>
+    <author uuid="e3fdaea1-8a19-4378-8ad7-41cf63f5d141"/> <!--  Avaleer  -->
+</authors>
+<contributors>
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="1">Red</team>
+    <team id="blue" color="blue" max="1">Blue</team>
+    <team id="green" color="dark green" max="1">Green</team>
+    <team id="yellow" color="yellow" max="1">Yellow</team>
+    <team id="pink" color="red" max="1">Pink</team>
+    <team id="orange" color="gold" max="1">Orange</team>
+    <team id="lime" color="green" max="1">Lime</team>
+    <team id="purple" color="dark purple" max="1">Purple</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="green" kit="green-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="yellow" kit="yellow-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="pink" kit="pink-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="orange-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="lime" kit="lime-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <spawn team="purple" kit="purple-kit">
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="0">321.5,13,-63.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" enchantment="knockback:2">stick</item>
+        <potion duration="oo" amplifier="2">speed</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <boots color="993333" damage="64" enchantment=" unbreakable="true" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <boots color="334CB2" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="green-kit" parents="spawn">
+        <boots color="667F33" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="yellow-kit" parents="spawn">
+        <boots color="E5E533" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="pink-kit" parents="spawn">
+        <boots color="F27FA5" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="orange-kit" parents="spawn">
+        <boots color="D87F33" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="lime-kit" parents="spawn">
+        <boots color="7FCC19" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+    <kit id="purple-kit" parents="spawn">
+        <boots color="7F3FB2" damage="64" material="leather boots">
+            <attribute amount="2">generic.knockbackResistance</attribute>
+        </boots>
+    </kit>
+</kits>
+<regions>
+    <apply block="no-void">
+        <everywhere/>
+    </apply>
+</regions>
+<time>5m</time>
+<itemremove>
+    <item>stick</item>
+    <item>leather boots</item>
+    <item></item>
+</itemremove>
+<timelock>on</timelock>
+</map>
