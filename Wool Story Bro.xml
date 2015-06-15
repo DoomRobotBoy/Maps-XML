@@ -21,42 +21,42 @@
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="45">336.5,5,-78.5</point>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="-135">306.5,5,-48.5</point>
         </regions>
     </spawn>
     <spawn team="green" kit="green-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="90">336.5,5,-63.5</point>
         </regions>
     </spawn>
     <spawn team="yellow" kit="yellow-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="180">321.5,5,-48.5</point>
         </regions>
     </spawn>
     <spawn team="pink" kit="pink-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="0">321.5,5,-78.5</point>
         </regions>
     </spawn>
     <spawn team="orange" kit="orange-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="-90">306.5,5,-63.5</point>
         </regions>
     </spawn>
     <spawn team="lime" kit="lime-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="-45">306.5,5,-78.5</point>
         </regions>
     </spawn>
     <spawn team="purple" kit="purple-kit">
         <regions>
-            <point yaw="0">321.5,13,-63.5</point>
+            <point yaw="135">336.5,5,-48.5</point>
         </regions>
     </spawn>
     <default>
@@ -71,7 +71,7 @@
         <potion duration="oo" amplifier="2">speed</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
-        <boots color="993333" damage="64" enchantment=" unbreakable="true" material="leather boots">
+        <boots color="993333" damage="64" material="leather boots">
             <attribute amount="2">generic.knockbackResistance</attribute>
         </boots>
     </kit>
@@ -112,15 +112,22 @@
     </kit>
 </kits>
 <regions>
-    <apply block="no-void">
+    <apply block="never">
         <everywhere/>
     </apply>
 </regions>
+<king>
+    <hills>
+        <hill name="Hill" capture-time="10s" points="1">
+            <capture><region id="hill"/></capture>
+            <progress><cuboid min="-5,71,-5" max="5,71,5"/></progress>
+        </hill>
+    </hills>
+</king>
 <time>5m</time>
 <itemremove>
     <item>stick</item>
     <item>leather boots</item>
-    <item></item>
 </itemremove>
 <timelock>on</timelock>
 </map>
