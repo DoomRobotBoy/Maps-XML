@@ -1,17 +1,20 @@
 <map proto="1.4.0">
-<name>Rogue</name>
+<name>Rogue CTF</name>
 <version>1.0.0</version>
 <objective>Capture the enemy team's flag 3 times to win!</objective>
 <authors>
     <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </authors>
+<contributors>
+    <contributor contribution="Layout help" uuid="0f59172c-de53-4bbe-a060-1a5dc274db4e"/> <!-- Kingie -->
+</contributors>
 <score>
     <limit>3</limit>
 </score>
 <teams>
-    <team id="red" color="dark aqua" max="12" max-overfill="14">Red</team>
-    <team id="blue" color="yellow" max="12" max-overfill="14">Blue</team>
+    <team id="red" color="dark red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
 </teams>
 <respawn delay="9s" auto="true"/>
 <spawns>
@@ -27,7 +30,7 @@
     </spawn>
     <default>
         <regions>
-            <point yaw="-135"></point>
+            <point>-225.5,33,229.5</point>
         </regions>
     </default>
 </spawns>
@@ -67,21 +70,17 @@
 </itemremove>
 <filters>
     <all id="red-pickup">
-        <objective id="red-cp" team="red">cp</objective>
+        <objective team="red">cp</objective>
         <team>red</team>
     </all>
     <all id="blue-pickup">
-        <objective id="blue-cp" team="blue">cp</objective>
+        <objective team="blue">cp</objective>
         <team>blue</team>
     </all>
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
-    <apply block="never">
-        <region>
-            <region id="map"/>
-        </region>
-    </apply>
+    <apply block="never" region="map"/>
 </regions>
 <control-points capture-players="lead" incremental="true" show-progress="true" required="false">
     <control-point name="Hill" capture-time="5s" time-multiplier="0.25" point="0">
@@ -91,12 +90,12 @@
     </control-point>
 </control-points>
 <flags>
-    <flag id="red-flag" name="Red Flag" owner="red" pickup-kit="pickup" drop-kit="remove-slow" carry-message="Capture the flag at your flag post!">
-        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-95.5,31,72.5</post>
+    <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at your flag post!">
+        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-254.5,12,264.5</post>
         <net region="blue-post" points="1"/>
     </flag>
-    <flag id="blue-flag" name="Blue Flag" owner="blue" pickup-kit="pickup" drop-kit="remove-slow" carry-message="Capture the flag at your flag post!">
-        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s"respawn-speed="0.88">-50.5,31,-73.5</post>
+    <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at your flag post!">
+        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
         <net region="red-post" points="1"/>
     </flag>
 </flags>
