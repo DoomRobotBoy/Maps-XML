@@ -29,6 +29,12 @@
     <negative id="negative-build-region">
         <region id="build-region"/>
     </negative>
+    <union id="spawn-drops">
+        <cuboid id="red-east-drop" min="39,35,-40" max="32,40,-47"/>
+        <cuboid id="red-west-drop" min="-40,35,-40" max="-33,40,-47"/>
+        <cuboid id="blue-west-drop" min="-40,35,41" max="-33,40,48"/>
+        <cuboid id="blue-east-drop" min="39,35,48" max="32,40,41"/>
+    </union>
     <cuboid id="red-wool-source" min="2,25,-60" max="-3,30,-65"/>
     <cuboid id="blue-wool-source" min="-3,25,61" max="2,30,66"/>
     <union id="center-wools">
@@ -44,6 +50,7 @@
     <apply block="only-blue" region="red-wool-source" message="You may not break your own wool source."/>
     <apply block="only-red" region="blue-wool-source" message="You may not break your own wool source."/>
     <apply block="never" region="center-wools" message="You may not break the center block of this wool source."/>
+    <apply block="never" region="spawn-drops" message="You may not destroy the spawn drops."/>
     <apply block-break="never" region="monuments" message="You may not destroy the victory monument!"/>
     <apply block="never" region="negative-build-region" message="You may not build in the void."/>
 </regions>
