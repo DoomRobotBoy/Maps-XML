@@ -68,14 +68,41 @@
 </regions>
 <flags>
     <flag id="flag-1" name="Page 1" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
-        <post permanent="true" owner="slender" yaw="180">-195.5,15,-429.5</post>
+        <post permanent="true" owner="slender" yaw="135">185.5,62,13.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-2" name="Page 2" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="67">191.5,61,-17.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-3" name="Page 3" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">198.5,61,21.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-4" name="Page 4" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">216.5,61,4.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-5" name="Page 5" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="135">219.5,61,32.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-6" name="Page 6" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">227.5,61,-16.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-7" name="Page 7" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">245.5,61,29.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-8" name="Page 8" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="115">247.5,61,-0.5</post>
         <net region="net-region" points="1"/>
     </flag>
 </flags>
 <itemremove>
-    <item>iron sword</item>
-    <item>bow</item>
-    <item>arrow</item>
+    <item>wood sword</item>
+    <item>ender pearl</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>leather leggings</item>
