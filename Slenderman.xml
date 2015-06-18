@@ -10,9 +10,12 @@
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
 <teams>
-    <team id="slender" show-name-tags="allies" color="white" max="2">Slenderman</team>
+    <team id="slender" show-name-tags="allies" color="white" max="2" respawn-limit="2">Slenderman</team>
     <team id="humans" show-name-tags="allies" color="dark green" max="4">Humans</team>
 </teams>
+<blitz>
+    <lives>3</lives>
+</blitz>
 <time result="slender">4m</time>
 <score>
     <limit>8</limit>
@@ -36,22 +39,27 @@
 </spawns>
 <kits>
     <kit id="slender-kit">
-        <item slot="0" unbreakable="true">wooden sword</item>
-        <item slot="1" name="`bLaser" unbreakable="true" enchantment="arrow damage:10">bow</item>
-        <item slot="8" amount="2">arrow</item>
-        <potion duration="3" amplifier="127">damage resistance</potion>
-        <potion duration="oo">speed</potion>
+        <item slot="0" unbreakable="true">wood sword</item>
+        <item slot="1" amount="8">ender pearl</item>
+        <helmet color="FFFFFF" enchantment="protection environmental:3" locked="true" unbreakable="true">leather helmet</helmet>
+        <chestplate color="191919" enchantment="protection environmental:3" locked="true" unbreakable="true">leather chestplate</chestplate>
+        <leggings color="191919" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="191919" locked="true" unbreakable="true">leather boots</boots>
     </kit>
     <kit id="humans-kit">
-        <leggings color="334CB2" locked="true">leather leggings</leggings>
-        <boots color="334CB2" locked="true">leather boots</boots>
+        <leggings color="667F33" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="667F33" locked="true" unbreakable="true">leather boots</boots>
         <potion duration="oo">speed</potion>
     </kit>
 </kits>
 <hunger>
     <depletion>off</depletion>
 </hunger>
+<filters>
+    <team id="only-humans">humans</team>
+</filters>
 <regions>
+    <cylinder id="net-region" base="159.5,61,11.5" radius="2" height="0"/>
     <apply block="never">
         <region>
             <rectangle min="oo,oo" max="-oo,-oo"/>
@@ -59,31 +67,9 @@
     </apply>
 </regions>
 <flags>
-    <flag id="red-flag" name="Red Flag" owner="red" color="red" pickup-filter="only-blue" return-time="10s">
-        <post yaw="180">-195.5,15,-429.5</post>
-        <net points="1">
-            <region>
-                <cylinder base="-195.5,15,-503.5" radius="2" height="2"/>
-            </region>
-            <capture-filter>
-                <not>
-                    <flag-carried>blue-flag</flag-carried>
-                </not>
-            </capture-filter>
-        </net>
-    </flag>
-    <flag id="blue-flag" name="Blue Flag" owner="blue" color="blue" pickup-filter="only-red" return-time="10s">
-        <post yaw="0">-195.5,15,-503.5</post>
-        <net points="1">
-            <region>
-                <cylinder base="-195.5,15,-429.5" radius="2" height="2"/>
-            </region>
-            <capture-filter>
-                <not>
-                    <flag-carried>red-flag</flag-carried>
-                </not>
-            </capture-filter>
-        </net>
+    <flag id="flag-1" name="Page 1" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="180">-195.5,15,-429.5</post>
+        <net region="net-region" points="1"/>
     </flag>
 </flags>
 <itemremove>
