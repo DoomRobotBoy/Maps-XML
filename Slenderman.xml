@@ -1,0 +1,100 @@
+<map proto="1.4.0">
+<name>Slenderman</name>
+<version>1.0.0</version>
+<objective>Humans have to capture all 8 pages (flags) to win!</objective>
+<authors>
+    <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<teams>
+    <team id="slender" show-name-tags="allies" color="white" max="2">Slenderman</team>
+    <team id="humans" show-name-tags="allies" color="dark green" max="4">Humans</team>
+</teams>
+<time result="slender">4m</time>
+<score>
+    <limit>8</limit>
+</score>
+<spawns>
+    <spawn team="slender" kit="slender-kit">
+        <regions>
+            <point yaw="180">-195.5,5,-502.5</point>
+        </regions>
+    </spawn>
+    <spawn team="humans" kit="humans-kit">
+        <regions>
+            <point yaw="90">-195.5,4,-430.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="50">-195.5,27,-466.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="slender-kit">
+        <item slot="0" name="`4Fire Axe" unbreakable="true" enchantment="damage all:10">iron axe</item>
+        <item slot="1" name="`bLaser" unbreakable="true" enchantment="arrow damage:10">bow</item>
+        <item slot="8" amount="2">arrow</item>
+        <potion duration="3" amplifier="127">damage resistance</potion>
+        <potion duration="oo">speed</potion>
+    </kit>
+    <kit id="humans-kit">
+        <leggings color="334CB2" locked="true">leather leggings</leggings>
+        <boots color="334CB2" locked="true">leather boots</boots>
+        <potion duration="oo">speed</potion>
+    </kit>
+</kits>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<regions>
+    <apply block="never">
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+    </apply>
+</regions>
+<flags>
+    <flag id="red-flag" name="Red Flag" owner="red" color="red" pickup-filter="only-blue" return-time="10s">
+        <post yaw="180">-195.5,15,-429.5</post>
+        <net points="1">
+            <region>
+                <cylinder base="-195.5,15,-503.5" radius="2" height="2"/>
+            </region>
+            <capture-filter>
+                <not>
+                    <flag-carried>blue-flag</flag-carried>
+                </not>
+            </capture-filter>
+        </net>
+    </flag>
+    <flag id="blue-flag" name="Blue Flag" owner="blue" color="blue" pickup-filter="only-red" return-time="10s">
+        <post yaw="0">-195.5,15,-503.5</post>
+        <net points="1">
+            <region>
+                <cylinder base="-195.5,15,-429.5" radius="2" height="2"/>
+            </region>
+            <capture-filter>
+                <not>
+                    <flag-carried>red-flag</flag-carried>
+                </not>
+            </capture-filter>
+        </net>
+    </flag>
+</flags>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<timelock>on</timelock>
+<rage/>
+</map>
