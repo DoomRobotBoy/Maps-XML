@@ -10,7 +10,7 @@
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
 <teams>
-    <team id="slender" show-name-tags="allies" color="white" max="2" respawn-limit="2">Slenderman</team>
+    <team id="slender" show-name-tags="allies" color="white" max="1" respawn-limit="1">Slenderman</team>
     <team id="humans" show-name-tags="allies" color="dark green" max="4">Humans</team>
 </teams>
 <blitz>
