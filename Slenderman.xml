@@ -3,8 +3,8 @@
 <version>1.0.0</version>
 <objective>Humans have to capture all 8 pages (flags) to win!</objective>
 <authors>
-    <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
-    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+    <author uuid="af56fc4a-51d2-4a6e-b020-2c6d272b9cbf"/> <!--  Ale  -->
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/> <!--  _DISTRACTION_  -->
 </authors>
 <contributors>
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
@@ -20,23 +20,23 @@
 <spawns>
     <spawn team="slender" kit="slender-kit">
         <regions>
-            <point yaw="180">-195.5,5,-502.5</point>
+            <point yaw="90">253.5,57,8.5</point>
         </regions>
     </spawn>
     <spawn team="humans" kit="humans-kit">
         <regions>
-            <point yaw="90">-195.5,4,-430.5</point>
+            <point yaw="-90">146.5,63,10.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point yaw="50">-195.5,27,-466.5</point>
+            <point yaw="50">197.5,61,6.5</point>
         </regions>
     </default>
 </spawns>
 <kits>
     <kit id="slender-kit">
-        <item slot="0" name="`4Fire Axe" unbreakable="true" enchantment="damage all:10">iron axe</item>
+        <item slot="0" unbreakable="true">wooden sword</item>
         <item slot="1" name="`bLaser" unbreakable="true" enchantment="arrow damage:10">bow</item>
         <item slot="8" amount="2">arrow</item>
         <potion duration="3" amplifier="127">damage resistance</potion>
