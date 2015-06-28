@@ -41,6 +41,7 @@
         <item slot="2" damage="8261">potion</item>
         <item slot="8" amount="16">arrow</item>
         <leggings enchantment="protection projectile:1" unbreakable="true">iron leggings</leggings>
+        <potion duration="oo">night vision</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
         <helmet locked="true" color="993333" unbreakable="true">leather helmet</helmet>
