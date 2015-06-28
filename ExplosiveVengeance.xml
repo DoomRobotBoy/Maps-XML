@@ -1,15 +1,15 @@
 <map proto="1.3.6">
 <include src="tutorial.xml"/>
 <name>Explosive Vengeance</name>
-<version>1.1.1</version>
-<objective>Be team with the most amount of kills after 15 minutes or the first team to 100 kills!</objective>
+<version>1.1.3</version>
+<objective>Be team with the most amount of kills after 15 minutes or the first team to 200 points!</objective>
 <authors>
-    <author>HardstyleRaver2</author>
-    <author contribution="Map improvement and additional XML">DoomRobotBoy</author>
+    <author uuid="8d812ffa-e5f1-4658-bb47-a18b785ccd27"/> <!-- HardstyleRaver2 -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
 </authors>
 <contributors>
-    <contributor contribution="Pallete">pikpikmerchant</contributor>
-    <contributor contribution="Feedback">ElectroidFilms</contributor>
+    <contributor uuid="e5eea785-51c1-40fe-a2d0-f83d4c035cd9" contribution="Pallete"/> <!-- pikpikmerchant -->
+    <contributor uuid="dad8b95c-cf6a-44df-982e-8c8dd70201e0" contribution="Feedback"/> <!-- ElectroidFilms -->
 </contributors>
 <teams>
     <team color="yellow" max="40">Yellow Team</team>
@@ -18,6 +18,7 @@
 <score>
     <time>15m</time>
     <limit>200</limit>
+    <kills>1</kills>
     <box points="4" filter="only-green">
         <region><cuboid name="left-yellow-box" min="149,14,62" max="147,17,69"/></region>
     </box>
@@ -32,16 +33,22 @@
     </box>
 </score>
 <spawns safe="true">
-    <spawn team="yellow" kit="yellow" yaw="90">
-        <cylinder base="154.5,15,65.5" radius="1" height="0"/>
-        <cylinder base="154.5,15,86.5" radius="1" height="0"/>
+    <spawn team="yellow" kit="yellow">
+        <regions yaw="90">
+            <cylinder base="154.5,15,65.5" radius="1" height="0"/>
+            <cylinder base="154.5,15,86.5" radius="1" height="0"/>
+        </regions>
     </spawn>
-    <spawn team="green" kit="green" yaw="-90">
-        <cylinder base="154.5,15,65.5" radius="1" height="0"/>
-        <cylinder base="154.5,15,86.5" radius="1" height="0"/>
+    <spawn team="green" kit="green">
+        <regions yaw="-90">
+            <cylinder base="-55.5,15,86.5" radius="1" height="0"/>
+            <cylinder base="-55.5,15,65.5" radius="1" height="0"/>
+        </regions>
     </spawn>
-    <default yaw="0" pitch="-5">
-        <cuboid min="51,61.25,-25" max="48,62,-28"/>
+    <default>
+        <regions yaw="0">
+            <cuboid min="51,61.25,-25" max="48,62,-28"/>
+        </regions>
     </default>
 </spawns>
 <kits>
@@ -54,13 +61,16 @@
         <potion duration="0" amplifier="0">damage resistance</potion>
     </kit>
     <kit name="teams" parents="give-invulnerability">
-        <item slot="0" damage="-3000">stone sword</item>
-        <item slot="1" damage="-3000" enchantment="arrow infinite">bow</item>
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow infinite">bow</item>
         <item slot="28">arrow</item>
-        <item slot="2" damage="-3000" enchantment="dig speed;silk touch">iron pickaxe</item>
-        <item slot="29" amount="1">dispenser</item>
+        <item slot="2" unbreakable="true" enchantment="dig speed;silk touch">iron pickaxe</item>
+        <item slot="29" unbreakable="true">iron axe</item>
+        <item slot="20" amount="1">dispenser</item>
         <item slot="3" amount="64">vine</item>
         <item slot="30" amount="16">ladder</item>
+        <item slot="4" amount="64">cobblestone</item>
+        <item slot="31" amount="64">cobblestone</item>
         <item slot="22" amount="32">fence</item>
         <item slot="13" amount="32">trap door</item>
         <item slot="5" amount="16">stone button</item>
@@ -79,15 +89,15 @@
         <item slot="35" amount="64">tnt</item>
         <item slot="26" amount="64">tnt</item>
         <item slot="17" amount="64">tnt</item>
-        <item slot="9" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
     </kit>
     <kit name="yellow" parents="teams">
-        <helmet damage="-3000" color="E5E533">leather helmet</helmet>
-        <chestplate damage="-3000" color="E5E533" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <helmet unbreakable="true" color="E5E533">leather helmet</helmet>
+        <chestplate unbreakable="true" color="E5E533" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <
     </kit>
     <kit name="green" parents="teams">
-        <helmet damage="-3000" color="4C4C4C">leather helmet</helmet>
-        <chestplate damage="-3000" color="4C4C4C" enchantment="protection explosions:2">leather chestplate</chestplate>
+        <helmet unbreakable="true" color="4C4C4C">leather helmet</helmet>
+        <chestplate unbreakable="true" color="4C4C4C" enchantment="protection explosions:2">leather chestplate</chestplate>
     </kit>
 </kits>
 <filters>
@@ -103,19 +113,24 @@
         </not>
     </filter>
     <filter name="allow-some" parents="deny-all">
-        <allow>
+        <any>
             <block>tnt</block>
             <block>water</block>
             <block>stationary water</block>
-        </allow>
+        </any>
     </filter>
-    <filter name="deny-stained-clay-yellow-green-explosions">
+    <filter name="deny-stained-clay-yellow-green-explosions" parents="allow-all">
         <not>
-            <all>
-                <block>stained clay:4</block>
-                <block>stained clay:13</block>
-                <cause>explosion</cause>
-            </all>
+            <any>
+                <all>
+                    <block>stained clay:4</block>
+                    <cause>explosion</cause>
+                </all>
+                <all>
+                    <block>stained clay:13</block>
+                    <cause>explosion</cause>
+                </all>
+            </any>
         </not>
     </filter>
     <filter name="deny-tnt">
@@ -148,13 +163,7 @@
         <cuboid name="green-in-spawn" min="-59,14,52" max="-52,18,100"/>
     </union>
 <!--  Applied  -->
-    <apply block="deny-stained-clay-yellow-green-explosions">
-        <region name="all"/>
-    </apply>
     <apply block="deny-all" message="`eYou may not edit the spawn area!">
-        <region name="spawns"/>
-    </apply>
-    <apply block="deny-tnt">
         <region name="spawns"/>
     </apply>
     <apply block="allow-some" message="`eYou may not edit the icarus building!">
@@ -174,12 +183,13 @@
             <region name="void-exceptions"/>
         </complement>
     </apply>
+    <apply block="deny-stained-clay-yellow-green-explosions">
+        <region name="all"/>
+    </apply>
 </regions>
 <renewables>
-    <renewable rate="15"avoid-entities="true">
-        <region>
-            <region name="terrain"/>
-        </region>
+    <renewable rate="15" avoid-entities="true">
+        <region name="terrain"/>
         <renew>stone</renew>
         <renew>stained clay:9</renew>
         <renew>step</renew>
@@ -190,9 +200,7 @@
         <renew>wood stairs</renew>
     </renewable>
     <renewable rate="15" grow="true" avoid-entities="false">
-        <region>
-            <region name="terrain"/>
-        </region>
+        <region name="terrain"/>
         <renew>stained clay:4</renew>
         <renew>stained clay:13</renew>
     </renewable>
