@@ -184,6 +184,7 @@
     <core name="Front Core" team="blue" region="blue-core-front"/>
     <core name="Back Core" team="blue" region="blue-core-back"/>
 </cores>
+<modes></modes>
 <blockdrops>
     <rule>
         <region>
