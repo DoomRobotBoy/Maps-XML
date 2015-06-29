@@ -1,6 +1,6 @@
 <map proto="1.3.6">
 <name>Woodlands</name>
-<version>1.1.1</version>
+<version>1.1.2</version>
 <objective>Leak both enemy cores!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomRobotBoy   -->
@@ -123,8 +123,12 @@
         <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
         <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
     </union>
-    <cylinder name="red-barrier" base="255.5,69,215.5" radius="14" height="20"/>
-    <cylinder name="blue-barrier" base="365.5,64,602.5" radius="14" height="20"/>
+    <union name="spawn-protection">
+        <cylinder base="255.5,64,215.5" radius="14" height="15"/>
+        <cylinder base="365.5,64,602.5" radius="14" height="15"/>
+    </union>
+    <cylinder name="red-barrier" base="255.5,69,215.5" radius="3" height="5"/>
+    <cylinder name="blue-barrier" base="365.5,69,602.5" radius="3" height="5"/>
 <!--  Applied  -->
     <apply kit="spawn-drop">
         <block>255.5,69,215.5</block>
@@ -137,6 +141,9 @@
         <negative>
             <region name="map"/>
         </negative>
+    </apply>
+    <apply block="deny-all">
+        <region name="spawn-protection"/>
     </apply>
     <apply kit="red-guard" filter="only-red-guard">
         <negative>
