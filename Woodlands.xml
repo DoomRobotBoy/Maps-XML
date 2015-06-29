@@ -178,7 +178,7 @@
         </regions>
     </default>
 </spawns>
-<cores material="ender stone" leak="3">
+<cores material="ender stone;wood:2" leak="3">
     <core name="Front Core" team="red" region="red-core-front"/>
     <core name="Back Core" team="red" region="red-core-back"/>
     <core name="Front Core" team="blue" region="blue-core-front"/>
