@@ -52,6 +52,7 @@
         <chestplate color="FFFFFF" locked="true" unbreakable="true">leather chestplate</chestplate>
         <potion duration="oo">speed</potion>
         <potion duration="oo">weakness</potion>
+        <potion duration="oo" amplifier="5">health boost</potion>
     </kit>
 </kits>
 <filters>
@@ -60,15 +61,19 @@
     <carrying id="carrying-cyan-key"><item damage="9" material="wool"/></carrying>
 </filters>
 <regions>
-    <cuboid min="cyan-portal-west" min="470,9,-170" max="469,12,-167"/>
-    <cuboid min="cyan-portal-east" min="553,9,-191" max="554,12,-194"/>
-    <cuboid min="orange-portal-south" min="522,9,-139" max="525,12,-138"/>
-    <cuboid min="orange-portal-north" min="501,9,-222" max="498,12,-223"/>
+    <union id="cyan-redeemables">
+        <cuboid id="cyan-portal-west" min="470,9,-170" max="469,12,-167"/>
+        <cuboid id="cyan-portal-east" min="553,9,-191" max="554,12,-194"/>
+    </union>
+    <union id="orange-redeemables">
+        <cuboid id="orange-portal-south" min="522,9,-139" max="525,12,-138"/>
+        <cuboid id="orange-portal-north" min="501,9,-222" max="498,12,-223"/>
+    </union>
     <union id="no-minotaur">    
-        <cuboid min="cyan-portal-west" min="468,9,-170" max="467,12,-167"/>
-        <cuboid min="cyan-portal-east" min="551,9,-191" max="552,12,-194"/>
-        <cuboid min="orange-portal-south" min="522,9,-137" max="525,12,-136"/>
-        <cuboid min="orange-portal-north" min="501,9,-220" max="498,12,-221"/>
+        <cuboid min="468,9,-170" max="467,12,-167"/>
+        <cuboid min="551,9,-191" max="552,12,-194"/>
+        <cuboid min="522,9,-137" max="525,12,-136"/>
+        <cuboid min="501,9,-220" max="498,12,-221"/>
     </union>
 <!-- Applied -->
     <apply enter="only-runners" region="no-minotaur" message="Only runners can access portals!"/>
@@ -78,6 +83,19 @@
         </region>
     </apply>
 </regions>
+<score>
+    <box filter="only-runners" region="orange-redeemables">
+        <redeemables>
+            <item points="0" damage="1">wool</item>
+        </redeemables>
+    </box>
+    <box filter="only-runners" region="cyan-redeemables">
+        <redeemables>
+            <item points="0" damage="9">wool</item>
+        </redeemables>
+    </box>
+    <limit>-1</limit>
+</score>
 <portals>
     <portal x="@499.5" y="@8.5" z="@-218.5" filter="carrying-orange-key">
         <region><region id="orange-portal-south"/></region>
