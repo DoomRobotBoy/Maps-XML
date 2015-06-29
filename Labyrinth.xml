@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>Labyrinth</name>
 <version>1.0.0</version>
-<objective>The Runners have to survive for 3 minutes to win. If the minotaur kills all runners he wins.</objective>
+<objective>The Runners have to survive for 3 minutes without being killed by the Minotaur to win. The Minotaur wins if he kills all the Runners.</objective>
 <authors>
     <author uuid="e3fdaea1-8a19-4378-8ad7-41cf63f5d141"/> <!--  Avaleer  -->
 </authors>
@@ -9,16 +9,13 @@
     <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
 <teams>
-    <team id="minotaur" show-name-tags="allies" color="dark gray" max="1" respawn-limit="1">Minotaur</team>
+    <team id="minotaur" show-name-tags="allies" color="dark gray" max="1">Minotaur</team>
     <team id="runners" show-name-tags="allies" color="white" max="8">Runners</team>
 </teams>
 <blitz>
     <lives>1</lives>
 </blitz>
 <time result="runners">3m</time>
-<score>
-    <limit>8</limit>
-</score>
 <spawns>
     <spawn team="minotaur" kit="minotaur-kit">
         <regions>
@@ -27,10 +24,10 @@
     </spawn>
     <spawn team="runners" kit="runners-kit">
         <regions>
-            <point yaw="-90">146.5,63,10.5</point>
-            <point yaw="-90">146.5,63,10.5</point>
-            <point yaw="-90">146.5,63,10.5</point>
-            <point yaw="-90">146.5,63,10.5</point>
+            <point yaw="45">547.5,11,-204.5</point>
+            <point yaw="135">535.5,11,-144.5</point>
+            <point yaw="-135">475.5,11,-156.5</point>
+            <point yaw="-45">487.5,11,-216.5</point>
         </regions>
     </spawn>
     <default>
@@ -57,27 +54,50 @@
         <potion duration="oo">weakness</potion>
     </kit>
 </kits>
-<hunger>
-    <depletion>off</depletion>
-</hunger>
 <filters>
     <team id="only-runners">runners</team>
+    <carrying id="carrying-orange-key"><item damage="1" material="wool"/></carrying>
+    <carrying id="carrying-cyan-key"><item damage="9" material="wool"/></carrying>
 </filters>
 <regions>
+    <cuboid min="cyan-portal-west" min="470,9,-170" max="469,12,-167"/>
+    <cuboid min="cyan-portal-east" min="553,9,-191" max="554,12,-194"/>
+    <cuboid min="orange-portal-south" min="522,9,-139" max="525,12,-138"/>
+    <cuboid min="orange-portal-north" min="501,9,-222" max="498,12,-223"/>
+    <union id="no-minotaur">    
+        <cuboid min="cyan-portal-west" min="468,9,-170" max="467,12,-167"/>
+        <cuboid min="cyan-portal-east" min="551,9,-191" max="552,12,-194"/>
+        <cuboid min="orange-portal-south" min="522,9,-137" max="525,12,-136"/>
+        <cuboid min="orange-portal-north" min="501,9,-220" max="498,12,-221"/>
+    </union>
+<!-- Applied -->
+    <apply enter="only-runners" region="no-minotaur" message="Only runners can access portals!"/>
     <apply block="never">
         <region>
             <rectangle min="oo,oo" max="-oo,-oo"/>
         </region>
     </apply>
 </regions>
+<portals>
+    <portal x="@499.5" y="@8.5" z="@-218.5" filter="carrying-orange-key">
+        <region><region id="orange-portal-south"/></region>
+    </portal>
+    <portal x="@523.5" y="@8.5" z="@-142.5" filter="carrying-orange-key">
+        <region><region id="orange-portal-north"/></region>
+    </portal>
+    <portal x="@549.5" y="@8.5" z="@-192.5" filter="carrying-cyan-key">
+        <region><region id="cyan-portal-west"/></region>
+    </portal>
+    <portal x="@473.5" y="@8.5" z="@-168.5" filter="carrying-cyan-key">
+        <region><region id="cyan-portal-east"/></region>
+    </portal>
+</portals>
 <itemremove>
-    <item>wood sword</item>
-    <item>ender pearl</item>
-    <item>leather helmet</item>
+    <item>stone sword</item>
+    <item>golden carrot</item>
+    <item>wool</item>
+    <item>iron chestplate</item>
     <item>leather chestplate</item>
-    <item>leather leggings</item>
-    <item>leather boots</item>
 </itemremove>
 <timelock>on</timelock>
-<rage/>
 </map>
