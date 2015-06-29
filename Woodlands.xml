@@ -114,18 +114,13 @@
 </filters>
 <regions>
     <rectangle name="map" min="241,203" max="380,615"/>
+    <cuboid name="map-above-60" min="241,61,203" max="380,94,615"/>
     <rectangle name="vines-gap" min="380,426" max="241,392"/>
-    <cuboid name="red-spawn-exit" min="266,64,228" max="241,78,203"/>
-    <cuboid name="blue-spawn-exit" min="355,64,590" max="380,78,615"/>
     <union name="cores">
         <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
         <cuboid name="red-core-back" min="338,39,283" max="329,48,274"/>
         <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
         <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
-    </union>
-    <union name="spawn-protection">
-        <cylinder base="255.5,64,215.5" radius="14" height="15"/>
-        <cylinder base="365.5,64,602.5" radius="14" height="15"/>
     </union>
     <cylinder name="red-barrier" base="255.5,69,215.5" radius="3" height="5"/>
     <cylinder name="blue-barrier" base="365.5,69,602.5" radius="3" height="5"/>
@@ -137,13 +132,13 @@
     <apply block="only-vines">
         <region name="vines-gap"/>
     </apply>
+    <apply block="deny-all">
+        <region name="map-above-60"/>
+    </apply>
     <apply block="deny-all" message="You may not place blocks in the void area!">
         <negative>
             <region name="map"/>
         </negative>
-    </apply>
-    <apply block="deny-all">
-        <region name="spawn-protection"/>
     </apply>
     <apply kit="red-guard" filter="only-red-guard">
         <negative>
