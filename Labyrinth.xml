@@ -1,0 +1,83 @@
+<map proto="1.4.0">
+<name>Labyrinth</name>
+<version>1.0.0</version>
+<objective>The Runners have to survive for 3 minutes to win. If the minotaur kills all runners he wins.</objective>
+<authors>
+    <author uuid="e3fdaea1-8a19-4378-8ad7-41cf63f5d141"/> <!--  Avaleer  -->
+</authors>
+<contributors>
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<teams>
+    <team id="minotaur" show-name-tags="allies" color="dark gray" max="1" respawn-limit="1">Minotaur</team>
+    <team id="runners" show-name-tags="allies" color="white" max="8">Runners</team>
+</teams>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<time result="runners">3m</time>
+<score>
+    <limit>8</limit>
+</score>
+<spawns>
+    <spawn team="minotaur" kit="minotaur-kit">
+        <regions>
+            <point>511.5,7,-180.5</point>
+        </regions>
+    </spawn>
+    <spawn team="runners" kit="runners-kit">
+        <regions>
+            <point yaw="-90">146.5,63,10.5</point>
+            <point yaw="-90">146.5,63,10.5</point>
+            <point yaw="-90">146.5,63,10.5</point>
+            <point yaw="-90">146.5,63,10.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="-90">511.5,16,-180.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="minotaur-kit">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <chestplate locked="true" unbreakable="true">iron chestplate</chestplate>
+        <potion duration="oo">slow</potion>
+        <potion duration="oo" amplifier="5">damage resistance</potion>
+        <potion duration="oo">increase damage</potion>
+        <knockback-reduction>1.0</knockback-reduction>
+    </kit>
+    <kit id="runners-kit">
+        <item slot="0" amount="3">golden carrot</item>
+        <item slot="1" damage="9" name="`bPortal Key" lore="This key allows you to use the Cyan Portals once.">wool</item>
+        <item slot="2" damage="1" name="`6Portal Key" lore="This key allows you to use the Orange Portals once.">wool</item>
+        <chestplate color="FFFFFF" locked="true" unbreakable="true">leather chestplate</chestplate>
+        <potion duration="oo">speed</potion>
+        <potion duration="oo">weakness</potion>
+    </kit>
+</kits>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<filters>
+    <team id="only-runners">runners</team>
+</filters>
+<regions>
+    <apply block="never">
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+    </apply>
+</regions>
+<itemremove>
+    <item>wood sword</item>
+    <item>ender pearl</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<timelock>on</timelock>
+<rage/>
+</map>
