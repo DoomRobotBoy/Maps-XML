@@ -1,0 +1,111 @@
+<map proto="1.4.0">
+<name>Tower of Terror</name>
+<version>1.0.0</version>
+<objective>Humans have to capture all 8 pages (flags) to win! The slendermen have to kill all humans.</objective>
+<authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/> <!--  _DISTRACTION_  -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<teams>
+    <team id="slender" show-name-tags="allies" color="white" max="2">Slendermen</team>
+    <team id="humans" show-name-tags="allies" color="dark aqua" max="6">Humans</team>
+</teams>
+<time result="slender">4m</time>
+<score>
+    <limit>8</limit>
+</score>
+<spawns>
+    <spawn team="slender" kit="slender-kit">
+        <regions>
+            <point yaw="-90">190.5,69,77.5</point>
+        </regions>
+    </spawn>
+    <spawn team="humans" kit="humans-kit">
+        <regions>
+            <point yaw="180">209.5,47,90.5</point>
+            <point yaw="0">209.5,47,64.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="180">209.5,47,90.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="slender-kit">
+        <item slot="0" unbreakable="true">wood sword</item>
+        <item slot="1" amount="8">ender pearl</item>
+        <helmet color="FFFFFF" enchantment="protection environmental:3" locked="true" unbreakable="true">leather helmet</helmet>
+        <chestplate color="191919" enchantment="protection environmental:3" locked="true" unbreakable="true">leather chestplate</chestplate>
+        <leggings color="191919" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="191919" locked="true" unbreakable="true">leather boots</boots>
+        <potion duration="oo">slow</potion>
+    </kit>
+    <kit id="humans-kit">
+        <leggings color="4C7F99" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="4C7F99" locked="true" unbreakable="true">leather boots</boots>
+        <potion duration="oo" amplifier="3">speed</potion>
+        <potion duration="oo">blindness</potion>
+    </kit>
+</kits>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<filters>
+    <team id="only-humans">humans</team>
+</filters>
+<regions>
+    <cylinder id="net-region" base="209.5,47,77.5" radius="2" height="1"/>
+    <apply block="never">
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+    </apply>
+</regions>
+<flags>
+    <flag id="flag-1" name="Page 1" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">199.5,55,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-2" name="Page 2" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="-90">191.5,63,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-3" name="Page 3" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="-180">195.5,78,88.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-4" name="Page 4" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="0">195.5,78,66.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-5" name="Page 5" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="-90">184.5,84,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-6" name="Page 6" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">206.5,84,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-7" name="Page 7" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="90">200.5,102,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+    <flag id="flag-8" name="Page 8" owner="slender" color="white" pickup-filter="only-humans" permanent="true">
+        <post permanent="true" owner="slender" yaw="-90">190.5,102,77.5</post>
+        <net region="net-region" points="1"/>
+    </flag>
+</flags>
+<itemremove>
+    <item>wood sword</item>
+    <item>ender pearl</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
