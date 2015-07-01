@@ -1,6 +1,6 @@
 <map proto="1.4.0" game="Blitz">
 <name>Rough Patch</name>
-<version>1.0.0</version>
+<version>1.1.0</version>
 <objective>Eliminate the enemy team before time runs out!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
@@ -77,10 +77,14 @@
 </filters>
 <regions>
     <apply block="only-wool">
-        <everywhere/>
+        <region>
+            <everywhere/>
+        </region>
     </apply>
     <apply block="no-void">
-        <everywhere/>
+        <region>
+            <everywhere/>
+        </region>
     </apply>
 </regions>
 <time>7m</time>
