@@ -9,7 +9,6 @@
     <team id="redt" color="dark red" max="14" max-overfill="16">Red</team>
     <team id="bluet" color="blue" max="14" max-overfill="16">Blue</team>
 </teams>
-<respawn auto="true"/>
 <spawns>
     <spawn team="redt" kit="red">
         <regions yaw="-180">
