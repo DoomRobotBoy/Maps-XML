@@ -1,0 +1,90 @@
+they have to stay for 5 minutes on their own side
+team sizes: 4v4v4v4
+1 life
+1 snowball, get 1 every 3 sec
+disable entity attack damage
+
+<map proto="1.4.0" game="Dodgeball">
+<name>Dodgeball</name>
+<version>1.0.0</version>
+<objective>Eliminate the enemy team before time runs out!</objective>
+<authors>
+    <author uuid="d2a7d2c8-5bd2-48c2-b5e9-fefee10a5804"/> <!-- zeldcat -->
+    <author uuid="95ef353a-5fa8-4208-b619-3f674644c545"/> <!-- Legoman2302 -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<time>10m</time>
+<include src="blitz-global.xml"/>
+<blitz>
+    <lives>1</lives>
+</blitz>
+<disabledamage>
+    <damage>entity attack</damage>
+</disabledamage>
+<teams>
+    <team id="red" color="dark red" max="4">Red</team>
+    <team id="blue" color="blue" max="4">Blue</team>
+    <team id="yellow" color="yellow" max="4">Yellow</team>
+    <team id="green" color="green" max="4">Green</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="135">16.5,6,16.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="-135">-15.5,6,16.5</point>
+        </regions>
+    </spawn>
+    <spawn team="yellow" kit="yellow-kit">
+        <regions>
+            <point yaw="45">16.5,6,-15.5</point>
+        </regions>
+    </spawn>
+    <spawn team="green" kit="green-kit">
+        <regions>
+            <point yaw="-45">-15.5,6,-15.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw=""></point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" name="`bSnowball Launcher" projectile="Snowball" throwable="false" damage="5">diamond barding</item>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="993333" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="334CB2" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+    </kit>
+    <kit id="yellow-kit" parents="spawn">
+        <helmet color="E5E533" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+    </kit>
+    <kit id="green-kit" parents="spawn">
+        <helmet color="7FCC19" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+    </kit>
+</kits>
+<filters>
+</filters>
+<regions>
+    <apply block="never">
+        <region>
+            <everywhere/>
+        </region>
+    </apply>
+</regions>
+<itemremove>
+    <item>diamond barding</item>
+    <item>snow ball</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
