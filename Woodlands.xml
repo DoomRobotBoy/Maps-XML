@@ -184,7 +184,10 @@
     <core name="Front Core" team="blue" region="blue-core-front"/>
     <core name="Back Core" team="blue" region="blue-core-back"/>
 </cores>
-<modes></modes>
+<modes>
+    <mode after="1s" material="obsidian" show-before="0s" name="`0OBSIDIAN `rCORE MODE"/>
+    <mode after="3m" material="ender stone" show-before="0s" name="`6ENDSTONE `rCORE MODE"/>
+</modes>
 <blockdrops>
     <rule>
         <region>
@@ -227,6 +230,7 @@
 </itemremove>
 <broadcasts>
     <alert after="10s" repeat="2m">`c`lCombining classes is illegal!</alert>
+    <alert after="150s">Endstone cores in 30 seconds!</alert>
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <gamerule>
