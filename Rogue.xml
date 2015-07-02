@@ -74,6 +74,8 @@
     <team id="blue-pickup">blue</team>
 </filters>
 <regions>
+    <cuboid id="red-white-flag" min="-193,14,251" max="-196,17,248"/>
+    <cuboid id="blue-white-flag" min="-244,14,220" max="-241,17,223"/>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <apply block="never" region="map"/>
 </regions>
@@ -86,15 +88,12 @@
         <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-240.5,12,276.5</post>
         <net region="red-post" points="1"/>
     </flag>
-    <flag id="white-flag" name="White Flag" owner="blue" required="false" carry-message="Place the flag on one of the two center posts!">
-        <post id="white-post" pickup-filter="red-pickup" recover-time="5s" respawn-speed="0.88">-240.5,12,276.5</post>
-    </flag>
     <post id="center-post" recover-time="5s" respawn-time="5s">-128.5,11,235.5</post>
     <post id="red-white-post" recover-time="5s" respawn-time="5s" yaw="0">-242.5,15,221.5</post>
     <post id="blue-white-post" recover-time="5s" respawn-time="5s" yaw="180">-194.5,15,249.5</post>
-    <flag id="white-flag" name="White Flag" color="white" shared="true" post="center-post">
-        <net region="orange-shrine-net" post="red-white-post" capture-filter="only-orange"/>
-        <net region="cyan-shrine-net" post="blue-white-post" capture-filter="only-cyan"/>
+    <flag id="white-flag" name="White Flag" color="white" shared="true" post="center-post" required="false">
+        <net region="red-white-flag" post="red-white-post"/>
+        <net region="blue-white-flag" post="blue-white-post"/>
         <carry-message>Position the flag on one of the beacons to advance.</carry-message>
     </flag>
 </flags>
