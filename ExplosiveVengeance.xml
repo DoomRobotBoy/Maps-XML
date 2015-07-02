@@ -177,14 +177,14 @@
             <region name="in-spawns"/>
         </negative>
     </apply>
+    <apply block="deny-stained-clay-yellow-green-explosions">
+        <region name="all"/>
+    </apply>
     <apply block="not-void" message="`eYou may not modify the void area!">
         <complement>
             <region name="all"/>
             <region name="void-exceptions"/>
         </complement>
-    </apply>
-    <apply block="deny-stained-clay-yellow-green-explosions">
-        <region name="all"/>
     </apply>
 </regions>
 <renewables>
