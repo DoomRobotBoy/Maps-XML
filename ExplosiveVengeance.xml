@@ -111,14 +111,14 @@
             <void/>
         </not>
     </filter>
-    <filter name="allow-some" parents="deny-all">
+    <filter name="allow-some">
         <any>
             <block>tnt</block>
             <block>water</block>
             <block>stationary water</block>
         </any>
     </filter>
-    <filter name="deny-stained-clay-yellow-green-explosions" parents="allow-all">
+    <filter name="deny-stained-clay-yellow-green-explosions">
         <not>
             <any>
                 <all>
