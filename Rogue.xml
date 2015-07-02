@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Rogue CTF</name>
-<version>1.0.0</version>
+<version>1.0.1</version>
 <objective>Capture the enemy team's flag 3 times to win!</objective>
 <authors>
     <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
@@ -18,24 +18,24 @@
 </teams>
 <respawn delay="9s" auto="true"/>
 <spawns>
-    <spawn team="blue" kit="blue-kit">
+    <spawn team="blue" kit="blue-kit" filter="spawn-condition-regular">
         <regions>
             <point yaw="45">-252.5,18,288.5</point>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="spawn-condition-red-post">
+    <spawn team="blue" kit="blue-kit" filter="spawn-condition">
         <regions>
-            <point yaw="0">-224.5,9,221.5</point>
+            <point yaw="0">-218.5,14,250.5</point>
         </regions>
     </spawn>
-    <spawn team="red" kit="red-kit">
+    <spawn team="red" kit="red-kit" filter="spawn-condition-regular">
         <regions>
             <point yaw="-135">-184.5,18,182.5</point>
         </regions>
     </spawn>
-    <spawn team="red" kit="red-kit" filter="spawn-condition-blue-post">
+    <spawn team="red" kit="red-kit" filter="spawn-condition">
         <regions>
-            <point yaw="180">-212.5,9,249.5</point>
+            <point yaw="180">-218.5,14,220.5</point>
         </regions>
     </spawn>
     <default>
@@ -82,12 +82,12 @@
 <filters>
     <team id="red-pickup">red</team>
     <team id="blue-pickup">blue</team>
-    <flag-captured post="red-white-post" id="spawn-condition-red-post">white-flag</flag-captured>
-    <flag-captured post="blue-white-post" id="spawn-condition-blue-post">white-flag</flag-captured>
+    <objective id="spawn-condition">cp/objective>
+    <not id="spawn-condition-regular">
+        <objective id="spawn-condition">cp/objective>
+    </not>
 </filters>
 <regions>
-    <cuboid id="red-white-flag" min="-193,14,251" max="-196,17,248"/>
-    <cuboid id="blue-white-flag" min="-244,14,220" max="-241,17,223"/>
     <cuboid id="red-net" min="-171,17,211" max="-172,20,209"/>
     <cuboid id="blue-net" min="-266,17,260" max="-265,20,262"/>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
@@ -101,14 +101,6 @@
     <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at your flag post!">
         <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-240.5,12,276.5</post>
         <net region="blue-net" points="1"/>
-    </flag>
-    <post id="center-post" recover-time="5s" respawn-time="5s">-128.5,11,235.5</post>
-    <post id="red-white-post" recover-time="5s" respawn-time="5s" yaw="0">-242.5,15,221.5</post>
-    <post id="blue-white-post" recover-time="5s" respawn-time="5s" yaw="180">-194.5,15,249.5</post>
-    <flag id="white-flag" name="White Flag" color="white" shared="true" post="center-post" required="false">
-        <net region="red-white-flag" post="red-white-post"/>
-        <net region="blue-white-flag" post="blue-white-post"/>
-        <carry-message>Position the flag on one of the beacons to advance.</carry-message>
     </flag>
 </flags>
 <timelock>true</timelock>
