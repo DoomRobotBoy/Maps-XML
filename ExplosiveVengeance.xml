@@ -26,10 +26,10 @@
         <region><cuboid name="right-yellow-box" min="149,14,83" max="147,17,90"/></region>
     </box>
     <box points="4" filter="only-yellow">
-        <region><cuboid name="left-green-box" min="-50,22,90" max="-48,21,83"/></region>
+        <region><cuboid name="left-green-box" min="-50,14,90" max="-48,17,83"/></region>
     </box>
     <box points="4" filter="only-yellow">
-        <region><cuboid name="right-green-box" min="-50,22,69" max="-48,21,62"/></region>
+        <region><cuboid name="right-green-box" min="-50,14,69" max="-48,17,62"/></region>
     </box>
 </score>
 <spawns safe="true">
@@ -142,8 +142,8 @@
 <regions>
     <rectangle name="all" min="-oo,-oo" max="oo,oo"/>
     <union name="spawns">
-        <rectangle name="yellow-spawn" min="131,34" max="166,118"/>
-        <rectangle name="green-spawn" min="-32,118" max="-67,34"/>
+        <rectangle name="yellow-spawn" min="149,34" max="166,118"/>
+        <rectangle name="green-spawn" min="-50,118" max="-67,34"/>
     </union>
     <union name="icari">
         <cuboid name="yellow-icarus" min="81,29,52" max="67,33,44"/>
