@@ -97,6 +97,13 @@
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <apply block="never" region="map"/>
 </regions>
+<control-points capture-players="lead" incremental="true" show-progress="true" required="false">
+    <control-point name="Center Point" id="cp" capture-time="5s" points="0">
+        <capture><cuboid min="-217,11,237" max="-220,14,234"/></capture>
+        <progress><cuboid min="-217,10,237" max="-220,11,234"/></progress>
+        <captured><cuboid min="-217,10,237" max="-220,11,234"/></captured>
+    </control-point>
+</control-points>
 <flags>
     <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at the red beacon!">
         <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
