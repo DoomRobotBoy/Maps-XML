@@ -93,7 +93,6 @@
     <kit name="yellow" parents="teams">
         <helmet unbreakable="true" color="E5E533">leather helmet</helmet>
         <chestplate unbreakable="true" color="E5E533" enchantment="protection explosions:2">leather chestplate</chestplate>
-        <
     </kit>
     <kit name="green" parents="teams">
         <helmet unbreakable="true" color="4C4C4C">leather helmet</helmet>
