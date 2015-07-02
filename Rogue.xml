@@ -94,11 +94,11 @@
     <apply block="never" region="map"/>
 </regions>
 <flags>
-    <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at your flag post!">
+    <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at the red beacon!">
         <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
         <net region="red-net" points="1"/>
     </flag>
-    <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at your flag post!">
+    <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at the blue beacon!">
         <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-240.5,12,276.5</post>
         <net region="blue-net" points="1"/>
     </flag>
