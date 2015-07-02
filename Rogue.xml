@@ -18,19 +18,19 @@
 </teams>
 <respawn delay="9s" auto="true"/>
 <spawns>
-    <spawn team="red" kit="red-kit">
+    <spawn team="blue" kit="blue-kit">
         <regions>
-            <point yaw="45">-266.5,18,276.5</point>
+            <point yaw="45">-252.5,18,288.5</point>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit">
+    <spawn team="red" kit="red-kit">
         <regions>
             <point yaw="-135">-184.5,18,182.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point>-225.5,33,229.5</point>
+            <point>-218.5,32,235.5</point>
         </regions>
     </default>
 </spawns>
@@ -70,34 +70,35 @@
     <item>leather boots</item>
 </itemremove>
 <filters>
-    <all id="red-pickup">
-        <objective team="red">cp</objective>
-        <team>red</team>
-    </all>
-    <all id="blue-pickup">
-        <objective team="blue">cp</objective>
-        <team>blue</team>
-    </all>
+    <team id="red-pickup">red</team>
+    <team id="blue-pickup">blue</team>
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <apply block="never" region="map"/>
 </regions>
-<control-points capture-players="lead" incremental="true" show-progress="true" required="false">
-    <control-point name="Hill" capture-time="5s" time-multiplier="0.25" point="0">
-        <capture><cuboid min="-230,13,225" max="-221,16,234"/></capture>
-        <progress><cuboid min="-230,12,225" max="-221,13,234"/></progress>
-        <captured><cuboid min="-230,12,225" max="-221,13,234"/></captured>
-    </control-point>
-</control-points>
 <flags>
     <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at your flag post!">
-        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-254.5,12,264.5</post>
+        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
         <net region="blue-post" points="1"/>
     </flag>
     <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at your flag post!">
-        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
+        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-240.5,12,276.5</post>
         <net region="red-post" points="1"/>
+    </flag>
+    <flag id="white-flag" name="White Flag" owner="blue" required="false" carry-message="Place the flag on one of the two center posts!">
+        <post id="white-post" pickup-filter="red-pickup" recover-time="5s" respawn-speed="0.88">-240.5,12,276.5</post>
+    </flag>
+    <flag id="white-flag" name="White Flag" color="white" shared="true" post="center-post" points-rate="0.5">
+        <net owner="orange" region="orange-shrine-net" post="orange-post" capture-filter="only-orange"/>
+        <net owner="cyan" region="cyan-shrine-net" post="cyan-post" capture-filter="only-cyan"/>
+        <pickup-kit force="true">
+            <potion duration="oo">slow</potion>
+        </pickup-kit>
+        <drop-kit force="true">
+            <potion duration="0">slow</potion>
+        </drop-kit>
+        <carry-message>Capture the flag on the emerald block in the center of your team's side.</carry-message>
     </flag>
 </flags>
 <timelock>true</timelock>
