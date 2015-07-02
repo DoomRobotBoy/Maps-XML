@@ -23,9 +23,19 @@
             <point yaw="45">-252.5,18,288.5</point>
         </regions>
     </spawn>
+    <spawn team="blue" kit="blue-kit" filter="spawn-condition-red-post">
+        <regions>
+            <point yaw="0">-224.5,9,221.5</point>
+        </regions>
+    </spawn>
     <spawn team="red" kit="red-kit">
         <regions>
             <point yaw="-135">-184.5,18,182.5</point>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit" filter="spawn-condition-blue-post">
+        <regions>
+            <point yaw="180">-212.5,9,249.5</point>
         </regions>
     </spawn>
     <default>
@@ -72,21 +82,25 @@
 <filters>
     <team id="red-pickup">red</team>
     <team id="blue-pickup">blue</team>
+    <flag-captured post="red-white-post" id="spawn-condition-red-post">white-flag</flag-captured>
+    <flag-captured post="blue-white-post" id="spawn-condition-blue-post">white-flag</flag-captured>
 </filters>
 <regions>
     <cuboid id="red-white-flag" min="-193,14,251" max="-196,17,248"/>
     <cuboid id="blue-white-flag" min="-244,14,220" max="-241,17,223"/>
+    <cuboid id="red-net" min="-171,17,211" max="-172,20,209"/>
+    <cuboid id="blue-net" min="-266,17,260" max="-265,20,262"/>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <apply block="never" region="map"/>
 </regions>
 <flags>
     <flag id="red-flag" name="Red Flag" owner="red" carry-message="Capture the flag at your flag post!">
         <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="0.88">-196.5,12,194.5</post>
-        <net region="blue-post" points="1"/>
+        <net region="red-net" points="1"/>
     </flag>
     <flag id="blue-flag" name="Blue Flag" owner="blue" carry-message="Capture the flag at your flag post!">
         <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="0.88">-240.5,12,276.5</post>
-        <net region="red-post" points="1"/>
+        <net region="blue-net" points="1"/>
     </flag>
     <post id="center-post" recover-time="5s" respawn-time="5s">-128.5,11,235.5</post>
     <post id="red-white-post" recover-time="5s" respawn-time="5s" yaw="0">-242.5,15,221.5</post>
