@@ -9,6 +9,10 @@
 <contributors>
     <contributor contribution="Layout help" uuid="0f59172c-de53-4bbe-a060-1a5dc274db4e"/> <!-- Kingie -->
 </contributors>
+<broadcasts>
+    <tip after="1s">To capture a flag you need two teammates to open the net for you!</tip>
+    <tip after="1m">To capture a flag you need two teammates to open the net for you!</tip>
+</broadcasts>
 <score>
     <limit>3</limit>
 </score>
