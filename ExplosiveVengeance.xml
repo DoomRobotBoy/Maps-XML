@@ -146,8 +146,8 @@
         <rectangle name="green-spawn" min="-50,118" max="-67,34"/>
     </union>
     <union name="icari">
-        <cuboid name="yellow-icarus" min="81,29,52" max="67,33,44"/>
-        <cuboid name="green-icarus" min="18,29,100" max="32,33,108"/>
+        <cuboid name="yellow-icarus" min="81,28,52" max="67,33,44"/>
+        <cuboid name="green-icarus" min="18,28,100" max="32,33,108"/>
     </union>
     <complement name="terrain">
         <cuboid name="map" min="131,0,21" max="-32,36,130"/>
