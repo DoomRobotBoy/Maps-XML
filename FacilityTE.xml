@@ -42,8 +42,6 @@
     </kit>
     <kit id="obs" force="true">
         <potion duration="oo">night vision</potion>
-        <item slot="1">air</item>
-        <item slot="2">air</item>
     </kit>
     <kit id="flag-pickup" force="true">
         <potion duration="oo" amplifier="-2">health boost</potion>
@@ -93,10 +91,14 @@
         </region>
     </apply>
     <apply enter="only-blue" message="You may not enter the enemies spawn!">
-        <rectangle min="-2,145" max="5,146"/>
+        <region>
+            <rectangle min="-2,145" max="5,146"/>
+        </region>
     </apply>
     <apply enter="only-red" message="You may not enter the enemies spawn!">
-        <rectangle min="5,50" max="-2,49"/>
+        <region>
+            <rectangle min="5,50" max="-2,49"/>
+        </region>
     </apply>
 </regions>
 <flags>
