@@ -7,7 +7,7 @@
     <author uuid="95ef353a-5fa8-4208-b619-3f674644c545"/> <!-- Legoman2302 -->
 </authors>
 <contributors>
-    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
 <broadcasts>
     <tip after="1s">You can only get to the other teams after 5 minutes.</tip>
@@ -59,6 +59,7 @@
     <kit id="spawn">
         <item slot="0" name="`bSnowball Launcher" projectile="Snowball" throwable="false" damage="5" cooldown="3s">diamond barding</item>
         <potion duration="oo" amplifier="-9">health boost</potion>
+        <potion duration="3" amplifier="5">damage resistance</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
         <helmet color="993333" unbreakable="true" locked="true">leather helmet</helmet>
