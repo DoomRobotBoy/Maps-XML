@@ -52,25 +52,26 @@ disable entity attack damage
     </spawn>
     <default>
         <regions>
-            <point yaw=""></point>
+            <point yaw="0">0.5,25,43.5</point>
         </regions>
     </default>
 </spawns>
 <kits>
     <kit id="spawn">
-        <item slot="0" name="`bSnowball Launcher" projectile="Snowball" throwable="false" damage="5">diamond barding</item>
+        <item slot="0" name="`bSnowball Launcher" projectile="Snowball" throwable="false" damage="5" cooldown="3s">diamond barding</item>
+        <potion duration="oo" amplifier="-9">health boost</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
-        <helmet color="993333" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+        <helmet color="993333" unbreakable="true" locked="true">leather helmet</helmet>
     </kit>
     <kit id="blue-kit" parents="spawn">
-        <helmet color="334CB2" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+        <helmet color="334CB2" unbreakable="true" locked="true">leather helmet</helmet>
     </kit>
     <kit id="yellow-kit" parents="spawn">
-        <helmet color="E5E533" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+        <helmet color="E5E533" unbreakable="true" locked="true">leather helmet</helmet>
     </kit>
     <kit id="green-kit" parents="spawn">
-        <helmet color="7FCC19" unbreakable="true" attributes="generic.maxHealth:add:-18">leather helmet</helmet>
+        <helmet color="7FCC19" unbreakable="true" locked="true">leather helmet</helmet>
     </kit>
 </kits>
 <filters>
