@@ -54,16 +54,13 @@
     </kit>
 </kits>
 <itemremove>
-    <item>bread</item>
-    <item>bow</item>
     <item>stone sword</item>
-    <item>iron sword</item>
-    <item>blaze rod</item>
+    <item>bow</item>
+    <item>bread</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>chainmail leggings</item>
     <item>leather boots</item>
-    <item>potion</item>
 </itemremove>
 <spawns>
     <spawn team="red" kit="red-kit">
