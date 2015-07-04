@@ -1,7 +1,7 @@
 <map proto="1.4.0" game="Dodgeball">
 <name>Dodgeball</name>
 <version>1.0.0</version>
-<objective>Eliminate the enemy team before time runs out!</objective>
+<objective>Dodge your enemies' deadly snowballs and kill them with yours. Last team standing wins!</objective>
 <authors>
     <author uuid="d2a7d2c8-5bd2-48c2-b5e9-fefee10a5804"/> <!-- zeldcat -->
     <author uuid="95ef353a-5fa8-4208-b619-3f674644c545"/> <!-- Legoman2302 -->
@@ -84,7 +84,7 @@
         <rectangle min="0,-25" max="1,26"/>
         <rectangle min="26,1" max="-25,0"/>
     </union>
-    <apply filter="free-time" enter="never" message="You will only be able to get to the other teams after 5 minutes">
+    <apply filter="free-time" enter="never" message="You will only be able to get to the other teams sides after 5 minutes">
         <region>
             <region id="border"/>
         </region>
@@ -98,6 +98,7 @@
 <itemremove>
     <item>diamond barding</item>
     <item>snow ball</item>
+    <item>leather helmet</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
