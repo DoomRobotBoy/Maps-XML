@@ -87,6 +87,9 @@
     <team id="only-red">red</team>
 </filters>
 <regions>
+    <cylinder id="red-net" base="-5.5,4,37.5" radius="2" height="3"/>
+    <cylinder id="blue-net" base="8.5,4,157.5" radius="2" height="3"/>
+<!-- Applied -->
     <apply block="never" message="You may not modify the map!">
         <region>
             <rectangle min="oo,oo" max="-oo,-oo"/>
@@ -101,22 +104,22 @@
 </regions>
 <flags>
     <flag id="red-west-flag" name="Red West Flag" owner="red" pickup-kit="flag-pickup" drop-kit="flag-drop">
-        <post pickup-filter="only-blue">-50.5,31,-73.5</post>
+        <post pickup-filter="only-blue" yaw="-45">-28.5,6,53.5</post>
         <carry-message>Capture the flag in your spawn!</carry-message>
         <net region="blue-net" points="1"/>
     </flag>
     <flag id="red-east-flag" name="Red East Flag" owner="red" pickup-kit="flag-pickup" drop-kit="flag-drop">
-        <post pickup-filter="only-blue">-50.5,31,-73.5</post>
+        <post pickup-filter="only-blue" yaw="45">31.5,6,53.5</post>
         <carry-message>Capture the flag in your spawn!</carry-message>
         <net region="blue-net" points="1"/>
     </flag>
     <flag id="blue-west-flag" name="Blue West Flag" owner="blue" pickup-kit="flag-pickup" drop-kit="flag-drop">
-        <post pickup-filter="only-red">-50.5,31,-73.5</post>
+        <post pickup-filter="only-red" yaw="-135">-28.5,6,141.5</post>
         <carry-message>Capture the flag in your spawn!</carry-message>
         <net region="red-net" points="1"/>
     </flag>
     <flag id="blue-east-flag" name="Blue East Flag" owner="blue" pickup-kit="flag-pickup" drop-kit="flag-drop">
-        <post pickup-filter="only-red">-50.5,31,-73.5</post>
+        <post pickup-filter="only-red" yaw="135">31.5,6,141.5</post>
         <carry-message>Capture the flag in your spawn!</carry-message>
         <net region="red-net" points="1"/>
     </flag>
