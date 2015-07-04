@@ -1,7 +1,4 @@
 they have to stay for 5 minutes on their own side
-team sizes: 4v4v4v4
-1 life
-1 snowball, get 1 every 3 sec
 disable entity attack damage
 
 <map proto="1.4.0" game="Dodgeball">
@@ -15,6 +12,11 @@ disable entity attack damage
 <contributors>
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
+<broadcasts>
+    <tip after="1s">You can only get to the other teams after 5 minutes.</tip>
+    <alert after="4m">After 1 minute you can get to the other teams sides.</alert>
+    <alert after="5m">You can now get to the other teams sides!</alert>
+</broadcasts>
 <time>10m</time>
 <include src="blitz-global.xml"/>
 <blitz>
@@ -75,8 +77,20 @@ disable entity attack damage
     </kit>
 </kits>
 <filters>
+    <not id="free-time">
+        <time>5m</time>
+    </not>
 </filters>
 <regions>
+    <union id="border">
+        <rectangle min="0,-25" max="1,26"/>
+        <rectangle min="26,1" max="-25,0"/>
+    </union>
+    <apply filter="free-time" enter="never" message="You will only be able to get to the other teams after 5 minutes">
+        <region>
+            <region id="border"/>
+        </region>
+    </apply>
     <apply block="never">
         <region>
             <everywhere/>
