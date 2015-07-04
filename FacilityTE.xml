@@ -1,0 +1,125 @@
+<map proto="1.4.0">
+<name>Facility CTF TE</name>
+<version>1.0.0</version>
+<objective>Be the first team to 5 captures or the team with the most captures after 15 minutes.</objective>
+<authors>
+    <author uuid="e8d1ad63-bd9e-4d0e-9a6c-27f2b047d924" contribution="Overall Map Design and XML Code"/> <!--  Mikeg542  -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="CTF TE Edit"/> <!--  DoomRobotBoy  -->
+</authors>
+<contributors>
+    <contributor uuid="8807d876-40f9-470f-9fcf-3eb3d146b983" contribution="Feedback"/> <!--  Skippy_Irongut  -->
+    <contributor uuid="e1e9e6af-f826-44ce-b1e2-5efb4e5c5d9e" contribution="Feedback"/> <!--  Zemphon  -->
+    <contributor uuid="2ca8072f-74be-4798-85b8-bbce03aa91af" contribution="Feedback"/> <!--  Tywnis  -->
+    <contributor uuid="06078e7e-6a7b-4d31-8f74-853072b182bb" contribution="Feedback"/> <!--  xXFracXx  -->
+</contributors>
+<score>
+    <limit>5</limit>
+</score>
+<time>900</time>
+<teams>
+    <team id="red" color="dark red" max="8">Red</team>
+    <team id="blue" color="blue" max="8">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
+        <item slot="2" amount="64">bread</item>
+        <item slot="3" amount="12">arrow</item>
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+        <chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+        <leggings unbreakable="true">chainmail leggings</leggings>
+        <boots color="cd0000" enchantment="protection fall:2" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+        <chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+        <leggings unbreakable="true">chainmail leggings</leggings>
+        <boots color="0066cc" enchantment="protection fall:2" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="obs" force="true">
+        <potion duration="oo">night vision</potion>
+        <item slot="1">air</item>
+        <item slot="2">air</item>
+    </kit>
+    <kit id="flag-pickup" force="true">
+        <potion duration="oo" amplifier="-2">health boost</potion>
+    </kit>
+    <kit id="flag-drop" force="true">
+        <potion duration="1" amplifier="0">health boost</potion>
+        <potion duration="1" amplifier="10">regeneration</potion>
+    </kit>
+</kits>
+<itemremove>
+    <item>bread</item>
+    <item>bow</item>
+    <item>stone sword</item>
+    <item>iron sword</item>
+    <item>blaze rod</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>potion</item>
+</itemremove>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="90">8.5,4,37.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="-90">-5.5,4,157.5</point>
+        </regions>
+    </spawn>
+    <default kit="obs">
+        <regions>
+            <point yaw="90">37.5,15,97.5</point>
+        </regions>
+    </default>
+</spawns>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+</filters>
+<regions>
+    <apply block="never" message="You may not modify the map!">
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+    </apply>
+    <apply enter="only-blue" message="You may not enter the enemies spawn!">
+        <rectangle min="-2,145" max="5,146"/>
+    </apply>
+    <apply enter="only-red" message="You may not enter the enemies spawn!">
+        <rectangle min="5,50" max="-2,49"/>
+    </apply>
+</regions>
+<flags>
+    <flag id="red-west-flag" name="Red West Flag" owner="red" pickup-kit="flag-pickup" drop-kit="flag-drop">
+        <post pickup-filter="only-blue">-50.5,31,-73.5</post>
+        <carry-message>Capture the flag in your spawn!</carry-message>
+        <net region="blue-net" points="1"/>
+    </flag>
+    <flag id="red-east-flag" name="Red East Flag" owner="red" pickup-kit="flag-pickup" drop-kit="flag-drop">
+        <post pickup-filter="only-blue">-50.5,31,-73.5</post>
+        <carry-message>Capture the flag in your spawn!</carry-message>
+        <net region="blue-net" points="1"/>
+    </flag>
+    <flag id="blue-west-flag" name="Blue West Flag" owner="blue" pickup-kit="flag-pickup" drop-kit="flag-drop">
+        <post pickup-filter="only-red">-50.5,31,-73.5</post>
+        <carry-message>Capture the flag in your spawn!</carry-message>
+        <net region="red-net" points="1"/>
+    </flag>
+    <flag id="blue-east-flag" name="Blue East Flag" owner="blue" pickup-kit="flag-pickup" drop-kit="flag-drop">
+        <post pickup-filter="only-red">-50.5,31,-73.5</post>
+        <carry-message>Capture the flag in your spawn!</carry-message>
+        <net region="red-net" points="1"/>
+    </flag>
+</flags>
+<timelock>on</timelock>
+</map>
