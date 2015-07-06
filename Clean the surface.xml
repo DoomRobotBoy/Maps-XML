@@ -1,5 +1,5 @@
-<map proto="1.4.0">
-<name>Tower of Terror</name>
+<map proto="1.4.0" game="Clean the surface">
+<name>Clean the surface</name>
 <version>1.0.0</version>
 <objective>Cleaners have to wipe the surface clean from all the litter that the litterbugs spilled.</objective>
 <authors>
@@ -82,6 +82,12 @@
 </filters>
 <regions>
     <cuboid id="building-area" min="257,67,245" max="243,89,231"/>
+<!-- apply enter is for the litterbugs, the message is for the cleaners -->
+    <apply enter="only-litterbugs" message="You may not enter the box!">
+        <region>
+            <cuboid min="257,86,231" max="243,87,245"/>
+        </region>
+    </apply>
     <apply block-place-against="only-against-some" block="only-some" region="building-area"/>
     <apply block="never">
         <region>
@@ -91,6 +97,16 @@
         </region>
     </apply>
 </regions>
+<destroyables name="Litter" materials="sand;gravel;anvil" completion="100%" show-progress="true">
+    <destroyable owner="litterbugs">
+       <region><cuboid min="257,67,245" max="243,85,231"/></region>
+    </destroyable>
+</destroyables>
+<portals>
+    <portal yaw="90" destonation="258.5,87,237.5" filter="only-litterbugs">
+        <region><cuboid min="257,86,231" max="243,87,245"/></region>
+    </portal>
+</portals>
 <itemremove>
     <item>sand</item>
     <item>gravel</item>
