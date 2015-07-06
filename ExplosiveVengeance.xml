@@ -162,12 +162,9 @@
         <cuboid name="green-in-spawn" min="-59,14,52" max="-52,18,100"/>
     </union>
 <!--  Applied  -->
-    <apply block="deny-world">
+    <apply block="deny-all" message="`eYou may not edit the spawn area!">
         <rectangle min="131,34" max="166,118"/>
         <rectangle min="-32,118" max="-67,34"/>
-    </apply>
-    <apply block="deny-all" message="`eYou may not edit the spawn area!">
-        <region name="spawns"/>
     </apply>
     <apply block="allow-some" message="`eYou may not edit the icarus building!">
         <region name="icari"/>
