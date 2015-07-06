@@ -1,0 +1,93 @@
+<map proto="1.4.0">
+<name>Tower of Terror</name>
+<version>1.0.0</version>
+<objective>Cleaners have to wipe the surface clean from all the litter that the litterbugs spilled.</objective>
+<authors>
+    <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/> <!--  _DISTRACTION_  -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
+</contributors>
+<broadcasts>
+    <tip after="1s">Litterbugs have fly kits, but are not able to exit the gray glass box.</tip>
+    <tip after="2s">The litterbugs can only place blocks against the white/black ceiling.</tip>
+    <tip after="4s">Cleaners win when all litter (sand,gravel,anvils) has been cleaned up.</alert>
+</broadcasts>
+<teams>
+    <team id="cleaners" color="white" max="5">Cleaners</team>
+    <team id="litterbugs" color="dark gray" max="3">Litterbugs</team>
+</teams>
+<time result="litterbugs">90s</time>
+<spawns>
+    <spawn team="cleaners" kit="cleaners-kit">
+        <regions>
+            <point yaw="135">258.5,75,246.5</point>
+            <point yaw="-135">241.5,75,246.5</point>
+            <point yaw="-45">241.5,75,229.5</point>
+            <point yaw="45">258.5,75,229.5</point>
+        </regions>
+    </spawn>
+    <spawn team="litterbugs" kit="litterbugs-kit">
+        <regions>
+            <point yaw="135">258.5,87,246.5</point>
+            <point yaw="-135">241.5,87,246.5</point>
+            <point yaw="-45">241.5,87,229.5</point>
+            <point yaw="45">258.5,87,229.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="90">258.5,87,237.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="cleaners-kit">
+        <item slot="0" unbreakable="true" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="1" unbreakable="true" enchantment="dig speed:1">iron spade</item>
+        <helmet color="FFFFFF" enchantment="protection environmental:3" locked="true" unbreakable="true">leather helmet</helmet>
+        <chestplate color="FFFFFF" enchantment="protection environmental:3" locked="true" unbreakable="true">leather chestplate</chestplate>
+        <leggings color="FFFFFF" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="FFFFFF" locked="true" unbreakable="true">leather boots</boots>
+        <potion duration="oo">fast digging</potion>
+    </kit>
+    <kit id="litterbugs-kit">
+        <helmet color="4C4C4C" enchantment="protection environmental:3" locked="true" unbreakable="true">leather helmet</helmet>
+        <chestplate color="4C4C4C" enchantment="protection environmental:3" locked="true" unbreakable="true">leather chestplate</chestplate>
+        <leggings color="4C4C4C" locked="true" unbreakable="true">leather leggings</leggings>
+        <boots color="4C4C4C" locked="true" unbreakable="true">leather boots</boots>
+    </kit>
+</kits>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<disable-damage>
+    <damage>entity attack</damage>
+</disable-damage>
+<filters>
+    <team id="only-litterbugs">litterbugs</team>
+    <any id="only-some">
+        <material>sand</material>
+        <material>gravel</material>
+        <material>anvil</material>
+    </any>
+</filters>
+<regions>
+    <cylinder id="net-region" base="209.5,47,77.5" radius="2" height="1"/>
+    <apply block="never">
+        <region>
+            <rectangle min="oo,oo" max="-oo,-oo"/>
+        </region>
+    </apply>
+</regions>
+<itemremove>
+    <item>sand</item>
+    <item>gravel</item>
+    <item>anvil</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
