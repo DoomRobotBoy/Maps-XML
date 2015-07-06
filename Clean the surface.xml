@@ -52,10 +52,14 @@
         <potion duration="oo">fast digging</potion>
     </kit>
     <kit id="litterbugs-kit">
+        <item slot="0" amount="64">sand</item>
+        <item slot="1" amount="64">gravel</item>
+        <item slot="2" amount="64">anvil</item>
         <helmet color="4C4C4C" enchantment="protection environmental:3" locked="true" unbreakable="true">leather helmet</helmet>
         <chestplate color="4C4C4C" enchantment="protection environmental:3" locked="true" unbreakable="true">leather chestplate</chestplate>
         <leggings color="4C4C4C" locked="true" unbreakable="true">leather leggings</leggings>
         <boots color="4C4C4C" locked="true" unbreakable="true">leather boots</boots>
+        <fly/>
     </kit>
 </kits>
 <hunger>
@@ -66,6 +70,10 @@
 </disable-damage>
 <filters>
     <team id="only-litterbugs">litterbugs</team>
+    <any id="only-against-some">
+        <material>stained glass:0</material>
+        <material>stainde glass:15</material>
+    </any>
     <any id="only-some">
         <material>sand</material>
         <material>gravel</material>
@@ -73,10 +81,13 @@
     </any>
 </filters>
 <regions>
-    <cylinder id="net-region" base="209.5,47,77.5" radius="2" height="1"/>
+    <cuboid id="building-area" min="257,67,245" max="243,89,231"/>
+    <apply block-place-against="only-against-some" block="only-some" region="building-area"/>
     <apply block="never">
         <region>
-            <rectangle min="oo,oo" max="-oo,-oo"/>
+            <negative>
+                <region id="building-area"/>
+            </negative>
         </region>
     </apply>
 </regions>
