@@ -1,28 +1,23 @@
 <map proto="1.4.0">
 <name>Grayscale</name>
 <version>1.0.0</version>
-<objective>Capture all 6 sequential control points.</objective>
+<objective>Capture all 5 sequential control points or hold the most when the time runs out!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
 </authors>
 <contributors>
-    <contributor uuid="c65e66b3-e932-4b33-b907-fe4916806076" contribution="Feedback and suggestions"/> <!-- NixaniaXi -->
+    <contributor uuid="2958ea4c-3501-404e-88cc-12e8632f68cc" contribution="Feedback and suggestions"/> <!-- NixaniaXi -->
 </contributors>
-<broadcasts>
-    <tip after="1s">You need to have control of both the River and Dam point to advance to the Aqueduct points.</tip>
-</broadcasts>
 <teams>
-    <team id="red" color="dark red" max="32" max-overfill="44">Red</team>
-    <team id="blue" color="blue" max="32" max-overfill="44">Blue</team>
+    <team id="red" color="dark red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
 </teams>
 <kits>
     <kit id="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
-        <item slot="3">golden apple</item>
-        <item slot="28">arrow</item>
-        <potion duration="4">damage resistance</potion>
+        <item slot="20">arrow</item>
         <leggings unbreakable="true">iron leggings</leggings>
     </kit>
     <kit id="red-kit" parents="spawn">
@@ -37,28 +32,26 @@
     </kit>
 </kits>
 <killreward>
-    <item>golden apple</item>
+    <item damage="8193" potions="regeneration:100:0:false">potion</item>
 </killreward>
 <itemremove>
     <item>stone sword</item>
     <item>bow</item>
     <item>cooked beef</item>
-    <item>golden apple</item>
     <item>arrow</item>
+    <item>potion</item>
+    <item>glass bottle</item>
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>leather boots</item>
     <item>iron leggings</item>
 </itemremove>
-<filters>
-    <material id="only-leaves">leaves</material>
-</filters>
 <regions>
-    <block id="jump-pad">-60.5,16,126.5</block>
-    <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
-<!-- Applied -->
-    <apply block="only-leaves" region="map" message="You can only break leaves!"/>
-    <apply velocity="0.0,1.3,0.0" region="jump-pad"/>
+    <apply block="never" message="You can only break leaves!">
+        <region>
+            <everywhere/>
+        </region>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
@@ -187,5 +180,5 @@
         </player-filter>
     </control-point>
 </control-points>
-<time result="objectives">25m</time>
+<time result="objectives">12m</time>
 </map>
