@@ -47,7 +47,7 @@
     <item>iron leggings</item>
 </itemremove>
 <regions>
-    <apply block="never" message="You can only break leaves!">
+    <apply block="never">
         <region>
             <everywhere/>
         </region>
@@ -55,23 +55,25 @@
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
-        <regions yaw="135">
-            <cylinder base="-18.5,25,212.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="-90">-41.5,18,517.5</point>
+            <point yaw="-90">-41.5,18,518.5</point>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
-        <regions yaw="45">
-            <cylinder base="-18.5,25,40.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="-90">-41.5,18,548.5</point>
+            <point yaw="-90">-41.5,18,549.5</point>
         </regions>
     </spawn>
     <default>
-        <regions yaw="90">
-            <cylinder base="-60.5,32,126.5" radius=".5" height="0"/>
+        <regions>
+            <point yaw="90">44.5,18,533.5</point>
         </regions>
     </default>
 </spawns>
 <control-points incremental="true" neutral-state="false" show-progress="true">
-    <control-point initial-owner="red" id="red-last" name="Red Courtyard" capture-time="10s">
+    <control-point initial-owner="red" id="red-last" name="Red Courtyard" capture-time="6s">
         <capture>
             <cylinder base="-35.5,24,232.5" radius="6" height="2"/>
         </capture>
@@ -88,7 +90,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-2nd" name="Red Aqueduct" capture-time="12s">
+    <control-point initial-owner="red" id="red-2nd" name="Red Aqueduct" capture-time="6s">
         <capture>
             <cylinder base="-96.5,22,187.5" radius="6" height="2"/>
         </capture>
@@ -101,14 +103,11 @@
         <player-filter>
             <any>
                 <objective>red-last</objective>
-                <all>
-                    <objective>mid-dam</objective>
-                    <objective>mid-river</objective>
-                </all>
+                <objective>mid</objective>
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid-dam" name="Dam" capture-time="15s">
+    <control-point id="mid" name="Dam" capture-time="10s">
         <capture>
             <cylinder base="-48.5,24,126.5" radius="7" height="2"/>
         </capture>
@@ -125,24 +124,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid-river" name="River" capture-time="15s">
-        <capture>
-            <cylinder base="-150.5,18,126.5" radius="6" height="2"/>
-        </capture>
-        <progress>
-            <cylinder base="-150.5,17,126.5" radius="6" height="1"/>
-        </progress>
-        <captured>
-            <cylinder base="-150.5,17,126.5" radius="6" height="1"/>
-        </captured>
-        <player-filter>
-            <any>
-                <objective>red-2nd</objective>
-                <objective>blue-2nd</objective>
-            </any>
-        </player-filter>
-    </control-point>
-    <control-point initial-owner="blue" id="blue-2nd" name="Blue Aqueduct" capture-time="12s">
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue Aqueduct" capture-time="6s">
         <capture>
             <cylinder base="-96.5,22,65.5" radius="6" height="2"/>
         </capture>
@@ -154,15 +136,12 @@
         </captured>
         <player-filter>
             <any>
-                <all>
-                    <objective>mid-dam</objective>
-                    <objective>mid-river</objective>
-                </all>
+                <objective>mid</objective>
                 <objective>blue-last</objective>
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-last" name="Blue Courtyard" capture-time="10s">
+    <control-point initial-owner="blue" id="blue-last" name="Blue Courtyard" capture-time="6s">
         <capture>
             <cylinder base="-35.5,24,20.5" radius="6" height="2"/>
         </capture>
