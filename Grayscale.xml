@@ -13,7 +13,10 @@
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
 <kits>
-    <kit id="spawn">
+    <kit id="all">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="spawn" parents="all">
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
@@ -66,22 +69,22 @@
             <point yaw="-90">-41.5,18,549.5</point>
         </regions>
     </spawn>
-    <default>
+    <default kit="all">
         <regions>
             <point yaw="90">44.5,18,533.5</point>
         </regions>
     </default>
 </spawns>
 <control-points incremental="true" neutral-state="false" show-progress="true">
-    <control-point initial-owner="red" id="red-last" name="Red Courtyard" capture-time="6s">
+    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="6s">
         <capture>
-            <cylinder base="-35.5,24,232.5" radius="6" height="2"/>
+            <cuboid min="-32,12,506" max="-27,13,501"/>
         </capture>
         <progress>
-            <cylinder base="-35.5,23,232.5" radius="6" height="1"/>
+            <cuboid min="-32,11,506" max="-27,12,501"/>
         </progress>
         <captured>
-            <cylinder base="-35.5,23,232.5" radius="6" height="1"/>
+            <cuboid min="-32,11,506" max="-27,12,501"/>
         </captured>
         <player-filter>
             <any>
@@ -90,15 +93,15 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-2nd" name="Red Aqueduct" capture-time="6s">
+    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="6s">
         <capture>
-            <cylinder base="-96.5,22,187.5" radius="6" height="2"/>
+            <cuboid min="-1,9,515" max="4,10,510"/>
         </capture>
         <progress>
-            <cylinder base="-96.5,21,187.5" radius="6" height="2"/>
+            <cuboid min="-1,8,515" max="4,9,510"/>
         </progress>
         <captured>
-            <cylinder base="-96.5,21,187.5" radius="6" height="2"/>
+            <cuboid min="-1,8,515" max="4,9,510"/>
         </captured>
         <player-filter>
             <any>
@@ -107,15 +110,15 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid" name="Dam" capture-time="10s">
+    <control-point id="mid" name="Mid" capture-time="10s">
         <capture>
-            <cylinder base="-48.5,24,126.5" radius="7" height="2"/>
+            <cuboid min="30,5,536" max="35,6,531"/>
         </capture>
         <progress>
-            <cylinder base="-48.5,23,126.5" radius="7" height="1"/>
+            <cuboid min="30,4,536" max="35,5,531"/>
         </progress>
         <captured>
-            <cylinder base="-48.5,23,126.5" radius="7" height="1"/>
+            <cuboid min="30,4,536" max="35,5,531"/>
         </captured>
         <player-filter>
             <any>
@@ -124,15 +127,15 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-2nd" name="Blue Aqueduct" capture-time="6s">
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="6s">
         <capture>
-            <cylinder base="-96.5,22,65.5" radius="6" height="2"/>
+            <cuboid min="-1,9,552" max="4,10,557"/>
         </capture>
         <progress>
-            <cylinder base="-96.5,21,65.5" radius="6" height="1"/>
+            <cuboid min="-1,8,552" max="4,9,557"/>
         </progress>
         <captured>
-            <cylinder base="-96.5,21,65.5" radius="6" height="1"/>
+            <cuboid min="-1,8,552" max="4,9,557"/>
         </captured>
         <player-filter>
             <any>
@@ -141,15 +144,15 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-last" name="Blue Courtyard" capture-time="6s">
+    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="6s">
         <capture>
-            <cylinder base="-35.5,24,20.5" radius="6" height="2"/>
+            <cuboid min="-32,12,561" max="-27,13,566"/>
         </capture>
         <progress>
-            <cylinder base="-35.5,23,20.5" radius="6" height="1"/>
+            <cuboid min="-32,11,561" max="-27,12,566"/>
         </progress>
         <captured>
-            <cylinder base="-35.5,23,20.5" radius="6" height="1"/>
+            <cuboid min="-32,11,561" max="-27,12,566"/>
         </captured>
         <player-filter>
             <any>
