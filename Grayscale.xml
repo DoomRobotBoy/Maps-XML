@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>Grayscale</name>
 <version>1.0.0</version>
-<objective>Capture all 5 sequential control points or hold the most control points when the time runs out!</objective>
+<objective>Capture all 5 sequential control points or hold the most control points when time runs out!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
 </authors>
