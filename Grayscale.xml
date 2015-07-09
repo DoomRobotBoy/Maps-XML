@@ -57,8 +57,17 @@
     <objective id="has-mid">mid</objective>
 </filters>
 <regions>
+<!-- Portal Exits -->
     <block id="blue-has-blue-2nd">-23.5,8,559.5</block>
-    <cuboid min="" max=""/>
+    <cuboid id="blue-has-mid" min="17,6,544" max="15,6,545"/>
+    <cuboid id="blue-has-red-2nd" min="36,5,514" max="34,5,515"/>
+    <cuboid id="red-has-blue-2nd" min="36,5,553" max="34,5,552"/>
+    <cuboid id="red-has-mid" min="17,6,522" max="15,6,523"/>
+    <block id="red-has-red-2nd">-23.5,8,507.5</block>
+<!-- Portal Entrances -->
+    <cuboid id="blue-portal-entrance" min="-43,9,547" max="-47,10,551"/>
+    <cuboid id="red-portal-entrance" min="-43,9,516" max="-47,10,520"/>
+<!-- Applied -->
     <apply enter="only-blue">
         <region>
             <cuboid min="-41,6,551" max="-42,9,547"/>
@@ -76,9 +85,12 @@
     </apply>
 </regions>
 <portals>
-    <portal id="blue-2nd-blue" yaw="" destination="">
-        <region><cuboid min="56,33,-1" max="57,35,2"/></region>
-    </portal>
+    <portal yaw="180" destination="blue-has-blue-2nd" region="blue-portal-entrance"/>
+    <portal yaw="0" destination="blue-has-mid" region="blue-portal-entrance"/>
+    <portal yaw="180" destination="blue-has-red-2nd" region="blue-portal-entrance"/>
+    <portal yaw="0" destination="red-has-blue-2nd" region="red-portal-entrance"/>
+    <portal yaw="180" destination="red-has-mid" region="red-portal-entrance"/>
+    <portal yaw="0" destination="red-has-red-2nd" region="red-portal-entrance"/>
 </portals>
 <spawns>
     <spawn team="red" kit="red-kit">
