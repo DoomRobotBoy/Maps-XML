@@ -49,13 +49,37 @@
     <item>leather boots</item>
     <item>iron leggings</item>
 </itemremove>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <objective id="has-blue-2nd">blue-2nd</objective>
+    <objective id="has-red-2nd">red-2nd</objective>
+    <objective id="has-mid">mid</objective>
+</filters>
 <regions>
+    <block id="blue-has-blue-2nd">-23.5,8,559.5</block>
+    <cuboid min="" max=""/>
+    <apply enter="only-blue">
+        <region>
+            <cuboid min="-41,6,551" max="-42,9,547"/>
+        </region>
+    </apply>
+    <apply enter="only-red">
+        <region>
+            <cuboid min="-41,6,520" max="-42,9,516"/>
+        </region>
+    </apply>
     <apply block="never">
         <region>
             <everywhere/>
         </region>
     </apply>
 </regions>
+<portals>
+    <portal id="blue-2nd-blue" yaw="" destination="">
+        <region><cuboid min="56,33,-1" max="57,35,2"/></region>
+    </portal>
+</portals>
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions>
