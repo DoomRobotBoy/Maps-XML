@@ -12,6 +12,7 @@
     <team id="red" color="dark red" max="10">Red</team>
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
+<respawn delay="8s" blackout="true" auto="true"/>
 <kits>
     <kit id="all">
         <potion duration="oo">night vision</potion>
