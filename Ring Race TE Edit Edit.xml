@@ -46,7 +46,7 @@
         <item slot="8" amount="64">arrow</item>
     </kit>
 </kits>
-<maxbuildheight>25</maxbuildheight>
+<maxbuildheight>30</maxbuildheight>
 <toolrepair>
     <tool>iron sword</tool>
     <tool>iron pickaxe</tool>
