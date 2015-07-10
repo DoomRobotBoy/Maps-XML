@@ -140,7 +140,7 @@
     <apply block="no-void" message="You may not modify the void area!">
         <region>
             <negative>
-                <rectangle min="75,-9" max="104,4"/>
+                <rectangle min="115,-9" max="64,4"/>
                 <rectangle min="78,25" max="101,-30"/>
             </negative>
         </region>
