@@ -114,8 +114,8 @@
     <apply enter="only-purple" message="You may not enter or modify your own wool rooms!">
         <region>
             <union id="orange-wool-rooms">
-                <rectangle id="red-r" min="-30,-26" max="-51,-47"/>
-                <rectangle id="blue-r" min="-30,42" max="-51,21"/>
+                <rectangle id="red-r" min="-31,-26" max="-51,-47"/>
+                <rectangle id="blue-r" min="-31,42" max="-51,21"/>
             </union>
         </region>
     </apply>
@@ -127,8 +127,8 @@
     <apply block="only-orange" message="You may not enter or modify your own wool rooms!">
         <region>
             <union id="purple-wool-rooms">
-                <rectangle id="yellow-r" min="209,-47" max="230,-26"/>
-                <rectangle id="lime-r" min="209,21" max="230,42"/>
+                <rectangle id="yellow-r" min="210,-47" max="230,-26"/>
+                <rectangle id="lime-r" min="210,21" max="230,42"/>
             </union>
         </region>
     </apply>
