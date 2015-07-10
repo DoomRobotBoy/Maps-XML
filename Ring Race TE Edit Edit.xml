@@ -101,12 +101,12 @@
         </region>
     </apply>
 <!-- the two following elements contain all types of spawn protection -->
-    <apply enter="only-purple" block-place="only-iron" block-break="never">
+    <apply enter="only-purple" block-break="only-iron" block-place="never">
         <region>
             <cuboid min="143,0,-10" max="176,26,5"/>
         </region>
     </apply>
-    <apply enter="only-orange" block-place="only-iron" block-break="never">
+    <apply enter="only-orange" block-break="only-iron" block-place="never">
         <region>
             <cuboid min="36,0,5" max="3,26,-10"/>
         </region>
