@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<map proto="1.4.0">
+<name>Ring Race TE</name>
+<version>2.0.0</version>
+<objective>Capture the wool from the enemies wool rooms and return them to your victory monument</objective>
+<authors>
+    <author uuid="e8d1ad63-bd9e-4d0e-9a6c-27f2b047d924"/> <!-- Mikeg542 -->
+</authors>
+<contributors>
+    <contributor uuid="8e0b87e1-2369-4c3e-9819-c9e93cd4f8eb" contribution="Eye Candy"/> <!-- theDrewGuy -->
+    <contributor uuid="205d1aad-c619-499b-9885-b91c372b1c13" contribution="TE Edits"/> <!-- Equus -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="Edits on Edits"/> <!-- DoomRobotBoy -->
+    <contributor uuid="dd0aa4b8-f7d7-4e0e-9d13-e5f220f86a7e" contribution="Edits on Edits"/> <!-- lordblox -->
+</contributors>
+<teams>
+    <team id="purple" color="dark purple" max="10">Purple</team>
+    <team id="orange" color="gold" max="10">Orange</team>
+</teams>
+<spawns>
+    <spawn kit="spawn" team="purple">
+        <regions yaw="90">
+            <cylinder id="orangespawn" base="164.5,12,-2.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <spawn kit="spawn" team="orange">
+        <regions yaw="-90">
+            <cylinder id="purplespawn" base="14.5,12,-2.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="180">
+            <cuboid id="observerspawn" min="87,31,35" max="91,31,37"/>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0">iron sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" enchantment="durability:3">iron pickaxe</item>
+        <item slot="3" enchantment="durability:3;dig speed:1">iron axe</item>
+        <item slot="4" amount="64" damage="2">log</item>
+        <item slot="5" amount="32">glass</item>
+        <item slot="6" amount="2">golden apple</item>
+        <item slot="7" amount="64">cooked fish</item>
+        <item slot="8" amount="64">arrow</item>
+    </kit>
+</kits>
+<maxbuildheight>25</maxbuildheight>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>log</item>
+    <item>wood</item>
+    <item>cooked fish</item>
+    <item>iron sword</item>
+    <item>glass</item>
+    <item>bow</item>
+</itemremove>
+<filters>
+    <not id="no-void">
+        <void/>
+    </not>
+    <any id="only-orange">
+        <team>orange</team>
+    </any>
+    <any id="only-purple">
+        <team>purple</team>
+    </any>
+    <material id="only-iron">iron block</material>
+    <not id="deny-water">
+        <any>
+            <material>water</material>
+            <material>stationary water</material>
+        </any>
+    </not>
+</filters>
+<regions>
+    <apply block="never" message="You may not break the spawners">
+        <region>
+            <block>73.5,5,-25.5</block>
+            <block>73.5,5,20.5</block>
+            <block>105.5,5,20.5</block>
+            <block>105.5,5,-25.5</block>
+        </region>
+    </apply>
+    <apply block="never" message="You may not modify the spawn!">
+        <region>
+            <union>
+                <rectangle id="purple-storage-room" min="177,1" max="152,-10"/>
+                <rectangle id="orange-storage-room" min="27,5" max="2,-6"/>
+            </union>
+        </region>
+    </apply>
+    <apply block="never" message="You may not bridge under the iron">
+        <region>
+            <cuboid max="27,0,25" min="12,7,44"/>
+            <cuboid max="27,0,-30" min="12,7,-49"/>
+            <cuboid max="152,0,-30" min="167,7,-49"/>
+            <cuboid max="152,0,25" min="167,7,44"/>
+        </region>
+    </apply>
+    <apply block="deny-water" message="You may not place water at the frontlines">
+        <region>
+            <rectangle id="frontline" max="50,-29" min="129,24"/>
+        </region>
+    </apply>
+    <apply enter="only-purple" block-place="only-iron" block-break="never">
+        <region>
+            <cuboid min="143,0,-10" max="176,26,5"/>
+        </region>
+    </apply>
+    <apply enter="only-orange" block-place="only-iron" block-break="never">
+        <region>
+            <cuboid min="36,0,5" max="3,26,-10"/>
+        </region>
+    </apply>
+    <apply enter="only-purple" message="You may not enter or modify your own wool rooms!">
+        <region>
+            <union id="orange-wool-rooms>
+                <rectangle id="red-r" min="-30,-26" max="-51,-47"/>
+                <rectangle id="blue-r" min="-30,42" max="-51,21"/>
+            </union>
+        </region>
+    </apply>
+    <apply block="only-purple" message="You may not enter or modify your own wool rooms!">
+        <region>
+            <region id="orange-wool-rooms"/>
+        </region>
+    </apply>
+    <apply block="only-orange" message="You may not enter or modify your own wool rooms!">
+        <region>
+            <union id="purple-wool-rooms">
+                <rectangle id="yellow-r" min="209,-47" max="230,-26/>
+                <rectangle id="lime-r" min="209,21" max="230,42"/>
+            </union>
+        </region>
+    </apply>
+    <apply enter="only-orange" message="You may not enter or modify your own wool rooms!">
+        <region>
+            <region id="purple-wool-rooms"/>
+        </region>
+    </apply>
+    <apply enter="only-purple" message="You may not enter purple's spawn room!">
+        <region>
+            <region id="purple-storage-room"/>
+        </region>
+    </apply>
+    <apply enter="only-orange" message="You may not enter orange's spawn room!">
+        <region>
+            <region id="orange-storage-room"/>
+        </region>
+    </apply>
+    <apply block="no-void" message="You may not modify the void area!">
+        <region>
+            <negative>
+                <rectangle min="75,-9" max="104,4"/>
+                <rectangle min="78,25" max="101,-30"/>
+            </negative>
+        </region>
+    </apply>
+</regions>
+<wools>
+    <wool team="orange" color="yellow" location="203.5,8,-91.5">
+        <monument>
+            <block>25.5,13,-3.5</block>
+        </monument>
+    </wool>
+    <wool team="orange" color="lime" location="203.5,8,86.5">
+        <monument>
+            <block>25.5,13,-1.5</block>
+        </monument>
+    </wool>
+    <wool team="purple" color="blue" location="-24.5,8,86.5">
+        <monument>
+            <block>153.5,13,-1.5</block>
+        </monument>
+    </wool>
+    <wool team="purple" color="red" location="-24.5,8,-91.5">
+        <monument>
+            <block>153.5,13,-3.5</block>
+        </monument>
+    </wool>
+</wools>
+<respawn delay="6s" blackout="true"/>
+</map>
