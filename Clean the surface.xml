@@ -1,15 +1,16 @@
-<map proto="1.4.0" game="Clean the surface">
-<name>Clean the surface</name>
-<version>1.0.0</version>
+<map proto="1.4.0" game="Cleanup">
+<name>Monochromatic</name>
+<version>1</version>
 <objective>Cleaners have to wipe the surface clean from all the litter that the litterbugs spilled.</objective>
 <authors>
     <author uuid="f876b863-1ccd-4ae2-acad-8a09e2209e81"/> <!--  _DISTRACTION_  -->
+    <author uuid="af56fc4a-51d2-4a6e-b020-2c6d272b9cbf"/> <!--  Ale  -->
 </authors>
 <contributors>
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
 </contributors>
 <broadcasts>
-    <tip after="1s">Litterbugs have fly kits, but are not able to exit the gray glass box.</tip>
+    <tip after="1s">Litterbugs can fly, but are not able to exit the gray glass box.</tip>
     <tip after="2s">The litterbugs can only place blocks against the white/black ceiling.</tip>
     <tip after="4s">Cleaners win when all litter (sand,gravel,anvils) has been cleaned up.</alert>
 </broadcasts>
@@ -72,7 +73,7 @@
     <team id="only-litterbugs">litterbugs</team>
     <any id="only-against-some">
         <material>stained glass:0</material>
-        <material>stainde glass:15</material>
+        <material>stained glass:15</material>
     </any>
     <any id="only-some">
         <material>sand</material>
@@ -103,7 +104,7 @@
     </destroyable>
 </destroyables>
 <portals>
-    <portal yaw="90" destonation="258.5,87,237.5" filter="only-litterbugs">
+    <portal yaw="90" destination="258.5,87,237.5" filter="only-litterbugs">
         <region><cuboid min="257,86,231" max="243,87,245"/></region>
     </portal>
 </portals>
