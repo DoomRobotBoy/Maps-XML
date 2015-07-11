@@ -21,7 +21,7 @@
     <team id="red" color="dark red" max="22" max-overfill="26">Red Team</team>
     <team id="blue" color="blue" max="22" max-overfill="26">Blue Team</team>
 </teams>
-<respawn delay="4s"/>
+<respawn delay="4s" auto="true"/>
 <rules>
     <rule>Gold ore drops 1 gold block when mined.</rule>
 </rules>
