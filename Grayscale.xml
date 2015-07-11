@@ -77,8 +77,10 @@
     <all id="red-has-red-2nd">
         <objective team="blue">red-2nd</objective>
         <not>
-            <objective team="blue">mid</objective>
-            <objective team="blue">blue-2nd</objective>
+            <all>
+                <objective team="blue">mid</objective>
+                <objective team="blue">blue-2nd</objective>
+            </all>
         </not>
     </all>
     <all id="red-has-mid">
