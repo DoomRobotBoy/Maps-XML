@@ -21,7 +21,7 @@
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
-        <item slot="20">arrow</item>
+        <item slot="8" amount="20">arrow</item>
         <leggings unbreakable="true">iron leggings</leggings>
     </kit>
     <kit id="red-kit" parents="spawn">
@@ -75,25 +75,25 @@
         <objective team="blue">red-2nd</objective>
     </all>
     <all id="red-has-red-2nd">
-        <objective team="blue">red-2nd</objective>
+        <objective team="red">red-2nd</objective>
         <not>
             <all>
-                <objective team="blue">mid</objective>
-                <objective team="blue">blue-2nd</objective>
+                <objective team="red">mid</objective>
+                <objective team="red">blue-2nd</objective>
             </all>
         </not>
     </all>
     <all id="red-has-mid">
-        <objective team="blue">mid</objective>
-        <objective team="blue">red-2nd</objective>
+        <objective team="red">mid</objective>
+        <objective team="red">red-2nd</objective>
         <not>
-            <objective team="blue">blue-2nd</objective>
+            <objective team="red">blue-2nd</objective>
         </not>
     </all>
     <all id="red-has-blue-2nd">
-        <objective team="blue">blue-2nd</objective>
-        <objective team="blue">mid</objective>
-        <objective team="blue">red-2nd</objective>
+        <objective team="red">blue-2nd</objective>
+        <objective team="red">mid</objective>
+        <objective team="red">red-2nd</objective>
     </all>
 </filters>
 <regions>
@@ -154,7 +154,7 @@
 <control-points incremental="true" neutral-state="false" show-progress="true">
     <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="6s">
         <capture>
-            <cuboid min="-32,12,506" max="-27,13,501"/>
+            <cuboid min="-32,12,506" max="-27,14,501"/>
         </capture>
         <progress>
             <cuboid min="-32,11,506" max="-27,12,501"/>
@@ -171,7 +171,7 @@
     </control-point>
     <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="6s">
         <capture>
-            <cuboid min="-1,9,515" max="4,10,510"/>
+            <cuboid min="-1,9,515" max="4,11,510"/>
         </capture>
         <progress>
             <cuboid min="-1,8,515" max="4,9,510"/>
@@ -188,7 +188,7 @@
     </control-point>
     <control-point id="mid" name="Mid" capture-time="10s">
         <capture>
-            <cuboid min="30,5,536" max="35,6,531"/>
+            <cuboid min="30,5,536" max="35,7,531"/>
         </capture>
         <progress>
             <cuboid min="30,4,536" max="35,5,531"/>
@@ -205,7 +205,7 @@
     </control-point>
     <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="6s">
         <capture>
-            <cuboid min="-1,9,552" max="4,10,557"/>
+            <cuboid min="-1,9,552" max="4,11,557"/>
         </capture>
         <progress>
             <cuboid min="-1,8,552" max="4,9,557"/>
@@ -222,7 +222,7 @@
     </control-point>
     <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="6s">
         <capture>
-            <cuboid min="-32,12,561" max="-27,13,566"/>
+            <cuboid min="-32,12,561" max="-27,14,566"/>
         </capture>
         <progress>
             <cuboid min="-32,11,561" max="-27,12,566"/>
