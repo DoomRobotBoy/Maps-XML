@@ -86,6 +86,10 @@
         <cylinder base="-980.5,0,-393.5" radius="22" height="30"/>
         <cylinder base="-760.5,0,-393.5" radius="22" height="30"/>
     </union>
+    <union name="gold-area">
+        <cylinder base="-980.5,0,-393.5" radius="22" height="30"/>
+        <cylinder base="-760.5,0,-393.5" radius="22" height="30"/>
+    </union>
     <union name="all-flag-posts-y">
         <cuboid name="red-north" min="-796,0,-439" max="-799,8,-442"/>
         <cuboid name="red-south" min="-796,0,-345" max="-799,8,-348"/>
@@ -140,20 +144,20 @@
     </flag>
     <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
-            You have the flag! Return it to the island your `6`lspawn
+            You have the flag! Return it to your `6`lspawn
         </carry-message>
         <post pickup-filter="only-blue" recover-time="25s">-797.5,5,-440.5</post>
     </flag>
     <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
-            You have the flag! Return it to the island `6`lbehind spawn
+            You have the flag! Return it to your `6`lspawn
         </carry-message>
         <post pickup-filter="only-red" recover-time="25s">-943.5,5,-346.5</post>
     </flag>
     <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
-            You have the flag! Return it to the island `6`lbehind spawn
+            You have the flag! Return it to your `6`lspawn
         </carry-message>
         <post pickup-filter="only-red" recover-time="25s">-943.5,5,-440.5</post>
     </flag>
@@ -185,9 +189,9 @@
     </rule>
 </blockdrops>
 <renewables>
-    <renewable rate="3.0">
+    <renewable rate="3.0" particles="true" sound="true">
         <region>
-            <region name="spawn-areas"/>
+            <region name="gold-area"/>
         </region>
         <renew-filter>
             <block>gold ore</block>
