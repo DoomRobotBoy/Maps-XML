@@ -12,7 +12,7 @@
     <team id="red" color="dark red" max="10">Red</team>
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
-<respawn delay="8s" blackout="true" auto="true"/>
+<respawn delay="6s" blackout="true" auto="true"/>
 <kits>
     <kit id="all">
         <potion duration="oo">night vision</potion>
@@ -151,8 +151,8 @@
         </regions>
     </default>
 </spawns>
-<control-points incremental="true" neutral-state="false" show-progress="true">
-    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="6s">
+<control-points incremental="true" neutral-state="true" show-progress="true">
+    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
         <capture>
             <cuboid min="-32,12,506" max="-27,14,501"/>
         </capture>
@@ -169,7 +169,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="6s">
+    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="5s">
         <capture>
             <cuboid min="-1,9,515" max="4,11,510"/>
         </capture>
@@ -186,7 +186,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid" name="Mid" capture-time="10s">
+    <control-point id="mid" name="Mid" capture-time="8s">
         <capture>
             <cuboid min="30,5,536" max="35,7,531"/>
         </capture>
@@ -203,7 +203,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="6s">
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="5s">
         <capture>
             <cuboid min="-1,9,552" max="4,11,557"/>
         </capture>
@@ -220,7 +220,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="6s">
+    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="5s">
         <capture>
             <cuboid min="-32,12,561" max="-27,14,566"/>
         </capture>
