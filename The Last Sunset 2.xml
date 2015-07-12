@@ -13,8 +13,11 @@
     <tip after="6s">
         `3`oTo make the `6flags`3`o respawn you have to capture both enemy flags first.
     </tip>
-    <tip after="6s">
+    <tip after="7s">
         `6The gold ores`3`o in the `6mines under spawn`3`o drop gold blocks instead of gold ore.
+    </tip>
+    <tip after="10s">
+        `3`oYou can't place water in a 5-block radius around the flag(s).
     </tip>
 </broadcasts>
 <teams>
