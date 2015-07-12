@@ -125,12 +125,12 @@
     </apply>
 </regions>
 <portals>
-    <portal yaw="180" destination="blue-blue-2nd" region="blue-portal-entrance" filter="blue-has-blue-2nd"/>
-    <portal yaw="0" destination="blue-mid" region="blue-portal-entrance" filter="blue-has-mid"/>
-    <portal yaw="180" destination="blue-red-2nd" region="blue-portal-entrance" filter="blue-has-red-2nd"/>
-    <portal yaw="0" destination="red-blue-2nd" region="red-portal-entrance" filter="red-has-blue-2nd"/>
-    <portal yaw="180" destination="red-mid" region="red-portal-entrance" filter="red-has-mid"/>
-    <portal yaw="0" destination="red-red-2nd" region="red-portal-entrance" filter="red-has-red-2nd"/>
+    <portal yaw="@180" destination="blue-blue-2nd" region="blue-portal-entrance" filter="blue-has-blue-2nd"/>
+    <portal yaw="@0" destination="blue-mid" region="blue-portal-entrance" filter="blue-has-mid"/>
+    <portal yaw="@180" destination="blue-red-2nd" region="blue-portal-entrance" filter="blue-has-red-2nd"/>
+    <portal yaw="@0" destination="red-blue-2nd" region="red-portal-entrance" filter="red-has-blue-2nd"/>
+    <portal yaw="@180" destination="red-mid" region="red-portal-entrance" filter="red-has-mid"/>
+    <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance" filter="red-has-red-2nd"/>
 </portals>
 <spawns>
     <spawn team="red" kit="red-kit">
