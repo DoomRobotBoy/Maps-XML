@@ -23,6 +23,7 @@
         <item slot="2" amount="32">cooked beef</item>
         <item slot="8" amount="20">arrow</item>
         <leggings unbreakable="true">iron leggings</leggings>
+        <potion duration="3" amplifier="5">damage resistance</potion>
     </kit>
     <kit id="red-kit" parents="spawn">
         <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
