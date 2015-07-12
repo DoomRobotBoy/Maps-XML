@@ -9,8 +9,8 @@
     <contributor uuid="2958ea4c-3501-404e-88cc-12e8632f68cc" contribution="Feedback and suggestions"/> <!-- NixaniaXi -->
 </contributors>
 <teams>
-    <team id="red" color="dark red" max="10">Red</team>
-    <team id="blue" color="blue" max="10">Blue</team>
+    <team id="red" color="dark red" max="8">Red</team>
+    <team id="blue" color="blue" max="8">Blue</team>
 </teams>
 <respawn delay="6s" blackout="true" auto="true"/>
 <kits>
