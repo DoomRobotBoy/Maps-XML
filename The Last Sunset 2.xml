@@ -29,12 +29,13 @@
     <kit name="spawn">
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true">bow</item>
-        <item slot="2" unbreakable="true" enchantment="dig speed:1">iron pickaxe</item>
+        <item slot="2" unbreakable="true">iron pickaxe</item>
         <item slot="3" unbreakable="true">iron axe</item>
         <item slot="4" unbreakable="true" enchantment="dig speed:1">wood spade</item>
         <item slot="5" amount="32">bread</item>
         <item slot="6" amount="32">wood</item>
-        <item slot="7" amount="16">glass</item>
+        <item slot="33" amount="16">glass</item>
+        <item slot="7" prevent-sharing="true">water bucket</item>
         <item slot="8" amount="32">vine</item>
         <item slot="28" amount="48">arrow</item>
         <potion duration="3" amplifier="127">damage resistance</potion>
@@ -68,6 +69,14 @@
             <void/>
         </not>
     </filter>
+    <filter name="deny-water">
+        <not>
+            <any>
+                <block>water</block>
+                <block>stationary water</block>
+            </any>
+        </not>
+    </filter>
     <filter name="only-gold">
         <block>gold ore</block>
     </filter>
@@ -94,11 +103,20 @@
         <rectangle name="blue-north" min="-942,-439" max="-945,-442"/>
         <rectangle name="blue-south" min="-942,-345" max="-945,-348"/>
     </union>
+    <union name="all-flag-posts-no-water">
+        <rectangle min="-794,-437" max="-801,-444"/>
+        <rectangle min="-794,-343" max="-801,-350"/>
+        <rectangle min="-940,-437" max="-947,-444"/>
+        <rectangle min="-940,-343" max="-947,-350"/>
+    </union>
     <cylinder name="red-net" base="-749.5,21,-393.5" radius="3" height="0"/>
     <cylinder name="blue-net" base="-991.5,21,-393.5" radius="3" height="0"/>
 <!--     Applied     -->
     <apply block="deny-all" message="You may not break the area around the flag post.">
         <region name="all-flag-posts-y"/>
+    </apply>
+    <apply block="deny-water" message="You may not place water around the flag post.">
+        <region name="all-flag-posts-no-water"/>
     </apply>
     <apply block-break="only-gold" block-place="only-gold" message="You may not modify the spawn island!">
         <region name="spawn-areas"/>
@@ -173,6 +191,7 @@
     <item>bow</item>
     <item>iron axe</item>
     <item>wood spade</item>
+    <item>water bucket</item>
 </itemremove>
 <blockdrops>
     <rule>
