@@ -165,33 +165,33 @@
 </portals>
 <spawns>
     <spawn team="red" kit="red-kit" filter="from-start">
-        <regions yaw="90">
-            <cuboid min="-46,37,663" max="-44,37,661"/>
-        </regions>
-    </spawn>
-    <spawn team="red" kit="red-kit" filter="after-6">
-        <regions yaw="90">
-            <cuboid min="-46,73,663" max="-44,73,661"/>
-        </regions>
-    </spawn>
-    <spawn team="red" kit="red-kit" filter="after-9">
-        <regions yaw="90">
-            <cuboid min="-46,109,663" max="-44,109,661"/>
-        </regions>
-    </spawn>
-    <spawn team="blue" kit="blue-kit" filter="from-start">
-        <regions yaw="90">
+        <regions yaw="-90">
             <cuboid min="-46,37,632" max="-44,37,630"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="after-6">
-        <regions yaw="90">
+    <spawn team="red" kit="red-kit" filter="after-6">
+        <regions yaw="-90">
             <cuboid min="-46,73,632" max="-44,73,630"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="after-9">
-        <regions yaw="90">
+    <spawn team="red" kit="red-kit" filter="after-9">
+        <regions yaw="-90">
             <cuboid min="-46,109,632" max="-44,109,630"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="from-start">
+        <regions yaw="-90">
+            <cuboid min="-46,37,663" max="-44,37,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="after-6">
+        <regions yaw="-90">
+            <cuboid min="-46,73,663" max="-44,73,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="after-9">
+        <regions yaw="-90">
+            <cuboid min="-46,109,663" max="-44,109,661"/>
         </regions>
     </spawn>
     <default kit="obs">
