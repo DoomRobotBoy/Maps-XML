@@ -17,6 +17,16 @@
     <kit id="all">
         <potion duration="oo">night vision</potion>
     </kit>
+    <kit id="obs" parents="all">
+        <item slot="27">stone sword</item>
+        <item slot="28">bow</item>
+        <item slot="29" amount="32">cooked beef</item>
+        <item slot="30" amount="20">arrow</item>
+        <item slot="32">leather helmet</helmet>
+        <item slot="33">leather chestplate</chestplate>
+        <item slot="34">iron leggings</leggings>
+        <item slot="35">leather boots</boots>
+    </kit>
     <kit id="spawn" parents="all">
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
@@ -130,6 +140,11 @@
         </region>
     </apply>
 </regions>
+<mobs>
+    <filter>
+        <spawn>spawner</spawn>
+    </filter>
+</mobs>
 <portals>
     <portal yaw="@180" destination="blue-blue-2nd" region="blue-portal-entrance-blue" filter="blue-has-blue-2nd"/>
     <portal yaw="@0" destination="blue-mid" region="blue-portal-entrance-mid" filter="blue-has-mid"/>
@@ -151,7 +166,7 @@
             <point yaw="90">-41.5,18,662.5</point>
         </regions>
     </spawn>
-    <default kit="all">
+    <default kit="obs">
         <regions>
             <point yaw="90">52.5,18,646.5</point>
         </regions>
