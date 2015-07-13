@@ -1,0 +1,243 @@
+<map proto="1.4.0">
+<name>Grayscale A</name>
+<version>1.0.0</version>
+<objective>Capture all 5 sequential control points or hold the most control points when time runs out!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
+</authors>
+<contributors>
+    <contributor uuid="2958ea4c-3501-404e-88cc-12e8632f68cc" contribution="Feedback and suggestions"/> <!-- NixaniaXi -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
+</teams>
+<respawn delay="6s" blackout="true" auto="true"/>
+<kits>
+    <kit id="all">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="spawn" parents="all">
+        <item slot="0">stone sword</item>
+        <item slot="1">bow</item>
+        <item slot="2" amount="32">cooked beef</item>
+        <item slot="8" amount="20">arrow</item>
+        <leggings unbreakable="true">iron leggings</leggings>
+        <potion duration="3" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="cd0000" unbreakable="true">leather helmet</helmet>
+        <chestplate color="cd0000" unbreakable="true">leather chestplate</chestplate>
+        <boots color="cd0000" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="0066cc" unbreakable="true">leather helmet</helmet>
+        <chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
+        <boots color="0066cc" unbreakable="true">leather boots</boots>
+    </kit>
+</kits>
+<killreward>
+    <item damage="8193" potions="regeneration:100:0:false">potion</item>
+</killreward>
+<itemremove>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>cooked beef</item>
+    <item>arrow</item>
+    <item>potion</item>
+    <item>glass bottle</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>iron leggings</item>
+</itemremove>
+<filters>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <all id="blue-has-blue-2nd">
+        <objective team="blue">blue-2nd</objective>
+        <not>
+            <all>
+                <objective team="blue">mid</objective>
+                <objective team="blue">red-2nd</objective>
+            </all>
+        </not>
+    </all>
+    <all id="blue-has-mid">
+        <objective team="blue">mid</objective>
+        <objective team="blue">blue-2nd</objective>
+        <not>
+            <objective team="blue">red-2nd</objective>
+        </not>
+    </all>
+    <all id="blue-has-red-2nd">
+        <objective team="blue">blue-2nd</objective>
+        <objective team="blue">mid</objective>
+        <objective team="blue">red-2nd</objective>
+    </all>
+    <all id="red-has-red-2nd">
+        <objective team="red">red-2nd</objective>
+        <not>
+            <all>
+                <objective team="red">mid</objective>
+                <objective team="red">blue-2nd</objective>
+            </all>
+        </not>
+    </all>
+    <all id="red-has-mid">
+        <objective team="red">mid</objective>
+        <objective team="red">red-2nd</objective>
+        <not>
+            <objective team="red">blue-2nd</objective>
+        </not>
+    </all>
+    <all id="red-has-blue-2nd">
+        <objective team="red">blue-2nd</objective>
+        <objective team="red">mid</objective>
+        <objective team="red">red-2nd</objective>
+    </all>
+</filters>
+<regions>
+<!-- Portal Exits -->
+    <block id="blue-blue-2nd">-23.5,8,677.5</block>
+    <block id="blue-mid">17.5,6,657.5</block>
+    <cuboid id="blue-red-2nd" min="44,5,628" max="42,5,627"/>
+    <cuboid id="red-blue-2nd" min="42,5,665" max="44,5,666"/>
+    <block id="red-mid">17.5,6,635.5</block>
+    <block id="red-red-2nd">-23.5,8,615.5</block>
+<!-- Portal Entrances -->
+    <cuboid id="blue-portal-entrance" min="-43,9,660" max="-47,10,664"/>
+    <cuboid id="red-portal-entrance" min="-43,9,629" max="-47,10,633"/>
+<!-- Applied -->
+    <apply enter="only-blue">
+        <region>
+            <cuboid min="-42,6,660" max="-41,9,664"/>
+        </region>
+    </apply>
+    <apply enter="only-red">
+        <region>
+            <cuboid min="-42,6,629" max="-41,9,633"/>
+        </region>
+    </apply>
+    <apply block="never">
+        <region>
+            <everywhere/>
+        </region>
+    </apply>
+</regions>
+<portals>
+    <portal yaw="@180" destination="blue-blue-2nd" region="blue-portal-entrance" filter="blue-has-blue-2nd"/>
+    <portal yaw="@0" destination="blue-mid" region="blue-portal-entrance" filter="blue-has-mid"/>
+    <portal yaw="@180" destination="blue-red-2nd" region="blue-portal-entrance" filter="blue-has-red-2nd"/>
+    <portal yaw="@0" destination="red-blue-2nd" region="red-portal-entrance" filter="red-has-blue-2nd"/>
+    <portal yaw="@180" destination="red-mid" region="red-portal-entrance" filter="red-has-mid"/>
+    <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance" filter="red-has-red-2nd"/>
+</portals>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="-90">-41.5,18,630.5</point>
+            <point yaw="-90">-41.5,18,631.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="-90">-41.5,18,661.5</point>
+            <point yaw="-90">-41.5,18,662.5</point>
+        </regions>
+    </spawn>
+    <default kit="all">
+        <regions>
+            <point yaw="90">52.5,18,646.5</point>
+        </regions>
+    </default>
+</spawns>
+<control-points incremental="true" neutral-state="true" show-progress="true">
+    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
+        <capture>
+            <cuboid min="-32,12,506" max="-27,14,501"/>
+        </capture>
+        <progress>
+            <cuboid min="-32,11,506" max="-27,12,501"/>
+        </progress>
+        <captured>
+            <cuboid min="-32,11,506" max="-27,12,501"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-2nd</objective>
+                <team>red</team>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="5s">
+        <capture>
+            <cuboid min="-32,12,614" max="-27,14,609"/>
+        </capture>
+        <progress>
+            <cuboid min="-32,11,614" max="-27,12,609"/>
+        </progress>
+        <captured>
+            <cuboid min="-32,11,614" max="-27,12,609"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-last</objective>
+                <objective>mid</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point id="mid" name="Mid" capture-time="8s">
+        <capture>
+            <cuboid min="38,5,649" max="43,7,644"/>
+        </capture>
+        <progress>
+            <cuboid min="38,4,649" max="43,5,644"/>
+        </progress>
+        <captured>
+            <cuboid min="38,4,649" max="43,5,644"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>red-2nd</objective>
+                <objective>blue-2nd</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="5s">
+        <capture>
+            <cuboid min="0,9,670" max="5,11,655"/>
+        </capture>
+        <progress>
+            <cuboid min="0,8,670" max="5,9,655"/>
+        </progress>
+        <captured>
+            <cuboid min="0,8,670" max="5,9,655"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>mid</objective>
+                <objective>blue-last</objective>
+            </any>
+        </player-filter>
+    </control-point>
+    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="5s">
+        <capture>
+            <cuboid min="-32,12,684" max="-27,14,679"/>
+        </capture>
+        <progress>
+            <cuboid min="-32,11,684" max="-27,12,679"/>
+        </progress>
+        <captured>
+            <cuboid min="-32,11,684" max="-27,12,679"/>
+        </captured>
+        <player-filter>
+            <any>
+                <objective>blue-2nd</objective>
+                <team>blue</team>
+            </any>
+        </player-filter>
+    </control-point>
+</control-points>
+<time result="objectives">12m</time>
+</map>
