@@ -38,6 +38,7 @@
 </kits>
 <killreward>
     <item damage="8193" potions="regeneration:100:0:false">potion</item>
+    <item amount="10">arrow</item>
 </killreward>
 <itemremove>
     <item>stone sword</item>
