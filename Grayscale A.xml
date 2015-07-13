@@ -156,7 +156,7 @@
         </regions>
     </default>
 </spawns>
-<control-points incremental="true" show-progress="true">
+<control-points incremental="true" neutral-state="true" show-progress="true">
     <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
         <capture>
             <cuboid min="-32,12,506" max="-27,14,501"/>
