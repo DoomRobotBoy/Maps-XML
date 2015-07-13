@@ -140,14 +140,14 @@
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions>
-            <point yaw="-90">-41.5,18,630.5</point>
-            <point yaw="-90">-41.5,18,631.5</point>
+            <point yaw="90">-41.5,18,630.5</point>
+            <point yaw="90">-41.5,18,631.5</point>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
         <regions>
-            <point yaw="-90">-41.5,18,661.5</point>
-            <point yaw="-90">-41.5,18,662.5</point>
+            <point yaw="90">-41.5,18,661.5</point>
+            <point yaw="90">-41.5,18,662.5</point>
         </regions>
     </spawn>
     <default kit="all">
@@ -159,13 +159,13 @@
 <control-points incremental="true" neutral-state="true" show-progress="true">
     <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
         <capture>
-            <cuboid min="-32,12,506" max="-27,14,501"/>
+            <cuboid min="-32,12,614" max="-27,14,609"/>
         </capture>
         <progress>
-            <cuboid min="-32,11,506" max="-27,12,501"/>
+            <cuboid min="-32,11,614" max="-27,12,609"/>
         </progress>
         <captured>
-            <cuboid min="-32,11,506" max="-27,12,501"/>
+            <cuboid min="-32,11,614" max="-27,12,609"/>
         </captured>
         <player-filter>
             <any>
