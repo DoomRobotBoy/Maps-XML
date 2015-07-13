@@ -16,9 +16,9 @@
 <kits>
     <kit id="obs">
         <item slot="27">stone sword</item>
-        <item slot="28">bow</item>
+        <item slot="28" enchantment="arrow infinite:1">bow</item>
         <item slot="29" amount="32">cooked beef</item>
-        <item slot="30" amount="20">arrow</item>
+        <item slot="30">arrow</item>
         <item slot="32">leather helmet</item>
         <item slot="33">leather chestplate</item>
         <item slot="34">iron leggings</item>
@@ -27,9 +27,9 @@
     </kit>
     <kit id="spawn">
         <item slot="0">stone sword</item>
-        <item slot="1">bow</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
-        <item slot="8" amount="20">arrow</item>
+        <item slot="8">arrow</item>
         <leggings unbreakable="true">iron leggings</leggings>
         <potion duration="5" amplifier="5">damage resistance</potion>
         <potion duration="oo">night vision</potion>
@@ -65,7 +65,12 @@
 </kits>
 <killreward>
     <item damage="8193" potions="regeneration:100:0:false">potion</item>
-    <item amount="10">arrow</item>
+</killreward>
+<killreward>
+    <item damage="379" enchantment="arrow damage:1;arrow infinite:1">bow</item>
+    <filter>
+        <kill-streak count="3"/>
+    </filter>
 </killreward>
 <itemremove>
     <item>stone sword</item>
