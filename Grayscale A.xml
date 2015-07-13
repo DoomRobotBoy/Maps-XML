@@ -14,15 +14,6 @@
 </teams>
 <respawn delay="8s" blackout="true" auto="true"/>
 <kits>
-    <kit id="all-0">
-        <potion duration="4" amplifier="5">damage resistance</potion>
-    </kit>
-    <kit id="all-6">
-        <potion duration="7" amplifier="5">damage resistance</potion>
-    </kit>
-    <kit id="all-9">
-        <potion duration="10" amplifier="5">damage resistance</potion>
-    </kit>
     <kit id="obs">
         <item slot="27">stone sword</item>
         <item slot="28">bow</item>
@@ -34,7 +25,7 @@
         <item slot="35">leather boots</item>
         <potion duration="oo">night vision</potion>
     </kit>
-    <kit id="spawn" parents="all">
+    <kit id="spawn">
         <item slot="0">stone sword</item>
         <item slot="1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
@@ -52,6 +43,24 @@
         <helmet color="0066cc" unbreakable="true">leather helmet</helmet>
         <chestplate color="0066cc" unbreakable="true">leather chestplate</chestplate>
         <boots color="0066cc" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="0-red" parents="red-kit">
+        <potion duration="4" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="6-red" parents="red-kit">
+        <potion duration="7" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="9-red" parents="red-kit">
+        <potion duration="10" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="0-blue" parents="blue-kit">
+        <potion duration="4" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="6-blue" parents="blue-kit">
+        <potion duration="7" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="9-blue" parents="blue-kit">
+        <potion duration="10" amplifier="5">damage resistance</potion>
     </kit>
 </kits>
 <killreward>
@@ -172,32 +181,32 @@
     <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance-red" filter="red-has-red-2nd"/>
 </portals>
 <spawns>
-    <spawn team="red" kit="red-kit" filter="from-start">
+    <spawn team="red" kit="0-red" filter="from-start">
         <regions yaw="-90">
             <cuboid min="-46,37,632" max="-44,37,630"/>
         </regions>
     </spawn>
-    <spawn team="red" kit="red-kit" filter="after-6">
+    <spawn team="red" kit="6-red" filter="after-6">
         <regions yaw="-90">
             <cuboid min="-46,73,632" max="-44,73,630"/>
         </regions>
     </spawn>
-    <spawn team="red" kit="red-kit" filter="after-9">
+    <spawn team="red" kit="9-red" filter="after-9">
         <regions yaw="-90">
             <cuboid min="-46,109,632" max="-44,109,630"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="from-start">
+    <spawn team="blue" kit="0-blue" filter="from-start">
         <regions yaw="-90">
             <cuboid min="-46,37,663" max="-44,37,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="after-6">
+    <spawn team="blue" kit="6-blue" filter="after-6">
         <regions yaw="-90">
             <cuboid min="-46,73,663" max="-44,73,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="after-9">
+    <spawn team="blue" kit="9-blue" filter="after-9">
         <regions yaw="-90">
             <cuboid min="-46,109,663" max="-44,109,661"/>
         </regions>
