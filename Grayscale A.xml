@@ -12,7 +12,7 @@
     <team id="red" color="dark red" max="10">Red</team>
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
-<respawn delay="6s" blackout="true" auto="true"/>
+<respawn delay="8s" blackout="true" auto="true"/>
 <kits>
     <kit id="all">
         <potion duration="oo">night vision</potion>
@@ -63,6 +63,16 @@
     <item>iron leggings</item>
 </itemremove>
 <filters>
+    <not id="from-start">
+        <time>6m</time>
+    </not>
+    <all id="after-6">
+        <time>6m</time>
+        <not>
+            <time>9m</time>
+        </not>
+    </all>
+    <time id="after-9">9m</time>
     <team id="only-blue">blue</team>
     <team id="only-red">red</team>
     <all id="blue-has-blue-2nd">
@@ -154,16 +164,34 @@
     <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance-red" filter="red-has-red-2nd"/>
 </portals>
 <spawns>
-    <spawn team="red" kit="red-kit">
-        <regions>
-            <point yaw="90">-41.5,18,630.5</point>
-            <point yaw="90">-41.5,18,631.5</point>
+    <spawn team="red" kit="red-kit" filter="from-start">
+        <regions yaw="90">
+            <cuboid min="-46,37,663" max="-44,37,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit">
-        <regions>
-            <point yaw="90">-41.5,18,661.5</point>
-            <point yaw="90">-41.5,18,662.5</point>
+    <spawn team="red" kit="red-kit" filter="after-6">
+        <regions yaw="90">
+            <cuboid min="-46,73,663" max="-44,73,661"/>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit" filter="after-9">
+        <regions yaw="90">
+            <cuboid min="-46,109,663" max="-44,109,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="from-start">
+        <regions yaw="90">
+            <cuboid min="-46,37,632" max="-44,37,630"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="after-6">
+        <regions yaw="90">
+            <cuboid min="-46,73,632" max="-44,73,630"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="after-9">
+        <regions yaw="90">
+            <cuboid min="-46,109,632" max="-44,109,630"/>
         </regions>
     </spawn>
     <default kit="obs">
