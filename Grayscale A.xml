@@ -157,7 +157,7 @@
     </default>
 </spawns>
 <control-points incremental="true" neutral-state="true" show-progress="true">
-    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="5s">
+    <control-point initial-owner="red" id="red-last" name="Red Last" capture-time="3s">
         <capture>
             <cuboid min="-32,12,614" max="-27,14,609"/>
         </capture>
@@ -174,7 +174,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="5s">
+    <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="3s">
         <capture>
             <cuboid min="0,9,623" max="5,11,628"/>
         </capture>
@@ -191,7 +191,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point id="mid" name="Mid" capture-time="8s">
+    <control-point id="mid" name="Mid" capture-time="4s">
         <capture>
             <cuboid min="38,5,649" max="43,7,644"/>
         </capture>
@@ -208,7 +208,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="5s">
+    <control-point initial-owner="blue" id="blue-2nd" name="Blue 2nd" capture-time="3s">
         <capture>
             <cuboid min="0,9,670" max="5,11,655"/>
         </capture>
@@ -225,7 +225,7 @@
             </any>
         </player-filter>
     </control-point>
-    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="5s">
+    <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="3s">
         <capture>
             <cuboid min="-32,12,684" max="-27,14,679"/>
         </capture>
