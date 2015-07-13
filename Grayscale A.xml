@@ -22,10 +22,10 @@
         <item slot="28">bow</item>
         <item slot="29" amount="32">cooked beef</item>
         <item slot="30" amount="20">arrow</item>
-        <item slot="32">leather helmet</helmet>
-        <item slot="33">leather chestplate</chestplate>
-        <item slot="34">iron leggings</leggings>
-        <item slot="35">leather boots</boots>
+        <item slot="32">leather helmet</item>
+        <item slot="33">leather chestplate</item>
+        <item slot="34">iron leggings</item>
+        <item slot="35">leather boots</item>
     </kit>
     <kit id="spawn" parents="all">
         <item slot="0">stone sword</item>
