@@ -106,8 +106,12 @@
     <block id="red-mid">17.5,6,635.5</block>
     <block id="red-red-2nd">-23.5,8,615.5</block>
 <!-- Portal Entrances -->
-    <cuboid id="blue-portal-entrance" min="-43,9,660" max="-47,10,664"/>
-    <cuboid id="red-portal-entrance" min="-43,9,629" max="-47,10,633"/>
+    <cuboid id="blue-portal-entrance-blue" min="-43,11,660" max="-47,12,664"/>
+    <cuboid id="blue-portal-entrance-mid" min="-43,10,660" max="-47,11,664"/>
+    <cuboid id="blue-portal-entrance-red" min="-43,9,660" max="-47,10,664"/>
+    <cuboid id="red-portal-entrance-red" min="-43,11,629" max="-47,12,633"/>
+    <cuboid id="red-portal-entrance-mid" min="-43,10,629" max="-47,11,633"/>
+    <cuboid id="red-portal-entrance-blue" min="-43,9,629" max="-47,10,633"/>
 <!-- Applied -->
     <apply enter="only-blue">
         <region>
@@ -126,12 +130,12 @@
     </apply>
 </regions>
 <portals>
-    <portal yaw="@180" destination="blue-blue-2nd" region="blue-portal-entrance" filter="blue-has-blue-2nd"/>
-    <portal yaw="@0" destination="blue-mid" region="blue-portal-entrance" filter="blue-has-mid"/>
-    <portal yaw="@180" destination="blue-red-2nd" region="blue-portal-entrance" filter="blue-has-red-2nd"/>
-    <portal yaw="@0" destination="red-blue-2nd" region="red-portal-entrance" filter="red-has-blue-2nd"/>
-    <portal yaw="@180" destination="red-mid" region="red-portal-entrance" filter="red-has-mid"/>
-    <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance" filter="red-has-red-2nd"/>
+    <portal yaw="@180" destination="blue-blue-2nd" region="blue-portal-entrance-blue" filter="blue-has-blue-2nd"/>
+    <portal yaw="@0" destination="blue-mid" region="blue-portal-entrance-mid" filter="blue-has-mid"/>
+    <portal yaw="@180" destination="blue-red-2nd" region="blue-portal-entrance-red" filter="blue-has-red-2nd"/>
+    <portal yaw="@0" destination="red-blue-2nd" region="red-portal-entrance-blue" filter="red-has-blue-2nd"/>
+    <portal yaw="@180" destination="red-mid" region="red-portal-entrance-mid" filter="red-has-mid"/>
+    <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance-red" filter="red-has-red-2nd"/>
 </portals>
 <spawns>
     <spawn team="red" kit="red-kit">
