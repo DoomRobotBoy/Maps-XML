@@ -172,13 +172,13 @@
     </control-point>
     <control-point initial-owner="red" id="red-2nd" name="Red 2nd" capture-time="5s">
         <capture>
-            <cuboid min="-32,12,614" max="-27,14,609"/>
+            <cuboid min="0,9,623" max="5,11,628"/>
         </capture>
         <progress>
-            <cuboid min="-32,11,614" max="-27,12,609"/>
+            <cuboid min="0,8,623" max="5,9,628"/>
         </progress>
         <captured>
-            <cuboid min="-32,11,614" max="-27,12,609"/>
+            <cuboid min="0,8,623" max="5,9,628"/>
         </captured>
         <player-filter>
             <any>
