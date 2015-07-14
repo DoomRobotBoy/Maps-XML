@@ -112,7 +112,7 @@
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
     <apply block="never" message="You may not modify the void area!">
         <region>
-            <region id="void"/>
+            <region id="void-regions"/>
         </region>
     </apply>
 </regions>
