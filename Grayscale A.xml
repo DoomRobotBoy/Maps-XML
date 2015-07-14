@@ -151,10 +151,10 @@
 <regions>
 <!-- Portal Exits -->
     <block id="blue-blue-2nd">-26.5,8,680.5</block>
-    <block id="blue-mid">17.5,6,655.5</block>
+    <block id="blue-mid">17.5,5,655.5</block>
     <cuboid id="blue-red-2nd" min="44,5,628" max="42,5,627"/>
     <cuboid id="red-blue-2nd" min="42,5,665" max="44,5,666"/>
-    <block id="red-mid">17.5,6,637.5</block>
+    <block id="red-mid">17.5,5,637.5</block>
     <block id="red-red-2nd">-26.5,8,612.5</block>
 <!-- Portal Entrances -->
     <cuboid id="blue-portal-entrance-blue" min="-48,9,660" max="-52,11,664"/>
