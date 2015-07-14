@@ -149,12 +149,12 @@
     <block id="red-mid">17.5,6,635.5</block>
     <block id="red-red-2nd">-23.5,8,615.5</block>
 <!-- Portal Entrances -->
-    <cuboid id="blue-portal-entrance-blue" min="-43,9,660" max="-47,10,664"/>
-    <cuboid id="blue-portal-entrance-mid" min="-43,11,660" max="-47,12,664"/>
-    <cuboid id="blue-portal-entrance-red" min="-43,13,660" max="-47,14,664"/>
-    <cuboid id="red-portal-entrance-red" min="-43,9,629" max="-47,10,633"/>
-    <cuboid id="red-portal-entrance-mid" min="-43,11,629" max="-47,12,633"/>
-    <cuboid id="red-portal-entrance-blue" min="-43,13,629" max="-47,14,633"/>
+    <cuboid id="blue-portal-entrance-blue" min="-43,9,660" max="-47,11,664"/>
+    <cuboid id="blue-portal-entrance-mid" min="-43,12,660" max="-47,13,664"/>
+    <cuboid id="blue-portal-entrance-red" min="-43,14,660" max="-47,15,664"/>
+    <cuboid id="red-portal-entrance-red" min="-43,9,629" max="-47,11,633"/>
+    <cuboid id="red-portal-entrance-mid" min="-43,12,629" max="-47,13,633"/>
+    <cuboid id="red-portal-entrance-blue" min="-43,14,629" max="-47,15,633"/>
 <!-- Applied -->
     <apply enter="only-blue">
         <region>
