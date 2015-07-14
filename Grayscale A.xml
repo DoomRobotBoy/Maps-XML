@@ -21,7 +21,7 @@
         <item slot="30">arrow</item>
         <item slot="32">leather helmet</item>
         <item slot="33">leather chestplate</item>
-        <item slot="34">iron leggings</item>
+        <item slot="34" enchantment="protection projectile:1">iron leggings</item>
         <item slot="35">leather boots</item>
         <potion duration="oo">night vision</potion>
     </kit>
@@ -30,7 +30,7 @@
         <item slot="1" enchantment="arrow infinite:1">bow</item>
         <item slot="2" amount="32">cooked beef</item>
         <item slot="8">arrow</item>
-        <leggings unbreakable="true">iron leggings</leggings>
+        <leggings unbreakable="true" enchantment="protection projectile:1">iron leggings</leggings>
         <potion duration="5" amplifier="5">damage resistance</potion>
         <potion duration="oo">night vision</potion>
     </kit>
