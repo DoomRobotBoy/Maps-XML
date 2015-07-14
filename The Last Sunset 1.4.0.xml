@@ -65,7 +65,7 @@
     <team id="only-red">red</team>
     <team id="only-blue">blue</team>
     <not id="not-spawner">
-        <block>mob spawner</block>
+        <material>mob spawner</material>
     </not>
 </filters>
 <regions>
