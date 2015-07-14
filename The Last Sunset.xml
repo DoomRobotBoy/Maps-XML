@@ -100,25 +100,25 @@
     </union>
     <union id="all-flag-posts-y">
         <!--  Red  -->
-        <cylinder base="-964.5,6,-339.5" radius="2" height="3"/>
-        <cylinder base="-964.5,6,-447.5" radius="2" height="3"/>
+        <cylinder base="-964.5,9,-339.5" radius="2" height="3"/>
+        <cylinder base="-964.5,9,-447.5" radius="2" height="3"/>
         <!--  Blue  -->
-        <cylinder base="-810.5,6,-339.5" radius="2" height="3"/>
-        <cylinder base="-810.5,6,-447.5" radius="2" height="3"/>
+        <cylinder base="-810.5,9,-339.5" radius="2" height="3"/>
+        <cylinder base="-810.5,9,-447.5" radius="2" height="3"/>
     </union>
     <union id="beacons">
-        <cuboid min="-990.5,1,-394.5" max="-992.5,5,-392.5"/>
-        <cuboid min="-784.5,1,-392.5" max="-782.5,5,-394.5"/>
+        <cuboid min="-990.5,4,-394.5" max="-992.5,8,-392.5"/>
+        <cuboid min="-784.5,4,-392.5" max="-782.5,8,-394.5"/>
     </union>
-    <cylinder id="red-net" base="-991.5,5,-393.5" radius="2" height="2"/>
-    <cylinder id="blue-net" base="-783.5,5,-393.5" radius="2" height="2"/>
+    <cylinder id="red-net" base="-991.5,8,-393.5" radius="2" height="2"/>
+    <cylinder id="blue-net" base="-783.5,8,-393.5" radius="2" height="2"/>
 <!--   Applied   -->
     <apply block="deny-all" message="You many modify the area around the beacons!" region="beacons"/>
     <apply block="deny-all" message="You may not modify the spawn areas!" region="spawns"/>
     <apply block="deny-all" region="all-flag-posts-y"/>
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
     <apply block="deny-world">
-        <cuboid min="oo,0,oo" max="-oo,1,-oo"/>
+        <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
         <region name="map"/>
@@ -127,17 +127,17 @@
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions yaw="-90">
-            <cylinder base="-958.5,5,-393.5" radius="1" height="0"/>
+            <cylinder base="-958.5,8,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
         <regions yaw="90">
-            <cylinder base="-816.5,5,-393.5" radius="1" height="0"/>
+            <cylinder base="-816.5,8,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default kit="nv">
         <regions yaw="0">
-            <cylinder base="-887.5,48,-452.5" radius="1" height="0"/>
+            <cylinder base="-887.5,51,-452.5" radius="1" height="0"/>
         </regions>
     </default>
 </spawns>
@@ -149,26 +149,26 @@
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-965,6,-340</post>
+        <post pickup-filter="only-blue" recover-time="15s">-965,9,-340</post>
     </flag>
     <flag id="north-red-flag" name="North Red Flag" owner="red" color="red" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-blue" recover-time="15s">-965,6,-448</post>
+        <post pickup-filter="only-blue" recover-time="15s">-965,9,-448</post>
     </flag>
     <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-811,6,-340</post>
+        <post pickup-filter="only-red" recover-time="15s">-811,9,-340</post>
     </flag>
     <flag id="north-blue-flag" name="North Blue Flag" owner="blue" color="blue" pickup-kit="pickup" drop-kit="drop">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
         </carry-message>
-        <post pickup-filter="only-red" recover-time="15s">-811,6,-448</post>
+        <post pickup-filter="only-red" recover-time="15s">-811,9,-448</post>
     </flag>
     <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
