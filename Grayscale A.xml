@@ -27,18 +27,8 @@
     </kit>
     <kit id="spawn">
         <item slot="0" unbreakable="true">stone sword</item>
-        <item slot="1" unbreakable="true">bow</item>
         <item slot="2" amount="32">cooked beef</item>
         <item slot="8" amount="24">arrow</item>
-        <leggings unbreakable="true" enchantment="protection projectile:1" locked="true">iron leggings</leggings>
-        <potion duration="5" amplifier="5">damage resistance</potion>
-        <potion duration="oo">night vision</potion>
-    </kit>
-    <kit id="spawn-2nd">
-        <item slot="0" unbreakable="true">stone sword</item>
-        <item slot="1" enchantment="arrow infinite:1">bow</item>
-        <item slot="2" amount="32">cooked beef</item>
-        <item slot="8">arrow</item>
         <leggings unbreakable="true" enchantment="protection projectile:1" locked="true">iron leggings</leggings>
         <potion duration="5" amplifier="5">damage resistance</potion>
         <potion duration="oo">night vision</potion>
@@ -47,17 +37,25 @@
         <helmet color="cd0000" unbreakable="true" locked="true">leather helmet</helmet>
         <chestplate color="cd0000" unbreakable="true" locked="true">leather chestplate</chestplate>
         <boots color="cd0000" unbreakable="true" locked="true">leather boots</boots>
+        <item slot="1" unbreakable="true">bow</item>
     </kit>
     <kit id="blue-kit" parents="spawn">
         <helmet color="0066cc" unbreakable="true" locked="true">leather helmet</helmet>
         <chestplate color="0066cc" unbreakable="true" locked="true">leather chestplate</chestplate>
         <boots color="0066cc" unbreakable="true" locked="true">leather boots</boots>
+        <item slot="1" unbreakable="true">bow</item>
     </kit>
-    <kit id="red-kit-2nd" parents="red-kit">
-        <potion duration="4" amplifier="5">damage resistance</potion>
+    <kit id="red-kit-2nd" parents="spawn">
+        <helmet color="cd0000" unbreakable="true" locked="true">leather helmet</helmet>
+        <chestplate color="cd0000" unbreakable="true" locked="true">leather chestplate</chestplate>
+        <boots color="cd0000" unbreakable="true" locked="true">leather boots</boots>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
     </kit>
-    <kit id="blue-kit-2nd" parents="red-kit">
-        <potion duration="7" amplifier="5">damage resistance</potion>
+    <kit id="blue-kit-2nd" parents="spawn">
+        <helmet color="0066cc" unbreakable="true" locked="true">leather helmet</helmet>
+        <chestplate color="0066cc" unbreakable="true" locked="true">leather chestplate</chestplate>
+        <boots color="0066cc" unbreakable="true" locked="true">leather boots</boots>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
     </kit>
 </kits>
 <killreward>
@@ -100,12 +98,58 @@
     <objective id="red-has-red-2nd" team="red">red-2nd</objective>
     <objective id="red-has-mid" team="red">mid</objective>
     <objective  id="red-has-blue-2nd" team="red">blue-2nd</objective>
-    <not id="red-not-blue-2nd">
-        <objective team="red">blue-2nd</objective>
-    </not>
-    <not id="blue-not-red-2nd">
-        <objective team="blue">red-2nd</objective>
-    </not>
+    <all id="red-has-blue-2nd-from-start">
+        <filter id="red-has-blue-2nd"/>
+        <filter id="from-start"/>
+    </all>
+    <all id="red-not-blue-2nd-from-start">
+        <not id="red-not-blue-2nd">
+            <objective team="red">blue-2nd</objective>
+        </not>
+        <filter id="from-start"/>
+    </all>
+    <all id="red-has-blue-2nd-after-6">
+        <filter id="red-has-blue-2nd"/>
+        <filter id="after-6"/>
+    </all>
+    <all id="red-not-blue-2nd-after-6">
+        <filter id="red-has-blue-2nd"/>
+        <filter id="after-6"/>
+    </all>
+    <all id="red-has-blue-2nd-after-9">
+        <filter id="red-has-blue-2nd"/>
+        <filter id="after-9"/>
+    </all>
+    <all id="red-not-blue-2nd-after-9">
+        <filter id="red-has-blue-2nd"/>
+        <filter id="after-9"/>
+    </all>
+    <all id="blue-has-red-2nd-from-start">
+        <filter id="blue-has-red-2nd"/>
+        <filter id="from-start"/>
+    </all>
+    <all id="blue-not-red-2nd-from-start">
+        <not id="blue-not-red-2nd">
+            <objective team="blue">red-2nd</objective>
+        </not>
+        <filter id="from-start"/>
+    </all>
+    <all id="blue-has-red-2nd-after-6">
+        <filter id="blue-has-red-2nd"/>
+        <filter id="after-6"/>
+    </all>
+    <all id="blue-not-red-2nd-after-6">
+        <filter id="blue-has-red-2nd"/>
+        <filter id="after-6"/>
+    </all>
+    <all id="blue-has-red-2nd-after-9">
+        <filter id="blue-has-red-2nd"/>
+        <filter id="after-9"/>
+    </all>
+    <all id="blue-not-red-2nd-after-9">
+        <filter id="blue-has-red-2nd"/>
+        <filter id="after-9"/>
+    </all>
     <!--
     <all id="blue-has-blue-2nd">
         <objective team="blue">blue-2nd</objective>
@@ -197,24 +241,64 @@
     <portal yaw="@0" destination="red-red-2nd" region="red-portal-entrance-red" filter="red-has-red-2nd"/>
 </portals>
 <spawns>
-    <spawn team="red" kit="red-kit" filter="red-not-blue-2nd">
+    <spawn team="red" kit="red-kit" filter="red-not-blue-2nd-from-start">
         <regions yaw="-90">
             <cuboid min="-49,37,632" max="-51,37,630"/>
         </regions>
     </spawn>
-    <spawn team="red" kit="red-kit-2nd" filter="red-has-blue-2nd">
+    <spawn team="red" kit="red-kit-2nd" filter="red-has-blue-2nd-from-start">
+        <regions yaw="-90">
+            <cuboid min="-49,37,632" max="-51,37,630"/>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit" filter="red-not-blue-2nd-after-6">
         <regions yaw="-90">
             <cuboid min="-49,73,632" max="-51,73,630"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="blue-not-blue-2nd">
+    <spawn team="red" kit="red-kit-2nd" filter="red-has-blue-2nd-after-6">
+        <regions yaw="-90">
+            <cuboid min="-49,73,632" max="-51,73,630"/>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit" filter="red-not-blue-2nd-after-9">
+        <regions yaw="-90">
+            <cuboid min="-49,109,632" max="-51,109,630"/>
+        </regions>
+    </spawn>
+    <spawn team="red" kit="red-kit-2nd" filter="red-has-blue-2nd-after-9">
+        <regions yaw="-90">
+            <cuboid min="-49,109,632" max="-51,109,630"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="blue-has-blue-2nd-from-start">
         <regions yaw="-90">
             <cuboid min="-49,37,663" max="-51,37,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit-2nd" filter="blue-has-red-2nd">
+    <spawn team="blue" kit="blue-kit-2nd" filter="blue-not-blue-2nd-from-start">
+        <regions yaw="-90">
+            <cuboid min="-49,37,663" max="-51,37,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="blue-not-red-2nd-after-6">
         <regions yaw="-90">
             <cuboid min="-49,73,663" max="-51,73,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit-2nd" filter="blue-has-red-2nd-after-6">
+        <regions yaw="-90">
+            <cuboid min="-49,73,663" max="-51,73,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" filter="blue-not-blue-2nd-after-9">
+        <regions yaw="-90">
+            <cuboid min="-49,109,663" max="-51,109,661"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit-2nd" filter="blue-has-blue-2nd-after-9">
+        <regions yaw="-90">
+            <cuboid min="-49,109,663" max="-51,109,661"/>
         </regions>
     </spawn>
     <default kit="obs">
