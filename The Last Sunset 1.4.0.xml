@@ -111,7 +111,7 @@
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
     <apply block="never">
         <region>
-            <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
+            <below y="4"/>
         </region>
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
