@@ -293,13 +293,13 @@
     </control-point>
     <control-point initial-owner="blue" id="blue-last" name="Blue Last" capture-time="3s">
         <capture>
-            <cuboid min="-32,12,684" max="-27,14,679"/>
+            <cuboid min="-30,12,684" max="-35,14,679"/>
         </capture>
         <progress>
-            <cuboid min="-32,11,684" max="-27,12,679"/>
+            <cuboid min="-30,11,684" max="-35,12,679"/>
         </progress>
         <captured>
-            <cuboid min="-32,11,684" max="-27,12,679"/>
+            <cuboid min="-30,11,684" max="-35,12,679"/>
         </captured>
         <player-filter>
             <any>
