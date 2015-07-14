@@ -69,7 +69,7 @@
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <!-- union of regions to replace the void filter, which consistently broke -->
     <union id="void">
-        
+        <cuboid min="0,0,0" max="0,1,0"/>
     </union>
     <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
