@@ -69,7 +69,7 @@
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <!-- union of regions to replace the void filter, which consistently broke -->
     <negative id="void-regions">
-        <union id="void-regions">
+        <union>
             <rectangle min="-771,-310" max="-1004,-477"/>
             <rectangle min="-770,-311" max="-1005,-476"/>
             <rectangle min="-769,-313" max="-1006,-474"/>
