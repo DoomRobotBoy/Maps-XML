@@ -126,11 +126,11 @@
     <cylinder id="red-net" base="-991.5,4,-393.5" radius="2" height="2"/>
     <cylinder id="blue-net" base="-783.5,4,-393.5" radius="2" height="2"/>
 <!--   Applied   -->
+    <apply block="never" message="You may not modify the void area!" region="void-regions"/>
     <apply block="never" message="You many modify the area around the beacons!" region="beacons"/>
     <apply block="never" message="You may not modify the spawn areas!" region="spawns"/>
     <apply block="never" message="You may not modify the area around the flags!" region="all-flag-posts-y"/>
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
-    <apply block="never" message="You may not modify the void area!" region="void-regions"/>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
