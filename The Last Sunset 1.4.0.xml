@@ -110,10 +110,14 @@
     <apply block="never" region="all-flag-posts-y"/>
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
     <apply block="never">
-        <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
+        <region>
+            <cuboid min="oo,0,oo" max="-oo,4,-oo"/>
+        </region>
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
-        <region name="map"/>
+        <region>
+            <region name="map"/>
+        </region>
     </apply>
 </regions>
 <spawns>
