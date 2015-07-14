@@ -68,9 +68,6 @@
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <!-- union of regions to replace the void filter, which consistently broke -->
-    <negative id="void-regions">
-        <region id="void"/>
-    </negative>
     <union id="void">
         <rectangle min="-771,-310" max="-1004,-477"/>
         <rectangle min="-770,-311" max="-1005,-476"/>
@@ -91,6 +88,9 @@
         <rectangle min="-825,-487" max="-950,-300"/>
         <rectangle min="-851,-488" max="-924,-299"/>
     </union>
+    <negative id="void-regions">
+        <region id="void"/>
+    </negative>
     <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
         <rectangle min="-950,-391" max="-951,-396"/>
