@@ -116,7 +116,7 @@
     </apply>
     <apply block="no-void" message="You may not modify the void area!">
         <region>
-            <region name="map"/>
+            <region id="map"/>
         </region>
     </apply>
 </regions>
