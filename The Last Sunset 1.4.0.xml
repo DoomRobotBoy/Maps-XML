@@ -69,8 +69,16 @@
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <!-- union of regions to replace the void filter, which consistently broke -->
     <union id="void-regions">
-        <cuboid min="0,0,0" max="0,1,0"/>
-        <cuboid min="0,0,0" max="0,2,0"/>
+        <rectangle min="-771,-310" max="-1004,477"/>
+        <rectangle min="-770,-311" max="-1005,476"/>
+        <rectangle min="-769,-313" max="-1006,474"/>
+        <rectangle min="-768,-317" max="-1007,470"/>
+        <rectangle min="-767,-322" max="-1008,465"/>
+        <rectangle min="-766,-336" max="-1009,451"/>
+        <rectangle min="-765,-356" max="-10010,422"/>
+        
+        <rectangle min="-772,-478" max="-1003,-309"/>
+        <rectangle min="-772,-478" max="-1003,-309"/>
     </union>
     <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
@@ -113,7 +121,9 @@
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
     <apply block="never" message="You may not modify the void area!">
         <region>
-            <region id="void-regions"/>
+            <negative>
+                <region id="void-regions"/>
+            </negative>
         </region>
     </apply>
 </regions>
