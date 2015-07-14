@@ -22,7 +22,7 @@
     <team id="blue" color="blue" max="22" max-overfill="26">Blue</team>
 </teams>
 <kits>
-    <kit id="spawn">
+    <kit name="spawn">
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true">bow</item>
         <item slot="2" unbreakable="true">diamond pickaxe</item>
@@ -38,19 +38,19 @@
             <potion duration="oo">night vision</potion>
         </kit>
     </kit>
-    <kit id="red-kit" parents="spawn">
+    <kit name="red-kit" parents="spawn">
         <helmet color="993333" unbreakable="true">leather helmet</helmet>
         <chestplate color="993333" enchantment="protection projectile:3" unbreakable="true">leather chestplate</chestplate>
     </kit>
-    <kit id="blue-kit" parents="spawn">
+    <kit name="blue-kit" parents="spawn">
         <helmet color="334CB2" unbreakable="true">leather helmet</helmet>
         <chestplate color="334CB2" enchantment="protection projectile:3" unbreakable="true">leather chestplate</chestplate>
     </kit>
-    <kit id="pickup" force="true">
+    <kit name="pickup" force="true">
         <leggings enchantment="durability:1" locked="true">gold leggings</leggings>
         <boots enchantment="durability:1" locked="true">gold boots</boots>
     </kit>
-    <kit id="drop" force="true">
+    <kit name="drop" force="true">
         <leggings>air</leggings>
         <boots>air</boots>
     </kit>
