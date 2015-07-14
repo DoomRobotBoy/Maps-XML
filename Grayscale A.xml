@@ -185,7 +185,10 @@
 </regions>
 <mobs>
     <filter>
-        <spawn>spawner</spawn>
+        <all>
+            <spawn>spawner</spawn>
+            <entity>dropped item</entity>
+        </all>
     </filter>
 </mobs>
 <portals>
