@@ -59,9 +59,6 @@
     <item amount="8">arrow</item>
 </killreward>
 <filters>
-    <not id="no-void">
-        <void/>
-    </not>
     <team id="only-red">red</team>
     <team id="only-blue">blue</team>
     <not id="not-spawner">
@@ -70,6 +67,10 @@
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+    <!-- union of regions to replace the void filter, which consistently broke -->
+    <union id="void">
+        
+    </union>
     <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
         <rectangle min="-950,-391" max="-951,-396"/>
@@ -92,43 +93,38 @@
     </union>
     <union id="all-flag-posts-y">
         <!--  Red  -->
-        <cylinder base="-964.5,8,-339.5" radius="2" height="3"/>
-        <cylinder base="-964.5,8,-447.5" radius="2" height="3"/>
+        <cylinder base="-964.5,4,-339.5" radius="2" height="4"/>
+        <cylinder base="-964.5,4,-447.5" radius="2" height="4"/>
         <!--  Blue  -->
-        <cylinder base="-810.5,8,-339.5" radius="2" height="3"/>
-        <cylinder base="-810.5,8,-447.5" radius="2" height="3"/>
+        <cylinder base="-810.5,4,-339.5" radius="2" height="4"/>
+        <cylinder base="-810.5,4,-447.5" radius="2" height="4"/>
     </union>
     <union id="beacons">
-        <cuboid min="-990.5,0,-394.5" max="-992.5,4,-392.5"/>
-        <cuboid min="-784.5,0,-392.5" max="-782.5,4,-394.5"/>
+        <cuboid min="-990.5,0,-394.5" max="-992.5,5,-392.5"/>
+        <cuboid min="-784.5,0,-392.5" max="-782.5,5,-394.5"/>
     </union>
-    <cylinder id="red-net" base="-991.5,7,-393.5" radius="2" height="2"/>
-    <cylinder id="blue-net" base="-783.5,7,-393.5" radius="2" height="2"/>
+    <cylinder id="red-net" base="-991.5,4,-393.5" radius="2" height="2"/>
+    <cylinder id="blue-net" base="-783.5,4,-393.5" radius="2" height="2"/>
 <!--   Applied   -->
     <apply block="never" message="You many modify the area around the beacons!" region="beacons"/>
     <apply block="never" message="You may not modify the spawn areas!" region="spawns"/>
     <apply block="never" region="all-flag-posts-y"/>
     <apply block="not-spawner" message="You may not destroy the spawner!" region="map"/>
-    <apply block="never">
+    <apply block="never" message="You may not modify the void area!">
         <region>
             <below y="4"/>
-        </region>
-    </apply>
-    <apply block="no-void" message="You may not modify the void area!">
-        <region>
-            <region id="map"/>
         </region>
     </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions yaw="-90">
-            <cylinder base="-958.5,5,-393.5" radius="1" height="0"/>
+            <cylinder base="-958.5,4,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
         <regions yaw="90">
-            <cylinder base="-816.5,5,-393.5" radius="1" height="0"/>
+            <cylinder base="-816.5,4,-393.5" radius="1" height="0"/>
         </regions>
     </spawn>
     <default kit="nv">
