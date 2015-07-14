@@ -120,8 +120,8 @@
         <cylinder base="-810.5,4,-447.5" radius="2" height="4"/>
     </union>
     <union id="beacons">
-        <cuboid min="-990.5,0,-394.5" max="-992.5,5,-392.5"/>
-        <cuboid min="-784.5,0,-392.5" max="-782.5,5,-394.5"/>
+        <rectangle min="-990.5,-394.5" max="-992.5,-392.5"/>
+        <rectangle min="-784.5,-392.5" max="-782.5,-394.5"/>
     </union>
     <cylinder id="red-net" base="-991.5,4,-393.5" radius="2" height="2"/>
     <cylinder id="blue-net" base="-783.5,4,-393.5" radius="2" height="2"/>
