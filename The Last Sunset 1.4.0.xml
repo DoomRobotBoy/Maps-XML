@@ -76,9 +76,17 @@
         <rectangle min="-767,-322" max="-1008,465"/>
         <rectangle min="-766,-336" max="-1009,451"/>
         <rectangle min="-765,-356" max="-10010,422"/>
-        
         <rectangle min="-772,-478" max="-1003,-309"/>
-        <rectangle min="-772,-478" max="-1003,-309"/>
+        <rectangle min="-774,-479" max="-1001,-308"/>
+        <rectangle min="-777,-480" max="-998,-307"/>
+        <rectangle min="-780,-481" max="-995,-306"/>
+        <rectangle min="-784,-482" max="-991,-305"/>
+        <rectangle min="-788,-483" max="-987,-304"/>
+        <rectangle min="-793,-484" max="-982,-303"/>
+        <rectangle min="-798,-485" max="-977,-302"/>
+        <rectangle min="-807,-486" max="-968,-301"/>
+        <rectangle min="-825,-487" max="-950,-300"/>
+        <rectangle min="-851,-488" max="-924,-299"/>
     </union>
     <union id="red-spawn">
         <rectangle min="-945,-395" max="-967,-392"/>
