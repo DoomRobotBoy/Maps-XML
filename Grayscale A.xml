@@ -97,6 +97,13 @@
     <time id="after-9">9m</time>
     <team id="only-blue">blue</team>
     <team id="only-red">red</team>
+    <objective id="blue-has-blue-2nd" team="blue">blue-2nd</objective>
+    <objective id="blue-has-mid" team="blue">mid</objective>
+    <objective id="blue-has-red-2nd" team="blue">red-2nd</objective>
+    <objective id="red-has-red-2nd" team="red">red-2nd</objective>
+    <objective id="red-has-mid" team="red">mid</objective>
+    <objective  id="red-has-blue-2nd" team="red">blue-2nd</objective>
+    <!--
     <all id="blue-has-blue-2nd">
         <objective team="blue">blue-2nd</objective>
         <not>
@@ -139,6 +146,7 @@
         <objective team="red">mid</objective>
         <objective team="red">red-2nd</objective>
     </all>
+    -->
 </filters>
 <regions>
 <!-- Portal Exits -->
