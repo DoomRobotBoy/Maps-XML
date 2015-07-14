@@ -227,12 +227,12 @@
             <cuboid min="-49,109,632" max="-51,109,630"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="blue-has-blue-2nd-from-start">
+    <spawn team="blue" kit="blue-kit" filter="blue-has-red-2nd-from-start">
         <regions yaw="-90">
             <cuboid min="-49,37,663" max="-51,37,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit-2nd" filter="blue-not-blue-2nd-from-start">
+    <spawn team="blue" kit="blue-kit-2nd" filter="blue-not-red-2nd-from-start">
         <regions yaw="-90">
             <cuboid min="-49,37,663" max="-51,37,661"/>
         </regions>
@@ -247,12 +247,12 @@
             <cuboid min="-49,73,663" max="-51,73,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="blue-not-blue-2nd-after-9">
+    <spawn team="blue" kit="blue-kit" filter="blue-not-red-2nd-after-9">
         <regions yaw="-90">
             <cuboid min="-49,109,663" max="-51,109,661"/>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit-2nd" filter="blue-has-blue-2nd-after-9">
+    <spawn team="blue" kit="blue-kit-2nd" filter="blue-has-red-2nd-after-9">
         <regions yaw="-90">
             <cuboid min="-49,109,663" max="-51,109,661"/>
         </regions>
