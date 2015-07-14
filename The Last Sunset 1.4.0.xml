@@ -69,13 +69,13 @@
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <!-- union of regions to replace the void filter, which consistently broke -->
     <union id="void-regions">
-        <rectangle min="-771,-310" max="-1004,477"/>
-        <rectangle min="-770,-311" max="-1005,476"/>
-        <rectangle min="-769,-313" max="-1006,474"/>
-        <rectangle min="-768,-317" max="-1007,470"/>
-        <rectangle min="-767,-322" max="-1008,465"/>
-        <rectangle min="-766,-336" max="-1009,451"/>
-        <rectangle min="-765,-356" max="-10010,422"/>
+        <rectangle min="-771,-310" max="-1004,-477"/>
+        <rectangle min="-770,-311" max="-1005,-476"/>
+        <rectangle min="-769,-313" max="-1006,-474"/>
+        <rectangle min="-768,-317" max="-1007,-470"/>
+        <rectangle min="-767,-322" max="-1008,-465"/>
+        <rectangle min="-766,-336" max="-1009,-451"/>
+        <rectangle min="-765,-356" max="-1010,-422"/>
         <rectangle min="-772,-478" max="-1003,-309"/>
         <rectangle min="-774,-479" max="-1001,-308"/>
         <rectangle min="-777,-480" max="-998,-307"/>
