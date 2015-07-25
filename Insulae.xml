@@ -1,0 +1,137 @@
+<map proto="1.4.0">
+<name>Insulae</name>
+<version>1.0.0</version>
+<objective>Capture the enemy wools and place them in your victory monument!</objective>
+<authors>
+    <author uuid="9e387daa-20b2-4545-a742-25bff42ae925"/> <!-- Xanpendio -->
+</authors>
+<contributors>
+    <contributor uuid="ba4a93aa-4935-4a71-bab2-a58f9a124e7b" contribution="Design Help and Map Name"/> <!-- ollyj -->
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
+</contributors>
+<teams>
+    <team id="green" color="green" max="30">Green</team>
+    <team id="orange" color="gold" max="30">Orange</team>
+</teams>
+<kits>
+    <kit id="green-kit">
+        <chestplate color="667F33" unbreakable="true">leather chestplate</chestplate>
+        <boots color="667F33" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="orange-kit">
+        <chestplate color="D87F33" unbreakable="true">leather chestplate</chestplate>
+        <boots color="D87F33" unbreakable="true">leather boots</boots>
+    </kit>
+</kits>
+<filters>
+    <all id="only-red">
+        <team>red</team>
+        <material>wool:11</material>
+    </all>
+    <all id="only-blue">
+        <team>blue</team>
+        <material>wool:14</material>
+    </all>
+    <material id="no-beacons">beacon</material>
+</filters>
+<regions>
+    <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+    <cuboid id="build-region" min="-35,0,73" max="34,42,-72"/>
+    <negative id="negative-build-region">
+        <region id="build-region"/>
+    </negative>
+    <union id="spawn-drops">
+        <cuboid id="red-east-drop" min="39,35,-40" max="32,40,-47"/>
+        <cuboid id="red-west-drop" min="-40,35,-40" max="-33,40,-47"/>
+        <cuboid id="blue-west-drop" min="-40,35,41" max="-33,40,48"/>
+        <cuboid id="blue-east-drop" min="39,35,48" max="32,40,41"/>
+    </union>
+    <cuboid id="red-wool-source" min="2,25,-60" max="-3,30,-65"/>
+    <cuboid id="blue-wool-source" min="-3,25,61" max="2,30,66"/>
+    <union id="center-wools">
+        <block>-0.5,27,-62.5</block>
+        <block>-0.5,27,63.5</block>
+    </union>
+    <union id="monuments">
+        <cuboid min="-2,6,-49" max="1,9,-51"/>
+        <cuboid min="1,6,50" max="-2,9,52"/>
+    </union>
+<!-- Applied -->
+    <apply use="no-beacons" region="map"/>
+    <apply block="only-blue" region="red-wool-source" message="You may not break your own wool source."/>
+    <apply block="only-red" region="blue-wool-source" message="You may not break your own wool source."/>
+    <apply block="never" region="center-wools" message="You may not break the center block of this wool source."/>
+    <apply block="never" region="spawn-drops" message="You may not destroy the spawn drops."/>
+    <apply block-break="never" region="monuments" message="You may not destroy the victory monument!"/>
+    <apply block="never" region="negative-build-region" message="You may not build in the void."/>
+</regions>
+<wools>
+    <wool team="green" color="blue" location="-0.5,27,63.5">
+        <monument><block>-0.5,7,-49.5</block></monument>
+    </wool>
+    <wool team="green" color="lime" location="-0.5,27,-62.5">
+        <monument><block>-0.5,7,50.5</block></monument>
+    </wool>
+    <wool team="orange" color="yellow" location="-0.5,27,63.5">
+        <monument><block>-0.5,7,-48.5</block></monument>
+    </wool>
+    <wool team="orange" color="red" location="-0.5,27,-62.5">
+        <monument><block>-0.5,7,51.5</block></monument>
+    </wool>
+</wools>
+<spawns>
+    <spawn team="green" kit="green-kit">
+        <regions>
+            <point yaw="0">-0.5,44,-62.5</point>
+        </regions>
+    </spawn>
+    <spawn team="orange" kit="orange-kit">
+        <regions>
+            <point yaw="180">-0.5,44,63.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="-90">0,30,0</point>
+        </regions>
+    </default>
+</spawns>
+<portals>
+<!-- Red -->
+    <portal id="red-west-portal" x="@-36.5" y="@36" z="@-43.5">
+        <region><cuboid min="-4,44,-61" max="-5,47,-64"/></region>
+    </portal>
+    <portal id="red-east-portal" x="@35.5" y="@36" z="@-43.5">
+        <region><cuboid min="3,44,-61" max="4,47,-64"/></region>
+    </portal>
+<!-- Blue -->
+    <portal id="blue-east-portal" x="@35.5" y="@36" z="@44.5">
+        <region><cuboid min="3,44,62" max="4,47,65"/></region>
+    </portal>
+    <portal id="blue-west-portal" x="@-36.5" y="@36" z="@44.5">
+        <region><cuboid min="-4,44,62" max="-5,47,65"/></region>
+    </portal>
+</portals>
+<renewables>
+    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="red-wool-source">
+        <renew-filter>
+            <block>wool:14</block>
+        </renew-filter>
+    </renewable>
+    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="blue-wool-source">
+        <renew-filter>
+            <block>wool:11</block>
+        </renew-filter>
+    </renewable>
+</renewables>
+<itemremove>
+    <item>obsidian</item>
+    <item>smooth brick:0</item>
+    <item>smooth brick:3</item>
+    <item>beacon</item>
+    <item>cobblestone stairs</item>
+    <item>smooth stairs</item>
+    <item>hard clay</item>
+</itemremove>
+<maxbuildheight>42</maxbuildheight>
+</map>
