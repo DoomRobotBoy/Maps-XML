@@ -222,4 +222,7 @@
     </renewable>
 </renewables>
 <maxbuildheight>20</maxbuildheight>
+<gamerules>
+    <doDaylightCycle>true</doDaylightCycle>
+</gamerules>
 </map>
