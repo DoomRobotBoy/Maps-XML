@@ -1,6 +1,6 @@
 <map proto="1.3.6">
 <name>The Last Sunset II</name>
-<version>1.0.6</version>
+<version>1.0.7</version>
 <objective>Capture the enemy flag(s) 4 times!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
@@ -34,14 +34,14 @@
         <item slot="1" unbreakable="true">bow</item>
         <item slot="2" unbreakable="true">iron pickaxe</item>
         <item slot="3" unbreakable="true" enchantment="dig speed:2">iron axe</item>
-        <item slot="4" unbreakable="true" enchantment="dig speed:1">wood spade</item>
-        <item slot="5" amount="32">bread</item>
+        <item slot="4" unbreakable="true" enchantment="dig speed:1">stone spade</item>
+        <item slot="5" amount="32" damage="1">cooked fish</item>
         <item slot="6" amount="32">wood</item>
         <item slot="33" amount="16">glass</item>
         <item slot="7" prevent-sharing="true">water bucket</item>
         <item slot="8" amount="32">vine</item>
         <item slot="28" amount="48">arrow</item>
-        <potion duration="3" amplifier="127">damage resistance</potion>
+        <potion duration="6" amplifier="127">damage resistance</potion>
         <kit name="nv">
             <potion duration="oo">night vision</potion>
         </kit>
@@ -65,6 +65,7 @@
 </kits>
 <killreward>
     <item amount="8">arrow</item>
+    <item>golden apple</item>
 </killreward>
 <filters>
     <filter name="no-void">
@@ -188,7 +189,7 @@
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>arrow</item>
-    <item>bread</item>
+    <item>cooked fish</item>
     <item>stone sword</item>
     <item>iron pickaxe</item>
     <item>bow</item>
