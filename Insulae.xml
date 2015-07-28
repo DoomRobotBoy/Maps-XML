@@ -24,9 +24,8 @@
     </kit>
 </kits>
 <filters>
-    <all id="only-red">
-        <team>red</team>
-        <material>wool:11</material>
+    <all id="only-green">
+        <team>green</team>
     </all>
     <all id="only-blue">
         <team>blue</team>
@@ -66,72 +65,39 @@
     <apply block="never" region="negative-build-region" message="You may not build in the void."/>
 </regions>
 <wools>
-    <wool team="green" color="blue" location="-0.5,27,63.5">
-        <monument><block>-0.5,7,-49.5</block></monument>
+    <wool team="green" color="blue" location="37.5,15,49.5">
+        <monument><block>2.5,17,-101.5</block></monument>
     </wool>
-    <wool team="green" color="lime" location="-0.5,27,-62.5">
-        <monument><block>-0.5,7,50.5</block></monument>
+    <wool team="green" color="lime" location="-36.5,15,49.5">
+        <monument><block>-1.5,17,-101.5</block></monument>
     </wool>
-    <wool team="orange" color="yellow" location="-0.5,27,63.5">
-        <monument><block>-0.5,7,-48.5</block></monument>
+    <wool team="orange" color="yellow" location="-36.5,15,-48.5">
+        <monument><block>-1.5,17,102.5</block></monument>
     </wool>
-    <wool team="orange" color="red" location="-0.5,27,-62.5">
-        <monument><block>-0.5,7,51.5</block></monument>
+    <wool team="orange" color="red" location="37.5,15,-48.5">
+        <monument><block>2.5,17,102.5</block></monument>
     </wool>
 </wools>
 <spawns>
     <spawn team="green" kit="green-kit">
         <regions>
-            <point yaw="0">-0.5,44,-62.5</point>
+            <point yaw="0">0.5,16,-103.5</point>
         </regions>
     </spawn>
     <spawn team="orange" kit="orange-kit">
         <regions>
-            <point yaw="180">-0.5,44,63.5</point>
+            <point yaw="180">0.5,16,104.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point yaw="-90">0,30,0</point>
+            <point yaw="-90">66.5,46,0.5</point>
         </regions>
     </default>
 </spawns>
-<portals>
-<!-- Red -->
-    <portal id="red-west-portal" x="@-36.5" y="@36" z="@-43.5">
-        <region><cuboid min="-4,44,-61" max="-5,47,-64"/></region>
-    </portal>
-    <portal id="red-east-portal" x="@35.5" y="@36" z="@-43.5">
-        <region><cuboid min="3,44,-61" max="4,47,-64"/></region>
-    </portal>
-<!-- Blue -->
-    <portal id="blue-east-portal" x="@35.5" y="@36" z="@44.5">
-        <region><cuboid min="3,44,62" max="4,47,65"/></region>
-    </portal>
-    <portal id="blue-west-portal" x="@-36.5" y="@36" z="@44.5">
-        <region><cuboid min="-4,44,62" max="-5,47,65"/></region>
-    </portal>
-</portals>
-<renewables>
-    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="red-wool-source">
-        <renew-filter>
-            <block>wool:14</block>
-        </renew-filter>
-    </renewable>
-    <renewable rate="3" grow="true" particles="true" sound="true" avoid-entities="true" region="blue-wool-source">
-        <renew-filter>
-            <block>wool:11</block>
-        </renew-filter>
-    </renewable>
-</renewables>
 <itemremove>
-    <item>obsidian</item>
-    <item>smooth brick:0</item>
-    <item>smooth brick:3</item>
-    <item>beacon</item>
-    <item>cobblestone stairs</item>
-    <item>smooth stairs</item>
-    <item>hard clay</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
 </itemremove>
-<maxbuildheight>42</maxbuildheight>
+<maxbuildheight>31</maxbuildheight>
 </map>
