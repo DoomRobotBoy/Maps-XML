@@ -36,6 +36,7 @@
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
+    <rectangle id="complement-void-area" min="57,-59" max="-56,60"/>
     <rectangle id="green-camp" min="31,76" max="-30,109"/>
     <rectangle id="orange-camp" min="31,-75" max="-30,-108"/>
     <cylinder id="green-spawn" base="0.5,0,-94.5" radius="8" height="15"/>
@@ -48,6 +49,8 @@
         <region id="orange-camp"/>
         <region id="orange-spawn"/>
     </complement>
+    <union id="green-owner-wool-rooms">
+    </union>
 <!-- Applied -->
     <apply block="no-void" message="You may not modify the void area!">
         <region>
@@ -57,6 +60,14 @@
             </complement>
         </region>
     </apply>
+    <apply block="never" message="You may not modify the wool room!">
+        <region>
+            <region id="green-owner-wool-rooms"/>
+            <region id="orange-owner-wool-rooms"/>
+        </region>
+    </apply>
+    <apply enter="only-green" message="Only orange may enter this wool room!" region="green-owner-wool-rooms"/>
+    <apply enter="only-orange" message="Only green may enter this wool room!" region="orange-owner-wool-rooms"/>
     <apply block-place="never" block-break="allow-some" message="You may only break iron blocks and nether fences in spawn!">
         <region>
             <region id="green-spawn"/>
@@ -65,7 +76,6 @@
     </apply>
     <apply block="never" enter="only-green" message="You may only break iron blocks and nether fences in spawn!" region="allow-some-green"/>
     <apply block="never" enter="only-orange" message="You may only break iron blocks and nether fences in spawn!" region="allow-some-orange"/>
-
 </regions>
 <wools>
     <wool team="green" color="blue" location="37.5,15,49.5">
