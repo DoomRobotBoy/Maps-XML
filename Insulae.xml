@@ -24,45 +24,48 @@
     </kit>
 </kits>
 <filters>
-    <all id="only-green">
-        <team>green</team>
-    </all>
-    <all id="only-blue">
-        <team>blue</team>
-        <material>wool:14</material>
-    </all>
-    <material id="no-beacons">beacon</material>
+    <team id="only-green">green</team>
+    <team id="only-orange">orange</team>
+    <not id="no-void">
+        <void/>
+    </not>
+    <any id="allow-some">
+        <material>nether fence</material>
+        <material>nether fence</material>
+    </any>
 </filters>
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
-    <cuboid id="build-region" min="-35,0,73" max="34,42,-72"/>
-    <negative id="negative-build-region">
-        <region id="build-region"/>
-    </negative>
-    <union id="spawn-drops">
-        <cuboid id="red-east-drop" min="39,35,-40" max="32,40,-47"/>
-        <cuboid id="red-west-drop" min="-40,35,-40" max="-33,40,-47"/>
-        <cuboid id="blue-west-drop" min="-40,35,41" max="-33,40,48"/>
-        <cuboid id="blue-east-drop" min="39,35,48" max="32,40,41"/>
-    </union>
-    <cuboid id="red-wool-source" min="2,25,-60" max="-3,30,-65"/>
-    <cuboid id="blue-wool-source" min="-3,25,61" max="2,30,66"/>
-    <union id="center-wools">
-        <block>-0.5,27,-62.5</block>
-        <block>-0.5,27,63.5</block>
-    </union>
-    <union id="monuments">
-        <cuboid min="-2,6,-49" max="1,9,-51"/>
-        <cuboid min="1,6,50" max="-2,9,52"/>
-    </union>
+    <rectangle id="green-camp" min="31,76" max="-30,109"/>
+    <rectangle id="orange-camp" min="31,-75" max="-30,-108"/>
+    <cylinder id="green-spawn" base="0.5,0,-94.5" radius="8" height="15"/>
+    <cylinder id="orange-spawn" base="0.5,0,95.5" radius="8" height="15"/>
+    <complement id="allow-some-green">
+        <region id="green-camp"/>
+        <region id="green-spawn"/>
+    </complement>
+    <complement id="allow-some-orange">
+        <region id="orange-camp"/>
+        <region id="orange-spawn"/>
+    </complement>
 <!-- Applied -->
-    <apply use="no-beacons" region="map"/>
-    <apply block="only-blue" region="red-wool-source" message="You may not break your own wool source."/>
-    <apply block="only-red" region="blue-wool-source" message="You may not break your own wool source."/>
-    <apply block="never" region="center-wools" message="You may not break the center block of this wool source."/>
-    <apply block="never" region="spawn-drops" message="You may not destroy the spawn drops."/>
-    <apply block-break="never" region="monuments" message="You may not destroy the victory monument!"/>
-    <apply block="never" region="negative-build-region" message="You may not build in the void."/>
+    <apply block="no-void" message="You may not modify the void area!">
+        <region>
+            <complement>
+                <region id="map"/>
+                <region id="complement-void-area"/>
+            </complement>
+        </region>
+    </apply>
+    <apply block-place="never" block-break="allow-some" message="You may only break iron blocks and nether fences in spawn!">
+        <region>
+            <region id="green-spawn"/>
+            <region id="orange-spawn"/>
+        </region>
+    </apply>
+    <apply block="never" enter="only-green" message="You may only break iron blocks and nether fences in spawn!" region="allow-some-green"/>
+    <apply block="never" enter="only-orange" message="You may only break iron blocks and nether fences in spawn!" region="allow-some-orange"/>
+
 </regions>
 <wools>
     <wool team="green" color="blue" location="37.5,15,49.5">
