@@ -10,8 +10,8 @@
     <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomRobotBoy -->
 </contributors>
 <teams>
-    <team id="green" color="green" max="30">Green</team>
-    <team id="orange" color="gold" max="30">Orange</team>
+    <team id="green" color="green" max="28" max-overfill="34">Green</team>
+    <team id="orange" color="gold" max="28" max-overfill="34">Orange</team>
 </teams>
 <kits>
     <kit id="green-kit">
@@ -31,7 +31,7 @@
     </not>
     <any id="allow-some">
         <material>nether fence</material>
-        <material>nether fence</material>
+        <material>iron block</material>
     </any>
 </filters>
 <regions>
