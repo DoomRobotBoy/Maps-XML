@@ -1,0 +1,143 @@
+<map proto="1.4.0">
+<name>Colloseum</name>
+<version>1.0.0</version>
+<objective>Hold the flag for 180 seconds to win!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
+</authors>
+<contributors>
+    <contributor uuid="a4266139-34f3-46c5-a730-f8828376a15a" contribution="Build Help"/> <!-- LArrowHead -->
+</contributors>
+<broadcasts>
+    <tip after="1s">Hold the flag to score points!</tip>
+    <tip after="2s">Players can only respawn when either the enemy team or no team has control of the flag.</tip>
+    <tip after="4s">You can destroy leaves.</tip>
+    <tip after="5s">Gold pressure plates are jump pads and iron pressure plates are health kits.</tip>
+</broadcasts>
+<teams>
+    <team id="blue" color="blue" max="16" max-overfill="18">Blue Team</team>
+    <team id="red" color="dark red" max="16" max-overfill="18">Red Team</team>
+</teams>
+<kits>
+    <kit id="all">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="spawn" parents="all">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow_infinite:1">bow</item>
+        <item slot="28" amount="1">arrow</item>
+        <chestplate unbreakable="true">iron chestplate</chestplate>
+        <item slot="2" amount="64">golden carrot</item>
+        <potion duration="7" amplifier="1">speed</potion>
+        <potion duration="7">slow digging</potion>
+        <health>20</health>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet unbreakable="true" color="AF002A">leather helmet</helmet>
+        <leggings unbreakable="true" color="AF002A">leather leggings</leggings>
+        <boots unbreakable="true" color="AF002A" enchantment="protection_fall:1">leather boots</boots>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet unbreakable="true" color="6E6EF9">leather helmet</helmet>
+        <leggings unbreakable="true" color="6E6EF9">leather leggings</leggings>
+        <boots unbreakable="true" color="6E6EF9" enchantment="protection_fall:1">leather boots</boots>
+    </kit>
+    <kit id="health-kit" force="true">
+        <potion duration="30" amplifier="1">health boost</potion>
+        <potion duration="3" amplifier="1">speed</potion>
+    </kit>
+    <kit id="flag-kit" force="true">
+        <potion duration="oo" amplifier="-3">health boost</potion>
+    </kit>
+    <kit id="reset-health" force="true">
+        <potion duration="1" amplifier="0">health boost</potion>
+        <potion duration="1" amplifier="10">regeneration</potion>
+    </kit>
+</kits>
+<killreward>
+    <item>golden apple</item>
+</killreward>
+<itemremove>
+    <item>leather helmet</item>
+    <item>iron chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>arrow</item>
+    <item>golden carrot</item>
+    <item>golden apple</item>
+</itemremove>
+<filters>
+    <not id="respawn">
+        <same-team>
+            <carrying-flag>center-flag</carrying-flag>
+        </same-team>
+    </not>
+    <not id="health-kit-filter">
+        <same-team>
+            <carrying-flag>center-flag</carrying-flag>
+        </same-team>
+    </not>
+    <material id="only-leaves">leaves</material>
+</filters>
+<regions>
+    <rectangle id="map" min="oo,oo" max="-oo,oo"/>
+    <block id="flag-region">-260.5,5,98.5</block>
+    <union id="jump-pads">
+        <block>-260.5,5,53.5</block>
+        <block>-223.5,5,98.5</block>
+        <block>-260.5,5,143.5</block>
+        <block>-297.5,5,98.5</block>
+    </union>
+    <block id="side-jump-pad-1">-270.5,10,88.5</block>
+    <block id="side-jump-pad-2">-250.5,10,108.5</block>
+    <union id="health-kit-region">
+        <block>-240.5,5,131.5</block>
+        <block>-280.5,5,131.5</block>
+        <block>-280.5,5,65.5</block>
+        <block>-240.5,5,65.5</block>
+    </union>
+<!-- Applied -->
+    <apply block="only-leaves" region="capture-region"/>
+    <apply velocity="0.0,1.2,0.0" region="jump-pads"/>
+    <apply velocity="0.7,0.6,0.7" region="side-jump-pad-1"/>
+    <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
+    <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
+</regions>
+<spawns>
+    <spawn team="red" kit="red-kit" filter="respawn">
+        <regions yaw="-90">
+            <cylinder base="-294.5,18,98.5" radius="1" height="1"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" yaw="90" filter="respawn">
+        <regions yaw="90">
+            <cylinder base="-226.5,18,98.5" radius="1" height="1"/>
+        </regions>
+    </spawn>
+    <default kit="all">
+        <regions yaw="0">
+            <point>-260.5,30,98.5</point>
+        </regions>
+    </default>
+</spawns>
+<respawn auto="true" spectate="true">
+    <message>
+        { translate: "death.respawn.confirmed.waiting.flagDropped" }
+    </message>
+</respawn>
+<score>
+    <limit>180</limit>
+    <kills>0</kills>
+    <deaths>0</deaths>
+</score>
+<flags>
+    <flag id="center-flag" name="Flag" color="white" shared="true" pickup-kit="flag-kit" drop-kit="reset-health">
+        <post id="post" return-time="0s" respawn-time="7s" region="flag-region">
+            <region id="flag-region"/>
+        </post>
+        <carry-message>You are carrying the flag.</carry-message>
+    </flag>
+</flags>
+</map>
