@@ -1,0 +1,62 @@
+<map proto="1.4.0">
+<name>Lotus</name>
+<version>1.0.0</version>
+<objective>Leak the enemies core!</objective>
+<authors>
+    <author uuid="f7f3-42c2-a260-3c9b65aca235"/> <!-- _Bunnies -->
+    <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!-- NixaniaXi -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
+</authors>
+<contributors>
+    <contributor uuid="6f21f5e3-544b-48a9-9670-63aec36038c4" contribution="Feedback"/> <!-- hive_raven -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
+</teams>
+<filters>
+    <not id="no-spawner>
+        <material>mob spawner</material>
+    </not>
+    
+</filters>
+<regions>
+    <rectangle id="map" min="53,-56" max="-52,57"/>
+    <cuboid id="red-core" min="-19,12,15" max="-14,17,20"/>
+    <cuboid id="blue-core" min="20,12,-14" max="15,17,-19"/>
+    <apply block="never" message="You may not modify the void area!">
+        <region>
+            <negative>
+                <region id="map"/>
+            </negative>
+        </region>
+    </apply>
+    <apply block="no-spawner" region="map" message="You may not break the spawners!"/>
+</regions>
+<spawns>
+    <spawn team="red">
+        <regions>
+            <point yaw="90">56.5,14,-19.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue">
+        <regions>
+            <point yaw="-90">-55.5,14,20.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point>0.5,3,0.5</point>
+        </regions>
+    </default>
+</spawns>
+<cores material="emerald block" leak="5" mode-changes="false">
+    <core name="Core" team="red" region="red-core"/>
+    <core name="Core" team="blue" region="blue-core"/>
+</cores>
+<itemremove>
+    <item>obsidian</item>
+    <item>emerald block</item>
+</itemremove>
+<maxbuildheight>36</maxbuildheight>
+</map>
