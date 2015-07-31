@@ -15,15 +15,18 @@
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
 <filters>
-    <not id="no-spawner>
+    <not id="no-spawner">
         <material>mob spawner</material>
     </not>
-    
 </filters>
 <regions>
     <rectangle id="map" min="53,-56" max="-52,57"/>
-    <cuboid id="red-core" min="-19,12,15" max="-14,17,20"/>
-    <cuboid id="blue-core" min="20,12,-14" max="15,17,-19"/>
+    <cuboid id="red-core" min="20,12,-14" max="15,17,-19"/>
+    <cuboid id="blue-core" min="-19,12,15" max="-14,17,20"/>
+    <union id="spawns">
+        <cuboid id="red-spawn" min="42,10,-14" max="53,18,-25"/>
+        <cuboid id="blue-spawn" min="-41,10,15" max="-52,18,26"/>
+    </union>
     <apply block="never" message="You may not modify the void area!">
         <region>
             <negative>
@@ -32,7 +35,29 @@
         </region>
     </apply>
     <apply block="no-spawner" region="map" message="You may not break the spawners!"/>
+    <apply block="never" message="You may not modify the area around and above the center spawner.">
+        <region>
+            <rectangle min="2,2" max="-1,-1"/>
+        </region>
+    </apply>
+    <apply block="never" region="spawns" message="You may not modify the spawn islands!"/>
 </regions>
+<crafting>
+    <disable material="gold pickaxe"/>
+</crafting>
+<block-drops>
+    <rule wrong-tool="true">
+        <region>
+            <region id="map"/>
+        </region>
+        <filter>
+            <material>gold block</material>
+        </filter>
+        <drops>
+            <item material="gold block"/>
+        </drops>
+    </rule>
+</block-drops>
 <spawns>
     <spawn team="red">
         <regions>
