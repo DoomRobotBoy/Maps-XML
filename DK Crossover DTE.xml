@@ -32,8 +32,8 @@
         <item slot="32">water bucket</item>
         <item slot="23">water bucket</item>
         <item slot="14">water bucket</item>
-        <item slot="6" amount="16">redstone block</item>
-        <item slot="33" amount="64">redstone</item>
+        <item slot="6" amount="64">redstone</item>
+        <item slot="33" amount="16">redstone block</item>
         <item slot="24" amount="16">redstone torch on</item>
         <item slot="15" amount="16">diode</item>
         <item slot="7" amount="32">trap door</item>
@@ -121,7 +121,7 @@
     <cuboid id="green-side" min="934,0,358" max="942,117,439"/>
     <cuboid id="the-wall" min="968,0,439" max="973,120,359"/>
 <!--  Applied  -->
-    <apply block="deny-all">
+    <apply block="never">
         <region>
             <negative>
                 <cuboid min="934,0,439" max="1007,119,359"/>
