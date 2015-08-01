@@ -44,7 +44,6 @@
         <item slot="35" amount="64">tnt</item>
         <item slot="26" amount="64">tnt</item>
         <item slot="17" amount="64">tnt</item>
-        <item slot="9" damage="-3000" name="`6TNT Defuser" lore="`7Right click to defuse team griefer's TNT|`7Does not work in `9water`7.|`7Use `a/report `7to alert the staff!">shears</item>
         <potion duration="oo" amplifier="1">night vision</potion>
     </kit>
     <kit id="blue-kit" parents="spawn">
