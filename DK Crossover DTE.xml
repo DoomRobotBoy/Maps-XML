@@ -69,10 +69,24 @@
     </kit>
 </kits>
 <filters>
+    <not id="deny-banana">
+        <all>
+            <any>
+                <material>gold block</material>
+                <material>wool</material>
+                <material>wood</material>
+                <material>stained clay</material>
+            </any>
+            <not>
+                <time>3m</time>
+            </not>
+        </all>
+    </not>
     <not id="deny-glass">
         <any>
             <material>stained glass:0</material>
             <material>stained glass:15</material>
+            <filter id="deny-banana"/>
         </any>
     </not>
     <not id="deny-some-clay">
@@ -224,33 +238,33 @@
     <!--   Blue's portals   -->
     <portal x="@1006" y="@81" z="@383" yaw="@90">
         <region>
-            <cuboid min="989,92,442" max="990,94,443"/>
+            <point>967.5,110,442.5</point>
         </region>
     </portal>
     <portal x="@1006" y="@54" z="@383" yaw="@90">
         <region>
-            <cuboid min="993,92,442" max="994,94,443"/>
+            <point>970.5,110,442.5</point>
         </region>
     </portal>
     <portal x="@1006" y="@32" z="@383" yaw="@90">
         <region>
-            <cuboid min="997,92,442" max="998,94,443"/>
+            <point>973.5,110,442.5</point>
         </region>
     </portal>
 <!--  Green's portals   -->
     <portal x="@935" y="@81" z="@415" yaw="@-90">
         <region>
-            <cuboid min="943,92,442" max="944,94,443"/>
+            <point>967.5,103,442.5</point>
         </region>
     </portal>
     <portal x="@935" y="@54" z="@415" yaw="@-90">
         <region>
-            <cuboid min="947,92,442" max="948,94,443"/>
+            <point>970.5,103,442.5</point>
         </region>
     </portal>
     <portal x="@935" y="@32" z="@415" yaw="@-90">
         <region>
-            <cuboid min="951,92,442" max="952,94,443"/>
+            <point>973.5,103,442.5</point>
         </region>
     </portal>
 </portals>
