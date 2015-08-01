@@ -105,12 +105,12 @@
 <regions>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <union id="jump-pads">
-        <cuboid min="941,55,372" max="938,57,369"/>
-        <cuboid min="941,31,436" max="938,33,433"/>
-        <cuboid min="941,7,372" max="941,9,372"/>
-        <cuboid min="999,55,425" max="1002,57,428"/>
-        <cuboid min="999,31,361" max="1002,33,364"/>
-        <cuboid min="999,7,425" max="1002,9,428"/>
+        <cuboid min="941,55,372" max="939,57,370"/>
+        <cuboid min="941,31,436" max="939,33,434"/>
+        <cuboid min="941,7,372" max="939,9,370"/>
+        <cuboid min="1000,55,426" max="1002,57,428"/>
+        <cuboid min="1000,31,362" max="1002,33,364"/>
+        <cuboid min="1000,7,426" max="1002,9,428"/>
     </union>
     <union id="no-water">
         <cuboid min="oo,79,oo" max="-oo,80,-oo"/>
