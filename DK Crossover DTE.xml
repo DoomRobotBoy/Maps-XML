@@ -168,12 +168,12 @@
 <spawns>
     <spawn team="blue" kit="blue-kit">
         <regions yaw="180">
-            <cuboid id="blue-spawn" min="989,114,444" max="998,114,446"/>
+            <point>970.5,110,450.5</point>
         </regions>
     </spawn>
     <spawn team="green" kit="green-kit">
         <regions yaw="180">
-            <cuboid id="green-spawn" min="943,114,444" max="952,114,446"/>
+            <point>970.5,103,450.5</point>
         </regions>
     </spawn>
     <default kit="obs">
