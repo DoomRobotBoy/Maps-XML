@@ -28,15 +28,15 @@
         <item slot="0" unbreakable="true" enchantment="damage all:1">iron sword</item>
         <item slot="1" unbreakable="true">bow</item>
         <item slot="28" amount="32">arrow</item>
-        <item slot="2" unbreakable="true" enchantment="dig speed:1">stone pickaxe</item>
+        <item slot="2" unbreakable="true" enchantment="dig speed:1">iron pickaxe</item>
         <item slot="3" amount="64">bread</item>
         <item slot="4" amount="64">wood</item>
         <item slot="5" amount="64">wood</item>
         <item slot="6" amount="32">glass</item>
         <item slot="7" amount="64">vine</item>
         <item slot="8" amount="2">web</item>
-        <chestplate unbreakable="true" locked="true" lore="This piece of armor is `4LOCKED`r.">iron chestplate</chestplate>
-        <leggings unbreakable="true" enchantment="protection projectile:2" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
+        <chestplate unbreakable="true" enchantment="protection environmental:1" locked="true" lore="`r`cThis piece of armor is `4LOCKED`c.">iron chestplate</chestplate>
+        <leggings unbreakable="true" enchantment="protection projectile:2" locked="true" lore="`r`cThis piece of armor is `4LOCKED`c.">chainmail leggings</leggings>
         <potion duration="5" amplifier="1">heal</potion>
         <potion duration="5" amplifier="1">damage resistance</potion>
         <clear/>
@@ -53,13 +53,13 @@
         <item slot="0" unbreakable="true">iron sword</item>
         <item slot="1" unbreakable="true" enchantment="arrow infinite:1;arrow damage:1">bow</item>
         <item slot="28">arrow</item>
-        <item slot="2" unbreakable="true">iron pickaxe</item>
+        <item slot="2" unbreakable="true">diamond pickaxe</item>
         <item slot="3" unbreakable="true">iron axe</item>
         <item slot="4" amount="64">bread</item>
         <item slot="5" amount="32">wood</item>
         <item slot="6" amount="64">vine</item>
-        <leggings unbreakable="true" locked="true" lore="This piece of armor is `4LOCKED`r.">chainmail leggings</leggings>
-        <boots unbreakable="true" enchantment="protection fall:2" locked="true" lore="This piece of armor is `4LOCKED`r.">gold boots</boots>
+        <leggings unbreakable="true" locked="true" lore="`r`cThis piece of armor is `4LOCKED`c.">chainmail leggings</leggings>
+        <boots unbreakable="true" enchantment="protection fall:2" locked="true" lore="`r`cThis piece of armor is `4LOCKED`c.">gold boots</boots>
         <potion duration="oo">speed</potion>
         <potion duration="5" amplifier="1">heal</potion>
         <potion duration="5" amplifier="1">damage resistance</potion>
@@ -117,13 +117,16 @@
     <cuboid name="map-above-60" min="241,61,203" max="380,94,615"/>
     <rectangle name="vines-gap" min="380,426" max="241,392"/>
     <union name="cores">
-        <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
         <cuboid name="red-core-back" min="338,39,283" max="329,48,274"/>
-        <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
         <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
     </union>
-    <cylinder name="red-barrier" base="255.5,69,215.5" radius="3" height="5"/>
-    <cylinder name="blue-barrier" base="365.5,69,602.5" radius="3" height="5"/>
+    <!-- Unused for the moment
+    <union name="front-cores">
+        <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
+        <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
+    </union> -->
+    <cylinder name="red-barrier" base="255.5,68,215.5" radius="3" height="6"/>
+    <cylinder name="blue-barrier" base="365.5,68,602.5" radius="3" height="6"/>
 <!--  Applied  -->
     <apply kit="spawn-drop">
         <block>255.5,69,215.5</block>
@@ -160,8 +163,12 @@
             <region name="blue-barrier"/>
         </negative>
     </apply>
+    <apply enter="deny-all" message="You may not re-enter this spawn!">
+        <region name="red-barrier"/>
+        <region name="blue-barrier"/>
+    </apply>
 </regions>
-<spawns>
+<spawns safe="true">
     <spawn team="red" kit="spawn">
         <regions yaw="-45">
             <cylinder base="255.5,69,215.5" radius="1" height="0"/>
@@ -178,16 +185,16 @@
         </regions>
     </default>
 </spawns>
-<cores material="ender stone;wood:2" leak="3">
-    <core name="Front Core" team="red" region="red-core-front"/>
-    <core name="Back Core" team="red" region="red-core-back"/>
-    <core name="Front Core" team="blue" region="blue-core-front"/>
-    <core name="Back Core" team="blue" region="blue-core-back"/>
+<cores material="ender stone" leak="3" mode-changes="true">
+    <core name="Core" team="red" region="red-core-back"/>
+    <core name="Core" team="blue" region="blue-core-back"/>
 </cores>
 <modes>
-    <mode after="1s" material="obsidian" show-before="0s" name="`0OBSIDIAN `rCORE MODE"/>
-    <mode after="3m" material="ender stone" show-before="0s" name="`6ENDSTONE `rCORE MODE"/>
+    <mode after="5s" material="obsidian" show-before="5s"/>
+    <mode after="30m" material="ender stone" show-before="60s"/>
 </modes>
+<!-- Core with renewables incorporated do not count towards the stats; might re-use this after that is fixed
+
 <blockdrops>
     <rule>
         <region>
@@ -198,7 +205,7 @@
         </filter>
         <replacement>wood:2</replacement>
     </rule>
-</blockdrops>
+</blockdrops> -->
 <itemremove>
     <item>iron helmet</item>
     <item>iron chestplate</item>
@@ -209,28 +216,25 @@
     <item>chainmail leggings</item>
     <item>gold boots</item>
     <item>wood</item>
-    <item>wood button</item>
-    <item>red rose</item>
-    <item>bow</item>
     <item>apple</item>
-    <item>sapling</item>
-    <item>seeds</item>
+    <item>bow</item>
     <item>iron sword</item>
     <item>iron axe</item>
-    <item>iron pickaxe</item>
+    <item>diamond pickaxe</item>
     <item>arrow</item>
-    <item>wheat</item>
     <item>flint</item>
     <item>bread</item>
     <item>glass</item>
     <item>web</item>
-    <item>stone pickaxe</item>
+    <item>iron pickaxe</item>
     <item>leather boots</item>
     <item>vine</item>
 </itemremove>
 <broadcasts>
-    <alert after="10s" repeat="2m">`c`lCombining classes is illegal!</alert>
-    <alert after="150s">Endstone cores in 30 seconds!</alert>
+    <alert after="10s">`c`lCombining classes is illegal!</alert>
+    <tip after="15s">There are iron mines behind the core and the wheat fields!</tip>
+    <tip after="5m" every="5m" count="oo">There are iron mines behind the core and the wheat fields!</tip>
+    <alert after="29m">`c`lEndstone cores in 1 minute!</alert>
 </broadcasts>
 <maxbuildheight>60</maxbuildheight>
 <gamerule>
