@@ -180,6 +180,7 @@
     </flag>
     <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
+<!-- Not needed for the moment 
 <blockdrops>
     <rule>
         <filter>
@@ -189,7 +190,7 @@
             <item>sandstone</item>
         </drops>
     </rule>
-</blockdrops>
+</blockdrops> -->
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
