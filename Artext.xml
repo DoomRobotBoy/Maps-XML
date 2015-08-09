@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Artext</name>
-<version>1.0.2</version>
+<version>1.0.3</version>
 <objective>
     Hold the hills for points, kills count as well!
 </objective>
@@ -112,7 +112,7 @@
     </spawn>
     <default>
         <regions yaw="90">
-            <point>659.3,11,-81.5</point>
+            <point>750.5,17,-101.0</point>
         </regions>
     </default>
 </spawns>
