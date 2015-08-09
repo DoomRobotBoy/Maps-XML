@@ -36,7 +36,7 @@
         </hill>
         <hill id="middle-point" name="Middle Hill" capture-time="10s" points="2">
             <capture>
-                <cuboid min="703,10,-69" max="682,13,-80"/>
+                <cuboid min="703,10,-69" max="682,12,-80"/>
             </capture>
             <progress>
                 <cuboid min="690,9,-77" max="695,11,-72"/>
