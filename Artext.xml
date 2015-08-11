@@ -157,18 +157,18 @@ All Armor is locked and unbreakable,tools are also unbreakable
 </killreward>
 <broadcasts>
     <tip after="3s" every="5m">
-        `3`oThere are `6twelve spawners`3`o around the map for use.
+        `3`oThere are `6twelve spawners`3`o around the map for use. Which include `6arrows, health potions, and golden apples.
     </tip>
-    <tip after="4s" every="5m">
-        `3`oWhich include `6arrows, health potions, and golden apples.
+    <tip after="7s" every="5m">
+        `3`oEvery control point is indicated with a beacon.
     </tip>
-    <tip after="10s" every="5m">
+    <tip after="9s" every="5m">
         `3`oThe Middle `6capture point `3`ogives your team `62 points per second.
     </tip>
     <tip after="12s" every="5m">
-        `3`oNext to each spawn there are the `6Tower control points, `3`owhich are indicated by beacons, and reward the team holding them each `61.4 point per second.
+        `3`oNext to each spawn there are the `6Tower control points`3`, which reward the team holding them each `61.4 point per second.
     </tip>
-    <tip after="15s" every="5m">
+    <tip after="14s" every="5m">
         `3`oEach kill gives your team `63 points`3`o, which add up to your total score.
     </tip>
 </broadcasts>
