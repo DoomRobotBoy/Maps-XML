@@ -23,7 +23,7 @@
  Must go through a full percentage cycle twice to capture it from other team
 -->
     <hills capture-rule="lead" neutral-state="true" visual-materials="hill-materials" required="false">
-        <hill id="blue-point" name="Blue Tower Hill" capture-time="12s" points="1.4">
+        <hill id="blue-point" name="Blue Tower Hill" capture-time="12s" points="1.4" initial-owner="blue">
             <capture>
                 <cuboid min="646,16,-78" max="641,17,-71"/>
             </capture>
@@ -45,7 +45,7 @@
                 <cuboid min="690,9,-77" max="695,11,-72"/>
             </captured>
         </hill>
-        <hill id="red-point" name="Red Tower Hill" capture-time="12s" points="1.4">
+        <hill id="red-point" name="Red Tower Hill" capture-time="12s" points="1.4" initial-owner="red">
             <capture>
                 <cuboid min="739,16,-71" max="744,17,-78"/>
             </capture>
