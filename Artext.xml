@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Artext</name>
-<version>1.0.3</version>
+<version>1.0.4</version>
 <objective>
     Hold the hills for points, kills count as well!
 </objective>
@@ -9,12 +9,12 @@
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--     DoomRobotBoy    -->
 </authors>
 <teams>
-    <team id="red" color="Dark Red" max="14" max-overfill="15">Red Team</team>
-    <team id="blue" color="Blue" max="14" max-overfill="15">Blue Team</team>
+    <team id="red" color="Dark Red" max="14" max-overfill="16">Red Team</team>
+    <team id="blue" color="Blue" max="14" max-overfill="16">Blue Team</team>
 </teams>
 <score>
-    <limit>750</limit>
-    <kills>4</kills>
+    <limit>1000</limit>
+    <kills>3</kills>
     <deaths>1</deaths>
 </score>
 <king>
@@ -23,7 +23,7 @@
  Must go through a full percentage cycle twice to capture it from other team
 -->
     <hills capture-rule="lead" neutral-state="true" visual-materials="hill-materials" required="false">
-        <hill id="blue-point" name="Blue Tower Hill" capture-time="15s" points="1.4">
+        <hill id="blue-point" name="Blue Tower Hill" capture-time="12s" points="1.4">
             <capture>
                 <cuboid min="646,16,-78" max="641,17,-71"/>
             </capture>
@@ -34,7 +34,7 @@
                 <cuboid min="646,15,-78" max="641,16,-71"/>
             </captured>
         </hill>
-        <hill id="middle-point" name="Middle Hill" capture-time="10s" points="2">
+        <hill id="middle-point" name="Middle Hill" capture-time="8s" points="2">
             <capture>
                 <cuboid min="703,10,-69" max="682,12,-80"/>
             </capture>
@@ -45,7 +45,7 @@
                 <cuboid min="690,9,-77" max="695,11,-72"/>
             </captured>
         </hill>
-        <hill id="red-point" name="Red Tower Hill" capture-time="15s" points="1.4">
+        <hill id="red-point" name="Red Tower Hill" capture-time="12s" points="1.4">
             <capture>
                 <cuboid min="739,16,-71" max="744,17,-78"/>
             </capture>
@@ -163,10 +163,13 @@ All Armor is locked and unbreakable,tools are also unbreakable
         `3`oWhich include `6arrows, health potions, and golden apples.
     </tip>
     <tip after="10s" every="5m">
-        `3`oThe Middle `6capture point`3`o gives your team `62 points per second.
+        `3`oThe Middle `6capture point `3`ogives your team `62 points per second.
     </tip>
-    <tip after="14s" every="5m">
-        `3`oNext to each spawn there are the `6Tower control points, `3`owhich are indicated by beacons, and reward the team holding them each `61.4 points per second.
+    <tip after="12s" every="5m">
+        `3`oNext to each spawn there are the `6Tower control points, `3`owhich are indicated by beacons, and reward the team holding them each `61.4 point per second.
+    </tip>
+    <tip after="15s" every="5m">
+        `3`oEach kill gives your team `63 points`3`o, which add up to your total score.
     </tip>
 </broadcasts>
 </map>
