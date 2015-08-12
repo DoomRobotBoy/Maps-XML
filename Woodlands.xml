@@ -1,6 +1,6 @@
 <map proto="1.3.6">
 <name>Woodlands</name>
-<version>1.1.3</version>
+<version>1.1.4</version>
 <objective>Leak the enemy core!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomRobotBoy   -->
@@ -190,10 +190,9 @@
     <core name="Core" team="blue" region="blue-core-back"/>
 </cores>
 <modes>
-    <mode after="5s" material="obsidian" show-before="5s"/>
-    <mode after="30m" material="ender stone" show-before="60s"/>
+    <mode after="5m" material="ender stone" show-before="5m"/>
 </modes>
-<!-- Core with renewables incorporated do not count towards the stats; might re-use this after that is fixed
+<!-- Core with renewables incorporated does not count towards the stats; might re-use this after that is fixed
 
 <blockdrops>
     <rule>
@@ -231,12 +230,13 @@
     <item>vine</item>
 </itemremove>
 <broadcasts>
+    <alert after="5s">`cFor the first 5 minutes the cores are obsidian, to give the defenders some time to prepare.</alert>
     <alert after="10s">`c`lCombining classes is illegal!</alert>
     <tip after="15s">There are iron mines behind the core and the wheat fields!</tip>
-    <tip after="5m" every="5m" count="oo">There are iron mines behind the core and the wheat fields!</tip>
-    <alert after="29m">`c`lEndstone cores in 1 minute!</alert>
+    <tip after="20s" every="3m" count="oo">You can only place a break vines in the center ravine.</alert>
+    <tip after="3m" every="3m" count="oo">There are iron mines behind the core and the wheat fields, they can be found within the surface.</tip>
 </broadcasts>
-<maxbuildheight>60</maxbuildheight>
+<maxbuildheight>55</maxbuildheight>
 <gamerule>
     <doFireTick>false</doFireTick>
 </gamerule>
