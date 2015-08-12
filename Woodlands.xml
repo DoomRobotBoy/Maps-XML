@@ -185,7 +185,7 @@
         </regions>
     </default>
 </spawns>
-<cores material="ender stone" leak="3" mode-changes="true">
+<cores material="obsidian" leak="3" mode-changes="true">
     <core name="Core" team="red" region="red-core-back"/>
     <core name="Core" team="blue" region="blue-core-back"/>
 </cores>
@@ -193,7 +193,6 @@
     <mode after="5m" material="ender stone" show-before="5m"/>
 </modes>
 <!-- Core with renewables incorporated does not count towards the stats; might re-use this after that is fixed
-
 <blockdrops>
     <rule>
         <region>
@@ -228,6 +227,8 @@
     <item>iron pickaxe</item>
     <item>leather boots</item>
     <item>vine</item>
+    <item>obsidian</item>
+    <item>ender stone</item>
 </itemremove>
 <broadcasts>
     <alert after="5s">`cFor the first 5 minutes the cores are obsidian, to give the defenders some time to prepare.</alert>
