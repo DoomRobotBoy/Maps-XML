@@ -199,6 +199,7 @@
     <item>leather chestplate</item>
     <item>arrow</item>
     <item>golden apple</item>
+    <item>vine</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
 </map>
