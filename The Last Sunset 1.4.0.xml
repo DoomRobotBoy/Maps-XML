@@ -30,8 +30,8 @@
         <item slot="3" unbreakable="true" enchantment="dig speed:1">iron axe</item>
         <item slot="30">wood spade</item>
         <item slot="4" amount="32" damage="1">cooked fish</item>
-        <item slot="6" amount="32">wood</item>
-        <item slot="7" amount="16">glass</item>
+        <item slot="6" amount="40">wood</item>
+        <item slot="7" amount="8">glass</item>
         <item slot="8" amount="32">vine</item>
         <item slot="28" amount="48">arrow</item>
         <potion duration="3" amplifier="5">damage resistance</potion>
