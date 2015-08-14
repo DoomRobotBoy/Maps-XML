@@ -17,6 +17,7 @@
         `3`oThere is a `6lilypad spawner`3`o in the center that can assist you in offense.
     </tip>
 </broadcasts>
+<respawn delay="4s"/>
 <teams>
     <team id="red" color="dark red" max="22" max-overfill="26">Red</team>
     <team id="blue" color="blue" max="22" max-overfill="26">Blue</team>
