@@ -20,7 +20,7 @@
     <team id="red" color="dark red" max="10">Red</team>
     <team id="blue" color="blue" max="10">Blue</team>
 </teams>
-<respawn delay="9s" auto="true"/>
+<respawn delay="8s" auto="true"/>
 <spawns>
     <spawn team="blue" kit="blue-kit" filter="spawn-condition-regular">
         <regions>
