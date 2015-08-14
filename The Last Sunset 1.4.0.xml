@@ -159,7 +159,7 @@
 <score>
     <limit>2</limit>
 </score>
-<flags permanent="true" pickup-kit="pickup" drop-kit="drop">
+<flags permanent="true" pickup-kit="pickup" drop-kit="drop" drop-on-water="false">
     <flag id="south-red-flag" name="South Red Flag" owner="red" color="red">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
