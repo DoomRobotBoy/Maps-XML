@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>Rogue CTF</name>
-<version>1.0.1</version>
+<version>1.0.2</version>
 <objective>Capture the enemy team's flag 3 times to win!</objective>
 <authors>
     <author uuid="2958ea4c-3501-404e-88cc-12e8632f68cc"/> <!--  NixaniaXi  -->
