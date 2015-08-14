@@ -25,29 +25,19 @@
 </teams>
 <respawn delay="8s" auto="true"/>
 <spawns>
-    <spawn team="blue" kit="blue-kit" filter="spawn-condition-regular">
+    <spawn team="blue" kit="blue-kit">
         <regions>
             <point yaw="45">-252.5,18,288.5</point>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit" filter="spawn-condition">
+    <spawn team="red" kit="red-kit">
         <regions>
-            <point yaw="0">-218.5,14,250.5</point>
-        </regions>
-    </spawn>
-    <spawn team="red" kit="red-kit" filter="spawn-condition-regular">
-        <regions>
-            <point yaw="-135">-184.5,18,182.5</point>
-        </regions>
-    </spawn>
-    <spawn team="red" kit="red-kit" filter="spawn-condition">
-        <regions>
-            <point yaw="180">-218.5,14,220.5</point>
+            <point yaw="-135">-164.5,18,182.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point>-218.5,32,235.5</point>
+            <point>-208.5,32,235.5</point>
         </regions>
     </default>
 </spawns>
@@ -88,10 +78,6 @@
 <filters>
     <team id="red-pickup">red</team>
     <team id="blue-pickup">blue</team>
-    <objective id="spawn-condition">cp</objective>
-    <not id="spawn-condition-regular">
-        <objective>cp</objective>
-    </not>
     <any id="allow-redstone">
         <material>PISTON_STICKY_BASE</material>
         <material>PISTON_EXTENSION</material>
@@ -101,26 +87,19 @@
     </any>
 </filters>
 <regions>
-    <cuboid id="blue-net" min="-171,17,211" max="-172,20,209"/>
-    <cuboid id="red-net" min="-266,17,260" max="-265,20,262"/>
+    <cuboid id="net-to-cap-blue-flag" min="-151,17,211" max="-152,20,209"/>
+    <cuboid id="net-to-cap-red-flag" min="-266,17,260" max="-265,20,262"/>
     <rectangle id="map" min="oo,oo" max="-oo,-oo"/>
     <apply block-break="never" block="allow-redstone" region="map"/>
 </regions>
-<control-points capture-players="lead" incremental="true" show-progress="true" required="false">
-    <control-point name="Center Point" id="cp" capture-time="5s" points="0">
-        <capture><cuboid min="-217,11,237" max="-220,14,234"/></capture>
-        <progress><cuboid min="-217,10,237" max="-220,11,234"/></progress>
-        <captured><cuboid min="-217,10,237" max="-220,11,234"/></captured>
-    </control-point>
-</control-points>
 <flags>
     <flag id="red-flag" color="red" name="Red Flag" owner="red" carry-message="Capture the flag at the red beacon!">
-        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="1.59">-196.5,12,194.5</post>
-        <net region="red-net" points="1"/>
+        <post id="red-post" pickup-filter="blue-pickup" recover-time="10s" respawn-speed="1.86">-176.5,12,194.5</post>
+        <net region="net-to-cap-red-flag" points="1"/>
     </flag>
     <flag id="blue-flag" color="blue" name="Blue Flag" owner="blue" carry-message="Capture the flag at the blue beacon!">
-        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="1.59">-240.5,12,276.5</post>
-        <net region="blue-net" points="1"/>
+        <post id="blue-post" pickup-filter="red-pickup" recover-time="10s" respawn-speed="1.86">-240.5,12,276.5</post>
+        <net region="net-to-cap-blue-flag" points="1"/>
     </flag>
 </flags>
 <timelock>true</timelock>
