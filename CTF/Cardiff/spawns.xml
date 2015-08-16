@@ -1,0 +1,148 @@
+<filters>
+<filter name="only-blue">
+<team>blue</team>
+</filter>
+<filter name="only-red">
+<team>red</team>
+</filter>
+<filter name="blue-2nd" parents="deny-all">
+<allow>
+<objective>blue-2nd</objective>
+</allow>
+</filter>
+<filter name="red-2nd" parents="deny-all">
+<allow>
+<objective>red-2nd</objective>
+</allow>
+</filter>
+<filter name="mid-held" parents="deny-all">
+<allow>
+<objective>mid</objective>
+</allow>
+</filter>
+<not name="spawn1">
+<time>2m</time>
+</not>
+<all name="spawn2">
+<time>2m</time>
+<not>
+<time>4m</time>
+</not>
+</all>
+<all name="spawn3">
+<time>4m</time>
+<not>
+<time>6m</time>
+</not>
+</all>
+<all name="spawn4">
+<time>6m</time>
+<not>
+<time>8m</time>
+</not>
+</all>
+<all name="spawn5">
+<time>8m</time>
+<not>
+<time>10m</time>
+</not>
+</all>
+<all name="spawn6">
+<time>10m</time>
+</all>
+</filters>
+<regions>
+<apply block="deny-all" message="You may not interact with blocks">
+<rectangle name="field" min="-oo,-oo" max="oo,oo"/>
+</apply>
+<apply enter="only-red" message="You may not enter the enemy spawn!">
+<rectangle name="red-spawn" min="-9,75" max="9,83"/>
+</apply>
+<apply enter="only-blue" message="You may not enter the enemy spawn!">
+<rectangle name="blue-spawn" min="-9,-83" max="9,-75"/>
+</apply>
+<union name="red-2nd-owner">
+<cuboid min="-22,6,43" max="-23,18,27"/>
+<cuboid min="-3,8,61" max="-5,11,58"/>
+<cuboid min="-10,8,16" max="-8,12,19"/>
+</union>
+<union name="mid-owner">
+<cuboid min="22,8,-15" max="23,17,3"/>
+<cuboid min="1,10,-32" max="3,13,-29"/>
+<cuboid min="-22,8,15" max="-23,17,-3"/>
+<cuboid min="-1,10,32" max="-3,13,29"/>
+</union>
+<union name="blue-2nd-owner">
+<cuboid min="22,6,-43" max="23,18,-27"/>
+<cuboid min="3,8,-61" max="5,11,-58"/>
+<cuboid min="10,8,-16" max="8,12,-19"/>
+</union>
+</regions>
+<spawns>
+<default kit="obs">
+<regions yaw="-90">
+<cylinder base="0,30,0" radius="1" height="1"/>
+</regions>
+</default>
+<spawn team="red" filter="spawn1" kit="red">
+<regions yaw="0">
+<cylinder base="0,53,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="red" filter="spawn2" kit="red">
+<regions yaw="0">
+<cylinder base="0,89,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="red" filter="spawn3" kit="red">
+<regions yaw="0">
+<cylinder base="0,125,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="red" filter="spawn4" kit="red">
+<regions yaw="0">
+<cylinder base="0,161,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="red" filter="spawn5" kit="red">
+<regions yaw="0">
+<cylinder base="0,197,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="red" filter="spawn6" kit="red">
+<regions yaw="0">
+<cylinder base="0,233,75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn1" kit="blue">
+<regions yaw="180">
+<cylinder base="0,53,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn2" kit="blue">
+<regions yaw="180">
+<cylinder base="0,89,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn3" kit="blue">
+<regions yaw="180">
+<cylinder base="0,125,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn4" kit="blue">
+<regions yaw="180">
+<cylinder base="0,161,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn5" kit="blue">
+<regions yaw="180">
+<cylinder base="0,197,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+<spawn team="blue" filter="spawn6" kit="blue">
+<regions yaw="180">
+<cylinder base="0,233,-75" radius=".3" height="0.5"/>
+</regions>
+</spawn>
+</spawns>
+<respawn auto="true" delay="10s"/>
