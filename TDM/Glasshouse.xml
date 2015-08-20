@@ -1,0 +1,82 @@
+<map proto="1.4.0">
+<name>Glasshouse</name>
+<version>1.0.0</version>
+<objective>Get 100 kills first or the highest amount of kills after 10 minutes.</objective>
+<authors>
+    <author>DoomRobotBoy</author>
+</authors>
+<score>
+    <time>600</time>
+    <limit>100</limit>
+</score>
+<teams>
+    <team color="blue" max="30">Blue Team</team>
+    <team color="dark red" max="30">Red Team</team>
+</teams>
+<kits>
+    <kit name="spawn" force="true">
+        <item slot="0" enchantment="damage all:1">iron sword</item>
+        <item slot="1" enchantment="arrow damage:1">bow</item>
+        <item slot="2" amount="64">cooked beef</item>
+        <item slot="3" amount="2">golden apple</item>
+        <item slot="8">cake</item>
+        <item slot="28" amount="32">arrow</item>
+        <helmet damage="-3000">diamond helmet</helmet>
+        <chestplate damage="-3000">diamond chestplate</chestplate>
+        <leggings damage="-3000">diamond leggings</leggings>
+        <boots damage="-3000">diamond boots</boots>
+        <potion duration="oo" amplifier="1">speed</potion>
+        <potion duration="8" amplifier="3">slow</potion>
+        <potion duration="10" amplifier="10">damage resistance</potion>
+    </kit>
+</kits>
+<spawns>
+    <spawn team="red" kit="spawn" yaw="90">
+        <cylinder base="285.5,13,-437.5" radius="1"/>
+    </spawn>
+    <spawn team="blue" kit="spawn" yaw="-45">
+        <cylinder base="168.5,13,-533.5" radius="1"/>
+    </spawn>
+    <default yaw="-180">
+        <cuboid min="226,76,-488" max="228,76,-486"/>
+    </default>
+</spawns>
+<filters>
+    <filter name="only-cake">
+        <allow>cake</allow>
+    </filter>
+</filters>
+<regions>
+    <apply block="only-cake" message="You may only place or destroy cakes.">
+        <rectangle min="oo,oo" max="-oo,-oo"/>
+    </apply>
+</regions>
+<killreward>
+    <item>cake</item>
+</killreward>
+<killreward>
+    <item amount="16">arrow</item>
+</killreward>
+<killreward>
+    <filter>
+        <kill-streak count="3"/>
+    </filter>
+    <kit force="true" potion-particles="false">
+        <potion duration="oo" amplifier="2">speed</potion>
+    </kit>
+</killreward>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>diamond helmet</item>
+    <item>diamond chestplate</item>
+    <item>diamond leggings</item>
+    <item>diamond boots</item>
+    <item>cake</item>
+    <item>golden apple</item>
+    <item>cooked beef</item>
+    <item>bow</item>
+</itemremove>
+</map>
