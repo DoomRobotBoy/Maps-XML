@@ -85,9 +85,8 @@
             <filter id="deny-banana"/>
         </any>
     </not>
-    <not id="deny-glass-and-water">
+    <not id="deny-water">
         <any>
-            <material>glass</material>
             <material>water</material>
             <material>stationary water</material>
         </any>
@@ -145,12 +144,12 @@
             </negative>
         </region>
     </apply>
-    <apply block-break="deny-glass" message="You may not break white and black glass.">
+    <apply block="deny-glass" message="You may not break white and black glass.">
         <region>
             <region id="map"/>
         </region>
     </apply>
-    <apply block="deny-glass-and-water" region="everywhere"/>
+    <apply block="deny-water" region="everywhere"/>
     <apply block="deny-some-clay">
         <region>
             <region id="map"/>
