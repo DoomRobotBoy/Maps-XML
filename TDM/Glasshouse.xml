@@ -22,7 +22,9 @@
         <item slot="1" unbreakable="true">bow</item>
         <item slot="28" amount="32">arrow</item>
         <chestplate enchantment="protection environmental:2" unbreakable="true">gold chestplate</chestplate>
-        <potion duration="oo">regeneration</potion>
+        <kit id="regen">
+            <potion duration="oo">regeneration</potion>
+        </kit>
     </kit>
     <kit id="light-kit">
         <helmet color="FFFFFF" unbreakable="true">leather helmet</helmet>
@@ -63,27 +65,46 @@
 <filters>
     <team id="light-only">light</team>
     <team id="dark-only">dark</team>
+    <not id="only-without-flag">
+        <any>
+            <carrying-flag>light-flag</carrying-flag>
+            <carrying-flag>dark-flag</carrying-flag>
+        </any>
+    </not>
 </filters>
 <regions>
     <union id="remove-regen">
-        <cuboid id="black-south-entrance" min="-35,33,7" max="-37,38,8"/>
-        <cuboid id="black-east-entrance" min="7,33,-35" max="8,38,-37"/>
-        <cuboid id="black-north-entrance" min="36,33,-6" max="38,38,-7"/>
-        <cuboid id="black-west-entrance" min="-6,33,36" max="-7,38,38"/>
+        <cuboid id="light-south-entrance" min="-35,33,7" max="-37,38,6"/>
+        <cuboid id="light-east-entrance" min="7,33,-35" max="6,38,-37"/>
+        <cuboid id="black-north-entrance" min="36,33,-6" max="38,38,-5"/>
+        <cuboid id="black-west-entrance" min="-6,33,36" max="-5,38,38"/>
     </union>
-    <cuboid id="light-flag-net" min="" max=""/>
-    <cuboid id="dark-flag-net" min="" max=""/>
+    <union id="apply-regen">
+        <cuboid id="light-south-entrance" min="-35,33,9" max="-37,38,8"/>
+        <cuboid id="light-east-entrance" min="9,33,-35" max="8,38,-37"/>
+        <cuboid id="black-north-entrance" min="36,33,-8" max="38,38,-7"/>
+        <cuboid id="black-west-entrance" min="-8,33,36" max="-7,38,38"/>
+    </union>
+    <union id="light-flag-net">
+        <cuboid min="-22,32,-35" max="-24,35,-33"/>
+        <cuboid min="-35,32,-22" max="-33,35,-34"/>
+    </union>
+    <union id="dark-flag-net">
+        <cuboid min="34,32,23" max="36,35,25"/>
+        <cuboid min="23,32,34" max="25,35,36"/>
+    </union>
     <apply block="never" message="You may not modify blocks!" region="everywhere"/>
     <apply kit="no-regen" region="remove-regen" message="Your regeneration has been removed because you entered the flag hallway."/>
+    <apply kit="regen" filter="only-without-flag" region="apply-regen" message="Your regeneration has been restored because you left the flag hallway."/>
 </regions>
 <flags>
 <!-- Light Flag -->
     <post id="light-flag-post" pickup-filter="dark-only" yaw="-45">-20.5,38,-20.5/post>
-    <flag id="light-flag" name="Light Flag" color="silver" post="dark-flag-post" pickup-kit="no-regen"/>
+    <flag id="light-flag" name="Light Flag" color="silver" post="dark-flag-post" pickup-kit="no-regen" drop-kit="regen"/>
     <net post="light-flag-post" points="10" region="light-flag-net" capture-filter="dark-only"/>
 <!-- Dark Flag -->
     <post id="dark-flag-post" pickup-filter="light-only" yaw="135">21.5,38,21.5</post>
-    <flag id="dark-flag" name="Dark Flag" color="gray" post="dark-flag-post" pickup-kit="no-regen"/>
+    <flag id="dark-flag" name="Dark Flag" color="gray" post="dark-flag-post" pickup-kit="no-regen" drop-kit="regen"/>
     <net post="dark-flag-post" points="10" region="dark-flag-net" capture-filter="light-only"/>
 </flags>
 <itemremove>
