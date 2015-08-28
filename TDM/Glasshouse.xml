@@ -25,14 +25,17 @@
         <potion duration="oo">regeneration</potion>
     </kit>
     <kit id="light-kit">
-        <helmete color="FFFFFF" unbreakable="true">leather helmet</helmet>
-        <leggingse color="FFFFFF" unbreakable="true">leather leggings</leggings>
-        <bootse color="FFFFFF" unbreakable="true">leather boots</boots>
+        <helmet color="FFFFFF" unbreakable="true">leather helmet</helmet>
+        <leggings color="FFFFFF" unbreakable="true">leather leggings</leggings>
+        <boots color="FFFFFF" unbreakable="true">leather boots</boots>
     </kit>
     <kit id="dark-kit">
-        <helmete color="191919" unbreakable="true">leather helmet</helmet>
-        <leggingse color="191919" unbreakable="true">leather leggings</leggings>
-        <bootse color="191919" unbreakable="true">leather boots</boots>
+        <helmet color="191919" unbreakable="true">leather helmet</helmet>
+        <leggings color="191919" unbreakable="true">leather leggings</leggings>
+        <boots color="191919" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="no-regen">
+        <potion duration="0">regeneration</potion>
     </kit>
 </kits>
 <killreward>
@@ -41,14 +44,14 @@
 <spawns>
     <spawn team="light" kit="light-kit">
         <regions>
-            <point yaw=""></point>
-            <point yaw=""></point>
+            <point yaw="0">-23,32,-34</point>
+            <point yaw="-90">-34,32,-23</point>
         </regions>
     </spawn>
     <spawn team="dark" kit="dark-kit">
         <regions>
-            <point yaw=""></point>
-            <point yaw=""></point>
+            <point yaw="90">35,32,24</point>
+            <point yaw="180">24,32,35</point>
         </regions>
     </spawn>
     <default>
@@ -57,9 +60,23 @@
         </regions>
     </default>
 </spawns>
+<filters>
+    <team id="light-only">light</team>
+    <team id="dark-only">dark</team>
+</filters>
 <regions>
     <apply block="never" message="You may not modify blocks!" region="everywhere"/>
 </regions>
+<flags>
+<!-- Light Flag -->
+    <post id="light-flag-post" pickup-filter="dark-only" yaw="-45">-20.5,38,-20.5/post>
+    <flag id="light-flag" name="Light Flag" color="silver" post="dark-flag-post" pickup-kit="no-regen"/>
+    <net post="light-flag-post" points="10" region="light-flag-net" capture-filter="dark-only"/>
+<!-- Dark Flag -->
+    <post id="dark-flag-post" pickup-filter="light-only" yaw="135">21.5,38,21.5</post>
+    <flag id="dark-flag" name="Dark Flag" color="gray" post="dark-flag-post" pickup-kit="no-regen"/>
+    <net post="dark-flag-post" points="10" region="dark-flag-net" capture-filter="light-only"/>
+</flags>
 <itemremove>
     <item>leather helmet</item>
     <item>gold chestplate</item>
