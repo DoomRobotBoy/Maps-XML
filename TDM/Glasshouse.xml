@@ -1,82 +1,77 @@
 <map proto="1.4.0">
 <name>Glasshouse</name>
 <version>1.0.0</version>
-<objective>Get 100 kills first or the highest amount of kills after 10 minutes.</objective>
+<objective>Be the team with the most points after 12 minutes.</objective>
 <authors>
-    <author>DoomRobotBoy</author>
+    <author uuid=""/> <!-- hive_raven -->
 </authors>
+<contributors>
+    <contributor contribution="XML" uuid=""/> <!-- DoomRobotBoy -->
+</contributors>
+<time>12m</time>
 <score>
-    <time>600</time>
-    <limit>100</limit>
+    <kills>1</kills>
 </score>
 <teams>
-    <team color="blue" max="30">Blue Team</team>
-    <team color="dark red" max="30">Red Team</team>
+    <team id="light" color="white" max="8">Light</team>
+    <team id="dark" color="black" max="8">Dark</team>
 </teams>
 <kits>
-    <kit name="spawn" force="true">
-        <item slot="0" enchantment="damage all:1">iron sword</item>
-        <item slot="1" enchantment="arrow damage:1">bow</item>
-        <item slot="2" amount="64">cooked beef</item>
-        <item slot="3" amount="2">golden apple</item>
-        <item slot="8">cake</item>
+    <kit id="spawn" force="true">
+        <item slot="0" unbreakable="true">stone sword</item>
+        <item slot="1" unbreakable="true">bow</item>
         <item slot="28" amount="32">arrow</item>
-        <helmet damage="-3000">diamond helmet</helmet>
-        <chestplate damage="-3000">diamond chestplate</chestplate>
-        <leggings damage="-3000">diamond leggings</leggings>
-        <boots damage="-3000">diamond boots</boots>
-        <potion duration="oo" amplifier="1">speed</potion>
-        <potion duration="8" amplifier="3">slow</potion>
-        <potion duration="10" amplifier="10">damage resistance</potion>
+        <chestplate enchantment="protection environmental:2" unbreakable="true">gold chestplate</chestplate>
+        <potion duration="oo">regeneration</potion>
+    </kit>
+    <kit id="light-kit">
+        <helmete color="FFFFFF" unbreakable="true">leather helmet</helmet>
+        <leggingse color="FFFFFF" unbreakable="true">leather leggings</leggings>
+        <bootse color="FFFFFF" unbreakable="true">leather boots</boots>
+    </kit>
+    <kit id="dark-kit">
+        <helmete color="191919" unbreakable="true">leather helmet</helmet>
+        <leggingse color="191919" unbreakable="true">leather leggings</leggings>
+        <bootse color="191919" unbreakable="true">leather boots</boots>
     </kit>
 </kits>
+<killreward>
+    <item amount="5">arrow</item>
+</killreward>
 <spawns>
-    <spawn team="red" kit="spawn" yaw="90">
-        <cylinder base="285.5,13,-437.5" radius="1"/>
+    <spawn team="light" kit="light-kit">
+        <regions>
+            <point yaw=""></point>
+            <point yaw=""></point>
+        </regions>
     </spawn>
-    <spawn team="blue" kit="spawn" yaw="-45">
-        <cylinder base="168.5,13,-533.5" radius="1"/>
+    <spawn team="dark" kit="dark-kit">
+        <regions>
+            <point yaw=""></point>
+            <point yaw=""></point>
+        </regions>
     </spawn>
-    <default yaw="-180">
-        <cuboid min="226,76,-488" max="228,76,-486"/>
+    <default>
+        <regions>
+            <point yaw=""></point>
+        </regions>
     </default>
 </spawns>
-<filters>
-    <filter name="only-cake">
-        <allow>cake</allow>
-    </filter>
-</filters>
 <regions>
-    <apply block="only-cake" message="You may only place or destroy cakes.">
-        <rectangle min="oo,oo" max="-oo,-oo"/>
-    </apply>
+    <apply block="never" message="You may not modify blocks!" region="everywhere"/>
 </regions>
-<killreward>
-    <item>cake</item>
-</killreward>
-<killreward>
-    <item amount="16">arrow</item>
-</killreward>
-<killreward>
-    <filter>
-        <kill-streak count="3"/>
-    </filter>
-    <kit force="true" potion-particles="false">
-        <potion duration="oo" amplifier="2">speed</potion>
-    </kit>
-</killreward>
-<toolrepair>
-    <tool>iron sword</tool>
-    <tool>bow</tool>
-</toolrepair>
 <itemremove>
-    <item>diamond helmet</item>
-    <item>diamond chestplate</item>
-    <item>diamond leggings</item>
-    <item>diamond boots</item>
-    <item>cake</item>
-    <item>golden apple</item>
-    <item>cooked beef</item>
+    <item>leather helmet</item>
+    <item>gold chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>stone sword</item>
     <item>bow</item>
 </itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<gamerules>
+    <naturalRegeneration>false</naturalRegeneration>
+</gamerules>
 </map>
