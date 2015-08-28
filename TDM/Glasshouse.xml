@@ -65,7 +65,16 @@
     <team id="dark-only">dark</team>
 </filters>
 <regions>
+    <union id="remove-regen">
+        <cuboid id="black-south-entrance" min="-35,33,7" max="-37,38,8"/>
+        <cuboid id="black-east-entrance" min="7,33,-35" max="8,38,-37"/>
+        <cuboid id="black-north-entrance" min="36,33,-6" max="38,38,-7"/>
+        <cuboid id="black-west-entrance" min="-6,33,36" max="-7,38,38"/>
+    </union>
+    <cuboid id="light-flag-net" min="" max=""/>
+    <cuboid id="dark-flag-net" min="" max=""/>
     <apply block="never" message="You may not modify blocks!" region="everywhere"/>
+    <apply kit="no-regen" region="remove-regen" message="Your regeneration has been removed because you entered the flag hallway."/>
 </regions>
 <flags>
 <!-- Light Flag -->
