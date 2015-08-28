@@ -89,6 +89,9 @@
             <filter id="deny-banana"/>
         </any>
     </not>
+    <not id="deny-normal-glass">
+        <material>glass</material>
+    </not>
     <not id="deny-some-clay">
         <any>
             <material>stained clay:5</material>
@@ -147,6 +150,7 @@
             <region id="map"/>
         </region>
     </apply>
+    <apply block="glass" region="everywhere"/>
     <apply block="deny-some-clay">
         <region>
             <region id="map"/>
