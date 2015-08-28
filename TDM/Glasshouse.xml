@@ -3,10 +3,10 @@
 <version>1.0.0</version>
 <objective>Be the team with the most points after 12 minutes.</objective>
 <authors>
-    <author uuid=""/> <!-- hive_raven -->
+    <author uuid="6f21f5e3-544b-48a9-9670-63aec36038c4"/> <!-- hive_raven -->
 </authors>
 <contributors>
-    <contributor contribution="XML" uuid=""/> <!-- DoomRobotBoy -->
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomRobotBoy -->
 </contributors>
 <time>12m</time>
 <score>
