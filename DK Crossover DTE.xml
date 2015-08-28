@@ -1,6 +1,6 @@
 <map proto="1.4.0">
 <name>DK Crossovers DTE</name>
-<version>1.3.7</version>
+<version>1.3.8</version>
 <objective>Destroy 70% of the enemies side!</objective>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomRobotBoy  -->
@@ -18,20 +18,16 @@
 <kits>
     <kit id="spawn">
         <item slot="0">iron sword</item>
-        <item slot="1" enchantment="dig speed:2">iron pickaxe</item>
-        <item slot="27" enchantment="arrow damage:1" attributes="generic.movementSpeed:base:-0.10">bow</item>
+        <item slot="1" enchantment="arrow damage:1" attributes="generic.movementSpeed:base:-0.10">bow</item>
         <item slot="28" amount="48">arrow</item>
-        <item slot="2" amount="64">vine</item>
-        <item slot="29" amount="16">ladder</item>
-        <item slot="20" amount="1">dispenser</item>
-        <item slot="4" amount="16">stone button</item>
-        <item slot="31" amount="16">wood plate</item>
-        <item slot="22" amount="16">lever</item>
-        <item slot="13" amount="64">wood step</item>
-        <item slot="5">water bucket</item>
-        <item slot="32">water bucket</item>
-        <item slot="23">water bucket</item>
-        <item slot="14">water bucket</item>
+        <item slot="2" enchantment="dig speed:2">iron pickaxe</item>
+        <item slot="29" amount="1">dispenser</item>
+        <item slot="3" amount="64">vine</item>
+        <item slot="30" amount="16">ladder</item>
+        <item slot="5" amount="16">stone button</item>
+        <item slot="32" amount="16">wood plate</item>
+        <item slot="23" amount="16">lever</item>
+        <item slot="14" amount="64">wood step</item>
         <item slot="6" amount="64">redstone</item>
         <item slot="33" amount="16">redstone block</item>
         <item slot="24" amount="16">redstone torch on</item>
@@ -47,18 +43,18 @@
         <potion duration="oo" amplifier="1">night vision</potion>
     </kit>
     <kit id="blue-kit" parents="spawn">
-        <item slot="3" amount="64" damage="11">stained clay</item>
-        <item slot="30" amount="64" damage="11">stained clay</item>
-        <item slot="21" amount="64" damage="11">stained clay</item>
+        <item slot="4" amount="64" damage="11">stained clay</item>
+        <item slot="31" amount="64" damage="11">stained clay</item>
+        <item slot="22" amount="64" damage="11">stained clay</item>
         <helmet color="334CB2" damage="-3000">leather helmet</helmet>
         <chestplate enchantment="protection explosions:3" damage="-3000">chainmail chestplate</chestplate>
         <leggings damage="-3000">iron leggings</leggings>
         <boots color="334CB2" enchantment="protection fall:1" damage="-3000">leather boots</boots>
     </kit>
     <kit id="green-kit" parents="spawn">
-        <item slot="3" amount="64" damage="13">stained clay</item>
-        <item slot="30" amount="64" damage="13">stained clay</item>
-        <item slot="21" amount="64" damage="13">stained clay</item>
+        <item slot="4" amount="64" damage="13">stained clay</item>
+        <item slot="31" amount="64" damage="13">stained clay</item>
+        <item slot="22" amount="64" damage="13">stained clay</item>
         <helmet color="667F33" damage="-3000">leather helmet</helmet>
         <chestplate enchantment="protection explosions:3">chainmail chestplate</chestplate>
         <leggings damage="-3000">iron leggings</leggings>
