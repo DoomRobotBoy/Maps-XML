@@ -17,7 +17,10 @@
     <team id="dark" color="black" max="8">Dark</team>
 </teams>
 <kits>
-    <kit id="spawn" force="true">
+    <kit id="obs">
+        <potion duration="oo">night vision</potion>
+    </kit>
+    <kit id="spawn" force="true" parents="obs">
         <item slot="0" unbreakable="true">stone sword</item>
         <item slot="1" unbreakable="true">bow</item>
         <item slot="28" amount="32">arrow</item>
@@ -58,7 +61,7 @@
     </spawn>
     <default>
         <regions>
-            <point yaw=""></point>
+            <point yaw="-45">-25.5,38.5,-25.5</point>
         </regions>
     </default>
 </spawns>
