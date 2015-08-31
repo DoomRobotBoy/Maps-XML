@@ -145,13 +145,15 @@
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
-        <regions yaw="-90">
-            <cylinder base="-958.5,4,-393.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="0">-958.5,4,-393.5</point>
+            <point yaw="180">-958.5,4,-393.5</point>
         </regions>
     </spawn>
     <spawn team="blue" kit="blue-kit">
-        <regions yaw="90">
-            <cylinder base="-816.5,4,-393.5" radius="1" height="0"/>
+        <regions>
+            <point yaw="0">-816.5,4,-393.5</point>
+            <point yaw="180">-816.5,4,-393.5</point>
         </regions>
     </spawn>
     <default kit="nv">
