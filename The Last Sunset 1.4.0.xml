@@ -176,7 +176,7 @@
         </carry-message>
         <post owner="red" pickup-filter="only-blue" recover-time="20s">-964.5,5,-447.5</post>
     </flag>
-    <net points="1" region="blue-net" flags="south-red-flag north-red-flag"/>
+    <net points="1" region="blue-net" flags="south-red-flag north-red-flag" respawn-together="true"/>
     <flag id="south-blue-flag" name="South Blue Flag" owner="blue" color="blue">
         <carry-message>
             You have the flag! Return it to the island `6`lbehind spawn
@@ -189,7 +189,7 @@
         </carry-message>
         <post owner="blue" pickup-filter="only-red" recover-time="20s">-810.5,5,-447.5</post>
     </flag>
-    <net points="1" region="red-net" flags="south-blue-flag north-blue-flag"/>
+    <net points="1" region="red-net" flags="south-blue-flag north-blue-flag" respawn-together="true"/>
 </flags>
 <toolrepair>
     <tool>stone sword</tool>
