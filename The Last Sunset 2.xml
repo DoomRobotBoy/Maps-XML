@@ -68,11 +68,6 @@
     <item damage="16385" name="`cSplash Potion of Regeneration" potions="regeneration:40:3:false">potion</item>
 </killreward>
 <filters>
-    <filter name="no-void">
-        <not>
-            <void/>
-        </not>
-    </filter>
     <filter name="deny-water">
         <not>
             <any>
@@ -121,6 +116,9 @@
     <cylinder name="red-net" base="-749.5,20,-393.5" radius="3" height="2"/>
     <cylinder name="blue-net" base="-991.5,20,-393.5" radius="3" height="2"/>
 <!--     Applied     -->
+    <apply block="deny-all" message="You may not modify the void area!">
+        <circle base="-870.5,62,-393.5" radius="140"/>
+    </apply>
     <apply block="deny-all" message="You may not break the area around the flag post.">
         <region name="all-flag-posts-y"/>
     </apply>
@@ -135,9 +133,6 @@
     </apply>
     <apply block="deny-all" message="You may not place blocks where the flag will respawn!">
         <region name="all-flag-posts-y"/>
-    </apply>
-    <apply block="no-void" message="You may not modify the void area!">
-        <region name="map"/>
     </apply>
 </regions>
 <spawns>
