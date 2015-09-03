@@ -21,6 +21,9 @@
     <tip after="10s">
         `3`oYou can't place water in a 5-block radius around the flag(s).
     </tip>
+    <tip after="12s">
+        `3`oEvery 4th kill you will get one instant-igniting piece of tnt.
+    </tip>
 </broadcasts>
 <teams>
     <team id="red" color="dark red" max="22" max-overfill="26">Red Team</team>
