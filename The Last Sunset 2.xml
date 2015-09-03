@@ -74,7 +74,7 @@
 </killreward>
 <killreward>
     <filter>
-        <kill-streak count="4" repeat="true"/>
+        <kill-streak count="3" repeat="true"/>
     </filter>
     <item>tnt</item>
 </killreward>
