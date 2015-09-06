@@ -10,131 +10,89 @@
     <contributor contribution="Feedback" uuid="f690a591-348b-482e-a18d-7779d0c0a28c"/> <!--   mitchiii_   -->
     <contributor contribution="Trees" uuid="fe3608b7-d105-4029-8800-34b3147065b6"/> <!--   rockymine   -->
     <contributor contribution="Server Host" uuid="c2848337-b526-4db0-9130-fabd0a5c7cfb"/> <!--   Rasta_Jol   -->
-    <contributor contribution="Statue" uuid=""/> <!--   Avaleer   -->
-    <contributor contribution="Statue" uuid=""/> <!--   Bestaquiio   -->
-    <contributor contribution="Statue" uuid=""/> <!--   Diamyx   -->
-    <contributor contribution="Statue" uuid=""/> <!--   IAMPHIL   -->
-    <contributor contribution="Statue" uuid=""/> <!--   McMuffinn   -->
-    <contributor contribution="Statue" uuid=""/> <!--   Noel   -->
-    <contributor contribution="Statue" uuid=""/> <!--   TT1   -->
-    <contributor contribution="Statue" uuid=""/> <!--   Yoyo_   -->
+    <contributor contribution="Statue" uuid="e3fdaea1-8a19-4378-8ad7-41cf63f5d141"/> <!--   Avaleer   -->
+    <contributor contribution="Statue" uuid="130ba94e-5926-4147-a5d0-65c7f9c2806a"/> <!--   Bestaquiio   -->
+    <contributor contribution="Statue" uuid="f70b7a8f-93b2-480f-9d54-88e21485a042"/> <!--   Diamyx   -->
+    <contributor contribution="Statue" uuid="cc2d361c-9779-4d1e-abba-3e9a0dbb2544"/> <!--   IAMPHIL   -->
+    <contributor contribution="Statue" uuid="89c8b6f8-3dd2-49c4-ab5f-b109fb32d5d1"/> <!--   McMuffinn   -->
+    <contributor contribution="Statue" uuid="1696b5e2-2a7d-4dd0-a67e-45ebdd19359c"/> <!--   Noel   -->
+    <contributor contribution="Statue" uuid="9e285503-119d-409c-82d5-9fa9cfa72e05"/> <!--   TT1   -->
+    <contributor contribution="Statue" uuid="07fa10c6-f564-4630-861e-fe134ae27527"/> <!--   Yoyo_   -->
     <contributor contribution="Statue">Orpheus</contributor>
 </contributors>
 <teams>
-    <team id="red" color="dark red" max="40" max-overfill="50">Red</team>
-    <team id="blue" color="blue" max="40" max-overfill="50">Blue</team>
+    <team id="red" color="dark red" max="32" max-overfill="36">Red</team>
+    <team id="blue" color="blue" max="32" max-overfill="36">Blue</team>
 </teams>
 <kits>
     <kit id="spawn">
         <item slot="0" material="stone sword"/>
-        <item slot="1" material="bow"/>
+        <item slot="1" unbreakable="true" material="bow"/>
         <item slot="28" amount="64" material="arrow"/>
         <item slot="2" material="diamond pickaxe"/>
         <item slot="3" material="iron axe"/>
         <item slot="4" material="stone spade"/>
-        <item slot="5" amount="32 material="wood"/>
+        <item slot="5" amount="32" material="wood"/>
         <item slot="6" amount="64" material="cooked beef"/>
+        <potion duration="2" amplifier="5">damage resistance</potion>
     </kit>
-    <kit id="red-kit">
-        <chestplate unbreakable="true" color="" material="leather chestplate"/>
-        <boots unbreakable="true" color="" material="leather boots"/>
+    <kit id="red-kit" parents="spawn">
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <boots unbreakable="true" color="993333" material="leather boots"/>
     </kit>
-    <kit id="blue-kit">
+    <kit id="blue-kit" parents="spawn">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <boots unbreakable="true" color="334CB2" material="leather boots"/>
     </kit>
 </kits>
 <filters>
-    <filter name="only-red">
-        <team>red</team>
-    </filter>
-    <filter name="only-blue">
-        <team>blue</team>
-    </filter>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
 </filters>
 <regions>
-    <rectangle name="map" min="241,203" max="380,615"/>
-    <cuboid name="map-above-60" min="241,61,203" max="380,94,615"/>
-    <rectangle name="vines-gap" min="380,426" max="241,392"/>
-    <union name="cores">
-        <cuboid name="red-core-back" min="338,39,283" max="329,48,274"/>
-        <cuboid name="blue-core-back" min="283,39,535" max="292,48,544"/>
-    </union>
-    <!-- Unused for the moment
-    <union name="front-cores">
-        <cuboid name="red-core-front" min="272,41,345" max="263,50,336"/>
-        <cuboid name="blue-core-front" min="349,41,473" max="358,50,482"/>
-    </union> -->
-    <cylinder name="red-barrier" base="255.5,68,215.5" radius="3" height="6"/>
-    <cylinder name="blue-barrier" base="365.5,68,602.5" radius="3" height="6"/>
-<!--  Applied  -->
-    <apply kit="spawn-drop">
-        <block>255.5,69,215.5</block>
-        <block>365.5,69,602.5</block>
-    </apply>
-    <apply block="only-vines">
-        <region name="vines-gap"/>
-    </apply>
-    <apply block="deny-all">
-        <region name="map-above-60"/>
-    </apply>
-    <apply block="deny-all" message="You may not place blocks in the void area!">
-        <negative>
-            <region name="map"/>
-        </negative>
-    </apply>
-    <apply enter="deny-all" message="You may not re-enter this spawn!">
-        <region name="red-barrier"/>
-        <region name="blue-barrier"/>
+    <apply block="never" message="You may not build in the void!">
+        <region>
+            <negative>
+                <rectangle min="-201,-185" max="-389,-74"/>
+            </negative>
+        </region>
     </apply>
 </regions>
-<spawns safe="true">
-    <spawn team="red" kit="spawn">
-        <regions yaw="-45">
-            <cylinder base="255.5,69,215.5" radius="1" height="0"/>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="-90">-387,37,-153</point>
         </regions>
     </spawn>
-    <spawn team="blue" kit="spawn">
-        <regions yaw="135">
-            <cylinder base="365.5,69,602.5" radius="1" height="0"/>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="90">-203,37,-106</point>
         </regions>
     </spawn>
     <default>
-        <regions yaw="90">
-            <cuboid min="397,37,410" max="401,37,407"/>
+        <regions>
+            <point yaw="180">-295.5,83,-54.5</point>
         </regions>
     </default>
 </spawns>
-<cores material="obsidian" leak="3" mode-changes="true">
-    <core name="Core" team="red" region="red-core-back"/>
-    <core name="Core" team="blue" region="blue-core-back"/>
-</cores>
-<modes>
-    <mode after="5m" material="ender stone" show-before="5m"/>
-</modes>
+<destroyables name="Monument" materials="obsidian" completion="100%">
+    <destroyable owner="red">
+       <region><cuboid min="-364,46,-124" max="-366,48,-126"/></region>
+    </destroyable>
+    <destroyable owner="blue">
+       <region><cuboid min="-364,46,-124" max="-366,48,-126"/></region>
+    </destroyable>
+</destroyables>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+    <tool>stone spade</tool>
+</toolrepair>
 <itemremove>
-    <item>iron helmet</item>
-    <item>iron chestplate</item>
-    <item>iron leggings</item>
-    <item>iron boots</item>
-    <item>leather helmet</item>
-    <item>leather chestplate</item>
-    <item>chainmail leggings</item>
-    <item>gold boots</item>
-    <item>wood</item>
-    <item>apple</item>
-    <item>bow</item>
-    <item>iron sword</item>
-    <item>iron axe</item>
-    <item>diamond pickaxe</item>
-    <item>arrow</item>
-    <item>flint</item>
-    <item>bread</item>
-    <item>glass</item>
-    <item>web</item>
-    <item>iron pickaxe</item>
-    <item>leather boots</item>
-    <item>vine</item>
     <item>obsidian</item>
-    <item>ender stone</item>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
 </itemremove>
 <maxbuildheight>130</maxbuildheight>
 <timelock>on</timelock>
