@@ -45,16 +45,21 @@
         <boots unbreakable="true" color="334CB2" material="leather boots"/>
     </kit>
 </kits>
-<filters>
-    <team id="only-red">red</team>
-    <team id="only-blue">blue</team>
-</filters>
 <regions>
     <apply block="never" message="You may not build in the void!">
         <region>
             <negative>
                 <rectangle min="-201,-185" max="-389,-74"/>
             </negative>
+        </region>
+    </apply>
+    <union id="spawns">
+        <cuboid id="red-spawn" min="-383,36,-155" max="-389,41,-150"/>
+        <cuboid id="blue-spawn" min="-207,36,-103" max="-201,41,-109"/>
+    </union>
+    <apply block="never" message="You may not modify the spawns!">
+        <region>
+            <region id="spawns"/>
         </region>
     </apply>
 </regions>
@@ -80,7 +85,7 @@
        <region><cuboid min="-364,46,-124" max="-366,48,-126"/></region>
     </destroyable>
     <destroyable owner="blue">
-       <region><cuboid min="-364,46,-124" max="-366,48,-126"/></region>
+       <region><cuboid min="-226,46,-135" max="-244,48,-133"/></region>
     </destroyable>
 </destroyables>
 <toolrepair>
