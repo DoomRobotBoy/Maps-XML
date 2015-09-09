@@ -1,0 +1,75 @@
+<map proto="1.4.0">
+<name>Roam</name>
+<version>1.0.0</version>
+<objective>Leak the enemy core!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomRobotBoy   -->
+</authors>
+<contributors>
+    <contributor uuid="2a289d2a-d970-49c5-9a6c-01fc0264e317" contribution="Build Help"/> <!--   StealthMedia   -->
+</contributors>
+<rules>
+    <rule>Combining classes is illegal!</rule>
+</rules>
+<teams>
+    <team id="red" color="dark red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
+</teams>
+<filters>
+    <team id="red-only">blue</team>
+    <team id="blue-only">red</team>
+</filters>
+<regions>
+    <cuboid id="red-core" min="26,7,-62" max="31,12,-67"/>
+    <cuboid id="blue-core" min="-31,7,63" max="-36,12,68"/>
+    <union id="spawns">
+        <rectangle id="red-spawn" min="" max=""/>
+        <rectangle id="blue-spawn" min="" max=""/>
+    </union>
+<!-- Applied -->
+    <apply block="never" message="You may not modify the void area!">
+        <region>
+            <negative>
+                <rectangle min="" max=""/>
+            </negative>
+        </region>
+    </apply>
+    <apply block="never" message="You may not modify the spawns!">
+        <region>
+            <region id="spawns"/>
+        </region>
+    </apply>
+    <apply enter="red-only" message="You may not enter the enemy spawns!">
+        <region>
+            <region id="red-spawn"/>
+        </region>
+    </apply>
+    <apply enter="blue-only" message="You may not enter the enemy spawns!">
+        <region>
+            <region id="blue-spawn"/>
+        </region>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red">
+        <regions>
+            <point yaw="0">-38.5,66,-76.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue">
+        <regions>
+            <point yaw="180">33.5,66,77.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="-90">-53.5,41,0.5</point>
+        </regions>
+    </default>
+</spawns>
+<cores material="gold block" leak="7">
+    <core name="Core" team="red" region="red-core"/>
+    <core name="Core" team="blue" region="blue-core"/>
+</cores>
+<maxbuildheight>30</maxbuildheight>
+</map>
