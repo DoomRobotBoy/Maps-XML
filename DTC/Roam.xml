@@ -8,9 +8,6 @@
 <contributors>
     <contributor uuid="2a289d2a-d970-49c5-9a6c-01fc0264e317" contribution="Build Help"/> <!--   StealthMedia   -->
 </contributors>
-<rules>
-    <rule>Combining classes is illegal!</rule>
-</rules>
 <teams>
     <team id="red" color="dark red" max="10">Red</team>
     <team id="blue" color="blue" max="10">Blue</team>
@@ -23,14 +20,14 @@
     <cuboid id="red-core" min="26,7,-62" max="31,12,-67"/>
     <cuboid id="blue-core" min="-31,7,63" max="-36,12,68"/>
     <union id="spawns">
-        <rectangle id="red-spawn" min="" max=""/>
-        <rectangle id="blue-spawn" min="" max=""/>
+        <rectangle id="red-spawn" min="-32,-83" max="-45,-70"/>
+        <rectangle id="blue-spawn" min="27,84" max="40,71"/>
     </union>
 <!-- Applied -->
     <apply block="never" message="You may not modify the void area!">
         <region>
             <negative>
-                <rectangle min="" max=""/>
+                <rectangle min="-44,82" max="40,-81"/>
             </negative>
         </region>
     </apply>
@@ -39,12 +36,12 @@
             <region id="spawns"/>
         </region>
     </apply>
-    <apply enter="red-only" message="You may not enter the enemy spawns!">
+    <apply enter="red-only" message="You may not enter the enemy spawn!">
         <region>
             <region id="red-spawn"/>
         </region>
     </apply>
-    <apply enter="blue-only" message="You may not enter the enemy spawns!">
+    <apply enter="blue-only" message="You may not enter the enemy spawn!">
         <region>
             <region id="blue-spawn"/>
         </region>
