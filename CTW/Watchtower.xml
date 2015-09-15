@@ -52,8 +52,8 @@
 </filters>
 <regions>
     <union id="spawns">
-        <rectangle id="red-spawn" min="227,111" max="258,126"/>
-        <rectangle id="blue-spawn" min="258,6" max="227,-9"/>
+        <rectangle id="red-spawn" min="258,6" max="227,-9"/>
+        <rectangle id="blue-spawn" min="227,111" max="258,126"/>
     </union>
     <union id="cyan-wool-room">
         <cuboid min="205,0,18" max="194,14,13"/>
