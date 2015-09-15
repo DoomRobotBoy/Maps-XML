@@ -41,12 +41,37 @@
     <not id="not-void">
         <void/>
     </not>
+    <all id="only-cobweb-red">
+        <material>web</material>
+        <team>red</team>
+    </all>
+    <all id="only-cobweb-blue">
+        <material>web</material>
+        <team>blue</team>
+    </all>
 </filters>
 <regions>
     <union id="spawns">
         <rectangle id="red-spawn" min="227,111" max="258,126"/>
         <rectangle id="blue-spawn" min="258,6" max="227,-9"/>
     </union>
+    <union id="cyan-wool-room">
+        <cuboid min="205,0,18" max="194,13"/>
+        <cuboid min="204,0,20" max="194,13"/>
+        <cuboid min="203,0,21" max="194,13"/>
+        <cuboid min="202,0,22" max="194,13"/>
+        <cuboid min="201,0,23" max="194,13"/>
+        <cuboid min="199,0,24" max="194,13"/>
+    </union>
+    <union id="orange-wool-room">
+        <cuboid min="205,0,18" max="194,13"/>
+        <cuboid min="204,0,20" max="194,13"/>
+        <cuboid min="203,0,21" max="194,13"/>
+        <cuboid min="202,0,22" max="194,13"/>
+        <cuboid min="201,0,23" max="194,13"/>
+        <cuboid min="199,0,24" max="194,13"/>
+    </union>
+<!-- Applied -->
     <apply block-place="not-void" message="You may not place blocks in the void!">
         <region>
             <rectangle min="293,6" max="192,111"/>
@@ -59,6 +84,10 @@
     </apply>
     <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
+    <apply block="only-cobweb-red" region="cyan-wool-room" message="You may not break the wool room!"/>
+    <apply block="only-cobweb-blue" region="orange-wool-room" message="You may not break the wool room!"/>
+    <apply enter="only-red" region="cyan-wool-room" message="You may not enter your own wool room!"/>
+    <apply enter="only-blue" region="orange-wool-room" message="You may not enter your own wool room!"/>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
