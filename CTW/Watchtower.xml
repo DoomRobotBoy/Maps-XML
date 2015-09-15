@@ -1,0 +1,80 @@
+<map proto="1.4.0">
+<name>Watchtower</name>
+<version>1.0.0</version>
+<objective>
+    Capture the enemy wool in your victory monument.
+</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomRobotBoy   -->
+    <author uuid="2ca8072f-74be-4798-85b8-bbce03aa91af"/> <!--   Tywnis   -->
+</authors>
+<teams>
+    <team color="blue" max="10">Blue</team>
+    <team color="red" max="10">Red</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" material="iron sword"/>
+        <item slot="1" material="bow"/>
+        <item slot="2" material="stone pickaxe"/>
+        <item slot="3" enchantment="dig speed:1" material="iron axe"/>
+        <item slot="4" amount="64" material="cooked beef"/>
+        <item slot="5" amount="64" material="wood"/>
+        <item slot="6" amount="64" material="glass"/>
+        <item slot="7" amount="64" material="arrow"/>
+        <item slot="8" amount="64" material="arrow"/>
+        <chestplate unbreakable="true" material="chainmail chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings"/>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet color="993333" unbreakable="true" material="leather helmet"/>
+        <boots color="993333" unbreakable="true" material="leather boots"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet color="334CB2" unbreakable="true" material="leather helmet"/>
+        <boots color="334CB2" unbreakable="true" material="leather boots"/>
+    </kit>
+</kits>
+<filters>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <not id="not-void">
+        <void/>
+    </not>
+</filters>
+<regions>
+    <apply block-place="not-void
+</regions>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="180">242.5,6,120.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="0">242.5,6,-4.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="90">324.5,29,58.5</point>
+        </regions>
+    </default>
+</spawns>
+<itemremove>
+    <item>leather helmet</item>
+    <item>chainmail chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+</itemremove>
+<maxbuildheight>22</maxbuildheight>
+<wools>
+    <wool team="red" color="cyan" location="198.5,5,17.5">
+        <monument><block>242.5,7,122.5</block></monument>
+    </wool>
+    <wool team="blue" color="orange" location="286.5,5,99.5">
+        <monument><block>242.5,7,-5.5</block></monument>
+    </wool>
+</wools>
+</map>
