@@ -43,7 +43,22 @@
     </not>
 </filters>
 <regions>
-    <apply block-place="not-void
+    <union id="spawns">
+        <rectangle id="red-spawn" min="227,111" max="258,126"/>
+        <rectangle id="blue-spawn" min="258,6" max="227,-9"/>
+    </union>
+    <apply block-place="not-void" message="You may not place blocks in the void!">
+        <region>
+            <rectangle min="293,6" max="192,111"/>
+        </region>
+    </apply>
+    <apply block="never" message="You may not modify the spawns!">
+        <region>
+            <region id="spawns"/>
+        </region>
+    </apply>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
 </regions>
 <spawns>
     <spawn team="red" kit="red-kit">
