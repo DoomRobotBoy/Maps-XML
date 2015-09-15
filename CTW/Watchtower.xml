@@ -56,20 +56,20 @@
         <rectangle id="blue-spawn" min="258,6" max="227,-9"/>
     </union>
     <union id="cyan-wool-room">
-        <cuboid min="205,0,18" max="194,13"/>
-        <cuboid min="204,0,20" max="194,13"/>
-        <cuboid min="203,0,21" max="194,13"/>
-        <cuboid min="202,0,22" max="194,13"/>
-        <cuboid min="201,0,23" max="194,13"/>
-        <cuboid min="199,0,24" max="194,13"/>
+        <cuboid min="205,0,18" max="194,14,13"/>
+        <cuboid min="204,0,20" max="194,14,13"/>
+        <cuboid min="203,0,21" max="194,14,13"/>
+        <cuboid min="202,0,22" max="194,14,13"/>
+        <cuboid min="201,0,23" max="194,14,13"/>
+        <cuboid min="199,0,24" max="194,14,13"/>
     </union>
     <union id="orange-wool-room">
-        <cuboid min="205,0,18" max="194,13"/>
-        <cuboid min="204,0,20" max="194,13"/>
-        <cuboid min="203,0,21" max="194,13"/>
-        <cuboid min="202,0,22" max="194,13"/>
-        <cuboid min="201,0,23" max="194,13"/>
-        <cuboid min="199,0,24" max="194,13"/>
+        <cuboid min="280,0,99" max="291,14,104"/>
+        <cuboid min="281,0,97" max="291,14,104"/>
+        <cuboid min="282,0,96" max="291,14,104"/>
+        <cuboid min="283,0,95" max="291,14,104"/>
+        <cuboid min="284,0,94" max="291,14,104"/>
+        <cuboid min="286,0,93" max="291,14,104"/>
     </union>
 <!-- Applied -->
     <apply block-place="not-void" message="You may not place blocks in the void!">
