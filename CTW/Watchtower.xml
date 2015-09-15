@@ -9,8 +9,8 @@
     <author uuid="2ca8072f-74be-4798-85b8-bbce03aa91af"/> <!--   Tywnis   -->
 </authors>
 <teams>
-    <team color="blue" max="10">Blue</team>
-    <team color="red" max="10">Red</team>
+    <team id="blue" color="blue" max="10">Blue</team>
+    <team id="red" color="red" max="10">Red</team>
 </teams>
 <kits>
     <kit id="spawn">
