@@ -21,7 +21,8 @@
 <time>10m</time>
 <rage/>
 <broadcasts>
-    <alert after="2s">Spawners are spread throughout the map, each containing an ingredient for making arrows.</alert>
+    <alert after="2s">Spawners are spread out throughout the map, each containing an ingredient for making arrows.</alert>
+    <tip after="4s">You can break fences!</alert>
 </broadcasts>
 <players max="18" max-overfill="20" show-name-tags="false"/>
 <spawns>
