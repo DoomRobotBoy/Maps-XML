@@ -18,7 +18,7 @@
     <kills>1</kills>
     <deaths>1</deaths>
 </score>
-<time>10m</time>
+<time>8m</time>
 <rage/>
 <broadcasts>
     <alert after="2s">Spawners are spread out throughout the map, each containing an ingredient for making arrows.</alert>
