@@ -1,57 +1,197 @@
 <players max="24" show-name-tags="false"/>
 <spawns kit="spawn">
-    <spawn yaw="0" kit="">
+    <spawn kit="player1">
         <regions>
-            <cuboid min="23,33,-60" max="29,33,-55"/>
+            <point yaw="0">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player2">
+        <regions>
+            <point yaw="15">101.5,67,-152.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player3">
+        <regions>
+            <point yaw="30">107.5,66,-150.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player4">
+        <regions>
+            <point yaw="45">112.5,66,-146.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player5">
+        <regions>
+            <point yaw="60">116.5,66,-141.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player6">
+        <regions>
+            <point yaw="75">118.5,66,-135.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player7">
+        <regions>
+            <point yaw="90">119.5,66,-129.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player8">
+        <regions>
+            <point yaw="105">118.5,67,-123.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player9">
+        <regions>
+            <point yaw="120">116.5,67,-117.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player10">
+        <regions>
+            <point yaw="135">112.5,67,-112.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player11">
+        <regions>
+            <point yaw="150">107.5,67,-108.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player12">
+        <regions>
+            <point yaw="165">101.5,66,-106.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player13">
+        <regions>
+            <point yaw="180">95.5,66,-105.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player14">
+        <regions>
+            <point yaw="-165">89.5,66,-106.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player15">
+        <regions>
+            <point yaw="-150">83.5,65,-105.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player16">
+        <regions>
+            <point yaw="-135">78.5,65,-112.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player17">
+        <regions>
+            <point yaw="-120">74.5,65,-117.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player18">
+        <regions>
+            <point yaw="-105">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player19">
+        <regions>
+            <point yaw="-90">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player20">
+        <regions>
+            <point yaw="-75">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player21">
+        <regions>
+            <point yaw="-60">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player22">
+        <regions>
+            <point yaw="-45">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player23">
+        <regions>
+            <point yaw="-30">95.5,67,-153.5</point>
+        </regions>
+    </spawn>
+    <spawn kit="player24">
+        <regions>
+            <point yaw="-15">95.5,67,-153.5</point>
         </regions>
     </spawn>
 </spawns>
 <kits>
     <kit id="player1">
-        <item material="wool"/>
+        <item material="stick" name="player1"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player2">
+        <item material="stick" name="player2"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player3">
+        <item material="stick" name="player3"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player4">
+        <item material="stick" name="player4"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player5">
+        <item material="stick" name="player5"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player6">
+        <item material="stick" name="player6"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player7">
+        <item material="stick" name="player7"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player8">
+        <item material="stick" name="player8"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player9">
+        <item material="stick" name="player9"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player10">
+        <item material="stick" name="player10"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player11">
+        <item material="stick" name="player11"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player12">
+        <item material="stick" name="player12"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player13">
+        <item material="stick" name="player13"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player14">
+        <item material="stick" name="player14"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player15">
+        <item material="stick" name="player15"/>
     </kit>
-    <kit id="player1">
-        <item material="wool"/>
+    <kit id="player16">
+        <item material="stick" name="player16"/>
     </kit>
+    <kit id="player17">
+        <item material="stick" name="player17"/>
+    </kit>
+    <kit id="player18">
+        <item material="stick" name="player18"/>
+    </kit>
+    <kit id="player19">
+        <item material="stick" name="player19"/>
+    </kit>
+    <kit id="player20">
+        <item material="stick" name="player20"/>
+    </kit>
+    <kit id="player21">
+        <item material="stick" name="player21"/>
+    </kit>
+    <kit id="player22">
+        <item material="stick" name="player22"/>
+    </kit>
+    <kit id="player23">
+        <item material="stick" name="player23"/>
+    </kit>
+    <kit id="player24">
+        <item material="stick" name="player24"/>
+    </kit>
+</kits>
