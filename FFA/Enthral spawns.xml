@@ -1,0 +1,57 @@
+<players max="24" show-name-tags="false"/>
+<spawns kit="spawn">
+    <spawn yaw="0" kit="">
+        <regions>
+            <cuboid min="23,33,-60" max="29,33,-55"/>
+        </regions>
+    </spawn>
+</spawns>
+<kits>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
+    <kit id="player1">
+        <item material="wool"/>
+    </kit>
