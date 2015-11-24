@@ -87,37 +87,37 @@
     </spawn>
     <spawn kit="player18">
         <regions>
-            <point yaw="-105">95.5,67,-153.5</point>
+            <point yaw="-105">72.5,65,-123.5</point>
         </regions>
     </spawn>
     <spawn kit="player19">
         <regions>
-            <point yaw="-90">95.5,67,-153.5</point>
+            <point yaw="-90">71.5,66,-129.5</point>
         </regions>
     </spawn>
     <spawn kit="player20">
         <regions>
-            <point yaw="-75">95.5,67,-153.5</point>
+            <point yaw="-75">72.5,67,-135.5</point>
         </regions>
     </spawn>
     <spawn kit="player21">
         <regions>
-            <point yaw="-60">95.5,67,-153.5</point>
+            <point yaw="-60">74.5,67,-141.5</point>
         </regions>
     </spawn>
     <spawn kit="player22">
         <regions>
-            <point yaw="-45">95.5,67,-153.5</point>
+            <point yaw="-45">78.5,68,-146.5</point>
         </regions>
     </spawn>
     <spawn kit="player23">
         <regions>
-            <point yaw="-30">95.5,67,-153.5</point>
+            <point yaw="-30">83.5,69,-150.5</point>
         </regions>
     </spawn>
     <spawn kit="player24">
         <regions>
-            <point yaw="-15">95.5,67,-153.5</point>
+            <point yaw="-15">89.5,68,-152.5</point>
         </regions>
     </spawn>
 </spawns>
