@@ -10,19 +10,23 @@
     <tip after="2s">In spawn there are tunnels leading down to the gold mines! From down there you can use the teleports or ladders to go back up.</tip>
 </broadcasts>
 <teams>
-<team id="red-team" color="dark red" max="22" max-overfill="26">Red</team>
-<team id="blue-team" color="blue" max="22" max-overfill="26">Blue</team>
+    <team id="red-team" color="dark red" max="22" max-overfill="26">Red</team>
+    <team id="blue-team" color="blue" max="22" max-overfill="26">Blue</team>
 </teams>
 <spawns>
     <spawn team="red-team" kit="spawn">
-        <regions yaw="">
-            <point></point>
+        <regions yaw="90">
+            <point>481.5,17,372.5</point>
         </regions>
     </spawn>
-    
+    <spawn team="blue-team" kit="spawn">
+        <regions yaw="-90">
+            <point>317.5,17,291.5</point>
+        </regions>
+    </spawn>
     <default>
-        <regions yaw="">
-            <point></point>
+        <regions yaw="-90">
+            <point>320.5,26,291.5</point>
         </regions>
     </default>
 </spawns>
@@ -52,7 +56,7 @@
     <team id="only-red">red</team>
     <team id="only-blue">blue</team>
     <material id="only-gold">gold block</material>
-    <not id="deny-spawners">
+    <not id="not-spawners">
         <all>
             <any>
                 <material>mob spawner</material>
@@ -75,20 +79,20 @@
     <item>cooked fish</item>
     <item>wood</item>
 </itemremove>
-<wools team="blue">
-    <wool color="orange" location="0.5,10,21.5">
+<wools team="red">
+    <wool color="cyan" location="0.5,10,21.5">
         <monument>
             <block>-3,39,119</block>
         </monument>
     </wool>
 </wools>
-<wools team="red">
-    <wool color="cyan" location="-32.5,26,121.5">
+<wools team="blue">
+    <wool color="orange" location="-32.5,26,121.5">
         <monument>
             <block>-3,39,-119</block>
         </monument>
     </wool>
 </wools>
 <timelock>on</timelock>
-<maxbuildheight>48</maxbuildheight>
+<maxbuildheight>31</maxbuildheight>
 </map>
