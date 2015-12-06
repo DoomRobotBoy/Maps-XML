@@ -135,7 +135,7 @@
     </portal>
     <portal>
         <region>
-            <cuboid min="475,2,374" max="474,10,371">
+            <cuboid min="325,2,290" max="324,10,293"/>
         </region>
         <destination>317.5,17,291.5</destination>
     </portal>
