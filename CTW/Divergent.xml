@@ -64,6 +64,14 @@
             </any>
         </all>
     </not>
+    <all id="only-red-cobweb">
+        <team>red</team>
+        <material>web</material>
+    </all>
+    <all id="only-blue-cobweb">
+        <team>blue</team>
+        <material>web</material>
+    </all>
 </filters>
 <regions>
     <union id="orange-wool-room">
@@ -100,7 +108,9 @@
     </complement>
     <apply block-break="no-void" region="build-region" message="You may not place blocks in the void!"/>
     <apply enter="only-red" region="cyan-wool-room" message="Only Red may enter this wool room!"/>
+    <apply block="only-red-cobweb" region="cyan-wool-room" message="Only Red may destroy cobwebs here!"/>
     <apply enter="only-blue" region="orange-wool-room" message="Only Blue may enter this wool room!"/>
+    <apply enter="only-blue-cobweb" region="orange-wool-room" message="Only Blue may destroy cobwebs here!"/>
     <apply block="not-spawners" region="everywhere"/>
 </regions>
 <renewables>
