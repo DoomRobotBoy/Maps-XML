@@ -53,8 +53,8 @@
     <not id="no-void">
         <void/>
     </not>
-    <team id="only-red">red</team>
-    <team id="only-blue">blue</team>
+    <team id="only-red">red-team</team>
+    <team id="only-blue">blue-team</team>
     <material id="only-gold">gold block</material>
     <not id="not-spawners">
         <all>
@@ -65,11 +65,11 @@
         </all>
     </not>
     <all id="only-red-cobweb">
-        <team>red</team>
+        <team>red-team</team>
         <material>web</material>
     </all>
     <all id="only-blue-cobweb">
-        <team>blue</team>
+        <team>blue-team</team>
         <material>web</material>
     </all>
 </filters>
@@ -100,13 +100,15 @@
         <rectangle id="red-spawn" min="474,363" max="487,382"/>
         <rectangle id="blue-spawn" min="325,301" max="312,282"/>
     </union>
-    <complement id="build-region">
-        <everywhere/>
-        <rectangle min="339,340" max="406,282"/>
-        <rectangle min="415,301" max="384,363"/>
-        <rectangle min="460,324" max="393,382"/>
-    </complement>
-    <apply block-place="no-void" region="build-region" message="You may not place blocks in the void!"/>
+    <negative id="negative-build-region">
+        <complement id="build-region">
+            <everywhere/>
+            <rectangle min="339,340" max="406,282"/>
+            <rectangle min="415,301" max="384,363"/>
+            <rectangle min="460,324" max="393,382"/>
+        </complement>
+    </negative>
+    <apply block-place="no-void" region="negative-build-region" message="You may not place blocks in the void!"/>
     <apply enter="only-red" region="cyan-wool-room" message="Only Red may enter this wool room!"/>
     <apply block="only-red-cobweb" region="cyan-wool-room" message="Only Red may destroy cobwebs here!"/>
     <apply enter="only-blue" region="orange-wool-room" message="Only Blue may enter this wool room!"/>
