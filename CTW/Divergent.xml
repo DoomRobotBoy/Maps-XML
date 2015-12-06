@@ -65,10 +65,41 @@
         </all>
     </not>
 </filters>
-
 <regions>
+    <union id="orange-wool-room">
+        <rectangle min="475,335" max="482,315"/>
+        <rectangle min="473,331" max="482,315"/>
+        <rectangle min="472,330" max="482,315"/>
+        <rectangle min="471,329" max="482,315"/>
+        <rectangle min="470,327" max="482,315"/>
+        <rectangle min="468,326" max="482,315"/>
+        <rectangle min="467,325" max="482,315"/>
+        <rectangle min="466,324" max="482,315"/>
+        <rectangle min="462,322" max="482,315"/>
+    </union>
+    <union id="cyan-wool-room">
+        <rectangle min="324,329" max="317,349"/>
+        <rectangle min="326,333" max="317,349"/>
+        <rectangle min="327,334" max="317,349"/>
+        <rectangle min="328,335" max="317,349"/>
+        <rectangle min="329,337" max="317,349"/>
+        <rectangle min="331,338" max="317,349"/>
+        <rectangle min="332,339" max="317,349"/>
+        <rectangle min="333,340" max="317,349"/>
+        <rectangle min="337,342" max="317,349"/>
+    </union>
+    <complement id="build-region">
+        <everywhere/>
+        <rectangle min="339,340" max="406,282"/>
+        <rectangle min="415,301" max="384,363"/>
+        <rectangle min="460,324" max="393,382"/>
+    </complement>
+    <apply block="not-spawners" region="everywhere"/>
+    <apply block-break="no-void" region="build-region" message="You may not place blocks in the void!"/>
+    
+    
+    
 </regions>
-
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
@@ -80,16 +111,16 @@
     <item>wood</item>
 </itemremove>
 <wools team="red">
-    <wool color="cyan" location="0.5,10,21.5">
+    <wool color="cyan" location="319.5,12,346.5">
         <monument>
-            <block>-3,39,119</block>
+            <block>485.5,18,372.5</block>
         </monument>
     </wool>
 </wools>
 <wools team="blue">
-    <wool color="orange" location="-32.5,26,121.5">
+    <wool color="orange" location="479.5,12,317.5">
         <monument>
-            <block>-3,39,-119</block>
+            <block>313.5,18,291.5</block>
         </monument>
     </wool>
 </wools>
