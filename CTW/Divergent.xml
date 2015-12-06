@@ -37,8 +37,8 @@
         <item slot="2" unbreakable="true">diamond pickaxe</item>
         <item slot="3" unbreakable="true" enchantment="dig speed:1">iron axe</item>
         <item slot="4" amount="64" damage="1">cooked fish</item>
-        <item slot="5" amount="64 "damage="1">wood</item>
-        <item slot="6" amount="64 "damage="1">wood</item>
+        <item slot="5" amount="64" damage="1">wood</item>
+        <item slot="6" amount="64" damage="1">wood</item>
         <item slot="7" amount="2">golden apple</item>
         <item slot="8">bucket</item>
         <item slot="28" amount="64">arrow</item>
@@ -129,7 +129,7 @@
 <portals>
     <portal>
         <region>
-            <cuboid min="475,2,374" max="474,10,371">
+            <cuboid min="475,2,374" max="474,10,371"/>
         </region>
         <destination>481.5,17,372.5</destination>
     </portal>
