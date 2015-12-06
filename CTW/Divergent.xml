@@ -88,6 +88,10 @@
         <rectangle min="333,340" max="317,349"/>
         <rectangle min="337,342" max="317,349"/>
     </union>
+    <union id="spawns">
+        <rectangle id="red-spawn" min="474,363" max="487,382"/>
+        <rectangle id="blue-spawn" min="325,301" max="312,282"/>
+    </union>
     <complement id="build-region">
         <everywhere/>
         <rectangle min="339,340" max="406,282"/>
@@ -99,6 +103,16 @@
     <apply enter="only-blue" region="orange-wool-room" message="Only Blue may enter this wool room!"/>
     <apply block="not-spawners" region="everywhere"/>
 </regions>
+<renewables>
+    <renewable rate="0.5" grow="true" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <region id="spawns"/>
+        </region>
+        <renew-filter>
+            <material>gold block</material>
+        </renew-filter>
+    </renewable>
+</renewables>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
