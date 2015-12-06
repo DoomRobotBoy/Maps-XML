@@ -106,12 +106,15 @@
         <rectangle min="415,301" max="384,363"/>
         <rectangle min="460,324" max="393,382"/>
     </complement>
-    <apply block-break="no-void" region="build-region" message="You may not place blocks in the void!"/>
+    <apply block-place="no-void" region="build-region" message="You may not place blocks in the void!"/>
     <apply enter="only-red" region="cyan-wool-room" message="Only Red may enter this wool room!"/>
     <apply block="only-red-cobweb" region="cyan-wool-room" message="Only Red may destroy cobwebs here!"/>
     <apply enter="only-blue" region="orange-wool-room" message="Only Blue may enter this wool room!"/>
     <apply enter="only-blue-cobweb" region="orange-wool-room" message="Only Blue may destroy cobwebs here!"/>
     <apply block="not-spawners" region="everywhere"/>
+    <apply block-break="only-gold" block-place="never" region="spawns" message="You can only destroy gold blocks here!"/>
+    <apply enter="only-red" region="red-spawn" message="Only Red may enter this spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="Only Blue may enter this spawn!"/>
 </regions>
 <renewables>
     <renewable rate="0.5" grow="true" particles="true" sound="true" avoid-entities="true">
@@ -123,6 +126,20 @@
         </renew-filter>
     </renewable>
 </renewables>
+<portals>
+    <portal>
+        <region>
+            <cuboid min="475,2,374" max="474,10,371">
+        </region>
+        <destination>481.5,17,372.5</destination>
+    </portal>
+    <portal>
+        <region>
+            <cuboid min="475,2,374" max="474,10,371">
+        </region>
+        <destination>317.5,17,291.5</destination>
+    </portal>
+</portals>
 <toolrepair>
     <tool>stone sword</tool>
     <tool>bow</tool>
