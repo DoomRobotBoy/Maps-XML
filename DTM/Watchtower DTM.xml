@@ -16,7 +16,7 @@
 	<kit name="spawn">
 		<item slot="0" material="iron sword"/>
 		<item slot="1" material="bow"/>
-		<item slot="2" material="stone pickaxe"/>
+		<item slot="2" enchantment="dig speed:1" material="diamond pickaxe"/>
 		<item slot="3" enchantment="dig speed:1" material="iron axe"/>
 		<item slot="4" amount="48" material="cooked beef"/>
 		<item slot="5" amount="48" material="wood"/>
@@ -123,6 +123,14 @@
     <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
 </regions>
+<destroyables name="Monument" materials="obsidian" completion="100%">
+    <destroyable owner="blue">
+       <region><cuboid min="207,14,21" max="208,17,20"/></region>
+    </destroyable>
+    <destroyable owner="red">
+       <region><cuboid min="278,14,96" max="277,17,97"/></region>
+    </destroyable>
+</destroyables>
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions>
