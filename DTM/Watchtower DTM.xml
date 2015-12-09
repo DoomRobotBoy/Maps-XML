@@ -123,6 +123,8 @@
 	<item>glass</item>
 	<item>string</item>
 	<item>cooked beef</item>
+	<item>obsidian</item>
 </itemremove>
 <maxbuildheight>24</maxbuildheight>
+<time result="objectives">30m</time>
 </map>
