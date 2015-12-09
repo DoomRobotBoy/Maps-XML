@@ -42,39 +42,6 @@
     <filter name="only-red">
         <team>red</team>
     </filter>
-    <filter name="deny-some">
-        <deny>
-            <block>mob spawner</block>
-        </deny>
-    </filter>
-    <filter name="only-blue-w">
-        <team>blue</team>
-        <filter name="deny-some"/>
-    </filter>
-    <filter name="only-red-w">
-        <team>red</team>
-        <filter name="deny-some"/>
-    </filter>
-    <filter name="only-red-usage">
-        <not>
-            <all>
-                <any>
-                    <block>mob spawner</block>
-                </any>
-                <team>blue</team>
-            </all>
-        </not>
-    </filter>
-    <filter name="only-blue-usage">
-        <not>
-            <all>
-                <any>
-                    <block>mob spawner</block>
-                </any>
-                <team>red</team>
-            </all>
-        </not>
-    </filter>
     <filter name="deny-void">
         <deny>
             <void/>
@@ -111,14 +78,6 @@
     </apply>
     <apply block="deny-all" message="You may not modify the spawns!">
         <region name="spawns"/>
-    </apply>
-    <apply block="only-red-w" use="only-red-usage" message="You may not modify the wool rooms!">
-        <region name="cyan-wool-room"/>
-    <!--  Blue Wool Room  -->
-    </apply>
-    <apply block="only-blue-w" use="only-blue-usage" message="You may not modify the wool rooms!">
-        <region name="orange-wool-room"/>
-    <!--  Red Wool Room  -->
     </apply>
     <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
     <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
@@ -165,5 +124,5 @@
 	<item>string</item>
 	<item>cooked beef</item>
 </itemremove>
-<maxbuildheight>22</maxbuildheight>
+<maxbuildheight>24</maxbuildheight>
 </map>
