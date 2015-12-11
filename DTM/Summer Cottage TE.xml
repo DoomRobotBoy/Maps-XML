@@ -1,0 +1,107 @@
+<map proto="1.4.0">
+<name>Summer Cottage TE</name>
+<version>1.0.0</version>
+<objective>Destroy the enemy monuments.</objective>
+<authors>
+	<author uuid="2a2c4c30-ecf6-4e4a-b5bc-be8cf033563e"/>
+	<!--    felipu_feliu    -->
+	<author uuid="396229db-3e91-415f-be44-8bacc9fcbc9f"/>
+	<!--    CIPATO    -->
+</authors>
+<contributors>
+	<contributor contribution="Help and XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+	<!--    DoomyBoy   -->
+</contributors>
+<teams>
+	<team id="blue-team" color="blue" max="5">Blue</team>
+	<team id="red-team" color="dark red" max="5">Red</team>
+</teams>
+<kits>
+<filters>
+    <filter name="only-blue">
+        <team>blue</team>
+    </filter>
+    <filter name="only-red">
+        <team>red</team>
+    </filter>
+    <filter name="deny-void">
+        <deny>
+            <void/>
+        </deny>
+    </filter>
+</filters>
+<regions>
+    <union name="spawns">
+        <rectangle name="red-spawn" min="227,111" max="258,126"/>
+        <rectangle name="blue-spawn" min="258,6" max="227,-9"/>
+    </union>
+    <negative name="lanes">
+        <rectangle min="196,83" max="204,35"/>
+        <rectangle min="252,91" max="260,66"/>
+        <rectangle min="232,50" max="260,66"/>
+        <rectangle min="232,50" max="224,25"/>
+        <rectangle min="288,33" max="280,82"/>
+    </negative>
+<!--  Applied  -->
+    <apply block-place="deny-void" message="You may not build in the void">
+        <negative>
+        <!--  Central water lanes  -->
+            <rectangle min="196,83" max="205,35"/>
+            <rectangle min="252,91" max="261,66"/>
+            <rectangle min="232,50" max="260,67"/>
+            <rectangle min="233,51" max="224,25"/>
+            <rectangle min="289,33" max="280,82"/>
+        <!--  Spawn water lanes  -->
+            <rectangle min="229.5,4.5" max="235.5,12.5"/>
+            <rectangle min="249.5,4.5" max="255.5,12.5"/>
+            <rectangle min="229.5,104.5" max="235.5,112.5"/>
+            <rectangle min="249.5,104.5" max="255.5,112.5"/>
+        </negative>
+    </apply>
+    <apply block="deny-all" message="You may not modify the spawns!">
+        <region name="spawns"/>
+    </apply>
+    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
+    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
+</regions>
+<destroyables name="Monument" materials="obsidian" completion="100%">
+    <destroyable owner="blue">
+       <region><cuboid min="207,14,21" max="208,17,20"/></region>
+    </destroyable>
+    <destroyable owner="red">
+       <region><cuboid min="278,14,96" max="277,17,97"/></region>
+    </destroyable>
+</destroyables>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="180">242.5,6,120.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="0">242.5,6,-4.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="90">324.5,29,58.5</point>
+        </regions>
+    </default>
+</spawns>
+<itemremove>
+	<item>stone sword</item>
+	<item>bow</item>
+	<item>iron pickaxe</item>
+	<item>iron axe</item>
+	<item>stone spade</item>
+	<item>log</item>
+	<item>log 2</item>
+	<item>wood</item>
+	<item>coal block</item>
+	<item>gold block</item>
+	<item>obsidian</item>
+</itemremove>
+<maxbuildheight>25</maxbuildheight>
+<time result="objectives">35m</time>
+</map>
