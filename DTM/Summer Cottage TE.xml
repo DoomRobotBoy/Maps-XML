@@ -12,57 +12,26 @@
 	<contributor contribution="Help and XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
 	<!--    DoomyBoy   -->
 </contributors>
+<respawn delay="3s"/>
 <teams>
 	<team id="blue-team" color="blue" max="5">Blue</team>
 	<team id="red-team" color="dark red" max="5">Red</team>
 </teams>
 <kits>
+	<kit id="spawn">
+		<helmet unbreakable="true" material="leather helmet"/>
+		<chestplate unbreakable="true" material="chainmail chestplate"/>
+	</kit>
+</kits>
 <filters>
-    <filter name="only-blue">
-        <team>blue</team>
-    </filter>
-    <filter name="only-red">
-        <team>red</team>
-    </filter>
-    <filter name="deny-void">
-        <deny>
-            <void/>
-        </deny>
-    </filter>
+    <team id="only-blue">blue</team>
+    <team id="only-red">red</team>
+    <not id="no-void">
+        <void/>
+    </not>
 </filters>
 <regions>
-    <union name="spawns">
-        <rectangle name="red-spawn" min="227,111" max="258,126"/>
-        <rectangle name="blue-spawn" min="258,6" max="227,-9"/>
-    </union>
-    <negative name="lanes">
-        <rectangle min="196,83" max="204,35"/>
-        <rectangle min="252,91" max="260,66"/>
-        <rectangle min="232,50" max="260,66"/>
-        <rectangle min="232,50" max="224,25"/>
-        <rectangle min="288,33" max="280,82"/>
-    </negative>
-<!--  Applied  -->
-    <apply block-place="deny-void" message="You may not build in the void">
-        <negative>
-        <!--  Central water lanes  -->
-            <rectangle min="196,83" max="205,35"/>
-            <rectangle min="252,91" max="261,66"/>
-            <rectangle min="232,50" max="260,67"/>
-            <rectangle min="233,51" max="224,25"/>
-            <rectangle min="289,33" max="280,82"/>
-        <!--  Spawn water lanes  -->
-            <rectangle min="229.5,4.5" max="235.5,12.5"/>
-            <rectangle min="249.5,4.5" max="255.5,12.5"/>
-            <rectangle min="229.5,104.5" max="235.5,112.5"/>
-            <rectangle min="249.5,104.5" max="255.5,112.5"/>
-        </negative>
-    </apply>
-    <apply block="deny-all" message="You may not modify the spawns!">
-        <region name="spawns"/>
-    </apply>
-    <apply enter="only-red" region="red-spawn" message="You may not enter the enemy spawn!"/>
-    <apply enter="only-blue" region="blue-spawn" message="You may not enter the enemy spawn!"/>
+	
 </regions>
 <destroyables name="Monument" materials="obsidian" completion="100%">
     <destroyable owner="blue">
@@ -73,19 +42,19 @@
     </destroyable>
 </destroyables>
 <spawns>
-    <spawn team="red" kit="red-kit">
+    <spawn team="blue" kit="spawn">
         <regions>
             <point yaw="180">242.5,6,120.5</point>
         </regions>
     </spawn>
-    <spawn team="blue" kit="blue-kit">
+    <spawn team="red" kit="spawn">
         <regions>
             <point yaw="0">242.5,6,-4.5</point>
         </regions>
     </spawn>
     <default>
-        <regions>
-            <point yaw="90">324.5,29,58.5</point>
+        <regions yaw="-90" pitch="-25">
+            <cuboid min="34,28,3" max="35,28,1"/>
         </regions>
     </default>
 </spawns>
