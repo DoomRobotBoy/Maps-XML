@@ -33,23 +33,41 @@
 <regions>
 	
 </regions>
-<destroyables name="Monument" materials="obsidian" completion="100%">
-    <destroyable owner="blue">
-       <region><cuboid min="207,14,21" max="208,17,20"/></region>
-    </destroyable>
-    <destroyable owner="red">
-       <region><cuboid min="278,14,96" max="277,17,97"/></region>
-    </destroyable>
+<destroyables>
+    <destroyables name="East Monument">
+        <destroyable owner="red" materials="obsidian;coal block">
+            <region>
+                <cuboid min="12,19,43" max="9,22,46"/>
+            </region>
+        </destroyable>
+        <destroyable owner="blue" materials="obsidian;gold block">
+            <region>
+                <cuboid min="12,15,-26" max="15,18,-29"/>
+            </region>
+        </destroyable>
+    </destroyables>
+    <destroyables name="West Monument">
+        <destroyable owner="red" materials="obsidian;gold block">
+            <region>
+                <cuboid min="-41,15,30" max="-44,18,33"/>
+            </region>
+        </destroyable>
+        <destroyable owner="blue" materials="obsidian;coal block">
+            <region>
+                <cuboid min="-41,19,-39" max="-38,22,-42"/>
+            </region>
+        </destroyable>
+    </destroyables>
 </destroyables>
 <spawns>
     <spawn team="blue" kit="spawn">
         <regions>
-            <point yaw="180">242.5,6,120.5</point>
+            <point yaw="0">-14.5,18,-54.5</point>
         </regions>
     </spawn>
     <spawn team="red" kit="spawn">
         <regions>
-            <point yaw="0">242.5,6,-4.5</point>
+            <point yaw="180">-14.5,18,58.5</point>
         </regions>
     </spawn>
     <default>
