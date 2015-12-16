@@ -69,19 +69,19 @@
     </destroyables>
 </destroyables>
 <spawns>
-    <spawn team="blue" kit="spawn">
+	<spawn team="red" kit="spawn">
         <regions>
-            <point yaw="0">-14.5,18,-54.5</point>
+            <point yaw="45">71.5,59,-21.5</point>
         </regions>
     </spawn>
-    <spawn team="red" kit="spawn">
+    <spawn team="blue" kit="spawn">
         <regions>
-            <point yaw="180">-14.5,18,58.5</point>
+            <point yaw="-45">-43.5,59,-21.5</point>
         </regions>
     </spawn>
     <default>
-        <regions yaw="-90">
-            <cuboid min="34,28,3" max="35,28,1"/>
+        <regions>
+            <point yaw="180">14.5,44,-14.5</point>
         </regions>
     </default>
 </spawns>
