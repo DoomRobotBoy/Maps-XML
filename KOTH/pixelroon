@@ -1,16 +1,16 @@
     <union id="right-portals">
-        <cuboid id="right-portal1" min="344,24,65" max="345,26,67" />
-        <cuboid id="right-portal2" min="372,15,35" max="373,13,37" />
-        <cuboid id="right-portal3" min="416,15,35" max="417,13,37" />
-        <cuboid id="right-portal4" min="434,54,64" max="435,56,62" />
-        <cuboid id="right-portal5" min="506,54,64" max="507,56,62" />
-       <cuboid id="right-portal6" min="519,22,71" max="520,25,69" />
+        <cuboid id="right-portal1" min="344,24,65" max="345,26,68" />
+        <cuboid id="right-portal2" min="372,15,35" max="373,13,38" />
+        <cuboid id="right-portal3" min="416,15,35" max="417,13,38" />
+        <cuboid id="right-portal4" min="434,54,65" max="435,56,62" />
+        <cuboid id="right-portal5" min="506,54,65" max="507,56,62" />
+       <cuboid id="right-portal6" min="519,22,72" max="520,25,69" />
     </union>
     <union id="left-portals">
         <cuboid id="left-portal1" min="344,24,-27" max="345,26,-30" />
-        <cuboid id="left-portal2" min="372,13,1" max="373,15,3" />
-        <cuboid id="left-portal3" min="416,15,1" max="417,13,3" />
-        <cuboid id="left-portal4" min="434,56,-25" max="435,54,-27" />
-        <cuboid id="left-portal5" min="506,53,-25" max="507,55,-27" />
-        <cuboid id="left-portal6" min="519,24,-32" max="520,22,-34" />
+        <cuboid id="left-portal2" min="372,13,1" max="373,15,4" />
+        <cuboid id="left-portal3" min="416,15,1" max="417,13,4" />
+        <cuboid id="left-portal4" min="434,56,-24" max="435,54,-27" />
+        <cuboid id="left-portal5" min="506,53,-24" max="507,55,-27" />
+        <cuboid id="left-portal6" min="519,24,-31" max="520,22,-34" />
     </union>
