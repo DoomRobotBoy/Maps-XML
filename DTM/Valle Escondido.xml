@@ -44,6 +44,21 @@
 	<above y="1" id="above-1"/>
 	<above y="2" id="above-2"/>
 	<union id="red-lanes">
+		<intersect>
+			<union id="red-back">
+				<rectangle min="51,9" max="30,0"/>
+				<rectangle min="53,2" max="31,-4"/>
+				<rectangle min="56,1" max="32,-10"/>
+				<rectangle min="57,0" max="34,-11"/>
+				<rectangle min="58,-2" max="35,-13"/>
+				<rectangle min="59,-3" max="35,-12"/>
+				<rectangle min="58,-12" max="35,-13"/>
+				<rectangle min="57,-13" max="39,-14"/>
+				<rectangle min="56,-14" max="40,-15"/>
+				<rectangle min="55,-15" max="41,-16"/>
+			</union>
+			<region id="above-2"/>
+		</intersect>	
 		<union id="red-spawn-drop">
 			<rectangle min="55,-5" max="53,-3"/>
 			<rectangle min="54,-4" max="52,-2"/>
@@ -54,11 +69,11 @@
 		</intersect>
 		<rectangle id="red-front" min="49,23" max="27,40"/>
 		<rectangle id="red-water" min="41,40" max="28,77"/>
-		<union id="red-back"/>
 	</union>
 	<rectangle id="center-water" min="42,60" max="-13,76"/>
 	<union id="blue-lanes">
-		<union id="red-spawn-drop">
+		<union id="blue-back"/>
+		<union id="blue-spawn-drop">
 			<rectangle min="-27,-5" max="-25,-3"/>
 			<rectangle min="-26,-4" max="-24,-2"/>
 		</union>
@@ -68,7 +83,6 @@
 		</intersect>
 		<rectangle id="blue-front" min="-21,23" max="1,40"/>
 		<rectangle id="blue-water" min="-13,40" max="0,77"/>
-		<union id="blue-back"/>
 	</union>
 	<union id="all-lanes">
 		<region id="red-lanes"/>
