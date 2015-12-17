@@ -40,7 +40,7 @@
     </not>
 </filters>
 <regions>
-	<below y="27" id="below-27"/>
+	<above y="26" id="above-26"/>
 	<above y="1" id="above-1"/>
 	<above y="2" id="above-2"/>
 	<union id="blue-spawn-drop">
@@ -80,7 +80,6 @@
 			<mirror normal="2,0,9" origin="14.5,1,3">
 				<region id="red-back"/>
 			</mirror>
-			<region id="below-27"/>
 		</intersect>
 		<intersect id="blue-middle">
 			<rectangle min="-1,23" max="-22,9"/>
@@ -94,10 +93,6 @@
 		<region id="center-water"/>
 		<region id="blue-lanes"/>
 	</union>
-	<complement id="map">
-		<region id="all-lanes"/>
-		<region id="below-27"/>
-	</complement>
 <!-- Applied -->
 	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
 	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
@@ -109,7 +104,12 @@
 	</apply>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
-			<region id="map"/>
+			<region id="above-26"/>
+		</region>
+	</apply>
+	<apply block="never" message="You may not modify blocks outside the playing field.">
+		<region>
+			<region id="all-lanes"/>
 		</region>
 	</apply>
 </regions>
