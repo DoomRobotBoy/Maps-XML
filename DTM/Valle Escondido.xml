@@ -43,6 +43,14 @@
 	<below y="27" id="below-27"/>
 	<above y="1" id="above-1"/>
 	<above y="2" id="above-2"/>
+	<union id="blue-spawn-drop">
+		<rectangle min="-27,-5" max="-25,-3"/>
+		<rectangle min="-26,-4" max="-24,-2"/>
+	</union>
+	<union id="red-spawn-drop">
+		<rectangle min="55,-5" max="53,-3"/>
+		<rectangle min="54,-4" max="52,-2"/>
+	</union>
 	<union id="red-lanes">
 		<intersect>
 			<union id="red-back">
@@ -59,10 +67,6 @@
 			</union>
 			<region id="above-2"/>
 		</intersect>	
-		<union id="red-spawn-drop">
-			<rectangle min="55,-5" max="53,-3"/>
-			<rectangle min="54,-4" max="52,-2"/>
-		</union>
 		<intersect id="red-middle">
 			<rectangle min="50,9" max="29,23"/>
 			<region id="above-1"/>
@@ -78,10 +82,6 @@
 			</mirror>
 			<region id="below-27"/>
 		</intersect>
-		<union id="blue-spawn-drop">
-			<rectangle min="-27,-5" max="-25,-3"/>
-			<rectangle min="-26,-4" max="-24,-2"/>
-		</union>
 		<intersect id="blue-middle">
 			<rectangle min="-1,23" max="-22,9"/>
 			<region id="above-1"/>
@@ -101,6 +101,12 @@
 <!-- Applied -->
 	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
 	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
+	<apply block="never" message="You may not block off the spawn drops!">
+		<region>
+			<region id="red-spawn-drop"/>
+			<region id="blue-spawn-drop"/>
+		</region>
+	</apply>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
 			<region id="map"/>
