@@ -104,12 +104,14 @@
 	</apply>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
-			<region id="all-lanes"/>
+			<region id="above-26"/>
 		</region>
 	</apply>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
-			<region id="above-26"/>
+			<negative>
+				<region id="all-lanes"/>
+			</negative>
 		</region>
 	</apply>
 </regions>
