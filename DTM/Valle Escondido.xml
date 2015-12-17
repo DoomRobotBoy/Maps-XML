@@ -115,12 +115,12 @@
 </regions>
 <destroyables>
     <destroyables name="Coal Monument">
-        <destroyable owner="red" materials="coal block">
+        <destroyable owner="red-team" materials="coal block">
             <region>
                 <cuboid min="40,6,66" max="37,10,63"/>
             </region>
         </destroyable>
-        <destroyable owner="blue" materials="coal block">
+        <destroyable owner="blue-team" materials="coal block">
             <region>
                 <cuboid min="-12,6,66" max="-9,10,63"/>
             </region>
