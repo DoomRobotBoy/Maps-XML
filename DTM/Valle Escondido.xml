@@ -35,6 +35,11 @@
 <filters>
 	<team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
+    <any id="only-some-cobble">
+    	<material>cobblestone</material>
+    	<material>cobblestone stairs</material>
+    	<material>step</material>
+    </any>
     <not id="no-void">
         <void/>
     </not>
@@ -104,13 +109,13 @@
 <!-- Applied -->
 	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
 	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
+	<apply block-place="never" block-break="only-some-cobble" region="house-railing" message="You may not modify blocks outside the playing field"/>
 	<apply block="never" message="You may not block off the spawn drops!">
 		<region>
 			<region id="red-spawn-drop"/>
 			<region id="blue-spawn-drop"/>
 		</region>
 	</apply>
-	<apply block-place="never" region="house-railing" message="You may not modify blocks outside the playing field"/>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
 			<region id="above-26"/>
@@ -145,7 +150,7 @@
         </destroyable>
         <destroyable owner="blue-team" materials="emerald block">
             <region>
-                <cuboid min="-17,7,17" max="-20,11,14"/>
+                <cuboid min="-16,7,17" max="-19,11,14"/>
             </region>
         </destroyable>
     </destroyables>
