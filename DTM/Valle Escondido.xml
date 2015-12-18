@@ -35,11 +35,6 @@
 <filters>
 	<team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
-    <any id="only-some-cobble">
-    	<material>cobblestone</material>
-    	<material>cobblestone stairs</material>
-    	<material>step</material>
-    </any>
     <not id="no-void">
         <void/>
     </not>
@@ -76,8 +71,8 @@
 			<rectangle min="50,9" max="29,23"/>
 			<region id="above-1"/>
 		</intersect>
-		<rectangle id="red-front" min="49,23" max="27,40"/>
-		<rectangle id="red-water" min="41,40" max="28,77"/>
+		<rectangle id="red-front" min="43,89" max="28,40"/>
+		<rectangle id="red-water" min="44,60" max="-15,88"/>
 	</union>
 	<rectangle id="center-water" min="42,60" max="-13,76"/>
 	<union id="blue-lanes">
@@ -91,25 +86,16 @@
 			<region id="above-1"/>
 		</intersect>
 		<rectangle id="blue-front" min="-20,23" max="2,40"/>
-		<rectangle id="blue-water" min="-12,40" max="1,77"/>
+		<rectangle id="blue-water" min="-14,40" max="1,89"/>
 	</union>
-	<union id="lanes">
+	<union id="all-lanes">
 		<region id="red-lanes"/>
 		<region id="center-water"/>
 		<region id="blue-lanes"/>
 	</union>
-	<union id="house-railing">
-		<cuboid min="50,9,28" max="49,11,39"/>
-		<cuboid min="-22,9,28" max="-21,11,39"/>
-	</union>
-	<complement id="all-lanes">
-		<region id="lanes"/>
-		<region id="house-railing"/>
-	</complement>
 <!-- Applied -->
 	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
 	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
-	<apply block-place="never" block-break="only-some-cobble" region="house-railing" message="You may not modify blocks outside the playing field"/>
 	<apply block="never" message="You may not block off the spawn drops!">
 		<region>
 			<region id="red-spawn-drop"/>
@@ -130,25 +116,25 @@
 	</apply>
 </regions>
 <destroyables>
-    <destroyables name="Coal Monument">
-        <destroyable owner="red-team" materials="coal block">
+    <destroyables name="Coal Monument" materials="coal block;beacon">
+        <destroyable owner="red-team">
             <region>
-                <cuboid min="40,6,66" max="37,10,63"/>
+                <cuboid min="36,6,64" max="39,10,67"/>
             </region>
         </destroyable>
-        <destroyable owner="blue-team" materials="coal block">
+        <destroyable owner="blue-team">
             <region>
-                <cuboid min="-12,6,66" max="-9,10,63"/>
+                <cuboid min="-7,6,64" max="-10,10,67"/>
             </region>
         </destroyable>
     </destroyables>
-    <destroyables name="Emerald Monument">
-        <destroyable owner="red-team" materials="emerald block">
+    <destroyables name="Emerald Monument" materials="emerald block;beacon">
+        <destroyable owner="red-team">
             <region>
                 <cuboid min="45,7,17" max="48,11,14"/>
             </region>
         </destroyable>
-        <destroyable owner="blue-team" materials="emerald block">
+        <destroyable owner="blue-team">
             <region>
                 <cuboid min="-16,7,17" max="-19,11,14"/>
             </region>
