@@ -68,27 +68,27 @@
         <rectangle min="58,-21" max="-57,22"/>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="58,-16" max="60,17"/>
         </intersect>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="60,-15" max="61,16"/>
         </intersect>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="61,-13" max="62,14"/>
         </intersect>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="-57,17" max="-59,-16"/>
         </intersect>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="-59,16" max="-60,-15"/>
         </intersect>
         <intersect>
             <region id="above-5"/>
-            <rectangle min="" max=""/>
+            <rectangle min="-60,14" max="-61,-13"/>
         </intersect>
     </union>
     <complement id="build-region">
@@ -156,6 +156,7 @@
     <item>cooked beef</item>
     <item>golden apple</item>
     <item>wood</item>
+    <item>leaves</item>
 </itemremove>
 <maxbuildheight>19</maxbuildheight>
 </map>
