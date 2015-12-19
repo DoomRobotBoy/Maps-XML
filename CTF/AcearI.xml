@@ -1,0 +1,130 @@
+<map proto="1.4.0">
+<name>AcearI</name>
+<version>1.0.0</version>
+<objective>Be the first team to capture the enemy flag 5 times!</objective>
+<authors>
+    <author uuid="022321a8-578b-4438-b035-8a3ca735639f"/> <!-- nintendoboy11 -->
+    <author uuid="cbd5c47c-1137-4f02-93dd-626a46bdd779"/> <!-- Kaskito -->
+</authors>
+<contributors>
+    <contributor uuid="dff980ed-9f69-491e-b79c-30c21350baf2" contribution="XML"/> <!-- DoomyBoy -->
+</contributors>
+<!-- <broadcasts>
+    <tip after="1s"></tip>
+</broadcasts> -->
+<teams>
+    <team id="red" color="dark red" max="8" max-overfill="10">Red Team</team>
+    <team id="blue" color="blue" max="8" max-overfill="10">Blue Team</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" enchantment="arrow_infinite:1" material="bow"/>
+        <item slot="28" amount="24" material="arrow"/>
+        <item slot="2" unbreakable="true" material="iron pickaxe"/>
+        <item slot="3" unbreakable="true" material="stone axe"/>
+        <item slot="4" material="boat"/>
+        <item slot="5" amount="16" damage="1" material="log"/>
+        <item slot="6" amount="48" material="leaves"/>
+        <item slot="7" amount="64" material="cooked beef"/>
+        <item slot="8" material="golden apple"/>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <chestplate unbreakable="true" color="993333" material="leather chestplate"/>
+        <boots unbreakable="true" color="993333" material="leather boots"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
+        <boots unbreakable="true" color="334CB2" material="leather boots"/>
+    </kit>
+    <kit id="flag-kit" force="true">
+        <potion duration="oo" amplifier="-3">health boost</potion>
+    </kit>
+    <kit id="reset-health" force="true">
+        <potion duration="1" amplifier="0">health boost</potion>
+        <potion duration="1" amplifier="10">regeneration</potion>
+    </kit>
+</kits>
+<itemremove>
+    <item>leather chestplate</item>
+    <item>leather boots</item>
+    <item>stone sword</item>
+    <item>bow</item>
+    <item>iron pickaxe</item>
+    <item>stone axe</item>
+    <item>cooked beef</item>
+    <item>golden apple</item>
+    <item>wood</item>
+</itemremove>
+<filters>
+    <any id="respawn">
+        <same-team>
+            <carrying-flag>center-flag</carrying-flag>
+        </same-team>
+        <flag-returned>center-flag</flag-returned>
+        <flag-dropped>center-flag</flag-dropped>
+        <not>
+            <flag-carried>center-flag</flag-carried>
+        </not>
+    </any>
+    <material id="only-leaves">leaves</material>
+</filters>
+<regions>
+    <rectangle id="map" min="oo,oo" max="-oo,oo"/>
+    <block id="flag-region">-260.5,5,98.5</block>
+    <cuboid id="capture-region" min="-298,0,-261" max="-223,21,144"/>
+    <union id="jump-pads">
+        <block>-260.5,5,53.5</block>
+        <block>-223.5,5,98.5</block>
+        <block>-260.5,5,143.5</block>
+        <block>-297.5,5,98.5</block>
+    </union>
+    <block id="side-jump-pad-1">-270.5,10,88.5</block>
+    <block id="side-jump-pad-2">-250.5,10,108.5</block>
+    <union id="health-kit-region">
+        <block>-240.5,5,131.5</block>
+        <block>-280.5,5,131.5</block>
+        <block>-280.5,5,65.5</block>
+        <block>-240.5,5,65.5</block>
+    </union>
+<!-- Applied -->
+    <apply block="only-leaves" region="capture-region"/>
+    <apply velocity="0.0,1.2,0.0" region="jump-pads"/>
+    <apply velocity="0.7,0.6,0.7" region="side-jump-pad-1"/>
+    <apply velocity="-0.7,0.6,-0.7" region="side-jump-pad-2"/>
+    <apply kit="health-kit" region="health-kit-region" filter="health-kit-filter"/>
+</regions>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw=""></point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit" yaw="90">
+        <regions>
+            <point yaw=""></point>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="0">
+            <point>-260.5,30,98.5</point>
+        </regions>
+    </default>
+</spawns>
+<score>
+    <limit>5</limit>
+    <kills>0</kills>
+    <deaths>0</deaths>
+</score>
+<flags>
+<!-- Red's Flag -->
+    <post id="red-flag-post" pickup-filter="blue-only">2,5,11</post>
+    <flag id="red-flag" name="Red Flag" color="red" post="red-flag-post"/>
+    <net post="red-flag-post" points="1" region="blue-net" capture-filter="blue-only"/>
+<!-- Blue's Flag -->
+    <post id="blue-flag-post" pickup-filter="red-only">2,5,11</post>
+    <flag id="blue-flag" name="Red Flag" color="blue" post="blue-flag-post"/>
+    <net post="blue-flag-post" points="1" region="red-net" capture-filter="red-only"/>
+</flags>
+<maxbuildheight>19</maxbuildheight>
+</map>
