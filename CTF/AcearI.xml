@@ -43,6 +43,10 @@
         <boots unbreakable="true" color="334CB2" material="leather boots"/>
     </kit>
 </kits>
+<killreward>
+    <item material="golden apple"/>
+    <item amount="6" material="arrow"/>
+</killreward>
 <filters>
     <team id="red-only">red</team>
     <team id="blue-only">blue</team>
