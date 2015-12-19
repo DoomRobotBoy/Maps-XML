@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>AcearI</name>
 <version>1.0.0</version>
-<objective>Be the first team to capture the enemy flag 5 times!</objective>
+<objective>First team to capture the enemy flag 5 times wins!</objective>
 <authors>
     <author uuid="022321a8-578b-4438-b035-8a3ca735639f"/> <!-- nintendoboy11 -->
     <author uuid="cbd5c47c-1137-4f02-93dd-626a46bdd779"/> <!-- Kaskito -->
@@ -41,13 +41,6 @@
     <kit id="blue-kit" parents="spawn">
         <chestplate unbreakable="true" color="334CB2" material="leather chestplate"/>
         <boots unbreakable="true" color="334CB2" material="leather boots"/>
-    </kit>
-    <kit id="flag-kit" force="true">
-        <potion duration="oo" amplifier="-3">health boost</potion>
-    </kit>
-    <kit id="reset-health" force="true">
-        <potion duration="1" amplifier="0">health boost</potion>
-        <potion duration="1" amplifier="10">regeneration</potion>
     </kit>
 </kits>
 <filters>
@@ -105,12 +98,6 @@
             <region id="blue-flag-protection"/>
         </region>
     </apply>
-    <apply block="never" message="You may not modify the spawns.">
-        <region>
-            <region id="red-spawn-protection"/>
-            <region id="blue-spawn-protection"/>
-        </region>
-    </apply>
     <apply block="never" message="You may not modify blocks outside the playing field!">
         <region>
             <negative>
@@ -143,7 +130,7 @@
     <net post="red-flag-post" points="1" region="blue-net" capture-filter="blue-only"/>
 <!-- Blue's Flag -->
     <post id="blue-flag-post" pickup-filter="red-only">-36.5,1,0.5</post>
-    <flag id="blue-flag" name="Red Flag" color="blue" post="blue-flag-post"/>
+    <flag id="blue-flag" name="Blue Flag" color="blue" post="blue-flag-post"/>
     <net post="blue-flag-post" points="1" region="red-net" capture-filter="red-only"/>
 </flags>
 <itemremove>
