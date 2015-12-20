@@ -1,0 +1,61 @@
+<regions>
+    <above y="5" id="above-5"/>
+    <below y="20" id="below-20"/>
+    <rectangle id="red-flag-protection" min="35,3" max="40,-2"/>
+    <rectangle id="blue-flag-protection" min="-34,-2" max="-39,3"/>
+    <cuboid id="red-net" min="35,0,3" max="40,3,-2"/>
+    <cuboid id="blue-net" min="-34,0,-2" max="-39,3,3"/>
+    <rectangle id="red-spawn-protection" min="86,-2" max="56,3"/>
+    <rectangle id="blue-spawn-protection" min="-85,3" max="-55,-2"/>
+    <rectangle id="red-spawn" min="87,-3" max="61,4"/>
+    <rectangle id="blue-spawn" min="-86,4" max="-60,-3"/>
+    <union id="map">
+        <rectangle min="58,-21" max="-57,22"/>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="58,-16" max="60,17"/>
+        </intersect>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="60,-15" max="61,16"/>
+        </intersect>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="61,-13" max="62,14"/>
+        </intersect>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="-57,17" max="-59,-16"/>
+        </intersect>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="-59,16" max="-60,-15"/>
+        </intersect>
+        <intersect>
+            <region id="above-5"/>
+            <rectangle min="-60,14" max="-61,-13"/>
+        </intersect>
+    </union>
+    <complement id="build-region">
+        <region id="map"/>
+        <region id="red-spawn-protection"/>
+        <region id="blue-spawn-protection"/>
+        <region id="below-20"/>
+    </complement>
+<!--  Applied  -->
+    <apply enter="red-only" region="red-spawn" message="Only Red Team may enter this spawn!"/>
+    <apply enter="blue-only" region="blue-spawn" message="Only Blue Team may enter this spawn!"/>
+    <apply block="never" message="You may not edit blocks above the flag platform.">
+        <region>
+            <region id="red-flag-protection"/>
+            <region id="blue-flag-protection"/>
+        </region>
+    </apply>
+    <apply block="never" message="You may not modify blocks outside the playing field!">
+        <region>
+            <negative>
+                <region id="build-region"/>
+            </negative>
+        </region>
+    </apply>
+</regions>
