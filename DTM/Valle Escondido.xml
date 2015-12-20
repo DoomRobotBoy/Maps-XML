@@ -71,10 +71,10 @@
 			<rectangle min="50,9" max="29,23"/>
 			<region id="above-1"/>
 		</intersect>
-		<rectangle id="red-front" min="43,89" max="28,40"/>
-		<rectangle id="red-water" min="44,60" max="-15,88"/>
+		<rectangle id="red-front" min="27,23" max="49,40"/>
+		<rectangle id="red-water" min="43,40" max="28,88"/>
 	</union>
-	<rectangle id="center-water" min="42,60" max="-13,76"/>
+	<rectangle id="center-water" min="44,60" max="-15,88"/>
 	<union id="blue-lanes">
 		<intersect>
 			<mirror normal="1,0,0" origin="14.5,1,3">
