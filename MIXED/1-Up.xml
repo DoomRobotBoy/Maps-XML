@@ -21,6 +21,14 @@
     <not id="blue-monument-not-broken">
         <objective id="blue-monument-broken">blue-monument</objective>
     </not>
+    <deny id="not-red-core">
+        <filter id="red-monument-not-broken"/>
+        <material>obsidian</material>
+    </deny>
+    <deny id="not-blue-core">
+        <filter id="blue-monument-not-broken"/>
+        <material>obsidian</material>
+    </deny>
 </filters>
 <regions>
     <negative id="build-region">
@@ -31,6 +39,8 @@
     </negative>
     <cuboid id="red-core" min="7,12,111" max="2,16,114"/>
     <cuboid id="blue-core" min="7,12,-110" max="2,16,-113"/>
+    <apply block="not-red-core" region="red-core"/>
+    <apply block="not-blue-core" region="blue-core"/>
     <apply block="never" region="build-region" message="You may not modify blocks outside the playing field."/>
 </regions>
 <spawns>
