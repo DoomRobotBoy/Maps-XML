@@ -29,6 +29,9 @@
         <filter id="blue-monument-not-broken"/>
         <material>obsidian</material>
     </deny>
+    <not id="not-spawners">
+        <material>mob spawner</material>
+    </not>
 </filters>
 <regions>
     <negative id="build-region">
@@ -41,6 +44,7 @@
     <cuboid id="blue-core" min="7,12,-110" max="2,16,-113"/>
     <apply block="not-red-core" region="red-core"/>
     <apply block="not-blue-core" region="blue-core"/>
+    <apply block="not-spawners" region="everywhere" message="You may not break this spawner!"/>
     <apply block="never" region="build-region" message="You may not modify blocks outside the playing field."/>
 </regions>
 <spawns>
@@ -89,6 +93,8 @@
 <itemremove>
     <item>gold block</item>
     <item>obsidian</item>
+    <item>mob spawner</item>
 </itemremove>
 <maxbuildheight>22</maxbuildheight>
+<time result="objectives">30m</time>
 </map>
