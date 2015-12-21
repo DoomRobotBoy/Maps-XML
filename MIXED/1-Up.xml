@@ -1,0 +1,84 @@
+<map proto="1.4.0">
+<name>1-Up</name>
+<version>1.0.0</version>
+<objective>Leak the enemy core!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomyBoy   -->
+</authors>
+<contributors>
+    <contributor uuid="755acf7d-c9b4-4f1d-b7ac-db4dfdfa2b26" contribution="Feedback"/> <!--   Stormer_   -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="5">Red</team>
+    <team id="blue" color="blue" max="5">Blue</team>
+</teams>
+<filters>
+    <team id="red-only">blue</team>
+    <team id="blue-only">red</team>
+    <not id="red-monument-not-broken">
+        <objective id="red-monument-broken">red-monument</objective>
+    </not>
+    <not id="blue-monument-not-broken">
+        <objective id="blue-monument-broken">blue-monument</objective>
+    </not>
+</filters>
+<regions>
+    <negative id="build-region">
+        <union>
+            <rectangle id="map" min="38,-126" max="-30,127"/>
+            <below y="23"/>
+        </union>
+    </negative>
+    <cuboid id="red-core" min="7,12,111" max="2,16,114"/>
+    <cuboid id="blue-core" min="7,12,-110" max="2,16,-113"/>
+    <apply block="never" region="build-region" message="You may not modify blocks outside the playing field."/>
+</regions>
+<spawns>
+    <spawn team="red" filter="red-monument-not-broken">
+        <regions>
+            <point yaw="90">46.5,33,45.5</point>
+        </regions>
+    </spawn>
+    <spawn team="red" filter="red-monument-broken">
+        <regions yaw="180">
+            <cuboid min="-8,43,129" max="-6,43,128"/>
+        </regions>
+    </spawn>
+    <spawn team="blue" filter="blue-monument-not-broken">
+        <regions>
+            <point yaw="90">46.5,33,-44.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" filter="blue-monument-broken">
+        <regions yaw="0">
+            <cuboid min="-8,43,-128" max="-6,43,-127"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="90">50,38,0.5</point>
+        </regions>
+    </default>
+</spawns>
+<cores material="obsidian" leak="4" proximity-metric="closest kill">
+    <core name="Core" team="red" region="red-core"/>
+    <core name="Core" team="blue" region="blue-core"/>
+</cores>
+<destroyables name="Monument" materials="gold block" completion="100%" required="false">
+    <destroyable id="red-monument" owner="red">
+        <region>
+            <cuboid min="-2,11,41" max="-5,14,44"/>
+        </region>
+    </destroyable>
+    <destroyable id="blue-monument" owner="blue">
+        <region>
+            <cuboid min="-2,11,-40" max="-5,14,-43"/>
+        </region>
+    </destroyable>
+</destroyables>
+<itemremove>
+    <item>gold block</item>
+    <item>obsidian</item>
+</itemremove>
+<maxbuildheight>22</maxbuildheight>
+</map>
