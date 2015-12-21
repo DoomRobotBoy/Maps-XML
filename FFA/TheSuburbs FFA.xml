@@ -1,0 +1,66 @@
+<map proto="1.4.0">
+<name>The Suburbs FFA</name>
+<version>1.0.1</version>
+<objective>Eliminate the enemy team before time runs out!</objective>
+<game-mode>FFA</game-mode>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+    <!--  DoomyBoy  -->
+</authors>
+<teams>
+    <team show-name-tags="allies" color="dark red" max="14" max-overfill="16">Red Team</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red">
+        <regions yaw="30">
+            <cylinder base="93.5,1.5,67.5" radius="1" height="0"/>
+        </regions>
+    </spawn>
+    <default>
+        <regions yaw="135">
+            <point yaw="135">41.5,13,162.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" amount="32" material="bread"/>
+        <item slot="3" material="golden apple"/>
+        <item slot="4" material="torch"/>
+        <item slot="5" name="`4Brick`7`o" projectile="brick" material="clay brick"/>
+        <item slot="28" amount="32" material="arrow"/>
+        <helmet locked="true" unbreakable="true" material="iron helmet"/>
+        <chestplate locked="true" unbreakable="true" color="B2A699" material="leather helmet"/>
+        <leggings locked="true" unbreakable="true" color="993333" material="leather leggings"/>
+        <boots locked="true" unbreakable="true" color="B2A699" material="leather boots"/>
+    </kit>
+</kits>
+<projectiles>
+    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
+</projectiles>
+<killreward>
+    <item>golden apple</item>
+</killreward>
+<filters>
+    <any id="allow-some">
+        <material>stained glass pane</material>
+        <material>thin glass</material>
+        <material>torch</material>
+    </any>
+</filters>
+<regions>
+    <apply block="allow-some" region="everywhere"/>
+</regions>
+<itemremove>
+    <item>iron helmet</item>
+    <item>leather chestplate</item>
+    <item>chainmail leggings</item>
+    <item>leather boots</item>
+    <item>arrow</item>
+    <item>bread</item>
+    <item>golden apple</item>
+</itemremove>
+<timelock>on</timelock>
+</map>
