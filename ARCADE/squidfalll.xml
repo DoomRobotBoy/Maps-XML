@@ -13,7 +13,7 @@
 	</kit>
 </kits>
 <spawns>
-	<spawn safe="true" kit="player" region="intial-spawn" filter="before-3s"/>
+	<spawn kit="player" region="intial-spawn" filter="before-3s"/>
 	<spawn safe="true" kit="player" region="spawn" filter="after-3s"/>
 	<default yaw="0">
 		<regions>
