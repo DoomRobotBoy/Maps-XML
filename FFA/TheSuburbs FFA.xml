@@ -1,7 +1,7 @@
 <map proto="1.4.0">
 <name>The Suburbs FFA</name>
 <version>1.0.0</version>
-<objective>Kill everyone, player with most kills at the end of the time limit wins!</objective>
+<objective>Kill everyone, first to 30 kills or player with most kills at the end of the time limit, wins!</objective>
 <game-mode>FFA</game-mode>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
