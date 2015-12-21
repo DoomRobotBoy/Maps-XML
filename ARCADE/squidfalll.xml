@@ -1,0 +1,73 @@
+<map proto="1.4.0">
+<name>Squid Fall</name>
+<version>1.0.0</version>
+<objective>Land in the water and be the last player alive!</objective>
+<authors>
+	<author uuid="260004f0-996b-4539-ba21-df4ee6336b63"/> <!-- Elliott_ -->
+	<author uuid="8f9344cf-7367-4e28-9f24-5c66422f28c9"/> <!-- Timothee38 -->
+</authors>
+<players max="8" max-overfill="8"/>
+<kits>
+	<kit id="player" force="true">
+		<health>16</health>
+	</kit>
+</kits>
+<spawns>
+	<spawn safe="true" kit="player" region="intial-spawn" filter="before-3s"/>
+	<spawn safe="true" kit="player" region="spawn" filter="after-3s"/>
+	<default yaw="0">
+		<regions>
+			<block>-17,50,-188</block>
+		</regions>
+	</default>
+</spawns>
+<score>
+    <box points="1" region="water"/>
+</score>
+<time>2m</time>
+<filters>
+    <time id="after-3s">3s<time>
+    <not id="before-3s">
+        <filter id="after-3s"/>
+    </not>
+<regions>
+	<cuboid id="water" min="-21,25,-171" max="-32,27,-183"/>
+	<cuboid id="regen" min="-21,27,-171" max="-32,28,-182"/>
+	<cuboid id="spawn" min="-13,48,-170" max="-16,49,-182"/>
+	<cuboid id="inital-spawn" min="-13,60,-170" max="-16,61,-182"/>
+	<apply block="never" region="everywhere"/>
+</regions>
+<renewables>
+	<renewable rate="5" grow="false" particles="true" sound="true" region="regen">
+		<replace-filter>
+			<material>air</material>
+		</replace-filter>
+		<renew-filter>
+            <any>
+                <!--<material>wool:1</material>
+                <material>wool:2</material>
+                <material>wool:3</material>
+                <material>wool:4</material>
+                <material>wool:5</material>
+                <material>wool:6</material>-->
+                <material>stained glass:11</material>
+            </any>
+        </renew-filter>
+	</renewable>
+	<renewable rate="200" grow="false" particles="false" sound="false" region="regen" avoid-players="50">
+		<replace-filter>
+		    <material>stained glass:11</material>
+		</replace-filter>
+		<renew-filter>
+            <material>air</material>
+        </renew-filter>
+	</renewable>
+</renewables>
+<portals>
+	<portal sound="false" destination="spawn">
+		<region>
+			<region id="water"/>
+		</region>
+	</portal>
+</portals>
+</map>
