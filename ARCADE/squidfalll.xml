@@ -54,7 +54,7 @@
             </any>
         </renew-filter>
 	</renewable>
-	<renewable rate="200" grow="false" particles="false" sound="false" region="regen" avoid-players="50">
+	<renewable rate="200" grow="false" particles="false" sound="false" region="regen" avoid-players="15">
 		<replace-filter>
 		    <material>stained glass:11</material>
 		</replace-filter>
