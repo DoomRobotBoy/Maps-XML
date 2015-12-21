@@ -1,19 +1,55 @@
 <map proto="1.4.0">
 <name>The Suburbs FFA</name>
-<version>1.0.1</version>
-<objective>Eliminate the enemy team before time runs out!</objective>
+<version>1.0.0</version>
+<objective>Kill everyone, player with most kills at the end of the time limit wins!</objective>
 <game-mode>FFA</game-mode>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
     <!--  DoomyBoy  -->
 </authors>
-<teams>
-    <team show-name-tags="allies" color="dark red" max="14" max-overfill="16">Red Team</team>
-</teams>
+<respawn blackout="true"/>
+<players max="24"/>
+<time>12m</time>
+<score>
+    <limit>30</limit>
+    <kills>1</kills>
+    <deaths>0</deaths>
+</score>
 <spawns>
-    <spawn team="red" kit="red">
+    <spawn kit="spawn" spread="true">
         <regions yaw="30">
-            <cylinder base="93.5,1.5,67.5" radius="1" height="0"/>
+            <point yaw="20">83.5,4,18.5</point>
+            <point yaw="30">42.5,4,26.5</point>
+            <point yaw="0">3.5,4,31.5</point>
+            <point yaw="-1">-21.5,4,63.5</point>
+            <point yaw="-90">-31.5,2,120.5</point>
+            <point yaw="30">-2.5,3,155.5</point>
+            <point yaw="-20">-17.5,3,172.5</point>
+            <point yaw="-30">-29.5,4,204.5</point>
+            <point yaw="-135">17.5,4,238.5</point>
+            <point yaw="-150">56.5,4,242.5</point>
+            <point yaw="150">111.5,4,220.5</point>
+            <point yaw="50">132.5,4,184.5</point>
+            <point yaw="150">127.5,4,179.5</point>
+            <point yaw="-145">100.5,5,160.5</point>
+            <point yaw="45">136.5,8,129.5</point>
+            <point yaw="125">143.5,8,100.5</point>
+            <point yaw="95">96.5,8,101.5</point>
+            <point yaw="60">138.5,5,64.5</point>
+            <point yaw="165">113.5,4,42.5</point>
+            <point yaw="180">59.5,5,173.5</point>
+            <point yaw="0">3.5,3,77.5</point>
+            <point yaw="-170">30.5,4,211.5</point>
+            <point yaw="150">63.5,4,192.5</point>
+            <point yaw="40">98.5,4,66.5</point>
+            <point yaw="-50">51.5,5,62.5</point>
+            <point yaw="-80">-14.5,2,96.5</point>
+            <point yaw="-90">1.5,3,142.5</point>
+            <point yaw="-140">13.5,2,93.5</point>
+            <point yaw="-80">-2.5,4,60.5</point>
+            <point yaw="0">64.5,5,87.5</point>
+            <point yaw="-100">77.5,4,157.5</point>
+            <point yaw="40">24.5,4,157.5</point>
         </regions>
     </spawn>
     <default>
@@ -35,13 +71,17 @@
         <chestplate locked="true" unbreakable="true" color="B2A699" material="leather helmet"/>
         <leggings locked="true" unbreakable="true" color="993333" material="leather leggings"/>
         <boots locked="true" unbreakable="true" color="B2A699" material="leather boots"/>
+        <potion duration="1" amplifier="5">slow</potion>
+        <potion duration="1" amplifier="-5">jump</potion>
+        <potion duration="2" amplifier="5">damage resistance</potion>
     </kit>
 </kits>
 <projectiles>
     <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
 </projectiles>
 <killreward>
-    <item>golden apple</item>
+    <item material="golden apple"/>
+    <item amount="8" material="arrow"/>
 </killreward>
 <filters>
     <any id="allow-some">
@@ -53,10 +93,14 @@
 <regions>
     <apply block="allow-some" region="everywhere"/>
 </regions>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+</toolrepair>
 <itemremove>
     <item>iron helmet</item>
     <item>leather chestplate</item>
-    <item>chainmail leggings</item>
+    <item>leather leggings</item>
     <item>leather boots</item>
     <item>arrow</item>
     <item>bread</item>
