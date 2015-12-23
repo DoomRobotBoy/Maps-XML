@@ -82,7 +82,7 @@
         </region>
     </core>
 </cores>
-<destroyables name="Monument" materials="gold block" completion="100%">
+<destroyables name="Monument" materials="gold block" completion="100%" mode-changes="false">
     <destroyable id="red-monument" owner="red">
         <region>
             <cuboid min="47,11,-59" max="50,16,-62"/>
@@ -97,6 +97,10 @@
 <itemremove>
     <item>gold block</item>
     <item>obsidian</item>
+    <item>wood</item>
+    <item>glass</item>
+    <item>smooth brick</item>
+    <item>arrow</item>
 </itemremove>
 <maxbuildheight>20</maxbuildheight>
 <time result="objectives">30m</time>
