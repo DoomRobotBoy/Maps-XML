@@ -94,6 +94,12 @@
         </region>
     </destroyable>
 </destroyables>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
 <itemremove>
     <item>gold block</item>
     <item>obsidian</item>
