@@ -1,0 +1,103 @@
+<map proto="1.4.0">
+<name>Terse</name>
+<version>1.0.0</version>
+<objective>Destroy the enemy monument and leak their core!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   LArrowHead   -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomyBoy   -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5">Red</team>
+    <team id="blue" color="blue" max="5">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" material="diamond sword"/>
+        <item slot="1" material="bow"/>
+        <item slot="2" material="diamond pickaxe"/>
+        <item slot="3" material="iron axe"/>
+        <item slot="4" amount="64" material="cooked beef"/>
+        <item slot="5" amount="64" damage="5" material="wood"/>
+        <item slot="6" amount="64" damage="5" material="wood"/>
+        <item slot="7" amount="32" material="glass"/>
+        <item slot="8" amount="48" material="arrow"/>
+    </kit>
+</kits>
+<filters>
+    <team id="red-only">red</team>
+    <team id="blue-only">blue</team>
+</filters>
+<regions>
+    <union id="build-region">
+        <rectangle id="map" min="60,-68" max="-17,-29"/>
+        <rectangle id="extra-stuff" min="-19,-36" max="62,-35"/>
+    </union>
+    <rectangle id="red-spawn-drop" min="59,-30" max="64,-35"/>
+    <rectangle id="blue-spawn-drop" min="-16,-35" max="-21,-30"/>
+    <apply enter="red-only" region="red-spawn-drop" message="You may not enter this spawn drop!"/>
+    <apply enter="blue-only" region="blue-spawn-drop" message="You may not enter this spawn drop!"/>
+    <apply block="never" message="You may not modify the spawn drops.">
+        <region>
+            <region id="red-spawn-drop"/>
+            <region id="blue-spawn-drop"/>
+        </region>
+    </apply>
+    <apply block="never" message="You may not modify blocks outside the playing field.">
+        <region>
+            <negative>
+                <region id="build-region"/>
+            </negative>
+        </region>
+    </apply>
+</regions>
+<spawns>
+    <spawn team="red" kit="spawn">
+        <regions>
+            <point yaw="90">61.5,103,-32.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="spawn">
+        <regions>
+            <point yaw="-90">-18.5,103,-32.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="0">21.5,16,-83.5</point>
+        </regions>
+    </default>
+</spawns>
+<modes>
+    <mode after="10m" material="gold block"/>
+</modes>
+<cores name="Core" material="obsidian" leak="4" proximity-metric="closest kill" mode-changes="true">
+    <core team="red">
+        <region>
+            <cuboid min="47,6,-44" max="50,10,-47"/>
+        </region>
+    </core>
+    <core team="blue">
+        <region>
+            <cuboid min="-4,6,-44" max="-7,10,-47"/>
+        </region>
+    </core>
+</cores>
+<destroyables name="Monument" materials="gold block" completion="100%">
+    <destroyable id="red-monument" owner="red">
+        <region>
+            <cuboid min="47,11,-59" max="50,16,-62"/>
+        </region>
+    </destroyable>
+    <destroyable id="blue-monument" owner="blue">
+        <region>
+            <cuboid min="-4,11,-59" max="-7,16,-62"/>
+        </region>
+    </destroyable>
+</destroyables>
+<itemremove>
+    <item>gold block</item>
+    <item>obsidian</item>
+</itemremove>
+<maxbuildheight>20</maxbuildheight>
+<time result="objectives">30m</time>
+</map>
