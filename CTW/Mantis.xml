@@ -115,8 +115,11 @@
             <cuboid min="-24,8,-67" max="-21,21,-73"/>
             <cuboid min="-24,8,-67" max="-22,21,-74"/>
         </union>
-        <cuboid id="yellow-front-bridge" min="" max=""/>
+        <cuboid id="yellow-front-bridge" min="4,8,-33" max="-2,21,-16"/>
         <union id="yellow-end-of-bridge">
+            <cuboid min="-3,2,-16" max="5,21,-15"/>
+            <cuboid min="-4,2,-15" max="6,21,-14"/>
+            <cuboid min="-5,2,-14" max="7,21,-13"/>
         </union>
         <union id="yellow-bridge-extension">
         </union>
