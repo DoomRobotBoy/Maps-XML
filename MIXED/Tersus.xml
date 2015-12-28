@@ -33,6 +33,37 @@
     </not>
 </filters>
 <regions>
+    <complement id="inversed-build-region">
+        <everywhere/>
+        <complement>
+            <rectangle min="43,-35" max="-42,24"/>
+            <rectangle min="43,14" max="30,24"/>
+            <rectangle min="-42,14" max="-29,24"/>
+        </complement>
+        <union id="red-side">
+            <rectangle min="43,14" max="52,-34"/>
+            <rectangle min="43,-35" max="51,-34"/>
+            <rectangle min="52,14" max="55,-15"/>
+            <rectangle min="55,15" max="63,-16"/>
+            <rectangle min="63,14" max="65,-15"/>
+            <rectangle min="65,13" max="66,-14"/>
+            <rectangle min="66,11" max="67,-12"/>
+            <rectangle min="67,9" max="75,-10"/>
+            <rectangle min="75,8" max="83,-9"/>
+            <rectangle min="83,9" max="89,-10"/>
+            <rectangle min="89,8" max="91,-9"/>
+            <rectangle min="91,5" max="92,-6"/>
+            <rectangle min="92,4" max="93,-5"/>
+        </union>
+        <mirror id="blue-side" normal="1,0,0" origin="0.5,8,-6.5">
+            <region id="red-side"/>
+        </mirror> 
+    </complement>
+    <apply block="never" message="You may not modify blocks outside the playing area.">
+        <region>
+            <region id="inversed-build-region"/>
+        </region>
+    </apply>
 </regions>
 <spawns>
     <spawn team="red" kit="spawn">
