@@ -122,6 +122,17 @@
             <cuboid min="-5,2,-14" max="7,21,-13"/>
         </union>
         <union id="yellow-bridge-extension">
+            <cuboid min="-2,8,-22" max="-3,21,-16"/>
+            <cuboid min="-3,11,-22" max=""/>
+            <cuboid min="-4,12,-22" max=""/>
+            <cuboid min="-5,13,-22" max=""/>
+            <cuboid min="-6,14,-21" max=""/>
+            <cuboid min="-7,15,-20" max=""/>
+            <cuboid min="-8,16,-19" max=""/>
+            <cuboid min="-9,17,-18" max=""/>
+            <cuboid min="-15,19,-17" max=""/>
+            <cuboid min="-9,17,-18" max=""/>
+            <cuboid min="-9,17,-18" max=""/>
         </union>
         <union id="yellow-side-island">
         </union>
