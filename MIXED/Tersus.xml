@@ -26,13 +26,13 @@
     </kit>
 </kits>
 <filters>
-    <team id="red-only">red</team>
-    <team id="blue-only">blue</team>
-    <not id="no-void">
-        <void/>
-    </not>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
 </filters>
 <regions>
+    <cuboid id="red-spawn-drop" min="68,4,1" max="71,75,-2"/>
+    <cuboid id="blue-spawn-drop" min="-66,4,-3" max="-71,75,2"/>
+    <cuboid id="spawn-platforms" min="-71,72,-3" max="72,75,2"/>
     <complement id="inversed-build-region">
         <everywhere/>
         <complement>
@@ -59,9 +59,24 @@
             <region id="red-side"/>
         </mirror> 
     </complement>
+    <!-- Applied -->
+    <apply enter="only-red" region="red-spawn-drop" message="Only red may enter this spawn drop!"/>
+    <apply enter="only-blue" region="blue-spawn-drop" message="Only blue may enter this spawn drop!"/>
+    <apply block="never" message="You may not modify the spawn drops!">
+        <region>
+            <region id="red-spawn-drop"/>
+            <region id="blue-spawn-drop"/>
+            <region id="spawn-platforms"/>
+        </region>
+    </apply>
     <apply block="never" message="You may not modify blocks outside the playing area.">
         <region>
-            <region id="inversed-build-region"/>
+            <complement>
+                <region id="inversed-build-region"/>
+                <region id="red-spawn-drop"/>
+                <region id="blue-spawn-drop"/>
+                <region id="spawn-platforms"/>
+            </complement>
         </region>
     </apply>
 </regions>
