@@ -143,8 +143,15 @@
             <cuboid min="19,10,1" max="24,21,-18"/>
             <cuboid min="19,10,1" max="25,21,-17"/>
         </union>
-        <union id="yellow-side-lane">
-        </union>
+        <!-- <union id="yellow-side-lane">
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+            <cuboid min="" max=""/>
+        </union> -->
     </union>
     <mirror id="blue-side" normal="0,0,1" origin="1,6,1">
         <region id="yellow-side"/>
