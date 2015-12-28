@@ -1,0 +1,112 @@
+<map proto="1.4.0">
+<name>Tersus</name>
+<version>1.0.0</version>
+<objective>Destroy the enemy monuments and leak their core!</objective>
+<authors>
+    <author uuid="cbd5c47c-1137-4f02-93dd-626a46bdd779"/> <!--   Kaskito   -->
+</authors>
+<contributors>
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--   DoomyBoy   -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="8">Red</team>
+    <team id="blue" color="blue" max="8">Blue</team>
+</teams>
+<kits>
+    <kit id="spawn">
+        <item slot="0" material="diamond sword"/>
+        <item slot="1" material="bow"/>
+        <item slot="28" amount="64" material="arrow"/>
+        <item slot="2" enchantment="dig speed:2;durability:1" material="iron pickaxe"/>
+        <item slot="4" amount="16" material="ladder"/>
+        <item slot="5" amount="32" material="log"/>
+        <item slot="6" amount="32" material="cobblestone"/>
+        <item slot="7" amount="32" material="glass"/>
+        <item slot="8" amount="32" material="pumpkin pie"/>
+    </kit>
+</kits>
+<filters>
+    <team id="red-only">red</team>
+    <team id="blue-only">blue</team>
+    <not id="no-void">
+        <void/>
+    </not>
+</filters>
+<regions>
+</regions>
+<spawns>
+    <spawn team="red" kit="spawn">
+        <regions>
+            <point yaw="-90">60.5,73,-0.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="spawn">
+        <regions>
+            <point yaw="90">-59.5,73,-0.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="0">0.5,35,-61.5</point>
+        </regions>
+    </default>
+</spawns>
+<modes>
+    <mode after="10m" material="gold block"/>
+    <mode after="20m" material="glass"/>
+</modes>
+<cores name="Core" material="obsidian" leak="5" mode-changes="true">
+    <core team="red">
+        <region>
+            <cuboid min="40,9,-18" max="35,13,-23"/>
+        </region>
+    </core>
+    <core team="blue">
+        <region>
+            <cuboid min="-34,9,-18" max="-39,13,-23"/>
+        </region>
+    </core>
+</cores>
+<destroyables name="Monument" completion="100%" mode-changes="false">
+    <destroyables materials="emerald block">
+        <destroyable id="red-emerald-monument" owner="red">
+            <region>
+                <cuboid min="24,8,17" max="27,13,20"/>
+            </region>
+        </destroyable>
+        <destroyable id="blue-emerald-monument" owner="blue">
+            <region>
+                <cuboid min="-23,8,17" max="-26,13,20"/>
+            </region>
+        </destroyable>
+    </destroyables>
+    <destroyables materials="coal block">
+        <destroyable id="red-coal-monument" owner="red">
+            <region>
+                <cuboid min="49,12,1" max="52,17,-2"/>
+            </region>
+        </destroyable>
+        <destroyable id="blue-coal-monument" owner="blue">
+            <region>
+                <cuboid min="-49,12,1" max="-52,17,-2"/>
+            </region>
+        </destroyable>
+    </destroyables>
+</destroyables>
+<toolrepair>
+    <tool>iron sword</tool>
+    <tool>bow</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+</toolrepair>
+<itemremove>
+    <item>gold block</item>
+    <item>emerald block</item>
+    <item>coal block</item>
+    <item>obsidian</item>
+    <item>glass</item>
+    <item>arrow</item>
+</itemremove>
+<maxbuildheight>35</maxbuildheight>
+<time result="objectives">30m</time>
+</map>
