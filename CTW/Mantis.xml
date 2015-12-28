@@ -47,9 +47,6 @@
     </kill-reward>
 </kill-rewards>
 <filters>
-    <not id="no-void">
-        <void/>
-    </not>
     <team id="only-yellow">yellow</team>
     <team id="only-blue">blue</team>
     <any id="not-blue-or-iron">
@@ -76,7 +73,7 @@
 <regions>
     <!-- Yellow Side -->
     <union id="yellow-spawn-with-boardwalks">
-        <cuboid min="-12,9,-53" max="14,12,-49"/>
+        <cuboid min="-12,8,-53" max="14,12,-49"/>
         <cuboid min="3,0,-47" max="-1,12,-55"/>
         <cuboid min="4,0,-48" max="-2,12,-54"/>
         <cuboid min="5,0,-49" max="-3,12,-53"/>
@@ -84,6 +81,27 @@
     <cuboid id="yellow-wool-room" min="7,8,-73" max="-5,21,-82"/>
     <union id="yellow-side">
         <union id="yellow-spawn-ring">
+            <union id="south-east-side">
+                <cuboid min="20,8,-41" max="14,21,-51"/>
+                <cuboid min="19,8,-40" max="13,21,-45"/>
+                <cuboid min="18,8,-39" max="13,21,-45"/>
+                <cuboid min="17,8,-38" max="13,21,-45"/>
+                <cuboid min="16,8,-37" max="11,21,-44"/>
+                <cuboid min="15,8,-36" max="9,21,-43"/>
+                <cuboid min="13,8,-35" max="7,21,-42"/>
+                <cuboid min="11,8,-34" max="5,21,-41"/>
+                <cuboid min="9,8,-33" max="1,21,-40"/>
+            </union>
+            <mirror id="south-west-side" normal="-1,0,0" origin="1,11,-42">
+                <region id="south-east-side"/>
+            </mirror>
+            <mirror id="north-east-side" normal="0,0,-1" origin="10.5,11,-51">
+                <region id="south-east-side"/>
+            </mirror>
+            <mirror id="north-west-side" normal="-1,0,-1" origin="1,11,-51">
+                <region id="south-east-side"/>
+            </mirror>
+            <cuboid min="-5,8,-69" max="7,21,-73"/>
         </union>
         <union id="yellow-spawn-ring-extension">
         </union>
