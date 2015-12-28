@@ -1,22 +1,23 @@
 <map proto="1.4.0">
 <name>The Suburbs FFA</name>
 <version>1.0.0</version>
-<objective>Kill everyone, first to 30 kills or player with most kills at the end of the time limit, wins!</objective>
+<objective>
+    Get the most kills in 8 minutes!
+</objective>
 <game-mode>FFA</game-mode>
 <authors>
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-    <!--  DoomyBoy  -->
+    <!--   DoomyBoy   -->
 </authors>
 <respawn blackout="true"/>
-<players max="24"/>
-<time>12m</time>
+<players max="24" max-overfill="24" show-name-tags="false"/>
+<time>8m</time>
 <score>
-    <limit>30</limit>
+    <limit>-1</limit>
     <kills>1</kills>
-    <deaths>0</deaths>
 </score>
 <spawns>
-    <spawn kit="spawn" spread="true">
+    <spawn kit="spawn" spread="true" safe="true">
         <regions>
             <point yaw="20">83.5,4,18.5</point>
             <point yaw="30">42.5,4,26.5</point>
@@ -60,41 +61,35 @@
 </spawns>
 <kits>
     <kit id="spawn">
-        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="0" unbreakable="true" material="stone sword"/>
         <item slot="1" unbreakable="true" material="bow"/>
         <item slot="2" amount="32" material="bread"/>
         <item slot="3" material="golden apple"/>
-        <item slot="4" material="torch"/>
-        <item slot="5" name="`4Brick`7`o" projectile="brick" material="clay brick"/>
         <item slot="28" amount="32" material="arrow"/>
         <helmet locked="true" unbreakable="true" material="iron helmet"/>
-        <chestplate locked="true" unbreakable="true" color="B2A699" material="leather helmet"/>
+        <chestplate locked="true" unbreakable="true" color="B2A699" material="leather chestplate"/>
         <leggings locked="true" unbreakable="true" color="993333" material="leather leggings"/>
         <boots locked="true" unbreakable="true" color="B2A699" material="leather boots"/>
-        <potion duration="1" amplifier="5">slow</potion>
-        <potion duration="1" amplifier="-5">jump</potion>
-        <potion duration="2" amplifier="5">damage resistance</potion>
+        <potion duration="1" amplifier="5">damage resistance</potion>
     </kit>
 </kits>
-<projectiles>
-    <projectile id="brick" name="Brick" velocity="5" damage="1" projectile="Snowball" throwable="true" cooldown="2s"/>
-</projectiles>
 <killreward>
     <item material="golden apple"/>
     <item amount="8" material="arrow"/>
+    <potion duration="2" amplifier="4">regeneration</potion>
 </killreward>
 <filters>
     <any id="allow-some">
         <material>stained glass pane</material>
         <material>thin glass</material>
-        <material>torch</material>
+        <material>double plant:2</material>
     </any>
 </filters>
 <regions>
     <apply block="allow-some" region="everywhere"/>
 </regions>
 <toolrepair>
-    <tool>iron sword</tool>
+    <tool>stone sword</tool>
     <tool>bow</tool>
 </toolrepair>
 <itemremove>
@@ -105,6 +100,7 @@
     <item>arrow</item>
     <item>bread</item>
     <item>golden apple</item>
+    <item>seeds</item>
 </itemremove>
 <timelock>on</timelock>
 </map>
