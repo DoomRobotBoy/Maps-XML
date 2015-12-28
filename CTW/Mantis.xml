@@ -50,27 +50,81 @@
     <not id="no-void">
         <void/>
     </not>
-    <team id="only-red">red-team</team>
-    <team id="only-blue">blue-team</team>
-    <material id="only-gold">gold block</material>
-    <not id="not-spawners">
-        <all>
-            <any>
-                <material>mob spawner</material>
-                <material>iron plate</material>
-            </any>
-        </all>
-    </not>
-    <all id="only-red-cobweb">
-        <team>red-team</team>
-        <material>web</material>
+    <team id="only-yellow">yellow</team>
+    <team id="only-blue">blue</team>
+    <any id="not-blue-or-iron">
+        <not>
+            <team>blue</team>
+        </not>
+        <material>iron block</material>
+    </any>
+    <any id="not-yellow-or-iron">
+        <not>
+            <team>yellow</team>
+        </not>
+        <material>iron block</material>
+    </any>
+    <all id="only-yellow-bars">
+        <team>yellow</team>
+        <material>iron fence</material>
     </all>
-    <all id="only-blue-cobweb">
-        <team>blue-team</team>
-        <material>web</material>
+    <all id="only-blue-bars">
+        <team>blue</team>
+        <material>iron fence</material>
     </all>
 </filters>
 <regions>
+    <!-- Yellow Side -->
+    <union id="yellow-spawn-with-boardwalks">
+    </union>
+    <cuboid id="yellow-wool-room" min="" max=""/>
+    <union id="yellow-side">
+        <union id="yellow-spawn-ring">
+        </union>
+        <union id="yellow-spawn-ring-extension">
+        </union>
+        <cuboid id="yellow-front-bridge" min="" max=""/>
+        <union id="yellow-end-of-bridge">
+        </union>
+        <union id="yellow-bridge-extension">
+        </union>
+        <union id="yellow-side-island">
+        </union>
+        <union id="yellow-side-lane">
+        </union>
+    </union>
+    <mirror id="blue-side" normal="0,0,1" origin="1,6,1">
+        <region id="yellow-side"/>
+    </mirror>
+    <mirror id="blue-spawn-with-boardwalks" normal="0,0,1" origin="1,6,1">
+        <region id="yellow-spawn-with-boardwalks"/>
+    </mirror>
+    <mirror id="blue-wool-room" normal="0,0,1" origin="1,6,1">
+        <region id="yellow-wool-room"/>
+    </mirror>
+    <cuboid id="center" min="" max=""/>
+    <cuboid id="spawner-platform" min="0,5,0" max="2,6,2"/>
+    <union id="build-region">
+        <region id="yellow-spawn-with-boardwalks"/>
+        <region id="yellow-side"/>
+        <region id="center"/>
+        <region id="blue-side"/>
+        <region id="blue-spawn-with-boardwalks"/>
+    </union>
+    <!-- Applied -->
+    <apply block="only-yellow-bars" region="blue-wool-room" message="You can only destroy iron bars here."/>
+    <apply block="only-yellow-bars" region="blue-wool-room" message="You can only destroy iron bars here."/>
+    <apply block="never" region="spawner-platform" message="You may not destroy the spawner platform."/>
+    <apply block="not-blue-or-iron" enter="only-yellow" region="yellow-spawn-with-boardwalks" message="Only yellow team may enter or destroy iron blocks in this region!"/>
+    <apply block="not-yellow-or-iron" enter="only-blue" region="blue-spawn-with-boardwalks" message="Only blue team may enter or destroy iron blocks in this region!"/>
+    <apply block="never" message="You may not modify blocks outside the playing area.">
+        <region>
+            <complement>
+                <everywhere/>
+                <region id="build-region"/>
+            </complement>
+        </region>
+    </apply>
 </regions>
 <itemremove>
     <item>iron sword</item>
