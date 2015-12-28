@@ -113,7 +113,9 @@
     </union>
     <!-- Applied -->
     <apply block="only-yellow-bars" region="blue-wool-room" message="You can only destroy iron bars here."/>
-    <apply block="only-yellow-bars" region="blue-wool-room" message="You can only destroy iron bars here."/>
+    <apply enter="only-yellow" region="blue-wool-room" message="Only yellow may enter this wool room."/>
+    <apply block="only-blue-bars" region="yellow-wool-room" message="You can only destroy iron bars here."/>
+    <apply enter="only-blue" region="yellow-wool-room" message="Only blue may enter this wool room."/>
     <apply block="never" region="spawner-platform" message="You may not destroy the spawner platform."/>
     <apply block="not-blue-or-iron" enter="only-yellow" region="yellow-spawn-with-boardwalks" message="Only yellow team may enter or destroy iron blocks in this region!"/>
     <apply block="not-yellow-or-iron" enter="only-blue" region="blue-spawn-with-boardwalks" message="Only blue team may enter or destroy iron blocks in this region!"/>
