@@ -193,14 +193,14 @@
 <wools team="yellow">
     <wool color="light blue" location="1.5,10,81.5">
         <monument>
-            <block>485.5,18,372.5</block>
+            <block>1.5,12,-48,5</block>
         </monument>
     </wool>
 </wools>
 <wools team="blue">
     <wool color="yellow" location="1.5,10,-79.5">
         <monument>
-            <block>313.5,18,291.5</block>
+            <block>0.5,12,50.5</block>
         </monument>
     </wool>
 </wools>
