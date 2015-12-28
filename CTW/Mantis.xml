@@ -104,6 +104,16 @@
             <cuboid min="-5,8,-69" max="7,21,-73"/>
         </union>
         <union id="yellow-spawn-ring-extension">
+            <cuboid min="-17,8,-61" max="-13,21,-65"/>
+            <cuboid min="-18,8,-62" max="-14,21,-66"/>
+            <cuboid min="-19,8,-63" max="-15,21,-67"/>
+            <cuboid min="-20,8,-64" max="-16,21,-68"/>
+            <cuboid min="-21,8,-65" max="-17,21,-69"/>
+            <cuboid min="-22,8,-66" max="-18,21,-70"/>
+            <cuboid min="-24,8,-67" max="-19,21,-71"/>
+            <cuboid min="-24,8,-67" max="-20,21,-72"/>
+            <cuboid min="-24,8,-67" max="-21,21,-73"/>
+            <cuboid min="-24,8,-67" max="-22,21,-74"/>
         </union>
         <cuboid id="yellow-front-bridge" min="" max=""/>
         <union id="yellow-end-of-bridge">
