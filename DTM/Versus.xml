@@ -1,0 +1,150 @@
+<map proto="1.4.0">
+<name>Versus</name>
+<version>1.0.0</version>
+<objective>Destroy the enemy monument.</objective>
+<authors>
+	<author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
+	<!--    DoomyBoy    -->
+</authors>
+<teams>
+	<team id="red-team" color="dark red" max="5">Red</team>
+	<team id="blue-team" color="blue" max="5">Blue</team>
+</teams>
+<kits>
+	<kit id="spawn">
+		<item slot="0" unbreakable="true" material="diamond sword"/>
+		<item slot="1" unbreakable="true" material="bow"/>
+		<item slot="2" unbreakable="true" enchantment="dig speed:1" material="iron pickaxe"/>
+		<item slot="3" material="iron axe"/>
+		<item slot="4" amount="64" material="golden carrot"/>
+		<item slot="5" amount="64" damage="2" material="wood"/>
+		<item slot="6" amount="16" material="glass"/>
+		<item slot="7" amount="64" material="arrow"/>
+	</kit>
+</kits>
+<filters>
+	<team id="only-red">red-team</team>
+    <team id="only-blue">blue-team</team>
+</filters>
+<regions>
+	<above y="26" id="above-26"/>
+	<above y="1" id="above-1"/>
+	<above y="2" id="above-2"/>
+	<union id="blue-spawn-drop">
+		<rectangle min="-26,-5" max="-24,-3"/>
+		<rectangle min="-25,-4" max="-23,-2"/>
+	</union>
+	<union id="red-spawn-drop">
+		<rectangle min="55,-5" max="53,-3"/>
+		<rectangle min="54,-4" max="52,-2"/>
+	</union>
+	<union id="red-lanes">
+		<intersect>
+			<union id="red-back">
+				<rectangle min="51,9" max="30,0"/>
+				<rectangle min="53,2" max="31,-4"/>
+				<rectangle min="56,1" max="32,-10"/>
+				<rectangle min="57,0" max="34,-11"/>
+				<rectangle min="58,-2" max="35,-13"/>
+				<rectangle min="59,-3" max="35,-12"/>
+				<rectangle min="58,-12" max="35,-13"/>
+				<rectangle min="57,-13" max="39,-14"/>
+				<rectangle min="56,-14" max="40,-15"/>
+				<rectangle min="55,-15" max="41,-16"/>
+			</union>
+			<region id="above-2"/>
+		</intersect>	
+		<intersect id="red-middle">
+			<rectangle min="50,9" max="29,23"/>
+			<region id="above-1"/>
+		</intersect>
+		<rectangle id="red-front" min="27,23" max="49,40"/>
+		<rectangle id="red-water" min="43,40" max="28,88"/>
+	</union>
+	<rectangle id="center-water" min="44,60" max="-15,88"/>
+	<union id="blue-lanes">
+		<intersect>
+			<mirror normal="1,0,0" origin="14.5,1,3">
+				<region id="red-back"/>
+			</mirror>
+		</intersect>
+		<intersect id="blue-middle">
+			<rectangle min="0,23" max="-21,9"/>
+			<region id="above-1"/>
+		</intersect>
+		<rectangle id="blue-front" min="-20,23" max="2,40"/>
+		<rectangle id="blue-water" min="-14,40" max="1,89"/>
+	</union>
+	<union id="all-lanes">
+		<region id="red-lanes"/>
+		<region id="center-water"/>
+		<region id="blue-lanes"/>
+	</union>
+<!-- Applied -->
+	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
+	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
+	<apply block="never" message="You may not block off the spawn drops!">
+		<region>
+			<region id="red-spawn-drop"/>
+			<region id="blue-spawn-drop"/>
+		</region>
+	</apply>
+	<apply block="never" message="You may not modify blocks outside the playing field.">
+		<region>
+			<region id="above-26"/>
+		</region>
+	</apply>
+	<apply block="never" message="You may not modify blocks outside the playing field.">
+		<region>
+			<negative>
+				<region id="all-lanes"/>
+			</negative>
+		</region>
+	</apply>
+</regions>
+<destroyables name="Monument" materials="coal block" mode-changes="true">
+    <destroyable owner="red-team">
+        <region>
+            <cyliner base="" radius="" height=""/>
+        </region>
+    </destroyable>
+    <destroyable owner="blue-team">
+        <region>
+            <cyliner base="" radius="" height=""/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="15m" material="coal ore" name="Coal Ore Mode"/>
+</modes>
+<spawns>
+	<spawn team="red-team" kit="spawn">
+        <regions>
+            <point yaw="45">71.5,59,-21.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue-team" kit="spawn">
+        <regions>
+            <point yaw="-45">-43.5,59,-21.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="180">14.5,44,-14.5</point>
+        </regions>
+    </default>
+</spawns>
+<toolrepair>
+    <tool>diamond sword</tool>
+    <tool>bow</tool>
+    <tool>iron pickaxe</tool>
+    <tool>arrow</tool>
+</toolrepair>
+<itemremove>
+	<item>dispenser</item>
+	<item>coal ore</item>
+	<item>coal block</item>
+</itemremove>
+<maxbuildheight>22</maxbuildheight>
+<time result="objectives">30m</time>
+</map>
