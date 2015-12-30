@@ -138,6 +138,7 @@
     <tool>diamond sword</tool>
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
+    <tool>iron axe</tool>
     <tool>arrow</tool>
 </toolrepair>
 <itemremove>
