@@ -20,97 +20,58 @@
 		<item slot="5" amount="64" damage="2" material="wood"/>
 		<item slot="6" amount="16" material="glass"/>
 		<item slot="7" amount="64" material="arrow"/>
+		<chestplate unbreakable="true" enchantment="protection explosions:3" material="iron chestplate"/>
 	</kit>
 </kits>
 <filters>
 	<team id="only-red">red-team</team>
     <team id="only-blue">blue-team</team>
+    <not id="no-torches-or-dispensers">
+    	<any>
+    		<material>redstone torch on</material>
+    		<material>redstone torch off</material>
+    		<material>dispenser</material>
+    	</any>
+    </not>
 </filters>
 <regions>
-	<above y="26" id="above-26"/>
-	<above y="1" id="above-1"/>
-	<above y="2" id="above-2"/>
-	<union id="blue-spawn-drop">
-		<rectangle min="-26,-5" max="-24,-3"/>
-		<rectangle min="-25,-4" max="-23,-2"/>
+	<complement id="no-build-region">
+		<everywhere/>
+		<complement id="build-region">
+			<rectangle min="32,57" max="-15,-56"/>
+			<rectangle id="center-side" min="-15,-21" max="-11,22"/>
+			<rectangle id="red-side-gap" min="1,37" max="17,48"/>
+			<cuboid min="1,2,57" max="32,12,40"/>
+			<cuboid min="13,12,57" max="32,17,40"/>
+			<rectangle id="blue-side-gap" min="1,-36" max="17,-47"/>
+			<cuboid min="1,2,-56" max="32,12,-39"/>
+			<cuboid min="13,12,-56" max="32,17,-39"/>
+		</complement>
+	</complement>
+	<union id="spawn-drops">
+		<rectangle id="red-spawn-drop" min="-8,50" max="-15,57"/>
+		<rectangle id="blue-spawn-drop" min="-8,-49" max="-15,-56"/>
 	</union>
-	<union id="red-spawn-drop">
-		<rectangle min="55,-5" max="53,-3"/>
-		<rectangle min="54,-4" max="52,-2"/>
-	</union>
-	<union id="red-lanes">
-		<intersect>
-			<union id="red-back">
-				<rectangle min="51,9" max="30,0"/>
-				<rectangle min="53,2" max="31,-4"/>
-				<rectangle min="56,1" max="32,-10"/>
-				<rectangle min="57,0" max="34,-11"/>
-				<rectangle min="58,-2" max="35,-13"/>
-				<rectangle min="59,-3" max="35,-12"/>
-				<rectangle min="58,-12" max="35,-13"/>
-				<rectangle min="57,-13" max="39,-14"/>
-				<rectangle min="56,-14" max="40,-15"/>
-				<rectangle min="55,-15" max="41,-16"/>
-			</union>
-			<region id="above-2"/>
-		</intersect>	
-		<intersect id="red-middle">
-			<rectangle min="50,9" max="29,23"/>
-			<region id="above-1"/>
-		</intersect>
-		<rectangle id="red-front" min="27,23" max="49,40"/>
-		<rectangle id="red-water" min="43,40" max="28,88"/>
-	</union>
-	<rectangle id="center-water" min="44,60" max="-15,88"/>
-	<union id="blue-lanes">
-		<intersect>
-			<mirror normal="1,0,0" origin="14.5,1,3">
-				<region id="red-back"/>
-			</mirror>
-		</intersect>
-		<intersect id="blue-middle">
-			<rectangle min="0,23" max="-21,9"/>
-			<region id="above-1"/>
-		</intersect>
-		<rectangle id="blue-front" min="-20,23" max="2,40"/>
-		<rectangle id="blue-water" min="-14,40" max="1,89"/>
-	</union>
-	<union id="all-lanes">
-		<region id="red-lanes"/>
-		<region id="center-water"/>
-		<region id="blue-lanes"/>
-	</union>
-<!-- Applied -->
-	<apply enter="only-red" region="red-spawn-drop" message="You may not enter the enemy spawn drop."/>
-	<apply enter="only-blue" region="blue-spawn-drop" message="You may not enter the enemy spawn drop."/>
-	<apply block="never" message="You may not block off the spawn drops!">
-		<region>
-			<region id="red-spawn-drop"/>
-			<region id="blue-spawn-drop"/>
-		</region>
-	</apply>
+	<!-- Applied -->
+	<apply enter="only-red" region="red-spawn-drop" message="Only red may enter this spawn drop."/>
+	<apply enter="only-blue" region="blue-spawn-drop" message="Only blue may enter this spawn drop."/>
+	<apply block="no-torches-or-dispensers" message="You may not use redstone torches or dispensers on this map!"/>
+	<apply block="never" region="spawn-drops" message="You may not modify the spawn drops."/>
 	<apply block="never" message="You may not modify blocks outside the playing field.">
 		<region>
-			<region id="above-26"/>
-		</region>
-	</apply>
-	<apply block="never" message="You may not modify blocks outside the playing field.">
-		<region>
-			<negative>
-				<region id="all-lanes"/>
-			</negative>
+			<region id="no-build-region"/>
 		</region>
 	</apply>
 </regions>
 <destroyables name="Monument" materials="coal block" mode-changes="true">
     <destroyable owner="red-team">
         <region>
-            <cyliner base="" radius="" height=""/>
+            <cyliner base="24.5,7,35.5" radius="3" height="6"/>
         </region>
     </destroyable>
     <destroyable owner="blue-team">
         <region>
-            <cyliner base="" radius="" height=""/>
+            <cyliner base="24.5,7,-34.5" radius="3" height="6"/>
         </region>
     </destroyable>
 </destroyables>
@@ -120,17 +81,17 @@
 <spawns>
 	<spawn team="red-team" kit="spawn">
         <regions>
-            <point yaw="45">71.5,59,-21.5</point>
+            <point yaw="180">-11.5,222.5,53.5</point>
         </regions>
     </spawn>
     <spawn team="blue-team" kit="spawn">
         <regions>
-            <point yaw="-45">-43.5,59,-21.5</point>
+            <point yaw="0">-11.5,222,-52.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point yaw="180">14.5,44,-14.5</point>
+            <point yaw="-90">14.5,44,-14.5</point>
         </regions>
     </default>
 </spawns>
@@ -139,9 +100,10 @@
     <tool>bow</tool>
     <tool>iron pickaxe</tool>
     <tool>iron axe</tool>
-    <tool>arrow</tool>
 </toolrepair>
 <itemremove>
+	<item>redstone torch on</item>
+	<item>redstone torch off</item>
 	<item>dispenser</item>
 	<item>coal ore</item>
 	<item>coal block</item>
