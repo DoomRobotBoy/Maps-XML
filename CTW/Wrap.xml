@@ -158,6 +158,16 @@
     <item>wool:11</item>
     <item>wool:14</item>
 </itemremove>
+<destroyables materials="stained glass:1" completion="0%" required="false" show="false" mode-changes="true">
+    <destroyable owner="red">
+       <region>
+           <cuboid min="-14,0,-43" max="-91,1,-92"/>
+       </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="1s" material="air"/>
+</modes>
 <wools team="red">
     <wool color="cyan" location="-99.5,3,-60.5">
         <monument>
