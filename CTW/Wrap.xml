@@ -47,6 +47,44 @@
 <filters>
     <team id="only-red">red</team>
     <team id="only-blue">blue</team>
+    <any id="in-cyan-wool">
+        <not>
+            <team>blue</team>
+        </not>
+        <not>
+            <any>
+                <material>nether brick</material>
+                <material>wool:9</material>
+                <material>stained glass:9</material>
+                <material>carpet:9</material>
+                <material>step</material>
+                <material>nether brick stairs</material>
+                <material>chest</material>
+                <material>wood:2</material>
+                <material>double step:9</material>
+                <material>stained clay:15</material>
+            </any>
+        </not>
+    </all>
+    <any id="in-orange-wool">
+        <not>
+            <team>red</team>
+        </not>
+        <not>
+            <any>
+                <material>nether brick</material>
+                <material>wool:1</material>
+                <material>stained glass:1</material>
+                <material>carpet:1</material>
+                <material>step</material>
+                <material>nether brick stairs</material>
+                <material>chest</material>
+                <material>wood:2</material>
+                <material>double step:9</material>
+                <material>stained clay:15</material>
+            </any>
+        </not>
+    </all>
     <not id="no-spawners">
         <any>
             <material>mob spawner</material>
@@ -60,9 +98,18 @@
         <rectangle min="" max=""/>
     </union>
     <!-- Applied -->
-    
+    <apply enter="only-red" region="cyan-wool" message="Only Red may enter this wool room!"/>
+    <apply block="in-cyan-wool" region="cyan-wool" message="Only Red can break nether brick fences here."/>
+    <apply enter="only-blue" region="orange-wool" message="Only Blue may enter this wool room!"/>
+    <apply block="in-orange-wool" region="orange-wool" message="Only Blue can break nether brick fences here."/>
     <apply block="no-spawners" region="everywhere" message="You may not edit spawners"/>
-    <apply
+    <apply block="never" message="You may not modify blocks outside the playing area.">
+        <region>
+            <negative>
+                <region id="build-region"/>
+            </negative>
+        </region>
+    </apply>
 </regions>
 <toolrepair>
     <tool>iron sword</item>
