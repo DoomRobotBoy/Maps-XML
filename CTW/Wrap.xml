@@ -1,0 +1,103 @@
+<map proto="1.4.0">
+<name>Wrap</name>
+<version>1.0.0</version>
+<objective>Capture the other team's wool to win!</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!--  DoomyBoy  -->
+</authors>
+<teams>
+    <team id="red" color="dark red" max="5">Red</team>
+    <team id="blue" color="blue" max="5">Blue</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="spawn">
+        <regions>
+            <point yaw="0">-5.5,14,-78.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="spawn">
+        <regions>
+            <point yaw="180">-99.5,14,-56.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="-90">-52.5,37,-67.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn" force="true">
+        <item slot="0" unbreakable="true" material="iron sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" material="stone pickaxe"/>
+        <item slot="3" material="wood axe"/>
+        <item slot="4" amount="64" material="golden carrot"/>
+        <item slot="5" amount="16" damage="1" material="wood"/>
+        <item slot="6" amount="4" material="nether brick"/>
+        <item slot="7" amount="24" material="arrow"/>
+    </kit>
+</kits>
+<kill-rewards>
+    <kill-reward>
+        <item amount="6" material="arrow"/>
+        <item amount="4" material="nether brick"/>
+    </kill-reward>
+</kill-rewards>
+<filters>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <not id="no-spawners">
+        <any>
+            <material>mob spawner</material>
+            <material>gold plate</material>
+            <material>iron plate</material>
+        </any>
+    </not>
+</filters>
+<regions>
+    <union id="build-region">
+        <rectangle min="" max=""/>
+    </union>
+    <!-- Applied -->
+    
+    <apply block="no-spawners" region="everywhere" message="You may not edit spawners"/>
+    <apply
+</regions>
+<toolrepair>
+    <tool>iron sword</item>
+    <tool>bow</tool>
+    <tool>stone pickaxe</tool>
+    <tool>wood axe</tool>
+</toolrepair>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>stone pickaxe</item>
+    <item>wood axe</item>
+    <item>golden carrot</item>
+    <item>wood</item>
+    <item>nether brick</item>
+    <item>nether fence</item>
+    <item>nether brick stairs</item>
+    <item>step</item>
+    <item>wool:11</item>
+    <item>wool:14</item>
+</itemremove>
+<wools team="red">
+    <wool color="cyan" location="-99.5,3,-60.5">
+        <monument>
+            <block>-5.5,6,-52.5</block>
+        </monument>
+    </wool>
+</wools>
+<wools team="blue">
+    <wool color="orange" location="-5.5,3,-74.5">
+        <monument>
+            <block>-99.5,6,-82.5</block>
+        </monument>
+    </wool>
+</wools>
+<timelock>on</timelock>
+<maxbuildheight>12</maxbuildheight>
+</map>
