@@ -114,13 +114,22 @@
         </complement>
         <below y="12"/>
     </intersect>
-    <cuboid id=""
+    <cuboid id="orange-wool" min="-9,0,-69" max="-1,12,-80"/>
+    <cuboid id="cyan-wool" min="-96,0,-66" max="-103,12,-55"/>
+    <rectangle id="red-spawn-exit" min="-2,-52" max="-9,-59"/>
+    <rectangle id="blue-spawn-exit" min="-103,-83" max="-96,-76"/>
     <!-- Applied -->
     <apply enter="only-red" region="cyan-wool" message="Only Red may enter this wool room!"/>
     <apply block="in-cyan-wool" region="cyan-wool" message="Only Red can modify nether brick fences or spruce wood here."/>
     <apply enter="only-blue" region="orange-wool" message="Only Blue may enter this wool room!"/>
     <apply block="in-orange-wool" region="orange-wool" message="Only Blue can modify nether brick fences or spruce wood here."/>
     <apply block="no-spawners" region="everywhere" message="You may not edit spawners"/>
+    <apply block="never" message="You may not modify the spawn exits.">
+        <region>
+            <region id="red-spawn-exit"/>
+            <region id="blue-spawn-exit"/>
+        </region>
+    </apply>
     <apply block="no-void" message="You may not modify blocks outside the playing area.">
         <region>
             <negative>
