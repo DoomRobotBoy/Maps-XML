@@ -1,0 +1,7 @@
+time result=30 mins
+spawn kits are in game
+spawn across the wooden bridge
+maxbuildheight = 22
+sponge defines bridging regions
+middle spawner cant be broken, others can
+cant break blocks in spawn
