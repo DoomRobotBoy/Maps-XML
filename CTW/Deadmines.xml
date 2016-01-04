@@ -162,11 +162,11 @@
     <item>leaves</item>
     <item>iron fence</item>
     <item>smooth stairs</item>
-    <item></item>
-    <item></item>
-    <item></item>
-    <item></item>
-    <item></item>
+    <item>wood plate</item>
+    <item>workbench</item>
+    <item>wood button</item>
+    <item>acacia door</item>
+    <item>acacia stairs</item>
 </itemremove>
 <crafting>
     <disable>
