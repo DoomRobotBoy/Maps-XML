@@ -19,6 +19,7 @@ cant break blocks in spawn
     <team id="red" color="dark red" max="5">Red</team>
     <team id="blue" color="blue" max="5">Blue</team>
 </teams>
+<respawn delay="4s"/>
 <spawns>
     <spawn team="red" kit="red-kit">
         <regions>
@@ -61,8 +62,8 @@ cant break blocks in spawn
 </kits>
 <kill-rewards>
     <kill-reward>
-        <item amount="6" material="arrow"/>
-        <item amount="4" material="nether brick"/>
+        <item amount="8" material="arrow"/>
+        <item amount="4" material="log 2"/>
     </kill-reward>
 </kill-rewards>
 <filters>
@@ -75,17 +76,11 @@ cant break blocks in spawn
 <regions>
     <complement>
         <everywhere/>
-        <rectangle min="-21,-78" max="-26,-71"/>
-        <rectangle min="-21,-78" max="-14,-85"/>
-        <rectangle min="-23,-85" max="-41,-92"/>
-        <rectangle min="-33,-78" max="-44,-58"/>
-        <rectangle min="-41,-92" max="-61,-77"/>
-        <rectangle min="-61,-57" max="-44,-78"/>
-        <rectangle min="-72,-57" max="-61,-77"/>
-        <rectangle min="-64,-43" max="-44,-58"/>
-        <rectangle min="-64,-43" max="-91,-50"/>
-        <rectangle min="-84,-57" max="-91,-50"/>
-        <rectangle min="-84,-57" max="-79,-64"/>
+        <rectangle min="149,59" max="40,-46"/>
+        <rectangle min="74,21" max="115,-5"/>
+        <rectangle min="57,-5" max="46,-14"/>
+        <rectangle min="57,-14" max="132,-27"/>
+        <rectangle min="132,-14" max="143,-5"/>
     </complement>
     <cuboid id="orange-wool" min="-9,0,-69" max="-1,12,-80"/>
     <cuboid id="cyan-wool" min="-96,0,-66" max="-103,12,-55"/>
@@ -112,22 +107,19 @@ cant break blocks in spawn
 <toolrepair>
     <tool>iron sword</item>
     <tool>bow</tool>
-    <tool>stone pickaxe</tool>
-    <tool>wood axe</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+    <tool>diamond spade</tool>
 </toolrepair>
 <itemremove>
-    <item>iron sword</item>
-    <item>bow</item>
-    <item>stone pickaxe</item>
-    <item>wood axe</item>
-    <item>golden carrot</item>
-    <item>wood</item>
-    <item>nether brick</item>
-    <item>nether fence</item>
-    <item>nether brick stairs</item>
-    <item>step</item>
-    <item>wool:11</item>
-    <item>wool:14</item>
+    <item>cooked mutton</item>
+    <item>leather helmet</item>
+    <item>chainmail chestplate</item>
+    <item>chainmail leggings</item>
+    <item>chainmail boots</item>
+    <item>wood:4</item>
+    <item>log 2</item>
+    <item>string</item>
 </itemremove>
 <wools team="red">
     <wool color="cyan" location="16.5,5,49.5">
