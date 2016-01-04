@@ -1,0 +1,149 @@
+sponge defines bridging regions
+middle spawner cant be broken, others can
+cant break blocks in spawn
+
+<map proto="1.4.0">
+<name>Deadmines</name>
+<version>1.0.0</version>
+<objective>Capture the other team's wool to win!</objective>
+<authors>
+    <author uuid="cf094b7c-bdfe-4299-84a9-8d8b05259e33"/> <!--  ginie1  -->
+    <author uuid="f926e3b1-ce9c-4269-a5e8-e339d5056480"/> <!--  Matilaina  -->
+</authors>
+<contributors>
+    <contributor uuid="5eed208d-de58-4022-9ba7-6ccb5ea7e92a"/> <!-- Selfie -->
+    <contributor uuid="6f3a28c5-a5a8-470a-8d3b-c864e93eb36e"/> <!-- SmellyPenguin -->
+    <contributor contribution="XML" uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomyBoy -->
+</contributors>
+<teams>
+    <team id="red" color="dark red" max="5">Red</team>
+    <team id="blue" color="blue" max="5">Blue</team>
+</teams>
+<spawns>
+    <spawn team="red" kit="red-kit">
+        <regions>
+            <point yaw="-135">173.5,9,-12.5</point>
+        </regions>
+    </spawn>
+    <spawn team="blue" kit="blue-kit">
+        <regions>
+            <point yaw="135">15.5,9,-12.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point>94.5,33,8.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn" force="true">
+        <item slot="0" unbreakable="true" material="stone sword"/>
+        <item slot="1" unbreakable="true" material="bow"/>
+        <item slot="2" unbreakable="true" material="diamond pickaxe"/>
+        <item slot="3" unbreakable="true" material="iron axe"/>
+        <item slot="4" unbreakable="true" material="diamond spade"/>
+        <item slot="5" amount="32" material="vine"/>
+        <item slot="6" amount="32" material="glass"/>
+        <item slot="7" amount="32" material="log 2"/>
+        <item slot="8" amount="16" material="cooked mutton"/>
+        <item slot="28" amount="24" material="arrow"/>
+        <chestplate unbreakable="true" material="chainmail chestplate"/>
+        <leggings unbreakable="true" material="chainmail leggings"/>
+        <boots unbreakable="true" material="chainmail boots"/>
+    </kit>
+    <kit id="red-kit" parents="spawn">
+        <helmet unbreakable="true" color="993333" material="leather helmet"/>
+    </kit>
+    <kit id="blue-kit" parents="spawn">
+        <helmet unbreakable="true" color="334CB2" material="leather helmet"/>
+    </kit>
+</kits>
+<kill-rewards>
+    <kill-reward>
+        <item amount="6" material="arrow"/>
+        <item amount="4" material="nether brick"/>
+    </kill-reward>
+</kill-rewards>
+<filters>
+    <team id="only-red">red</team>
+    <team id="only-blue">blue</team>
+    <not id="no-void">
+        <void/>
+    </not>
+</filters>
+<regions>
+    <complement>
+        <everywhere/>
+        <rectangle min="-21,-78" max="-26,-71"/>
+        <rectangle min="-21,-78" max="-14,-85"/>
+        <rectangle min="-23,-85" max="-41,-92"/>
+        <rectangle min="-33,-78" max="-44,-58"/>
+        <rectangle min="-41,-92" max="-61,-77"/>
+        <rectangle min="-61,-57" max="-44,-78"/>
+        <rectangle min="-72,-57" max="-61,-77"/>
+        <rectangle min="-64,-43" max="-44,-58"/>
+        <rectangle min="-64,-43" max="-91,-50"/>
+        <rectangle min="-84,-57" max="-91,-50"/>
+        <rectangle min="-84,-57" max="-79,-64"/>
+    </complement>
+    <cuboid id="orange-wool" min="-9,0,-69" max="-1,12,-80"/>
+    <cuboid id="cyan-wool" min="-96,0,-66" max="-103,12,-55"/>
+    <rectangle id="red-spawn-exit" min="-2,-52" max="-9,-59"/>
+    <rectangle id="blue-spawn-exit" min="-103,-83" max="-96,-76"/>
+    <!-- Applied -->
+    <apply enter="only-red" region="cyan-wool" message="Only Red may enter this wool room!"/>
+    <apply block="in-cyan-wool" region="cyan-wool" message="Only Red can modify nether brick fences or spruce wood here."/>
+    <apply enter="only-blue" region="orange-wool" message="Only Blue may enter this wool room!"/>
+    <apply block="in-orange-wool" region="orange-wool" message="Only Blue can modify nether brick fences or spruce wood here."/>
+    <apply block="no-spawners" region="everywhere" message="You may not edit spawners"/>
+    <apply block="never" message="You may not modify the spawn exits.">
+        <region>
+            <region id="red-spawn-exit"/>
+            <region id="blue-spawn-exit"/>
+        </region>
+    </apply>
+    <apply block="no-void" message="You may not modify blocks outside the playing area.">
+        <region>
+            <region id="build-region"/>
+        </region>
+    </apply>
+</regions>
+<toolrepair>
+    <tool>iron sword</item>
+    <tool>bow</tool>
+    <tool>stone pickaxe</tool>
+    <tool>wood axe</tool>
+</toolrepair>
+<itemremove>
+    <item>iron sword</item>
+    <item>bow</item>
+    <item>stone pickaxe</item>
+    <item>wood axe</item>
+    <item>golden carrot</item>
+    <item>wood</item>
+    <item>nether brick</item>
+    <item>nether fence</item>
+    <item>nether brick stairs</item>
+    <item>step</item>
+    <item>wool:11</item>
+    <item>wool:14</item>
+</itemremove>
+<wools team="red">
+    <wool color="cyan" location="16.5,5,49.5">
+        <monument>
+            <block>162.5,6,11.5</block>
+        </monument>
+    </wool>
+</wools>
+<wools team="blue">
+    <wool color="pink" location="172.5,5,49.5">
+        <monument>
+            <block>26.5,6,11.5</block>
+        </monument>
+    </wool>
+</wools>
+<timelock>on</timelock>
+<maxbuildheight>22</maxbuildheight>
+<time result="objectives">30m</time>
+</map>
