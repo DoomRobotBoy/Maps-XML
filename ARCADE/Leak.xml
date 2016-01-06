@@ -1,0 +1,50 @@
+<map proto="1.4.0">
+<name>Leak</name>
+<version>1.0.0</version>
+<objective>
+    Survive the longest!
+</objective>
+<authors>
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>   <!--   DoomyBoy   -->
+</authors>
+<blitz>
+    <lives>1</lives>
+    <broadcastLives>true</broadcastLives>
+</blitz>
+<time>5m</time>
+<include src="blitz-global.xml"/>
+<players max="8" max-overfill="8"/>
+<spawns>
+    <spawn kit="spawn">
+        <regions>
+            <point yaw="20">83.5,4,18.5</point>
+        </regions>
+    </spawn>
+    <default>
+        <regions>
+            <point yaw="135">41.5,13,162.5</point>
+        </regions>
+    </default>
+</spawns>
+<kits>
+    <kit id="spawn">
+        <potion duration="oo" amplifier="-10">water breathing</potion>
+        <game-mode>adventure</game-mode>
+    </kit>
+</kits>
+<filters>
+</filters>
+<regions>
+    <apply block="allow-some" region="everywhere"/>
+</regions>
+<itemremove>
+
+</itemremove>
+<hunger>
+    <depletion>off</depletion>
+</hunger>
+<gamerules>
+    <naturalRegeneration>false</naturalRegeneration>
+</gamerules>
+<timelock>on</timelock>
+</map>
