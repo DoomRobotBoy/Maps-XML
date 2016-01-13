@@ -33,9 +33,15 @@
     </kit>
 </kits>
 <filters>
+    <not id="no-doors">
+        <any>
+            <material>dark oak door</material>
+            <material>iron door block</material>
+        </any>
+    </not>
 </filters>
 <regions>
-    <apply block="allow-some" region="everywhere"/>
+    <apply block="no-doors" use="no-doors" region="everywhere"/>
 </regions>
 <renewables>
     <renewable rate="0.2" grow="false" particles="true" sound="true" avoid-entities="true">
