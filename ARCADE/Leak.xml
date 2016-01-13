@@ -1,5 +1,5 @@
 <map proto="1.4.0">
-<name>Leak</name>
+<name>Sinking Ship</name>
 <version>1.0.0</version>
 <objective>
     Survive the longest!
@@ -17,12 +17,12 @@
 <spawns>
     <spawn kit="spawn">
         <regions>
-            <point yaw="20">83.5,4,18.5</point>
+            <point>-16.5,10,0.5</point>
         </regions>
     </spawn>
     <default>
         <regions>
-            <point yaw="135">41.5,13,162.5</point>
+            <point>-16.5,10,0.5</point>
         </regions>
     </default>
 </spawns>
@@ -37,8 +37,67 @@
 <regions>
     <apply block="allow-some" region="everywhere"/>
 </regions>
+<renewables>
+    <renewable rate="0.2" grow="false" particles="true" sound="true" avoid-entities="true">
+        <region>
+            <cuboid min="3,20,16" max="-25,21,-15"/>
+        </region>
+        <renew-filter>
+            <any>
+                <material>water</material>
+            </any>
+        </renew-filter>
+        <replace-filter>
+            <any>
+                <material>wood:2</material>
+                <material>redstone lamp on</material>
+                <material>redstone lamp off</material>
+                <material>wood step</material>
+                <material>obsidian</material>
+            </any>
+        </replace-filter>
+    </renewable>
+    <renewable rate="1.0" grow="false" particles="true" sound="false" avoid-entities="false">
+        <region>
+            <cuboid min="3,16,-7" max="-1,20,8"/>
+        </region>
+        <renew-filter>
+            <material>air</material>
+        </renew-filter>
+        <replace-filter>
+            <any>
+                <material>step</material>
+                <material>double step</material>
+            </any>
+        </replace-filter>
+    </renewable>
+</renewables>
+<falling-blocks>
+    <rule>
+        <filter>
+            <any>
+                <material>stained glass:4</material>
+                <material>redstone lamp on</material>
+                <material>redstone lamp off</material>
+                <material>wood:2</material>
+            </any>
+        </filter>
+    </rule>
+</falling-blocks>
+<destroyables name="Monument" materials="water;stationary_water" completion="100%" show="false" required="false" mode-changes="true">
+    <destroyable owner="players">
+        <region>
+           <cuboid min="3,21,16" max="-25,23,-15"/>
+        </region>
+    </destroyable>
+</destroyables>
+<modes>
+    <mode after="0s" material="air"/>
+    <mode after="5s" material="water"/>
+</modes>
 <itemremove>
-
+    <item>carpet</item>
+    <item>flower pot</item>
 </itemremove>
 <hunger>
     <depletion>off</depletion>
