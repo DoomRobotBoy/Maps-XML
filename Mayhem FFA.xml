@@ -1,5 +1,6 @@
 <map proto="1.4.0">
-<name>Mayhem</name>
+<name>Mayhem FFA</name>
+<gamemode>FFA</gamemode>
 <version>1.0.0</version>
 <objective>
     Kill or get killed. Player with the most amount of kills wins!
@@ -8,23 +9,16 @@
     <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/>
 <!-- ogel -->
     <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-<!-- DoomRobotBoy -->
+<!-- DoomyBoy -->
 </authors>
 <rules>
-    <rule>Forming alliances is allowed.</rule>
     <rule>Fall Damage is disabled.</rule>
 </rules>
 <score>
     <kills>1</kills>
-    <deaths>1</deaths>
 </score>
-<time>8m</time>
-<rage/>
-<broadcasts>
-    <alert after="2s">Spawners are spread out throughout the map, each containing an ingredient for making arrows.</alert>
-    <tip after="4s">You can break fences!</alert>
-</broadcasts>
-<players max="18" max-overfill="20" show-name-tags="false"/>
+<time>5m</time>
+<players min="5" max="5" max-overfill="5" show-name-tags="false"/>
 <spawns>
     <spawn kit="spawn" spread="true">
         <regions>
@@ -42,8 +36,8 @@
             <point yaw="0">3.5,5,231.5</point>
             <point yaw="180">-0.5,9,225.5</point>
             <point yaw="-90">-1.5,9,207.5</point>
-            <point yaw="-125">21.5,5,181.5</point>
-            <point yaw="135">14.5,15,185.5</point>
+            <!--<point yaw="-125">21.5,5,181.5</point>-->
+            <!--<point yaw="135">14.5,15,185.5</point>-->
             <point yaw="180">42.5,9,192.5</point>
             <point yaw="0">56.5,14,182.5</point>
             <point yaw="90">66.5,5,181.5</point>
@@ -63,24 +57,22 @@
     </spawn>
     <default>
         <regions>
-            <point yaw="0">20.5,5,188.5</point>
+            <point yaw="-50">20.5,9,188.5</point>
         </regions>
     </default>
 </spawns>
 <respawn auto="true" delay="3s" spectate="true" blackout="false"/>
 <kits>
     <kit id="spawn" discard-potion-bottles="true">
-        <item slot="0" enchantment="damage all:10" unbreakable="true">iron sword</item>
-        <item slot="1" unbreakable="true" enchantment="arrow damage:10">bow</item>
-        <item slot="2" unbreakable="true">diamond axe</item>
-        <item slot="8" amount="1">arrow</item>
+        <item slot="0" unbreakable="true">iron sword</item>
+        <item slot="1" unbreakable="true" enchantment="arrow damage">bow</item>
+        <item slot="8" amount="16">arrow</item>
+        <potion duration="3" amplifier="5">damage resistance</potion>
+        <potion duration="oo">speed</potion>
         <helmet locked="true" color="191919" unbreakable="true">leather helmet</helmet>
-        <chestplate locked="true" color="191919" unbreakable="true">leather chestplate</chestplate>
+        <chestplate locked="true" unbreakable="true" enchantment="protection projectile:1">iron chestplate</chestplate>
         <leggings locked="true" color="191919" unbreakable="true">leather leggings</leggings>
         <boots locked="true" color="191919" unbreakable="true">leather boots</boots>
-        <potion duration="2" amplifier="5">weakness</potion>
-        <potion duration="2" amplifier="25">damage resistance</potion>
-        <potion duration="oo">speed</potion>
     </kit>
 </kits>
 <killreward>
@@ -101,28 +93,22 @@
 <hunger>
     <depletion>off</depletion>
 </hunger>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>bow</tool>
+</toolrepair>
 <itemremove>
     <item>leather helmet</item>
     <item>leather chestplate</item>
     <item>leather leggings</item>
     <item>leather boots</item>
-    <item>iron ingot</item>
     <item>arrow</item>
-    <item>iron sword</item>
-    <item>diamond axe</item>
-    <item>bow</item>
-    <item>fence</item>
 </itemremove>
 <disabledamage>
     <damage>fall</damage>
     <damage>suffocation</damage>
 </disabledamage>
-<filters>
-    <material id="only-fences">fence</material>
-</filters>
 <regions>
-    <apply block="only-fences">
-        <everywhere/>
-    </apply>
+    <apply block="never" region="everywhere"/>
 </regions>
 </map>
