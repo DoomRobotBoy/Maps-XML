@@ -2,14 +2,10 @@
 <name>Mayhem FFA</name>
 <gamemode>FFA</gamemode>
 <version>1.0.0</version>
-<objective>
-    Kill or get killed. Player with the most amount of kills wins!
-</objective>
+<objective>Get the most kills within 5 minutes!</objective>
 <authors>
-    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/>
-<!-- ogel -->
-    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/>
-<!-- DoomyBoy -->
+    <author uuid="4a05be89-8b8b-4dfe-848e-df6c42967c9a"/> <!-- ogel -->
+    <author uuid="dff980ed-9f69-491e-b79c-30c21350baf2"/> <!-- DoomyBoy -->
 </authors>
 <rules>
     <rule>Fall Damage is disabled.</rule>
@@ -67,29 +63,24 @@
         <item slot="0" unbreakable="true">iron sword</item>
         <item slot="1" unbreakable="true" enchantment="arrow damage">bow</item>
         <item slot="8" amount="16">arrow</item>
-        <potion duration="3" amplifier="5">damage resistance</potion>
-        <potion duration="oo">speed</potion>
         <helmet locked="true" color="191919" unbreakable="true">leather helmet</helmet>
         <chestplate locked="true" unbreakable="true" enchantment="protection projectile:1">iron chestplate</chestplate>
         <leggings locked="true" color="191919" unbreakable="true">leather leggings</leggings>
         <boots locked="true" color="191919" unbreakable="true">leather boots</boots>
+        <potion duration="3" amplifier="5">damage resistance</potion>
+    </kit>
+    <kit id="kill-boost">
+        <potion duration="4" amplifier="2">speed</potion>
+        <potion duration="3">night vision</potion>
     </kit>
 </kits>
-<killreward>
-    <potion duration="3" amplifier="1">speed</potion>
-</killreward>
-<killreward>
-    <item>arrow</item>
-    <filter>
-        <kill-streak count="2" repeat="true"/>
-    </filter>
-</killreward>
-<killreward>
-    <potion duration="3" amplifier="3">health boost</potion>
-    <filter>
-        <kill-streak count="6" repeat="true"/>
-    </filter>
-</killreward>
+<kill-rewards>
+    <kill-reward>
+        <item material="golden apple"/>
+        <item amount="6" material="arrow"/>
+        <kit id="kill-boost"/>
+    </kill-reward>
+</kill-rewards>
 <hunger>
     <depletion>off</depletion>
 </hunger>
