@@ -59,7 +59,7 @@
 </spawns>
 <respawn auto="true" delay="3s" spectate="true" blackout="false"/>
 <kits>
-    <kit id="spawn" discard-potion-bottles="true">
+    <kit id="spawn">
         <item slot="0" unbreakable="true">iron sword</item>
         <item slot="1" unbreakable="true" enchantment="arrow damage">bow</item>
         <item slot="8" amount="16">arrow</item>
